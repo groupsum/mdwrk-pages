@@ -1,0 +1,41 @@
+schema_version: "0.4.0"
+kind: "spec"
+id: "spc:2091"
+number: 2091
+slug: "lander-page-template-relationship-resolution-contract"
+title: "Lander Page Template Relationship Resolution Contract"
+status: "draft"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "This SPEC defines how `@mdwrk/lander-page-templates` resolves semantic page-template edges into render context, navigation, diagnostics, and PageSpec generation inputs."
+supersedes: []
+superseded_by: []
+status_notes:
+  -
+    at: "2026-05-18T06:35:12Z"
+    note: "Created to define semantic page-template graph resolution."
+    status: "draft"
+  -
+    at: "2026-05-18T16:17:44Z"
+    note: "Updated relationship contract with roles, topology validation, and incoming context derivation."
+    status: "draft"
+  -
+    status: "draft"
+    note: "Clarified child-link semantics and separated link targets from requiredness, ownership, lifecycle, and terminality."
+    at: "2026-05-18T20:46:17Z"
+references: []
+body: |-
+  This SPEC defines how `@mdwrk/lander-page-templates` resolves semantic page-template edges into render context, navigation, diagnostics, and PageSpec generation inputs.
+  
+  A child page means a target page linked from a parent page component or named link slot. The base child-link relationship does not imply requiredness, ownership, lifecycle state, terminality, or exclusive parentage. Any required, optional, terminal, or ownership constraint must be declared as a separate template or domain rule.
+  
+  The resolver must locate page instances by id or slug, validate each outgoing edge against registered relationship rules, group outbound links by slot id, preserve deterministic ordering, and expose resolved links through slot-keyed collections. Named link slots must preserve relationship kind, source page, target page, target template id, href, label, and ordering metadata.
+  
+  Incoming context must be derived from graph edges and must not require authors to duplicate reverse links manually. A target page may derive referring parents, hubs, reverse references, or other incoming context from graph edges.
+  
+  Diagnostics must fail closed for missing targets, duplicate slugs, unknown templates, invalid slots, invalid domain rules, and incompatible relationship declarations.
+spec_kind: "normative"
+adr_ids:
+  - "adr:1067"
+  - "adr:1073"

@@ -1,0 +1,37 @@
+schema_version: "0.4.0"
+kind: "adr"
+id: "adr:1067"
+number: 1067
+slug: "semantic-page-template-graph-relationships"
+title: "Semantic Page Template Graph Relationships"
+status: "draft"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "Decision:"
+supersedes: []
+superseded_by: []
+status_notes:
+  -
+    at: "2026-05-18T06:34:38Z"
+    note: "Created to govern semantic relationships between reusable page templates."
+    status: "draft"
+  -
+    at: "2026-05-18T16:17:34Z"
+    note: "Updated relationship decision with graph topology, terminality, and incoming context semantics."
+    status: "draft"
+  -
+    status: "draft"
+    note: "Clarified child-page semantics as parent-component link targets rather than ownership, terminality, or requiredness."
+    at: "2026-05-18T20:44:54Z"
+references: []
+body: |-
+  Decision:
+  Represent page-template links as explicit semantic graph edges between independent page instances. A parent page does not include child pages as embedded content; a child page means a target page linked from a parent page component or named link slot.
+  
+  Graph relationships must distinguish link slots from lifecycle state, ownership, and requiredness. A `children` slot means pages linked from that parent component. It does not imply that the target owns no descendants, is terminal, is required, or belongs exclusively to that parent unless a separate template rule declares that constraint.
+  
+  Templates declare allowed slots, relationship roles, topology constraints, and rendering intents. Downstream content packs, Markdown files, imperative source pages, or preset packages instantiate pages and edges. The resolver converts edges into outgoing slots, incoming context, breadcrumbs, ordered lists, related sections, next/previous navigation, footer links, and schema inputs.
+  
+  Consequences:
+  Relationship diagnostics must report missing targets, invalid slots, duplicate slugs, and incompatible template rules without overloading the word child. Domain bundles may add rules for required or optional slots, but those rules are separate from the base meaning of a child link.
