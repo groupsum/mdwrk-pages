@@ -1,0 +1,5 @@
+packages:
+  - "packages/lander/*"
+  - "packages/content/*"
+  - "packages/shared/*"
+  - "examples/*"

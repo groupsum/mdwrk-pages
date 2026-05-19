@@ -1,0 +1,41 @@
+{
+  "name": "mdwrk-pages",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.11.0",
+  "workspaces": [
+    "packages/lander/*",
+    "packages/content/*",
+    "packages/shared/*",
+    "examples/*"
+  ],
+  "engines": {
+    "node": ">=20 <23",
+    "npm": ">=10",
+    "pnpm": ">=10"
+  },
+  "scripts": {
+    "build": "npm run build:packages && npm run build:examples",
+    "build:packages": "npm run build -w @mdwrk/lander-content-contract && npm run build -w @mdwrk/lander-core && npm run build -w @mdwrk/structured-data && npm run build -w @mdwrk/lander-seo && npm run build -w @mdwrk/lander-theme && npm run build -w @mdwrk/lander-markdown-content-adapter && npm run build -w @mdwrk/lander-page-templates && npm run build -w @mdwrk/lander-page-template-presets && npm run build -w @mdwrk/lander-react && npm run build -w @mdwrk/page-template-demo-content-pack",
+    "build:examples": "npm run build -w @mdwrk/example-page-template-demo",
+    "typecheck": "npm run typecheck:packages && npm run typecheck:examples",
+    "typecheck:packages": "npm run typecheck -w @mdwrk/lander-content-contract && npm run typecheck -w @mdwrk/lander-core && npm run typecheck -w @mdwrk/structured-data && npm run typecheck -w @mdwrk/lander-seo && npm run typecheck -w @mdwrk/lander-theme && npm run typecheck -w @mdwrk/lander-markdown-content-adapter && npm run typecheck -w @mdwrk/lander-page-templates && npm run typecheck -w @mdwrk/lander-page-template-presets && npm run typecheck -w @mdwrk/lander-react && npm run typecheck -w @mdwrk/page-template-demo-content-pack",
+    "typecheck:examples": "npm run typecheck -w @mdwrk/example-page-template-demo",
+    "lint": "npm run typecheck",
+    "ci:install": "npm install --ignore-scripts",
+    "test": "npm run test:packages",
+    "test:packages": "npm run test -w @mdwrk/lander-content-contract && npm run test -w @mdwrk/lander-core && npm run test -w @mdwrk/structured-data && npm run test -w @mdwrk/lander-seo && npm run test -w @mdwrk/lander-theme && npm run test -w @mdwrk/lander-markdown-content-adapter && npm run test -w @mdwrk/lander-page-templates && npm run test -w @mdwrk/lander-page-template-presets && npm run test -w @mdwrk/lander-react && npm run test -w @mdwrk/page-template-demo-content-pack",
+    "validate:mdwrk-lander-package-suite": "node ./tools/governance/validate-mdwrk-lander-package-suite.mjs"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  },
+  "description": "MdWrk Pages packages for typed content contracts, page templates, static-site compilation, SEO/discovery artifacts, themes, and React rendering.",
+  "homepage": "https://mdwrk.com",
+  "license": "Apache-2.0",
+  "author": "Jacob Stewart <jacob@swarmauri.com>"
+}
