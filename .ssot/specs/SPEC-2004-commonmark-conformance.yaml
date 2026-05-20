@@ -1,0 +1,44 @@
+schema_version: "0.2.0"
+kind: "spec"
+id: "spc:2004"
+number: 2004
+slug: "commonmark-conformance"
+title: "CommonMark Conformance Specification"
+status: "draft"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "Define the CommonMark conformance requirements for MdWrk parser, renderer, preview, and export surfaces."
+supersedes: []
+superseded_by: []
+status_notes:
+  -
+    status: "draft"
+    note: "Expanded CommonMark conformance with profile-disclosure and export/preview failure labeling requirements."
+    at: "2026-04-21T09:20:21Z"
+references: []
+body: |-
+  # CommonMark Conformance Specification
+  
+  ## Purpose
+  
+  Define the CommonMark conformance requirements for MdWrk parser, renderer, preview, and export surfaces.
+  
+  ## Requirements
+  
+  - CommonMark 0.31.2 remains the frozen normative core.
+  - CommonMark tests must be distinguishable from GFM and custom-profile tests.
+  - Failures must identify whether they are parser, renderer, preview, export, or adapter failures.
+  - CommonMark behavior must remain available when GFM and MdWrk additive profiles are disabled.
+  - CommonMark certification claims require evidence from the official corpus lane or an explicitly scoped substitute approved by ADR.
+  
+  ## 2026 SSOT Coverage Update
+  
+  CommonMark remains the normative CM baseline for parser, renderer, preview, and export surfaces. GFM and CFM claims must identify how they extend CM without weakening CM conformance evidence.
+  
+  Failures must continue to label whether they belong to parser, renderer, preview, export, adapter, or shell integration boundaries. Preview/export surfaces that depend on profile choice must disclose active profile state.
+spec_kind: "normative"
+adr_ids:
+  - "adr:1009"
+  - "adr:1028"
+  - "adr:1045"

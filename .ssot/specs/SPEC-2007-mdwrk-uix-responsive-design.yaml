@@ -1,0 +1,67 @@
+schema_version: "0.4.0"
+kind: "spec"
+id: "spc:2007"
+number: 2007
+slug: "mdwrk-uix-responsive-design"
+title: "MdWrk UIX Responsive Design Specification"
+status: "draft"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "Define responsive UIX behavior across desktop, browser, PWA, mobile portrait, mobile landscape, tablets, and ultra-wide layouts."
+supersedes: []
+superseded_by: []
+status_notes:
+  -
+    at: "2026-04-21T09:20:22Z"
+    note: "Expanded UIX responsive design with chassis, zoom, accessibility, and responsive matrix obligations."
+    status: "draft"
+  -
+    at: "2026-05-08T02:16:10Z"
+    note: "Updated UIX responsive design contract with WCAG 2.1 AA contrast requirements."
+    status: "draft"
+  -
+    at: "2026-05-18T15:57:39Z"
+    note: "Extended by spc:2097 and spc:2099 for client chrome responsive behavior and screenshot evidence."
+    status: "draft"
+references: []
+body: |-
+  # MdWrk UIX Responsive Design Specification
+  
+  ## Purpose
+  
+  Define responsive UIX behavior across desktop, browser, PWA, mobile portrait, mobile landscape, tablets, and ultra-wide layouts.
+  
+  ## Requirements
+  
+  - CSS tokens must govern shared rail, pane, footer, header, breakpoint, compaction, and spacing values.
+  - Expandable rails must be full width on mobile where specified and share tokenized alignment rules.
+  - Panes must own vertical scrolling when bars and shell chrome remain fixed.
+  - Mobile portrait may reverse action rail order through a theme-stable CSS token.
+  - Mobile visual-keyboard mode must support half-screen working area behavior.
+  - Mobile landscape may hide status footer surfaces when vertical space is constrained.
+  - Ultra-wide layouts must preserve readable pane widths and explicit aspect-ratio rules.
+  - Command palettes, extension views, panes, iconized controls, and compact modes must remain interoperable.
+  - UIX foreground/background color pairs used for user-facing text shall conform to WCAG 2.1 AA contrast thresholds.
+  
+  ## WCAG 2.1 AA Contrast Requirements
+  
+  - Normal text and images of text shall meet at least 4.5:1 contrast against their rendered background.
+  - Large-scale text and images of large-scale text shall meet at least 3:1 contrast against their rendered background.
+  - Incidental, inactive, decorative, and logo text follow the WCAG 2.1 SC 1.4.3 exceptions.
+  - Lander light and lander dark theme tokens shall provide AA-compliant contrast for primary, muted, subtle, accent, alternate-accent, and success text roles where those roles are used for visible copy.
+  - Automated CSS token checks shall cover deterministic theme token pairs; screenshot evidence shall remain required for affected visual surfaces.
+  
+  ## 2026 SSOT Coverage Update
+  
+  UIX responsive design shall govern named chassis regions: header, status footer, action rail, sidebars, tab strip, editor panes, preview panes, modal layers, and extension views.
+  
+  UIX conformance includes zoom behavior, accessibility behavior, fixed shell chrome, pane-owned scrolling, iconized compaction, breakpoint tokens, visual-keyboard half-screen behavior, ultra-wide behavior, shell-specific responsive matrix evidence, and WCAG 2.1 AA contrast behavior.
+spec_kind: "normative"
+adr_ids:
+  - "adr:1031"
+  - "adr:1040"
+  - "adr:1046"
+  - "adr:1047"
+  - "adr:1048"
+  - "adr:1070"
