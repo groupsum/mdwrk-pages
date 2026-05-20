@@ -1,0 +1,11 @@
+{
+  "mode": "command",
+  "argv": ["node", "tools/governance/mdwrk-pages-agent-hygiene.test.mjs"],
+  "cwd": ".",
+  "env": {},
+  "timeout_seconds": 120,
+  "success": {
+    "type": "exit_code",
+    "expected": 0
+  }
+}

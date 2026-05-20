@@ -7,6 +7,8 @@ artifacts/
 .npm-cache/
 .pnpm-store/
 .uv-cache/
+.venv/
+.tmp/
 *.log
 
 # Local environment and secrets

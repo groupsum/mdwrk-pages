@@ -1,7 +1,7 @@
 {
   "name": "mdwrk-pages",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "packageManager": "pnpm@10.11.0",
   "workspaces": [
     "packages/lander/*",
@@ -25,7 +25,8 @@
     "ci:install": "npm install --ignore-scripts",
     "test": "npm run test:packages",
     "test:packages": "npm run test -w @mdwrk/lander-content-contract && npm run test -w @mdwrk/lander-core && npm run test -w @mdwrk/structured-data && npm run test -w @mdwrk/lander-seo && npm run test -w @mdwrk/lander-theme && npm run test -w @mdwrk/lander-markdown-content-adapter && npm run test -w @mdwrk/lander-page-templates && npm run test -w @mdwrk/lander-page-template-presets && npm run test -w @mdwrk/lander-react && npm run test -w @mdwrk/page-template-demo-content-pack",
-    "validate:mdwrk-lander-package-suite": "node ./tools/governance/validate-mdwrk-lander-package-suite.mjs"
+    "validate:mdwrk-lander-package-suite": "node ./tools/governance/validate-mdwrk-lander-package-suite.mjs",
+    "ci:governance": "node tools/governance/mdwrk-pages-cr-matrix-t0.test.mjs && node tools/governance/mdwrk-pages-agent-hygiene.test.mjs && npm run validate:mdwrk-lander-package-suite"
   },
   "dependencies": {
     "react": "^19.2.4",

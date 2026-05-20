@@ -33,13 +33,13 @@ body: |-
   
   # Decision
   MdWrk change requests shall be ordered by package ownership. Cross-package governance, ADR/SPEC linkage, versioning, and screenshot proof come first. Contracts and shared tokens come before package implementations. Editor and renderer package changes come before app adoption. Extension manifest and host contracts come before first-party extension changes. Portable lander contracts and packages come before mdwrkcom host adoption.
-  
+  In the split `mdwrk-pages` repository, package-owned change requests shall be represented as repo-local `feat:mdwrk-pages.cr-<number>.<slug>` rows. Pages CR rows cover structured data, portable content contracts, static compilation, SEO/discovery helpers, lander themes, React lander rendering, markdown adapters, page templates, page-template presets, suite validation, documentation ownership, scoped agent ownership files, and repository hygiene. They shall not own reusable editor/renderer/runtime work that belongs to `mdwrk`, Studio app work that belongs to `mdwrk-studio`, or mdwrk.com thin-host deployment work that belongs to `mdwrk-com`.
   Repo-owned mdwrkcom work includes host code, content-pack adoption, static build outputs, portable discovery artifact generation, and validation of generated artifacts. Repo-owned mdwrkcom work excludes redeploying unrelated existing sites and submitting sitemap.xml to Google Search Console or any equivalent external console.
   
   # Boundaries
   The order is a governance and execution contract, not a release guarantee. A package may still ship independently when its dependencies are already satisfied. Cross-package work must name all owners explicitly and must not hide product-host obligations inside reusable package work.
   
   Internal sitemap.xml generation and validation can remain a lander-seo or mdwrkcom feature. External submission of that sitemap to a third-party search console is an operational deployment task and is out of scope for this repo-owned feature checklist.
-  
+  Pages CR rows are traceability and planning rows. A CR row may have a passing T0 matrix claim while its runtime implementation remains backlog, partial, or absent until the owning package feature has code-level tests and evidence.
   # Consequences
   Operators can convert backlog items into package-owned features, tests, claims, and evidence without losing traceability. Reviewers can reject work that skips prerequisite contracts, bypasses screenshot evidence, places behavior in the wrong package, or attempts to add external redeploy/search-console tasks as MdWrk repo features.

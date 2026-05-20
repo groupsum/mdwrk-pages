@@ -41,9 +41,14 @@ body: |-
   6. UI work shall include screenshot evidence for every relevant theme, view, mode, pane, and modal.
   7. Validation shall run at the smallest package scope that proves the change and at the repo governance scope when SSOT, docs, generated artifacts, or root layout changes.
   8. External redeploys and third-party console submissions shall not be tracked as MdWrk repo features, tests, claims, evidence, or package change-request checklist items.
+  9. For `mdwrk-pages`, CR ids shall use `feat:mdwrk-pages.cr-<number>.<slug>` and shall only cover structured data, portable lander/pages packages, page-template examples, Pages docs, scoped agents, and repository hygiene.
+  10. Every Pages CR row shall link this specification, one T0 claim, one executable T0 test, and one evidence row that verifies the CR matrix graph.
+  11. Pages CR rows shall stay separate from reusable package implementation rows. Runtime completion shall be recorded on the owning structured-data, content-contract, core compiler, SEO, theme, React renderer, markdown adapter, page-template, preset, docs, or governance feature row.
+  12. Pages CR matrix tests shall fail closed when a row is missing the feature, claim, test, evidence, SPEC link, reciprocal links, or executable command metadata.
   
   ## Verification
   Passing evidence shall include package-scoped test/build output, SSOT validation, screenshot manifests where UI changed, and a clear mapping from CR id to package-owned feature/test rows. Verification shall confirm that excluded external operations are absent from repo-owned checklist scope and absent from MdWrk repo feature targeting.
+  For `mdwrk-pages`, verification shall include an executable T0 CR matrix test under `tools/governance/` and, for implemented runtime features, package or suite tests that exercise structured data, portable lander contracts, compilation, SEO/discovery, theme, React rendering, markdown adapter, page-template, preset, scoped-agent, or repository hygiene behavior being claimed.
 spec_kind: "governance"
 adr_ids:
   - "adr:1068"

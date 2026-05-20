@@ -8,7 +8,7 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "This specification defines repository cleanliness, documentation governance, SSOT-only SPEC authority, and CI-enforced conformance checks for `markdown_workspace`."
+summary: "This specification defines repository cleanliness, documentation governance, SSOT-only SPEC authority, scoped agent ownership, and CI-enforced conformance checks for `mdwrk-pages`."
 supersedes: []
 superseded_by: []
 status_notes: []
@@ -18,15 +18,27 @@ body: |-
   
   ## Purpose
   
-  This specification defines repository cleanliness, documentation governance, SSOT-only SPEC authority, and CI-enforced conformance checks for `markdown_workspace`.
+  This specification defines repository cleanliness, documentation governance, SSOT-only SPEC authority, scoped agent ownership, and CI-enforced conformance checks for `mdwrk-pages`.
   
   ## Validation Rules
   
   ### 1) Tree validation
   
-  - Required top-level directories must exist: `apps`, `packages`, `docs`, `tools`, `.github`, `.ssot`, `.ssot/specs`.
+  - Required top-level directories must exist: `packages`, `docs`, `examples`, `tools`, `.github`, `.ssot`, `.ssot/specs`.
   - Required governance files must exist: `README.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `LICENSE`, `AGENTS.md`, `.ssot/registry.json`, `.ssot/specs/SPEC-2001-specs-index.yaml`, and `.ssot/specs/SPEC-2002-repository-governance.yaml`.
   - The top-level `specs/` directory is disallowed because repository SPECs are maintained in the SSOT registry.
+
+  ### 1.1) Scoped agent validation
+
+  - Scoped `AGENTS.md` files must exist for Pages ownership boundaries:
+    - `docs/AGENTS.md`
+    - `examples/AGENTS.md`
+    - `packages/AGENTS.md`
+    - `packages/content/AGENTS.md`
+    - `packages/shared/AGENTS.md`
+    - `tools/AGENTS.md`
+  - Existing package-local `AGENTS.md` files under `packages/lander/*` must remain in place for package-specific authoring rules.
+  - Scoped agent validation must be executable from the repository root.
   
   ### 2) Doc-pointer validation
   
@@ -42,17 +54,15 @@ body: |-
   
   ### 3) Root-clutter validation
   
-  - Top-level repository files and folders are restricted to the allowlist in `tools/governance/validate-root-clutter.mjs`.
+  - Top-level repository files and folders are restricted to the allowlist in `tools/governance/mdwrk-pages-agent-hygiene.test.mjs`.
   - New top-level files must be intentionally added to the allowlist with a governance review.
   - Generated screenshots, browser captures, and media artifacts must not be written at the repository root.
   - Root-level media files (`*.avif`, `*.gif`, `*.jpg`, `*.jpeg`, `*.png`, `*.svg`, `*.webp`) are disallowed and must live under an intentional `artifacts/` subdirectory.
   
   ### 4) Generated-artifact protection
   
-  - Generated artifact roots must include guardrail documentation:
-    - `artifacts/README.md`
-    - `artifacts/extensions/README.md`
-    - `artifacts/verification/build-verification.md`
+  - Generated artifact roots must be ignored unless they are intentionally promoted into `docs/assets/` or package-owned fixtures.
+  - Page-template demo screenshots that are part of documentation belong under `docs/assets/page-template-demo/`.
   
   ### 5) Claim-language lint
   

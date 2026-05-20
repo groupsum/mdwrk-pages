@@ -16,9 +16,20 @@ This repo owns page/content contracts, static-site compilation, SEO and AI-disco
 ```bash
 npm install
 npm run build
+npm run ci:governance
 npm run typecheck
 npm run test
 ```
+
+## Documentation Pointers
+
+- [Pages docs](docs/README.md)
+- [Specs index](.ssot/specs/SPEC-2001-specs-index.yaml)
+- [Repository governance spec](.ssot/specs/SPEC-2002-repository-governance.yaml)
+- [Contributing](CONTRIBUTING.md)
+- [Code of conduct](CODE_OF_CONDUCT.md)
+- [License](LICENSE)
+- [Agent instructions](AGENTS.md)
 
 ## Split Boundary
 

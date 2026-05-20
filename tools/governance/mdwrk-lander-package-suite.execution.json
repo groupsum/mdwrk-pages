@@ -1,0 +1,11 @@
+{
+  "mode": "command",
+  "argv": ["node", "--test", "tools/governance/mdwrk-lander-package-suite.test.mjs"],
+  "cwd": ".",
+  "env": {},
+  "timeout_seconds": 120,
+  "success": {
+    "type": "exit_code",
+    "expected": 0
+  }
+}
