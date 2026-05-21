@@ -1,4 +1,4 @@
-schema_version: "0.2.0"
+schema_version: "0.6.0"
 kind: "spec"
 id: "spc:2074"
 number: 2074
@@ -8,21 +8,25 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "This SPEC governs localized source content and route shape for the MdWrk public lander. It applies to `apps/mdwrkcom` static content and the packaged MdWrk.com content corpus."
+summary: "This SPEC governs localized source content and route shape for the MdWrk public lander. It applies to compiled route semantics owned by `@mdwrk/lander-core` and to downstream discovery/render consumers of those semantics."
 supersedes: []
 superseded_by: []
 status_notes:
   -
-    status: "draft"
-    note: "Created locale route and content contract for public lander international SEO."
     at: "2026-05-06T11:10:05Z"
+    note: "Created locale route and content contract for public lander international SEO."
+    status: "draft"
+  -
+    status: "draft"
+    note: "Clarified locale route normalization as a compiled-site concern consumed by breadcrumb and discovery surfaces."
+    at: "2026-05-21T04:35:52Z"
 references: []
 body: |-
   # Public Lander Locale Route and Content Contract
   
   ## Scope
   
-  This SPEC governs localized source content and route shape for the MdWrk public lander. It applies to `apps/mdwrkcom` static content and the packaged MdWrk.com content corpus.
+  This SPEC governs localized source content and route shape for the MdWrk public lander. It applies to compiled route semantics owned by `@mdwrk/lander-core` and to downstream discovery/render consumers of those semantics.
   
   ## Requirements
   
@@ -34,6 +38,8 @@ body: |-
   6. A localized page shall identify the default source page through `translationOf`.
   7. A locale group shall contain one default English source route and zero or more localized variants.
   8. A localized page shall use one primary visible language for body content, page metadata, FAQ or answer sections, and generated mirror content.
+  9. Route normalization and canonical route derivation for locale groups shall be produced by `@mdwrk/lander-core`, not reconstructed independently by product hosts.
+  10. The compiled route model shall expose enough hierarchy and translation semantics for downstream breadcrumb UI, `BreadcrumbList` schema, hreflang output, and sitemap alternates.
   
   ## Acceptance
   

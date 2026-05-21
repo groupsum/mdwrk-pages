@@ -1,4 +1,4 @@
-schema_version: "0.2.0"
+schema_version: "0.6.0"
 kind: "spec"
 id: "spc:2083"
 number: 2083
@@ -13,17 +13,21 @@ supersedes: []
 superseded_by: []
 status_notes:
   -
-    status: "draft"
-    note: "Created to govern per-type reusable component ownership and adoption for structured-data surfaces."
     at: "2026-05-13T05:42:28Z"
-  -
+    note: "Created to govern per-type reusable component ownership and adoption for structured-data surfaces."
     status: "draft"
-    note: "Updated for content-pack-driven schema intent compilation and lander-react rendering."
+  -
     at: "2026-05-13T09:08:46Z"
+    note: "Updated for content-pack-driven schema intent compilation and lander-react rendering."
+    status: "draft"
+  -
+    at: "2026-05-13T09:13:42Z"
+    note: "Preserved existing reusable component obligations and appended content-pack-driven schema intent flow."
+    status: "draft"
   -
     status: "draft"
-    note: "Preserved existing reusable component obligations and appended content-pack-driven schema intent flow."
-    at: "2026-05-13T09:13:42Z"
+    note: "Added explicit breadcrumb split between structured-data builders, core route semantics, and lander-react UI."
+    at: "2026-05-21T04:35:52Z"
 references: []
 body: |-
   # SPEC-2083: Portable Structured Data Reusable Component Contract
@@ -52,9 +56,10 @@ body: |-
   16. Structured-data component selection shall originate from content-pack schema declarations that conform to `@mdwrk/lander-content-contract` and are compiled by `@mdwrk/lander-core`.
   17. `@mdwrk/lander-core` shall normalize schema intent into a portable render model without importing React.
   18. `@mdwrk/lander-react` shall map compiled structured-data intent to JSON-LD graph output and the corresponding type-specific reusable component surface.
-  19. `apps/mdwrkcom` shall consume structured-data support through the content-pack, core compiler, and lander-react renderer flow instead of choosing per-type structured-data React components in page-local app code.
-  20. The content contract shall reject malformed schema intent, unknown schema kinds, and app-local implementation references.
-  21. Tests shall cover structured-data builder output, content-contract validation, lander-core schema intent compilation, lander-react render output, and mdwrkcom host adoption or explicit non-adoption for each supported type.
+  19. Breadcrumbs are explicit: `@mdwrk/structured-data` owns `BreadcrumbList` builders, `@mdwrk/lander-react` owns visible breadcrumb rendering, and `@mdwrk/lander-core` only supplies route hierarchy semantics.
+  20. `apps/mdwrkcom` shall consume structured-data support through the content-pack, core compiler, and lander-react renderer flow instead of choosing per-type structured-data React components in page-local app code.
+  21. The content contract shall reject malformed schema intent, unknown schema kinds, and app-local implementation references.
+  22. Tests shall cover structured-data builder output, content-contract validation, lander-core schema intent compilation, lander-react render output, and mdwrkcom host adoption or explicit non-adoption for each supported type.
   
   ## Acceptance
   

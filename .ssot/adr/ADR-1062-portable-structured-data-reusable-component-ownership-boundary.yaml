@@ -1,4 +1,4 @@
-schema_version: "0.2.0"
+schema_version: "0.6.0"
 kind: "adr"
 id: "adr:1062"
 number: 1062
@@ -8,23 +8,29 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "For every governed Schema.org JSON-LD type that MdWrk supports on the public lander, the reusable concrete component or composition surface shall be owned by `@mdwrk/lander-react`."
+summary: "For every governed Schema.org JSON-LD type that MdWrk supports on the public lander, `@mdwrk/structured-data` shall own the typed builder layer and `@mdwrk/lander-react` shall own the reusable concrete component or composition surface."
 supersedes: []
 superseded_by: []
 status_notes:
   -
-    status: "draft"
-    note: "Created to govern reusable lander ownership for structured-data components by supported type."
     at: "2026-05-13T05:41:41Z"
+    note: "Created to govern reusable lander ownership for structured-data components by supported type."
+    status: "draft"
+  -
+    status: "draft"
+    note: "Made breadcrumb ownership explicit: structured-data owns BreadcrumbList builders and lander-react owns breadcrumb UI."
+    at: "2026-05-21T04:35:52Z"
 references: []
 body: |-
   # ADR-1062: Portable Structured Data Reusable Component Ownership Boundary
   
   ## Decision
   
-  For every governed Schema.org JSON-LD type that MdWrk supports on the public lander, the reusable concrete component or composition surface shall be owned by `@mdwrk/lander-react`.
+  For every governed Schema.org JSON-LD type that MdWrk supports on the public lander, `@mdwrk/structured-data` shall own the typed builder layer and `@mdwrk/lander-react` shall own the reusable concrete component or composition surface.
   
   `@mdwrk/structured-data` shall remain the typed builder and graph-primitive layer. `@mdwrk/lander-react` shall own the reusable React component or composition layer that corresponds to supported structured-data types. `apps/mdwrkcom` shall import and use those lander-owned surfaces rather than defining app-local component ownership for governed structured-data types.
+  
+  Breadcrumbs are explicit. `BreadcrumbList` schema ownership belongs to `@mdwrk/structured-data`. Visible breadcrumb navigation ownership belongs to `@mdwrk/lander-react`. `@mdwrk/lander-core` may expose route hierarchy semantics that those layers consume, but it shall not own the breadcrumb UI or schema layer directly.
   
   When a supported type has a visible or materially represented UI surface, the reusable component shall live in `@mdwrk/lander-react`. When a supported type is non-visual or primarily compositional, `@mdwrk/lander-react` shall still own the canonical reusable composition helper that adopting apps consume.
   

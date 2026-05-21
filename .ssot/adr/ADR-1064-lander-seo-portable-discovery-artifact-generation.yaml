@@ -1,4 +1,4 @@
-schema_version: "0.4.0"
+schema_version: "0.6.0"
 kind: "adr"
 id: "adr:1064"
 number: 1064
@@ -8,7 +8,7 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "`@mdwrk/lander-seo` shall be the reusable owner for portable lander discovery artifact generation and validation."
+summary: "`@mdwrk/lander-seo` shall be the authoritative reusable owner for portable lander discovery artifact generation and validation."
 supersedes: []
 superseded_by: []
 status_notes:
@@ -16,13 +16,19 @@ status_notes:
     at: "2026-05-13T14:34:20Z"
     note: "Created to govern extraction of reusable discovery artifact generation from mdwrkcom into lander-seo."
     status: "draft"
+  -
+    status: "draft"
+    note: "Clarified that lander-seo is the authoritative discovery artifact owner and lander-core is limited to compiled-site semantics."
+    at: "2026-05-21T04:35:52Z"
 references: []
 body: |-
   ## Decision
   
-  `@mdwrk/lander-seo` shall be the reusable owner for portable lander discovery artifact generation and validation.
+  `@mdwrk/lander-seo` shall be the authoritative reusable owner for portable lander discovery artifact generation and validation.
   
   The package shall provide product-neutral builders for sitemap indexes, child sitemap URL sets, robots policy, short and full LLM discovery files, content index JSON, semantic index JSON, content registry JSON, JSON-LD graph artifacts, cache header manifest inputs, and diagnostics. Product sites such as `apps/mdwrkcom` may host or invoke those builders, but they shall not remain the long-term owner of generic discovery artifact algorithms.
+  
+  `@mdwrk/lander-core` shall compile pages, route semantics, normalized slugs, canonical URLs, page text, and diagnostics. It shall not be the authoritative long-term home for discovery artifact generation. If compatibility helpers remain in `@mdwrk/lander-core` during migration, they are transitional shims and must not redefine ownership.
   
   The public root `/sitemap.xml` shall be a sitemap index, not a page URL set. It shall contain only child sitemap locations. Page URLs shall live in child URL-set documents under a deterministic sitemap base path such as `/sitemaps/*.xml`.
   
@@ -34,4 +40,4 @@ body: |-
   
   Root sitemap indexes make the reusable contract scale across downstream product landers. A downstream site can emit one stable `/sitemap.xml` while splitting page URLs by page family, locale, package, content pack, or other governed grouping without changing crawler entry points.
   
-  Moving the reusable builders into `@mdwrk/lander-seo` preserves the existing package split: content packs own product truth, `@mdwrk/lander-core` owns compilation, `@mdwrk/lander-react` owns rendering and JSON-LD component output, and `@mdwrk/lander-seo` owns generated discovery artifacts and their validation gates.
+  Moving the reusable builders into `@mdwrk/lander-seo` preserves the existing package split: content packs own product truth, `@mdwrk/lander-core` owns compilation and route metadata, `@mdwrk/lander-react` owns rendering, `@mdwrk/structured-data` owns typed schema builders, and `@mdwrk/lander-seo` owns generated discovery artifacts and their validation gates.

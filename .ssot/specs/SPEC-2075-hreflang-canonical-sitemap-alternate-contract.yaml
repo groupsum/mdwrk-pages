@@ -1,4 +1,4 @@
-schema_version: "0.2.0"
+schema_version: "0.6.0"
 kind: "spec"
 id: "spc:2075"
 number: 2075
@@ -8,25 +8,29 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "This SPEC governs canonical URLs, HTML hreflang links, and XML sitemap alternates for localized MdWrk public lander pages."
+summary: "This SPEC governs canonical URLs, HTML hreflang links, and XML sitemap alternates for localized MdWrk public lander pages. Canonical route derivation is a compiled-site concern; alternate emission is a discovery-artifact concern."
 supersedes: []
 superseded_by: []
 status_notes:
   -
-    status: "draft"
-    note: "Created hreflang canonical and sitemap alternate contract for localized lander routes."
     at: "2026-05-06T11:10:15Z"
+    note: "Created hreflang canonical and sitemap alternate contract for localized lander routes."
+    status: "draft"
+  -
+    at: "2026-05-07T13:09:56Z"
+    note: "Linked standards baseline ADR for BCP 47, ISO 8601, and Schema.org language metadata authority."
+    status: "draft"
   -
     status: "draft"
-    note: "Linked standards baseline ADR for BCP 47, ISO 8601, and Schema.org language metadata authority."
-    at: "2026-05-07T13:09:56Z"
+    note: "Clarified canonical derivation in core and alternate emission in lander-seo."
+    at: "2026-05-21T04:35:52Z"
 references: []
 body: |-
   # Hreflang Canonical and Sitemap Alternate Contract
   
   ## Scope
   
-  This SPEC governs canonical URLs, HTML hreflang links, and XML sitemap alternates for localized MdWrk public lander pages.
+  This SPEC governs canonical URLs, HTML hreflang links, and XML sitemap alternates for localized MdWrk public lander pages. Canonical route derivation is a compiled-site concern; alternate emission is a discovery-artifact concern.
   
   ## Requirements
   
@@ -36,6 +40,8 @@ body: |-
   4. `sitemap.xml` shall include localized URLs and `xhtml:link` alternate annotations for each indexed locale group.
   5. Sitemap alternates shall match HTML alternates for the same route group.
   6. Locale query parameters such as `?lang=`, `?locale=`, or `?hl=` are invalid as canonical or alternate URL mechanisms.
+  7. `@mdwrk/lander-core` shall derive the canonical route and canonical URL inputs consumed by this contract.
+  8. `@mdwrk/lander-seo` shall emit HTML alternate metadata and sitemap alternate metadata from compiled route and locale semantics rather than by app-local route reconstruction.
   
   ## Acceptance
   

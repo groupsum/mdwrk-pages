@@ -1,4 +1,4 @@
-schema_version: "0.4.0"
+schema_version: "0.6.0"
 kind: "adr"
 id: "adr:1066"
 number: 1066
@@ -8,7 +8,7 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "The lander package family separates content contracts, compilation, SEO, theme, markdown adaptation, React rendering, product content packs, reusable page templates, and now preset graph starters. Reusable page recipes need a package boundary that keeps rendering concerns separate from graph authoring concerns and keeps product copy outside reusable packages."
+summary: "The lander package family separates content contracts, compiled-site and route semantics, discovery artifacts, theme, markdown adaptation, React rendering, product content packs, reusable page templates, and now preset graph starters. Reusable page recipes need a package boundary that keeps rendering concerns separate from graph authoring concerns and keeps product copy outside reusable packages."
 supersedes: []
 superseded_by: []
 status_notes:
@@ -17,20 +17,26 @@ status_notes:
     note: "Created to govern the reusable lander page-template package boundary."
     status: "draft"
   -
-    status: "draft"
-    note: "Updated package boundary to include page-template presets and topology ownership split."
     at: "2026-05-18T16:18:07Z"
+    note: "Updated package boundary to include page-template presets and topology ownership split."
+    status: "draft"
+  -
+    status: "draft"
+    note: "Clarified core versus react versus structured-data ownership for compiled routes, breadcrumbs, and discovery surfaces."
+    at: "2026-05-21T04:35:52Z"
 references: []
 body: |-
   # Context
-  The lander package family separates content contracts, compilation, SEO, theme, markdown adaptation, React rendering, product content packs, reusable page templates, and now preset graph starters. Reusable page recipes need a package boundary that keeps rendering concerns separate from graph authoring concerns and keeps product copy outside reusable packages.
+  The lander package family separates content contracts, compiled-site and route semantics, discovery artifacts, theme, markdown adaptation, React rendering, product content packs, reusable page templates, and now preset graph starters. Reusable page recipes need a package boundary that keeps rendering concerns separate from graph authoring concerns and keeps product copy outside reusable packages.
   
   # Decision
   `@mdwrk/lander-page-templates` owns reusable template primitives, page-template definitions, graph validation, topology rules, relationship resolution, link-slot resolution, navigation derivation, and PageSpec generation.
   
   `@mdwrk/lander-page-template-presets` owns authored starter graph composition and preset authoring APIs over those templates. Presets may provide named page maps, named link maps, default content seeds, and editable graph starters, but they must not own product-specific final copy.
   
-  `@mdwrk/lander-react` owns reusable React rendering primitives and JSON-LD output. Content packs and apps own concrete final content, assets, slugs, downstream graph edits, publication routing, and product-host decisions.
+  `@mdwrk/lander-core` owns compiled pages, normalized route semantics, canonical URL derivation, internal-link extraction, page text extraction, and diagnostics over compiled content. It shall not own breadcrumb UI, breadcrumb structured-data rendering, or discovery artifact generation.
+  
+  `@mdwrk/lander-react` owns reusable React rendering primitives, including breadcrumb UI and other visible navigational components. `@mdwrk/structured-data` owns typed schema builders such as `BreadcrumbList`. Content packs and apps own concrete final content, assets, slugs, downstream graph edits, publication routing, and product-host decisions.
   
   # Boundaries
   The page-template package must not depend on `apps/mdwrkcom` or any product-host implementation. The preset package may depend on `@mdwrk/lander-page-templates`, but the template package must not depend on presets. Presets are optional accelerators; they are not required to author a graph directly.
@@ -38,4 +44,4 @@ body: |-
   # Consequences
   Downstream sites can instantiate home, feature, answer, compare, trust, support, FAQ, education, package, documentation, and legal page systems from reusable templates or from starter presets while preserving content ownership boundaries.
   
-  The implementation must keep page templates, preset graph composition, content packs, and React rendering as separate ownership surfaces.
+  The implementation must keep page templates, preset graph composition, compiled-site semantics, discovery artifact generation, content packs, and React rendering as separate ownership surfaces.
