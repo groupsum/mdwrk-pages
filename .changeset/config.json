@@ -1,0 +1,25 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
+  "changelog": false,
+  "commit": false,
+  "fixed": [],
+  "linked": [
+    [
+      "@mdwrk/lander-content-contract",
+      "@mdwrk/lander-core",
+      "@mdwrk/structured-data",
+      "@mdwrk/lander-seo",
+      "@mdwrk/lander-theme",
+      "@mdwrk/lander-markdown-content-adapter",
+      "@mdwrk/lander-react"
+    ],
+    [
+      "@mdwrk/lander-page-templates",
+      "@mdwrk/lander-page-template-presets"
+    ]
+  ],
+  "access": "public",
+  "baseBranch": "master",
+  "updateInternalDependencies": "patch",
+  "ignore": []
+}

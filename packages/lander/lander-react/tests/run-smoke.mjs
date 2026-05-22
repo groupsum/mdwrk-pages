@@ -77,7 +77,7 @@ const site = {
     category: 'ProductivityApplication',
     canonicalUrl: 'https://mdwrk.test',
     logo: { src: 'https://mdwrk.test/favicon.svg', alt: 'MdWrk logo' },
-    sameAs: ['https://github.com/groupsum/markdown_workspace'],
+    sameAs: ['https://github.com/groupsum/mdwrk-pages'],
   },
   pages: [],
   pageByPath: new Map(),
@@ -122,7 +122,7 @@ const page = {
     { kind: 'WebSite' },
     { kind: 'SoftwareApplication' },
     { kind: 'WebApplication' },
-    { kind: 'SoftwareSourceCode', data: { codeRepository: 'https://github.com/groupsum/markdown_workspace' } },
+    { kind: 'SoftwareSourceCode', data: { codeRepository: 'https://github.com/groupsum/mdwrk-pages' } },
     { kind: 'TechArticle' },
     { kind: 'Article' },
     { kind: 'BlogPosting', data: { datePublished: '2026-05-06' } },
@@ -250,3 +250,4 @@ const intentMarkup = renderToStaticMarkup(renderStructuredDataIntent({
   data: { name: 'Intent Page', url: 'https://mdwrk.test/intent-page' },
 }));
 assert.ok(intentMarkup.includes('"WebPage"'));
+
