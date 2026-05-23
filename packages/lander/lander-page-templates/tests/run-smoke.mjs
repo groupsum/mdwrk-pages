@@ -9,6 +9,7 @@ const {
   createGeneratedPageTemplateContentPack,
   defineEdge,
   definePageInstance,
+  definePageTemplate,
   defineTemplateGraph,
   deriveTemplateNavigation,
   docsDomainBundle,
@@ -80,22 +81,80 @@ assert.equal(resolveLinkSlots(supportGraph, "hub").questions[0].href, "/support/
 assert.ok(buildPageSpecFromTemplate(supportGraph, supportGraph.instances[1]).schema.some((item) => item.kind === "QAPage"));
 
 const productTrustGraph = defineTemplateGraph({
-  templates: [...productDomainBundle.templates, ...trustDomainBundle.templates],
-  bundles: [productDomainBundle, trustDomainBundle],
+  templates: [...productDomainBundle.templates, ...supportDomainBundle.templates, ...trustDomainBundle.templates],
+  bundles: [productDomainBundle, supportDomainBundle, trustDomainBundle],
   instances: [
     definePageInstance({ id: "home", templateId: "product.home", slug: "/", title: "Product Home", description: "Product home page.", data: { summary: "Product overview." } }),
+    definePageInstance({ id: "support", templateId: "support.hub", slug: "/support/", title: "Support", description: "Support hub page.", data: { summary: "Support overview." } }),
     definePageInstance({ id: "privacy", templateId: "trust.privacy", slug: "/privacy/", title: "Privacy", description: "Privacy policy page.", data: { summary: "Privacy policy." } }),
     definePageInstance({ id: "tos", templateId: "trust.terms", slug: "/terms/", title: "Terms", description: "Terms page.", data: { summary: "Terms of service." } }),
   ],
   edges: [
+    defineEdge({ sourceId: "home", targetId: "support", relationship: "support", slotId: "support", order: 1 }),
     defineEdge({ sourceId: "home", targetId: "privacy", relationship: "legal", slotId: "legal", order: 1 }),
     defineEdge({ sourceId: "home", targetId: "tos", relationship: "legal", slotId: "legal", order: 2 }),
   ],
 });
 
 const homeNav = deriveTemplateNavigation(productTrustGraph, "home");
-assert.deepEqual(homeNav.related.map((item) => item.href), ["/privacy/", "/terms/"]);
-assert.equal(buildPageSpecsFromGraph(productTrustGraph).pages.length, 3);
+assert.deepEqual(homeNav.related.map((item) => item.href), ["/support/", "/privacy/", "/terms/"]);
+assert.equal(buildPageSpecsFromGraph(productTrustGraph).pages.length, 4);
+
+const schemaLinkGraph = defineTemplateGraph({
+  templates: [
+    definePageTemplate({
+      id: "custom.home",
+      domain: "core",
+      kind: "home",
+      title: "Custom home",
+      description: "Custom home page.",
+      linkSlots: [{ id: "help", relationship: "support", role: "semantic", cardinality: "optional_many" }],
+      schemaLinks: [{ kind: "SoftwareApplication", property: "softwareHelp", slotId: "help", relationship: "support", targetTemplateIds: ["custom.help"], cardinality: "one" }],
+      buildPage: (context) => ({
+        kind: "home",
+        slug: context.instance.slug,
+        title: context.instance.title,
+        description: context.instance.description,
+        h1: context.instance.title,
+        intro: context.instance.description,
+        sections: [{ id: "overview", kind: "markdown", title: "Overview", body: context.instance.description }],
+      }),
+      schema: (context) => [{
+        id: `${context.instance.id}:softwareapplication`,
+        kind: "SoftwareApplication",
+        data: { name: context.instance.title, url: context.instance.slug },
+      }],
+    }),
+    definePageTemplate({
+      id: "custom.help",
+      domain: "core",
+      kind: "docs_bridge",
+      title: "Custom help",
+      description: "Custom help page.",
+      buildPage: (context) => ({
+        kind: "docs_bridge",
+        slug: context.instance.slug,
+        title: context.instance.title,
+        description: context.instance.description,
+        h1: context.instance.title,
+        intro: context.instance.description,
+        sections: [{ id: "overview", kind: "markdown", title: "Overview", body: context.instance.description }],
+      }),
+    }),
+  ],
+  instances: [
+    definePageInstance({ id: "custom-home", templateId: "custom.home", slug: "/custom/", title: "Custom Home", description: "Custom home page.", data: {} }),
+    definePageInstance({ id: "custom-help", templateId: "custom.help", slug: "/custom/help/", title: "Custom Help", description: "Custom help page.", data: {} }),
+  ],
+  edges: [
+    defineEdge({ sourceId: "custom-home", targetId: "custom-help", relationship: "support", slotId: "help", order: 1 }),
+  ],
+});
+
+const schemaLinkMissingGraph = defineTemplateGraph({
+  ...schemaLinkGraph,
+  edges: [],
+});
 
 const missingRequiredChildGraph = defineTemplateGraph({
   templates: educationDomainBundle.templates,
@@ -292,6 +351,19 @@ covers("feat:lander.page-templates.navigation-derivation", () => {
   assert.equal(navigation.incoming["incoming:courses"][0].href, "/learn/");
 });
 
+covers("feat:lander.page-templates.schema-link-target-mapping", () => {
+  const homePage = buildPageSpecFromTemplate(productTrustGraph, productTrustGraph.instances[0]);
+  const softwareApplication = homePage.schema.find((item) => item.kind === "SoftwareApplication");
+  assert.deepEqual(softwareApplication.data.linkedPages.softwareHelp.map((item) => item.targetTemplateId), ["support.hub"]);
+  assert.deepEqual(softwareApplication.data.linkedPages.privacyPolicy.map((item) => item.targetTemplateId), ["trust.privacy"]);
+  assert.deepEqual(softwareApplication.data.linkedPages.termsOfService.map((item) => item.targetTemplateId), ["trust.terms"]);
+});
+
+covers("feat:lander.page-templates.schema-link-validation", () => {
+  assert.deepEqual(validateTemplateGraph(schemaLinkGraph).filter((item) => item.level === "error"), []);
+  assert.ok(validateTemplateGraph(schemaLinkMissingGraph).some((item) => item.code === "schemaLink.required.missing"));
+});
+
 covers("feat:lander.page-templates.core-types", () => {
   const page = buildPageSpecFromTemplate(educationGraph, educationGraph.instances[1]);
   assert.equal(page.slug, "/learn/course/");
@@ -381,6 +453,8 @@ assert.deepEqual([...coveredFeatures].sort(), [
   "feat:lander.page-templates.relationship-validation",
   "feat:lander.page-templates.required-child-validation",
   "feat:lander.page-templates.schema-defaults",
+  "feat:lander.page-templates.schema-link-target-mapping",
+  "feat:lander.page-templates.schema-link-validation",
   "feat:lander.page-templates.source-model",
   "feat:lander.page-templates.template-topology-types",
   "feat:lander.page-templates.terminal-template-validation",

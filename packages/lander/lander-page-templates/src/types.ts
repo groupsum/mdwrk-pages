@@ -83,6 +83,17 @@ export interface RelationshipRule {
   slotId?: string;
 }
 
+export interface SchemaTemplateLinkDefinition {
+  kind: SchemaSpec["kind"];
+  property: string;
+  targetTemplateIds: PageTemplateId[];
+  relationship?: TemplateRelationshipKind;
+  slotId?: string;
+  cardinality?: LinkSlotCardinality;
+  min?: number;
+  max?: number;
+}
+
 export interface TemplateRenderContext<TData extends Record<string, unknown> = Record<string, unknown>> {
   instance: PageInstance<TData>;
   template: PageTemplate<TData>;
@@ -100,6 +111,7 @@ export interface PageTemplate<TData extends Record<string, unknown> = Record<str
   linkSlots?: LinkSlotDefinition[];
   topology?: TemplateTopology;
   rules?: RelationshipRule[];
+  schemaLinks?: SchemaTemplateLinkDefinition[];
   buildPage: (context: TemplateRenderContext<TData>) => PageSpec;
   schema?: (context: TemplateRenderContext<TData>) => SchemaSpec[];
   componentIntents?: (context: TemplateRenderContext<TData>) => ComponentIntentSpec[];
