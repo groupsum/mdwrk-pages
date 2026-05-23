@@ -319,6 +319,32 @@ function DemoShell() {
             </div>
           </section>
 
+          <section className="demo-split" aria-label="Renderer split showcase">
+            <div className="demo-contract__intro">
+              <p className="demo-kicker">One experience, two renderer layers</p>
+              <h2>The customer-facing page and the behind-the-scenes search profile stay in sync.</h2>
+            </div>
+            <div className="demo-split__grid">
+              <article className="demo-split__card">
+                <span className="demo-split__eyebrow">Visible experience</span>
+                <strong>Pages, sections, navigation, and calls to action render through the visible page layer.</strong>
+                <p>
+                  The live page preview keeps the launch and editorial experiences polished for customers while the same
+                  content pack controls the page structure.
+                </p>
+                <code>@mdwrk/lander-react</code>
+              </article>
+              <article className="demo-split__card">
+                <span className="demo-split__eyebrow">Search profile</span>
+                <strong>Structured data stays connected to support, trust, and product destinations without app-local schema wiring.</strong>
+                <p>
+                  Search engines and assistant surfaces can follow the same linked destinations that customers see on the page.
+                </p>
+                <code>@mdwrk/lander-react-structured-data</code>
+              </article>
+            </div>
+          </section>
+
           <section className="demo-schema" aria-label="Structured data page links">
             <div className="demo-contract__intro">
               <p className="demo-kicker">Search and assistant readiness</p>

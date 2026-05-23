@@ -2,7 +2,8 @@ FROM node:20.19-alpine AS build
 
 WORKDIR /workspace
 COPY . .
-RUN npm install --ignore-scripts
+RUN npm install --ignore-scripts --include=optional
+RUN npm install --ignore-scripts --include=optional -w @mdwrk/example-page-template-demo
 RUN npm run build:packages
 RUN npm run build -w @mdwrk/example-page-template-demo
 
