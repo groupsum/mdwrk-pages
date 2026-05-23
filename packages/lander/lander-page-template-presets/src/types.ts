@@ -1,12 +1,28 @@
-import type { DomainTemplateData, RelationshipRole, TemplateGraph, TemplateBundle, PageInstance, TemplateEdge, TemplateRelationshipKind } from "@mdwrk/lander-page-templates";
+import type {
+  DomainTemplateData,
+  RelationshipRole,
+  TemplateGraph,
+  TemplateBundle,
+  PageInstance,
+  TemplateEdge,
+  TemplateRelationshipKind,
+  TemplateDomain,
+} from "@mdwrk/lander-page-templates";
+
+export interface PresetNamedPages {
+  entryPageKey?: string;
+  pageIdsByKey: Record<string, string>;
+  pageKeysById: Record<string, string>;
+}
 
 export interface PageTemplatePreset {
   id: string;
   title: string;
   description: string;
-  domain: string;
+  domain: TemplateDomain;
   graph: TemplateGraph;
   bundles: TemplateBundle[];
+  namedPages: PresetNamedPages;
 }
 
 export interface PresetOptions {
@@ -52,6 +68,7 @@ export interface BuildPresetGraphInput {
   bundles: TemplateBundle[];
   pages: Record<string, PresetPageSeed>;
   links?: PresetLinkMap;
+  entryPageKey?: string;
 }
 
 export function normalizePresetBaseSlug(value = "/"): string {

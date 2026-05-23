@@ -15,4 +15,4 @@ for (const page of pageTemplateDemoContentPack.pages) {
 console.log(getPageTemplateDemoHomeNavigation().related);
 ```
 
-The package builds a product-site preset with authored content overrides, compiles the graph to `PageSpec` objects, and exposes helper functions for page lookup, home navigation, and home link slots.
+The package builds a product-site preset with authored content overrides, resolves the preset entry page from the preset's named page manifest, compiles the graph to `PageSpec` objects, and exposes helper functions for page lookup, home navigation, and home link slots.

@@ -10,6 +10,7 @@ export function createFaqHubPreset(options: PresetOptions = {}): PageTemplatePre
     title: "FAQ hub preset",
     description: "FAQ hub with ordered Q&A detail pages.",
     domain: "support",
+    entryPageKey: "hub",
     bundles: [supportDomainBundle],
     pages: mergePresetPages({
       hub: { id: "support:hub", templateId: "support.hub", slug: presetSlug(options.baseSlug, "support"), title, description: options.description ?? "FAQ and support hub.", summary: "Find common answers and support articles." },

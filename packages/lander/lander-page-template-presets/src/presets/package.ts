@@ -9,6 +9,7 @@ export function createPackageCatalogPreset(options: PresetOptions = {}): PageTem
     title: "Package catalog preset",
     description: "Package catalog with detail and API pages.",
     domain: "package",
+    entryPageKey: "catalog",
     bundles: [packageDomainBundle],
     pages: mergePresetPages({
       catalog: { id: "package:catalog", templateId: "package.catalog", slug: presetSlug(options.baseSlug, "packages"), title: options.title ?? "Packages", description: options.description ?? "Package catalog.", summary: "Browse packages and integrations." },

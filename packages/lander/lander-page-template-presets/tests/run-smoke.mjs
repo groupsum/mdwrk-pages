@@ -29,6 +29,9 @@ const {
   createProductSitePreset,
   createTrustCenterPreset,
   buildPresetGraphFromMaps,
+  getPresetEntryPageId,
+  getPresetPageId,
+  getPresetPageKey,
 } = await import(`file:///${path.join(smokeRoot, "index.js").replace(/\\/g, "/")}`);
 
 fs.rmSync(smokeRoot, { recursive: true, force: true });
@@ -123,6 +126,10 @@ covers("feat:lander.page-template-presets.types", () => {
   assert.equal(product.id, "preset.product-site");
   assert.ok(Array.isArray(product.bundles));
   assert.ok(product.graph.instances.every((item) => item.id && item.templateId && item.slug));
+  assert.equal(product.domain, "product");
+  assert.equal(product.namedPages.entryPageKey, "home");
+  assert.equal(product.namedPages.pageIdsByKey.home, "product:home");
+  assert.equal(product.namedPages.pageKeysById["product:home"], "home");
 });
 
 covers("feat:lander.page-template-presets.authored-page-content", () => {
@@ -145,6 +152,12 @@ covers("feat:lander.page-template-presets.named-link-map", () => {
       .map((item) => item.targetId),
     ["product:feature", "product:feature-two"],
   );
+});
+
+covers("feat:lander.page-template-presets.named-page-manifest", () => {
+  assert.equal(getPresetEntryPageId(product), "product:home");
+  assert.equal(getPresetPageId(product, "pricing"), "product:pricing");
+  assert.equal(getPresetPageKey(product, "product:pricing"), "pricing");
 });
 
 covers("feat:lander.page-template-presets.authored-graph-builder", () => {
@@ -188,6 +201,7 @@ assert.deepEqual([...coveredFeatures].sort(), [
   "feat:lander.page-template-presets.authored-page-content",
   "feat:lander.page-template-presets.authoring-topology-smoke-tests",
   "feat:lander.page-template-presets.named-link-map",
+  "feat:lander.page-template-presets.named-page-manifest",
   "feat:lander.page-template-presets.named-page-map",
   "feat:lander.page-template-presets.types",
 ]);

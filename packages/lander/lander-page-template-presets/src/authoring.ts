@@ -1,4 +1,13 @@
-import type { PageTemplatePreset, BuildPresetGraphInput, PresetLinkTarget, PresetLinkValue, PresetOptions, PresetPageContent, PresetPageSeed } from "./types.js";
+import type {
+  PageTemplatePreset,
+  BuildPresetGraphInput,
+  PresetLinkTarget,
+  PresetLinkValue,
+  PresetOptions,
+  PresetPageContent,
+  PresetPageSeed,
+  PresetNamedPages,
+} from "./types.js";
 import { edge, seedInstance } from "./types.js";
 
 function mergePageSeed(defaultSeed: PresetPageSeed, override?: PresetPageContent): PresetPageSeed {
@@ -101,13 +110,42 @@ export function buildPresetGraphFromMaps(input: BuildPresetGraphInput) {
   };
 }
 
-export function buildPresetFromMaps(input: Omit<PageTemplatePreset, "graph"> & BuildPresetGraphInput): PageTemplatePreset {
+function namedPagesFromSeeds(input: BuildPresetGraphInput): PresetNamedPages {
+  const pageIdsByKey = Object.fromEntries(
+    Object.entries(input.pages).map(([key, seed]) => [key, seed.id]),
+  );
+  const pageKeysById = Object.fromEntries(
+    Object.entries(input.pages).map(([key, seed]) => [seed.id, key]),
+  );
+  return {
+    entryPageKey: input.entryPageKey,
+    pageIdsByKey,
+    pageKeysById,
+  };
+}
+
+export function buildPresetFromMaps(input: Omit<PageTemplatePreset, "graph" | "namedPages"> & BuildPresetGraphInput): PageTemplatePreset {
   return {
     id: input.id,
     title: input.title,
     description: input.description,
     domain: input.domain,
     bundles: input.bundles,
+    namedPages: namedPagesFromSeeds(input),
     graph: buildPresetGraphFromMaps(input),
   };
+}
+
+export function getPresetPageId(preset: PageTemplatePreset, key: string): string | undefined {
+  return preset.namedPages.pageIdsByKey[key];
+}
+
+export function getPresetPageKey(preset: PageTemplatePreset, pageId: string): string | undefined {
+  return preset.namedPages.pageKeysById[pageId];
+}
+
+export function getPresetEntryPageId(preset: PageTemplatePreset): string | undefined {
+  const entryPageKey = preset.namedPages.entryPageKey;
+  if (!entryPageKey) return undefined;
+  return getPresetPageId(preset, entryPageKey);
 }

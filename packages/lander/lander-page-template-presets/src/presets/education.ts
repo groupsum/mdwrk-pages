@@ -10,6 +10,7 @@ export function createEducationPathPreset(options: PresetOptions = {}): PageTemp
     title: "Education path preset",
     description: "Learning path with course, module, and quiz links.",
     domain: "education",
+    entryPageKey: "path",
     bundles: [educationDomainBundle],
     pages: mergePresetPages({
       path: { id: "education:path", templateId: "education.learning-path", slug: presetSlug(options.baseSlug, "learn"), title, description: options.description ?? "Guided learning path.", summary: "Start here and follow the course sequence." },

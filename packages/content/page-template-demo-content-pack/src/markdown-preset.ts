@@ -78,6 +78,7 @@ export function createPageTemplateDemoMarkdownPreset(files: readonly MarkdownPag
     title: "Markdown product site preset",
     description: "Product-site preset generated from Markdown page files.",
     domain: "product",
+    entryPageKey: "home",
     bundles: [productDomainBundle, trustDomainBundle],
     pages,
     links,

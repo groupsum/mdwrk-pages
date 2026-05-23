@@ -11,6 +11,7 @@ export function createProductSitePreset(options: PresetOptions = {}): PageTempla
     title: "Product site preset",
     description,
     domain: "product",
+    entryPageKey: "home",
     bundles: [productDomainBundle, supportDomainBundle, trustDomainBundle],
     pages: mergePresetPages({
       home: { id: "product:home", templateId: "product.home", slug: presetSlug(options.baseSlug), title, description, summary: "Introduce the product, core offer, and primary paths." },

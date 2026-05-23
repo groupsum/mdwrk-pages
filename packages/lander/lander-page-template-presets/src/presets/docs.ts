@@ -9,6 +9,7 @@ export function createDocsHubPreset(options: PresetOptions = {}): PageTemplatePr
     title: "Docs hub preset",
     description: "Documentation hub with ordered guide and tutorial pages.",
     domain: "docs",
+    entryPageKey: "hub",
     bundles: [docsDomainBundle],
     pages: mergePresetPages({
       hub: { id: "docs:hub", templateId: "docs.hub", slug: presetSlug(options.baseSlug, "docs"), title: options.title ?? "Docs", description: options.description ?? "Documentation hub.", summary: "Browse guides, tutorials, and references." },

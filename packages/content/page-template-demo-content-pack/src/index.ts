@@ -1,5 +1,5 @@
 import type { PageSpec } from "@mdwrk/lander-content-contract";
-import { createProductSitePreset } from "@mdwrk/lander-page-template-presets";
+import { createProductSitePreset, getPresetEntryPageId } from "@mdwrk/lander-page-template-presets";
 import {
   buildPageSpecsFromGraph,
   compilePageTemplateGraph,
@@ -81,6 +81,8 @@ export const pageTemplateDemoPreset = createProductSitePreset({
   },
 });
 
+const homePageId = getPresetEntryPageId(pageTemplateDemoPreset) ?? "product:home";
+
 const compiled = buildPageSpecsFromGraph(pageTemplateDemoPreset.graph);
 
 export { pageTemplateDemoMarkdownFiles };
@@ -123,9 +125,9 @@ export function getPageTemplateDemoPage(slug: string): PageSpec | undefined {
 }
 
 export function getPageTemplateDemoHomeNavigation() {
-  return deriveTemplateNavigation(pageTemplateDemoPreset.graph, "product:home");
+  return deriveTemplateNavigation(pageTemplateDemoPreset.graph, homePageId);
 }
 
 export function getPageTemplateDemoHomeLinks() {
-  return resolveLinkSlots(pageTemplateDemoPreset.graph, "product:home");
+  return resolveLinkSlots(pageTemplateDemoPreset.graph, homePageId);
 }

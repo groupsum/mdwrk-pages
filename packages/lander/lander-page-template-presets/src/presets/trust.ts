@@ -9,6 +9,7 @@ export function createTrustCenterPreset(options: PresetOptions = {}): PageTempla
     title: "Trust center preset",
     description: "Trust hub with legal and security pages.",
     domain: "trust",
+    entryPageKey: "hub",
     bundles: [trustDomainBundle],
     pages: mergePresetPages({
       hub: { id: "trust:hub", templateId: "trust.hub", slug: presetSlug(options.baseSlug, "trust"), title: options.title ?? "Trust Center", description: options.description ?? "Trust and policy hub.", summary: "Review trust, privacy, security, and terms." },
