@@ -35,6 +35,22 @@ export function Page({ site, page }) {
 }
 ```
 
+For split-package consumers that want visible rendering without deprecated structured-data delegates:
+
+```tsx
+import { VisibleLanderPage } from "@mdwrk/lander-react";
+import { LanderStructuredData } from "@mdwrk/lander-react-structured-data";
+
+export function Page({ site, page }) {
+  return (
+    <>
+      <LanderStructuredData site={site} page={page} />
+      <VisibleLanderPage page={page} />
+    </>
+  );
+}
+```
+
 ## Structured Data
 Use [@mdwrk/lander-react-structured-data](../lander-react-structured-data/README.md) for type-specific JSON-LD React wrappers and schema-intent rendering.
 

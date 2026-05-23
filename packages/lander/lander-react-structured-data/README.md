@@ -36,6 +36,16 @@ export function LanderStructuredData({ site, page }) {
 }
 ```
 
+Or consume the package at the page level without app-local schema-type selection:
+
+```tsx
+import { LanderStructuredData } from "@mdwrk/lander-react-structured-data";
+
+export function PageStructuredData({ site, page }) {
+  return <LanderStructuredData site={site} page={page} />;
+}
+```
+
 ## Related
 - [Packages index](../../README.md) - family and package navigation
 - [lander-react](../lander-react/README.md) - visible UI renderer

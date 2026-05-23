@@ -520,11 +520,9 @@ export function PageShell({ children }: { children: React.ReactNode }) {
   return <article className="lander-page">{children}</article>;
 }
 
-export function LanderPage({ site, page }: { site: CompiledLanderSite; page: CompiledPage }) {
-  const graph = buildLanderJsonLdGraph(site, page);
+export function VisibleLanderPage({ page }: { page: CompiledPage }) {
   return (
     <PageShell>
-      <JsonLd graph={graph} />
       <div className="lander-page__inner">
         <Breadcrumbs page={page} />
         {page.sections[0]?.kind !== "hero" ? (
@@ -541,6 +539,16 @@ export function LanderPage({ site, page }: { site: CompiledLanderSite; page: Com
       ))}
       {page.faq?.length ? <FaqBlock items={page.faq} /> : null}
     </PageShell>
+  );
+}
+
+export function LanderPage({ site, page }: { site: CompiledLanderSite; page: CompiledPage }) {
+  const graph = buildLanderJsonLdGraph(site, page);
+  return (
+    <>
+      <JsonLd graph={graph} />
+      <VisibleLanderPage page={page} />
+    </>
   );
 }
 

@@ -8,6 +8,7 @@ export default defineConfig({
       "@mdwrk/lander-page-template-presets": "../../packages/lander/lander-page-template-presets/dist/index.js",
       "@mdwrk/lander-page-templates": "../../packages/lander/lander-page-templates/dist/index.js",
       "@mdwrk/lander-react": "../../packages/lander/lander-react/dist/index.js",
+      "@mdwrk/lander-react-structured-data": "../../packages/lander/lander-react-structured-data/dist/index.js",
       "@mdwrk/page-template-demo-content-pack": "../../packages/content/page-template-demo-content-pack/dist/index.js",
       "@mdwrk/structured-data": "../../packages/shared/structured-data/dist/index.js",
     },

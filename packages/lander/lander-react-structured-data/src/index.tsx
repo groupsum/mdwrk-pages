@@ -90,6 +90,10 @@ export function JsonLd({ graph }: { graph: unknown }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }} />;
 }
 
+export function LanderStructuredData({ site, page }: { site: CompiledLanderSite; page: CompiledPage }) {
+  return <JsonLd graph={buildLanderJsonLdGraph(site, page)} />;
+}
+
 function StructuredDataNode<T>({ data, build }: { data: T; build: (data: T) => JsonLd }) {
   return <JsonLd graph={build(data)} />;
 }

@@ -25,8 +25,10 @@ test("T0: structured-data package owns the registry surface", async () => {
   assert.equal(typeof mod.getStructuredDataIntentRendererEntry, "function");
 });
 
-test("T0: visible lander-react no longer owns the intent registry surface", () => {
-  assert.equal(landerReactDistIndex.includes("landerStructuredDataIntentRegistry"), false);
-  assert.equal(landerReactDistIndex.includes("renderStructuredDataIntent"), false);
-  assert.equal(landerReactDistIndex.includes("SUPPORTED_LANDER_STRUCTURED_DATA_INTENT_KINDS"), false);
+test("T0: visible lander-react only exposes deprecated compatibility delegates for the intent registry surface", () => {
+  assert.equal(landerReactDistIndex.includes('"@mdwrk/structured-data"'), false);
+  assert.equal(landerReactDistIndex.includes("structuredDataReact.landerStructuredDataIntentRegistry"), true);
+  assert.equal(landerReactDistIndex.includes("structuredDataReact.renderStructuredDataIntent"), true);
+  assert.equal(landerReactDistIndex.includes("structuredDataReact.SUPPORTED_LANDER_STRUCTURED_DATA_INTENT_KINDS"), true);
+  assert.equal(landerReactDistIndex.includes("deprecated from @mdwrk/lander-react"), true);
 });
