@@ -345,10 +345,18 @@ export const landerStructuredDataIntentRegistry = Object.freeze({
   WebSite: { componentName: "WebSiteStructuredData", render: (intent) => renderDataIntent(WebSiteStructuredData, intent) },
 } satisfies Record<string, StructuredDataIntentRendererEntry>);
 
+export const SUPPORTED_LANDER_STRUCTURED_DATA_INTENT_KINDS = Object.freeze(
+  Object.keys(landerStructuredDataIntentRegistry),
+);
+
+export function getStructuredDataIntentRendererEntry(kind: string): StructuredDataIntentRendererEntry {
+  const entry = landerStructuredDataIntentRegistry[kind];
+  if (!entry) throw new Error(`Unsupported structured data intent kind: ${kind}`);
+  return entry;
+}
+
 export function renderStructuredDataIntent(intent: CompiledStructuredDataIntent): React.ReactElement {
-  const entry = landerStructuredDataIntentRegistry[intent.kind];
-  if (!entry) throw new Error(`Unsupported structured data intent kind: ${intent.kind}`);
-  return entry.render(intent);
+  return getStructuredDataIntentRendererEntry(intent.kind).render(intent);
 }
 
 function schemaData(page: CompiledPage, kind: string): Record<string, unknown> {

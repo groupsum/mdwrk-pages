@@ -18,6 +18,7 @@ Use it when you want typed Schema.org emission on top of compiled lander pages w
 - Type-specific React JSON-LD wrapper components.
 - Compiled structured-data intent registry and renderer.
 - Portable JSON-LD graph generation for compiled lander pages.
+- Explicit supported-intent lookup helpers for fail-closed registry use.
 
 ## Installation
 Node.js 20.x through 22.x, matching the workspace engine contract in the root package manifest.

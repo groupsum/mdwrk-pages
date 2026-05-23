@@ -37,7 +37,7 @@
     "build": "npm run build -w @mdwrk/structured-data && npm run build -w @mdwrk/lander-core && tsc -p tsconfig.json",
     "typecheck": "npm run build -w @mdwrk/structured-data && npm run build -w @mdwrk/lander-core && tsc --noEmit -p tsconfig.json",
     "lint": "npm run typecheck",
-    "test": "npm run build && node tests/run-smoke.mjs",
+    "test": "npm run build && node --test tests/intent-registry-t0.test.mjs tests/intent-registry-t1.test.mjs tests/intent-registry-t2.test.mjs && node tests/run-smoke.mjs",
     "prepack": "npm run build"
   },
   "exports": {
