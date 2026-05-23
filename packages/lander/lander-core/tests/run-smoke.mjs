@@ -21,9 +21,6 @@ const {
   defineSyntaxHighlightingRouteGate,
   headersForCacheResource,
   validateLanderPerformanceBudget,
-  buildLlmsTxt,
-  buildRobotsTxt,
-  buildSitemap,
   compileLanderSite,
   defineCriticalCssProfile,
   renderCriticalCssStyle,
@@ -63,9 +60,6 @@ assert.ok(site.pageByPath.get('/')?.componentIntents.some((intent) => intent.kin
 assert.ok(site.pageByPath.get('/')?.componentIntents.some((intent) => intent.kind === 'structured_data_graph' && intent.source === 'schema'));
 assert.deepEqual(site.pageByPath.get('/')?.schemaIntents.map((intent) => intent.kind), ['WebPage', 'SoftwareApplication']);
 assert.equal(site.pageByPath.get('/')?.schemaIntents[0].id, '/#schema-1-webpage');
-assert.equal(buildSitemap(site)[0].loc, 'https://example.test/');
-assert.match(buildLlmsTxt(site), /# Example/);
-assert.match(buildRobotsTxt(site), /OAI-SearchBot/);
 
 const manifest = buildCacheHeaderManifest([
   { path: '/assets/static.abcdef123456.css', content: 'body{}', contentType: 'text/css' },

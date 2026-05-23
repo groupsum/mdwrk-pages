@@ -20,15 +20,19 @@ status_notes:
     status: "draft"
     note: "Clarified that lander-seo is the authoritative discovery artifact owner and lander-core is limited to compiled-site semantics."
     at: "2026-05-21T04:35:52Z"
+  -
+    status: "draft"
+    note: "Moved basic sitemap robots and llms builders fully under lander-seo instead of leaving them in lander-core."
+    at: "2026-05-22T23:25:00Z"
 references: []
 body: |-
   ## Decision
   
-  `@mdwrk/lander-seo` shall be the authoritative reusable owner for portable lander discovery artifact generation and validation.
+  `@mdwrk/lander-seo` shall be the authoritative reusable owner for portable lander discovery artifact generation and validation, including the basic `sitemap`, `robots`, and `llms.txt` builders consumed by richer discovery bundles.
   
   The package shall provide product-neutral builders for sitemap indexes, child sitemap URL sets, robots policy, short and full LLM discovery files, content index JSON, semantic index JSON, content registry JSON, JSON-LD graph artifacts, cache header manifest inputs, and diagnostics. Product sites such as `apps/mdwrkcom` may host or invoke those builders, but they shall not remain the long-term owner of generic discovery artifact algorithms.
   
-  `@mdwrk/lander-core` shall compile pages, route semantics, normalized slugs, canonical URLs, page text, and diagnostics. It shall not be the authoritative long-term home for discovery artifact generation. If compatibility helpers remain in `@mdwrk/lander-core` during migration, they are transitional shims and must not redefine ownership.
+  `@mdwrk/lander-core` shall compile pages, route semantics, normalized slugs, canonical URLs, page text, and diagnostics. It shall not own discovery artifact generation, including basic `sitemap`, `robots`, and `llms.txt` builders. Compatibility helpers shall be removed rather than retained indefinitely as transitional shims.
   
   The public root `/sitemap.xml` shall be a sitemap index, not a page URL set. It shall contain only child sitemap locations. Page URLs shall live in child URL-set documents under a deterministic sitemap base path such as `/sitemaps/*.xml`.
   

@@ -9,7 +9,7 @@
   <a href="../../../LICENSE"><img alt="License: Apache-2.0" src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" /></a>
 </p>
 
-This package provides metadata assembly, page scoring, AI summary helpers, and re-exports for sitemap, robots, and llms.txt generation.
+This package provides metadata assembly, page scoring, AI summary helpers, basic sitemap/robots/llms builders, and the fuller discovery artifact pipeline.
 
 ## Why
 Use it when you want lander SEO and AI-discovery helpers above the raw compiler output.
@@ -17,7 +17,7 @@ Use it when you want lander SEO and AI-discovery helpers above the raw compiler 
 ## What
 - Page metadata builders.
 - SEO scoring and diagnostics.
-- AI summary helpers plus re-exports for crawl/discovery files.
+- Basic sitemap, robots.txt, and llms.txt builders plus the richer crawl/discovery artifact pipeline.
 
 ## Installation
 Node.js 20.x through 22.x, matching the workspace engine contract in the root package manifest.

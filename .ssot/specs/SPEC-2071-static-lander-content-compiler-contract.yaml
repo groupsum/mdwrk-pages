@@ -36,6 +36,10 @@ status_notes:
     status: "accepted"
     note: "Narrowed the contract to compiled-site and route semantics and removed discovery-artifact ownership from lander-core."
     at: "2026-05-21T04:35:52Z"
+  -
+    status: "accepted"
+    note: "Clarified that even basic sitemap robots and llms builders are out of scope for lander-core and belong to lander-seo."
+    at: "2026-05-22T23:25:00Z"
 references: []
 body: |-
   # Static Lander Compiled Site and Route Contract
@@ -61,14 +65,14 @@ body: |-
   13. The compiler shall compile schema intent into a portable non-React representation consumable by `@mdwrk/structured-data`, `@mdwrk/lander-react`, and `@mdwrk/lander-seo`.
   14. The compiler shall not own breadcrumb UI rendering.
   15. The compiler shall not own breadcrumb structured-data rendering.
-  16. The compiler shall not be the authoritative long-term owner of sitemap, robots, `llms.txt`, `llms-full.txt`, content index, semantic index, content registry, or JSON-LD discovery bundle generation.
+  16. The compiler shall not own `sitemap`, `robots`, `llms.txt`, `llms-full.txt`, content index, semantic index, content registry, or JSON-LD discovery bundle generation.
   17. Compiler diagnostics shall identify content-pack path, page ID, component intent ID, schema intent ID, and validation reason where available.
   18. Unsupported component or schema intent shall fail closed unless explicitly marked out of bounds in SSOT.
   19. The compiler shall keep package boundaries clear: content contract validates, lander-core compiles compiled-site semantics, structured-data builds schema primitives, lander-react renders React surfaces, lander-seo emits discovery artifacts, and product hosts host the result.
   
   ## Acceptance
   
-  Package and workspace tests for `@mdwrk/lander-core` must prove content-contract validation, compiled render-model determinism, route normalization, canonical derivation, locale route semantics, internal-link extraction, page-text extraction, schema-intent compilation, and breadcrumb-route semantics export.
+  Package and workspace tests for `@mdwrk/lander-core` must prove content-contract validation, compiled render-model determinism, route normalization, canonical derivation, locale route semantics, internal-link extraction, page-text extraction, schema-intent compilation, breadcrumb-route semantics export, and fail-closed absence of discovery-builder ownership from the public core surface.
   
   Feature and test rows for core render-model compilation, route semantics, canonical derivation, locale-aware route normalization, breadcrumb-route semantics export, schema-intent compilation, and content-pack validation must link to this SPEC.
 spec_kind: "normative"

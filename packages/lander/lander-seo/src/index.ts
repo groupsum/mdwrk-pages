@@ -1,16 +1,13 @@
 import {
   buildCacheHeaderManifest,
-  buildLlmsTxt,
-  buildRobotsTxt,
-  buildSitemap,
   normalizeRouteSlug,
   pageText,
 } from "@mdwrk/lander-core";
-import type { CompiledLanderSite, CompiledPage } from "@mdwrk/lander-core";
+import type { CompiledLanderSite, CompiledPage, SitemapEntry } from "@mdwrk/lander-core";
 import type { LanderCacheHeaderManifest, LanderCacheResourceInput } from "@mdwrk/lander-core";
 import { LANDER_SEO_VERSION } from "./version.js";
 
-export { LANDER_SEO_VERSION, buildLlmsTxt, buildRobotsTxt, buildSitemap };
+export { LANDER_SEO_VERSION };
 
 export interface PageMetadata {
   title: string;
@@ -208,6 +205,37 @@ const sitemapBasePath = (options: DiscoveryArtifactOptions): string => {
 
 function sortedPages(site: CompiledLanderSite): CompiledPage[] {
   return [...site.pages].sort((left, right) => left.path.localeCompare(right.path));
+}
+
+export function buildSitemap(site: CompiledLanderSite): SitemapEntry[] {
+  return sortedPages(site)
+    .filter((page) => page.seo?.noindex !== true)
+    .map((page) => ({ loc: page.canonicalUrl }));
+}
+
+export function buildLlmsTxt(site: CompiledLanderSite): string {
+  const title = site.ai?.llmsTxtTitle ?? site.product.name;
+  const facts = site.ai?.coreFacts?.map((fact) => `- ${fact}`) ?? [`- ${site.product.description}`];
+  const pages = sortedPages(site)
+    .filter((page) => page.seo?.noindex !== true)
+    .map((page) => `- [${page.h1}](${page.canonicalUrl}) - ${page.description}`);
+  return [`# ${title}`, "", ...facts, "", "## Pages", ...pages, ""].join("\n");
+}
+
+export function buildRobotsTxt(site: CompiledLanderSite): string {
+  return [
+    "User-agent: *",
+    "Allow: /",
+    "",
+    "User-agent: OAI-SearchBot",
+    "Allow: /",
+    "",
+    "User-agent: GPTBot",
+    "Disallow: /",
+    "",
+    `Sitemap: ${site.product.canonicalUrl.replace(/\/+$/, "")}/sitemap.xml`,
+    "",
+  ].join("\n");
 }
 
 export function buildSitemapXml(site: CompiledLanderSite, options: DiscoveryArtifactOptions = {}): string {

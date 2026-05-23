@@ -26,10 +26,13 @@ const {
   buildContentIndex,
   buildContentRegistry,
   buildDiscoveryArtifacts,
+  buildLlmsTxt,
   buildJsonLdGraphArtifact,
   buildLlmsFullTxt,
   buildPageMetadata,
+  buildRobotsTxt,
   buildSemanticIndex,
+  buildSitemap,
   buildSitemapFileSet,
   buildSitemapStylesheet,
   buildSitemapXml,
@@ -53,6 +56,9 @@ const site = compileLanderSite({
 assert.equal(buildPageMetadata(site, site.pages[0]).alternates.canonical, 'https://example.test/');
 assert.equal(scoreSeoPage(site.pages[0]).canonical, 1);
 assert.match(buildAiSummary(site), /Example Facts/);
+assert.equal(buildSitemap(site)[0].loc, 'https://example.test/');
+assert.match(buildLlmsTxt(site), /# Example/);
+assert.match(buildRobotsTxt(site), /OAI-SearchBot/);
 
 const options = {
   generatedAt: '2026-05-13T12:00:00.000Z',

@@ -16,8 +16,8 @@ The lander stack is intentionally modular. This index separates content contract
 
 ## What
 - `@mdwrk/lander-content-contract` for site, page, section, and schema shapes.
-- `@mdwrk/lander-core` for compile, validation, sitemap, robots, and llms.txt generation.
-- `@mdwrk/lander-seo` for metadata and scoring helpers.
+- `@mdwrk/lander-core` for compile, validation, route semantics, canonical URLs, and page-text inputs.
+- `@mdwrk/lander-seo` for sitemap, robots, llms, metadata, scoring, and discovery artifacts.
 - `@mdwrk/lander-theme` for default styles and tokens.
 - `@mdwrk/lander-react` for UI components and JSON-LD output.
 - `@mdwrk/lander-markdown-content-adapter` for frontmatter-driven markdown ingestion.

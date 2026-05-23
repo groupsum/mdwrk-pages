@@ -8,7 +8,6 @@ import type {
   CompiledPage,
   CompiledStructuredDataIntent,
   LanderDiagnostic,
-  SitemapEntry,
 } from "./types.js";
 
 export { LANDER_CORE_VERSION };
@@ -34,11 +33,11 @@ export function canonicalForSlug(productUrl: string, slug: string): string {
 
 export function extractInternalLinks(value: string): string[] {
   const links = new Set<string>();
-  const markdownLinks = String(value ?? "").matchAll(/\[[^\]]+]\((\/[^)\s]+)\)/g);
+  const markdownLinks = String(value ?? "").matchAll(/\[[^\]]+]\((\/[^)\s]*)\)/g);
   for (const match of markdownLinks) {
     links.add(normalizeRouteSlug(match[1] ?? "/"));
   }
-  const hrefLinks = String(value ?? "").matchAll(/\bhref=["'](\/[^"']+)["']/g);
+  const hrefLinks = String(value ?? "").matchAll(/\bhref=["'](\/[^"']*)["']/g);
   for (const match of hrefLinks) {
     links.add(normalizeRouteSlug(match[1] ?? "/"));
   }
@@ -221,37 +220,6 @@ export function compileLanderSite(input: LanderSite): CompiledLanderSite {
     pageByPath: new Map(pages.map((page) => [page.path, page])),
     diagnostics,
   };
-}
-
-export function buildSitemap(site: CompiledLanderSite): SitemapEntry[] {
-  return site.pages
-    .filter((page) => page.seo?.noindex !== true)
-    .map((page) => ({ loc: page.canonicalUrl }));
-}
-
-export function buildLlmsTxt(site: CompiledLanderSite): string {
-  const title = site.ai?.llmsTxtTitle ?? site.product.name;
-  const facts = site.ai?.coreFacts?.map((fact) => `- ${fact}`) ?? [`- ${site.product.description}`];
-  const pages = site.pages
-    .filter((page) => page.seo?.noindex !== true)
-    .map((page) => `- [${page.h1}](${page.canonicalUrl}) - ${page.description}`);
-  return [`# ${title}`, "", ...facts, "", "## Pages", ...pages, ""].join("\n");
-}
-
-export function buildRobotsTxt(site: CompiledLanderSite): string {
-  return [
-    "User-agent: *",
-    "Allow: /",
-    "",
-    "User-agent: OAI-SearchBot",
-    "Allow: /",
-    "",
-    "User-agent: GPTBot",
-    "Disallow: /",
-    "",
-    `Sitemap: ${site.product.canonicalUrl.replace(/\/+$/, "")}/sitemap.xml`,
-    "",
-  ].join("\n");
 }
 
 function assertNever(value: never): never {

@@ -9,7 +9,7 @@
   <a href="../../../LICENSE"><img alt="License: Apache-2.0" src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" /></a>
 </p>
 
-This package compiles lander content, validates it, derives breadcrumbs and internal links, and generates sitemap, robots, and llms.txt outputs.
+This package compiles lander content, validates it, and derives route, breadcrumb, internal-link, and diagnostic semantics for downstream render and discovery packages.
 
 ## Why
 Use it when you need the compile-time logic behind a product lander without committing to a UI layer yet.
@@ -17,7 +17,7 @@ Use it when you need the compile-time logic behind a product lander without comm
 ## What
 - Site definition helpers and validation.
 - Compiled page metadata such as breadcrumbs, internal links, and word counts.
-- Sitemap, robots.txt, and llms.txt generation.
+- Canonical route and page-text inputs consumed by discovery and rendering packages.
 
 ## Installation
 Node.js 20.x through 22.x, matching the workspace engine contract in the root package manifest.
