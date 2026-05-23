@@ -38,6 +38,8 @@ export function Page({ site, page }) {
 ## Structured Data
 Use [@mdwrk/lander-react-structured-data](../lander-react-structured-data/README.md) for type-specific JSON-LD React wrappers and schema-intent rendering.
 
+`@mdwrk/lander-react` still provides temporary deprecated compatibility re-exports for structured-data wrappers while downstream consumers migrate. New code should import those surfaces directly from `@mdwrk/lander-react-structured-data`.
+
 ## Related
 - [Packages index](../../README.md) - family and package navigation
 - [Root README](../../../README.md) - repo overview

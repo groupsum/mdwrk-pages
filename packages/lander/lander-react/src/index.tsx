@@ -12,10 +12,241 @@ import type {
   SectionSpec,
 } from "@mdwrk/lander-content-contract";
 import type { CompiledLanderSite, CompiledPage } from "@mdwrk/lander-core";
-import { buildLanderJsonLdGraph, JsonLd } from "@mdwrk/lander-react-structured-data";
+import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import { LANDER_REACT_VERSION } from "./version.js";
 
 export { LANDER_REACT_VERSION };
+export const LANDER_REACT_STRUCTURED_DATA_REEXPORTS_DEPRECATED = true;
+
+const warnedStructuredDataCompatExports = new Set<string>();
+
+function warnDeprecatedStructuredDataReexport(name: string) {
+  if (warnedStructuredDataCompatExports.has(name)) return;
+  warnedStructuredDataCompatExports.add(name);
+  if (typeof console === "undefined" || typeof console.warn !== "function") return;
+  console.warn(
+    `[mdwrk] ${name} is deprecated from @mdwrk/lander-react; import it from @mdwrk/lander-react-structured-data instead.`,
+  );
+}
+
+function deprecatedStructuredDataComponent<TProps>(
+  name: string,
+  Component: React.ComponentType<TProps>,
+): React.FC<TProps> {
+  const DeprecatedStructuredDataComponent = (props: TProps) => {
+    warnDeprecatedStructuredDataReexport(name);
+    return <Component {...props} />;
+  };
+  DeprecatedStructuredDataComponent.displayName = `Deprecated${name}`;
+  return DeprecatedStructuredDataComponent;
+}
+
+function deprecatedStructuredDataFunction<TArgs extends unknown[], TResult>(
+  name: string,
+  fn: (...args: TArgs) => TResult,
+): (...args: TArgs) => TResult {
+  return (...args: TArgs) => {
+    warnDeprecatedStructuredDataReexport(name);
+    return fn(...args);
+  };
+}
+
+export const JsonLd = deprecatedStructuredDataComponent("JsonLd", structuredDataReact.JsonLd);
+export const WebPageStructuredData = deprecatedStructuredDataComponent(
+  "WebPageStructuredData",
+  structuredDataReact.WebPageStructuredData,
+);
+export const WebSiteStructuredData = deprecatedStructuredDataComponent(
+  "WebSiteStructuredData",
+  structuredDataReact.WebSiteStructuredData,
+);
+export const OrganizationStructuredData = deprecatedStructuredDataComponent(
+  "OrganizationStructuredData",
+  structuredDataReact.OrganizationStructuredData,
+);
+export const SoftwareApplicationStructuredData = deprecatedStructuredDataComponent(
+  "SoftwareApplicationStructuredData",
+  structuredDataReact.SoftwareApplicationStructuredData,
+);
+export const WebApplicationStructuredData = deprecatedStructuredDataComponent(
+  "WebApplicationStructuredData",
+  structuredDataReact.WebApplicationStructuredData,
+);
+export const ArticleStructuredData = deprecatedStructuredDataComponent(
+  "ArticleStructuredData",
+  structuredDataReact.ArticleStructuredData,
+);
+export const TechArticleStructuredData = deprecatedStructuredDataComponent(
+  "TechArticleStructuredData",
+  structuredDataReact.TechArticleStructuredData,
+);
+export const BlogPostingStructuredData = deprecatedStructuredDataComponent(
+  "BlogPostingStructuredData",
+  structuredDataReact.BlogPostingStructuredData,
+);
+export const BreadcrumbListStructuredData = deprecatedStructuredDataComponent(
+  "BreadcrumbListStructuredData",
+  structuredDataReact.BreadcrumbListStructuredData,
+);
+export const FAQPageStructuredData = deprecatedStructuredDataComponent(
+  "FAQPageStructuredData",
+  structuredDataReact.FAQPageStructuredData,
+);
+export const QAPageStructuredData = deprecatedStructuredDataComponent(
+  "QAPageStructuredData",
+  structuredDataReact.QAPageStructuredData,
+);
+export const HowToStructuredData = deprecatedStructuredDataComponent(
+  "HowToStructuredData",
+  structuredDataReact.HowToStructuredData,
+);
+export const ItemListStructuredData = deprecatedStructuredDataComponent(
+  "ItemListStructuredData",
+  structuredDataReact.ItemListStructuredData,
+);
+export const SoftwareSourceCodeStructuredData = deprecatedStructuredDataComponent(
+  "SoftwareSourceCodeStructuredData",
+  structuredDataReact.SoftwareSourceCodeStructuredData,
+);
+export const ProductStructuredData = deprecatedStructuredDataComponent(
+  "ProductStructuredData",
+  structuredDataReact.ProductStructuredData,
+);
+export const DatasetStructuredData = deprecatedStructuredDataComponent(
+  "DatasetStructuredData",
+  structuredDataReact.DatasetStructuredData,
+);
+export const EventStructuredData = deprecatedStructuredDataComponent(
+  "EventStructuredData",
+  structuredDataReact.EventStructuredData,
+);
+export const VideoObjectStructuredData = deprecatedStructuredDataComponent(
+  "VideoObjectStructuredData",
+  structuredDataReact.VideoObjectStructuredData,
+);
+export const ImageObjectStructuredData = deprecatedStructuredDataComponent(
+  "ImageObjectStructuredData",
+  structuredDataReact.ImageObjectStructuredData,
+);
+export const ProfilePageStructuredData = deprecatedStructuredDataComponent(
+  "ProfilePageStructuredData",
+  structuredDataReact.ProfilePageStructuredData,
+);
+export const ReviewStructuredData = deprecatedStructuredDataComponent(
+  "ReviewStructuredData",
+  structuredDataReact.ReviewStructuredData,
+);
+export const AggregateRatingStructuredData = deprecatedStructuredDataComponent(
+  "AggregateRatingStructuredData",
+  structuredDataReact.AggregateRatingStructuredData,
+);
+export const CourseStructuredData = deprecatedStructuredDataComponent(
+  "CourseStructuredData",
+  structuredDataReact.CourseStructuredData,
+);
+export const CourseInstanceStructuredData = deprecatedStructuredDataComponent(
+  "CourseInstanceStructuredData",
+  structuredDataReact.CourseInstanceStructuredData,
+);
+export const DiscussionForumPostingStructuredData = deprecatedStructuredDataComponent(
+  "DiscussionForumPostingStructuredData",
+  structuredDataReact.DiscussionForumPostingStructuredData,
+);
+export const BookStructuredData = deprecatedStructuredDataComponent(
+  "BookStructuredData",
+  structuredDataReact.BookStructuredData,
+);
+export const ReadActionStructuredData = deprecatedStructuredDataComponent(
+  "ReadActionStructuredData",
+  structuredDataReact.ReadActionStructuredData,
+);
+export const ClaimReviewStructuredData = deprecatedStructuredDataComponent(
+  "ClaimReviewStructuredData",
+  structuredDataReact.ClaimReviewStructuredData,
+);
+export const EmployerAggregateRatingStructuredData = deprecatedStructuredDataComponent(
+  "EmployerAggregateRatingStructuredData",
+  structuredDataReact.EmployerAggregateRatingStructuredData,
+);
+export const MonetaryAmountDistributionStructuredData = deprecatedStructuredDataComponent(
+  "MonetaryAmountDistributionStructuredData",
+  structuredDataReact.MonetaryAmountDistributionStructuredData,
+);
+export const JobPostingStructuredData = deprecatedStructuredDataComponent(
+  "JobPostingStructuredData",
+  structuredDataReact.JobPostingStructuredData,
+);
+export const LocalBusinessStructuredData = deprecatedStructuredDataComponent(
+  "LocalBusinessStructuredData",
+  structuredDataReact.LocalBusinessStructuredData,
+);
+export const MemberProgramStructuredData = deprecatedStructuredDataComponent(
+  "MemberProgramStructuredData",
+  structuredDataReact.MemberProgramStructuredData,
+);
+export const MathSolverStructuredData = deprecatedStructuredDataComponent(
+  "MathSolverStructuredData",
+  structuredDataReact.MathSolverStructuredData,
+);
+export const MerchantReturnPolicyStructuredData = deprecatedStructuredDataComponent(
+  "MerchantReturnPolicyStructuredData",
+  structuredDataReact.MerchantReturnPolicyStructuredData,
+);
+export const OfferShippingDetailsStructuredData = deprecatedStructuredDataComponent(
+  "OfferShippingDetailsStructuredData",
+  structuredDataReact.OfferShippingDetailsStructuredData,
+);
+export const MovieStructuredData = deprecatedStructuredDataComponent(
+  "MovieStructuredData",
+  structuredDataReact.MovieStructuredData,
+);
+export const ProductGroupStructuredData = deprecatedStructuredDataComponent(
+  "ProductGroupStructuredData",
+  structuredDataReact.ProductGroupStructuredData,
+);
+export const RecipeStructuredData = deprecatedStructuredDataComponent(
+  "RecipeStructuredData",
+  structuredDataReact.RecipeStructuredData,
+);
+export const SpeakableSpecificationStructuredData = deprecatedStructuredDataComponent(
+  "SpeakableSpecificationStructuredData",
+  structuredDataReact.SpeakableSpecificationStructuredData,
+);
+export const VacationRentalStructuredData = deprecatedStructuredDataComponent(
+  "VacationRentalStructuredData",
+  structuredDataReact.VacationRentalStructuredData,
+);
+export const VehicleStructuredData = deprecatedStructuredDataComponent(
+  "VehicleStructuredData",
+  structuredDataReact.VehicleStructuredData,
+);
+export const buildLanderJsonLdGraph = deprecatedStructuredDataFunction(
+  "buildLanderJsonLdGraph",
+  structuredDataReact.buildLanderJsonLdGraph,
+);
+export const renderStructuredDataIntent = deprecatedStructuredDataFunction(
+  "renderStructuredDataIntent",
+  structuredDataReact.renderStructuredDataIntent,
+);
+export const getStructuredDataIntentRendererEntry = deprecatedStructuredDataFunction(
+  "getStructuredDataIntentRendererEntry",
+  structuredDataReact.getStructuredDataIntentRendererEntry,
+);
+export const landerStructuredDataIntentRegistry = new Proxy(structuredDataReact.landerStructuredDataIntentRegistry, {
+  get(target, prop, receiver) {
+    warnDeprecatedStructuredDataReexport("landerStructuredDataIntentRegistry");
+    return Reflect.get(target, prop, receiver);
+  },
+});
+export const SUPPORTED_LANDER_STRUCTURED_DATA_INTENT_KINDS = new Proxy(
+  structuredDataReact.SUPPORTED_LANDER_STRUCTURED_DATA_INTENT_KINDS,
+  {
+    get(target, prop, receiver) {
+      warnDeprecatedStructuredDataReexport("SUPPORTED_LANDER_STRUCTURED_DATA_INTENT_KINDS");
+      return Reflect.get(target, prop, receiver);
+    },
+  },
+);
 
 export interface BreadcrumbListItem {
   label: string;
