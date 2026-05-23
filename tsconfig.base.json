@@ -145,6 +145,12 @@
       "@mdwrk/lander-react/*": [
         "packages/lander/lander-react/dist/*"
       ],
+      "@mdwrk/lander-react-structured-data": [
+        "packages/lander/lander-react-structured-data/dist/index.d.ts"
+      ],
+      "@mdwrk/lander-react-structured-data/*": [
+        "packages/lander/lander-react-structured-data/dist/*"
+      ],
       "@mdwrk/mdwrkcom-content-pack": [
         "packages/content/mdwrkcom-content-pack/dist/index.d.ts"
       ],

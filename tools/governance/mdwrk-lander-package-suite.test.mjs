@@ -23,6 +23,7 @@ test('requires every lander package suite workspace to be named and publishable'
 
   assert.equal(result.passed, true);
   assert.ok(workspaceNames.includes('@mdwrk/lander-core'));
+  assert.ok(workspaceNames.includes('@mdwrk/lander-react-structured-data'));
   assert.ok(workspaceNames.includes('@mdwrk/lander-react'));
   assert.ok(workspaceNames.includes('@mdwrk/page-template-demo-content-pack'));
   assert.deepEqual(

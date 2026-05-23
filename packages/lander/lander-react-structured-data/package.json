@@ -1,6 +1,6 @@
 {
-  "name": "@mdwrk/lander-react",
-  "version": "0.1.5",
+  "name": "@mdwrk/lander-react-structured-data",
+  "version": "0.1.0",
   "type": "module",
   "license": "Apache-2.0",
   "publishConfig": {
@@ -17,13 +17,13 @@
   "keywords": [
     "lander",
     "react",
-    "components"
+    "structured-data",
+    "json-ld"
   ],
-  "description": "Reusable React components for portable product landing sites.",
+  "description": "Reusable React JSON-LD wrappers and schema-intent rendering for portable product landers.",
   "dependencies": {
-    "@mdwrk/lander-content-contract": "^0.1.5",
     "@mdwrk/lander-core": "^0.1.5",
-    "@mdwrk/lander-react-structured-data": "^0.1.0"
+    "@mdwrk/structured-data": "^0.1.5"
   },
   "peerDependencies": {
     "react": "^19.0.0",
@@ -34,10 +34,10 @@
     "@types/react-dom": "^19.0.3"
   },
   "scripts": {
-    "build": "npm run build -w @mdwrk/lander-react-structured-data && npm run build -w @mdwrk/lander-core && tsc -p tsconfig.json",
-    "typecheck": "npm run build -w @mdwrk/lander-react-structured-data && npm run build -w @mdwrk/lander-core && tsc --noEmit -p tsconfig.json",
+    "build": "npm run build -w @mdwrk/structured-data && npm run build -w @mdwrk/lander-core && tsc -p tsconfig.json",
+    "typecheck": "npm run build -w @mdwrk/structured-data && npm run build -w @mdwrk/lander-core && tsc --noEmit -p tsconfig.json",
     "lint": "npm run typecheck",
-    "test": "npm run build && node --test tests/visible-only-t0.test.mjs tests/visible-only-t1.test.mjs tests/visible-only-t2.test.mjs tests/breadcrumb-rendering.test.mjs && node tests/run-smoke.mjs",
+    "test": "npm run build && node tests/run-smoke.mjs",
     "prepack": "npm run build"
   },
   "exports": {

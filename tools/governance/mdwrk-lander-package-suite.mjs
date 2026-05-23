@@ -14,6 +14,7 @@ export const LANDER_PACKAGE_SUITE_WORKSPACES = [
   { name: '@mdwrk/lander-markdown-content-adapter', path: 'packages/lander/lander-markdown-content-adapter' },
   { name: '@mdwrk/lander-page-templates', path: 'packages/lander/lander-page-templates' },
   { name: '@mdwrk/lander-page-template-presets', path: 'packages/lander/lander-page-template-presets' },
+  { name: '@mdwrk/lander-react-structured-data', path: 'packages/lander/lander-react-structured-data' },
   { name: '@mdwrk/lander-react', path: 'packages/lander/lander-react' },
   { name: '@mdwrk/page-template-demo-content-pack', path: 'packages/content/page-template-demo-content-pack' },
 ];

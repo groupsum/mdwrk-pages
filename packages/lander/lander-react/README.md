@@ -9,7 +9,7 @@
   <a href="../../../LICENSE"><img alt="License: Apache-2.0" src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" /></a>
 </p>
 
-This package provides reusable React components for rendering compiled lander pages, breadcrumbs, FAQs, CTA sections, package grids, and JSON-LD graphs.
+This package provides reusable visible React components for rendering compiled lander pages, breadcrumbs, FAQs, CTA sections, package grids, and page shells.
 
 ## Why
 Use it when you want a render-time component layer on top of the lander content contract and compiler outputs.
@@ -17,7 +17,7 @@ Use it when you want a render-time component layer on top of the lander content 
 ## What
 - Page shell and section rendering components.
 - FAQ, breadcrumb, package-grid, and proof-matrix components.
-- JSON-LD graph rendering wired to compiled site/page input.
+- Delegation to `@mdwrk/lander-react-structured-data` for JSON-LD graph emission.
 
 ## Installation
 Node.js 20.x through 22.x, matching the workspace engine contract in the root package manifest.
@@ -34,6 +34,9 @@ export function Page({ site, page }) {
   return <LanderPage site={site} page={page} />;
 }
 ```
+
+## Structured Data
+Use [@mdwrk/lander-react-structured-data](../lander-react-structured-data/README.md) for type-specific JSON-LD React wrappers and schema-intent rendering.
 
 ## Related
 - [Packages index](../../README.md) - family and package navigation
