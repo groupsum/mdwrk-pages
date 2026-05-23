@@ -1,0 +1,50 @@
+schema_version: "0.6.0"
+kind: "spec"
+id: "spc:2101"
+number: 2101
+slug: "lander-react-structured-data-rendering-contract"
+title: "Lander React Structured Data Rendering Contract"
+status: "draft"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "This SPEC defines the responsibilities of `@mdwrk/lander-react-structured-data` as the reusable React JSON-LD rendering layer over `@mdwrk/structured-data` builders and compiled lander schema intent."
+supersedes: []
+superseded_by: []
+status_notes:
+  -
+    at: "2026-05-23T00:00:00Z"
+    note: "Created to govern the new lander-react-structured-data package boundary and migration contract."
+    status: "draft"
+references: []
+body: |-
+  # SPEC-2101: Lander React Structured Data Rendering Contract
+  
+  ## Scope
+  
+  This SPEC defines the responsibilities of `@mdwrk/lander-react-structured-data` as the reusable React JSON-LD rendering layer over `@mdwrk/structured-data` builders and compiled lander schema intent.
+  
+  ## Requirements
+  
+  1. `@mdwrk/lander-react-structured-data` shall own React wrappers that emit JSON-LD for supported structured-data types.
+  2. `@mdwrk/lander-react-structured-data` shall own the structured-data intent registry that maps compiled schema intent kinds to the corresponding React wrapper.
+  3. `@mdwrk/lander-react-structured-data` shall consume `@mdwrk/structured-data` typed builders and shall not duplicate schema serialization logic.
+  4. `@mdwrk/lander-react-structured-data` shall accept portable compiled schema-intent data from `@mdwrk/lander-core` and shall not require mdwrkcom-only app objects.
+  5. `@mdwrk/lander-react` shall remain focused on visible rendering and shall not be the long-term ownership location for JSON-LD React wrappers.
+  6. `@mdwrk/lander-react` may temporarily provide deprecated compatibility re-exports during migration, but those re-exports shall point at `@mdwrk/lander-react-structured-data`.
+  7. Breadcrumb JSON-LD emission shall be rendered by `@mdwrk/lander-react-structured-data`, while visible breadcrumb UI shall remain in `@mdwrk/lander-react`.
+  8. `@mdwrk/lander-react-structured-data` shall remain non-app-specific and shall not depend on `apps/mdwrkcom`.
+  9. New supported structured-data types shall add builder coverage in `@mdwrk/structured-data`, wrapper coverage in `@mdwrk/lander-react-structured-data`, and adoption or explicit non-adoption in downstream landers.
+  10. Tests shall prove export parity, deterministic JSON-LD emission, registry coverage for supported types, and compatibility of compiled schema intent with the new package.
+  11. The demo and showcase surfaces shall be able to illustrate the split between visible rendering and structured-data rendering without app-local glue.
+  
+  ## Acceptance
+  
+  Passing evidence shall include builder-backed JSON-LD wrapper tests, structured-data intent registry tests, compatibility checks for any transitional lander-react re-exports, and demo/package smoke coverage showing that downstream landers can consume the split package boundary.
+spec_kind: "normative"
+adr_ids:
+  - "adr:1057"
+  - "adr:1062"
+  - "adr:1063"
+  - "adr:1065"
+  - "adr:1079"

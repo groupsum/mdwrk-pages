@@ -8,7 +8,7 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "For every governed Schema.org JSON-LD type that MdWrk supports on the public lander, `@mdwrk/structured-data` shall own the typed builder layer and `@mdwrk/lander-react` shall own the reusable concrete component or composition surface."
+summary: "For every governed Schema.org JSON-LD type that MdWrk supports on the public lander, `@mdwrk/structured-data` shall own the typed builder layer, `@mdwrk/lander-react-structured-data` shall own the reusable React JSON-LD surface, and `@mdwrk/lander-react` shall stay focused on visible UI."
 supersedes: []
 superseded_by: []
 status_notes:
@@ -20,19 +20,23 @@ status_notes:
     status: "draft"
     note: "Made breadcrumb ownership explicit: structured-data owns BreadcrumbList builders and lander-react owns breadcrumb UI."
     at: "2026-05-21T04:35:52Z"
+  -
+    status: "draft"
+    note: "Split structured-data React wrappers out of lander-react into a dedicated lander-react-structured-data package boundary."
+    at: "2026-05-23T00:00:00Z"
 references: []
 body: |-
   # ADR-1062: Portable Structured Data Reusable Component Ownership Boundary
   
   ## Decision
   
-  For every governed Schema.org JSON-LD type that MdWrk supports on the public lander, `@mdwrk/structured-data` shall own the typed builder layer and `@mdwrk/lander-react` shall own the reusable concrete component or composition surface.
+  For every governed Schema.org JSON-LD type that MdWrk supports on the public lander, `@mdwrk/structured-data` shall own the typed builder layer, `@mdwrk/lander-react-structured-data` shall own the reusable React JSON-LD component or composition surface, and `@mdwrk/lander-react` shall remain the visible UI renderer.
   
-  `@mdwrk/structured-data` shall remain the typed builder and graph-primitive layer. `@mdwrk/lander-react` shall own the reusable React component or composition layer that corresponds to supported structured-data types. `apps/mdwrkcom` shall import and use those lander-owned surfaces rather than defining app-local component ownership for governed structured-data types.
+  `@mdwrk/structured-data` shall remain the typed builder and graph-primitive layer. `@mdwrk/lander-react-structured-data` shall own the reusable React JSON-LD component or composition layer that corresponds to supported structured-data types and shall consume `@mdwrk/structured-data` builders instead of duplicating schema serialization logic. `@mdwrk/lander-react` shall own visible lander UI such as breadcrumbs and FAQ presentation, but it shall not remain the long-term home for JSON-LD React wrappers. `apps/mdwrkcom` and downstream landers shall import and use those reusable lander-owned surfaces rather than defining app-local structured-data ownership.
   
-  Breadcrumbs are explicit. `BreadcrumbList` schema ownership belongs to `@mdwrk/structured-data`. Visible breadcrumb navigation ownership belongs to `@mdwrk/lander-react`. `@mdwrk/lander-core` may expose route hierarchy semantics that those layers consume, but it shall not own the breadcrumb UI or schema layer directly.
+  Breadcrumbs are explicit. `BreadcrumbList` schema ownership belongs to `@mdwrk/structured-data`. Visible breadcrumb navigation ownership belongs to `@mdwrk/lander-react`. Breadcrumb JSON-LD React emission belongs to `@mdwrk/lander-react-structured-data`. `@mdwrk/lander-core` may expose route hierarchy semantics that those layers consume, but it shall not own the breadcrumb UI or schema layer directly.
   
-  When a supported type has a visible or materially represented UI surface, the reusable component shall live in `@mdwrk/lander-react`. When a supported type is non-visual or primarily compositional, `@mdwrk/lander-react` shall still own the canonical reusable composition helper that adopting apps consume.
+  When a supported type has a visible or materially represented UI surface, the visible presentation remains in `@mdwrk/lander-react` while the JSON-LD React wrapper remains in `@mdwrk/lander-react-structured-data`. When a supported type is non-visual or primarily compositional, `@mdwrk/lander-react-structured-data` shall own the canonical reusable composition helper that adopting apps consume.
   
   ## Rationale
   
@@ -42,8 +46,8 @@ body: |-
   
   ## Consequences
   
-  1. New structured-data type support is not complete until builder support exists in `@mdwrk/structured-data` and reusable component or composition support exists in `@mdwrk/lander-react`.
+  1. New structured-data type support is not complete until builder support exists in `@mdwrk/structured-data` and reusable component or composition support exists in `@mdwrk/lander-react-structured-data`.
   2. `apps/mdwrkcom` shall adopt governed lander-owned structured-data components and shall not become the long-term ownership location for supported structured-data component implementations.
-  3. Component class naming, token policy, and lander UIX policy apply to the lander-owned structured-data components just like other governed reusable UI surfaces.
-  4. Feature, test, claim, and evidence rows for structured-data rollout shall track builder support, reusable component support, and mdwrkcom adoption separately.
+  3. Component class naming, token policy, and lander UIX policy apply to visible lander UI surfaces in `@mdwrk/lander-react`, while JSON-LD React wrappers in `@mdwrk/lander-react-structured-data` remain style-light and builder-driven.
+  4. Feature, test, claim, and evidence rows for structured-data rollout shall track builder support, JSON-LD React wrapper support, visible UI support where applicable, and mdwrkcom adoption separately.
   5. Future products that consume the portable lander packages can inherit the same structured-data component surfaces without inheriting MdWrk-specific prose or app-local implementations.

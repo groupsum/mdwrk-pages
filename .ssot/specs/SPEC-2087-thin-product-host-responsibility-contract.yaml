@@ -8,7 +8,7 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "This SPEC defines the allowed and forbidden responsibilities for `apps/mdwrkcom`, `@mdwrk/mdwrkcom-content-pack`, `@mdwrk/lander-content-contract`, `@mdwrk/lander-core`, `@mdwrk/lander-react`, `@mdwrk/lander-theme`, and `@mdwrk/lander-seo`."
+summary: "This SPEC defines the allowed and forbidden responsibilities for `apps/mdwrkcom`, `@mdwrk/mdwrkcom-content-pack`, `@mdwrk/lander-content-contract`, `@mdwrk/lander-core`, `@mdwrk/lander-react`, `@mdwrk/lander-react-structured-data`, `@mdwrk/lander-theme`, and `@mdwrk/lander-seo`."
 supersedes: []
 superseded_by: []
 status_notes:
@@ -20,13 +20,17 @@ status_notes:
     at: "2026-05-18T15:43:48Z"
     note: "Clarified product hosts may adapt but not own portable performance policy."
     status: "draft"
+  -
+    at: "2026-05-23T00:00:00Z"
+    note: "Added lander-react-structured-data to the thin-host responsibility split."
+    status: "draft"
 references: []
 body: |-
   # SPEC-2087: Thin Product Host Responsibility Contract
   
   ## Scope
   
-  This SPEC defines the allowed and forbidden responsibilities for `apps/mdwrkcom`, `@mdwrk/mdwrkcom-content-pack`, `@mdwrk/lander-content-contract`, `@mdwrk/lander-core`, `@mdwrk/lander-react`, `@mdwrk/lander-theme`, and `@mdwrk/lander-seo`.
+  This SPEC defines the allowed and forbidden responsibilities for `apps/mdwrkcom`, `@mdwrk/mdwrkcom-content-pack`, `@mdwrk/lander-content-contract`, `@mdwrk/lander-core`, `@mdwrk/lander-react`, `@mdwrk/lander-react-structured-data`, `@mdwrk/lander-theme`, and `@mdwrk/lander-seo`.
   
   ## Requirements
   
@@ -40,12 +44,13 @@ body: |-
   8. `@mdwrk/lander-content-contract` shall own portable schemas, validation diagnostics, and type contracts for product content packs.
   9. `@mdwrk/lander-core` shall own content-pack validation, normalization, indexing, compilation into portable render models, cache metadata, header lookup, critical CSS profile evaluation, route-aware script inclusion facts, and portable performance-budget evaluation unless a narrower accepted ADR assigns ownership elsewhere.
   10. `@mdwrk/lander-core` shall not import React, emit JSX, or own visual component implementation.
-  11. `@mdwrk/lander-react` shall own all governed lander React rendering and visual component implementations.
-  12. `@mdwrk/lander-theme` shall own portable lander theme tokens, semantic class contracts, critical/static styling policy, reduced-motion defaults, and animation constraints for governed lander surfaces.
-  13. `@mdwrk/lander-seo` shall own portable discovery artifact generation and validation algorithms.
-  14. Validation shall fail closed when governed component implementation appears in `apps/mdwrkcom` without an explicit temporary migration classification.
-  15. Validation shall fail closed when portable performance-policy behavior appears in `apps/mdwrkcom` without an explicit host-adapter classification or temporary migration classification.
-  16. Validation shall fail closed when a product content pack references app-local implementation identifiers instead of portable content-contract intent.
+  11. `@mdwrk/lander-react` shall own all governed visible lander React rendering and visual component implementations.
+  12. `@mdwrk/lander-react-structured-data` shall own governed JSON-LD React wrappers, schema-intent render registries, and compatibility re-exports used during migration.
+  13. `@mdwrk/lander-theme` shall own portable lander theme tokens, semantic class contracts, critical/static styling policy, reduced-motion defaults, and animation constraints for governed lander surfaces.
+  14. `@mdwrk/lander-seo` shall own portable discovery artifact generation and validation algorithms.
+  15. Validation shall fail closed when governed component implementation appears in `apps/mdwrkcom` without an explicit temporary migration classification.
+  16. Validation shall fail closed when portable performance-policy behavior appears in `apps/mdwrkcom` without an explicit host-adapter classification or temporary migration classification.
+  17. Validation shall fail closed when a product content pack references app-local implementation identifiers instead of portable content-contract intent.
   
   ## Acceptance
   
@@ -54,3 +59,4 @@ spec_kind: "normative"
 adr_ids:
   - "adr:1063"
   - "adr:1065"
+  - "adr:1079"

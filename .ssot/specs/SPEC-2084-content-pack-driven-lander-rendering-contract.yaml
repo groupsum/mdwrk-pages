@@ -8,7 +8,7 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "This SPEC governs how MdWrk-specific lander content declarations become portable compiled render intent and then React output. It applies to `@mdwrk/mdwrkcom-content-pack`, `@mdwrk/lander-content-contract`, `@mdwrk/lander-core`, `@mdwrk/lander-react`, and `apps/mdwrkcom`."
+summary: "This SPEC governs how MdWrk-specific lander content declarations become portable compiled render intent and then visible React output plus JSON-LD React output. It applies to `@mdwrk/mdwrkcom-content-pack`, `@mdwrk/lander-content-contract`, `@mdwrk/lander-core`, `@mdwrk/lander-react`, `@mdwrk/lander-react-structured-data`, and `apps/mdwrkcom`."
 supersedes: []
 superseded_by: []
 status_notes:
@@ -24,11 +24,15 @@ status_notes:
     status: "draft"
     note: "Clarified compiled route semantics in core and breadcrumb rendering ownership in lander-react."
     at: "2026-05-21T04:35:52Z"
+  -
+    status: "draft"
+    note: "Split visible rendering from JSON-LD React rendering by introducing lander-react-structured-data."
+    at: "2026-05-23T00:00:00Z"
 references: []
 body: |-
   # SPEC-2084: Content Pack Driven Lander Rendering Contract
   ## Scope
-  This SPEC governs how MdWrk-specific lander content declarations become portable compiled render intent and then React output. It applies to `@mdwrk/mdwrkcom-content-pack`, `@mdwrk/lander-content-contract`, `@mdwrk/lander-core`, `@mdwrk/lander-react`, and `apps/mdwrkcom`.
+  This SPEC governs how MdWrk-specific lander content declarations become portable compiled render intent and then visible React output plus JSON-LD React output. It applies to `@mdwrk/mdwrkcom-content-pack`, `@mdwrk/lander-content-contract`, `@mdwrk/lander-core`, `@mdwrk/lander-react`, `@mdwrk/lander-react-structured-data`, and `apps/mdwrkcom`.
   ## Requirements
   1. `@mdwrk/mdwrkcom-content-pack` shall own MdWrk-specific page prose, metadata, screenshots, CTAs, FAQs, structured-data declarations, navigation declarations, section declarations, and visible component intent as content data.
   2. Content packs shall not own React component implementations for governed lander surfaces.
@@ -38,18 +42,20 @@ body: |-
   6. The compiled render model shall preserve component intent, structured-data intent, canonical URL metadata, navigation intent, route hierarchy semantics, visible-content parity inputs, diagnostics, and enough stable IDs for deterministic rendering.
   7. `@mdwrk/lander-core` shall not import React or own JSX output.
   8. `@mdwrk/lander-react` shall own component registries and renderers that map compiled intent to React output.
-  9. `@mdwrk/lander-react` shall own visible reusable component mapping for governed lander surfaces and shall consume `@mdwrk/structured-data` for typed schema builders.
-  10. `@mdwrk/lander-react` shall own governed docs layout, docs index, section index, page table-of-contents, article shell, markdown viewer, featured media, legal/blog/docs/feature page renderer, and navigation component implementations.
-  11. Visible breadcrumb navigation shall be rendered by `@mdwrk/lander-react` from compiled route hierarchy semantics.
-  12. `apps/mdwrkcom` shall host or invoke the compiled lander renderer as a thin product host and shall not hand-assemble governed lander component trees except for root bootstrap, route adapter glue, static build invocation, deployment integration, environment wiring, and content-pack selection.
-  13. `apps/mdwrkcom` shall not own or retain app-local governed React components for lander surfaces.
-  14. `apps/mdwrkcom` shall not choose per-type structured-data React components directly when the content pack can declare schema intent and the core compiler can normalize it.
-  15. Verification shall fail closed when mdwrkcom introduces app-local component forks, bypasses compiled intent for governed lander surfaces, or emits structured-data output that was not represented in the content-pack/core render model.
-  16. Content-pack mirror/smoke tests shall continue to prove that MdWrk content pack declarations match the live mdwrkcom content corpus until the content pack becomes the sole canonical corpus.
-  17. Component class and theme obligations remain owned by `@mdwrk/lander-react` and `@mdwrk/lander-theme`; content packs may select intent but shall not define implementation class surfaces.
-  18. Temporary app-local component implementations retained during migration shall be explicitly classified as migration debt and linked to target reusable package features and tests.
+  9. `@mdwrk/lander-react` shall own visible reusable component mapping for governed lander surfaces.
+  10. `@mdwrk/lander-react-structured-data` shall own JSON-LD React wrapper mapping for governed structured-data surfaces and shall consume `@mdwrk/structured-data` for typed schema builders.
+  11. `@mdwrk/lander-react` shall own governed docs layout, docs index, section index, page table-of-contents, article shell, markdown viewer, featured media, legal/blog/docs/feature page renderer, and navigation component implementations.
+  12. Visible breadcrumb navigation shall be rendered by `@mdwrk/lander-react` from compiled route hierarchy semantics.
+  13. JSON-LD graph emission and schema-intent rendering shall be rendered by `@mdwrk/lander-react-structured-data` from compiled schema intent.
+  14. `apps/mdwrkcom` shall host or invoke the compiled lander renderer as a thin product host and shall not hand-assemble governed lander component trees except for root bootstrap, route adapter glue, static build invocation, deployment integration, environment wiring, and content-pack selection.
+  15. `apps/mdwrkcom` shall not own or retain app-local governed React components for lander surfaces.
+  16. `apps/mdwrkcom` shall not choose per-type structured-data React components directly when the content pack can declare schema intent and the core compiler can normalize it.
+  17. Verification shall fail closed when mdwrkcom introduces app-local component forks, bypasses compiled intent for governed lander surfaces, or emits structured-data output that was not represented in the content-pack/core render model.
+  18. Content-pack mirror/smoke tests shall continue to prove that MdWrk content pack declarations match the live mdwrkcom content corpus until the content pack becomes the sole canonical corpus.
+  19. Component class and theme obligations remain owned by `@mdwrk/lander-react` and `@mdwrk/lander-theme`; content packs may select intent but shall not define implementation class surfaces.
+  20. Temporary app-local component implementations retained during migration shall be explicitly classified as migration debt and linked to target reusable package features and tests.
   ## Acceptance
-  Feature, test, claim, and evidence rows shall separately track content-pack intent declaration, contract validation, core compilation, React rendering, mdwrkcom host thinness, reusable component ownership, and governance no-drift checks. Passing evidence shall include content-pack validation, core compile tests, lander-react render tests, mdwrkcom host smoke tests, no-app-local-governed-components validation, and static artifact verification for affected public pages.
+  Feature, test, claim, and evidence rows shall separately track content-pack intent declaration, contract validation, core compilation, visible React rendering, structured-data React rendering, mdwrkcom host thinness, reusable component ownership, and governance no-drift checks. Passing evidence shall include content-pack validation, core compile tests, lander-react render tests, lander-react-structured-data render tests, mdwrkcom host smoke tests, no-app-local-governed-components validation, and static artifact verification for affected public pages.
 spec_kind: "normative"
 adr_ids:
   - "adr:1051"
@@ -57,3 +63,4 @@ adr_ids:
   - "adr:1062"
   - "adr:1063"
   - "adr:1065"
+  - "adr:1079"

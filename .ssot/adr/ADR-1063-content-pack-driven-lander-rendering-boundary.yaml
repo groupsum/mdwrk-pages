@@ -24,12 +24,16 @@ status_notes:
     status: "draft"
     note: "Clarified that core exports route semantics while breadcrumb UI and schema remain downstream responsibilities."
     at: "2026-05-21T04:35:52Z"
+  -
+    status: "draft"
+    note: "Split visible rendering from JSON-LD React emission by introducing lander-react-structured-data."
+    at: "2026-05-23T00:00:00Z"
 references: []
 body: |-
   # ADR-1063: Content Pack Driven Lander Rendering Boundary
   ## Decision
   MdWrk public lander rendering shall be driven by portable content-pack declarations instead of app-local React component assembly.
-  `@mdwrk/mdwrkcom-content-pack` shall own MdWrk-specific page content, metadata, and declarations of desired lander surfaces as data. `@mdwrk/lander-content-contract` shall own the portable declaration schema for pages, sections, schema intents, and component intents. `@mdwrk/lander-core` shall validate and compile those declarations into a portable render model. `@mdwrk/lander-react` shall own React component implementations and map compiled render intent to JSX output. `@mdwrk/structured-data` shall own typed schema builders consumed by the renderer and discovery pipeline. `apps/mdwrkcom` shall host the compiled renderer and integrate build/runtime shell concerns, but shall not become the long-term owner of lander component trees or per-type structured-data component selection.
+  `@mdwrk/mdwrkcom-content-pack` shall own MdWrk-specific page content, metadata, and declarations of desired lander surfaces as data. `@mdwrk/lander-content-contract` shall own the portable declaration schema for pages, sections, schema intents, and component intents. `@mdwrk/lander-core` shall validate and compile those declarations into a portable render model. `@mdwrk/lander-react` shall own visible React component implementations and map compiled visible render intent to JSX output. `@mdwrk/structured-data` shall own typed schema builders consumed by the renderer and discovery pipeline. `@mdwrk/lander-react-structured-data` shall own React JSON-LD emission and map compiled schema intent to builder-backed JSON-LD output. `apps/mdwrkcom` shall host the compiled renderer and integrate build/runtime shell concerns, but shall not become the long-term owner of lander component trees or per-type structured-data component selection.
   For this ADR, "host the compiled renderer" means host/bootstrap only. `apps/mdwrkcom` may wire entrypoints, routes, static build invocation, deployment integration, environment settings, and content-pack selection. It shall not implement governed lander UI components. Governed docs layouts, article shells, navigation widgets, page/section/docs table-of-contents components, markdown viewers, media components, breadcrumb UI, and reusable page renderers belong in reusable lander packages, normally `@mdwrk/lander-react`.
   ## Rationale
   The lander package family is intended to be portable. If mdwrkcom chooses concrete lander React components directly, product-specific app code becomes the implicit renderer and the content pack cannot serve as the durable source of page intent. That weakens package reuse, makes structured-data support harder to audit, and invites divergence between content, compiled page models, JSON-LD output, and visible components.
@@ -39,8 +43,9 @@ body: |-
   1. Content packs may declare page, section, visible component, navigation, and structured-data intent as portable data, not as React implementations.
   2. `@mdwrk/lander-content-contract` must define the valid intent schema and diagnostics surface.
   3. `@mdwrk/lander-core` must compile content-pack declarations into a render model that is independent of React and rich enough to express route semantics for downstream breadcrumb UI and schema emission.
-  4. `@mdwrk/lander-react` must render compiled intent and own component registries/mappings for visible, navigational, article, markdown, media, and breadcrumb surfaces.
-  5. `apps/mdwrkcom` must import the compiled renderer flow and avoid app-local forks for governed lander components.
-  6. Structured-data component selection must come from compiled content/schema intent plus `@mdwrk/structured-data` builders rather than per-page app code choosing type-specific React components.
-  7. Navigation and article rendering must distinguish page, section, and whole-docs concepts in portable data and reusable renderer APIs.
-  8. Tests and SSOT feature rows must distinguish content-pack intent, contract schema, core compilation, React rendering, mdwrkcom hosting, and no-drift governance.
+  4. `@mdwrk/lander-react` must render compiled visible intent and own component registries/mappings for visible, navigational, article, markdown, media, and breadcrumb surfaces.
+  5. `@mdwrk/lander-react-structured-data` must render compiled structured-data intent and own the JSON-LD component registry or adapter mapping for supported schema kinds.
+  6. `apps/mdwrkcom` must import the compiled renderer flow and avoid app-local forks for governed lander components.
+  7. Structured-data component selection must come from compiled content/schema intent plus `@mdwrk/structured-data` builders and `@mdwrk/lander-react-structured-data` wrappers rather than per-page app code choosing type-specific React components.
+  8. Navigation and article rendering must distinguish page, section, and whole-docs concepts in portable data and reusable renderer APIs.
+  9. Tests and SSOT feature rows must distinguish content-pack intent, contract schema, core compilation, visible React rendering, structured-data React rendering, mdwrkcom hosting, and no-drift governance.

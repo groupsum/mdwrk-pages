@@ -8,7 +8,7 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "This SPEC governs the reusable component obligations for every supported JSON-LD structured-data type across `@mdwrk/structured-data`, `@mdwrk/lander-react`, `@mdwrk/lander-core`, `@mdwrk/lander-content-contract`, `@mdwrk/mdwrkcom-content-pack`, and `apps/mdwrkcom`."
+summary: "This SPEC governs the reusable component obligations for every supported JSON-LD structured-data type across `@mdwrk/structured-data`, `@mdwrk/lander-react-structured-data`, `@mdwrk/lander-react`, `@mdwrk/lander-core`, `@mdwrk/lander-content-contract`, `@mdwrk/mdwrkcom-content-pack`, and `apps/mdwrkcom`."
 supersedes: []
 superseded_by: []
 status_notes:
@@ -28,20 +28,24 @@ status_notes:
     status: "draft"
     note: "Added explicit breadcrumb split between structured-data builders, core route semantics, and lander-react UI."
     at: "2026-05-21T04:35:52Z"
+  -
+    status: "draft"
+    note: "Moved JSON-LD React wrapper ownership from lander-react into lander-react-structured-data."
+    at: "2026-05-23T00:00:00Z"
 references: []
 body: |-
   # SPEC-2083: Portable Structured Data Reusable Component Contract
   
   ## Scope
   
-  This SPEC governs the reusable component obligations for every supported JSON-LD structured-data type across `@mdwrk/structured-data`, `@mdwrk/lander-react`, `@mdwrk/lander-core`, `@mdwrk/lander-content-contract`, `@mdwrk/mdwrkcom-content-pack`, and `apps/mdwrkcom`.
+  This SPEC governs the reusable component obligations for every supported JSON-LD structured-data type across `@mdwrk/structured-data`, `@mdwrk/lander-react-structured-data`, `@mdwrk/lander-react`, `@mdwrk/lander-core`, `@mdwrk/lander-content-contract`, `@mdwrk/mdwrkcom-content-pack`, and `apps/mdwrkcom`.
   
   ## Requirements
   
-  1. Each governed supported structured-data type shall have an explicit implementation state tracked across three layers: builder support in `@mdwrk/structured-data`, reusable component or composition support in `@mdwrk/lander-react`, and mdwrkcom adoption.
+  1. Each governed supported structured-data type shall have an explicit implementation state tracked across four layers: builder support in `@mdwrk/structured-data`, reusable JSON-LD React support in `@mdwrk/lander-react-structured-data`, visible UI support in `@mdwrk/lander-react` when applicable, and mdwrkcom adoption.
   2. `@mdwrk/structured-data` shall own typed builders, schema helpers, and graph primitives for supported Schema.org JSON-LD types.
-  3. `@mdwrk/lander-react` shall own the reusable concrete component or composition surface corresponding to each governed supported structured-data type.
-  4. `apps/mdwrkcom` shall import governed structured-data components or composition helpers from `@mdwrk/lander-react` when mdwrkcom uses that type as part of public lander behavior.
+  3. `@mdwrk/lander-react-structured-data` shall own the reusable concrete JSON-LD React component or composition surface corresponding to each governed supported structured-data type.
+  4. `apps/mdwrkcom` and downstream hosts shall import governed structured-data components or composition helpers from `@mdwrk/lander-react-structured-data` when public lander behavior uses that type.
   5. `apps/mdwrkcom` shall not define app-local long-term ownership for governed supported structured-data type components when an equivalent lander-owned reusable surface is required.
   6. Supported structured-data types with visible or materially represented content shall expose a lander-owned reusable component surface that preserves visible-content parity with the structured-data claims.
   7. Supported structured-data types that are non-visual or primarily graph-compositional shall expose a lander-owned reusable composition helper or equivalent governed adoption surface.
@@ -51,19 +55,19 @@ body: |-
   11. Verification shall fail closed when a type is marked supported but lacks the required builder support or required lander-owned reusable component or composition support.
   12. Browser screenshot validation shall include affected visible structured-data component surfaces for each shipped lander theme when a change alters those visible surfaces.
   13. Every supported JSON-LD structured-data type shall have a typed builder or graph primitive in `@mdwrk/structured-data`.
-  14. Every supported JSON-LD structured-data type shall have a reusable React component or component adapter in `@mdwrk/lander-react`.
+  14. Every supported JSON-LD structured-data type shall have a reusable React component or component adapter in `@mdwrk/lander-react-structured-data`.
   15. Reusable structured-data React components shall emit deterministic JSON-LD output through the structured-data package rather than maintaining independent schema serialization logic.
   16. Structured-data component selection shall originate from content-pack schema declarations that conform to `@mdwrk/lander-content-contract` and are compiled by `@mdwrk/lander-core`.
   17. `@mdwrk/lander-core` shall normalize schema intent into a portable render model without importing React.
-  18. `@mdwrk/lander-react` shall map compiled structured-data intent to JSON-LD graph output and the corresponding type-specific reusable component surface.
-  19. Breadcrumbs are explicit: `@mdwrk/structured-data` owns `BreadcrumbList` builders, `@mdwrk/lander-react` owns visible breadcrumb rendering, and `@mdwrk/lander-core` only supplies route hierarchy semantics.
+  18. `@mdwrk/lander-react-structured-data` shall map compiled structured-data intent to JSON-LD graph output and the corresponding type-specific reusable component surface.
+  19. Breadcrumbs are explicit: `@mdwrk/structured-data` owns `BreadcrumbList` builders, `@mdwrk/lander-react` owns visible breadcrumb rendering, `@mdwrk/lander-react-structured-data` owns breadcrumb JSON-LD React emission, and `@mdwrk/lander-core` only supplies route hierarchy semantics.
   20. `apps/mdwrkcom` shall consume structured-data support through the content-pack, core compiler, and lander-react renderer flow instead of choosing per-type structured-data React components in page-local app code.
   21. The content contract shall reject malformed schema intent, unknown schema kinds, and app-local implementation references.
-  22. Tests shall cover structured-data builder output, content-contract validation, lander-core schema intent compilation, lander-react render output, and mdwrkcom host adoption or explicit non-adoption for each supported type.
+  22. Tests shall cover structured-data builder output, content-contract validation, lander-core schema intent compilation, lander-react-structured-data render output, visible lander-react parity where applicable, and mdwrkcom host adoption or explicit non-adoption for each supported type.
   
   ## Acceptance
   
-  The structured-data and lander-react boundaries shall expose a matrix with one row per supported JSON-LD type. Each row shall show structured-data implementation, lander-react reusable component implementation, content-pack declarability, core compilation, mdwrkcom usage or non-adoption, feature IDs, claim IDs, test IDs, and current evidence status.
+  The structured-data, lander-react-structured-data, and lander-react boundaries shall expose a matrix with one row per supported JSON-LD type. Each row shall show structured-data implementation, lander-react-structured-data reusable component implementation, visible UI implementation where relevant, content-pack declarability, core compilation, mdwrkcom usage or non-adoption, feature IDs, claim IDs, test IDs, and current evidence status.
 spec_kind: "normative"
 adr_ids:
   - "adr:1049"
@@ -71,3 +75,4 @@ adr_ids:
   - "adr:1057"
   - "adr:1062"
   - "adr:1063"
+  - "adr:1079"

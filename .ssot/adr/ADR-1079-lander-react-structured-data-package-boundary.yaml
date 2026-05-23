@@ -1,0 +1,51 @@
+schema_version: "0.6.0"
+kind: "adr"
+id: "adr:1079"
+number: 1079
+slug: "lander-react-structured-data-package-boundary"
+title: "Lander React Structured Data Package Boundary"
+status: "draft"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "The MdWrk public lander shall split visible React rendering from JSON-LD React emission by introducing `@mdwrk/lander-react-structured-data` as the reusable owner of structured-data React wrappers and schema-intent registries."
+supersedes: []
+superseded_by: []
+status_notes:
+  -
+    at: "2026-05-23T00:00:00Z"
+    note: "Created to separate JSON-LD React emission from visible lander-react rendering."
+    status: "draft"
+references: []
+body: |-
+  # ADR-1079: Lander React Structured Data Package Boundary
+  
+  ## Decision
+  
+  The MdWrk public lander shall split visible React rendering from JSON-LD React emission by introducing `@mdwrk/lander-react-structured-data` as the reusable owner of structured-data React wrappers and schema-intent registries.
+  
+  `@mdwrk/structured-data` shall remain the pure typed builder, graph-primitive, and Schema.org helper layer. `@mdwrk/lander-react` shall remain the visible lander UI renderer and shall own page shells, article surfaces, navigation UI, breadcrumb UI, FAQ presentation, media presentation, and other visible reusable components. `@mdwrk/lander-react-structured-data` shall own non-visual JSON-LD React wrappers, structured-data intent registries, and schema-intent-to-builder-backed-renderer mapping.
+  
+  `@mdwrk/lander-core` and `@mdwrk/lander-page-templates` shall continue to emit portable schema intent data and route semantics, but they shall not own React JSON-LD rendering. Product hosts such as `apps/mdwrkcom` shall consume the split packages rather than choosing type-specific JSON-LD components in app-local code.
+  
+  Breadcrumbs remain explicit. `@mdwrk/structured-data` owns `BreadcrumbList` builders, `@mdwrk/lander-react` owns visible breadcrumb UI, `@mdwrk/lander-react-structured-data` owns breadcrumb JSON-LD React emission, and `@mdwrk/lander-core` owns only the route semantics those packages consume.
+  
+  ## Rationale
+  
+  The current `@mdwrk/lander-react` package mixes visible UI responsibilities with non-visual JSON-LD emission. That is workable, but it blurs package boundaries and makes the visible renderer carry a second concern that should remain cleanly layered over the shared `@mdwrk/structured-data` builders.
+  
+  A dedicated `@mdwrk/lander-react-structured-data` package preserves the intended layering:
+  
+  1. `@mdwrk/structured-data` builds schema nodes and graph helpers.
+  2. `@mdwrk/lander-react-structured-data` turns schema intent into React JSON-LD emission.
+  3. `@mdwrk/lander-react` stays focused on visible UI.
+  
+  That split keeps the reusable builder layer non-UI, keeps the visible renderer free of JSON-LD wrapper ownership, and gives downstream landers a stable import surface for structured-data React emission that is distinct from visible component APIs.
+  
+  ## Consequences
+  
+  1. New structured-data type rollout is not complete until builder support exists in `@mdwrk/structured-data` and JSON-LD React wrapper support exists in `@mdwrk/lander-react-structured-data`.
+  2. `@mdwrk/lander-react` shall no longer be the long-term ownership location for structured-data React wrappers.
+  3. Migration may temporarily require compatibility re-exports from `@mdwrk/lander-react`, but those re-exports are migration bridges rather than the target package boundary.
+  4. Feature, test, claim, and evidence rows shall distinguish builder support, visible UI support, JSON-LD React wrapper support, and downstream host adoption separately.
+  5. Downstream landers and demos can showcase the package split directly instead of treating visible rendering and schema emission as one opaque renderer.

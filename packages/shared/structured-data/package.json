@@ -27,7 +27,7 @@
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "npm run typecheck",
-    "test": "npm run build && node tests/run-smoke.mjs",
+    "test": "npm run build && node --test tests/pure-builder-t0.test.mjs tests/pure-builder-t1.test.mjs tests/pure-builder-t2.test.mjs && node tests/run-smoke.mjs",
     "prepack": "npm run build"
   },
   "exports": {
