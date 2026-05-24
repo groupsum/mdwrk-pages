@@ -5,12 +5,16 @@ export type JsonLdNodeType =
   | "Organization"
   | "SoftwareApplication"
   | "WebApplication"
+  | "NewsArticle"
   | "Article"
   | "TechArticle"
   | "BlogPosting"
   | "BreadcrumbList"
   | "FAQPage"
   | "QAPage"
+  | "Quiz"
+  | "Question"
+  | "Answer"
   | "HowTo"
   | "ItemList"
   | "SoftwareSourceCode"
@@ -32,14 +36,18 @@ export type JsonLdNodeType =
   | "MonetaryAmountDistribution"
   | "JobPosting"
   | "LocalBusiness"
+  | "LearningResource"
   | "MemberProgram"
   | "MathSolver"
+  | "SolveMathAction"
   | "MerchantReturnPolicy"
   | "OfferShippingDetails"
   | "Movie"
   | "ProductGroup"
   | "Recipe"
   | "SpeakableSpecification"
+  | "Clip"
+  | "BroadcastEvent"
   | "VacationRental"
   | "Vehicle";
 
@@ -148,8 +156,36 @@ export interface FaqPageInput {
 export interface QaPageInput {
   id?: string;
   question: string;
-  answer: string;
+  answer?: string;
+  acceptedAnswer?: AnswerInput;
+  suggestedAnswer?: AnswerInput[];
+  answerCount?: number;
+  eduQuestionType?: string;
   url?: string;
+}
+
+export interface AnswerInput {
+  id?: string;
+  text: string;
+  url?: string;
+  upvoteCount?: number;
+  dateCreated?: string;
+  author?: JsonLd | string;
+}
+
+export interface QuestionInput extends StructuredDataThingInput {
+  text?: string;
+  acceptedAnswer?: AnswerInput;
+  suggestedAnswer?: AnswerInput[];
+  answerCount?: number;
+  eduQuestionType?: string;
+}
+
+export interface QuizInput extends StructuredDataThingInput {
+  hasPart: QuestionInput[];
+  educationalLevel?: string;
+  assesses?: string | string[];
+  learningResourceType?: string;
 }
 
 export interface HowToStepInput {
@@ -208,6 +244,8 @@ export interface VideoObjectInput extends StructuredDataThingInput {
   duration?: string;
   embedUrl?: string;
   contentUrl?: string;
+  clip?: ClipInput[];
+  publication?: BroadcastEventInput | BroadcastEventInput[];
 }
 
 export interface ImageObjectInput extends StructuredDataThingInput {
@@ -296,6 +334,21 @@ export interface LoyaltyProgramInput extends StructuredDataThingInput {
 
 export interface MathSolverInput extends StructuredDataThingInput {
   mathExpression?: string;
+  potentialAction?: JsonLd | JsonLd[];
+  learningResource?: JsonLd | JsonLd[];
+}
+
+export interface LearningResourceInput extends StructuredDataThingInput {
+  learningResourceType?: string;
+  educationalLevel?: string;
+  teaches?: string | string[];
+}
+
+export interface SolveMathActionInput {
+  id?: string;
+  target: string | JsonLd;
+  mathExpressionInput?: string;
+  eduQuestionType?: string | string[];
 }
 
 export interface PolicyInput extends StructuredDataThingInput {
@@ -329,6 +382,17 @@ export interface RecipeInput extends StructuredDataThingInput {
 export interface SpeakableInput {
   cssSelector?: string[];
   xpath?: string[];
+}
+
+export interface ClipInput extends StructuredDataThingInput {
+  startOffset?: number;
+  endOffset?: number;
+}
+
+export interface BroadcastEventInput extends StructuredDataThingInput {
+  startDate?: string;
+  endDate?: string;
+  isLiveBroadcast?: boolean;
 }
 
 export interface PaywalledContentInput extends WebPageInput {

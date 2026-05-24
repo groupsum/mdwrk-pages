@@ -95,11 +95,14 @@ export interface PageSeoSpec {
 
 export type StructuredDataIntentKind =
   | "AggregateRating"
+  | "Answer"
   | "Article"
   | "BlogPosting"
   | "Book"
+  | "BroadcastEvent"
   | "BreadcrumbList"
   | "ClaimReview"
+  | "Clip"
   | "Course"
   | "CourseInstance"
   | "Dataset"
@@ -111,21 +114,26 @@ export type StructuredDataIntentKind =
   | "ImageObject"
   | "ItemList"
   | "JobPosting"
+  | "LearningResource"
   | "LocalBusiness"
   | "MathSolver"
   | "MemberProgram"
   | "MerchantReturnPolicy"
   | "MonetaryAmountDistribution"
   | "Movie"
+  | "NewsArticle"
   | "OfferShippingDetails"
   | "Organization"
   | "Product"
   | "ProductGroup"
   | "ProfilePage"
   | "QAPage"
+  | "Question"
+  | "Quiz"
   | "ReadAction"
   | "Recipe"
   | "Review"
+  | "SolveMathAction"
   | "SoftwareApplication"
   | "SoftwareSourceCode"
   | "SpeakableSpecification"
@@ -318,11 +326,14 @@ export interface LanderSite {
 
 export const STRUCTURED_DATA_INTENT_KINDS = Object.freeze([
   "AggregateRating",
+  "Answer",
   "Article",
   "BlogPosting",
   "Book",
+  "BroadcastEvent",
   "BreadcrumbList",
   "ClaimReview",
+  "Clip",
   "Course",
   "CourseInstance",
   "Dataset",
@@ -334,21 +345,26 @@ export const STRUCTURED_DATA_INTENT_KINDS = Object.freeze([
   "ImageObject",
   "ItemList",
   "JobPosting",
+  "LearningResource",
   "LocalBusiness",
   "MathSolver",
   "MemberProgram",
   "MerchantReturnPolicy",
   "MonetaryAmountDistribution",
   "Movie",
+  "NewsArticle",
   "OfferShippingDetails",
   "Organization",
   "Product",
   "ProductGroup",
   "ProfilePage",
   "QAPage",
+  "Question",
+  "Quiz",
   "ReadAction",
   "Recipe",
   "Review",
+  "SolveMathAction",
   "SoftwareApplication",
   "SoftwareSourceCode",
   "SpeakableSpecification",

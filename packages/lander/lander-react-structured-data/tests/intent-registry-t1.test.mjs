@@ -38,16 +38,23 @@ function defaultDataForKind(kind) {
     case "AggregateRating":
     case "EmployerAggregateRating":
       return { ratingValue: 5, reviewCount: 1 };
+    case "Answer":
+      return { text: "A." };
     case "Article":
+    case "NewsArticle":
     case "TechArticle":
     case "BlogPosting":
       return { name: kind, url: `https://mdwrk.test/${kind.toLowerCase()}`, headline: kind };
     case "Book":
       return { name: kind, url: "https://mdwrk.test/book" };
+    case "BroadcastEvent":
+      return { name: kind, startDate: "2026-05-23T10:00:00Z", isLiveBroadcast: true };
     case "BreadcrumbList":
       return { items: [{ label: "Home", href: "https://mdwrk.test/" }] };
     case "ClaimReview":
       return { name: kind, url: "https://mdwrk.test/claim-review", claimReviewed: "Claim" };
+    case "Clip":
+      return { name: kind, url: "https://mdwrk.test/video?t=10", startOffset: 10, endOffset: 20 };
     case "Course":
       return { name: kind, url: "https://mdwrk.test/course" };
     case "CourseInstance":
@@ -68,6 +75,8 @@ function defaultDataForKind(kind) {
       return { name: kind, items: [{ name: "Item 1", url: "https://mdwrk.test/item-1" }] };
     case "JobPosting":
       return { name: kind, title: kind, url: "https://mdwrk.test/job", datePosted: "2026-05-23", hiringOrganization: "https://mdwrk.test/#org" };
+    case "LearningResource":
+      return { name: kind, url: "https://mdwrk.test/learning-resource", learningResourceType: "Math Solver", teaches: ["Algebra"] };
     case "LocalBusiness":
     case "Movie":
     case "Product":
@@ -92,17 +101,30 @@ function defaultDataForKind(kind) {
     case "MonetaryAmountDistribution":
       return { name: kind, currency: "USD", minValue: 1, maxValue: 2, unitText: "HOUR" };
     case "QAPage":
-      return { question: "Q?", answer: "A.", url: "https://mdwrk.test/qa" };
+      return { question: "Q?", acceptedAnswer: { text: "A." }, suggestedAnswer: [{ text: "B." }], answerCount: 2, url: "https://mdwrk.test/qa" };
+    case "Question":
+      return { name: "Q?", acceptedAnswer: { text: "A." }, suggestedAnswer: [{ text: "B." }], answerCount: 2, eduQuestionType: "Flashcard" };
+    case "Quiz":
+      return { name: kind, hasPart: [{ name: "Q?", acceptedAnswer: { text: "A." }, suggestedAnswer: [{ text: "B." }], answerCount: 2, eduQuestionType: "Flashcard" }] };
     case "ReadAction":
       return { target: "https://mdwrk.test/book" };
     case "Recipe":
       return { name: kind, url: "https://mdwrk.test/recipe", recipeIngredient: ["salt"], recipeInstructions: "Mix." };
     case "Review":
       return { name: kind, url: "https://mdwrk.test/review", itemReviewed: "https://mdwrk.test/product", reviewBody: "Solid." };
+    case "SolveMathAction":
+      return { target: "https://mdwrk.test/math?q={mathExpression}", mathExpressionInput: "required name=mathExpression", eduQuestionType: ["Algebra"] };
     case "SpeakableSpecification":
       return { cssSelector: [".answer"] };
     case "VideoObject":
-      return { name: kind, url: "https://mdwrk.test/video", thumbnailUrl: "https://mdwrk.test/video.png", uploadDate: "2026-05-23" };
+      return {
+        name: kind,
+        url: "https://mdwrk.test/video",
+        thumbnailUrl: "https://mdwrk.test/video.png",
+        uploadDate: "2026-05-23",
+        clip: [{ name: "Key moment", url: "https://mdwrk.test/video?t=10", startOffset: 10, endOffset: 20 }],
+        publication: [{ name: "Live stream", startDate: "2026-05-23T10:00:00Z", isLiveBroadcast: true }],
+      };
     default:
       throw new Error(`Unhandled intent kind fixture: ${kind}`);
   }

@@ -2,11 +2,14 @@ import React from "react";
 import type { CompiledLanderSite, CompiledPage, CompiledStructuredDataIntent } from "@mdwrk/lander-core";
 import {
   aggregateRatingNode,
+  answerNode,
   articleNode,
   blogPostingNode,
   bookNode,
+  broadcastEventNode,
   breadcrumbListSchema,
   claimReviewNode,
+  clipNode,
   courseInstanceNode,
   courseNode,
   datasetNode,
@@ -20,20 +23,25 @@ import {
   itemListNode,
   jobPostingNode,
   jsonLdGraph,
+  learningResourceNode,
   localBusinessNode,
   loyaltyProgramNode,
   mathSolverNode,
   merchantReturnPolicyNode,
   movieNode,
+  newsArticleNode,
   offerShippingDetailsNode,
   organizationNode,
   productNode,
   productGroupNode,
   profilePageNode,
   qaPageSchema,
+  questionNode,
+  quizNode,
   readActionNode,
   recipeNode,
   reviewNode,
+  solveMathActionNode,
   speakableSpecificationNode,
   softwareApplicationNode,
   softwareSourceCodeNode,
@@ -47,10 +55,13 @@ import {
   webSiteSchema,
   type JsonLd,
   type AggregateRatingInput,
+  type AnswerInput,
   type ArticleInput,
   type BookInput,
+  type BroadcastEventInput,
   type BreadcrumbListInput,
   type ClaimReviewInput,
+  type ClipInput,
   type CourseInput,
   type CourseInstanceInput,
   type DatasetInput,
@@ -61,6 +72,7 @@ import {
   type ImageObjectInput,
   type ItemListInput,
   type JobPostingInput,
+  type LearningResourceInput,
   type LocalBusinessInput,
   type LoyaltyProgramInput,
   type MathSolverInput,
@@ -71,8 +83,11 @@ import {
   type ProductGroupInput,
   type ProfilePageInput,
   type QaPageInput,
+  type QuestionInput,
+  type QuizInput,
   type RecipeInput,
   type ReviewInput,
+  type SolveMathActionInput,
   type SoftwareApplicationInput,
   type SoftwareSourceCodeInput,
   type SpeakableInput,
@@ -122,6 +137,10 @@ export function ArticleStructuredData({ data }: { data: ArticleInput }) {
   return <StructuredDataNode data={data} build={articleNode} />;
 }
 
+export function NewsArticleStructuredData({ data }: { data: ArticleInput }) {
+  return <StructuredDataNode data={data} build={newsArticleNode} />;
+}
+
 export function TechArticleStructuredData({ data }: { data: ArticleInput }) {
   return <StructuredDataNode data={data} build={techArticleNode} />;
 }
@@ -140,6 +159,18 @@ export function FAQPageStructuredData({ data }: { data: FaqPageInput }) {
 
 export function QAPageStructuredData({ data }: { data: QaPageInput }) {
   return <StructuredDataNode data={data} build={qaPageSchema} />;
+}
+
+export function QuizStructuredData({ data }: { data: QuizInput }) {
+  return <StructuredDataNode data={data} build={quizNode} />;
+}
+
+export function QuestionStructuredData({ data }: { data: QuestionInput }) {
+  return <StructuredDataNode data={data} build={questionNode} />;
+}
+
+export function AnswerStructuredData({ data }: { data: AnswerInput }) {
+  return <StructuredDataNode data={data} build={answerNode} />;
 }
 
 export function HowToStructuredData({ data }: { data: HowToInput }) {
@@ -238,6 +269,14 @@ export function MathSolverStructuredData({ data }: { data: MathSolverInput }) {
   return <StructuredDataNode data={data} build={mathSolverNode} />;
 }
 
+export function LearningResourceStructuredData({ data }: { data: LearningResourceInput }) {
+  return <StructuredDataNode data={data} build={learningResourceNode} />;
+}
+
+export function SolveMathActionStructuredData({ data }: { data: SolveMathActionInput }) {
+  return <StructuredDataNode data={data} build={solveMathActionNode} />;
+}
+
 export function MerchantReturnPolicyStructuredData({ data }: { data: PolicyInput }) {
   return <StructuredDataNode data={data} build={merchantReturnPolicyNode} />;
 }
@@ -260,6 +299,14 @@ export function RecipeStructuredData({ data }: { data: RecipeInput }) {
 
 export function SpeakableSpecificationStructuredData({ data }: { data: SpeakableInput }) {
   return <StructuredDataNode data={data} build={speakableSpecificationNode} />;
+}
+
+export function ClipStructuredData({ data }: { data: ClipInput }) {
+  return <StructuredDataNode data={data} build={clipNode} />;
+}
+
+export function BroadcastEventStructuredData({ data }: { data: BroadcastEventInput }) {
+  return <StructuredDataNode data={data} build={broadcastEventNode} />;
 }
 
 export function VacationRentalStructuredData({ data }: { data: VacationRentalInput }) {
@@ -289,6 +336,68 @@ const jsonLdArrayValue = (value: unknown): JsonLd | JsonLd[] | undefined =>
 const stringArrayValue = (value: unknown): string[] | undefined =>
   Array.isArray(value) ? value.filter((entry): entry is string => typeof entry === "string" && Boolean(entry.trim())) : undefined;
 
+const recordArrayValue = (value: unknown): Record<string, unknown>[] | undefined =>
+  Array.isArray(value)
+    ? value.filter(
+        (entry): entry is Record<string, unknown> =>
+          Boolean(entry) && typeof entry === "object" && !Array.isArray(entry),
+      )
+    : undefined;
+
+const numberValue = (value: unknown): number | undefined => (typeof value === "number" ? value : undefined);
+
+const booleanValue = (value: unknown): boolean | undefined => (typeof value === "boolean" ? value : undefined);
+
+function answerInputFromRecord(data: Record<string, unknown>): AnswerInput {
+  return {
+    id: stringValue(data.id),
+    text: stringValue(data.text) ?? "",
+    url: stringValue(data.url),
+    upvoteCount: numberValue(data.upvoteCount),
+    dateCreated: stringValue(data.dateCreated),
+    author: jsonLdValue(data.author),
+  };
+}
+
+function questionInputFromRecord(data: Record<string, unknown>): QuestionInput {
+  return {
+    id: stringValue(data.id),
+    name: stringValue(data.name) ?? stringValue(data.question) ?? "",
+    text: stringValue(data.text),
+    url: stringValue(data.url),
+    acceptedAnswer:
+      data.acceptedAnswer && typeof data.acceptedAnswer === "object" && !Array.isArray(data.acceptedAnswer)
+        ? answerInputFromRecord(data.acceptedAnswer as Record<string, unknown>)
+        : undefined,
+    suggestedAnswer: recordArrayValue(data.suggestedAnswer)?.map((entry) => answerInputFromRecord(entry)),
+    answerCount: numberValue(data.answerCount),
+    eduQuestionType: stringValue(data.eduQuestionType),
+  };
+}
+
+function clipInputFromRecord(data: Record<string, unknown>): ClipInput {
+  return {
+    id: stringValue(data.id),
+    name: stringValue(data.name) ?? "",
+    description: stringValue(data.description),
+    url: stringValue(data.url),
+    startOffset: numberValue(data.startOffset),
+    endOffset: numberValue(data.endOffset),
+  };
+}
+
+function broadcastEventInputFromRecord(data: Record<string, unknown>): BroadcastEventInput {
+  return {
+    id: stringValue(data.id),
+    name: stringValue(data.name),
+    description: stringValue(data.description),
+    url: stringValue(data.url),
+    startDate: stringValue(data.startDate),
+    endDate: stringValue(data.endDate),
+    isLiveBroadcast: booleanValue(data.isLiveBroadcast),
+  };
+}
+
 export interface StructuredDataIntentRendererEntry {
   componentName: string;
   render: (intent: CompiledStructuredDataIntent) => React.ReactElement;
@@ -303,11 +412,14 @@ function renderDataIntent<T extends object>(
 
 export const landerStructuredDataIntentRegistry = Object.freeze({
   AggregateRating: { componentName: "AggregateRatingStructuredData", render: (intent) => renderDataIntent(AggregateRatingStructuredData, intent) },
+  Answer: { componentName: "AnswerStructuredData", render: (intent) => renderDataIntent(AnswerStructuredData, intent) },
   Article: { componentName: "ArticleStructuredData", render: (intent) => renderDataIntent(ArticleStructuredData, intent) },
   BlogPosting: { componentName: "BlogPostingStructuredData", render: (intent) => renderDataIntent(BlogPostingStructuredData, intent) },
   Book: { componentName: "BookStructuredData", render: (intent) => renderDataIntent(BookStructuredData, intent) },
+  BroadcastEvent: { componentName: "BroadcastEventStructuredData", render: (intent) => renderDataIntent(BroadcastEventStructuredData, intent) },
   BreadcrumbList: { componentName: "BreadcrumbListStructuredData", render: (intent) => renderDataIntent(BreadcrumbListStructuredData, intent) },
   ClaimReview: { componentName: "ClaimReviewStructuredData", render: (intent) => renderDataIntent(ClaimReviewStructuredData, intent) },
+  Clip: { componentName: "ClipStructuredData", render: (intent) => renderDataIntent(ClipStructuredData, intent) },
   Course: { componentName: "CourseStructuredData", render: (intent) => renderDataIntent(CourseStructuredData, intent) },
   CourseInstance: { componentName: "CourseInstanceStructuredData", render: (intent) => renderDataIntent(CourseInstanceStructuredData, intent) },
   Dataset: { componentName: "DatasetStructuredData", render: (intent) => renderDataIntent(DatasetStructuredData, intent) },
@@ -319,24 +431,29 @@ export const landerStructuredDataIntentRegistry = Object.freeze({
   ImageObject: { componentName: "ImageObjectStructuredData", render: (intent) => renderDataIntent(ImageObjectStructuredData, intent) },
   ItemList: { componentName: "ItemListStructuredData", render: (intent) => renderDataIntent(ItemListStructuredData, intent) },
   JobPosting: { componentName: "JobPostingStructuredData", render: (intent) => renderDataIntent(JobPostingStructuredData, intent) },
+  LearningResource: { componentName: "LearningResourceStructuredData", render: (intent) => renderDataIntent(LearningResourceStructuredData, intent) },
   LocalBusiness: { componentName: "LocalBusinessStructuredData", render: (intent) => renderDataIntent(LocalBusinessStructuredData, intent) },
   MathSolver: { componentName: "MathSolverStructuredData", render: (intent) => renderDataIntent(MathSolverStructuredData, intent) },
   MemberProgram: { componentName: "MemberProgramStructuredData", render: (intent) => renderDataIntent(MemberProgramStructuredData, intent) },
   MerchantReturnPolicy: { componentName: "MerchantReturnPolicyStructuredData", render: (intent) => renderDataIntent(MerchantReturnPolicyStructuredData, intent) },
   MonetaryAmountDistribution: { componentName: "MonetaryAmountDistributionStructuredData", render: (intent) => renderDataIntent(MonetaryAmountDistributionStructuredData, intent) },
   Movie: { componentName: "MovieStructuredData", render: (intent) => renderDataIntent(MovieStructuredData, intent) },
+  NewsArticle: { componentName: "NewsArticleStructuredData", render: (intent) => renderDataIntent(NewsArticleStructuredData, intent) },
   OfferShippingDetails: { componentName: "OfferShippingDetailsStructuredData", render: (intent) => renderDataIntent(OfferShippingDetailsStructuredData, intent) },
   Organization: { componentName: "OrganizationStructuredData", render: (intent) => renderDataIntent(OrganizationStructuredData, intent) },
   Product: { componentName: "ProductStructuredData", render: (intent) => renderDataIntent(ProductStructuredData, intent) },
   ProductGroup: { componentName: "ProductGroupStructuredData", render: (intent) => renderDataIntent(ProductGroupStructuredData, intent) },
   ProfilePage: { componentName: "ProfilePageStructuredData", render: (intent) => renderDataIntent(ProfilePageStructuredData, intent) },
   QAPage: { componentName: "QAPageStructuredData", render: (intent) => renderDataIntent(QAPageStructuredData, intent) },
+  Question: { componentName: "QuestionStructuredData", render: (intent) => renderDataIntent(QuestionStructuredData, intent) },
+  Quiz: { componentName: "QuizStructuredData", render: (intent) => renderDataIntent(QuizStructuredData, intent) },
   ReadAction: {
     componentName: "ReadActionStructuredData",
     render: (intent) => <ReadActionStructuredData target={jsonLdValue(dataRecord(intent.data).target) ?? dataRecord(intent.data)} />,
   },
   Recipe: { componentName: "RecipeStructuredData", render: (intent) => renderDataIntent(RecipeStructuredData, intent) },
   Review: { componentName: "ReviewStructuredData", render: (intent) => renderDataIntent(ReviewStructuredData, intent) },
+  SolveMathAction: { componentName: "SolveMathActionStructuredData", render: (intent) => renderDataIntent(SolveMathActionStructuredData, intent) },
   SoftwareApplication: { componentName: "SoftwareApplicationStructuredData", render: (intent) => renderDataIntent(SoftwareApplicationStructuredData, intent) },
   SoftwareSourceCode: { componentName: "SoftwareSourceCodeStructuredData", render: (intent) => renderDataIntent(SoftwareSourceCodeStructuredData, intent) },
   SpeakableSpecification: { componentName: "SpeakableSpecificationStructuredData", render: (intent) => renderDataIntent(SpeakableSpecificationStructuredData, intent) },
@@ -456,6 +573,32 @@ export function buildLanderJsonLdGraph(site: CompiledLanderSite, page: CompiledP
       offers: jsonLdValue(data.offers) as JsonLd | undefined,
     }));
   }
+  if (shouldEmit(page, "Course")) {
+    const data = schemaData(page, "Course");
+    nodes.push(courseNode({
+      id: stringValue(data.id) ?? stableId(page.canonicalUrl, "course"),
+      name: stringValue(data.name) ?? page.h1,
+      description: stringValue(data.description) ?? page.description,
+      url: stringValue(data.url) ?? page.canonicalUrl,
+      provider: jsonLdValue(data.provider) ?? organization,
+      coursePrerequisites: stringArrayValue(data.coursePrerequisites) ?? stringValue(data.coursePrerequisites),
+      hasCourseInstance: jsonLdArrayValue(data.hasCourseInstance),
+    }));
+  }
+  if (shouldEmit(page, "CourseInstance")) {
+    const data = schemaData(page, "CourseInstance");
+    nodes.push(courseInstanceNode({
+      id: stringValue(data.id) ?? stableId(page.canonicalUrl, "course-instance"),
+      name: stringValue(data.name) ?? page.h1,
+      description: stringValue(data.description) ?? page.description,
+      url: stringValue(data.url) ?? page.canonicalUrl,
+      courseMode: stringValue(data.courseMode),
+      instructor: jsonLdValue(data.instructor),
+      location: jsonLdValue(data.location),
+      startDate: stringValue(data.startDate),
+      endDate: stringValue(data.endDate),
+    }));
+  }
 
   const articleDefaults = {
     id: stableId(page.canonicalUrl, "article"),
@@ -470,6 +613,9 @@ export function buildLanderJsonLdGraph(site: CompiledLanderSite, page: CompiledP
   if (shouldEmit(page, "Article", ["trust", "proof", "compare"].includes(page.kind))) {
     nodes.push(articleNode({ ...articleDefaults, ...schemaData(page, "Article") }));
   }
+  if (shouldEmit(page, "NewsArticle")) {
+    nodes.push(newsArticleNode({ ...articleDefaults, id: stableId(page.canonicalUrl, "news-article"), ...schemaData(page, "NewsArticle") }));
+  }
   if (shouldEmit(page, "TechArticle", ["answer", "feature", "docs_bridge", "package"].includes(page.kind))) {
     nodes.push(techArticleNode({ ...articleDefaults, id: stableId(page.canonicalUrl, "tech-article"), ...schemaData(page, "TechArticle") }));
   }
@@ -482,6 +628,45 @@ export function buildLanderJsonLdGraph(site: CompiledLanderSite, page: CompiledP
       id: stringValue(data.id) ?? stableId(page.canonicalUrl, "faq"),
       items: Array.isArray(data.items) ? data.items as Array<{ question: string; answer: string }> : page.faq ?? [],
     }));
+  }
+  if (shouldEmit(page, "QAPage")) {
+    const data = schemaData(page, "QAPage");
+    nodes.push(qaPageSchema({
+      id: stringValue(data.id) ?? stableId(page.canonicalUrl, "qa-page"),
+      question: stringValue(data.question) ?? page.h1,
+      answer: stringValue(data.answer),
+      acceptedAnswer:
+        data.acceptedAnswer && typeof data.acceptedAnswer === "object" && !Array.isArray(data.acceptedAnswer)
+          ? answerInputFromRecord(data.acceptedAnswer as Record<string, unknown>)
+          : undefined,
+      suggestedAnswer: recordArrayValue(data.suggestedAnswer)?.map((entry) => answerInputFromRecord(entry)),
+      answerCount: numberValue(data.answerCount),
+      eduQuestionType: stringValue(data.eduQuestionType),
+      url: stringValue(data.url) ?? page.canonicalUrl,
+    }));
+  }
+  if (shouldEmit(page, "Quiz")) {
+    const data = schemaData(page, "Quiz");
+    const hasPart =
+      recordArrayValue(data.hasPart)?.map((entry) => questionInputFromRecord(entry)) ??
+      page.faq?.map((entry) => ({ name: entry.question, acceptedAnswer: { text: entry.answer } })) ??
+      [];
+    nodes.push(quizNode({
+      id: stringValue(data.id) ?? stableId(page.canonicalUrl, "quiz"),
+      name: stringValue(data.name) ?? page.h1,
+      description: stringValue(data.description) ?? page.description,
+      url: stringValue(data.url) ?? page.canonicalUrl,
+      educationalLevel: stringValue(data.educationalLevel),
+      assesses: stringArrayValue(data.assesses) ?? stringValue(data.assesses),
+      learningResourceType: stringValue(data.learningResourceType),
+      hasPart,
+    }));
+  }
+  if (shouldEmit(page, "Question")) {
+    nodes.push(questionNode(questionInputFromRecord({ name: page.h1, ...schemaData(page, "Question") })));
+  }
+  if (shouldEmit(page, "Answer")) {
+    nodes.push(answerNode(answerInputFromRecord({ text: page.description, ...schemaData(page, "Answer") })));
   }
   if (shouldEmit(page, "SoftwareSourceCode", page.kind === "package")) {
     const data = schemaData(page, "SoftwareSourceCode");
@@ -532,7 +717,18 @@ export function buildLanderJsonLdGraph(site: CompiledLanderSite, page: CompiledP
       duration: stringValue(data.duration),
       embedUrl: stringValue(data.embedUrl),
       contentUrl: stringValue(data.contentUrl),
+      clip: recordArrayValue(data.clip)?.map((entry) => clipInputFromRecord(entry)),
+      publication: recordArrayValue(data.publication)?.map((entry) => broadcastEventInputFromRecord(entry))
+        ?? (data.publication && typeof data.publication === "object" && !Array.isArray(data.publication)
+          ? broadcastEventInputFromRecord(data.publication as Record<string, unknown>)
+          : undefined),
     }));
+  }
+  if (shouldEmit(page, "Clip")) {
+    nodes.push(clipNode(clipInputFromRecord({ name: page.h1, ...schemaData(page, "Clip") })));
+  }
+  if (shouldEmit(page, "BroadcastEvent")) {
+    nodes.push(broadcastEventNode(broadcastEventInputFromRecord(schemaData(page, "BroadcastEvent"))));
   }
   if (shouldEmit(page, "ItemList")) {
     const data = schemaData(page, "ItemList");
@@ -553,6 +749,60 @@ export function buildLanderJsonLdGraph(site: CompiledLanderSite, page: CompiledP
         ? data.steps as Array<{ name: string; text: string; url?: string }>
         : [{ name: page.h1, text: page.intro, url: page.canonicalUrl }],
       totalTime: stringValue(data.totalTime),
+    }));
+  }
+  if (shouldEmit(page, "LearningResource")) {
+    const data = schemaData(page, "LearningResource");
+    nodes.push(learningResourceNode({
+      id: stringValue(data.id) ?? stableId(page.canonicalUrl, "learning-resource"),
+      name: stringValue(data.name) ?? page.h1,
+      description: stringValue(data.description) ?? page.description,
+      url: stringValue(data.url) ?? page.canonicalUrl,
+      learningResourceType: stringValue(data.learningResourceType),
+      educationalLevel: stringValue(data.educationalLevel),
+      teaches: stringArrayValue(data.teaches) ?? stringValue(data.teaches),
+    }));
+  }
+  if (shouldEmit(page, "SolveMathAction")) {
+    const data = schemaData(page, "SolveMathAction");
+    nodes.push(solveMathActionNode({
+      id: stringValue(data.id) ?? stableId(page.canonicalUrl, "solve-math-action"),
+      target: jsonLdValue(data.target) ?? stringValue(data.target) ?? page.canonicalUrl,
+      mathExpressionInput: stringValue(data.mathExpressionInput),
+      eduQuestionType: stringArrayValue(data.eduQuestionType) ?? stringValue(data.eduQuestionType),
+    }));
+  }
+  if (shouldEmit(page, "MathSolver")) {
+    const data = schemaData(page, "MathSolver");
+    const solveMathAction = schemaData(page, "SolveMathAction");
+    const learningResource = schemaData(page, "LearningResource");
+    nodes.push(mathSolverNode({
+      id: stringValue(data.id) ?? stableId(page.canonicalUrl, "math-solver"),
+      name: stringValue(data.name) ?? page.h1,
+      description: stringValue(data.description) ?? page.description,
+      url: stringValue(data.url) ?? page.canonicalUrl,
+      mathExpression: stringValue(data.mathExpression),
+      potentialAction:
+        shouldEmit(page, "SolveMathAction")
+          ? solveMathActionNode({
+              id: stringValue(solveMathAction.id) ?? stableId(page.canonicalUrl, "solve-math-action"),
+              target: jsonLdValue(solveMathAction.target) ?? stringValue(solveMathAction.target) ?? page.canonicalUrl,
+              mathExpressionInput: stringValue(solveMathAction.mathExpressionInput),
+              eduQuestionType: stringArrayValue(solveMathAction.eduQuestionType) ?? stringValue(solveMathAction.eduQuestionType),
+            })
+          : undefined,
+      learningResource:
+        shouldEmit(page, "LearningResource")
+          ? learningResourceNode({
+              id: stringValue(learningResource.id) ?? stableId(page.canonicalUrl, "learning-resource"),
+              name: stringValue(learningResource.name) ?? page.h1,
+              description: stringValue(learningResource.description) ?? page.description,
+              url: stringValue(learningResource.url) ?? page.canonicalUrl,
+              learningResourceType: stringValue(learningResource.learningResourceType),
+              educationalLevel: stringValue(learningResource.educationalLevel),
+              teaches: stringArrayValue(learningResource.teaches) ?? stringValue(learningResource.teaches),
+            })
+          : undefined,
     }));
   }
 

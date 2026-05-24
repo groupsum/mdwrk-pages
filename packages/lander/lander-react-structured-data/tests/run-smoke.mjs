@@ -11,6 +11,7 @@ const distRoot = path.resolve(testRoot, '..', 'dist');
 const distIndex = path.join(distRoot, 'index.js');
 const smokeIndex = path.join(distRoot, 'index.smoke.mjs');
 const structuredDataDist = path.join(repoRoot, 'packages', 'shared', 'structured-data', 'dist', 'index.js').replace(/\\/g, '/');
+const contractDist = path.join(repoRoot, 'packages', 'lander', 'lander-content-contract', 'dist', 'index.js').replace(/\\/g, '/');
 
 fs.writeFileSync(
   smokeIndex,
@@ -19,11 +20,14 @@ fs.writeFileSync(
 
 const {
   AggregateRatingStructuredData,
+  AnswerStructuredData,
   ArticleStructuredData,
   BlogPostingStructuredData,
   BookStructuredData,
+  BroadcastEventStructuredData,
   BreadcrumbListStructuredData,
   ClaimReviewStructuredData,
+  ClipStructuredData,
   CourseInstanceStructuredData,
   CourseStructuredData,
   DatasetStructuredData,
@@ -36,21 +40,26 @@ const {
   ItemListStructuredData,
   JobPostingStructuredData,
   JsonLd,
+  LearningResourceStructuredData,
   LocalBusinessStructuredData,
   MathSolverStructuredData,
   MemberProgramStructuredData,
   MerchantReturnPolicyStructuredData,
   MonetaryAmountDistributionStructuredData,
   MovieStructuredData,
+  NewsArticleStructuredData,
   OfferShippingDetailsStructuredData,
   OrganizationStructuredData,
   ProductGroupStructuredData,
   ProductStructuredData,
   ProfilePageStructuredData,
   QAPageStructuredData,
+  QuestionStructuredData,
+  QuizStructuredData,
   ReadActionStructuredData,
   RecipeStructuredData,
   ReviewStructuredData,
+  SolveMathActionStructuredData,
   SoftwareApplicationStructuredData,
   SoftwareSourceCodeStructuredData,
   SpeakableSpecificationStructuredData,
@@ -66,6 +75,35 @@ const {
   renderStructuredDataIntent,
 } = await import(`file:///${smokeIndex.replace(/\\/g, '/')}`);
 fs.rmSync(smokeIndex, { force: true });
+
+const templatesDistRoot = path.join(repoRoot, 'packages', 'lander', 'lander-page-templates', 'dist');
+const templatesSmokeRoot = path.join(repoRoot, 'packages', 'lander', 'lander-page-templates', '.smoke-dist');
+fs.rmSync(templatesSmokeRoot, { recursive: true, force: true });
+fs.cpSync(templatesDistRoot, templatesSmokeRoot, { recursive: true });
+for (const file of fs.readdirSync(templatesSmokeRoot, { recursive: true })) {
+  if (typeof file !== 'string' || !file.endsWith('.js')) continue;
+  const target = path.join(templatesSmokeRoot, file);
+  fs.writeFileSync(
+    target,
+    fs.readFileSync(target, 'utf8').replaceAll('"@mdwrk/lander-content-contract"', `"file:///${contractDist}"`),
+  );
+}
+
+const presetsDistRoot = path.join(repoRoot, 'packages', 'lander', 'lander-page-template-presets', 'dist');
+const presetsSmokeRoot = path.join(repoRoot, 'packages', 'lander', 'lander-page-template-presets', '.smoke-dist');
+fs.rmSync(presetsSmokeRoot, { recursive: true, force: true });
+fs.cpSync(presetsDistRoot, presetsSmokeRoot, { recursive: true });
+const templateSmokeIndex = path.join(templatesSmokeRoot, 'index.js').replace(/\\/g, '/');
+for (const file of fs.readdirSync(path.join(presetsSmokeRoot, 'presets'))) {
+  if (!file.endsWith('.js')) continue;
+  const target = path.join(presetsSmokeRoot, 'presets', file);
+  fs.writeFileSync(
+    target,
+    fs.readFileSync(target, 'utf8').replaceAll('"@mdwrk/lander-page-templates"', `"file:///${templateSmokeIndex}"`),
+  );
+}
+const { createEducationPathPreset } = await import(`file:///${path.join(presetsSmokeRoot, 'index.js').replace(/\\/g, '/')}`);
+const { buildPageSpecsFromGraph } = await import(`file:///${templateSmokeIndex}`);
 
 const site = {
   product: {
@@ -124,8 +162,13 @@ const page = {
     { kind: 'SoftwareSourceCode', data: { codeRepository: 'https://github.com/groupsum/mdwrk-pages' } },
     { kind: 'TechArticle' },
     { kind: 'Article' },
+    { kind: 'NewsArticle', data: { datePublished: '2026-05-06' } },
     { kind: 'BlogPosting', data: { datePublished: '2026-05-06' } },
     { kind: 'FAQPage' },
+    { kind: 'QAPage', data: { question: 'How does QAPage work?', acceptedAnswer: { text: 'It renders a single question page.' }, suggestedAnswer: [{ text: 'It is used for FAQs.' }], answerCount: 2 } },
+    { kind: 'Quiz', data: { hasPart: [{ name: 'What is this?', acceptedAnswer: { text: 'A quiz.' }, suggestedAnswer: [{ text: 'A dataset.' }], answerCount: 2, eduQuestionType: 'Flashcard' }] } },
+    { kind: 'Question', data: { name: 'Flashcard prompt', acceptedAnswer: { text: 'Flashcard answer' }, suggestedAnswer: [{ text: 'Wrong answer' }], answerCount: 2, eduQuestionType: 'Flashcard' } },
+    { kind: 'Answer', data: { text: 'Standalone answer' } },
     { kind: 'BreadcrumbList' },
     { kind: 'Dataset', data: { keywords: ['structured-data', 'json-ld'] } },
     { kind: 'ImageObject' },
@@ -133,14 +176,21 @@ const page = {
     { kind: 'HowTo' },
     { kind: 'Product' },
     { kind: 'ProfilePage' },
+    { kind: 'LearningResource', data: { learningResourceType: 'Math Solver', teaches: ['Algebra'] } },
+    { kind: 'SolveMathAction', data: { target: 'https://mdwrk.test/math?q={mathExpression}', mathExpressionInput: 'required name=mathExpression', eduQuestionType: ['Algebra'] } },
+    { kind: 'MathSolver', data: { mathExpression: 'x+1=2' } },
     {
       kind: 'VideoObject',
       data: {
         thumbnailUrl: 'https://mdwrk.test/video.png',
         uploadDate: '2026-05-06',
         embedUrl: 'https://mdwrk.test/video',
+        clip: [{ name: 'Key moment', url: 'https://mdwrk.test/video?t=10', startOffset: 10, endOffset: 20 }],
+        publication: [{ name: 'Live stream', startDate: '2026-05-06T12:00:00Z', isLiveBroadcast: true }],
       },
     },
+    { kind: 'Clip', data: { name: 'Key moment', url: 'https://mdwrk.test/video?t=10', startOffset: 10, endOffset: 20 } },
+    { kind: 'BroadcastEvent', data: { name: 'Live stream', startDate: '2026-05-06T12:00:00Z', isLiveBroadcast: true } },
   ],
 };
 
@@ -156,8 +206,13 @@ for (const type of [
   'SoftwareSourceCode',
   'TechArticle',
   'Article',
+  'NewsArticle',
   'BlogPosting',
   'FAQPage',
+  'QAPage',
+  'Quiz',
+  'Question',
+  'Answer',
   'BreadcrumbList',
   'Dataset',
   'ImageObject',
@@ -165,7 +220,12 @@ for (const type of [
   'HowTo',
   'Product',
   'ProfilePage',
+  'LearningResource',
+  'SolveMathAction',
+  'MathSolver',
   'VideoObject',
+  'Clip',
+  'BroadcastEvent',
 ]) {
   assert.ok(types.includes(type), `missing ${type}`);
 }
@@ -182,18 +242,22 @@ const typedCases = [
   ['SoftwareApplication', SoftwareApplicationStructuredData, { data: { name: 'MdWrk App', url: 'https://mdwrk.test/app' } }],
   ['WebApplication', WebApplicationStructuredData, { data: { name: 'MdWrk Web App', url: 'https://mdwrk.test/web-app' } }],
   ['Article', ArticleStructuredData, { data: { name: 'Article', url: 'https://mdwrk.test/article' } }],
+  ['NewsArticle', NewsArticleStructuredData, { data: { name: 'News Article', url: 'https://mdwrk.test/news-article' } }],
   ['TechArticle', TechArticleStructuredData, { data: { name: 'Tech Article', url: 'https://mdwrk.test/tech-article' } }],
   ['BlogPosting', BlogPostingStructuredData, { data: { name: 'Blog Posting', url: 'https://mdwrk.test/blog-posting' } }],
   ['BreadcrumbList', BreadcrumbListStructuredData, { data: { items: [{ label: 'Home', href: 'https://mdwrk.test/' }] } }],
   ['FAQPage', FAQPageStructuredData, { data: { items: [{ question: 'Q?', answer: 'A.' }] } }],
-  ['QAPage', QAPageStructuredData, { data: { question: 'Q?', answer: 'A.', url: 'https://mdwrk.test/qa' } }],
+  ['QAPage', QAPageStructuredData, { data: { question: 'Q?', acceptedAnswer: { text: 'A.' }, suggestedAnswer: [{ text: 'B.' }], answerCount: 2, url: 'https://mdwrk.test/qa' } }],
+  ['Quiz', QuizStructuredData, { data: { name: 'Quiz', hasPart: [{ name: 'Q?', acceptedAnswer: { text: 'A.' }, suggestedAnswer: [{ text: 'B.' }], answerCount: 2, eduQuestionType: 'Flashcard' }] } }],
+  ['Question', QuestionStructuredData, { data: { name: 'Q?', acceptedAnswer: { text: 'A.' }, suggestedAnswer: [{ text: 'B.' }], answerCount: 2, eduQuestionType: 'Flashcard' } }],
+  ['Answer', AnswerStructuredData, { data: { text: 'A.' } }],
   ['HowTo', HowToStructuredData, { data: { name: 'How To', url: 'https://mdwrk.test/how-to', steps: [{ name: 'Step 1', text: 'Do it.' }] } }],
   ['ItemList', ItemListStructuredData, { data: { name: 'Items', items: [{ name: 'Item 1', url: 'https://mdwrk.test/item-1' }] } }],
   ['SoftwareSourceCode', SoftwareSourceCodeStructuredData, { data: { name: 'Source', url: 'https://mdwrk.test/source' } }],
   ['Product', ProductStructuredData, { data: { name: 'Product', url: 'https://mdwrk.test/product' } }],
   ['Dataset', DatasetStructuredData, { data: { name: 'Dataset', url: 'https://mdwrk.test/dataset' } }],
   ['Event', EventStructuredData, { data: { name: 'Launch', url: 'https://mdwrk.test/event', startDate: '2026-05-13' } }],
-  ['VideoObject', VideoObjectStructuredData, { data: { name: 'Video', url: 'https://mdwrk.test/video', thumbnailUrl: 'https://mdwrk.test/video.png', uploadDate: '2026-05-13' } }],
+  ['VideoObject', VideoObjectStructuredData, { data: { name: 'Video', url: 'https://mdwrk.test/video', thumbnailUrl: 'https://mdwrk.test/video.png', uploadDate: '2026-05-13', clip: [{ name: 'Key moment', url: 'https://mdwrk.test/video?t=10', startOffset: 10, endOffset: 20 }], publication: [{ name: 'Live stream', startDate: '2026-05-13T10:00:00Z', isLiveBroadcast: true }] } }],
   ['ImageObject', ImageObjectStructuredData, { data: { name: 'Image', url: 'https://mdwrk.test/image.png' } }],
   ['ProfilePage', ProfilePageStructuredData, { data: { name: 'Profile', url: 'https://mdwrk.test/profile', mainEntity: 'https://mdwrk.test/#org' } }],
   ['Review', ReviewStructuredData, { data: { name: 'Review', url: 'https://mdwrk.test/review', itemReviewed: 'https://mdwrk.test/product', reviewBody: 'Solid.' } }],
@@ -209,10 +273,14 @@ const typedCases = [
   ['JobPosting', JobPostingStructuredData, { data: { name: 'Engineer', title: 'Engineer', url: 'https://mdwrk.test/jobs/engineer', datePosted: '2026-05-13', hiringOrganization: 'https://mdwrk.test/#org' } }],
   ['LocalBusiness', LocalBusinessStructuredData, { data: { name: 'Local Biz', url: 'https://mdwrk.test/local' } }],
   ['MemberProgram', MemberProgramStructuredData, { data: { name: 'Member Program', url: 'https://mdwrk.test/member-program' } }],
-  ['MathSolver', MathSolverStructuredData, { data: { name: 'Math Solver', url: 'https://mdwrk.test/math-solver' } }],
+  ['MathSolver', MathSolverStructuredData, { data: { name: 'Math Solver', url: 'https://mdwrk.test/math-solver', potentialAction: { '@type': 'SolveMathAction', target: 'https://mdwrk.test/math?q={mathExpression}', 'mathExpression-input': 'required name=mathExpression' }, learningResource: { '@type': 'LearningResource', name: 'Math Solver', learningResourceType: 'Math Solver' } } }],
+  ['LearningResource', LearningResourceStructuredData, { data: { name: 'Learning Resource', url: 'https://mdwrk.test/learning-resource', learningResourceType: 'Math Solver', teaches: ['Algebra'] } }],
+  ['SolveMathAction', SolveMathActionStructuredData, { data: { target: 'https://mdwrk.test/math?q={mathExpression}', mathExpressionInput: 'required name=mathExpression', eduQuestionType: ['Algebra'] } }],
   ['MerchantReturnPolicy', MerchantReturnPolicyStructuredData, { data: { name: 'Returns' } }],
   ['OfferShippingDetails', OfferShippingDetailsStructuredData, { data: { name: 'Shipping' } }],
   ['Movie', MovieStructuredData, { data: { name: 'Movie', url: 'https://mdwrk.test/movie' } }],
+  ['Clip', ClipStructuredData, { data: { name: 'Clip', url: 'https://mdwrk.test/video?t=10', startOffset: 10, endOffset: 20 } }],
+  ['BroadcastEvent', BroadcastEventStructuredData, { data: { name: 'Broadcast', startDate: '2026-05-13T10:00:00Z', isLiveBroadcast: true } }],
   ['ProductGroup', ProductGroupStructuredData, { data: { name: 'Product Group', url: 'https://mdwrk.test/product-group' } }],
   ['Recipe', RecipeStructuredData, { data: { name: 'Recipe', url: 'https://mdwrk.test/recipe', recipeIngredient: ['salt'], recipeInstructions: 'Mix.' } }],
   ['SpeakableSpecification', SpeakableSpecificationStructuredData, { data: { cssSelector: ['.answer'] } }],
@@ -230,7 +298,7 @@ const jsonLdMarkup = renderToStaticMarkup(React.createElement(JsonLd, { graph })
 assert.ok(jsonLdMarkup.includes('application/ld+json'));
 assert.ok(jsonLdMarkup.includes('"@context":"https://schema.org"'));
 
-assert.equal(Object.keys(landerStructuredDataIntentRegistry).length, 42);
+assert.equal(Object.keys(landerStructuredDataIntentRegistry).length, 50);
 assert.equal(landerStructuredDataIntentRegistry.WebPage.componentName, 'WebPageStructuredData');
 const intentMarkup = renderToStaticMarkup(renderStructuredDataIntent({
   id: 'intent:webpage',
@@ -240,3 +308,36 @@ const intentMarkup = renderToStaticMarkup(renderStructuredDataIntent({
   data: { name: 'Intent Page', url: 'https://mdwrk.test/intent-page' },
 }));
 assert.ok(intentMarkup.includes('"WebPage"'));
+
+const educationPreset = createEducationPathPreset({ baseSlug: '/academy' });
+const educationPages = buildPageSpecsFromGraph(educationPreset.graph).pages;
+const pageBySlug = Object.fromEntries(educationPages.map((entry) => [entry.slug, entry]));
+
+function compiledEducationPage(pageSpec) {
+  return {
+    ...pageSpec,
+    path: pageSpec.slug,
+    canonicalUrl: `https://mdwrk.test${pageSpec.slug}`,
+    breadcrumbs: [
+      { label: 'MdWrk', href: '/' },
+      { label: pageSpec.title, href: pageSpec.slug },
+    ],
+    internalLinks: [],
+    wordCount: 120,
+    seo: {},
+  };
+}
+
+for (const [slug, expectedType] of [
+  ['/academy/learn/', 'ItemList'],
+  ['/academy/learn/course/', 'Course'],
+  ['/academy/learn/course/module/', 'TechArticle'],
+  ['/academy/learn/course/quiz/', 'Quiz'],
+  ['/academy/learn/course/test/', 'Quiz'],
+]) {
+  const educationGraphForPage = buildLanderJsonLdGraph(site, compiledEducationPage(pageBySlug[slug]));
+  assert.ok(educationGraphForPage['@graph'].some((node) => node['@type'] === expectedType), `missing ${expectedType} for ${slug}`);
+}
+
+fs.rmSync(presetsSmokeRoot, { recursive: true, force: true });
+fs.rmSync(templatesSmokeRoot, { recursive: true, force: true });

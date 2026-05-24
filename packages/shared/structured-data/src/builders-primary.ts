@@ -1,8 +1,11 @@
 import { imageValue, node, personOrOrganizationRef, requireText } from "./core.js";
 import type {
   AggregateRatingInput,
+  AnswerInput,
   ArticleInput,
+  BroadcastEventInput,
   BreadcrumbListInput,
+  ClipInput,
   DatasetInput,
   EventInput,
   FaqPageInput,
@@ -14,6 +17,8 @@ import type {
   ProductInput,
   ProfilePageInput,
   QaPageInput,
+  QuestionInput,
+  QuizInput,
   ReviewInput,
   SoftwareApplicationInput,
   SoftwareSourceCodeInput,
@@ -121,6 +126,10 @@ export function blogPostingNode(input: ArticleInput): JsonLd {
   return { ...articleNode(input), "@type": "BlogPosting" };
 }
 
+export function newsArticleNode(input: ArticleInput): JsonLd {
+  return { ...articleNode(input), "@type": "NewsArticle" };
+}
+
 export function breadcrumbListSchema(input: BreadcrumbListInput): JsonLd {
   if (!input.items.length) throw new Error("BreadcrumbList requires at least one item");
   return node("BreadcrumbList", {
@@ -138,34 +147,72 @@ export function faqPageSchema(input: FaqPageInput): JsonLd {
   if (!input.items.length) throw new Error("FAQPage requires at least one question");
   return node("FAQPage", {
     "@id": input.id,
-    mainEntity: input.items.map((item) => ({
-      "@type": "Question",
-      name: requireText(item.question, "FAQ question"),
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: requireText(item.answer, "FAQ answer"),
-      },
-    })),
+    mainEntity: input.items.map((item) =>
+      questionNode({
+        name: requireText(item.question, "FAQ question"),
+        acceptedAnswer: { text: requireText(item.answer, "FAQ answer") },
+      }),
+    ),
+  });
+}
+
+export function answerNode(input: AnswerInput): JsonLd {
+  return node("Answer", {
+    "@id": input.id,
+    text: requireText(input.text, "Answer text"),
+    url: input.url,
+    upvoteCount: input.upvoteCount,
+    dateCreated: input.dateCreated,
+    author: personOrOrganizationRef(input.author),
+  });
+}
+
+export function questionNode(input: QuestionInput): JsonLd {
+  const questionName = requireText(input.name ?? input.text, "Question name");
+  return node("Question", {
+    "@id": input.id,
+    name: questionName,
+    text: input.text,
+    url: input.url,
+    acceptedAnswer: input.acceptedAnswer ? answerNode(input.acceptedAnswer) : undefined,
+    suggestedAnswer: input.suggestedAnswer?.map((answer) => answerNode(answer)),
+    answerCount: input.answerCount,
+    eduQuestionType: input.eduQuestionType,
   });
 }
 
 export function qaPageSchema(input: QaPageInput): JsonLd {
+  const acceptedAnswer = input.acceptedAnswer ?? (input.answer ? { text: input.answer } : undefined);
   return node("QAPage", {
     "@id": input.id,
     url: input.url,
-    mainEntity: {
-      "@type": "Question",
+    mainEntity: questionNode({
       name: requireText(input.question, "QAPage question"),
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: requireText(input.answer, "QAPage answer"),
-      },
-    },
+      acceptedAnswer,
+      suggestedAnswer: input.suggestedAnswer,
+      answerCount: input.answerCount,
+      eduQuestionType: input.eduQuestionType,
+      url: input.url,
+    }),
   });
 }
 
 export function educationQaPageSchema(input: QaPageInput): JsonLd {
   return qaPageSchema(input);
+}
+
+export function quizNode(input: QuizInput): JsonLd {
+  if (!input.hasPart.length) throw new Error("Quiz requires at least one question");
+  return node("Quiz", {
+    "@id": input.id,
+    name: requireText(input.name, "Quiz name"),
+    description: input.description,
+    url: input.url,
+    educationalLevel: input.educationalLevel,
+    assesses: input.assesses,
+    learningResourceType: input.learningResourceType,
+    hasPart: input.hasPart.map((question) => questionNode(question)),
+  });
 }
 
 export function howToNode(input: HowToInput): JsonLd {
@@ -293,6 +340,35 @@ export function videoObjectNode(input: VideoObjectInput): JsonLd {
     duration: input.duration,
     embedUrl: input.embedUrl,
     contentUrl: input.contentUrl,
+    hasPart: input.clip?.map((entry) => clipNode(entry)),
+    publication: Array.isArray(input.publication)
+      ? input.publication.map((entry) => broadcastEventNode(entry))
+      : input.publication
+        ? broadcastEventNode(input.publication)
+        : undefined,
+  });
+}
+
+export function clipNode(input: ClipInput): JsonLd {
+  return node("Clip", {
+    "@id": input.id,
+    name: requireText(input.name, "Clip name"),
+    description: input.description,
+    url: input.url,
+    startOffset: input.startOffset,
+    endOffset: input.endOffset,
+  });
+}
+
+export function broadcastEventNode(input: BroadcastEventInput): JsonLd {
+  return node("BroadcastEvent", {
+    "@id": input.id,
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    startDate: input.startDate,
+    endDate: input.endDate,
+    isLiveBroadcast: input.isLiveBroadcast,
   });
 }
 

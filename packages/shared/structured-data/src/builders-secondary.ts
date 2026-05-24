@@ -2,7 +2,10 @@ import { imageValue, node, personOrOrganizationRef, requireText } from "./core.j
 import {
   articleNode,
   aggregateRatingNode,
+  broadcastEventNode,
+  clipNode,
   imageObjectSchema,
+  newsArticleNode,
   productNode,
   qaPageSchema,
   softwareApplicationNode,
@@ -26,6 +29,7 @@ import type {
   DiscussionForumPostingInput,
   JobPostingInput,
   JsonLd,
+  LearningResourceInput,
   LocalBusinessInput,
   LoyaltyProgramInput,
   MathSolverInput,
@@ -34,6 +38,7 @@ import type {
   PolicyInput,
   ProductGroupInput,
   RecipeInput,
+  SolveMathActionInput,
   SpeakableInput,
   StructuredDataBreadcrumbItem,
   StructuredDataFaqItem,
@@ -181,6 +186,30 @@ export function mathSolverNode(input: MathSolverInput): JsonLd {
     description: input.description,
     url: input.url,
     mathExpression: input.mathExpression,
+    potentialAction: input.potentialAction,
+    learningResourceType: "Math Solver",
+    subjectOf: input.learningResource,
+  });
+}
+
+export function learningResourceNode(input: LearningResourceInput): JsonLd {
+  return node("LearningResource", {
+    "@id": input.id,
+    name: requireText(input.name, "name"),
+    description: input.description,
+    url: input.url,
+    learningResourceType: input.learningResourceType ?? "Math Solver",
+    educationalLevel: input.educationalLevel,
+    teaches: input.teaches,
+  });
+}
+
+export function solveMathActionNode(input: SolveMathActionInput): JsonLd {
+  return node("SolveMathAction", {
+    "@id": input.id,
+    target: input.target,
+    "mathExpression-input": input.mathExpressionInput ?? "required name=mathExpression",
+    eduQuestionType: input.eduQuestionType,
   });
 }
 
@@ -365,6 +394,20 @@ export function techArticleSchema(page: StructuredDataPage): JsonLd {
 export function articleSchema(page: StructuredDataPage): JsonLd {
   return articleNode({
     id: stableId(page.canonicalUrl, "article"),
+    name: page.h1,
+    headline: page.title,
+    description: page.description,
+    url: page.canonicalUrl,
+    image: page.image,
+    datePublished: page.datePublished,
+    dateModified: page.dateModified,
+    author: page.authorName,
+  });
+}
+
+export function newsArticleSchema(page: StructuredDataPage): JsonLd {
+  return newsArticleNode({
+    id: stableId(page.canonicalUrl, "news-article"),
     name: page.h1,
     headline: page.title,
     description: page.description,
