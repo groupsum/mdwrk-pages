@@ -1,3 +1,5 @@
+@import url("@mdwrk/ui-tokens/styles/root.css");
+
 :root,
 :root[data-lander-theme="lander-light"],
 [data-lander-theme="lander-light"] {
@@ -23,6 +25,29 @@
   --lander-radius: 0.75rem;
   --lander-max-width: 1280px;
   --lander-shadow: rgba(15, 23, 42, 0.12);
+  --mdp-nav-height: 4.75rem;
+  --mdp-page-max-width: var(--lander-max-width);
+  --mdp-section-gap: 1.5rem;
+  --mdp-card-padding: 1.5rem;
+  --mdp-card-radius: 1rem;
+  --mdp-hero-padding-block-start: 8rem;
+  --mdp-hero-padding-block-end: 5rem;
+  --mdp-button-radius: 0.5rem;
+  --bg-panel: var(--lander-panel);
+  --bg-inset: var(--lander-panel-muted);
+  --fg-primary: var(--lander-fg);
+  --fg-secondary: var(--lander-fg-subtle);
+  --fg-muted: var(--lander-fg-muted);
+  --border-color: var(--lander-border);
+  --accent: var(--lander-accent);
+  --table-header-bg: color-mix(in srgb, var(--lander-panel-muted) 92%, white 8%);
+  --table-header-fg: var(--lander-heading-fg);
+  --table-row-primary-bg: color-mix(in srgb, var(--lander-panel) 96%, transparent);
+  --table-row-secondary-bg: color-mix(in srgb, var(--lander-panel-muted) 82%, transparent);
+  --editor-content-width: 72ch;
+  --font-ui: "Inter", "Segoe UI", Arial, sans-serif;
+  --font-head: "Inter", "Segoe UI", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", Consolas, monospace;
   color-scheme: light;
 }
 
@@ -49,7 +74,25 @@
   --lander-success-strong: #6ee7b7;
   --lander-selection-fg: #e0e7ff;
   --lander-shadow: rgba(0, 0, 0, 0.28);
+  --table-header-bg: color-mix(in srgb, var(--lander-panel-muted) 88%, black 12%);
+  --table-row-primary-bg: color-mix(in srgb, var(--lander-panel) 96%, transparent);
+  --table-row-secondary-bg: color-mix(in srgb, var(--lander-panel-muted) 88%, transparent);
   color-scheme: dark;
+}
+
+.lander-markdown,
+.lander-markdown .markdown-body {
+  --bg-panel: var(--lander-panel);
+  --bg-inset: var(--lander-panel-muted);
+  --fg-primary: var(--lander-fg);
+  --fg-secondary: var(--lander-fg-subtle);
+  --fg-muted: var(--lander-fg-muted);
+  --border-color: var(--lander-border);
+  --accent: var(--lander-accent);
+  --table-header-bg: color-mix(in srgb, var(--lander-panel-muted) 92%, transparent);
+  --table-header-fg: var(--lander-heading-fg);
+  --table-row-primary-bg: color-mix(in srgb, var(--lander-panel) 96%, transparent);
+  --table-row-secondary-bg: color-mix(in srgb, var(--lander-panel-muted) 82%, transparent);
 }
 
 .lander-page {
@@ -61,12 +104,12 @@
 
 .lander-page__inner,
 .lander-page__section {
-  width: min(calc(100% - 2rem), var(--lander-max-width));
+  width: min(calc(100% - 2rem), var(--mdp-page-max-width));
   margin: 0 auto;
 }
 
 .lander-page__hero {
-  padding: 8rem 0 5rem;
+  padding: var(--mdp-hero-padding-block-start) 0 var(--mdp-hero-padding-block-end);
   background: var(--lander-app-bg);
 }
 
@@ -189,10 +232,10 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  width: min(calc(100% - 2rem), var(--lander-max-width));
+  width: min(calc(100% - 2rem), var(--mdp-page-max-width));
   margin-left: auto;
   margin-right: auto;
-  min-height: 4.75rem;
+  min-height: var(--mdp-nav-height);
   padding: 1rem;
 }
 
@@ -317,16 +360,16 @@
 .lander-page__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: 1.5rem;
+  gap: var(--mdp-section-gap);
 }
 
 .lander-page__card,
 .lander-page__panel {
   border: 1px solid var(--lander-border);
-  border-radius: 1rem;
+  border-radius: var(--mdp-card-radius);
   background: color-mix(in srgb, var(--lander-panel) 92%, transparent);
   box-shadow: 0 18px 50px var(--lander-shadow);
-  padding: 1.5rem;
+  padding: var(--mdp-card-padding);
 }
 
 .lander-page__card h3,
@@ -344,7 +387,7 @@
 .lander-page__button-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--mdp-section-gap);
   margin-top: 1.875rem;
 }
 
@@ -353,7 +396,7 @@
   align-items: center;
   justify-content: center;
   border: 1px solid var(--lander-border-strong);
-  border-radius: 0.5rem;
+  border-radius: var(--mdp-button-radius);
   min-height: 3rem;
   padding: 0 1.25rem;
   color: var(--lander-fg);

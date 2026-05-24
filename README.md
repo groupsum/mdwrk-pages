@@ -33,4 +33,9 @@ npm run test
 
 ## Split Boundary
 
-MdWrk Pages consumes core MdWrk packages where needed. The mdwrk.com site and first-party content pack live in `mdwrkcom`.
+MdWrk Pages consumes core MdWrk packages where needed, but it owns the public-page implementation layer:
+
+- `mdwrk` owns package-facing markdown, renderer, editor, and preview token contracts.
+- `mdwrk-pages` implements those shared tokens for public pages and introduces Pages-only extension tokens where page chrome needs more surface area.
+- `mdwrk-studio` owns workspace shell and application chrome tokens.
+- `mdwrkcom` stays a thin theme/content consumer on top of Pages.
