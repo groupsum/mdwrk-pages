@@ -1,0 +1,13 @@
+services:
+  learning-path-demo:
+    build:
+      context: ../..
+      dockerfile: examples/learning-path-demo/Dockerfile
+    image: mdwrk-learning-path-demo:local
+    ports:
+      - "4191:80"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/healthz || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

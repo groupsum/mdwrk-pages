@@ -1,4 +1,24 @@
 import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const testRoot = path.dirname(fileURLToPath(import.meta.url));
+const packageRoot = path.resolve(testRoot, "..");
+const distRoot = path.resolve(packageRoot, "dist");
+const smokeRoot = path.resolve(packageRoot, ".smoke-dist");
+const contractDist = path.resolve(packageRoot, "..", "lander-content-contract", "dist", "index.js").replace(/\\/g, "/");
+
+fs.rmSync(smokeRoot, { recursive: true, force: true });
+fs.cpSync(distRoot, smokeRoot, { recursive: true });
+for (const file of fs.readdirSync(smokeRoot, { recursive: true })) {
+  if (typeof file !== "string" || !file.endsWith(".js")) continue;
+  const target = path.join(smokeRoot, file);
+  fs.writeFileSync(
+    target,
+    fs.readFileSync(target, "utf8").replaceAll('"@mdwrk/lander-content-contract"', `"file:///${contractDist}"`),
+  );
+}
 
 const {
   buildPageSpecFromTemplate,
@@ -21,7 +41,9 @@ const {
   supportDomainBundle,
   trustDomainBundle,
   validateTemplateGraph,
-} = await import("../dist/index.js");
+} = await import(`file:///${path.join(smokeRoot, "index.js").replace(/\\/g, "/")}`);
+
+fs.rmSync(smokeRoot, { recursive: true, force: true });
 
 const coveredFeatures = new Set();
 function covers(featureId, assertion) {
@@ -39,22 +61,28 @@ const educationGraph = defineTemplateGraph({
   templates: educationDomainBundle.templates,
   bundles: [educationDomainBundle],
   instances: [
-    definePageInstance({ id: "path", templateId: "education.learning-path", slug: "/learn/", title: "Learning Path", description: "A sequenced learning path.", data: { summary: "Start here and follow the courses." } }),
-    definePageInstance({ id: "course", templateId: "education.course", slug: "/learn/course/", title: "Course", description: "A course in the path.", data: { summary: "Course overview and modules." } }),
-    definePageInstance({ id: "module", templateId: "education.module", slug: "/learn/course/module/", title: "Module", description: "A course module.", data: { summary: "Module lessons and checks." } }),
-    definePageInstance({ id: "quiz", templateId: "education.quiz", slug: "/learn/course/module/quiz/", title: "Quiz", description: "A quiz for the module.", data: { summary: "Validate module understanding." } }),
+    definePageInstance({ id: "path", templateId: "education.learning-path", slug: "/learn/", title: "Learning Path", description: "A sequenced learning path.", data: { summary: "Start here and follow the courses.", outcomes: ["Finish the course."], prerequisites: ["Know the basics."] } }),
+    definePageInstance({ id: "course", templateId: "education.course", slug: "/learn/course/", title: "Course", description: "A course in the path.", data: { summary: "Course overview and modules.", objectives: ["Complete the module."], testCallout: "Take the course test at the end." } }),
+    definePageInstance({ id: "flashcards", templateId: "education.flashcards", slug: "/learn/course/flashcards/", title: "Flash Cards", description: "Flash cards for the course.", data: { summary: "Review key Q and A pairs.", cards: [{ question: "Why use flash cards?", answer: "To practice recall.", explanation: "They are optional learning aids." }] } }),
+    definePageInstance({ id: "module", templateId: "education.module", slug: "/learn/course/module/", title: "Module", description: "A course module.", data: { summary: "Module lessons and checks.", body: "Read the lesson and practice the material." } }),
+    definePageInstance({ id: "quiz", templateId: "education.quiz", slug: "/learn/course/quiz/", title: "Quiz", description: "A quiz for the course.", data: { summary: "Validate course understanding.", questions: [{ question: "Why take the quiz?", options: ["To confirm learning", "To skip the lesson"], correctAnswerIndex: 0, explanation: "The quiz confirms understanding." }] } }),
+    definePageInstance({ id: "course-test", templateId: "education.course-test", slug: "/learn/course/test/", title: "Course Test", description: "A final course test.", data: { summary: "Validate course readiness.", questions: [{ question: "When do you take the course test?", options: ["After the module sequence", "Before the course starts"], correctAnswerIndex: 0, explanation: "The course test follows the module sequence." }] } }),
   ],
   edges: [
     defineEdge({ sourceId: "path", targetId: "course", relationship: "child", slotId: "courses", order: 1 }),
     defineEdge({ sourceId: "course", targetId: "module", relationship: "course_module", slotId: "modules", order: 1 }),
-    defineEdge({ sourceId: "module", targetId: "quiz", relationship: "module_quiz", slotId: "quizzes", order: 1 }),
+    defineEdge({ sourceId: "course", targetId: "flashcards", relationship: "course_flashcards", slotId: "flashcards", order: 2 }),
+    defineEdge({ sourceId: "course", targetId: "quiz", relationship: "course_quiz", slotId: "quizzes", order: 3 }),
+    defineEdge({ sourceId: "course", targetId: "course-test", relationship: "course_test", slotId: "test", order: 4 }),
   ],
 });
 
 assert.deepEqual(validateTemplateGraph(educationGraph).filter((item) => item.level === "error"), []);
 assert.equal(resolveLinkSlots(educationGraph, "path").courses[0].href, "/learn/course/");
 assert.equal(resolveLinkSlots(educationGraph, "course").modules[0].label, "Module");
-assert.equal(resolveLinkSlots(educationGraph, "module").quizzes[0].targetTemplateId, "education.quiz");
+assert.equal(resolveLinkSlots(educationGraph, "course").flashcards[0].targetTemplateId, "education.flashcards");
+assert.equal(resolveLinkSlots(educationGraph, "course").quizzes[0].targetTemplateId, "education.quiz");
+assert.equal(resolveLinkSlots(educationGraph, "course").test[0].targetTemplateId, "education.course-test");
 assert.equal(resolveLinkSlots(educationGraph, "path").courses[0].role, "tree_child");
 assert.equal(resolveIncomingLinkSlots(educationGraph, "course")["incoming:courses"][0].href, "/learn/");
 assert.equal(deriveTemplateNavigation(educationGraph, "course").breadcrumbs[1].href, "/learn/");
@@ -64,6 +92,18 @@ assert.equal(coursePage.kind, "docs_bridge");
 assert.equal(coursePage.slug, "/learn/course/");
 assert.ok(coursePage.schema.some((item) => item.kind === "Course"));
 assert.ok(coursePage.componentIntents.some((item) => item.kind === "page_shell"));
+
+const moduleInstance = educationGraph.instances.find((item) => item.id === "module");
+const quizInstance = educationGraph.instances.find((item) => item.id === "quiz");
+const courseTestInstance = educationGraph.instances.find((item) => item.id === "course-test");
+const modulePage = buildPageSpecFromTemplate(educationGraph, moduleInstance);
+assert.equal(modulePage.kind, "docs_bridge");
+assert.equal(modulePage.sections.find((section) => section.id === "next-step").primaryCta.href, "/learn/course/quiz/");
+assert.equal(modulePage.sections.find((section) => section.id === "next-step").secondaryCta.href, "/learn/course/");
+const quizPage = buildPageSpecFromTemplate(educationGraph, quizInstance);
+const courseTestPage = buildPageSpecFromTemplate(educationGraph, courseTestInstance);
+assert.equal(quizPage.sections.find((section) => section.id === "questions").kind, "assessment");
+assert.equal(courseTestPage.sections.find((section) => section.id === "questions").kind, "assessment");
 
 const supportGraph = defineTemplateGraph({
   templates: supportDomainBundle.templates,
@@ -159,7 +199,7 @@ const schemaLinkMissingGraph = defineTemplateGraph({
 const missingRequiredChildGraph = defineTemplateGraph({
   templates: educationDomainBundle.templates,
   instances: [
-    definePageInstance({ id: "path", templateId: "education.learning-path", slug: "/learn/", title: "Learning Path", description: "A path.", data: {} }),
+    definePageInstance({ id: "path", templateId: "education.learning-path", slug: "/learn/", title: "Learning Path", description: "A path.", data: { summary: "Path summary." } }),
   ],
   edges: [],
 });
@@ -168,8 +208,8 @@ assert.ok(validateTemplateGraph(missingRequiredChildGraph).some((item) => item.c
 const invalidGraph = defineTemplateGraph({
   templates: educationDomainBundle.templates,
   instances: [
-    definePageInstance({ id: "path", templateId: "education.learning-path", slug: "/learn/", title: "Learning Path", description: "A path.", data: {} }),
-    definePageInstance({ id: "wrong", templateId: "education.quiz", slug: "/quiz/", title: "Quiz", description: "A quiz.", data: {} }),
+    definePageInstance({ id: "path", templateId: "education.learning-path", slug: "/learn/", title: "Learning Path", description: "A path.", data: { summary: "Path summary." } }),
+    definePageInstance({ id: "wrong", templateId: "education.course-test", slug: "/quiz/", title: "Quiz", description: "A quiz.", data: { summary: "Test summary.", questions: [{ question: "Q?", options: ["A", "B"], correctAnswerIndex: 0, explanation: "A." }] } }),
   ],
   edges: [
     defineEdge({ sourceId: "path", targetId: "wrong", relationship: "child", slotId: "courses" }),
@@ -181,14 +221,22 @@ assert.ok(validateTemplateGraph(invalidGraph).some((item) => item.code === "edge
 const terminalChildGraph = defineTemplateGraph({
   templates: educationDomainBundle.templates,
   instances: [
-    definePageInstance({ id: "quiz", templateId: "education.quiz", slug: "/quiz/", title: "Quiz", description: "A quiz.", data: {} }),
-    definePageInstance({ id: "lesson", templateId: "education.lesson", slug: "/lesson/", title: "Lesson", description: "A lesson.", data: {} }),
+    definePageInstance({ id: "quiz", templateId: "education.quiz", slug: "/quiz/", title: "Quiz", description: "A quiz.", data: { summary: "Quiz summary.", questions: [{ question: "Q?", options: ["A", "B"], correctAnswerIndex: 0, explanation: "A." }] } }),
+    definePageInstance({ id: "course-test", templateId: "education.course-test", slug: "/course-test/", title: "Course Test", description: "A course test.", data: { summary: "Course test summary.", questions: [{ question: "Q?", options: ["A", "B"], correctAnswerIndex: 0, explanation: "A." }] } }),
   ],
   edges: [
-    defineEdge({ sourceId: "quiz", targetId: "lesson", relationship: "child", role: "tree_child", slotId: "children" }),
+    defineEdge({ sourceId: "quiz", targetId: "course-test", relationship: "child", role: "tree_child", slotId: "children" }),
   ],
 });
 assert.ok(validateTemplateGraph(terminalChildGraph).some((item) => item.code === "template.terminal.child.invalid"));
+
+const invalidTemplateDataGraph = defineTemplateGraph({
+  templates: educationDomainBundle.templates,
+  instances: [
+    definePageInstance({ id: "bad-quiz", templateId: "education.quiz", slug: "/bad-quiz/", title: "Bad Quiz", description: "Bad quiz data.", data: { summary: "Bad quiz.", questions: [] } }),
+  ],
+  edges: [],
+});
 
 const imperativeSource = {
   id: "imperative-product-demo",
@@ -302,19 +350,21 @@ covers("feat:lander.page-templates.required-child-validation", () => {
 });
 
 covers("feat:lander.page-templates.optional-child-validation", () => {
-  const moduleWithoutQuizGraph = defineTemplateGraph({
+  const courseWithoutQuizGraph = defineTemplateGraph({
     templates: educationDomainBundle.templates,
     instances: [
-      definePageInstance({ id: "path", templateId: "education.learning-path", slug: "/learn/", title: "Learning Path", description: "A path.", data: {} }),
-      definePageInstance({ id: "course", templateId: "education.course", slug: "/course/", title: "Course", description: "A course.", data: {} }),
-      definePageInstance({ id: "module", templateId: "education.module", slug: "/module/", title: "Module", description: "A module.", data: {} }),
+      definePageInstance({ id: "path", templateId: "education.learning-path", slug: "/learn/", title: "Learning Path", description: "A path.", data: { summary: "Path summary." } }),
+      definePageInstance({ id: "course", templateId: "education.course", slug: "/course/", title: "Course", description: "A course.", data: { summary: "Course summary." } }),
+      definePageInstance({ id: "module", templateId: "education.module", slug: "/module/", title: "Module", description: "A module.", data: { summary: "Module summary.", body: "Module body." } }),
+      definePageInstance({ id: "course-test", templateId: "education.course-test", slug: "/course/test/", title: "Course Test", description: "A course test.", data: { summary: "Course test summary.", questions: [{ question: "Q?", options: ["A", "B"], correctAnswerIndex: 0, explanation: "A." }] } }),
     ],
     edges: [
       defineEdge({ sourceId: "path", targetId: "course", relationship: "child", slotId: "courses" }),
       defineEdge({ sourceId: "course", targetId: "module", relationship: "course_module", slotId: "modules" }),
+      defineEdge({ sourceId: "course", targetId: "course-test", relationship: "course_test", slotId: "test" }),
     ],
   });
-  assert.deepEqual(validateTemplateGraph(moduleWithoutQuizGraph).filter((item) => item.level === "error"), []);
+  assert.deepEqual(validateTemplateGraph(courseWithoutQuizGraph).filter((item) => item.level === "error"), []);
 });
 
 covers("feat:lander.page-templates.terminal-template-validation", () => {
@@ -335,7 +385,22 @@ covers("feat:lander.page-templates.relationship-validation", () => {
 covers("feat:lander.page-templates.link-slot-resolution", () => {
   const slots = resolveLinkSlots(educationGraph, "course");
   assert.equal(slots.modules.length, 1);
+  assert.equal(slots.flashcards.length, 1);
   assert.equal(slots.modules[0].slotId, "modules");
+});
+
+covers("feat:lander.page-templates.module-quiz-navigation", () => {
+  const page = buildPageSpecFromTemplate(educationGraph, moduleInstance);
+  const nextStep = page.sections.find((section) => section.id === "next-step");
+  assert.equal(nextStep.primaryCta.href, "/learn/course/quiz/");
+  assert.equal(nextStep.secondaryCta.href, "/learn/course/");
+});
+
+covers("feat:lander.page-templates.education-assessment-sections", () => {
+  const quiz = buildPageSpecFromTemplate(educationGraph, quizInstance);
+  const test = buildPageSpecFromTemplate(educationGraph, courseTestInstance);
+  assert.equal(quiz.sections.find((section) => section.id === "questions").kind, "assessment");
+  assert.equal(test.sections.find((section) => section.id === "questions").kind, "assessment");
 });
 
 covers("feat:lander.page-templates.ordered-relationship-resolution", () => {
@@ -362,6 +427,12 @@ covers("feat:lander.page-templates.schema-link-target-mapping", () => {
 covers("feat:lander.page-templates.schema-link-validation", () => {
   assert.deepEqual(validateTemplateGraph(schemaLinkGraph).filter((item) => item.level === "error"), []);
   assert.ok(validateTemplateGraph(schemaLinkMissingGraph).some((item) => item.code === "schemaLink.required.missing"));
+});
+
+covers("feat:lander.page-templates.json-schema-template-validation", () => {
+  const diagnostics = validateTemplateGraph(invalidTemplateDataGraph);
+  assert.ok(diagnostics.some((item) => item.code === "instance.data.minItems"));
+  assert.equal(buildPageSpecsFromGraph(invalidTemplateDataGraph).pages.length, 0);
 });
 
 covers("feat:lander.page-templates.core-types", () => {
@@ -440,12 +511,15 @@ assert.deepEqual([...coveredFeatures].sort(), [
   "feat:lander.page-templates.cli-validate",
   "feat:lander.page-templates.compiler-diagnostics",
   "feat:lander.page-templates.core-types",
+  "feat:lander.page-templates.education-assessment-sections",
   "feat:lander.page-templates.generated-content-pack-output",
   "feat:lander.page-templates.imperative-compile-api",
   "feat:lander.page-templates.incoming-edge-derivation",
+  "feat:lander.page-templates.json-schema-template-validation",
   "feat:lander.page-templates.link-slot-resolution",
   "feat:lander.page-templates.markdown-frontmatter-authoring",
   "feat:lander.page-templates.markdown-section-mapping",
+  "feat:lander.page-templates.module-quiz-navigation",
   "feat:lander.page-templates.navigation-derivation",
   "feat:lander.page-templates.optional-child-validation",
   "feat:lander.page-templates.ordered-relationship-resolution",
@@ -474,8 +548,10 @@ coversDefaultGraph("feat:lander.page-templates.support-domain-bundle", () => {
 
 coversDefaultGraph("feat:lander.page-templates.education-domain-bundle", () => {
   const ids = educationDomainBundle.templates.map((item) => item.id);
-  assert.deepEqual(ids, ["education.learning-path", "education.course", "education.module", "education.lesson", "education.quiz", "education.assessment", "education.certificate"]);
-  assert.deepEqual(educationDomainBundle.templates.find((item) => item.id === "education.module").linkSlots.find((slot) => slot.id === "quizzes").targetTemplateIds, ["education.quiz", "education.assessment"]);
+  assert.deepEqual(ids, ["education.learning-path", "education.course", "education.flashcards", "education.module", "education.quiz", "education.course-test"]);
+  assert.deepEqual(educationDomainBundle.templates.find((item) => item.id === "education.course").linkSlots.find((slot) => slot.id === "test").targetTemplateIds, ["education.course-test"]);
+  assert.deepEqual(educationDomainBundle.templates.find((item) => item.id === "education.course").linkSlots.find((slot) => slot.id === "flashcards").targetTemplateIds, ["education.flashcards"]);
+  assert.deepEqual(educationDomainBundle.templates.find((item) => item.id === "education.course").linkSlots.find((slot) => slot.id === "quizzes").targetTemplateIds, ["education.quiz"]);
 });
 
 coversDefaultGraph("feat:lander.page-templates.docs-domain-bundle", () => {

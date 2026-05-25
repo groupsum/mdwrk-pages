@@ -1,6 +1,6 @@
 import type { SchemaSpec } from "@mdwrk/lander-content-contract";
 import { defineTemplateBundle, definePageTemplate } from "../define.js";
-import type { PageTemplate, ResolvedTemplateLink, TemplateRenderContext } from "../types.js";
+import type { PageTemplate, ResolvedTemplateLink, SectionSpec, TemplateRenderContext } from "../types.js";
 
 interface EducationFaqItem {
   question: string;
@@ -55,6 +55,22 @@ interface ModuleTemplateData extends Record<string, unknown> {
   schemaKinds?: SchemaSpec["kind"][];
 }
 
+interface FlashcardItem {
+  question: string;
+  answer: string;
+  explanation?: string;
+}
+
+interface FlashcardsTemplateData extends Record<string, unknown> {
+  eyebrow?: string;
+  intro?: string;
+  summary: string;
+  body?: string;
+  cards: FlashcardItem[];
+  faq?: EducationFaqItem[];
+  schemaKinds?: SchemaSpec["kind"][];
+}
+
 interface QuizTemplateData extends Record<string, unknown> {
   eyebrow?: string;
   intro?: string;
@@ -92,13 +108,6 @@ function heroSection(title: string, subtitle: string, eyebrow?: string) {
 function listMarkdown(title: string, items: string[], emptyCopy: string): string {
   if (!items.length) return emptyCopy;
   return items.map((item) => `- ${item}`).join("\n");
-}
-
-function questionsMarkdown(questions: EducationQuestion[]): string {
-  return questions.map((question, index) => {
-    const options = question.options.map((option, optionIndex) => `${optionIndex + 1}. ${option}`).join("\n");
-    return `### Question ${index + 1}\n\n${question.question}\n\n${options}\n\nAnswer: ${question.correctAnswerIndex + 1}\n\n${question.explanation}`;
-  }).join("\n\n");
 }
 
 function schemaKindsWithFallback(kinds: SchemaSpec["kind"][] | undefined, fallbackKinds: SchemaSpec["kind"][]): SchemaSpec["kind"][] {
@@ -186,36 +195,43 @@ function parentCourseLink(context: TemplateRenderContext<Record<string, unknown>
   return context.navigation.incoming["incoming:modules"]?.[0];
 }
 
-function courseOwnedQuizForModule(context: TemplateRenderContext<Record<string, unknown>>): ResolvedTemplateLink | undefined {
+function courseOwnedQuizzesForModule(context: TemplateRenderContext<Record<string, unknown>>): ResolvedTemplateLink[] {
   const parentCourse = parentCourseLink(context);
-  if (!parentCourse) return undefined;
+  if (!parentCourse) return [];
 
   const moduleOrder = Number(context.instance.order ?? 0);
   const courseQuizEdges = context.graph.edges
     .filter((edge) => edge.sourceId === parentCourse.targetId && edge.relationship === "course_quiz")
     .sort((left, right) => (left.order ?? 0) - (right.order ?? 0));
 
-  if (!courseQuizEdges.length) return undefined;
+  if (!courseQuizEdges.length) return [];
 
-  const matchedQuizEdge = courseQuizEdges.find((edge) => Number(edge.order ?? 0) === moduleOrder) ?? courseQuizEdges[0];
-  const quizLink = context.links.parentCourseQuizzes?.find((link) => link.targetId === matchedQuizEdge.targetId);
-  if (quizLink) return quizLink;
+  const matchedQuizEdges = courseQuizEdges.filter((edge) => {
+    const edgeOrder = Number(edge.order ?? 0);
+    return edgeOrder >= ((moduleOrder - 1) * 2) + 1 && edgeOrder <= (moduleOrder * 2);
+  });
+  const fallbackEdges = matchedQuizEdges.length ? matchedQuizEdges : courseQuizEdges.slice(0, 2);
 
-  const quizInstance = context.graph.instances.find((instance) => instance.id === matchedQuizEdge.targetId);
-  if (!quizInstance) return undefined;
+  return fallbackEdges.flatMap((matchedQuizEdge) => {
+    const quizLink = context.links.parentCourseQuizzes?.find((link) => link.targetId === matchedQuizEdge.targetId);
+    if (quizLink) return [quizLink];
 
-  return {
-    id: matchedQuizEdge.id ?? `${matchedQuizEdge.sourceId}:${matchedQuizEdge.relationship}:${matchedQuizEdge.targetId}`,
-    sourceId: context.instance.id,
-    targetId: quizInstance.id,
-    relationship: "related",
-    role: "navigation",
-    slotId: "parentCourseQuizzes",
-    href: quizInstance.href ?? quizInstance.slug,
-    label: matchedQuizEdge.label ?? quizInstance.label ?? quizInstance.title,
-    order: matchedQuizEdge.order ?? quizInstance.order ?? 0,
-    targetTemplateId: quizInstance.templateId,
-  };
+    const quizInstance = context.graph.instances.find((instance) => instance.id === matchedQuizEdge.targetId);
+    if (!quizInstance) return [];
+
+    return [{
+      id: matchedQuizEdge.id ?? `${matchedQuizEdge.sourceId}:${matchedQuizEdge.relationship}:${matchedQuizEdge.targetId}`,
+      sourceId: context.instance.id,
+      targetId: quizInstance.id,
+      relationship: "related",
+      role: "navigation",
+      slotId: "parentCourseQuizzes",
+      href: quizInstance.href ?? quizInstance.slug,
+      label: matchedQuizEdge.label ?? quizInstance.label ?? quizInstance.title,
+      order: matchedQuizEdge.order ?? quizInstance.order ?? 0,
+      targetTemplateId: quizInstance.templateId,
+    }];
+  });
 }
 
 const learningPathTemplate: PageTemplate<LearningPathTemplateData> = definePageTemplate({
@@ -277,6 +293,7 @@ const courseTemplate: PageTemplate<CourseTemplateData> = definePageTemplate({
   linkSlots: [
     { id: "parent", relationship: "parent", role: "navigation", cardinality: "optional_one" },
     { id: "modules", relationship: "course_module", role: "tree_child", targetTemplateIds: ["education.module"], cardinality: "many", ordered: true },
+    { id: "flashcards", relationship: "course_flashcards", role: "tree_child", targetTemplateIds: ["education.flashcards"], cardinality: "optional_many", ordered: true },
     { id: "quizzes", relationship: "course_quiz", role: "tree_child", targetTemplateIds: ["education.quiz"], cardinality: "optional_many", ordered: true },
     { id: "test", relationship: "course_test", role: "tree_child", targetTemplateIds: ["education.course-test"], cardinality: "one", ordered: true },
   ],
@@ -284,6 +301,7 @@ const courseTemplate: PageTemplate<CourseTemplateData> = definePageTemplate({
     childPolicy: "required",
     childSlots: [
       { id: "modules", relationship: "course_module", targetTemplateIds: ["education.module"], min: 1, ordered: true },
+      { id: "flashcards", relationship: "course_flashcards", targetTemplateIds: ["education.flashcards"], min: 0, ordered: true },
       { id: "quizzes", relationship: "course_quiz", targetTemplateIds: ["education.quiz"], min: 0, ordered: true },
       { id: "test", relationship: "course_test", targetTemplateIds: ["education.course-test"], min: 1, max: 1, ordered: true },
     ],
@@ -323,6 +341,16 @@ const courseTemplate: PageTemplate<CourseTemplateData> = definePageTemplate({
           })),
         },
         {
+          id: "flashcards",
+          kind: "feature_grid",
+          title: "Flash Cards",
+          items: (context.links.flashcards ?? []).map((link) => ({
+            title: link.label,
+            description: `${link.targetTemplateId} page`,
+            href: link.href,
+          })),
+        },
+        {
           id: "quizzes",
           kind: "feature_grid",
           title: "Quizzes",
@@ -346,6 +374,40 @@ const courseTemplate: PageTemplate<CourseTemplateData> = definePageTemplate({
   schema: (context) => educationSchema(context as TemplateRenderContext<Record<string, unknown>>, ["Course"]),
 });
 
+const flashcardsTemplate: PageTemplate<FlashcardsTemplateData> = definePageTemplate({
+  id: "education.flashcards",
+  domain: "education",
+  kind: "docs_bridge",
+  title: "Flash cards page",
+  description: "Course flash cards page.",
+  dataSchemaId: "https://schemas.mdwrk.com/lander/page-template/education/flashcards.schema.json",
+  linkSlots: [{ id: "parent", relationship: "parent", role: "navigation", cardinality: "optional_one" }],
+  topology: { childPolicy: "terminal" },
+  buildPage: (context) => {
+    const data = context.instance.data;
+    return {
+      kind: "docs_bridge",
+      slug: context.instance.slug,
+      title: context.instance.title,
+      description: context.instance.description,
+      h1: context.instance.title,
+      intro: data.intro ?? data.summary,
+      sections: [
+        heroSection(context.instance.title, data.summary, data.eyebrow),
+        {
+          id: "flashcards",
+          kind: "quiz_flashcards" as const,
+          title: "Flash Cards",
+          intro: data.body ?? "Review the flash cards and reveal each answer when you are ready.",
+          cards: data.cards,
+        },
+      ],
+      faq: data.faq,
+    };
+  },
+  schema: (context) => educationSchema(context as TemplateRenderContext<Record<string, unknown>>, ["LearningResource"]),
+});
+
 const moduleTemplate: PageTemplate<ModuleTemplateData> = definePageTemplate({
   id: "education.module",
   domain: "education",
@@ -362,7 +424,7 @@ const moduleTemplate: PageTemplate<ModuleTemplateData> = definePageTemplate({
   topology: { childPolicy: "optional" },
   buildPage: (context) => {
     const data = context.instance.data;
-    const quizLink = courseOwnedQuizForModule(context as TemplateRenderContext<Record<string, unknown>>);
+    const quizLinks = courseOwnedQuizzesForModule(context as TemplateRenderContext<Record<string, unknown>>);
     const courseLink = parentCourseLink(context as TemplateRenderContext<Record<string, unknown>>);
     return {
       kind: "docs_bridge",
@@ -386,11 +448,21 @@ const moduleTemplate: PageTemplate<ModuleTemplateData> = definePageTemplate({
           body: listMarkdown("Key takeaways", data.keyTakeaways ?? [], data.nextStep ?? "No key takeaways supplied."),
         },
         {
+          id: "quizzes",
+          kind: "feature_grid",
+          title: "Related quizzes",
+          items: quizLinks.map((link) => ({
+            title: link.label,
+            description: `${link.targetTemplateId} page`,
+            href: link.href,
+          })),
+        },
+        {
           id: "next-step",
           kind: "cta",
           title: "Next step",
           body: data.nextStep ?? "Return to the course page to continue into the related quiz or the next module.",
-          primaryCta: quizLink ? { label: quizLink.label, href: quizLink.href, variant: "primary" } : undefined,
+          primaryCta: quizLinks[0] ? { label: quizLinks[0].label, href: quizLinks[0].href, variant: "primary" } : undefined,
           secondaryCta: courseLink ? { label: courseLink.label, href: courseLink.href, variant: "secondary" } : undefined,
         },
       ],
@@ -404,6 +476,7 @@ function assessmentPage<TData extends QuizTemplateData | CourseTestTemplateData>
   context: TemplateRenderContext<TData>,
   title: string,
   bodyPrefix: string,
+  questionSection: SectionSpec,
 ) {
   const data = context.instance.data;
   return {
@@ -421,12 +494,7 @@ function assessmentPage<TData extends QuizTemplateData | CourseTestTemplateData>
         title,
         body: data.body ?? bodyPrefix,
       },
-      {
-        id: "questions",
-        kind: "markdown" as const,
-        title: "Questions",
-        body: questionsMarkdown(data.questions),
-      },
+      questionSection,
       ...(data.passingGuidance ? [{
         id: "guidance",
         kind: "cta" as const,
@@ -446,7 +514,25 @@ const quizTemplate: PageTemplate<QuizTemplateData> = definePageTemplate({
   description: "Course quiz page.",
   dataSchemaId: "https://schemas.mdwrk.com/lander/page-template/education/quiz.schema.json",
   topology: { childPolicy: "terminal" },
-  buildPage: (context) => assessmentPage(context, "Quiz", "Answer the course quiz questions."),
+  buildPage: (context) => assessmentPage(
+    context,
+    "Quiz",
+    "Complete the quiz and review your score when you finish.",
+    {
+      id: "questions",
+      kind: "assessment" as const,
+      title: "Questions",
+      intro: "Choose the best answer for each question. Answers stay hidden until you submit the quiz and see your score.",
+      completionLabel: "Submit quiz",
+      scoreLabel: context.instance.data.passingGuidance ?? "Quiz score",
+      questions: context.instance.data.questions.map((question) => ({
+        prompt: question.question,
+        options: question.options,
+        correctAnswerIndex: question.correctAnswerIndex,
+        explanation: question.explanation,
+      })),
+    },
+  ),
   schema: (context) => assessmentSchema(context),
 });
 
@@ -459,9 +545,26 @@ const courseTestTemplate: PageTemplate<CourseTestTemplateData> = definePageTempl
   dataSchemaId: "https://schemas.mdwrk.com/lander/page-template/education/course-test.schema.json",
   topology: { childPolicy: "terminal" },
   buildPage: (context) => {
-    const page = assessmentPage(context, "Course test", "Complete the final course test.");
+    const page = assessmentPage(
+      context,
+      "Course test",
+      "Complete the final course test and review your score when you finish.",
+      {
+        id: "questions",
+        kind: "assessment" as const,
+        title: "Questions",
+        intro: "Choose the best answer for each question. Answers stay hidden until you submit the test and see your score.",
+        completionLabel: "Submit test",
+        scoreLabel: context.instance.data.scoreSummary ?? "Score",
+        questions: context.instance.data.questions.map((question) => ({
+          prompt: question.question,
+          options: question.options,
+          correctAnswerIndex: question.correctAnswerIndex,
+          explanation: question.explanation,
+        })),
+      },
+    );
     const checklist = context.instance.data.readinessChecklist ?? [];
-    const scoreSummary = context.instance.data.scoreSummary;
     return {
       ...page,
       sections: [
@@ -473,12 +576,6 @@ const courseTestTemplate: PageTemplate<CourseTestTemplateData> = definePageTempl
           body: listMarkdown("Readiness checklist", checklist, context.instance.data.body ?? "Review the course before you start."),
         },
         ...page.sections.slice(1),
-        ...(scoreSummary ? [{
-          id: "score-summary",
-          kind: "feature_detail" as const,
-          title: "Score summary",
-          body: scoreSummary,
-        }] : []),
       ],
     };
   },
@@ -488,6 +585,7 @@ const courseTestTemplate: PageTemplate<CourseTestTemplateData> = definePageTempl
 export const educationTemplates = [
   learningPathTemplate,
   courseTemplate,
+  flashcardsTemplate,
   moduleTemplate,
   quizTemplate,
   courseTestTemplate,
