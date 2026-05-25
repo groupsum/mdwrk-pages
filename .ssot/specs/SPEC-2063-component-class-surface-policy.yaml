@@ -53,6 +53,7 @@ body: |-
   13. App-local component or class forks are allowed only as explicitly tracked migration work with a removal path.
   14. Tests shall fail when governed component class surfaces drift from documented package ownership.
   15. Screenshot validation shall cover all views, modes, panes, modals, and themes affected by governed component class surfaces.
+  16. When a lander surface implements shared mdwrk markdown/editor/renderer tokens, `@mdwrk/lander-theme` shall implement the shared token contract first and only then add Pages-only extension tokens under a distinct namespace.
   
   ## Acceptance
   

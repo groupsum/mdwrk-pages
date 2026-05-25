@@ -33,3 +33,5 @@ body: |-
   1. Lander navigation, docs, examples, and blog content may describe the editor package family, previewer and rendered markdown package family, structured-data builder layer, workspace client composition, and how those surfaces are consumed together or independently.
   2. Future lander changes must preserve package-level language instead of obscuring the split architecture.
   3. Structured-data reusable component and composition ownership belongs at the portable lander package layer when the surface is part of governed public lander behavior.
+  4. `@mdwrk/lander-theme` shall implement the shared mdwrk markdown/editor/renderer token contract for public lander markdown surfaces before adding Pages-only extensions.
+  5. Pages-only token extensions shall remain additive and shall not redefine shared mdwrk token ownership.

@@ -39,6 +39,7 @@ body: |-
   11. Product applications shall consume `@mdwrk/lander-react` component surfaces through the compiled renderer flow rather than importing app-local component forks.
   12. Component class names and styling hooks exposed by `@mdwrk/lander-react` shall align with `@mdwrk/lander-theme` and the governed class surface policy.
   13. Each governed component family shall have feature, test, claim, and evidence rows that distinguish reusable implementation from product-host adoption.
+  14. Public markdown viewer and article surfaces shall expose shared mdwrk markdown/editor/renderer token hooks that `@mdwrk/lander-theme` implements, with any Pages-only additions kept in a separate extension namespace.
   ## Acceptance
   Passing evidence shall include reusable React render tests for each governed component family, static mdwrkcom parity tests for host adoption, accessibility checks for navigation landmarks and labels, and no-drift checks proving product apps do not shadow the reusable component surface.
 spec_kind: "normative"

@@ -51,6 +51,7 @@ body: |-
   15. Validation shall fail closed when governed component implementation appears in `apps/mdwrkcom` without an explicit temporary migration classification.
   16. Validation shall fail closed when portable performance-policy behavior appears in `apps/mdwrkcom` without an explicit host-adapter classification or temporary migration classification.
   17. Validation shall fail closed when a product content pack references app-local implementation identifiers instead of portable content-contract intent.
+  18. `apps/mdwrkcom` and `@mdwrk/mdwrkcom-content-pack` may consume or select theme outputs, but they shall not redefine shared mdwrk markdown/editor/renderer token ownership or portable lander token ownership.
   
   ## Acceptance
   

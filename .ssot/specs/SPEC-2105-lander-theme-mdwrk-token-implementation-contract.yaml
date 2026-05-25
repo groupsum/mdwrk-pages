@@ -1,0 +1,37 @@
+schema_version: "0.4.0"
+kind: "spec"
+id: "spc:2105"
+number: 2105
+slug: "lander-theme-mdwrk-token-implementation-contract"
+title: "Lander Theme MdWrk Token Implementation Contract"
+status: "draft"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "This SPEC governs how `@mdwrk/lander-theme` implements shared mdwrk markdown-facing tokens and extends them for Pages-owned surfaces."
+supersedes: []
+superseded_by: []
+status_notes: []
+references: []
+body: |-
+  # SPEC-2105: Lander Theme MdWrk Token Implementation Contract
+  
+  ## Scope
+  
+  This SPEC governs how `@mdwrk/lander-theme` implements shared mdwrk markdown-facing tokens and extends them for Pages-owned surfaces.
+  
+  ## Requirements
+  
+  1. `@mdwrk/lander-theme` shall implement the shared mdwrk markdown, editor, previewer, and renderer token contract for governed public markdown surfaces.
+  2. Shared mdwrk token implementation shall be mapped through lander theme output rather than redefined in downstream product hosts.
+  3. Pages-only additions shall use a distinct extension namespace and shall remain additive to the shared mdwrk token contract.
+  4. Pages-only extension tokens shall not shadow or rename shared mdwrk token names.
+  5. Product hosts such as mdwrkcom may select or consume Pages theme output but shall not become the owner of shared mdwrk token bands or Pages extension-token policy.
+  
+  ## Acceptance
+  
+  Passing evidence shall include theme output that implements shared mdwrk token names, governance proof that stale shared-token aliases are removed from mdwrk-pages ownership surfaces, and documentation or tests that distinguish shared token implementation from Pages-only extension tokens.
+spec_kind: "normative"
+adr_ids:
+  - "adr:1051"
+  - "adr:1065"

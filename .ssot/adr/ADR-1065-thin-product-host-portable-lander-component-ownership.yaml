@@ -52,7 +52,7 @@ body: |-
   4. `@mdwrk/lander-react-structured-data` is the default owner for governed JSON-LD React wrappers and structured-data intent registries unless a narrower accepted ADR assigns ownership elsewhere.
   5. `@mdwrk/lander-core` is the default owner for portable cache metadata, header lookup, critical-path validation, route-aware script gating facts, and performance-budget evaluation unless a narrower accepted ADR assigns ownership elsewhere.
   6. `@mdwrk/lander-theme` is the default owner for portable styling policy, reduced-motion defaults, semantic classes, and animation constraints.
-  7. `@mdwrk/mdwrkcom-content-pack` may declare visible component intent, page structure, navigation, sections, metadata, and assets as data, but must not implement React components or CSS/performance policy.
+  7. `@mdwrk/mdwrkcom-content-pack` may declare visible component intent, page structure, navigation, sections, metadata, and assets as data, and may select or configure a downstream theme, but must not implement React components or become an owner of governed shared or lander token bands.
   8. Validation must fail closed when `apps/mdwrkcom` introduces or retains governed component implementations or portable performance-policy implementations outside approved host/bootstrap boundaries.
   9. Existing content-pack-driven rendering governance remains valid, but references to mdwrkcom hosting are interpreted as host/bootstrap only.
   10. Feature, test, claim, and evidence rows must track host thinness, visible reusable component ownership, JSON-LD reusable component ownership, portable performance ownership, content-pack declarations, and no-drift enforcement separately.
