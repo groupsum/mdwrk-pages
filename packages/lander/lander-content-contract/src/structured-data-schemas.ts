@@ -60,7 +60,13 @@ const thingRefDefinition: StructuredDataSchemaDefinition = {
   title: "Structured Data Thing Reference",
   type: "object",
   additionalProperties: true,
-  properties: {},
+  properties: {
+    "@id": { type: "string" },
+    "@type": { type: "string" },
+    id: { type: "string" },
+    name: { type: "string" },
+    url: { type: "string" },
+  },
 };
 
 const imageDefinition: StructuredDataSchemaDefinition = {
@@ -189,7 +195,15 @@ const offerLikeDefinition: StructuredDataSchemaDefinition = {
   title: "Offer-like node",
   type: "object",
   additionalProperties: true,
-  properties: {},
+  properties: {
+    "@id": { type: "string" },
+    "@type": { type: "string" },
+    price: { anyOf: [{ type: "number" }, stringRef] },
+    priceCurrency: { type: "string" },
+    availability: { type: "string" },
+    url: { type: "string" },
+    seller: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+  },
 };
 
 const aggregateRatingLikeDefinition: StructuredDataSchemaDefinition = {
@@ -198,7 +212,15 @@ const aggregateRatingLikeDefinition: StructuredDataSchemaDefinition = {
   title: "AggregateRating-like node",
   type: "object",
   additionalProperties: true,
-  properties: {},
+  properties: {
+    "@id": { type: "string" },
+    "@type": { type: "string" },
+    ratingValue: { anyOf: [{ type: "number" }, stringRef] },
+    reviewCount: { type: "number" },
+    ratingCount: { type: "number" },
+    bestRating: { anyOf: [{ type: "number" }, stringRef] },
+    worstRating: { anyOf: [{ type: "number" }, stringRef] },
+  },
 };
 
 const reviewLikeDefinition: StructuredDataSchemaDefinition = {
@@ -207,7 +229,15 @@ const reviewLikeDefinition: StructuredDataSchemaDefinition = {
   title: "Review-like node",
   type: "object",
   additionalProperties: true,
-  properties: {},
+  properties: {
+    "@id": { type: "string" },
+    "@type": { type: "string" },
+    name: { type: "string" },
+    itemReviewed: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+    author: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+    reviewBody: { type: "string" },
+    reviewRating: { $ref: "#/$defs/aggregateRatingLike" },
+  },
 };
 
 const courseInstanceLikeDefinition: StructuredDataSchemaDefinition = {
@@ -216,7 +246,19 @@ const courseInstanceLikeDefinition: StructuredDataSchemaDefinition = {
   title: "CourseInstance-like node",
   type: "object",
   additionalProperties: true,
-  properties: {},
+  properties: {
+    "@id": { type: "string" },
+    "@type": { type: "string" },
+    id: { type: "string" },
+    name: { type: "string" },
+    description: { type: "string" },
+    url: { type: "string" },
+    courseMode: { type: "string" },
+    startDate: { type: "string" },
+    endDate: { type: "string" },
+    location: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+    instructor: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+  },
 };
 
 const learningResourceDefinition: StructuredDataSchemaDefinition = {
@@ -321,7 +363,17 @@ function entry(
   };
 }
 
-export const STRUCTURED_DATA_SCHEMA_REGISTRY = Object.freeze([
+function deepFreeze<T>(value: T): T {
+  if (value && typeof value === "object" && !Object.isFrozen(value)) {
+    Object.freeze(value);
+    for (const nested of Object.values(value as Record<string, unknown>)) {
+      deepFreeze(nested);
+    }
+  }
+  return value;
+}
+
+export const STRUCTURED_DATA_SCHEMA_REGISTRY = deepFreeze([
   entry("Answer", "answer", "Structured Data Answer Input", withSharedDefs(answerDefinition, ["thingRef"])),
   entry("Article", "article", "Structured Data Article Input", withSharedDefs({
     type: "object",

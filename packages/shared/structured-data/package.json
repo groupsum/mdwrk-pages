@@ -1,6 +1,6 @@
 {
   "name": "@mdwrk/structured-data",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "type": "module",
   "license": "Apache-2.0",
   "publishConfig": {
@@ -27,7 +27,7 @@
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "npm run typecheck",
-    "test": "npm run build && npm run build -w @mdwrk/lander-content-contract && node --test tests/pure-builder-t0.test.mjs tests/pure-builder-t1.test.mjs tests/pure-builder-t2.test.mjs tests/schema-contract-t1.test.mjs && node tests/run-smoke.mjs",
+    "test": "npm run build && npm run build -w @mdwrk/lander-content-contract && node --test tests/pure-builder-t0.test.mjs tests/pure-builder-t1.test.mjs tests/pure-builder-t2.test.mjs tests/schema-contract-t0.test.mjs tests/schema-contract-t1.test.mjs tests/schema-contract-t2.test.mjs && node tests/run-smoke.mjs",
     "prepack": "npm run build"
   },
   "exports": {
