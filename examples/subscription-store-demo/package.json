@@ -1,0 +1,34 @@
+{
+  "name": "@mdwrk/example-subscription-store-demo",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "npm run build -w @mdwrk/lander-content-contract && npm run build -w @mdwrk/lander-commerce-contract && npm run build -w @mdwrk/lander-core && npm run build -w @mdwrk/structured-data && npm run build -w @mdwrk/lander-page-templates && npm run build -w @mdwrk/lander-page-template-presets && npm run build -w @mdwrk/lander-react-structured-data && npm run build -w @mdwrk/lander-react && npm run build -w @mdwrk/lander-react-commerce && npm run build -w @mdwrk/subscription-store-content-pack && tsc --noEmit && vite build",
+    "test": "npm run build && node --test tests/subscription-store-demo-t0.test.mjs tests/subscription-store-demo-t1.test.mjs tests/subscription-store-demo-t2.test.mjs",
+    "typecheck": "npm run build -w @mdwrk/lander-content-contract && npm run build -w @mdwrk/lander-commerce-contract && npm run build -w @mdwrk/lander-core && npm run build -w @mdwrk/structured-data && npm run build -w @mdwrk/lander-page-templates && npm run build -w @mdwrk/lander-page-template-presets && npm run build -w @mdwrk/lander-react-structured-data && npm run build -w @mdwrk/lander-react && npm run build -w @mdwrk/lander-react-commerce && npm run build -w @mdwrk/subscription-store-content-pack && tsc --noEmit",
+    "lint": "npm run typecheck"
+  },
+  "dependencies": {
+    "@mdwrk/lander-commerce-contract": "^0.1.0",
+    "@mdwrk/lander-content-contract": "^0.1.0",
+    "@mdwrk/lander-core": "^0.1.0",
+    "@mdwrk/lander-react": "^0.1.0",
+    "@mdwrk/lander-react-commerce": "^0.1.0",
+    "@mdwrk/lander-react-structured-data": "^0.1.0",
+    "@mdwrk/subscription-store-content-pack": "^0.1.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  },
+  "license": "Apache-2.0",
+  "author": "Jacob Stewart <jacob@swarmauri.com>",
+  "homepage": "https://mdwrk.com"
+}

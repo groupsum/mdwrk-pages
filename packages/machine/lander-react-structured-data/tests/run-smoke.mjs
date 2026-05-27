@@ -10,8 +10,8 @@ const repoRoot = path.resolve(testRoot, '..', '..', '..', '..');
 const distRoot = path.resolve(testRoot, '..', 'dist');
 const distIndex = path.join(distRoot, 'index.js');
 const smokeIndex = path.join(distRoot, 'index.smoke.mjs');
-const structuredDataDist = path.join(repoRoot, 'packages', 'shared', 'structured-data', 'dist', 'index.js').replace(/\\/g, '/');
-const contractDist = path.join(repoRoot, 'packages', 'lander', 'lander-content-contract', 'dist', 'index.js').replace(/\\/g, '/');
+const structuredDataDist = path.join(repoRoot, 'packages', 'contracts', 'structured-data', 'dist', 'index.js').replace(/\\/g, '/');
+const contractDist = path.join(repoRoot, 'packages', 'contracts', 'lander-content-contract', 'dist', 'index.js').replace(/\\/g, '/');
 
 fs.writeFileSync(
   smokeIndex,
@@ -76,8 +76,8 @@ const {
 } = await import(`file:///${smokeIndex.replace(/\\/g, '/')}`);
 fs.rmSync(smokeIndex, { force: true });
 
-const templatesDistRoot = path.join(repoRoot, 'packages', 'lander', 'lander-page-templates', 'dist');
-const templatesSmokeRoot = path.join(repoRoot, 'packages', 'lander', 'lander-page-templates', '.smoke-dist');
+const templatesDistRoot = path.join(repoRoot, 'packages', 'core', 'lander-page-templates', 'dist');
+const templatesSmokeRoot = path.join(repoRoot, 'packages', 'core', 'lander-page-templates', '.smoke-dist');
 fs.rmSync(templatesSmokeRoot, { recursive: true, force: true });
 fs.cpSync(templatesDistRoot, templatesSmokeRoot, { recursive: true });
 for (const file of fs.readdirSync(templatesSmokeRoot, { recursive: true })) {
@@ -89,8 +89,8 @@ for (const file of fs.readdirSync(templatesSmokeRoot, { recursive: true })) {
   );
 }
 
-const presetsDistRoot = path.join(repoRoot, 'packages', 'lander', 'lander-page-template-presets', 'dist');
-const presetsSmokeRoot = path.join(repoRoot, 'packages', 'lander', 'lander-page-template-presets', '.smoke-dist');
+const presetsDistRoot = path.join(repoRoot, 'packages', 'core', 'lander-page-template-presets', 'dist');
+const presetsSmokeRoot = path.join(repoRoot, 'packages', 'core', 'lander-page-template-presets', '.smoke-dist');
 fs.rmSync(presetsSmokeRoot, { recursive: true, force: true });
 fs.cpSync(presetsDistRoot, presetsSmokeRoot, { recursive: true });
 const templateSmokeIndex = path.join(templatesSmokeRoot, 'index.js').replace(/\\/g, '/');

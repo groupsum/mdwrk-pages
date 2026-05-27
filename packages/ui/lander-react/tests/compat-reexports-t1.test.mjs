@@ -3,7 +3,7 @@ import test from "node:test";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { importLanderReactDist } from "./load-dist.mjs";
-import { importStructuredDataReactDist } from "../../lander-react-structured-data/tests/load-dist.mjs";
+import { importStructuredDataReactDist } from "../../../machine/lander-react-structured-data/tests/load-dist.mjs";
 
 function withCapturedWarnings(run) {
   const warnings = [];

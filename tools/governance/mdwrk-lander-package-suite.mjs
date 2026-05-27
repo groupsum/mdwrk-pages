@@ -6,16 +6,16 @@ export const MDWRK_LANDER_PACKAGE_SUITE_BOUNDARY_ID = 'bnd:mdwrk-lander-package-
 export const MDWRK_LANDER_PACKAGE_SUITE_FEATURE_ID = 'feat:lander-package-suite-validation';
 
 export const LANDER_PACKAGE_SUITE_WORKSPACES = [
-  { name: '@mdwrk/lander-content-contract', path: 'packages/lander/lander-content-contract' },
-  { name: '@mdwrk/lander-core', path: 'packages/lander/lander-core' },
-  { name: '@mdwrk/structured-data', path: 'packages/shared/structured-data' },
-  { name: '@mdwrk/lander-seo', path: 'packages/lander/lander-seo' },
-  { name: '@mdwrk/lander-theme', path: 'packages/lander/lander-theme' },
-  { name: '@mdwrk/lander-markdown-content-adapter', path: 'packages/lander/lander-markdown-content-adapter' },
-  { name: '@mdwrk/lander-page-templates', path: 'packages/lander/lander-page-templates' },
-  { name: '@mdwrk/lander-page-template-presets', path: 'packages/lander/lander-page-template-presets' },
-  { name: '@mdwrk/lander-react-structured-data', path: 'packages/lander/lander-react-structured-data' },
-  { name: '@mdwrk/lander-react', path: 'packages/lander/lander-react' },
+  { name: '@mdwrk/lander-content-contract', path: 'packages/contracts/lander-content-contract' },
+  { name: '@mdwrk/lander-core', path: 'packages/core/lander-core' },
+  { name: '@mdwrk/structured-data', path: 'packages/contracts/structured-data' },
+  { name: '@mdwrk/lander-seo', path: 'packages/machine/lander-seo' },
+  { name: '@mdwrk/lander-theme', path: 'packages/ui/lander-theme' },
+  { name: '@mdwrk/lander-markdown-content-adapter', path: 'packages/core/lander-markdown-content-adapter' },
+  { name: '@mdwrk/lander-page-templates', path: 'packages/core/lander-page-templates' },
+  { name: '@mdwrk/lander-page-template-presets', path: 'packages/core/lander-page-template-presets' },
+  { name: '@mdwrk/lander-react-structured-data', path: 'packages/machine/lander-react-structured-data' },
+  { name: '@mdwrk/lander-react', path: 'packages/ui/lander-react' },
   { name: '@mdwrk/page-template-demo-content-pack', path: 'packages/content/page-template-demo-content-pack' },
 ];
 

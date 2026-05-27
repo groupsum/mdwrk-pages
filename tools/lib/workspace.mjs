@@ -10,10 +10,9 @@ export const repoRoot = path.resolve(__dirname, '..', '..');
 const WORKSPACE_PREFIXES = [
   'apps/',
   'packages/contracts/',
-  'packages/shared/',
-  'packages/renderer/',
-  'packages/editor/',
-  'packages/lander/',
+  'packages/core/',
+  'packages/ui/',
+  'packages/machine/',
   'packages/content/',
   'packages/extensions/',
   'examples/',
@@ -81,17 +80,14 @@ export function classifyWorkspace(relativePath) {
   if (normalized.startsWith('packages/contracts/')) {
     return 'contract';
   }
-  if (normalized.startsWith('packages/shared/')) {
-    return 'shared';
+  if (normalized.startsWith('packages/core/')) {
+    return 'core';
   }
-  if (normalized.startsWith('packages/renderer/')) {
-    return 'renderer';
+  if (normalized.startsWith('packages/ui/')) {
+    return 'ui';
   }
-  if (normalized.startsWith('packages/editor/')) {
-    return 'editor';
-  }
-  if (normalized.startsWith('packages/lander/')) {
-    return 'lander';
+  if (normalized.startsWith('packages/machine/')) {
+    return 'machine';
   }
   if (normalized.startsWith('packages/content/')) {
     return 'content';

@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { importLanderReactDist } from "./load-dist.mjs";
-import { importStructuredDataReactDist } from "../../lander-react-structured-data/tests/load-dist.mjs";
+import { importStructuredDataReactDist } from "../../../machine/lander-react-structured-data/tests/load-dist.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const packageRoot = path.resolve(here, "..");

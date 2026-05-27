@@ -1,5 +1,7 @@
 packages:
-  - "packages/lander/*"
+  - "packages/contracts/*"
+  - "packages/core/*"
+  - "packages/ui/*"
+  - "packages/machine/*"
   - "packages/content/*"
-  - "packages/shared/*"
   - "examples/*"

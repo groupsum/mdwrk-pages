@@ -10,7 +10,7 @@ const packageRoot = path.resolve(here, "..");
 const packageJson = JSON.parse(readFileSync(path.join(packageRoot, "package.json"), "utf8"));
 const srcIndex = readFileSync(path.join(packageRoot, "src", "index.tsx"), "utf8");
 const landerReactDistIndex = readFileSync(
-  path.join(packageRoot, "..", "lander-react", "dist", "index.js"),
+  path.join(packageRoot, "..", "..", "ui", "lander-react", "dist", "index.js"),
   "utf8",
 );
 

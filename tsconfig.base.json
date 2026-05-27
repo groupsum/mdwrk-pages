@@ -20,76 +20,76 @@
     "baseUrl": ".",
     "paths": {
       "@mdwrk/lander-content-contract": [
-        "packages/lander/lander-content-contract/dist/index.d.ts"
+        "packages/contracts/lander-content-contract/dist/index.d.ts"
       ],
       "@mdwrk/lander-content-contract/*": [
-        "packages/lander/lander-content-contract/dist/*"
+        "packages/contracts/lander-content-contract/dist/*"
       ],
       "@mdwrk/lander-commerce-contract": [
-        "packages/lander/lander-commerce-contract/dist/index.d.ts"
+        "packages/contracts/lander-commerce-contract/dist/index.d.ts"
       ],
       "@mdwrk/lander-commerce-contract/*": [
-        "packages/lander/lander-commerce-contract/dist/*"
+        "packages/contracts/lander-commerce-contract/dist/*"
       ],
       "@mdwrk/lander-core": [
-        "packages/lander/lander-core/dist/index.d.ts"
+        "packages/core/lander-core/dist/index.d.ts"
       ],
       "@mdwrk/lander-core/*": [
-        "packages/lander/lander-core/dist/*"
+        "packages/core/lander-core/dist/*"
       ],
       "@mdwrk/structured-data": [
-        "packages/shared/structured-data/dist/index.d.ts"
+        "packages/contracts/structured-data/dist/index.d.ts"
       ],
       "@mdwrk/structured-data/*": [
-        "packages/shared/structured-data/dist/*"
+        "packages/contracts/structured-data/dist/*"
       ],
       "@mdwrk/lander-seo": [
-        "packages/lander/lander-seo/dist/index.d.ts"
+        "packages/machine/lander-seo/dist/index.d.ts"
       ],
       "@mdwrk/lander-seo/*": [
-        "packages/lander/lander-seo/dist/*"
+        "packages/machine/lander-seo/dist/*"
       ],
       "@mdwrk/lander-theme": [
-        "packages/lander/lander-theme/dist/index.d.ts"
+        "packages/ui/lander-theme/dist/index.d.ts"
       ],
       "@mdwrk/lander-theme/*": [
-        "packages/lander/lander-theme/dist/*"
+        "packages/ui/lander-theme/dist/*"
       ],
       "@mdwrk/lander-markdown-content-adapter": [
-        "packages/lander/lander-markdown-content-adapter/dist/index.d.ts"
+        "packages/core/lander-markdown-content-adapter/dist/index.d.ts"
       ],
       "@mdwrk/lander-markdown-content-adapter/*": [
-        "packages/lander/lander-markdown-content-adapter/dist/*"
+        "packages/core/lander-markdown-content-adapter/dist/*"
       ],
       "@mdwrk/lander-page-templates": [
-        "packages/lander/lander-page-templates/dist/index.d.ts"
+        "packages/core/lander-page-templates/dist/index.d.ts"
       ],
       "@mdwrk/lander-page-templates/*": [
-        "packages/lander/lander-page-templates/dist/*"
+        "packages/core/lander-page-templates/dist/*"
       ],
       "@mdwrk/lander-page-template-presets": [
-        "packages/lander/lander-page-template-presets/dist/index.d.ts"
+        "packages/core/lander-page-template-presets/dist/index.d.ts"
       ],
       "@mdwrk/lander-page-template-presets/*": [
-        "packages/lander/lander-page-template-presets/dist/*"
+        "packages/core/lander-page-template-presets/dist/*"
       ],
       "@mdwrk/lander-react": [
-        "packages/lander/lander-react/dist/index.d.ts"
+        "packages/ui/lander-react/dist/index.d.ts"
       ],
       "@mdwrk/lander-react/*": [
-        "packages/lander/lander-react/dist/*"
+        "packages/ui/lander-react/dist/*"
       ],
       "@mdwrk/lander-react-commerce": [
-        "packages/lander/lander-react-commerce/dist/index.d.ts"
+        "packages/ui/lander-react-commerce/dist/index.d.ts"
       ],
       "@mdwrk/lander-react-commerce/*": [
-        "packages/lander/lander-react-commerce/dist/*"
+        "packages/ui/lander-react-commerce/dist/*"
       ],
       "@mdwrk/lander-react-structured-data": [
-        "packages/lander/lander-react-structured-data/dist/index.d.ts"
+        "packages/machine/lander-react-structured-data/dist/index.d.ts"
       ],
       "@mdwrk/lander-react-structured-data/*": [
-        "packages/lander/lander-react-structured-data/dist/*"
+        "packages/machine/lander-react-structured-data/dist/*"
       ],
       "@mdwrk/mdwrkcom-content-pack": [
         "packages/content/mdwrkcom-content-pack/dist/index.d.ts"

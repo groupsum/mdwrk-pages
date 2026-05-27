@@ -3,7 +3,7 @@
 **React JSON-LD wrappers for portable landers**
 
 <p align="center">
-  <a href="https://github.com/groupsum/mdwrk-pages/blob/master/packages/lander/lander-react-structured-data/README.md"><img alt="Hits" src="https://visitor-badge.laobi.icu/badge?page_id=groupsum.mdwrk_pages.packages_lander_lander_react_structured_data_README&amp;left_text=hits" /></a>
+  <a href="https://github.com/groupsum/mdwrk-pages/blob/master/packages/machine/lander-react-structured-data/README.md"><img alt="Hits" src="https://visitor-badge.laobi.icu/badge?page_id=groupsum.mdwrk_pages.packages_machine_lander_react_structured_data_README&amp;left_text=hits" /></a>
   <a href="https://www.npmjs.com/package/@mdwrk/lander-react-structured-data"><img alt="Downloads" src="https://img.shields.io/npm/dm/%40mdwrk%2Flander-react-structured-data?label=downloads" /></a>
   <a href="../../../package.json"><img alt="Node" src="https://img.shields.io/badge/node-20.x%20%7C%2021.x%20%7C%2022.x-339933?logo=node.js&amp;logoColor=white" /></a>
   <a href="../../../LICENSE"><img alt="License: Apache-2.0" src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" /></a>
@@ -48,5 +48,5 @@ export function PageStructuredData({ site, page }) {
 
 ## Related
 - [Packages index](../../README.md) - family and package navigation
-- [lander-react](../lander-react/README.md) - visible UI renderer
+- [lander-react](../../ui/lander-react/README.md) - visible UI renderer
 - [Root README](../../../README.md) - repo overview

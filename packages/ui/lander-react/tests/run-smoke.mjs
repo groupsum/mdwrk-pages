@@ -10,9 +10,9 @@ const repoRoot = path.resolve(testRoot, '..', '..', '..', '..');
 const distRoot = path.resolve(testRoot, '..', 'dist');
 const distIndex = path.join(distRoot, 'index.js');
 const smokeIndex = path.join(distRoot, 'index.smoke.mjs');
-const structuredDataReactDist = path.join(repoRoot, 'packages', 'lander', 'lander-react-structured-data', 'dist', 'index.js');
-const structuredDataReactSmoke = path.join(repoRoot, 'packages', 'lander', 'lander-react-structured-data', 'dist', 'index.smoke.mjs');
-const structuredDataDist = path.join(repoRoot, 'packages', 'shared', 'structured-data', 'dist', 'index.js').replace(/\\/g, '/');
+const structuredDataReactDist = path.join(repoRoot, 'packages', 'machine', 'lander-react-structured-data', 'dist', 'index.js');
+const structuredDataReactSmoke = path.join(repoRoot, 'packages', 'machine', 'lander-react-structured-data', 'dist', 'index.smoke.mjs');
+const structuredDataDist = path.join(repoRoot, 'packages', 'contracts', 'structured-data', 'dist', 'index.js').replace(/\\/g, '/');
 
 fs.writeFileSync(
   structuredDataReactSmoke,

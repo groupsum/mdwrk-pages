@@ -4,6 +4,8 @@ dist
 **/dist
 !examples/learning-path-demo/dist
 !examples/learning-path-demo/dist/**
+!examples/subscription-store-demo/dist
+!examples/subscription-store-demo/dist/**
 .git
 .github
 .venv

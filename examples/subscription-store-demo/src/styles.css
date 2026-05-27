@@ -1,0 +1,260 @@
+:root {
+  color: #17201b;
+  background: linear-gradient(180deg, #f8fbfd 0%, #eef3f8 100%);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+}
+
+.demo-app {
+  min-height: 100vh;
+  padding-bottom: 3rem;
+}
+
+.demo-header,
+.demo-hero,
+.demo-layout {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.demo-header {
+  display: grid;
+  gap: 1rem;
+  padding: 2rem 1.25rem 1rem;
+}
+
+.demo-header__brand h1,
+.demo-header__brand p {
+  margin: 0;
+}
+
+.demo-header__eyebrow,
+.demo-kicker,
+.demo-panel__header span,
+.demo-route-list span,
+.demo-stat-grid dt {
+  color: #5f6f7e;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.demo-header__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.demo-header__nav a {
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+}
+
+.demo-header__nav a.is-active {
+  background: #17201b;
+  color: #fff;
+}
+
+.demo-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+  gap: 1rem;
+  padding: 0 1.25rem 1.25rem;
+}
+
+.demo-hero__rail {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.demo-hero__copy,
+.demo-stat-grid,
+.demo-panel {
+  border: 1px solid rgba(23, 32, 27, 0.12);
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 1rem 2.5rem rgba(40, 62, 85, 0.08);
+}
+
+.demo-hero__copy {
+  padding: 1.35rem;
+}
+
+.demo-hero__copy h2,
+.demo-hero__copy p {
+  margin: 0;
+}
+
+.demo-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  padding: 1.35rem;
+}
+
+.demo-hero .demo-panel {
+  min-height: 0;
+}
+
+.demo-stat-grid div {
+  padding-top: 0.7rem;
+  border-top: 1px solid rgba(23, 32, 27, 0.1);
+}
+
+.demo-stat-grid div:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.demo-stat-grid dd {
+  margin: 0.2rem 0 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.demo-layout {
+  display: grid;
+  grid-template-columns: minmax(20rem, 0.9fr) minmax(0, 1.5fr);
+  gap: 1rem;
+  padding: 0 1.25rem;
+}
+
+.demo-rail,
+.demo-stage {
+  display: grid;
+  gap: 1rem;
+}
+
+.demo-panel {
+  padding: 1rem;
+}
+
+.demo-panel__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.demo-route-list,
+.demo-plan-list,
+.demo-cart-actions {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.demo-route-list a,
+.demo-plan {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.85rem;
+  border-radius: 0.75rem;
+  background: #f5f8fb;
+  text-decoration: none;
+}
+
+.demo-route-list a.is-active,
+.demo-plan.is-featured {
+  background: #e7eef8;
+  border: 1px solid rgba(79, 110, 170, 0.22);
+}
+
+.demo-plan__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.demo-plan p,
+.demo-plan ul,
+.demo-preview :where(p, ul, ol),
+.demo-cart-summary p {
+  margin: 0;
+}
+
+.demo-plan ul,
+.demo-cart-lines {
+  padding-left: 1rem;
+}
+
+.demo-button {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.demo-button--primary {
+  background: #1459a6;
+  color: #fff;
+}
+
+.demo-button--secondary {
+  background: #dbe7f5;
+  color: #173556;
+}
+
+.demo-preview {
+  overflow: hidden;
+}
+
+.demo-code-block {
+  overflow-x: auto;
+  margin: 0;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: #17201b;
+  color: #ecf2f7;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.demo-result {
+  margin: 0.75rem 0 0;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: #e7eef8;
+  color: #173556;
+}
+
+.demo-result.is-error {
+  background: #fdeced;
+  color: #7a1d29;
+}
+
+@media (max-width: 1120px) {
+  .demo-hero,
+  .demo-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-hero__rail {
+    grid-template-columns: 1fr;
+  }
+}
