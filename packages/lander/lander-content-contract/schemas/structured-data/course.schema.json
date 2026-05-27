@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mdwrk.com/structured-data/course.schema.json",
+  "title": "Structured Data Course Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "url": { "type": "string", "minLength": 1 },
+    "provider": {
+      "anyOf": [
+        { "type": "string", "minLength": 1 },
+        { "$ref": "#/$defs/thingRef" }
+      ]
+    },
+    "courseCode": { "type": "string" },
+    "coursePrerequisites": {
+      "anyOf": [
+        { "type": "string", "minLength": 1 },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      ]
+    },
+    "hasCourseInstance": {
+      "anyOf": [
+        { "$ref": "#/$defs/courseInstanceLike" },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/courseInstanceLike" }
+        }
+      ]
+    },
+    "image": {
+      "anyOf": [
+        { "type": "string", "minLength": 1 },
+        { "$ref": "#/$defs/image" }
+      ]
+    }
+  },
+  "$defs": {
+    "thingRef": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "thingRef",
+      "title": "Structured Data Thing Reference",
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {}
+    },
+    "courseInstanceLike": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "courseInstanceLike",
+      "title": "CourseInstance-like node",
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {}
+    },
+    "image": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "image",
+      "title": "Structured Data Image",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "src": { "type": "string" },
+        "url": { "type": "string" },
+        "width": { "type": "number" },
+        "height": { "type": "number" },
+        "caption": { "type": "string" },
+        "alt": { "type": "string" }
+      }
+    }
+  }
+}

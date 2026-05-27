@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mdwrk.com/structured-data/math-solver.schema.json",
+  "title": "Structured Data MathSolver Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "url": { "type": "string", "minLength": 1 },
+    "mathExpression": { "type": "string" },
+    "learningResourceType": { "type": "string" },
+    "potentialAction": {
+      "anyOf": [
+        { "$ref": "#/$defs/solveMathAction" },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/solveMathAction" }
+        }
+      ]
+    },
+    "learningResource": {
+      "anyOf": [
+        { "$ref": "#/$defs/learningResource" },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/learningResource" }
+        }
+      ]
+    },
+    "subjectOf": {
+      "anyOf": [
+        { "$ref": "#/$defs/learningResource" },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/learningResource" }
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "thingRef": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "thingRef",
+      "title": "Structured Data Thing Reference",
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {}
+    },
+    "learningResource": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "learningResource",
+      "title": "Structured Data LearningResource",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "@context": { "type": "string" },
+        "@type": { "type": "string" },
+        "id": { "type": "string" },
+        "name": { "type": "string", "minLength": 1 },
+        "description": { "type": "string" },
+        "url": { "type": "string", "minLength": 1 },
+        "learningResourceType": { "type": "string" },
+        "educationalLevel": { "type": "string" },
+        "teaches": {
+          "anyOf": [
+            { "type": "string", "minLength": 1 },
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "string", "minLength": 1 }
+            }
+          ]
+        }
+      }
+    },
+    "solveMathAction": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "solveMathAction",
+      "title": "Structured Data SolveMathAction",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target"],
+      "properties": {
+        "@context": { "type": "string" },
+        "@type": { "type": "string" },
+        "id": { "type": "string" },
+        "target": {
+          "anyOf": [
+            { "type": "string", "minLength": 1 },
+            { "$ref": "#/$defs/thingRef" }
+          ]
+        },
+        "mathExpression-input": { "type": "string" },
+        "mathExpressionInput": { "type": "string" },
+        "eduQuestionType": {
+          "anyOf": [
+            { "type": "string", "minLength": 1 },
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "string", "minLength": 1 }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

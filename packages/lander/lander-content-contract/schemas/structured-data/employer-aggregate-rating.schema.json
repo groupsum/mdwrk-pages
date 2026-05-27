@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mdwrk.com/structured-data/employer-aggregate-rating.schema.json",
+  "title": "Structured Data EmployerAggregateRating Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ratingValue"],
+  "properties": {
+    "ratingValue": { "type": "number" },
+    "reviewCount": { "type": "number" },
+    "ratingCount": { "type": "number" },
+    "bestRating": { "type": "number" },
+    "worstRating": { "type": "number" }
+  }
+}

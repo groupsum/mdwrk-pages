@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mdwrk.com/structured-data/answer.schema.json",
+  "title": "Structured Data Answer Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["text"],
+  "properties": {
+    "id": { "type": "string" },
+    "text": { "type": "string", "minLength": 1 },
+    "url": { "type": "string" },
+    "upvoteCount": { "type": "number" },
+    "dateCreated": { "type": "string" },
+    "author": {}
+  }
+}

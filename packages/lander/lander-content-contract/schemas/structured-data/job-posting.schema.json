@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mdwrk.com/structured-data/job-posting.schema.json",
+  "title": "Structured Data JobPosting Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title", "datePosted", "hiringOrganization"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "url": { "type": "string", "minLength": 1 },
+    "datePosted": { "type": "string", "minLength": 1 },
+    "validThrough": { "type": "string" },
+    "employmentType": {},
+    "hiringOrganization": {},
+    "jobLocation": {},
+    "baseSalary": {}
+  }
+}

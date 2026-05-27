@@ -1,3 +1,5 @@
+import { getStructuredDataSchemaByType, validateStructuredDataByType } from "./structured-data-schemas.js";
+
 export type PageKind =
   | "home"
   | "feature"
@@ -18,9 +20,13 @@ export type SectionKind =
   | "proof_matrix"
   | "package_grid"
   | "pricing"
+  | "support_channels"
+  | "policy_summary"
   | "cta"
   | "faq"
-  | "markdown";
+  | "markdown"
+  | "quiz_flashcards"
+  | "assessment";
 
 export interface AssetRef {
   src: string;
@@ -176,6 +182,45 @@ export interface FaqItem {
   answer: string;
 }
 
+export interface PricingPlanSpec {
+  id: string;
+  name: string;
+  summary?: string;
+  price: string;
+  interval?: string;
+  badge?: string;
+  featured?: boolean;
+  cta?: Cta;
+  featureBullets?: string[];
+}
+
+export interface PricingFeatureRowSpec {
+  id: string;
+  label: string;
+  values: Record<string, string>;
+}
+
+export interface SupportChannelSpec {
+  title: string;
+  description: string;
+  href?: string;
+  label?: string;
+}
+
+export interface PolicySummaryItemSpec {
+  title: string;
+  summary: string;
+  href?: string;
+  label?: string;
+}
+
+export interface AssessmentQuestionSpec {
+  prompt: string;
+  options: string[];
+  correctAnswerIndex: number;
+  explanation?: string;
+}
+
 export interface FeatureCard {
   title: string;
   description: string;
@@ -266,7 +311,24 @@ export interface PackageGridSection extends BaseSection {
 export interface PricingSection extends BaseSection {
   kind: "pricing";
   title: string;
-  body: string;
+  body?: string;
+  plans?: PricingPlanSpec[];
+  comparisonRows?: PricingFeatureRowSpec[];
+  footerNote?: string;
+}
+
+export interface SupportChannelsSection extends BaseSection {
+  kind: "support_channels";
+  title: string;
+  intro?: string;
+  channels: SupportChannelSpec[];
+}
+
+export interface PolicySummarySection extends BaseSection {
+  kind: "policy_summary";
+  title: string;
+  intro?: string;
+  policies: PolicySummaryItemSpec[];
 }
 
 export interface CtaSection extends BaseSection {
@@ -288,6 +350,26 @@ export interface MarkdownSection extends BaseSection {
   body: string;
 }
 
+export interface QuizFlashcardsSection extends BaseSection {
+  kind: "quiz_flashcards";
+  title: string;
+  intro?: string;
+  cards: Array<{
+    question: string;
+    answer: string;
+    explanation?: string;
+  }>;
+}
+
+export interface AssessmentSection extends BaseSection {
+  kind: "assessment";
+  title: string;
+  intro?: string;
+  questions: AssessmentQuestionSpec[];
+  completionLabel?: string;
+  scoreLabel?: string;
+}
+
 export type SectionSpec =
   | HeroSection
   | FeatureGridSection
@@ -296,9 +378,13 @@ export type SectionSpec =
   | ProofMatrixSection
   | PackageGridSection
   | PricingSection
+  | SupportChannelsSection
+  | PolicySummarySection
   | CtaSection
   | FaqSection
-  | MarkdownSection;
+  | MarkdownSection
+  | QuizFlashcardsSection
+  | AssessmentSection;
 
 export interface PageSpec {
   kind: PageKind;
@@ -385,9 +471,13 @@ export const COMPONENT_INTENT_KINDS = Object.freeze([
   "proof_matrix",
   "package_grid",
   "pricing",
+  "support_channels",
+  "policy_summary",
   "cta",
   "faq",
   "markdown",
+  "quiz_flashcards",
+  "assessment",
   "breadcrumbs",
   "page_shell",
   "structured_data_graph",
@@ -411,6 +501,18 @@ export function validateStructuredDataIntent(intent: StructuredDataIntentSpec): 
   if (!isStructuredDataIntentKind(intent.kind)) failures.push(`unsupported structured-data intent kind: ${String(intent.kind)}`);
   if (intent.data !== undefined && !isRecord(intent.data)) failures.push("structured-data intent data must be an object when provided");
   return failures;
+}
+
+export function validateStructuredDataIntentStrict(intent: StructuredDataIntentSpec): string[] {
+  const failures = validateStructuredDataIntent(intent);
+  if (failures.length) return failures;
+  if (intent.data === undefined) return failures;
+  const schema = getStructuredDataSchemaByType(intent.kind);
+  if (!schema) return failures;
+  return [
+    ...failures,
+    ...validateStructuredDataByType(intent.kind, intent.data).map((issue) => `${issue.path}: ${issue.message}`),
+  ];
 }
 
 export function validateComponentIntent(intent: ComponentIntentSpec): string[] {

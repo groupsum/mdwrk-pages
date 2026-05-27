@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mdwrk.com/structured-data/software-application.schema.json",
+  "title": "Structured Data SoftwareApplication Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "url": { "type": "string", "minLength": 1 },
+    "applicationCategory": { "type": "string" },
+    "operatingSystem": { "type": "string" },
+    "offers": {},
+    "softwareVersion": { "type": "string" },
+    "image": {}
+  }
+}

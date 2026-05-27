@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mdwrk.com/structured-data/recipe.schema.json",
+  "title": "Structured Data Recipe Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "recipeIngredient", "recipeInstructions"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "url": { "type": "string", "minLength": 1 },
+    "recipeIngredient": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "recipeInstructions": {},
+    "author": {},
+    "datePublished": { "type": "string" },
+    "prepTime": { "type": "string" },
+    "cookTime": { "type": "string" },
+    "totalTime": { "type": "string" },
+    "image": {}
+  }
+}

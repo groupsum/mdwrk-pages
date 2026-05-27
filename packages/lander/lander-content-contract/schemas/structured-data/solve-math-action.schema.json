@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mdwrk.com/structured-data/solve-math-action.schema.json",
+  "title": "Structured Data SolveMathAction Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["target"],
+  "properties": {
+    "@context": { "type": "string" },
+    "@type": { "type": "string" },
+    "id": { "type": "string" },
+    "target": {
+      "anyOf": [
+        { "type": "string", "minLength": 1 },
+        { "$ref": "#/$defs/thingRef" }
+      ]
+    },
+    "mathExpression-input": { "type": "string" },
+    "mathExpressionInput": { "type": "string" },
+    "eduQuestionType": {
+      "anyOf": [
+        { "type": "string", "minLength": 1 },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "thingRef": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "thingRef",
+      "title": "Structured Data Thing Reference",
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {}
+    }
+  }
+}

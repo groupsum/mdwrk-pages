@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mdwrk.com/structured-data/monetary-amount-distribution.schema.json",
+  "title": "Structured Data MonetaryAmountDistribution Input",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "currency": { "type": "string" },
+    "minValue": { "type": "number" },
+    "maxValue": { "type": "number" },
+    "unitText": { "type": "string" }
+  }
+}

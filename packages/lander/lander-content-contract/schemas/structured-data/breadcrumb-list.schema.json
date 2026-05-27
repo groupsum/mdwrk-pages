@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mdwrk.com/structured-data/breadcrumb-list.schema.json",
+  "title": "Structured Data BreadcrumbList Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["items"],
+  "properties": {
+    "id": { "type": "string" },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/breadcrumbItem" }
+    }
+  },
+  "$defs": {
+    "breadcrumbItem": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "breadcrumbItem",
+      "title": "Breadcrumb Item",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "href"],
+      "properties": {
+        "label": { "type": "string", "minLength": 1 },
+        "href": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

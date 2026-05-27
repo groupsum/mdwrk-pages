@@ -1,6 +1,6 @@
 {
   "name": "@mdwrk/lander-content-contract",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "type": "module",
   "license": "Apache-2.0",
   "publishConfig": {
@@ -11,6 +11,7 @@
   },
   "files": [
     "dist",
+    "schemas",
     "README.md"
   ],
   "sideEffects": false,
@@ -22,7 +23,7 @@
   ],
   "description": "Portable content contract types for product landing sites.",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && node ./scripts/copy-schemas.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "npm run typecheck",
     "test": "npm run build && node ./tests/run-smoke.mjs",
@@ -40,7 +41,27 @@
     "./types": {
       "types": "./dist/types.d.ts",
       "import": "./dist/types.js"
-    }
+    },
+    "./template-data-schemas": {
+      "types": "./dist/template-data-schemas.d.ts",
+      "import": "./dist/template-data-schemas.js"
+    },
+    "./structured-data-schemas": {
+      "types": "./dist/structured-data-schemas.d.ts",
+      "import": "./dist/structured-data-schemas.js"
+    },
+    "./schemas/learning-path.schema.json": "./schemas/learning-path.schema.json",
+    "./schemas/course.schema.json": "./schemas/course.schema.json",
+    "./schemas/module.schema.json": "./schemas/module.schema.json",
+    "./schemas/quiz.schema.json": "./schemas/quiz.schema.json",
+    "./schemas/course-test.schema.json": "./schemas/course-test.schema.json",
+    "./schemas/structured-data/*.schema.json": "./schemas/structured-data/*.schema.json",
+    "./dist/schemas/learning-path.schema.json": "./dist/schemas/learning-path.schema.json",
+    "./dist/schemas/course.schema.json": "./dist/schemas/course.schema.json",
+    "./dist/schemas/module.schema.json": "./dist/schemas/module.schema.json",
+    "./dist/schemas/quiz.schema.json": "./dist/schemas/quiz.schema.json",
+    "./dist/schemas/course-test.schema.json": "./dist/schemas/course-test.schema.json",
+    "./dist/schemas/structured-data/*.schema.json": "./dist/schemas/structured-data/*.schema.json"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

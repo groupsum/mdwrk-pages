@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mdwrk.com/structured-data/local-business.schema.json",
+  "title": "Structured Data LocalBusiness Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "url": { "type": "string", "minLength": 1 },
+    "logo": {},
+    "sameAs": { "type": "array", "items": { "type": "string" } },
+    "address": {},
+    "telephone": { "type": "string" },
+    "priceRange": { "type": "string" },
+    "openingHours": {},
+    "image": {}
+  }
+}
