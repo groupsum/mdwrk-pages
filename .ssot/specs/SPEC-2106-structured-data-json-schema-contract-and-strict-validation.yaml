@@ -1,0 +1,54 @@
+schema_version: "0.6.0"
+kind: "spec"
+id: "spc:2106"
+number: 2106
+slug: "structured-data-json-schema-contract-and-strict-validation"
+title: "Structured-data JSON Schema contract and strict validation"
+status: "accepted"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "This SPEC governs per-type structured-data JSON Schema contracts, schema asset publication, schema registry helpers, and opt-in strict structured-data intent validation."
+supersedes: []
+superseded_by: []
+status_notes:
+  -
+    status: "accepted"
+    note: "Accepted with the phase-one structured-data schema registry, high-value schema hardening, and opt-in strict structured-data intent validation."
+    at: "2026-05-27T14:49:11Z"
+references: []
+body: |-
+  # Scope
+  This SPEC governs per-type structured-data JSON Schema contracts, schema asset publication, schema registry helpers, and opt-in strict structured-data intent validation.
+  
+  # Requirements
+  `@mdwrk/lander-content-contract` must own published JSON Schema assets for the governed structured-data input surface.
+  
+  Structured-data schema assets must be published under a stable `schemas/structured-data/` subtree with one file per supported type and stable schema identifiers.
+  
+  `@mdwrk/lander-content-contract` must export registry and validation helpers for the structured-data schema surface, including:
+  - listing published schemas,
+  - lookup by structured-data type,
+  - lookup by schema id,
+  - validation by structured-data type, and
+  - validation by schema id.
+  
+  Shared schema fragments for repeated nested shapes must be centralized through reusable definitions rather than duplicated ad hoc across governed high-value types.
+  
+  `validateStructuredDataIntent(...)` must remain the loose default validator for supported kind membership and object-shape checks.
+  
+  `validateStructuredDataIntentStrict(...)` must remain opt-in and must add schema-derived failures only when `intent.data` is present and a published schema exists for the selected kind.
+  
+  When no schema exists for a structured-data kind, strict validation must degrade to the same result as the loose validator.
+  
+  Runtime builders in `@mdwrk/structured-data` remain the authoritative emitters of JSON-LD and their representative outputs must satisfy the published contracts for the governed schema-backed types.
+  
+  # Verification
+  Tests must prove that structured-data schema assets exist and resolve through the registry, that representative valid and invalid payloads validate deterministically, that strict structured-data intent validation surfaces schema failures when applicable, and that representative runtime builder outputs satisfy the published schema contracts.
+spec_kind: "normative"
+adr_ids:
+  - "adr:1057"
+  - "adr:1062"
+  - "adr:1079"
+  - "adr:1080"
+  - "adr:1082"

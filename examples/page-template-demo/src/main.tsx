@@ -1,6 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import type { CompiledLanderSite, CompiledPage } from "@mdwrk/lander-core";
+import { productDomainBundle } from "../../../packages/lander/lander-page-templates/dist/domains/product.js";
 import { VisibleLanderPage } from "@mdwrk/lander-react";
 import { LanderStructuredData } from "@mdwrk/lander-react-structured-data";
 import {
@@ -8,6 +9,7 @@ import {
   getPageTemplateDemoHomeNavigation,
   pageTemplateDemoContentPack,
   pageTemplateDemoGeneratedContentPack,
+  pageTemplateDemoMarkdownFiles,
 } from "@mdwrk/page-template-demo-content-pack";
 import "./styles.css";
 
@@ -26,6 +28,20 @@ interface DemoSchemaLinkRow {
 interface DemoSchemaPanel {
   kind: string;
   entries: DemoSchemaLinkRow[];
+}
+
+interface TemplateSchemaLinkContractRow {
+  kind: string;
+  property: string;
+  relationship: string;
+  slotId: string;
+  cardinality: string;
+  targetTemplateIds: string[];
+}
+
+interface MarkdownSiteField {
+  label: string;
+  value: string;
 }
 
 function normalizeRouteSlug(value: string) {
@@ -160,7 +176,17 @@ const markdownRelationshipRows = [
     links: markdownHomeLinks.filter((edge) => edge.slotId === "legal"),
   },
 ];
-const graphNodes = site.pages.map((demoPage) => {
+const productHomeTemplate = productDomainBundle.templates.find((template) => template.id === "product.home");
+const productHomeSchemaContract: TemplateSchemaLinkContractRow[] = (productHomeTemplate?.schemaLinks ?? []).map((link) => ({
+  kind: link.kind,
+  property: link.property,
+  relationship: link.relationship ?? "implicit",
+  slotId: link.slotId ?? "none",
+  cardinality: link.cardinality ?? "optional_many",
+  targetTemplateIds: [...link.targetTemplateIds],
+}));
+const markdownDemoHomeSource = pageTemplateDemoMarkdownFiles.find((file) => file.path.endsWith("demo-home.md"))?.raw ?? "";
+const featuredPages = site.pages.map((demoPage) => {
   const pageShell = demoPage.componentIntents.find((intent) => intent.kind === "page_shell");
   const templateId = typeof pageShell?.data?.templateId === "string" ? pageShell.data.templateId : demoPage.kind;
   const isLinkedFromPresetHome = relationshipRows.some((row) => row.links.some((link) => normalizeRouteSlug(link.href) === demoPage.path));
@@ -208,6 +234,20 @@ function schemaLinkRowsFor(page: CompiledPage): DemoSchemaPanel[] {
     .filter(Boolean) as DemoSchemaPanel[];
 }
 
+function markdownSiteFieldsFor(page: CompiledPage): MarkdownSiteField[] {
+  const pageShell = page.componentIntents?.find((intent) => intent.kind === "page_shell");
+  const templateId = typeof pageShell?.data?.templateId === "string" ? pageShell.data.templateId : page.kind;
+  const linkedDestinations = schemaLinkRowsFor(page).flatMap((schema) => schema.entries.flatMap((entry) => entry.items.map((item) => item.label)));
+  return [
+    { label: "Route", value: page.path },
+    { label: "Template", value: templateId },
+    { label: "Page title", value: page.title },
+    { label: "Section count", value: String(page.sections.length) },
+    { label: "Schema", value: page.schema.map((schema) => schema.kind).join(", ") || "WebPage" },
+    { label: "Linked destinations", value: linkedDestinations.join(", ") || "None" },
+  ];
+}
+
 function DemoShell() {
   const page = selectPage();
   const current = normalizePath(page.path);
@@ -225,6 +265,11 @@ function DemoShell() {
       }
     : homeNavigation;
   const schemaLinkRows = schemaLinkRowsFor(modeHomePage);
+  const markdownSiteFields = markdownSiteFieldsFor(modeHomePage);
+  const modeHomePageShell = modeHomePage.componentIntents?.find((intent) => intent.kind === "page_shell");
+  const modeHomeTemplateId = typeof modeHomePageShell?.data?.templateId === "string"
+    ? modeHomePageShell.data.templateId
+    : "product.home";
 
   return (
     <div className="demo-app">
@@ -247,7 +292,7 @@ function DemoShell() {
 
       {isHome ? (
         <>
-          <section className="demo-hero" aria-label="Template graph summary">
+          <section className="demo-hero" aria-label="Experience introduction">
             <div className="demo-hero__copy">
               <p className="demo-kicker">Acme Notebook</p>
               <h1>Acme Notebook presents a polished product experience from day one.</h1>
@@ -278,41 +323,46 @@ function DemoShell() {
                 </div>
               </dl>
             </div>
-            <div className="demo-graph" aria-label="Home page relationship slots">
-              <div className="demo-graph__header">
-                <span className="demo-graph__node is-root">{currentHomePath}</span>
-                <span>{currentTemplate}</span>
+          </section>
+
+          <section className="demo-overview" aria-label="Experience overview">
+            <div className="demo-overview__panel">
+              <div className="demo-overview__header">
+                <strong>{currentTemplate}</strong>
+                <span>{currentHomePath}</span>
               </div>
-              {currentRows.map((row) => (
-                <div className="demo-graph__row" key={row.slot}>
-                  <div>
-                    <strong>{row.slot}</strong>
-                    <span>{row.meaning}</span>
+              <div className="demo-overview__rows">
+                {currentRows.map((row) => (
+                  <div className="demo-overview__row" key={row.slot}>
+                    <div>
+                      <strong>{row.slot}</strong>
+                      <span>{row.meaning}</span>
+                    </div>
+                    <div className="demo-overview__links">
+                      {row.links.map((link) => (
+                        <a key={link.id} href={link.href}>
+                          <span>{link.label}</span>
+                        </a>
+                      ))}
+                    </div>
                   </div>
-                  <div className="demo-graph__links">
-                    {row.links.map((link) => (
-                      <a key={link.id} href={link.href}>
-                        <span>{link.label}</span>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </section>
 
-          <section className="demo-contract" aria-label="Generated graph nodes">
+          <section className="demo-contract" aria-label="Featured site pages">
             <div className="demo-contract__intro">
               <p className="demo-kicker">Featured pages</p>
-              <h2>Browse the main destinations that shape the selected experience.</h2>
+              <h2>Browse the pages that make up the selected experience.</h2>
             </div>
             <div className="demo-node-grid">
-              {graphNodes.filter((node) => isMarkdown ? node.source === "content-led experience" : node.source === "launch experience").map((node) => (
+              {featuredPages.filter((node) => isMarkdown ? node.source === "content-led experience" : node.source === "launch experience").map((node) => (
                 <a className="demo-node-card" key={node.id} href={node.path}>
-                  <span className="demo-node-card__state">{node.state}</span>
+                  <span className="demo-node-card__state">{node.source === "content-led experience" ? "Editorial page" : "Product page"}</span>
                   <strong>{node.title}</strong>
                   <span>{node.path}</span>
-                  <small>{node.source === "content-led experience" ? "Editorial page" : "Product page"}</small>
+                  <small>{node.kind.replace(/_/g, " ")}</small>
                   <small>{node.schema.join(" + ") || "WebPage"}</small>
                 </a>
               ))}
@@ -345,10 +395,116 @@ function DemoShell() {
             </div>
           </section>
 
+          {isMarkdown ? (
+            <section className="demo-markdown-flow" aria-label="Markdown to site showcase">
+              <div className="demo-contract__intro">
+                <p className="demo-kicker">Markdown to site</p>
+                <h2>One Markdown file becomes a compiled page, linked destinations, and the live editorial experience.</h2>
+              </div>
+              <div className="demo-markdown-flow__grid">
+                <article className="demo-markdown-flow__panel">
+                  <header>
+                    <strong>Source Markdown</strong>
+                    <span>content/pages/demo-home.md</span>
+                  </header>
+                  <p>
+                    This is the actual authored file. Frontmatter chooses the page template, route, and linked page IDs.
+                  </p>
+                  <pre className="demo-markdown-flow__code"><code>{markdownDemoHomeSource}</code></pre>
+                </article>
+                <article className="demo-markdown-flow__panel">
+                  <header>
+                    <strong>Compiled site output</strong>
+                    <span>{modeHomePage.path}</span>
+                  </header>
+                  <p>
+                    The compiler turns that Markdown file into a routed page with schema, sections, and linked destinations.
+                  </p>
+                  <dl className="demo-markdown-flow__summary">
+                    {markdownSiteFields.map((field) => (
+                      <div key={field.label}>
+                        <dt>{field.label}</dt>
+                        <dd>{field.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </article>
+              </div>
+            </section>
+          ) : null}
+
           <section className="demo-schema" aria-label="Structured data page links">
             <div className="demo-contract__intro">
               <p className="demo-kicker">Search and assistant readiness</p>
-              <h2>Support and policy destinations stay connected behind the scenes as well as on the page.</h2>
+              <h2>The product home template declares exactly which page templates each structured data property can reach.</h2>
+            </div>
+            <div className="demo-contract__intro">
+              <p>
+                The left side shows the reusable <code>product.home</code> contract. The right side shows the actual
+                Acme Notebook instance compiled from that contract for the current experience.
+              </p>
+            </div>
+            <div className="demo-schema__contract-grid">
+              <section className="demo-schema__panel" aria-label="Declared product home structured data contract">
+                <header>
+                  <strong>Declared <code>product.home</code> contract</strong>
+                  <span>Reusable page-template rule set</span>
+                </header>
+                {productHomeSchemaContract.map((entry) => (
+                  <div className="demo-schema__property" key={`${entry.kind}-${entry.property}`}>
+                    <div>
+                      <code>{entry.property}</code>
+                      <small>
+                        {entry.kind} links through <strong>{entry.slotId}</strong> using the <strong>{entry.relationship}</strong> relationship.
+                      </small>
+                    </div>
+                    <div className="demo-schema__links">
+                      {entry.targetTemplateIds.map((templateId) => (
+                        <span className="demo-schema__chip" key={`${entry.property}-${templateId}`}>
+                          {templateId}
+                        </span>
+                      ))}
+                    </div>
+                    <small className="demo-schema__meta">Cardinality: {entry.cardinality}</small>
+                  </div>
+                ))}
+              </section>
+              <section className="demo-schema__panel" aria-label="Resolved structured data instance for Acme Notebook">
+                <header>
+                  <strong>Resolved Acme Notebook instance</strong>
+                  <span>{modeHomePage.title} | {modeHomeTemplateId}</span>
+                </header>
+                <div className="demo-schema__property">
+                  <div>
+                    <code>{modeHomePage.path}</code>
+                    <small>Compiled home-page instance using the declared product template contract.</small>
+                  </div>
+                </div>
+                {schemaLinkRows.map((schema) => (
+                  <div className="demo-schema__property" key={`instance-${schema.kind}`}>
+                    <div>
+                      <code>{schema.kind === "SoftwareApplication" ? "SoftwareApplication" : schema.kind}</code>
+                      <small>Actual structured-data component links emitted for this compiled page instance.</small>
+                    </div>
+                    {schema.entries.map((entry) => (
+                      <div className="demo-schema__instance-block" key={`instance-${schema.kind}-${entry.property}`}>
+                        <div>
+                          <strong>{entry.property}</strong>
+                          <small>{entry.items.length} linked page template instance{entry.items.length === 1 ? "" : "s"}</small>
+                        </div>
+                        <div className="demo-schema__links">
+                          {entry.items.map((item) => (
+                            <a key={`${entry.property}-${item.pageId}`} href={item.href}>
+                              <span>{item.label}</span>
+                              <code>{item.targetTemplateId}</code>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </section>
             </div>
             <div className="demo-schema__panels">
               {schemaLinkRows.map((schema) => (

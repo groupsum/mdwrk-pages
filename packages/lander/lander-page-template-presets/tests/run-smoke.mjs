@@ -3,12 +3,27 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const templates = await import("../../lander-page-templates/dist/index.js");
 const testRoot = path.dirname(fileURLToPath(import.meta.url));
 const packageRoot = path.resolve(testRoot, "..");
 const distRoot = path.resolve(packageRoot, "dist");
 const smokeRoot = path.resolve(packageRoot, ".smoke-dist");
-const templateDist = path.resolve(packageRoot, "..", "lander-page-templates", "dist", "index.js").replace(/\\/g, "/");
+const templatePackageRoot = path.resolve(packageRoot, "..", "lander-page-templates");
+const templateDistRoot = path.resolve(templatePackageRoot, "dist");
+const templateSmokeRoot = path.resolve(templatePackageRoot, ".smoke-dist");
+const contractDist = path.resolve(packageRoot, "..", "lander-content-contract", "dist", "index.js").replace(/\\/g, "/");
+
+fs.rmSync(templateSmokeRoot, { recursive: true, force: true });
+fs.cpSync(templateDistRoot, templateSmokeRoot, { recursive: true });
+for (const file of fs.readdirSync(templateSmokeRoot, { recursive: true })) {
+  if (typeof file !== "string" || !file.endsWith(".js")) continue;
+  const target = path.join(templateSmokeRoot, file);
+  fs.writeFileSync(
+    target,
+    fs.readFileSync(target, "utf8").replaceAll('"@mdwrk/lander-content-contract"', `"file:///${contractDist}"`),
+  );
+}
+const templateDist = path.resolve(templateSmokeRoot, "index.js").replace(/\\/g, "/");
+const templates = await import(`file:///${templateDist}`);
 
 fs.rmSync(smokeRoot, { recursive: true, force: true });
 fs.cpSync(distRoot, smokeRoot, { recursive: true });
@@ -27,6 +42,7 @@ const {
   createFaqHubPreset,
   createPackageCatalogPreset,
   createProductSitePreset,
+  createSubscriptionStorePreset,
   createTrustCenterPreset,
   buildPresetGraphFromMaps,
   getPresetEntryPageId,
@@ -35,6 +51,7 @@ const {
 } = await import(`file:///${path.join(smokeRoot, "index.js").replace(/\\/g, "/")}`);
 
 fs.rmSync(smokeRoot, { recursive: true, force: true });
+fs.rmSync(templateSmokeRoot, { recursive: true, force: true });
 
 const coveredFeatures = new Set();
 function covers(featureId, assertion) {
@@ -54,6 +71,7 @@ const presets = [
   createEducationPathPreset({ baseSlug: "/academy" }),
   createDocsHubPreset(),
   createPackageCatalogPreset(),
+  createSubscriptionStorePreset({ baseSlug: "/store" }),
   createTrustCenterPreset(),
 ];
 
@@ -69,12 +87,24 @@ for (const preset of presets) {
 const education = createEducationPathPreset({ baseSlug: "/academy" });
 assert.equal(templates.resolveLinkSlots(education.graph, "education:path").courses[0].href, "/academy/learn/course/");
 assert.equal(templates.resolveLinkSlots(education.graph, "education:course").modules[0].href, "/academy/learn/course/module/");
-assert.equal(templates.resolveLinkSlots(education.graph, "education:module").quizzes[0].href, "/academy/learn/course/module/quiz/");
+assert.equal(templates.resolveLinkSlots(education.graph, "education:course").flashcards[0].href, "/academy/learn/course/flashcards/");
+assert.equal(templates.resolveLinkSlots(education.graph, "education:course").quizzes[0].href, "/academy/learn/course/quiz/");
+assert.equal(templates.resolveLinkSlots(education.graph, "education:course").test[0].href, "/academy/learn/course/test/");
+assert.equal(
+  templates.buildPageSpecFromTemplate(education.graph, education.graph.instances.find((item) => item.id === "education:module"))
+    .sections.find((section) => section.id === "next-step").primaryCta.href,
+  "/academy/learn/course/quiz/",
+);
 
 const product = createProductSitePreset();
+const subscriptionStore = createSubscriptionStorePreset({ baseSlug: "/store" });
 assert.deepEqual(
   templates.deriveTemplateNavigation(product.graph, "product:home").related.map((item) => item.href),
   ["/product/", "/features/core/", "/compare/", "/pricing/", "/customers/story/", "/changelog/", "/support/", "/privacy/", "/terms/"],
+);
+assert.deepEqual(
+  templates.resolveLinkSlots(subscriptionStore.graph, "store:home").legal.map((item) => item.href),
+  ["/store/privacy/", "/store/terms/", "/store/refunds/"],
 );
 
 const docs = createDocsHubPreset();
@@ -226,6 +256,23 @@ coversDefaultGraph("feat:lander.page-template-presets.product-site", () => {
   assert.equal(templates.resolveLinkSlots(product.graph, "product:home").children.length, 6);
 });
 
+coversDefaultGraph("feat:lander.page-template-presets.subscription-store", () => {
+  assert.deepEqual(subscriptionStore.graph.instances.map((item) => item.templateId), [
+    "product.home",
+    "product.catalog",
+    "product.product",
+    "product.feature",
+    "product.pricing",
+    "product.plan-detail",
+    "support.hub",
+    "support.billing",
+    "trust.privacy",
+    "trust.terms",
+    "trust.refunds",
+  ]);
+  assert.equal(templates.resolveLinkSlots(subscriptionStore.graph, "store:support").questions.length, 1);
+});
+
 coversDefaultGraph("feat:lander.page-template-presets.faq-hub", () => {
   assert.deepEqual(faq.graph.instances.map((item) => item.templateId), [
     "support.hub",
@@ -244,11 +291,18 @@ coversDefaultGraph("feat:lander.page-template-presets.education-path", () => {
     "education.learning-path",
     "education.course",
     "education.module",
+    "education.flashcards",
     "education.quiz",
-    "education.assessment",
-    "education.certificate",
+    "education.course-test",
   ]);
-  assert.equal(templates.resolveLinkSlots(education.graph, "education:module").quizzes.length, 2);
+  assert.equal(templates.resolveLinkSlots(education.graph, "education:course").flashcards.length, 1);
+  assert.equal(templates.resolveLinkSlots(education.graph, "education:course").quizzes.length, 1);
+  assert.equal(templates.resolveLinkSlots(education.graph, "education:course").test.length, 1);
+  assert.equal(
+    templates.buildPageSpecFromTemplate(education.graph, education.graph.instances.find((item) => item.id === "education:module"))
+      .sections.find((section) => section.id === "next-step").primaryCta.href,
+    "/academy/learn/course/quiz/",
+  );
 });
 
 coversDefaultGraph("feat:lander.page-template-presets.docs-hub", () => {
@@ -315,11 +369,31 @@ coversDefaultGraph("feat:lander.page-template-presets.faq-hub-authored-graph", (
 coversDefaultGraph("feat:lander.page-template-presets.education-path-authored-graph", () => {
   const authoredEducation = createEducationPathPreset({
     pages: {
-      moduleTwo: { id: "education:module-two", templateId: "education.module", slug: "/learn/course/module-two/", title: "Module Two", description: "Second module.", summary: "Continue learning.", order: 2 },
+      flashcardsTwo: {
+        id: "education:flashcards-two",
+        templateId: "education.flashcards",
+        slug: "/learn/course/flashcards-two/",
+        title: "Flash Cards Two",
+        description: "Second flash card page.",
+        summary: "Continue recall practice.",
+        order: 2,
+        data: { cards: [{ question: "Q?", answer: "A." }] },
+      },
+      moduleTwo: {
+        id: "education:module-two",
+        templateId: "education.module",
+        slug: "/learn/course/module-two/",
+        title: "Module Two",
+        description: "Second module.",
+        summary: "Continue learning.",
+        order: 2,
+        data: { body: "Second module lesson body." },
+      },
     },
-    links: { course: { modules: ["module", "moduleTwo"] } },
+    links: { course: { modules: ["module", "moduleTwo"], flashcards: ["flashcards", "flashcardsTwo"] } },
   });
   assert.deepEqual(templates.resolveLinkSlots(authoredEducation.graph, "education:course").modules.map((link) => link.href), ["/learn/course/module/", "/learn/course/module-two/"]);
+  assert.deepEqual(templates.resolveLinkSlots(authoredEducation.graph, "education:course").flashcards.map((link) => link.href), ["/learn/course/flashcards/", "/learn/course/flashcards-two/"]);
 });
 
 coversDefaultGraph("feat:lander.page-template-presets.docs-hub-authored-graph", () => {
@@ -364,6 +438,7 @@ assert.deepEqual([...defaultGraphCoveredFeatures].sort(), [
   "feat:lander.page-template-presets.product-site",
   "feat:lander.page-template-presets.product-site-authored-graph",
   "feat:lander.page-template-presets.smoke-tests",
+  "feat:lander.page-template-presets.subscription-store",
   "feat:lander.page-template-presets.trust-center",
   "feat:lander.page-template-presets.trust-center-authored-graph",
 ]);

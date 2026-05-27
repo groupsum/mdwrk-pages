@@ -1,0 +1,40 @@
+schema_version: "0.6.0"
+kind: "adr"
+id: "adr:1080"
+number: 1080
+slug: "json-schema-backed-page-template-contracts"
+title: "JSON Schema Backed Page Template Contracts"
+status: "accepted"
+origin: "repo-local"
+decision_date: "2026-05-24"
+tags: []
+summary: "Page-template authored payloads are contract-owned JSON Schemas in @mdwrk/lander-content-contract, and template compilation must validate authored data against those schemas before PageSpec generation."
+supersedes: []
+superseded_by: []
+status_notes:
+  -
+    at: "2026-05-24T00:00:00Z"
+    note: "Accepted with implementation in lander-content-contract, lander-page-templates, lander-page-template-presets, and lander-react-structured-data."
+    status: "accepted"
+references: []
+body: |-
+  # Context
+  The portable lander stack already owned reusable page-template definitions, starter presets, and structured-data rendering, but authored template payloads were not governed by exported JSON Schema assets. Validation stopped at graph topology and schema-link wiring, which meant invalid education payloads could still enter the compile path.
+  
+  The new education preset surface needs five canonical entities: learning path, course, module, quiz, and course test. Those authored payloads must be contract-backed and validated without moving ownership into `mdwrk`.
+  
+  # Decision
+  `@mdwrk/lander-content-contract` owns exported JSON Schema assets, stable schema identifiers, registry helpers, and authored-payload validation helpers for page-template data.
+  
+  `@mdwrk/lander-page-templates` owns binding page templates to those schema identifiers and must fail closed on authored-payload validation errors before `PageSpec` generation.
+  
+  `@mdwrk/lander-page-template-presets` owns starter graphs that seed schema-valid data for the canonical education entities.
+  
+  `@mdwrk/lander-react-structured-data` continues to own JSON-LD emission and must render the structured-data intents produced by the schema-backed education templates.
+  
+  # Consequences
+  Reusable page-template packages now publish both TypeScript contract helpers and raw JSON Schema assets.
+  
+  Education template graphs compile only when authored payloads satisfy their bound JSON Schemas.
+  
+  Downstream content packs, starter presets, and structured-data rendering stay in `mdwrk-pages`, while `mdwrk` proper remains out of runtime ownership for this lane.

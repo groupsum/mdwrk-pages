@@ -1,3 +1,4 @@
+import { validateTemplateDataBySchemaId } from "@mdwrk/lander-content-contract";
 import { errorDiagnostic, warningDiagnostic } from "../diagnostics.js";
 import type { ChildSlotDefinition, PageInstance, PageTemplate, RelationshipRole, RelationshipRule, SchemaTemplateLinkDefinition, TemplateDiagnostic, TemplateEdge, TemplateGraph } from "../types.js";
 import { defaultRoleForRelationship } from "./resolve.js";
@@ -106,6 +107,20 @@ export function validateTemplateGraph(graph: TemplateGraph): TemplateDiagnostic[
         message: `Instance ${instance.id} references missing template ${instance.templateId}.`,
         instanceId: instance.id,
         templateId: instance.templateId,
+      }));
+    }
+  }
+
+  for (const instance of graph.instances) {
+    const template = templates.get(instance.templateId);
+    if (!template?.dataSchemaId) continue;
+    const issues = validateTemplateDataBySchemaId(template.dataSchemaId, instance.data);
+    for (const detail of issues) {
+      diagnostics.push(errorDiagnostic({
+        code: `instance.data.${detail.keyword}`,
+        message: `Instance ${instance.id} failed data validation at ${detail.path}: ${detail.message}`,
+        instanceId: instance.id,
+        templateId: template.id,
       }));
     }
   }

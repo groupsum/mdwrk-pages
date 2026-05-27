@@ -5,9 +5,11 @@ Containerized demo app for `@mdwrk/page-template-demo-content-pack`.
 The app showcases:
 - preset-authored page-template graphs
 - Markdown-authored page-template graphs
+- the actual Markdown source file beside the compiled site output it produces
 - emitted `PageSpec` output rendered with `@mdwrk/lander-react`
 - page-level JSON-LD emitted with `@mdwrk/lander-react-structured-data`
 - structured-data page links resolved from template `schemaLinks`
+- the reusable `product.home` structured-data link contract beside a compiled Acme Notebook instance
 
 The browser demo highlights how Markdown frontmatter links like `support` and `legal` are compiled into page edges and then surfaced as structured-data-linked pages on the `SoftwareApplication` schema for the home page.
 

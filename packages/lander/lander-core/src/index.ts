@@ -63,8 +63,16 @@ export function textForSection(section: SectionSpec): string {
       return [section.title, section.body].filter(Boolean).join(" ");
     case "faq":
       return [section.title, ...section.items.flatMap((item) => [item.question, item.answer])].filter(Boolean).join(" ");
+    case "support_channels":
+      return [section.title, section.intro, ...section.channels.flatMap((item) => [item.label, item.title, item.description, item.href])].filter(Boolean).join(" ");
+    case "policy_summary":
+      return [section.title, section.intro, ...section.policies.flatMap((item) => [item.label, item.title, item.summary, item.href])].filter(Boolean).join(" ");
     case "markdown":
       return section.body;
+    case "quiz_flashcards":
+      return [section.title, section.intro, ...section.cards.flatMap((card) => [card.question, card.answer, card.explanation])].filter(Boolean).join(" ");
+    case "assessment":
+      return [section.title, section.intro, ...section.questions.flatMap((question) => [question.prompt, ...question.options])].filter(Boolean).join(" ");
     default:
       return assertNever(section);
   }

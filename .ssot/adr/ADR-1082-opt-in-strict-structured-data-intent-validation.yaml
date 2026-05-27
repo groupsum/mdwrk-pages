@@ -1,0 +1,42 @@
+schema_version: "0.6.0"
+kind: "adr"
+id: "adr:1082"
+number: 1082
+slug: "opt-in-strict-structured-data-intent-validation"
+title: "Opt-in strict structured-data intent validation"
+status: "accepted"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "`@mdwrk/lander-content-contract` now publishes per-type structured-data JSON Schema contracts. Those schemas are useful for authoring-time and intent-level validation, but the existing `validateStructuredDataIntent(...)` helper is intentionally loose and only enforces supported kind membership plus object-shape basics."
+supersedes: []
+superseded_by: []
+status_notes:
+  -
+    status: "accepted"
+    note: "Accepted with the introduction of validateStructuredDataIntentStrict in lander-content-contract while loose validation remains the default path."
+    at: "2026-05-27T14:47:48Z"
+references: []
+body: |-
+  # Context
+  `@mdwrk/lander-content-contract` now publishes per-type structured-data JSON Schema contracts. Those schemas are useful for authoring-time and intent-level validation, but the existing `validateStructuredDataIntent(...)` helper is intentionally loose and only enforces supported kind membership plus object-shape basics.
+  
+  Immediately replacing all existing loose validation with schema-backed strict validation would create a silent behavioral change across callsites that are not yet ready to treat schema failures as hard authoring errors.
+  
+  # Decision
+  Structured-data intent validation remains split into two layers:
+  - `validateStructuredDataIntent(...)` stays as the default loose validator for generic kind and data-shape checks.
+  - `validateStructuredDataIntentStrict(...)` is the opt-in validator for schema-backed structured-data intent validation when a published schema exists for the selected kind.
+  
+  Strict validation must preserve the existing kind check and object-shape check, then add schema-derived failures only when:
+  - `intent.data` is present, and
+  - a published schema exists for `intent.kind`.
+  
+  When no schema exists for a kind, strict validation must degrade to the same result as the loose validator rather than inventing a partial pseudo-contract.
+  
+  # Consequences
+  Authoring and preset pipelines can adopt strict validation incrementally without breaking existing generic intent callsites.
+  
+  `@mdwrk/lander-content-contract` becomes the contract owner for opt-in schema-backed structured-data validation behavior, while runtime builders in `@mdwrk/structured-data` remain the authoritative emitters of JSON-LD.
+  
+  Future adoption work can enable strict validation at selected authoring boundaries without changing the default validation semantics for unrelated consumers.

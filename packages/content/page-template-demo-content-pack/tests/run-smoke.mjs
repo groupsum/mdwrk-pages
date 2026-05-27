@@ -28,15 +28,29 @@ function covers(featureId, assertion) {
 async function importShim() {
   const smokeRoot = path.resolve(packageRoot, ".smoke-dist");
   const presetSmokeRoot = path.resolve(packageRoot, ".smoke-presets-dist");
+  const templateSmokeRoot = path.resolve(packageRoot, ".smoke-templates-dist");
   const distRoot = path.resolve(packageRoot, "dist");
   const presetsDistRoot = path.resolve(packageRoot, "..", "..", "lander", "lander-page-template-presets", "dist");
-  const templatesDist = path.resolve(packageRoot, "..", "..", "lander", "lander-page-templates", "dist", "index.js").replace(/\\/g, "/");
+  const templatesDistRoot = path.resolve(packageRoot, "..", "..", "lander", "lander-page-templates", "dist");
+  const contractDist = path.resolve(packageRoot, "..", "..", "lander", "lander-content-contract", "dist", "index.js").replace(/\\/g, "/");
   const templatesCompilerDist = path.resolve(packageRoot, "..", "..", "lander", "lander-page-templates", "dist", "compiler", "index.js").replace(/\\/g, "/");
 
   fs.rmSync(smokeRoot, { recursive: true, force: true });
   fs.rmSync(presetSmokeRoot, { recursive: true, force: true });
+  fs.rmSync(templateSmokeRoot, { recursive: true, force: true });
   fs.cpSync(distRoot, smokeRoot, { recursive: true });
   fs.cpSync(presetsDistRoot, presetSmokeRoot, { recursive: true });
+  fs.cpSync(templatesDistRoot, templateSmokeRoot, { recursive: true });
+  for (const file of fs.readdirSync(templateSmokeRoot, { recursive: true })) {
+    if (typeof file !== "string" || !file.endsWith(".js")) continue;
+    const target = path.join(templateSmokeRoot, file);
+    fs.writeFileSync(
+      target,
+      fs.readFileSync(target, "utf8").replaceAll('"@mdwrk/lander-content-contract"', `"file:///${contractDist}"`),
+    );
+  }
+  const templatesDist = path.resolve(templateSmokeRoot, "index.js").replace(/\\/g, "/");
+  const templatesCompilerSmokeDist = path.resolve(templateSmokeRoot, "compiler", "index.js").replace(/\\/g, "/");
   for (const file of fs.readdirSync(path.join(presetSmokeRoot, "presets"))) {
     if (!file.endsWith(".js")) continue;
     const target = path.join(presetSmokeRoot, "presets", file);
@@ -53,7 +67,7 @@ async function importShim() {
       target,
       fs.readFileSync(target, "utf8")
         .replaceAll('"@mdwrk/lander-page-template-presets"', `"file:///${presetsDist}"`)
-        .replaceAll('"@mdwrk/lander-page-templates/compiler"', `"file:///${templatesCompilerDist}"`)
+        .replaceAll('"@mdwrk/lander-page-templates/compiler"', `"file:///${templatesCompilerSmokeDist}"`)
         .replaceAll('"@mdwrk/lander-page-templates"', `"file:///${templatesDist}"`),
     );
   }
@@ -61,6 +75,7 @@ async function importShim() {
   const imported = await import(`file:///${indexPath.replace(/\\/g, "/")}`);
   fs.rmSync(smokeRoot, { recursive: true, force: true });
   fs.rmSync(presetSmokeRoot, { recursive: true, force: true });
+  fs.rmSync(templateSmokeRoot, { recursive: true, force: true });
   return imported;
 }
 

@@ -9,7 +9,7 @@ function labelFor(instance: PageInstance): string {
 }
 
 export function defaultRoleForRelationship(relationship: TemplateRelationshipKind): RelationshipRole {
-  if (relationship === "child" || relationship === "contains" || relationship === "course_module" || relationship === "module_quiz") {
+  if (relationship === "child" || relationship === "contains" || relationship === "course_module" || relationship === "course_flashcards" || relationship === "course_quiz") {
     return "tree_child";
   }
   if (relationship === "parent" || relationship === "previous" || relationship === "next" || relationship === "related") {

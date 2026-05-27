@@ -1,0 +1,1 @@
+export const LANDER_COMMERCE_CONTRACT_VERSION = "0.1.0";

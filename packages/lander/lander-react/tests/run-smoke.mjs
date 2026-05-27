@@ -33,7 +33,10 @@ const {
   Hero,
   LanderPage,
   MarkdownSectionView,
+  PricingTable,
   SectionRenderer,
+  SupportHub,
+  TrustPolicySummary,
 } = await import(`file:///${smokeIndex.replace(/\\/g, '/')}`);
 fs.rmSync(smokeIndex, { force: true });
 fs.rmSync(structuredDataReactSmoke, { force: true });
@@ -51,6 +54,37 @@ assert.ok(markdownMarkup.includes('Install and use the package.'));
 const faqMarkup = renderToStaticMarkup(React.createElement(FaqPage, { items: [{ question: 'Does the lander emit JSON-LD?', answer: 'Yes, through the structured-data companion package.' }] }));
 assert.ok(faqMarkup.includes('Frequently Asked Questions'));
 assert.ok(faqMarkup.includes('Does the lander emit JSON-LD?'));
+
+const pricingMarkup = renderToStaticMarkup(React.createElement(PricingTable, {
+  section: {
+    id: 'pricing',
+    kind: 'pricing',
+    title: 'Plans',
+    plans: [{ id: 'basic', name: 'Basic', price: '$9', interval: 'mo', featureBullets: ['One workspace'] }],
+  },
+}));
+assert.ok(pricingMarkup.includes('Basic'));
+assert.ok(pricingMarkup.includes('$9'));
+
+const supportMarkup = renderToStaticMarkup(React.createElement(SupportHub, {
+  section: {
+    id: 'support',
+    kind: 'support_channels',
+    title: 'Support',
+    channels: [{ title: 'Billing help', description: 'Resolve billing questions.', href: '/support/billing/' }],
+  },
+}));
+assert.ok(supportMarkup.includes('Billing help'));
+
+const policyMarkup = renderToStaticMarkup(React.createElement(TrustPolicySummary, {
+  section: {
+    id: 'policy',
+    kind: 'policy_summary',
+    title: 'Policies',
+    policies: [{ title: 'Refunds', summary: 'Review the cancellation and refund window.' }],
+  },
+}));
+assert.ok(policyMarkup.includes('Refunds'));
 
 const breadcrumbsMarkup = renderToStaticMarkup(React.createElement(BreadcrumbList, {
   items: [

@@ -93,8 +93,9 @@ export function seedInstance(seed: PresetPageSeed): PageInstance {
     title: seed.title,
     description: seed.description,
     order: seed.order,
-    data: seed.data ?? {
+    data: {
       summary: seed.summary,
+      ...(seed.data ?? {}),
     },
   };
 }

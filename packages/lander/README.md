@@ -16,10 +16,12 @@ The lander stack is intentionally modular. This index separates content contract
 
 ## What
 - `@mdwrk/lander-content-contract` for site, page, section, and schema shapes.
+- `@mdwrk/lander-commerce-contract` for reusable cart, pricing, and checkout runtime contracts.
 - `@mdwrk/lander-core` for compile, validation, route semantics, canonical URLs, and page-text inputs.
 - `@mdwrk/lander-seo` for sitemap, robots, llms, metadata, scoring, and discovery artifacts.
 - `@mdwrk/lander-theme` for default styles and tokens.
 - `@mdwrk/lander-react` for visible UI components.
+- `@mdwrk/lander-react-commerce` for opt-in add-to-cart, cart, and checkout React components.
 - `@mdwrk/lander-react-structured-data` for JSON-LD React wrappers and schema-intent rendering.
 - `@mdwrk/lander-markdown-content-adapter` for frontmatter-driven markdown ingestion.
 - `@mdwrk/lander-page-templates` for reusable page recipes, semantic relationships, and PageSpec generation.
@@ -29,17 +31,19 @@ The lander stack is intentionally modular. This index separates content contract
 Node.js 20.x through 22.x, matching the workspace engine contract in the root package manifest.
 
 ```bash
-npm install @mdwrk/lander-content-contract @mdwrk/lander-core @mdwrk/lander-seo @mdwrk/lander-theme @mdwrk/lander-react @mdwrk/lander-react-structured-data @mdwrk/lander-markdown-content-adapter @mdwrk/lander-page-templates @mdwrk/lander-page-template-presets
+npm install @mdwrk/lander-content-contract @mdwrk/lander-commerce-contract @mdwrk/lander-core @mdwrk/lander-seo @mdwrk/lander-theme @mdwrk/lander-react @mdwrk/lander-react-commerce @mdwrk/lander-react-structured-data @mdwrk/lander-markdown-content-adapter @mdwrk/lander-page-templates @mdwrk/lander-page-template-presets
 ```
 
 ## Usage
 Start with the content contract and core compiler, then add SEO, theming, markdown adapters, or React surfaces as needed.
 
 - [lander-content-contract](./lander-content-contract/README.md)
+- [lander-commerce-contract](./lander-commerce-contract/README.md)
 - [lander-core](./lander-core/README.md)
 - [lander-seo](./lander-seo/README.md)
 - [lander-theme](./lander-theme/README.md)
 - [lander-react](./lander-react/README.md)
+- [lander-react-commerce](./lander-react-commerce/README.md)
 - [lander-react-structured-data](./lander-react-structured-data/README.md)
 - [lander-markdown-content-adapter](./lander-markdown-content-adapter/README.md)
 - [lander-page-templates](./lander-page-templates/README.md)

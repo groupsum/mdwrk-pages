@@ -49,6 +49,15 @@ export function buildPageSpecsFromGraph(graph: TemplateGraph): TemplateBuildResu
       }));
       continue;
     }
+    if (diagnostics.some((diagnostic) =>
+      diagnostic.level === "error" &&
+      (
+        diagnostic.instanceId === instance.id ||
+        (diagnostic.templateId === instance.templateId && diagnostic.instanceId === undefined)
+      )
+    )) {
+      continue;
+    }
     pages.push(buildPageSpecFromTemplate(graph, instance));
   }
 

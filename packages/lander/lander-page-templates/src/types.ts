@@ -1,10 +1,15 @@
 import type {
   ComponentIntentSpec,
   NavItem,
+  PackageCardSpec,
   PageKind,
   PageSpec,
+  PolicySummaryItemSpec,
+  PricingFeatureRowSpec,
+  PricingPlanSpec,
   SchemaSpec,
   SectionSpec,
+  SupportChannelSpec,
   StructuredDataIntentKind,
 } from "@mdwrk/lander-content-contract";
 
@@ -37,7 +42,9 @@ export type TemplateRelationshipKind =
   | "support"
   | "faq_question"
   | "course_module"
-  | "module_quiz"
+  | "course_flashcards"
+  | "course_quiz"
+  | "course_test"
   | (string & {});
 
 export type LinkSlotCardinality = "one" | "many" | "optional_one" | "optional_many";
@@ -108,6 +115,7 @@ export interface PageTemplate<TData extends Record<string, unknown> = Record<str
   kind: PageKind;
   title: string;
   description?: string;
+  dataSchemaId?: string;
   linkSlots?: LinkSlotDefinition[];
   topology?: TemplateTopology;
   rules?: RelationshipRule[];
@@ -278,6 +286,18 @@ export interface DomainTemplateData extends Record<string, unknown> {
   intro?: string;
   body?: string;
   summary?: string;
+  featureCards?: {
+    title: string;
+    description: string;
+    href?: string;
+    icon?: string;
+  }[];
+  packageCards?: PackageCardSpec[];
+  pricingPlans?: PricingPlanSpec[];
+  pricingComparisonRows?: PricingFeatureRowSpec[];
+  pricingFooterNote?: string;
+  supportChannels?: SupportChannelSpec[];
+  policyHighlights?: PolicySummaryItemSpec[];
   sections?: SectionSpec[];
   faq?: { question: string; answer: string }[];
   schemaKinds?: StructuredDataIntentKind[];

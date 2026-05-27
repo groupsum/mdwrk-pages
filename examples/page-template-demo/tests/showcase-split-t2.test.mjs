@@ -17,6 +17,8 @@ const dockerIgnore = fs.readFileSync(path.join(repoRoot, ".dockerignore"), "utf8
 test("T2: the showcase delivery contract stays responsive and health-check ready", () => {
   assert.ok(styles.includes("@media (max-width: 860px)"));
   assert.ok(styles.includes(".demo-split__grid"));
+  assert.ok(styles.includes(".demo-markdown-flow__grid"));
+  assert.ok(styles.includes(".demo-schema__contract-grid"));
   assert.ok(styles.includes(".demo-node-grid"));
   assert.ok(styles.includes(".demo-page-frame"));
 

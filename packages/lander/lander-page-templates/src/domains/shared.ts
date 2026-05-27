@@ -41,11 +41,13 @@ function sectionsForTemplate(context: TemplateRenderContext<DomainTemplateData>,
           id: "linked-pages",
           kind: "feature_grid",
           title: "Linked pages",
-          items: (context.links.children ?? []).map((link) => ({
-            title: link.label,
-            description: `${link.targetTemplateId} page template`,
-            href: link.href,
-          })),
+          items: data.featureCards?.length
+            ? data.featureCards
+            : (context.links.children ?? []).map((link) => ({
+                title: link.label,
+                description: `${link.targetTemplateId} page template`,
+                href: link.href,
+              })),
         },
         {
           id: "overview",
@@ -72,6 +74,9 @@ function sectionsForTemplate(context: TemplateRenderContext<DomainTemplateData>,
           kind: "pricing",
           title: instance.title,
           body,
+          plans: data.pricingPlans,
+          comparisonRows: data.pricingComparisonRows,
+          footerNote: data.pricingFooterNote,
         },
       ];
     case "compare":
@@ -104,13 +109,15 @@ function sectionsForTemplate(context: TemplateRenderContext<DomainTemplateData>,
           id: "packages",
           kind: "package_grid",
           title: instance.title,
-          packages: [
-            {
-              name: instance.title,
-              description: data.summary ?? instance.description,
-              href: instance.href ?? instance.slug,
-            },
-          ],
+          packages: data.packageCards?.length
+            ? data.packageCards
+            : [
+                {
+                  name: instance.title,
+                  description: data.summary ?? instance.description,
+                  href: instance.href ?? instance.slug,
+                },
+              ],
         },
       ];
     case "proof":
@@ -138,10 +145,57 @@ function sectionsForTemplate(context: TemplateRenderContext<DomainTemplateData>,
           title: instance.title,
           body,
         },
+        ...(data.supportChannels?.length ? [{
+          id: "support-channels",
+          kind: "support_channels" as const,
+          title: "Support channels",
+          intro: data.summary,
+          channels: data.supportChannels,
+        }] : []),
         ...(data.faq?.length ? [{ id: "faq", kind: "faq" as const, title: "Questions", items: data.faq }] : []),
       ];
     case "trust":
+      return [
+        hero,
+        ...(data.policyHighlights?.length ? [{
+          id: "policy-summary",
+          kind: "policy_summary" as const,
+          title: "Policy highlights",
+          intro: data.summary,
+          policies: data.policyHighlights,
+        }] : []),
+        {
+          id: "overview",
+          kind: "markdown",
+          title: instance.title,
+          body,
+        },
+        ...(data.supportChannels?.length ? [{
+          id: "support-channels",
+          kind: "support_channels" as const,
+          title: "Need help?",
+          intro: "Reach the team that owns this policy surface.",
+          channels: data.supportChannels,
+        }] : []),
+      ];
     case "docs_bridge":
+      return [
+        hero,
+        {
+          id: "overview",
+          kind: "markdown",
+          title: instance.title,
+          body,
+        },
+        ...(data.supportChannels?.length ? [{
+          id: "support-channels",
+          kind: "support_channels" as const,
+          title: "Support channels",
+          intro: data.summary,
+          channels: data.supportChannels,
+        }] : []),
+        ...(data.faq?.length ? [{ id: "faq", kind: "faq" as const, title: "Questions", items: data.faq }] : []),
+      ];
     case "use_case":
     default:
       return [

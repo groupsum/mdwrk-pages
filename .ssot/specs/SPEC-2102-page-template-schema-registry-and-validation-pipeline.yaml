@@ -1,0 +1,44 @@
+schema_version: "0.6.0"
+kind: "spec"
+id: "spc:2102"
+number: 2102
+slug: "page-template-schema-registry-and-validation-pipeline"
+title: "Page Template Schema Registry And Validation Pipeline"
+status: "accepted"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "This SPEC governs authored page-template payload schemas, registry helpers, and fail-closed validation before `PageSpec` generation."
+supersedes: []
+superseded_by: []
+status_notes:
+  -
+    at: "2026-05-24T00:00:00Z"
+    note: "Accepted with implemented schema registry and validation pipeline."
+    status: "accepted"
+  -
+    status: "accepted"
+    note: "Accepted with the exported template-data schema registry and fail-closed authored payload validation pipeline."
+    at: "2026-05-27T14:48:05Z"
+references: []
+body: |-
+  # Scope
+  This SPEC governs authored page-template payload schemas, registry helpers, and fail-closed validation before `PageSpec` generation.
+  
+  # Requirements
+  `@mdwrk/lander-content-contract` must export raw JSON Schema assets for governed template payloads and must also export registry helpers that resolve schemas by template id and schema id.
+  
+  The template-data registry must support validation of authored data for reusable template instances without depending on app-specific code.
+  
+  `@mdwrk/lander-page-templates` must bind templates to stable schema ids and surface schema-validation failures through template diagnostics.
+  
+  Schema validation must run against imperative instance data and markdown/frontmatter-derived instance data before a page is built. Invalid instances must not produce `PageSpec` output.
+  
+  Relationship topology validation and authored payload validation remain distinct checks and must both contribute diagnostics.
+  
+  # Verification
+  Tests must prove that template schema assets load, that registry helpers resolve template and schema identifiers, that invalid authored data produces deterministic diagnostics, and that invalid instances are skipped during `PageSpec` generation.
+spec_kind: "normative"
+adr_ids:
+  - "adr:1066"
+  - "adr:1080"

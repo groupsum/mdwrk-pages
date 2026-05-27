@@ -1,4 +1,5 @@
 export * from "./product.js";
+export * from "./subscription-store.js";
 export * from "./support.js";
 export * from "./education.js";
 export * from "./docs.js";

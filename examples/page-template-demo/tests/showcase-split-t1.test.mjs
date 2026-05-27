@@ -27,7 +27,15 @@ test("T1: the built showcase artifact contains customer-facing split copy and pr
     "One experience, two renderer layers",
     "Visible experience",
     "Search profile",
+    "Markdown to site",
+    "Source Markdown",
+    "Compiled site output",
+    "content/pages/demo-home.md",
     "Search and assistant readiness",
+    "Reusable page-template rule set",
+    "Resolved Acme Notebook instance",
+    "Compiled home-page instance",
+    "Actual structured-data component links emitted for this compiled page instance.",
     "Live site preview",
     "Launch Experience",
     "Editorial Experience",
@@ -35,7 +43,7 @@ test("T1: the built showcase artifact contains customer-facing split copy and pr
     assert.ok(builtJs.includes(phrase), `expected built JS to include ${phrase}`);
   }
 
-  for (const selector of [".demo-split__grid", ".demo-split__card", ".demo-schema__panel", ".demo-page-frame"]) {
+  for (const selector of [".demo-split__grid", ".demo-split__card", ".demo-markdown-flow__grid", ".demo-markdown-flow__code", ".demo-schema__contract-grid", ".demo-schema__panel", ".demo-page-frame"]) {
     assert.ok(builtCss.includes(selector), `expected built CSS to include ${selector}`);
   }
 });

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import type {
+  AssessmentSection,
   ComparisonSection,
   Cta,
   CtaSection,
@@ -8,8 +9,12 @@ import type {
   HeroSection,
   MarkdownSection,
   PackageGridSection,
+  PolicySummarySection,
   ProofMatrixSection,
+  PricingSection,
+  QuizFlashcardsSection,
   SectionSpec,
+  SupportChannelsSection,
 } from "@mdwrk/lander-content-contract";
 import type { CompiledLanderSite, CompiledPage } from "@mdwrk/lander-core";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
@@ -281,6 +286,71 @@ function cx(...classes: Array<string | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
+type MarkdownBlock =
+  | { kind: "heading"; level: 2 | 3; text: string }
+  | { kind: "unordered_list"; items: string[] }
+  | { kind: "ordered_list"; items: string[] }
+  | { kind: "paragraph"; text: string };
+
+function normalizeMarkdownLines(value: string): string[] {
+  return String(value ?? "").replace(/\r\n/g, "\n").split("\n");
+}
+
+function parseMarkdownBlocks(value: string): MarkdownBlock[] {
+  const lines = normalizeMarkdownLines(value);
+  const blocks: MarkdownBlock[] = [];
+  let index = 0;
+
+  while (index < lines.length) {
+    const line = lines[index].trim();
+    if (!line) {
+      index += 1;
+      continue;
+    }
+
+    if (line.startsWith("### ")) {
+      blocks.push({ kind: "heading", level: 3, text: line.slice(4).trim() });
+      index += 1;
+      continue;
+    }
+    if (line.startsWith("## ")) {
+      blocks.push({ kind: "heading", level: 2, text: line.slice(3).trim() });
+      index += 1;
+      continue;
+    }
+    if (line.startsWith("- ")) {
+      const items: string[] = [];
+      while (index < lines.length && lines[index].trim().startsWith("- ")) {
+        items.push(lines[index].trim().slice(2).trim());
+        index += 1;
+      }
+      blocks.push({ kind: "unordered_list", items });
+      continue;
+    }
+    if (/^\d+\.\s+/.test(line)) {
+      const items: string[] = [];
+      while (index < lines.length && /^\d+\.\s+/.test(lines[index].trim())) {
+        items.push(lines[index].trim().replace(/^\d+\.\s+/, "").trim());
+        index += 1;
+      }
+      blocks.push({ kind: "ordered_list", items });
+      continue;
+    }
+
+    const paragraphLines: string[] = [];
+    while (index < lines.length) {
+      const next = lines[index].trim();
+      if (!next) break;
+      if (next.startsWith("## ") || next.startsWith("### ") || next.startsWith("- ") || /^\d+\.\s+/.test(next)) break;
+      paragraphLines.push(next);
+      index += 1;
+    }
+    blocks.push({ kind: "paragraph", text: paragraphLines.join(" ") });
+  }
+
+  return blocks;
+}
+
 export function CtaLink({ cta }: { cta: Cta }) {
   return (
     <a className={`lander-page__button lander-page__button--${cta.variant ?? "secondary"}`} href={cta.href}>
@@ -311,10 +381,18 @@ export function FeatureGrid({ section }: { section: FeatureGridSection }) {
       <h2>{section.title}</h2>
       <div className="lander-page__grid">
         {section.items.map((item) => (
-          <article className="lander-page__card" key={item.title}>
-            <h3>{item.href ? <a href={item.href}>{item.title}</a> : item.title}</h3>
-            <p>{item.description}</p>
-          </article>
+          item.href ? (
+            <a className="lander-page__card lander-page__card--interactive" href={item.href} key={item.title}>
+              <span className="lander-page__card-link-label">Open</span>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </a>
+          ) : (
+            <article className="lander-page__card" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          )
         ))}
       </div>
     </section>
@@ -322,13 +400,30 @@ export function FeatureGrid({ section }: { section: FeatureGridSection }) {
 }
 
 export function MarkdownSectionView({ section }: { section: MarkdownSection }) {
+  const blocks = parseMarkdownBlocks(section.body);
   return (
     <section className="lander-page__section" id={section.id}>
       {section.title ? <h2>{section.title}</h2> : null}
-      <div className="lander-page__panel">
-        {section.body.split(/\n\s*\n/g).map((paragraph, index) => (
-          <p key={index}>{paragraph}</p>
-        ))}
+      <div className="lander-page__panel lander-page__rich-text">
+        {blocks.map((block, index) => {
+          if (block.kind === "heading" && block.level === 2) return <h3 key={index}>{block.text}</h3>;
+          if (block.kind === "heading" && block.level === 3) return <h4 key={index}>{block.text}</h4>;
+          if (block.kind === "unordered_list") {
+            return (
+              <ul className="lander-page__list" key={index}>
+                {block.items.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            );
+          }
+          if (block.kind === "ordered_list") {
+            return (
+              <ol className="lander-page__list lander-page__list--ordered" key={index}>
+                {block.items.map((item) => <li key={item}>{item}</li>)}
+              </ol>
+            );
+          }
+          return <p key={index}>{block.text}</p>;
+        })}
       </div>
     </section>
   );
@@ -426,11 +521,119 @@ export function PackageGrid({ section }: { section: PackageGridSection }) {
       <h2>{section.title}</h2>
       <div className="lander-page__grid">
         {section.packages.map((item) => (
-          <article className="lander-page__card" key={item.name}>
-            <h3>{item.href ? <a href={item.href}>{item.name}</a> : item.name}</h3>
-            <p>{item.description}</p>
-            {item.install ? <code>{item.install}</code> : null}
-          </article>
+          item.href ? (
+            <a className="lander-page__card lander-page__card--interactive" href={item.href} key={item.name}>
+              <span className="lander-page__card-link-label">Package</span>
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+              {item.install ? <code>{item.install}</code> : null}
+            </a>
+          ) : (
+            <article className="lander-page__card" key={item.name}>
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+              {item.install ? <code>{item.install}</code> : null}
+            </article>
+          )
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export function PricingTable({ section }: { section: PricingSection }) {
+  return (
+    <section className="lander-page__section" id={section.id}>
+      <h2>{section.title}</h2>
+      {section.body ? <MarkdownSectionView section={{ id: `${section.id}-body`, kind: "markdown", body: section.body }} /> : null}
+      {section.plans?.length ? (
+        <div className="lander-page__grid">
+          {section.plans.map((plan) => (
+            <article className={`lander-page__card${plan.featured ? " lander-page__card--interactive" : ""}`} key={plan.id}>
+              {plan.badge ? <span className="lander-page__card-link-label">{plan.badge}</span> : null}
+              <h3>{plan.name}</h3>
+              {plan.summary ? <p>{plan.summary}</p> : null}
+              <p className="lander-page__intro">
+                {plan.price}
+                {plan.interval ? <span className="lander-page__muted">/{plan.interval}</span> : null}
+              </p>
+              {plan.featureBullets?.length ? (
+                <ul className="lander-page__list">
+                  {plan.featureBullets.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+              ) : null}
+              {plan.cta ? <div className="lander-page__button-row"><CtaLink cta={{ ...plan.cta, variant: plan.cta.variant ?? "primary" }} /></div> : null}
+            </article>
+          ))}
+        </div>
+      ) : null}
+      {section.comparisonRows?.length && section.plans?.length ? (
+        <table className="lander-page__comparison">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              {section.plans.map((plan) => <th key={plan.id}>{plan.name}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {section.comparisonRows.map((row) => (
+              <tr key={row.id}>
+                <th>{row.label}</th>
+                {section.plans?.map((plan) => <td key={plan.id}>{row.values[plan.id] ?? ""}</td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : null}
+      {section.footerNote ? <p className="lander-page__muted">{section.footerNote}</p> : null}
+    </section>
+  );
+}
+
+export function SupportHub({ section }: { section: SupportChannelsSection }) {
+  return (
+    <section className="lander-page__section" id={section.id}>
+      <h2>{section.title}</h2>
+      {section.intro ? <p className="lander-page__section-intro">{section.intro}</p> : null}
+      <div className="lander-page__grid">
+        {section.channels.map((channel) => (
+          channel.href ? (
+            <a className="lander-page__card lander-page__card--interactive" href={channel.href} key={channel.title}>
+              <span className="lander-page__card-link-label">{channel.label ?? "Contact"}</span>
+              <h3>{channel.title}</h3>
+              <p>{channel.description}</p>
+            </a>
+          ) : (
+            <article className="lander-page__card" key={channel.title}>
+              <h3>{channel.title}</h3>
+              <p>{channel.description}</p>
+            </article>
+          )
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export function TrustPolicySummary({ section }: { section: PolicySummarySection }) {
+  return (
+    <section className="lander-page__section" id={section.id}>
+      <h2>{section.title}</h2>
+      {section.intro ? <p className="lander-page__section-intro">{section.intro}</p> : null}
+      <div className="lander-page__grid">
+        {section.policies.map((policy) => (
+          policy.href ? (
+            <a className="lander-page__card lander-page__card--interactive" href={policy.href} key={policy.title}>
+              <span className="lander-page__card-link-label">{policy.label ?? "Policy"}</span>
+              <h3>{policy.title}</h3>
+              <p>{policy.summary}</p>
+            </a>
+          ) : (
+            <article className="lander-page__card" key={policy.title}>
+              <h3>{policy.title}</h3>
+              <p>{policy.summary}</p>
+            </article>
+          )
         ))}
       </div>
     </section>
@@ -452,6 +655,109 @@ export function CtaBand({ section }: { section: CtaSection }) {
   );
 }
 
+export function QuizFlashcards({ section }: { section: QuizFlashcardsSection }) {
+  const [revealed, setRevealed] = useState<Record<number, boolean>>({});
+
+  return (
+    <section className="lander-page__section" id={section.id}>
+      <h2>{section.title}</h2>
+      {section.intro ? <p className="lander-page__section-intro">{section.intro}</p> : null}
+      <div className="lander-page__assessment-grid">
+        {section.cards.map((card, index) => {
+          const isRevealed = Boolean(revealed[index]);
+          return (
+            <article className="lander-page__card lander-page__flashcard" key={`${card.question}-${index}`}>
+              <span className="lander-page__card-link-label">Q{index + 1}</span>
+              <h3>{card.question}</h3>
+              <div className="lander-page__flashcard-answer">
+                {isRevealed ? (
+                  <>
+                    <p className="lander-page__flashcard-answer-text">{card.answer}</p>
+                    {card.explanation ? <p className="lander-page__flashcard-explanation">{card.explanation}</p> : null}
+                  </>
+                ) : (
+                  <p className="lander-page__flashcard-placeholder">Answer hidden. Reveal when ready.</p>
+                )}
+              </div>
+              <button
+                type="button"
+                className="lander-page__button lander-page__button--secondary"
+                onClick={() => setRevealed((current) => ({ ...current, [index]: !isRevealed }))}
+              >
+                {isRevealed ? "Hide answer" : "Reveal answer"}
+              </button>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+export function AssessmentForm({ section }: { section: AssessmentSection }) {
+  const [answers, setAnswers] = useState<Record<number, number>>({});
+  const [submitted, setSubmitted] = useState(false);
+
+  const totalQuestions = section.questions.length;
+  const answeredCount = Object.keys(answers).length;
+  const score = useMemo(
+    () => section.questions.reduce((total, question, index) => total + (answers[index] === question.correctAnswerIndex ? 1 : 0), 0),
+    [answers, section.questions],
+  );
+
+  return (
+    <section className="lander-page__section" id={section.id}>
+      <h2>{section.title}</h2>
+      {section.intro ? <p className="lander-page__section-intro">{section.intro}</p> : null}
+      <div className="lander-page__assessment-grid">
+        {section.questions.map((question, questionIndex) => (
+          <article className="lander-page__card lander-page__assessment-card" key={`${question.prompt}-${questionIndex}`}>
+            <span className="lander-page__card-link-label">Q{questionIndex + 1}</span>
+            <h3>{question.prompt}</h3>
+            <div className="lander-page__assessment-options" role="group" aria-label={`Question ${questionIndex + 1}`}>
+              {question.options.map((option, optionIndex) => {
+                const checked = answers[questionIndex] === optionIndex;
+                return (
+                  <label className="lander-page__assessment-option" key={`${option}-${optionIndex}`}>
+                    <input
+                      type="radio"
+                      name={`${section.id}-question-${questionIndex}`}
+                      checked={checked}
+                      onChange={() => setAnswers((current) => ({ ...current, [questionIndex]: optionIndex }))}
+                    />
+                    <span>{option}</span>
+                  </label>
+                );
+              })}
+            </div>
+          </article>
+        ))}
+      </div>
+      <div className="lander-page__panel lander-page__assessment-summary">
+        {!submitted ? (
+          <>
+            <p>{answeredCount} of {totalQuestions} questions answered.</p>
+            <button
+              type="button"
+              className="lander-page__button lander-page__button--primary"
+              onClick={() => setSubmitted(true)}
+            >
+              {section.completionLabel ?? "Submit assessment"}
+            </button>
+          </>
+        ) : (
+          <>
+            <p className="lander-page__assessment-score">
+              {score} / {totalQuestions}
+            </p>
+            <p>{section.scoreLabel ?? "Score"}</p>
+          </>
+        )}
+      </div>
+    </section>
+  );
+}
+
 export function SectionRenderer({ section }: { section: SectionSpec }) {
   switch (section.kind) {
     case "hero":
@@ -468,11 +774,19 @@ export function SectionRenderer({ section }: { section: SectionSpec }) {
     case "package_grid":
       return <PackageGrid section={section} />;
     case "pricing":
-      return <MarkdownSectionView section={{ id: section.id, kind: "markdown", title: section.title, body: section.body }} />;
+      return <PricingTable section={section} />;
+    case "support_channels":
+      return <SupportHub section={section} />;
+    case "policy_summary":
+      return <TrustPolicySummary section={section} />;
     case "cta":
       return <CtaBand section={section} />;
     case "faq":
       return <FaqBlock items={section.items} />;
+    case "quiz_flashcards":
+      return <QuizFlashcards section={section} />;
+    case "assessment":
+      return <AssessmentForm section={section} />;
     default:
       return assertNever(section);
   }
@@ -490,24 +804,25 @@ export function BreadcrumbList({
   if (!items.length) return null;
   return (
     <nav aria-label={label} className={cx("lander-breadcrumbs", className)}>
-      <ol className={cx("lander-breadcrumbs__list", listClassName)}>
+      <div className={cx("lander-breadcrumbs__list", listClassName)}>
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
           return (
-            <li key={`${item.href ?? item.label}-${index}`} className={cx("lander-breadcrumbs__item", itemClassName)}>
+            <React.Fragment key={`${item.href ?? item.label}-${index}`}>
+              {index > 0 ? <span className="lander-breadcrumbs__separator" aria-hidden="true">/</span> : null}
               {item.href && !isLast ? (
-                <a href={item.href} className={cx("lander-breadcrumbs__link", linkClassName)}>
+                <a href={item.href} className={cx("lander-breadcrumbs__link", linkClassName, itemClassName)}>
                   {item.label}
                 </a>
               ) : (
-                <span className={cx("lander-breadcrumbs__current", currentClassName)} aria-current={isLast ? "page" : undefined}>
+                <span className={cx("lander-breadcrumbs__current", currentClassName, itemClassName)} aria-current={isLast ? "page" : undefined}>
                   {item.label}
                 </span>
               )}
-            </li>
+            </React.Fragment>
           );
         })}
-      </ol>
+      </div>
     </nav>
   );
 }
