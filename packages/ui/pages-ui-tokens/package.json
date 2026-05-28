@@ -1,6 +1,6 @@
 {
   "name": "@mdwrk/pages-ui-tokens",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "type": "module",
   "license": "Apache-2.0",
   "publishConfig": {
@@ -33,7 +33,7 @@
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "npm run typecheck",
-    "test": "npm run build && node --test tests/semantic-css-tokens-t0.test.mjs tests/semantic-css-tokens-t1.test.mjs && node tests/run-smoke.mjs",
+    "test": "npm run build && node --test tests/semantic-css-tokens-t0.test.mjs tests/semantic-css-tokens-t1.test.mjs tests/semantic-css-tokens-t2.test.mjs && node tests/run-smoke.mjs",
     "prepack": "npm run build"
   },
   "exports": {
