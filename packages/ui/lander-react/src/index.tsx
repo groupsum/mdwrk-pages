@@ -22,6 +22,8 @@ import { LANDER_REACT_VERSION } from "./version.js";
 
 export { LANDER_REACT_VERSION };
 export const LANDER_REACT_STRUCTURED_DATA_REEXPORTS_DEPRECATED = true;
+export { Article, Course, Product, Quiz } from "./semantic/index.js";
+export type { ArticleProps, CourseProps, ProductProps, QuizProps } from "./semantic/index.js";
 
 const warnedStructuredDataCompatExports = new Set<string>();
 

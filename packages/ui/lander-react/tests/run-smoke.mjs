@@ -10,6 +10,8 @@ const repoRoot = path.resolve(testRoot, '..', '..', '..', '..');
 const distRoot = path.resolve(testRoot, '..', 'dist');
 const distIndex = path.join(distRoot, 'index.js');
 const smokeIndex = path.join(distRoot, 'index.smoke.mjs');
+const semanticDistRoot = path.join(distRoot, 'semantic');
+const semanticSmokeRoot = path.join(distRoot, 'semantic.smoke');
 const structuredDataReactDist = path.join(repoRoot, 'packages', 'machine', 'lander-react-structured-data', 'dist', 'index.js');
 const structuredDataReactSmoke = path.join(repoRoot, 'packages', 'machine', 'lander-react-structured-data', 'dist', 'index.smoke.mjs');
 const structuredDataDist = path.join(repoRoot, 'packages', 'contracts', 'structured-data', 'dist', 'index.js').replace(/\\/g, '/');
@@ -24,27 +26,71 @@ fs.writeFileSync(
   fs.readFileSync(distIndex, 'utf8').replace(
     '"@mdwrk/lander-react-structured-data"',
     `"file:///${structuredDataReactSmoke.replace(/\\/g, '/')}"`,
-  ),
+  ).replaceAll('"./semantic/', '"./semantic.smoke/'),
 );
 
+fs.mkdirSync(semanticSmokeRoot, { recursive: true });
+for (const fileName of fs.readdirSync(semanticDistRoot)) {
+  if (!fileName.endsWith('.js')) continue;
+  fs.writeFileSync(
+    path.join(semanticSmokeRoot, fileName),
+    fs.readFileSync(path.join(semanticDistRoot, fileName), 'utf8').replace(
+      '"@mdwrk/lander-react-structured-data"',
+      `"file:///${structuredDataReactSmoke.replace(/\\/g, '/')}"`,
+    ),
+  );
+}
+
 const {
+  Article,
   BreadcrumbList,
+  Course,
   FaqPage,
   Hero,
   LanderPage,
   MarkdownSectionView,
   PricingTable,
+  Product,
+  Quiz,
   SectionRenderer,
   SupportHub,
   TrustPolicySummary,
 } = await import(`file:///${smokeIndex.replace(/\\/g, '/')}`);
 fs.rmSync(smokeIndex, { force: true });
 fs.rmSync(structuredDataReactSmoke, { force: true });
+fs.rmSync(semanticSmokeRoot, { recursive: true, force: true });
 const heroMarkup = renderToStaticMarkup(React.createElement(Hero, {
   section: { id: 'hero', kind: 'hero', title: 'Visible hero', subtitle: 'Visible shell only.' },
 }));
 assert.ok(heroMarkup.includes('Visible hero'));
 assert.ok(heroMarkup.includes('lander-page__hero'));
+
+const articleMarkup = renderToStaticMarkup(React.createElement(Article, {
+  title: 'Prompt Delivery Studio',
+  body: React.createElement('p', null, 'Article body'),
+}));
+assert.ok(articleMarkup.includes('application/ld+json'));
+assert.ok(articleMarkup.includes('Prompt Delivery Studio'));
+
+const productMarkup = renderToStaticMarkup(React.createElement(Product, {
+  name: 'Prompt Delivery Studio',
+  price: 49,
+  priceCurrency: 'USD',
+}));
+assert.ok(productMarkup.includes('Prompt Delivery Studio'));
+assert.ok(productMarkup.includes('USD 49'));
+
+const courseMarkup = renderToStaticMarkup(React.createElement(Course, {
+  name: 'Prompt Delivery 101',
+  modules: [{ title: 'Module A' }],
+}));
+assert.ok(courseMarkup.includes('Module A'));
+
+const quizMarkup = renderToStaticMarkup(React.createElement(Quiz, {
+  name: 'Prompt QA',
+  questions: [{ prompt: 'What is latency?', answer: 'Elapsed time.' }],
+}));
+assert.ok(quizMarkup.includes('What is latency?'));
 
 const markdownMarkup = renderToStaticMarkup(React.createElement(MarkdownSectionView, {
   section: { id: 'install', kind: 'markdown', title: 'Install', body: 'Install and use the package.' },
