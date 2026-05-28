@@ -103,3 +103,23 @@ test("T1: education-family token files define distinct layout hooks beyond the s
   assert.ok(mathCss.includes("font-family: var(--mdwrk-font-mono)"), "math solver should expose calculator typography");
   assert.ok(solveCss.includes(".lander-semantic__solve-math-summary"), "solve math action should style the action summary");
 });
+
+test("T1: commerce-family token files define distinct layout hooks beyond the shared shell baseline", () => {
+  const productCss = readCssFile("semantic-product.css");
+  const groupCss = readCssFile("semantic-product-group.css");
+  const reviewCss = readCssFile("semantic-review.css");
+  const ratingCss = readCssFile("semantic-aggregate-rating.css");
+  const shippingCss = readCssFile("semantic-offer-shipping-details.css");
+  const returnCss = readCssFile("semantic-merchant-return-policy.css");
+  const distributionCss = readCssFile("semantic-monetary-amount-distribution.css");
+  const employerCss = readCssFile("semantic-employer-aggregate-rating.css");
+
+  assert.ok(productCss.includes(".lander-semantic__price-band"), "product should style the price band");
+  assert.ok(groupCss.includes(".lander-semantic__variant-list"), "product group should style variant cards");
+  assert.ok(reviewCss.includes(".lander-semantic__review-quote"), "review should style quoted review copy");
+  assert.ok(ratingCss.includes(".lander-semantic__rating-score-value"), "aggregate rating should style the score readout");
+  assert.ok(shippingCss.includes(".lander-semantic__policy-facts"), "offer shipping details should style policy facts");
+  assert.ok(returnCss.includes(".lander-semantic__policy-facts"), "merchant return policy should style policy facts");
+  assert.ok(distributionCss.includes(".lander-semantic__distribution-grid"), "monetary distribution should style stat cards");
+  assert.ok(employerCss.includes(".lander-semantic__rating-score-value"), "employer aggregate rating should style the score readout");
+});

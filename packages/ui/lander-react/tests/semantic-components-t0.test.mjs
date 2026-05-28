@@ -64,3 +64,26 @@ test("T0: education-family fused components expose distinct layout hooks for the
   assert.ok(faqMarkup.includes("lander-semantic__faq-list"));
   assert.ok(faqMarkup.includes("lander-semantic__faq-item"));
 });
+
+test("T0: commerce-family fused components expose distinct layout hooks for pricing, rating, variant, and policy surfaces", async () => {
+  const mod = await importLanderReactDist();
+  const productMarkup = renderToStaticMarkup(React.createElement(mod.Product, { name: "Studio", price: 49, priceCurrency: "USD", offersCta: { label: "Buy", href: "/buy" } }));
+  const groupMarkup = renderToStaticMarkup(React.createElement(mod.ProductGroup, { name: "Studio", variesBy: ["Region"], hasVariant: [{ name: "US" }, { name: "EU" }] }));
+  const reviewMarkup = renderToStaticMarkup(React.createElement(mod.Review, { name: "Launch review", itemReviewed: "Studio", ratingValue: 5, reviewBody: "Great release." }));
+  const ratingMarkup = renderToStaticMarkup(React.createElement(mod.AggregateRating, { ratingValue: 4.8, reviewCount: 12 }));
+  const shippingMarkup = renderToStaticMarkup(React.createElement(mod.OfferShippingDetails, { name: "Shipping", shippingDestination: "US", shippingRate: "Free" }));
+  const returnMarkup = renderToStaticMarkup(React.createElement(mod.MerchantReturnPolicy, { name: "Returns", merchantReturnDays: 30 }));
+  const distributionMarkup = renderToStaticMarkup(React.createElement(mod.MonetaryAmountDistribution, { name: "Band", currency: "USD", median: 120000, percentile10: 90000, percentile90: 150000 }));
+  const employerMarkup = renderToStaticMarkup(React.createElement(mod.EmployerAggregateRating, { employerName: "MDWRK", ratingValue: 4.4, reviewCount: 7 }));
+
+  assert.ok(productMarkup.includes("lander-semantic__price-band"));
+  assert.ok(groupMarkup.includes("lander-semantic__variant-list"));
+  assert.ok(groupMarkup.includes("lander-semantic__variation-axes"));
+  assert.ok(reviewMarkup.includes("lander-semantic__review-score"));
+  assert.ok(reviewMarkup.includes("lander-semantic__review-quote"));
+  assert.ok(ratingMarkup.includes("lander-semantic__rating-score"));
+  assert.ok(shippingMarkup.includes("lander-semantic__policy-facts"));
+  assert.ok(returnMarkup.includes("lander-semantic__policy-facts"));
+  assert.ok(distributionMarkup.includes("lander-semantic__distribution-grid"));
+  assert.ok(employerMarkup.includes("lander-semantic__rating-score"));
+});

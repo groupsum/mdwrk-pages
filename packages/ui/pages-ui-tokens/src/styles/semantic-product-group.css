@@ -1,0 +1,27 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-product-group-padding: 1.6rem;
+  --mdp-semantic-product-group-gap: 1rem;
+  --mdp-semantic-product-group-radius: 1.45rem;
+  --mdp-semantic-product-group-surface: linear-gradient(180deg, #fffefd, #f8fbff);
+  --mdp-semantic-product-group-border: color-mix(in srgb, var(--lander-border) 70%, #6366f1 30%);
+  --mdp-semantic-product-group-shadow: 0 1.3rem 2.2rem rgba(63, 68, 153, 0.12);
+  --mdp-semantic-product-group-accent: #5854eb;
+}
+
+.lander-semantic--product-group { display: grid; gap: var(--mdp-semantic-product-group-gap); padding: var(--mdp-semantic-product-group-padding); border: 1px solid var(--mdp-semantic-product-group-border); border-radius: var(--mdp-semantic-product-group-radius); background: var(--mdp-semantic-product-group-surface); box-shadow: var(--mdp-semantic-product-group-shadow); color: var(--lander-fg); }
+.lander-semantic--product-group .lander-semantic__header { display: grid; gap: 0.8rem; }
+.lander-semantic--product-group .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-product-group-accent); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.lander-semantic--product-group .lander-semantic__title { margin: 0; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.04; }
+.lander-semantic--product-group .lander-semantic__subtitle,
+.lander-semantic--product-group .lander-semantic__description,
+.lander-semantic--product-group .lander-semantic__meta,
+.lander-semantic--product-group .lander-semantic__footer { margin: 0; color: var(--lander-fg-muted); }
+.lander-semantic--product-group .lander-semantic__image { width: 100%; max-width: 100%; border-radius: 1.1rem; object-fit: cover; }
+.lander-semantic--product-group .lander-semantic__body,
+.lander-semantic--product-group .lander-semantic__actions { display: grid; gap: var(--mdwrk-space-3); }
+.lander-semantic--product-group .lander-semantic__variation-axes ul { display: flex; flex-wrap: wrap; gap: 0.55rem; padding: 0; margin: 0; list-style: none; }
+.lander-semantic--product-group .lander-semantic__variation-axes li { padding: 0.38rem 0.72rem; border-radius: 999px; background: color-mix(in srgb, var(--mdp-semantic-product-group-accent) 10%, white 90%); border: 1px solid color-mix(in srgb, var(--mdp-semantic-product-group-border) 72%, white 28%); }
+.lander-semantic--product-group .lander-semantic__variant-list ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 0.7rem; padding: 0; margin: 0; list-style: none; }
+.lander-semantic--product-group .lander-semantic__variant-list li { padding: 0.85rem 0.95rem; border-radius: 0.95rem; background: rgba(255,255,255,0.8); border: 1px solid color-mix(in srgb, var(--mdp-semantic-product-group-border) 72%, white 28%); font-weight: 600; }

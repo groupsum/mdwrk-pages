@@ -1,0 +1,28 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-aggregate-rating-padding: 1.35rem;
+  --mdp-semantic-aggregate-rating-gap: 0.9rem;
+  --mdp-semantic-aggregate-rating-radius: 1.3rem;
+  --mdp-semantic-aggregate-rating-surface: linear-gradient(180deg, #fffefb, #fef7da);
+  --mdp-semantic-aggregate-rating-border: color-mix(in srgb, var(--lander-border) 70%, #d4a017 30%);
+  --mdp-semantic-aggregate-rating-shadow: 0 1rem 1.8rem rgba(120, 94, 18, 0.12);
+  --mdp-semantic-aggregate-rating-accent: #c08b00;
+}
+
+.lander-semantic--aggregate-rating { display: grid; gap: var(--mdp-semantic-aggregate-rating-gap); padding: var(--mdp-semantic-aggregate-rating-padding); border: 1px solid var(--mdp-semantic-aggregate-rating-border); border-radius: var(--mdp-semantic-aggregate-rating-radius); background: var(--mdp-semantic-aggregate-rating-surface); box-shadow: var(--mdp-semantic-aggregate-rating-shadow); color: var(--lander-fg); }
+.lander-semantic--aggregate-rating .lander-semantic__header { display: grid; gap: 0.55rem; }
+.lander-semantic--aggregate-rating .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-aggregate-rating-accent); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.lander-semantic--aggregate-rating .lander-semantic__title { margin: 0; font-size: 1.15rem; color: var(--mdp-semantic-aggregate-rating-accent); }
+.lander-semantic--aggregate-rating .lander-semantic__subtitle,
+.lander-semantic--aggregate-rating .lander-semantic__description,
+.lander-semantic--aggregate-rating .lander-semantic__footer { margin: 0; color: var(--lander-fg-muted); }
+.lander-semantic--aggregate-rating .lander-semantic__meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: 0.65rem 1rem; margin: 0; }
+.lander-semantic--aggregate-rating .lander-semantic__meta dt { margin: 0; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mdp-semantic-aggregate-rating-accent); }
+.lander-semantic--aggregate-rating .lander-semantic__meta dd { margin: 0.15rem 0 0; font-weight: 700; }
+.lander-semantic--aggregate-rating .lander-semantic__image { width: 100%; max-width: 100%; border-radius: 1rem; object-fit: cover; }
+.lander-semantic--aggregate-rating .lander-semantic__body,
+.lander-semantic--aggregate-rating .lander-semantic__actions { display: grid; gap: var(--mdwrk-space-3); }
+.lander-semantic--aggregate-rating .lander-semantic__rating-score { display: inline-grid; gap: 0.15rem; width: fit-content; padding: 0.9rem 1rem; border-radius: 1rem; background: rgba(255,255,255,0.72); border: 1px solid color-mix(in srgb, var(--mdp-semantic-aggregate-rating-border) 72%, white 28%); }
+.lander-semantic--aggregate-rating .lander-semantic__rating-score-label { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mdp-semantic-aggregate-rating-accent); }
+.lander-semantic--aggregate-rating .lander-semantic__rating-score-value { font-size: 2rem; line-height: 1; }
