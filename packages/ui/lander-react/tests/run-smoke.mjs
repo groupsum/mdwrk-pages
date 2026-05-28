@@ -45,7 +45,7 @@ const {
   Article,
   BreadcrumbList,
   Course,
-  FaqPage,
+  FAQPage,
   Hero,
   LanderPage,
   MarkdownSectionView,
@@ -97,7 +97,7 @@ const markdownMarkup = renderToStaticMarkup(React.createElement(MarkdownSectionV
 }));
 assert.ok(markdownMarkup.includes('Install and use the package.'));
 
-const faqMarkup = renderToStaticMarkup(React.createElement(FaqPage, { items: [{ question: 'Does the lander emit JSON-LD?', answer: 'Yes, through the structured-data companion package.' }] }));
+const faqMarkup = renderToStaticMarkup(React.createElement(FAQPage, { items: [{ question: 'Does the lander emit JSON-LD?', answer: 'Yes, through the structured-data companion package.' }] }));
 assert.ok(faqMarkup.includes('Frequently Asked Questions'));
 assert.ok(faqMarkup.includes('Does the lander emit JSON-LD?'));
 
@@ -141,11 +141,9 @@ const breadcrumbsMarkup = renderToStaticMarkup(React.createElement(BreadcrumbLis
 }));
 assert.ok(breadcrumbsMarkup.includes('MdWrk'));
 assert.ok(breadcrumbsMarkup.includes('Structured Data Package'));
-assert.ok(breadcrumbsMarkup.includes('class="lander-breadcrumbs"'));
-assert.ok(breadcrumbsMarkup.includes('class="lander-breadcrumbs__list"'));
-assert.ok(breadcrumbsMarkup.includes('class="lander-breadcrumbs__link"'));
-assert.ok(breadcrumbsMarkup.includes('class="lander-breadcrumbs__current"'));
-assert.ok(breadcrumbsMarkup.includes('aria-current="page"'));
+assert.ok(breadcrumbsMarkup.includes('application/ld+json'));
+assert.ok(breadcrumbsMarkup.includes('class="lander-semantic__breadcrumb-trail"'));
+assert.ok(breadcrumbsMarkup.includes('lander-semantic__breadcrumb-separator'));
 
 const site = {
   product: {

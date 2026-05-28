@@ -103,3 +103,26 @@ test("T0: media-family fused components expose distinct layout hooks for runtime
   assert.ok(imageMarkup.includes("lander-semantic__figure-caption"));
   assert.ok(movieMarkup.includes("lander-semantic__cast-list"));
 });
+
+test("T0: identity-family fused components expose distinct layout hooks for profiles, network chips, hours cards, page facts, breadcrumb trails, and selector blocks", async () => {
+  const mod = await importLanderReactDist();
+  const profileMarkup = renderToStaticMarkup(React.createElement(mod.ProfilePage, { name: "MDWRK", mainEntity: "Chris", description: "Builder profile" }));
+  const organizationMarkup = renderToStaticMarkup(React.createElement(mod.Organization, { name: "MDWRK", sameAs: ["https://example.com/x"] }));
+  const businessMarkup = renderToStaticMarkup(React.createElement(mod.LocalBusiness, { name: "MDWRK Studio", address: "Austin", openingHours: ["Mon-Fri 9-5"] }));
+  const memberMarkup = renderToStaticMarkup(React.createElement(mod.MemberProgram, { name: "Member+", provider: "MDWRK" }));
+  const pageMarkup = renderToStaticMarkup(React.createElement(mod.WebPage, { name: "Prompt guide", primaryType: "Guide", datePublished: "2026-05-28" }));
+  const siteMarkup = renderToStaticMarkup(React.createElement(mod.WebSite, { name: "MDWRK", publisher: "MDWRK Media" }));
+  const breadcrumbMarkup = renderToStaticMarkup(React.createElement(mod.BreadcrumbList, { items: [{ label: "Home", href: "/" }, { label: "Guide" }] }));
+  const speakableMarkup = renderToStaticMarkup(React.createElement(mod.SpeakableSpecification, { cssSelector: [".hero"], xpath: ["//main/h1"] }));
+
+  assert.ok(profileMarkup.includes("lander-semantic__profile-summary"));
+  assert.ok(organizationMarkup.includes("lander-semantic__network-list"));
+  assert.ok(businessMarkup.includes("lander-semantic__hours-card"));
+  assert.ok(memberMarkup.includes("lander-semantic__member-provider"));
+  assert.ok(pageMarkup.includes("lander-semantic__page-facts"));
+  assert.ok(siteMarkup.includes("lander-semantic__publisher-band"));
+  assert.ok(breadcrumbMarkup.includes("lander-semantic__breadcrumb-trail"));
+  assert.ok(breadcrumbMarkup.includes("lander-semantic__breadcrumb-separator"));
+  assert.ok(speakableMarkup.includes("lander-semantic__selector-grid"));
+  assert.ok(speakableMarkup.includes("lander-semantic__selector-block"));
+});

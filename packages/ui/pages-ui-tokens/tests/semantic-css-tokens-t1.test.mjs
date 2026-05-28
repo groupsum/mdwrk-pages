@@ -137,3 +137,23 @@ test("T1: media-family token files define distinct layout hooks beyond the share
   assert.ok(imageCss.includes(".lander-semantic__figure-caption"), "image object should style captions");
   assert.ok(movieCss.includes(".lander-semantic__cast-list"), "movie should style cast chips");
 });
+
+test("T1: identity-family token files define distinct layout hooks beyond the shared shell baseline", () => {
+  const profileCss = readCssFile("semantic-profile-page.css");
+  const organizationCss = readCssFile("semantic-organization.css");
+  const businessCss = readCssFile("semantic-local-business.css");
+  const memberCss = readCssFile("semantic-member-program.css");
+  const pageCss = readCssFile("semantic-web-page.css");
+  const siteCss = readCssFile("semantic-web-site.css");
+  const breadcrumbCss = readCssFile("semantic-breadcrumb-list.css");
+  const speakableCss = readCssFile("semantic-speakable-specification.css");
+
+  assert.ok(profileCss.includes(".lander-semantic__profile-summary"), "profile page should style the profile summary block");
+  assert.ok(organizationCss.includes(".lander-semantic__network-chip"), "organization should style network chips");
+  assert.ok(businessCss.includes(".lander-semantic__hours-card"), "local business should style the hours card");
+  assert.ok(memberCss.includes(".lander-semantic__member-provider"), "member program should style the provider band");
+  assert.ok(pageCss.includes(".lander-semantic__page-facts"), "web page should style fact cards");
+  assert.ok(siteCss.includes(".lander-semantic__publisher-band"), "web site should style the publisher band");
+  assert.ok(breadcrumbCss.includes(".lander-semantic__breadcrumb-trail"), "breadcrumb list should style the breadcrumb trail");
+  assert.ok(speakableCss.includes(".lander-semantic__selector-grid"), "speakable specification should style selector blocks");
+});

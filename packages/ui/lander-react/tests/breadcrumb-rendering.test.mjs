@@ -14,9 +14,10 @@ test("breadcrumb rendering matches visible breadcrumb UI expectations", async ()
     ],
   }));
 
-  assert.ok(markup.includes("lander-breadcrumbs"));
+  assert.ok(markup.includes("application/ld+json"));
   assert.ok(markup.includes("Home"));
   assert.ok(markup.includes("Docs"));
   assert.ok(markup.includes("API"));
-  assert.ok(markup.includes('aria-current="page"'));
+  assert.ok(markup.includes('class="lander-semantic__breadcrumb-trail"'));
+  assert.ok(markup.includes("lander-semantic__breadcrumb-separator"));
 });
