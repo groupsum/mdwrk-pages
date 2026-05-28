@@ -1,0 +1,13 @@
+services:
+  semantic-components-demo:
+    build:
+      context: ../..
+      dockerfile: examples/semantic-components-demo/Dockerfile
+    image: mdwrk-semantic-components-demo:local
+    expose:
+      - "80"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/healthz || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

@@ -17,3 +17,22 @@ npm run dev -w @mdwrk/example-semantic-components-demo
 ```
 
 Open `http://localhost:5173/` unless Vite selects a different local port.
+
+## Build the container
+
+```bash
+docker compose -f examples/semantic-components-demo/compose.yaml up --build -d
+docker compose -f examples/semantic-components-demo/compose.yaml ps
+```
+
+The compose contract intentionally does not publish host ports. For a local browser link from the same built image, run a separate published container:
+
+```bash
+docker run --rm -d --name mdwrk-semantic-components-demo-live -p 4191:80 mdwrk-semantic-components-demo:local
+```
+
+Health check:
+
+```bash
+curl http://localhost:4191/healthz
+```
