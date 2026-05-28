@@ -87,3 +87,19 @@ test("T0: commerce-family fused components expose distinct layout hooks for pric
   assert.ok(distributionMarkup.includes("lander-semantic__distribution-grid"));
   assert.ok(employerMarkup.includes("lander-semantic__rating-score"));
 });
+
+test("T0: media-family fused components expose distinct layout hooks for runtime, timelines, live badges, captions, and cast lists", async () => {
+  const mod = await importLanderReactDist();
+  const videoMarkup = renderToStaticMarkup(React.createElement(mod.VideoObject, { name: "Video", thumbnailUrl: "https://mdwrk.test/thumb.png", uploadDate: "2026-05-27", duration: "PT2M", clip: [{ name: "Segment A" }] }));
+  const clipMarkup = renderToStaticMarkup(React.createElement(mod.Clip, { name: "Latency section", startOffset: 10, endOffset: 30 }));
+  const broadcastMarkup = renderToStaticMarkup(React.createElement(mod.BroadcastEvent, { name: "Prompt Ops Live", isLiveBroadcast: true }));
+  const imageMarkup = renderToStaticMarkup(React.createElement(mod.ImageObject, { name: "Dashboard", contentUrl: "https://mdwrk.test/image.png", caption: "Overview panel" }));
+  const movieMarkup = renderToStaticMarkup(React.createElement(mod.Movie, { name: "Prompt City", actor: [{ name: "MDWRK" }] }));
+
+  assert.ok(videoMarkup.includes("lander-semantic__media-stat"));
+  assert.ok(videoMarkup.includes("lander-semantic__clip-list"));
+  assert.ok(clipMarkup.includes("lander-semantic__timeline-band"));
+  assert.ok(broadcastMarkup.includes("lander-semantic__live-badge"));
+  assert.ok(imageMarkup.includes("lander-semantic__figure-caption"));
+  assert.ok(movieMarkup.includes("lander-semantic__cast-list"));
+});

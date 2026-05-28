@@ -123,3 +123,17 @@ test("T1: commerce-family token files define distinct layout hooks beyond the sh
   assert.ok(distributionCss.includes(".lander-semantic__distribution-grid"), "monetary distribution should style stat cards");
   assert.ok(employerCss.includes(".lander-semantic__rating-score-value"), "employer aggregate rating should style the score readout");
 });
+
+test("T1: media-family token files define distinct layout hooks beyond the shared shell baseline", () => {
+  const videoCss = readCssFile("semantic-video-object.css");
+  const clipCss = readCssFile("semantic-clip.css");
+  const broadcastCss = readCssFile("semantic-broadcast-event.css");
+  const imageCss = readCssFile("semantic-image-object.css");
+  const movieCss = readCssFile("semantic-movie.css");
+
+  assert.ok(videoCss.includes(".lander-semantic__media-stat"), "video object should style runtime stats");
+  assert.ok(clipCss.includes(".lander-semantic__timeline-band"), "clip should style timeline pills");
+  assert.ok(broadcastCss.includes(".lander-semantic__live-badge"), "broadcast event should style live badges");
+  assert.ok(imageCss.includes(".lander-semantic__figure-caption"), "image object should style captions");
+  assert.ok(movieCss.includes(".lander-semantic__cast-list"), "movie should style cast chips");
+});

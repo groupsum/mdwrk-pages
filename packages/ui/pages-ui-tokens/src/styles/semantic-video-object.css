@@ -1,0 +1,61 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-video-object-padding: 1.7rem;
+  --mdp-semantic-video-object-gap: 1.15rem;
+  --mdp-semantic-video-object-radius: 1.55rem;
+  --mdp-semantic-video-object-surface: linear-gradient(180deg, #0f172a, #172554);
+  --mdp-semantic-video-object-border: color-mix(in srgb, #60a5fa 38%, #0f172a 62%);
+  --mdp-semantic-video-object-shadow: 0 1.7rem 3rem rgba(8, 14, 33, 0.42);
+  --mdp-semantic-video-object-accent: #7dd3fc;
+}
+
+.lander-semantic--video-object {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(14rem, 1fr);
+  grid-template-areas:
+    "image header"
+    "image body"
+    "image footer";
+  gap: var(--mdp-semantic-video-object-gap);
+  padding: var(--mdp-semantic-video-object-padding);
+  border: 1px solid var(--mdp-semantic-video-object-border);
+  border-radius: var(--mdp-semantic-video-object-radius);
+  background: var(--mdp-semantic-video-object-surface);
+  box-shadow: var(--mdp-semantic-video-object-shadow);
+  color: #e6f1ff;
+}
+
+.lander-semantic--video-object .lander-semantic__header { grid-area: header; display: grid; gap: 0.8rem; }
+.lander-semantic--video-object .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-video-object-accent); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.lander-semantic--video-object .lander-semantic__title { margin: 0; color: white; font-size: clamp(1.85rem, 4vw, 2.7rem); line-height: 1.02; }
+.lander-semantic--video-object .lander-semantic__subtitle,
+.lander-semantic--video-object .lander-semantic__description,
+.lander-semantic--video-object .lander-semantic__footer { margin: 0; color: rgba(230, 241, 255, 0.78); }
+.lander-semantic--video-object .lander-semantic__meta { display: flex; flex-wrap: wrap; gap: 0.7rem 0.95rem; }
+.lander-semantic--video-object .lander-semantic__meta dt { margin: 0; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mdp-semantic-video-object-accent); }
+.lander-semantic--video-object .lander-semantic__meta dd { margin: 0; font-weight: 700; }
+.lander-semantic--video-object .lander-semantic__image { grid-area: image; width: 100%; height: 100%; min-height: 18rem; border-radius: 1.25rem; object-fit: cover; box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25); }
+.lander-semantic--video-object .lander-semantic__body { grid-area: body; display: grid; gap: 0.9rem; }
+.lander-semantic--video-object .lander-semantic__actions { display: grid; gap: var(--mdwrk-space-3); }
+.lander-semantic--video-object .lander-semantic__footer { grid-area: footer; }
+.lander-semantic--video-object .lander-semantic__media-stat { display: inline-grid; gap: 0.2rem; width: fit-content; padding: 0.85rem 0.95rem; border-radius: 1rem; background: rgba(15, 23, 42, 0.46); border: 1px solid rgba(125, 211, 252, 0.28); }
+.lander-semantic--video-object .lander-semantic__media-stat-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mdp-semantic-video-object-accent); }
+.lander-semantic--video-object .lander-semantic__media-stat-value { font-size: 1.35rem; line-height: 1; color: white; }
+.lander-semantic--video-object .lander-semantic__media-list ul { display: grid; gap: 0.55rem; padding-left: 1rem; }
+.lander-semantic--video-object .lander-semantic__media-list li::marker { color: var(--mdp-semantic-video-object-accent); }
+
+@media (max-width: 860px) {
+  .lander-semantic--video-object {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "header"
+      "body"
+      "footer";
+  }
+
+  .lander-semantic--video-object .lander-semantic__image {
+    min-height: 13rem;
+  }
+}
