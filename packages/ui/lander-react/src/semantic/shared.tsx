@@ -11,8 +11,19 @@ export function SemanticStructuredDataGate({
 }
 
 export function joinClassNames(...values: Array<string | undefined | false | null>): string | undefined {
-  const className = values.filter(Boolean).join(" ").trim();
-  return className || undefined;
+  const tokens: string[] = [];
+  const seen = new Set<string>();
+
+  for (const value of values) {
+    if (!value) continue;
+    for (const token of value.split(/\s+/u)) {
+      if (!token || seen.has(token)) continue;
+      seen.add(token);
+      tokens.push(token);
+    }
+  }
+
+  return tokens.length ? tokens.join(" ") : undefined;
 }
 
 export function isRecord(value: unknown): value is Record<string, unknown> {
