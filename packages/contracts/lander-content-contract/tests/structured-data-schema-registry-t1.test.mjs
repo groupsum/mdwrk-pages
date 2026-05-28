@@ -5,31 +5,37 @@ import {
   validateStructuredDataBySchemaId,
   validateStructuredDataByType,
 } from "../dist/index.js";
+import {
+  governedTypes,
+  invalidPayloadByType,
+  validPayloadByType,
+} from "./structured-data-schema-samples.mjs";
 
-test("T1: structured-data schema registry resolves representative governed payloads", () => {
-  assert.deepEqual(validateStructuredDataByType("Article", {
-    name: "Article",
-    url: "https://mdwrk.test/article",
-    headline: "Article headline",
-  }), []);
+test("T1: structured-data schema registry resolves all governed valid payloads", () => {
+  for (const type of governedTypes) {
+    assert.deepEqual(
+      validateStructuredDataByType(type, validPayloadByType[type]),
+      [],
+      `${type} should accept its representative valid payload`,
+    );
+  }
 
-  assert.deepEqual(validateStructuredDataBySchemaId("https://schemas.mdwrk.com/structured-data/qa-page.schema.json", {
-    question: "Q?",
-    acceptedAnswer: { text: "A." },
-    suggestedAnswer: [{ text: "B." }],
-    answerCount: 2,
-  }), []);
+  assert.deepEqual(
+    validateStructuredDataBySchemaId(
+      "https://schemas.mdwrk.com/structured-data/qa-page.schema.json",
+      validPayloadByType.QAPage,
+    ),
+    [],
+  );
+});
 
-  assert.deepEqual(validateStructuredDataByType("LearningResource", {
-    name: "Math Solver learning resource",
-    url: "https://mdwrk.test/math/resource",
-    learningResourceType: "Math Solver",
-    teaches: ["Algebra"],
-  }), []);
-
-  assert.deepEqual(validateStructuredDataByType("SolveMathAction", {
-    target: "https://mdwrk.test/math?q={mathExpression}",
-    mathExpressionInput: "required name=mathExpression",
-    eduQuestionType: ["Algebra"],
-  }), []);
+test("T1: structured-data schema registry rejects targeted invalid governed payloads", () => {
+  for (const [type, { payload, path }] of Object.entries(invalidPayloadByType)) {
+    const failures = validateStructuredDataByType(type, payload);
+    assert.ok(failures.length > 0, `${type} should reject its invalid payload`);
+    assert.ok(
+      failures.some((issue) => issue.path === path),
+      `${type} should report a failure for ${path}`,
+    );
+  }
 });

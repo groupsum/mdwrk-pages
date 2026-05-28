@@ -1,22 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "solveMathAction",
-  "title": "Structured Data SolveMathAction",
+  "$id": "https://schemas.mdwrk.com/structured-data/read-action.schema.json",
+  "title": "Structured Data ReadAction Input",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "target"
   ],
   "properties": {
-    "@context": {
-      "type": "string"
-    },
-    "@type": {
-      "type": "string"
-    },
-    "id": {
-      "type": "string"
-    },
     "target": {
       "anyOf": [
         {
@@ -25,28 +16,6 @@
         },
         {
           "$ref": "#/$defs/thingRef"
-        }
-      ]
-    },
-    "mathExpression-input": {
-      "type": "string"
-    },
-    "mathExpressionInput": {
-      "type": "string"
-    },
-    "eduQuestionType": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1
-        },
-        {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "type": "string",
-            "minLength": 1
-          }
         }
       ]
     }

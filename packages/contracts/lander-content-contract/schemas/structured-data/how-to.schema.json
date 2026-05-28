@@ -4,19 +4,46 @@
   "title": "Structured Data HowTo Input",
   "type": "object",
   "additionalProperties": false,
-  "required": ["name", "steps"],
+  "required": [
+    "name",
+    "steps"
+  ],
   "properties": {
-    "id": { "type": "string" },
-    "name": { "type": "string", "minLength": 1 },
-    "description": { "type": "string" },
-    "url": { "type": "string", "minLength": 1 },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "minLength": 1
+    },
     "steps": {
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "#/$defs/howToStep" }
+      "items": {
+        "$ref": "#/$defs/howToStep"
+      }
     },
-    "totalTime": { "type": "string" },
-    "image": {}
+    "totalTime": {
+      "type": "string"
+    },
+    "image": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "$ref": "#/$defs/image"
+        }
+      ]
+    }
   },
   "$defs": {
     "howToStep": {
@@ -25,12 +52,60 @@
       "title": "HowTo Step",
       "type": "object",
       "additionalProperties": false,
-      "required": ["name", "text"],
+      "required": [
+        "name",
+        "text"
+      ],
       "properties": {
-        "name": { "type": "string", "minLength": 1 },
-        "text": { "type": "string", "minLength": 1 },
-        "url": { "type": "string" },
-        "image": {}
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string"
+        },
+        "image": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "$ref": "#/$defs/image"
+            }
+          ]
+        }
+      }
+    },
+    "image": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "image",
+      "title": "Structured Data Image",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "src": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        },
+        "caption": {
+          "type": "string"
+        },
+        "alt": {
+          "type": "string"
+        }
       }
     }
   }

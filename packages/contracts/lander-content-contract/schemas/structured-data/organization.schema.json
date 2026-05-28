@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.mdwrk.com/structured-data/vacation-rental.schema.json",
-  "title": "Structured Data VacationRental Input",
+  "$id": "https://schemas.mdwrk.com/structured-data/organization.schema.json",
+  "title": "Structured Data Organization Input",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -22,28 +22,14 @@
       "type": "string",
       "minLength": 1
     },
-    "address": {
+    "logo": {
       "anyOf": [
         {
           "type": "string",
           "minLength": 1
         },
         {
-          "$ref": "#/$defs/thingRef"
-        }
-      ]
-    },
-    "containsPlace": {
-      "anyOf": [
-        {
-          "$ref": "#/$defs/thingRef"
-        },
-        {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "$ref": "#/$defs/thingRef"
-          }
+          "$ref": "#/$defs/image"
         }
       ]
     },
@@ -57,33 +43,16 @@
           "$ref": "#/$defs/image"
         }
       ]
+    },
+    "sameAs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
     }
   },
   "$defs": {
-    "thingRef": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "thingRef",
-      "title": "Structured Data Thing Reference",
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      }
-    },
     "image": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "$id": "image",

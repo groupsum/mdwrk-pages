@@ -4,43 +4,77 @@
   "title": "Structured Data Course Input",
   "type": "object",
   "additionalProperties": false,
-  "required": ["name"],
+  "required": [
+    "name"
+  ],
   "properties": {
-    "id": { "type": "string" },
-    "name": { "type": "string", "minLength": 1 },
-    "description": { "type": "string" },
-    "url": { "type": "string", "minLength": 1 },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "minLength": 1
+    },
     "provider": {
       "anyOf": [
-        { "type": "string", "minLength": 1 },
-        { "$ref": "#/$defs/thingRef" }
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "$ref": "#/$defs/thingRef"
+        }
       ]
     },
-    "courseCode": { "type": "string" },
+    "courseCode": {
+      "type": "string"
+    },
     "coursePrerequisites": {
       "anyOf": [
-        { "type": "string", "minLength": 1 },
+        {
+          "type": "string",
+          "minLength": 1
+        },
         {
           "type": "array",
           "minItems": 1,
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         }
       ]
     },
     "hasCourseInstance": {
       "anyOf": [
-        { "$ref": "#/$defs/courseInstanceLike" },
+        {
+          "$ref": "#/$defs/courseInstanceLike"
+        },
         {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/$defs/courseInstanceLike" }
+          "items": {
+            "$ref": "#/$defs/courseInstanceLike"
+          }
         }
       ]
     },
     "image": {
       "anyOf": [
-        { "type": "string", "minLength": 1 },
-        { "$ref": "#/$defs/image" }
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "$ref": "#/$defs/image"
+        }
       ]
     }
   },
@@ -51,7 +85,23 @@
       "title": "Structured Data Thing Reference",
       "type": "object",
       "additionalProperties": true,
-      "properties": {}
+      "properties": {
+        "@id": {
+          "type": "string"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
     },
     "courseInstanceLike": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -59,7 +109,57 @@
       "title": "CourseInstance-like node",
       "type": "object",
       "additionalProperties": true,
-      "properties": {}
+      "properties": {
+        "@id": {
+          "type": "string"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "courseMode": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "string"
+        },
+        "location": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "$ref": "#/$defs/thingRef"
+            }
+          ]
+        },
+        "instructor": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "$ref": "#/$defs/thingRef"
+            }
+          ]
+        }
+      }
     },
     "image": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -68,12 +168,24 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "src": { "type": "string" },
-        "url": { "type": "string" },
-        "width": { "type": "number" },
-        "height": { "type": "number" },
-        "caption": { "type": "string" },
-        "alt": { "type": "string" }
+        "src": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        },
+        "caption": {
+          "type": "string"
+        },
+        "alt": {
+          "type": "string"
+        }
       }
     }
   }

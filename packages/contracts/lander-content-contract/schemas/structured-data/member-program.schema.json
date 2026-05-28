@@ -1,12 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.mdwrk.com/structured-data/item-list.schema.json",
-  "title": "Structured Data ItemList Input",
+  "$id": "https://schemas.mdwrk.com/structured-data/member-program.schema.json",
+  "title": "Structured Data MemberProgram Input",
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "name",
-    "items"
+    "name"
   ],
   "properties": {
     "id": {
@@ -16,45 +15,26 @@
       "type": "string",
       "minLength": 1
     },
-    "items": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "$ref": "#/$defs/itemListEntry"
-      }
-    }
-  },
-  "$defs": {
-    "itemListEntry": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "itemListEntry",
-      "title": "ItemList Entry",
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "name"
-      ],
-      "properties": {
-        "name": {
+    "description": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider": {
+      "anyOf": [
+        {
           "type": "string",
           "minLength": 1
         },
-        "url": {
-          "type": "string"
-        },
-        "item": {
-          "anyOf": [
-            {
-              "type": "string",
-              "minLength": 1
-            },
-            {
-              "$ref": "#/$defs/thingRef"
-            }
-          ]
+        {
+          "$ref": "#/$defs/thingRef"
         }
-      }
-    },
+      ]
+    }
+  },
+  "$defs": {
     "thingRef": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "$id": "thingRef",

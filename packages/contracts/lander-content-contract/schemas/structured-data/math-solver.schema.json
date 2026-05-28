@@ -4,53 +4,127 @@
   "title": "Structured Data MathSolver Input",
   "type": "object",
   "additionalProperties": false,
-  "required": ["name"],
+  "required": [
+    "name"
+  ],
   "properties": {
-    "id": { "type": "string" },
-    "name": { "type": "string", "minLength": 1 },
-    "description": { "type": "string" },
-    "url": { "type": "string", "minLength": 1 },
-    "mathExpression": { "type": "string" },
-    "learningResourceType": { "type": "string" },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mathExpression": {
+      "type": "string"
+    },
+    "learningResourceType": {
+      "type": "string"
+    },
     "potentialAction": {
       "anyOf": [
-        { "$ref": "#/$defs/solveMathAction" },
+        {
+          "$ref": "#/$defs/solveMathAction"
+        },
         {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/$defs/solveMathAction" }
+          "items": {
+            "$ref": "#/$defs/solveMathAction"
+          }
         }
       ]
     },
     "learningResource": {
       "anyOf": [
-        { "$ref": "#/$defs/learningResource" },
+        {
+          "$ref": "#/$defs/learningResource"
+        },
         {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/$defs/learningResource" }
+          "items": {
+            "$ref": "#/$defs/learningResource"
+          }
         }
       ]
     },
     "subjectOf": {
       "anyOf": [
-        { "$ref": "#/$defs/learningResource" },
+        {
+          "$ref": "#/$defs/learningResource"
+        },
         {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/$defs/learningResource" }
+          "items": {
+            "$ref": "#/$defs/learningResource"
+          }
         }
       ]
     }
   },
   "$defs": {
-    "thingRef": {
+    "solveMathAction": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "thingRef",
-      "title": "Structured Data Thing Reference",
+      "$id": "solveMathAction",
+      "title": "Structured Data SolveMathAction",
       "type": "object",
-      "additionalProperties": true,
-      "properties": {}
+      "additionalProperties": false,
+      "required": [
+        "target"
+      ],
+      "properties": {
+        "@context": {
+          "type": "string"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "target": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "$ref": "#/$defs/thingRef"
+            }
+          ]
+        },
+        "mathExpression-input": {
+          "type": "string"
+        },
+        "mathExpressionInput": {
+          "type": "string"
+        },
+        "eduQuestionType": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          ]
+        }
+      }
     },
     "learningResource": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -58,56 +132,75 @@
       "title": "Structured Data LearningResource",
       "type": "object",
       "additionalProperties": false,
-      "required": ["name"],
+      "required": [
+        "name"
+      ],
       "properties": {
-        "@context": { "type": "string" },
-        "@type": { "type": "string" },
-        "id": { "type": "string" },
-        "name": { "type": "string", "minLength": 1 },
-        "description": { "type": "string" },
-        "url": { "type": "string", "minLength": 1 },
-        "learningResourceType": { "type": "string" },
-        "educationalLevel": { "type": "string" },
+        "@context": {
+          "type": "string"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "learningResourceType": {
+          "type": "string"
+        },
+        "educationalLevel": {
+          "type": "string"
+        },
         "teaches": {
           "anyOf": [
-            { "type": "string", "minLength": 1 },
+            {
+              "type": "string",
+              "minLength": 1
+            },
             {
               "type": "array",
               "minItems": 1,
-              "items": { "type": "string", "minLength": 1 }
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
             }
           ]
         }
       }
     },
-    "solveMathAction": {
+    "thingRef": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "solveMathAction",
-      "title": "Structured Data SolveMathAction",
+      "$id": "thingRef",
+      "title": "Structured Data Thing Reference",
       "type": "object",
-      "additionalProperties": false,
-      "required": ["target"],
+      "additionalProperties": true,
       "properties": {
-        "@context": { "type": "string" },
-        "@type": { "type": "string" },
-        "id": { "type": "string" },
-        "target": {
-          "anyOf": [
-            { "type": "string", "minLength": 1 },
-            { "$ref": "#/$defs/thingRef" }
-          ]
+        "@id": {
+          "type": "string"
         },
-        "mathExpression-input": { "type": "string" },
-        "mathExpressionInput": { "type": "string" },
-        "eduQuestionType": {
-          "anyOf": [
-            { "type": "string", "minLength": 1 },
-            {
-              "type": "array",
-              "minItems": 1,
-              "items": { "type": "string", "minLength": 1 }
-            }
-          ]
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
         }
       }
     }

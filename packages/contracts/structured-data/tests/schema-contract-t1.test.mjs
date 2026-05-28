@@ -5,24 +5,38 @@ import { pathToFileURL } from "node:url";
 import { fileURLToPath } from "node:url";
 
 import {
+  aggregateRatingNode,
   articleNode,
+  bookNode,
   breadcrumbListSchema,
   courseNode,
+  courseInstanceNode,
+  datasetNode,
+  faqPageSchema,
   howToNode,
+  loyaltyProgramNode,
+  organizationNode,
   mathSolverNode,
   productNode,
   qaPageSchema,
   quizNode,
+  readActionNode,
   reviewNode,
   solveMathActionNode,
+  softwareSourceCodeNode,
+  speakableSpecificationNode,
+  techArticleNode,
   learningResourceNode,
   videoObjectNode,
+  webApplicationNode,
+  webPageSchema,
+  webSiteSchema,
 } from "../dist/index.js";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, "..", "..", "..", "..");
 const contractDistEntry = pathToFileURL(
-  path.join(repoRoot, "packages", "lander", "lander-content-contract", "dist", "index.js"),
+  path.join(repoRoot, "packages", "contracts", "lander-content-contract", "dist", "index.js"),
 ).href;
 
 test("T1: representative structured-data builder payloads satisfy published JSON Schema contracts", async () => {
@@ -185,5 +199,152 @@ test("T1: representative structured-data builder payloads satisfy published JSON
     url: product.url,
     brand: "MdWrk",
     offers: product.offers,
+  }), []);
+
+  const aggregateRating = aggregateRatingNode({
+    ratingValue: "4.8",
+    reviewCount: 10,
+  });
+  assert.deepEqual(validateStructuredDataByType("AggregateRating", {
+    ratingValue: aggregateRating.ratingValue,
+    reviewCount: aggregateRating.reviewCount,
+  }), []);
+
+  const book = bookNode({
+    name: "Book",
+    author: "MdWrk",
+    isbn: "9780000000000",
+    readAction: "https://mdwrk.test/read",
+  });
+  assert.deepEqual(validateStructuredDataByType("Book", {
+    name: book.name,
+    author: book.author,
+    isbn: book.isbn,
+    readAction: book.potentialAction,
+  }), []);
+
+  const courseInstance = courseInstanceNode({
+    name: "May cohort",
+    courseMode: "online",
+    instructor: "MdWrk",
+  });
+  assert.deepEqual(validateStructuredDataByType("CourseInstance", {
+    name: courseInstance.name,
+    courseMode: courseInstance.courseMode,
+    instructor: courseInstance.instructor,
+  }), []);
+
+  const dataset = datasetNode({
+    name: "Dataset",
+    creator: "MdWrk",
+    keywords: ["schema", "json-ld"],
+  });
+  assert.deepEqual(validateStructuredDataByType("Dataset", {
+    name: dataset.name,
+    creator: dataset.creator,
+    keywords: dataset.keywords,
+  }), []);
+
+  const faq = faqPageSchema({
+    items: [{ question: "What is this?", answer: "A FAQ page." }],
+  });
+  assert.deepEqual(validateStructuredDataByType("FAQPage", {
+    items: faq.mainEntity.map((entry) => ({
+      question: entry.name,
+      answer: entry.acceptedAnswer.text,
+    })),
+  }), []);
+
+  const memberProgram = loyaltyProgramNode({
+    name: "Member program",
+    provider: "MdWrk",
+  });
+  assert.deepEqual(validateStructuredDataByType("MemberProgram", {
+    name: memberProgram.name,
+    provider: memberProgram.provider,
+  }), []);
+
+  const organization = organizationNode({
+    name: "MdWrk",
+    url: "https://mdwrk.test",
+    sameAs: ["https://github.com/groupsum/mdwrk-pages"],
+  });
+  assert.deepEqual(validateStructuredDataByType("Organization", {
+    name: organization.name,
+    url: organization.url,
+    sameAs: organization.sameAs,
+  }), []);
+
+  const readAction = readActionNode({
+    target: "https://mdwrk.test/read",
+  });
+  assert.deepEqual(validateStructuredDataByType("ReadAction", {
+    target: readAction.target,
+  }), []);
+
+  const sourceCode = softwareSourceCodeNode({
+    name: "Repo",
+    codeRepository: "https://github.com/groupsum/mdwrk-pages",
+    programmingLanguage: ["TypeScript"],
+  });
+  assert.deepEqual(validateStructuredDataByType("SoftwareSourceCode", {
+    name: sourceCode.name,
+    codeRepository: sourceCode.codeRepository,
+    programmingLanguage: sourceCode.programmingLanguage,
+  }), []);
+
+  const speakable = speakableSpecificationNode({
+    cssSelector: [".answer-summary"],
+  });
+  assert.deepEqual(validateStructuredDataByType("SpeakableSpecification", {
+    cssSelector: speakable.cssSelector,
+  }), []);
+
+  const techArticle = techArticleNode({
+    name: "Tech article",
+    headline: "Tech headline",
+    author: "MdWrk",
+    url: "https://mdwrk.test/tech",
+  });
+  assert.deepEqual(validateStructuredDataByType("TechArticle", {
+    name: techArticle.name,
+    headline: techArticle.headline,
+    author: techArticle.author,
+    url: techArticle.url,
+  }), []);
+
+  const webApplication = webApplicationNode({
+    name: "Web app",
+    applicationCategory: "DeveloperApplication",
+    offers: { "@type": "Offer", price: "10.00", priceCurrency: "USD" },
+  });
+  assert.deepEqual(validateStructuredDataByType("WebApplication", {
+    name: webApplication.name,
+    applicationCategory: webApplication.applicationCategory,
+    offers: webApplication.offers,
+  }), []);
+
+  const webPage = webPageSchema({
+    name: "Page",
+    url: "https://mdwrk.test/page",
+    breadcrumb: "https://mdwrk.test/",
+    isPartOf: "https://mdwrk.test",
+  });
+  assert.deepEqual(validateStructuredDataByType("WebPage", {
+    name: webPage.name,
+    url: webPage.url,
+    breadcrumb: webPage.breadcrumb,
+    isPartOf: webPage.isPartOf,
+  }), []);
+
+  const webSite = webSiteSchema({
+    name: "Site",
+    url: "https://mdwrk.test",
+    publisher: "MdWrk",
+  });
+  assert.deepEqual(validateStructuredDataByType("WebSite", {
+    name: webSite.name,
+    url: webSite.url,
+    publisher: webSite.publisher,
   }), []);
 });

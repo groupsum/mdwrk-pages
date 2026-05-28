@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.mdwrk.com/structured-data/employer-aggregate-rating.schema.json",
-  "title": "Structured Data EmployerAggregateRating Input",
+  "$id": "https://schemas.mdwrk.com/structured-data/aggregate-rating.schema.json",
+  "title": "Structured Data AggregateRating Input",
   "type": "object",
   "additionalProperties": false,
   "required": [

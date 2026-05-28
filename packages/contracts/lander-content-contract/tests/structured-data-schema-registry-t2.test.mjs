@@ -5,6 +5,11 @@ import {
   listStructuredDataSchemas,
   validateStructuredDataByType,
 } from "../dist/index.js";
+import {
+  governedTypes,
+  invalidPayloadByType,
+  validPayloadByType,
+} from "./structured-data-schema-samples.mjs";
 
 test("T2: structured-data schema registry is deterministic across repeated reads", () => {
   const first = listStructuredDataSchemas();
@@ -18,17 +23,28 @@ test("T2: structured-data schema registry is deterministic across repeated reads
   );
 });
 
-test("T2: structured-data schema validation does not mutate frozen payloads and returns stable failures", () => {
-  const payload = Object.freeze({
-    name: "Product",
-    offers: "invalid-offer-shape",
-  });
+test("T2: structured-data schema validation does not mutate frozen valid payloads and stays stable across the governed surface", () => {
+  for (const type of governedTypes) {
+    const payload = Object.freeze(structuredClone(validPayloadByType[type]));
+    const before = JSON.stringify(payload);
+    const first = validateStructuredDataByType(type, payload);
+    const second = validateStructuredDataByType(type, payload);
 
-  const before = JSON.stringify(payload);
-  const first = validateStructuredDataByType("Product", payload);
-  const second = validateStructuredDataByType("Product", payload);
+    assert.equal(JSON.stringify(payload), before, `${type} payload should not be mutated`);
+    assert.deepEqual(second, first, `${type} validation should be deterministic`);
+    assert.deepEqual(first, [], `${type} valid payload should remain valid`);
+  }
+});
 
-  assert.equal(JSON.stringify(payload), before);
-  assert.deepEqual(second, first);
-  assert.ok(first.some((issue) => issue.path === "data.offers"));
+test("T2: structured-data schema validation returns stable targeted failures for invalid payloads", () => {
+  for (const [type, { payload, path }] of Object.entries(invalidPayloadByType)) {
+    const frozenPayload = Object.freeze(structuredClone(payload));
+    const before = JSON.stringify(frozenPayload);
+    const first = validateStructuredDataByType(type, frozenPayload);
+    const second = validateStructuredDataByType(type, frozenPayload);
+
+    assert.equal(JSON.stringify(frozenPayload), before, `${type} invalid payload should not be mutated`);
+    assert.deepEqual(second, first, `${type} invalid validation should be deterministic`);
+    assert.ok(first.some((issue) => issue.path === path), `${type} should fail at ${path}`);
+  }
 });

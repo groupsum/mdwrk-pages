@@ -4,37 +4,72 @@
   "title": "Structured Data VideoObject Input",
   "type": "object",
   "additionalProperties": false,
-  "required": ["name", "thumbnailUrl", "uploadDate"],
+  "required": [
+    "name",
+    "thumbnailUrl",
+    "uploadDate"
+  ],
   "properties": {
-    "id": { "type": "string" },
-    "name": { "type": "string", "minLength": 1 },
-    "description": { "type": "string" },
-    "url": { "type": "string", "minLength": 1 },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "minLength": 1
+    },
     "thumbnailUrl": {
       "anyOf": [
-        { "type": "string", "minLength": 1 },
+        {
+          "type": "string",
+          "minLength": 1
+        },
         {
           "type": "array",
           "minItems": 1,
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         }
       ]
     },
-    "uploadDate": { "type": "string", "minLength": 1 },
-    "duration": { "type": "string" },
-    "embedUrl": { "type": "string" },
-    "contentUrl": { "type": "string" },
+    "uploadDate": {
+      "type": "string",
+      "minLength": 1
+    },
+    "duration": {
+      "type": "string"
+    },
+    "embedUrl": {
+      "type": "string"
+    },
+    "contentUrl": {
+      "type": "string"
+    },
     "clip": {
       "type": "array",
-      "items": { "$ref": "#/$defs/clip" }
+      "items": {
+        "$ref": "#/$defs/clip"
+      }
     },
     "publication": {
       "anyOf": [
-        { "$ref": "#/$defs/broadcastEvent" },
+        {
+          "$ref": "#/$defs/broadcastEvent"
+        },
         {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/$defs/broadcastEvent" }
+          "items": {
+            "$ref": "#/$defs/broadcastEvent"
+          }
         }
       ]
     }
@@ -46,14 +81,30 @@
       "title": "Structured Data Clip",
       "type": "object",
       "additionalProperties": false,
-      "required": ["name"],
+      "required": [
+        "name"
+      ],
       "properties": {
-        "id": { "type": "string" },
-        "name": { "type": "string", "minLength": 1 },
-        "description": { "type": "string" },
-        "url": { "type": "string", "minLength": 1 },
-        "startOffset": { "type": "number" },
-        "endOffset": { "type": "number" }
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "startOffset": {
+          "type": "number"
+        },
+        "endOffset": {
+          "type": "number"
+        }
       }
     },
     "broadcastEvent": {
@@ -63,13 +114,29 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "id": { "type": "string" },
-        "name": { "type": "string", "minLength": 1 },
-        "description": { "type": "string" },
-        "url": { "type": "string", "minLength": 1 },
-        "startDate": { "type": "string" },
-        "endDate": { "type": "string" },
-        "isLiveBroadcast": { "type": "boolean" }
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "string"
+        },
+        "isLiveBroadcast": {
+          "type": "boolean"
+        }
       }
     }
   }

@@ -1,13 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.mdwrk.com/structured-data/job-posting.schema.json",
-  "title": "Structured Data JobPosting Input",
+  "$id": "https://schemas.mdwrk.com/structured-data/web-application.schema.json",
+  "title": "Structured Data WebApplication Input",
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "title",
-    "datePosted",
-    "hiringOrganization"
+    "name"
   ],
   "properties": {
     "id": {
@@ -24,84 +22,31 @@
       "type": "string",
       "minLength": 1
     },
-    "title": {
-      "type": "string",
-      "minLength": 1
-    },
-    "datePosted": {
-      "type": "string",
-      "minLength": 1
-    },
-    "validThrough": {
+    "applicationCategory": {
       "type": "string"
     },
-    "employmentType": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1
-        },
-        {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "type": "string",
-            "minLength": 1
-          }
-        }
-      ]
+    "operatingSystem": {
+      "type": "string"
     },
-    "hiringOrganization": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1
-        },
-        {
-          "$ref": "#/$defs/thingRef"
-        }
-      ]
-    },
-    "jobLocation": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1
-        },
-        {
-          "$ref": "#/$defs/thingRef"
-        }
-      ]
-    },
-    "baseSalary": {
+    "offers": {
       "$ref": "#/$defs/offerLike"
+    },
+    "softwareVersion": {
+      "type": "string"
+    },
+    "image": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "$ref": "#/$defs/image"
+        }
+      ]
     }
   },
   "$defs": {
-    "thingRef": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "thingRef",
-      "title": "Structured Data Thing Reference",
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      }
-    },
     "offerLike": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "$id": "offerLike",
@@ -145,6 +90,33 @@
               "$ref": "#/$defs/thingRef"
             }
           ]
+        }
+      }
+    },
+    "image": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "image",
+      "title": "Structured Data Image",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "src": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        },
+        "caption": {
+          "type": "string"
+        },
+        "alt": {
+          "type": "string"
         }
       }
     }

@@ -1,16 +1,32 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.mdwrk.com/structured-data/clip.schema.json",
-  "title": "Structured Data Clip Input",
+  "$id": "clip",
+  "title": "Structured Data Clip",
   "type": "object",
   "additionalProperties": false,
-  "required": ["name"],
+  "required": [
+    "name"
+  ],
   "properties": {
-    "id": { "type": "string" },
-    "name": { "type": "string", "minLength": 1 },
-    "description": { "type": "string" },
-    "url": { "type": "string", "minLength": 1 },
-    "startOffset": { "type": "number" },
-    "endOffset": { "type": "number" }
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "startOffset": {
+      "type": "number"
+    },
+    "endOffset": {
+      "type": "number"
+    }
   }
 }

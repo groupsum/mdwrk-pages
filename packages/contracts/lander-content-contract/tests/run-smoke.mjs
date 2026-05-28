@@ -21,6 +21,7 @@ import {
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { governedTypes, invalidPayloadByType, validPayloadByType } from './structured-data-schema-samples.mjs';
 
 assert.equal(STRUCTURED_DATA_INTENT_KINDS.length, 50);
 assert.ok(isStructuredDataIntentKind('SoftwareApplication'));
@@ -38,7 +39,7 @@ assert.deepEqual(validateStructuredDataIntent({ kind: 'FAQPage', data: { name: '
 assert.deepEqual(validateComponentIntent({ id: 'intent:hero', kind: 'hero', sourceId: 'hero' }), []);
 assert.match(validateStructuredDataIntent({ kind: 'UnsupportedType' })[0], /unsupported structured-data intent kind/);
 assert.match(validateComponentIntent({ id: '', kind: 'hero' })[0], /component intent id is required/);
-assert.deepEqual(validateStructuredDataIntentStrict({ kind: 'FAQPage', data: { name: 'FAQ' } }), []);
+assert.ok(validateStructuredDataIntentStrict({ kind: 'FAQPage', data: { name: 'FAQ' } }).some((failure) => failure.includes('data.items')));
 
 assert.equal(listTemplateDataSchemas().length, 6);
 assert.equal(getTemplateDataSchemaByTemplateId('education.course-test').schemaId.endsWith('course-test.schema.json'), true);
@@ -65,7 +66,7 @@ assert.ok(validateTemplateDataByTemplateId('education.course', {
 
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const structuredDataSchemas = listStructuredDataSchemas();
-assert.equal(structuredDataSchemas.length, 36);
+assert.equal(structuredDataSchemas.length, governedTypes.length);
 assert.equal(getStructuredDataSchemaByType('Quiz').schemaId.endsWith('quiz.schema.json'), true);
 assert.equal(getStructuredDataSchemaBySchemaId('https://schemas.mdwrk.com/structured-data/video-object.schema.json').type, 'VideoObject');
 assert.equal(getStructuredDataSchemaByType('LearningResource').schemaId.endsWith('learning-resource.schema.json'), true);
@@ -74,31 +75,11 @@ for (const entry of structuredDataSchemas) {
   assert.ok(fs.existsSync(assetPath), `missing structured-data schema asset: ${entry.assetPath}`);
 }
 
-assert.deepEqual(validateStructuredDataByType('Article', {
-  name: 'Article',
-  url: 'https://mdwrk.test/article',
-  headline: 'Article headline',
-}), []);
+for (const type of governedTypes) {
+  assert.deepEqual(validateStructuredDataByType(type, validPayloadByType[type]), []);
+}
 
-assert.deepEqual(validateStructuredDataBySchemaId('https://schemas.mdwrk.com/structured-data/qa-page.schema.json', {
-  question: 'Q?',
-  acceptedAnswer: { text: 'A.' },
-  suggestedAnswer: [{ text: 'B.' }],
-  answerCount: 2,
-}), []);
-
-assert.deepEqual(validateStructuredDataByType('LearningResource', {
-  name: 'Math Solver learning resource',
-  url: 'https://mdwrk.test/math/resource',
-  learningResourceType: 'Math Solver',
-  teaches: ['Algebra'],
-}), []);
-
-assert.deepEqual(validateStructuredDataByType('SolveMathAction', {
-  target: 'https://mdwrk.test/math?q={mathExpression}',
-  mathExpressionInput: 'required name=mathExpression',
-  eduQuestionType: ['Algebra'],
-}), []);
+assert.deepEqual(validateStructuredDataBySchemaId('https://schemas.mdwrk.com/structured-data/qa-page.schema.json', validPayloadByType.QAPage), []);
 
 assert.ok(validateStructuredDataByType('Quiz', {
   name: 'Quiz',
@@ -109,20 +90,9 @@ assert.ok(validateStructuredDataByType('VideoObject', {
   name: 'Video only',
 }).some((issue) => issue.keyword === 'required' && issue.path === 'data.thumbnailUrl'));
 
-assert.ok(validateStructuredDataByType('Product', {
-  name: 'Product',
-  offers: 'invalid-offer-shape',
-}).some((issue) => issue.path === 'data.offers'));
-
-assert.ok(validateStructuredDataByType('Course', {
-  name: 'Course',
-  hasCourseInstance: ['invalid-instance-shape'],
-}).some((issue) => issue.path === 'data.hasCourseInstance' || issue.path.startsWith('data.hasCourseInstance[')));
-
-assert.ok(validateStructuredDataByType('MathSolver', {
-  name: 'Math Solver',
-  potentialAction: 'invalid-action-shape',
-}).some((issue) => issue.path === 'data.potentialAction'));
+for (const [type, { payload, path: issuePath }] of Object.entries(invalidPayloadByType)) {
+  assert.ok(validateStructuredDataByType(type, payload).some((issue) => issue.path === issuePath));
+}
 
 assert.deepEqual(validateStructuredDataIntentStrict({
   kind: 'Article',
@@ -134,7 +104,6 @@ assert.ok(validateStructuredDataIntentStrict({
   data: { name: 'Video only' },
 }).some((failure) => failure.includes('data.thumbnailUrl')));
 
-assert.deepEqual(
-  validateStructuredDataIntentStrict({ kind: 'Dataset', data: { name: 'Dataset' } }),
-  [],
+assert.ok(
+  validateStructuredDataIntentStrict({ kind: 'Dataset', data: { keywords: 'schema' } }).some((failure) => failure.includes('data.keywords')),
 );

@@ -14,7 +14,11 @@ test("T2: strict structured-data intent validation is deterministic and non-muta
   assert.deepEqual(second, first);
 });
 
-test("T2: strict structured-data intent validation degrades gracefully when no data or no schema exists", () => {
+test("T2: strict structured-data intent validation degrades gracefully when no data exists and stays schema-backed for all supported kinds", () => {
   assert.deepEqual(validateStructuredDataIntentStrict({ kind: "Article" }), []);
-  assert.deepEqual(validateStructuredDataIntentStrict({ kind: "Dataset", data: { name: "Dataset" } }), []);
+  assert.ok(
+    validateStructuredDataIntentStrict({ kind: "Dataset", data: { keywords: "schema" } }).some((failure) =>
+      failure.includes("data.keywords"),
+    ),
+  );
 });

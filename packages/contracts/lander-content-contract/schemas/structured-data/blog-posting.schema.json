@@ -4,18 +4,129 @@
   "title": "Structured Data BlogPosting Input",
   "type": "object",
   "additionalProperties": false,
-  "required": ["name"],
+  "required": [
+    "name"
+  ],
   "properties": {
-    "id": { "type": "string" },
-    "name": { "type": "string", "minLength": 1 },
-    "description": { "type": "string" },
-    "url": { "type": "string", "minLength": 1 },
-    "headline": { "type": "string" },
-    "author": {},
-    "publisher": {},
-    "datePublished": { "type": "string" },
-    "dateModified": { "type": "string" },
-    "mainEntityOfPage": {},
-    "image": {}
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "headline": {
+      "type": "string"
+    },
+    "author": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "$ref": "#/$defs/thingRef"
+        }
+      ]
+    },
+    "publisher": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "$ref": "#/$defs/thingRef"
+        }
+      ]
+    },
+    "datePublished": {
+      "type": "string"
+    },
+    "dateModified": {
+      "type": "string"
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "$ref": "#/$defs/thingRef"
+        }
+      ]
+    },
+    "image": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "$ref": "#/$defs/image"
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "thingRef": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "thingRef",
+      "title": "Structured Data Thing Reference",
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "@id": {
+          "type": "string"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "image": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "image",
+      "title": "Structured Data Image",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "src": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        },
+        "caption": {
+          "type": "string"
+        },
+        "alt": {
+          "type": "string"
+        }
+      }
+    }
   }
 }

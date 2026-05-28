@@ -374,6 +374,18 @@ function deepFreeze<T>(value: T): T {
 }
 
 export const STRUCTURED_DATA_SCHEMA_REGISTRY = deepFreeze([
+  entry("AggregateRating", "aggregate-rating", "Structured Data AggregateRating Input", {
+    type: "object",
+    additionalProperties: false,
+    required: ["ratingValue"],
+    properties: {
+      ratingValue: { anyOf: [{ type: "number" }, stringRef] },
+      reviewCount: { type: "number" },
+      ratingCount: { type: "number" },
+      bestRating: { anyOf: [{ type: "number" }, stringRef] },
+      worstRating: { anyOf: [{ type: "number" }, stringRef] },
+    },
+  }),
   entry("Answer", "answer", "Structured Data Answer Input", withSharedDefs(answerDefinition, ["thingRef"])),
   entry("Article", "article", "Structured Data Article Input", withSharedDefs({
     type: "object",
@@ -402,6 +414,18 @@ export const STRUCTURED_DATA_SCHEMA_REGISTRY = deepFreeze([
       datePublished: { type: "string" },
       dateModified: { type: "string" },
       mainEntityOfPage: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
+    },
+  }, ["thingRef", "image"])),
+  entry("Book", "book", "Structured Data Book Input", withSharedDefs({
+    type: "object",
+    additionalProperties: false,
+    required: ["name"],
+    properties: {
+      ...thingBaseProperties,
+      author: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+      isbn: { type: "string" },
+      readAction: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
       image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
     },
   }, ["thingRef", "image"])),
@@ -452,6 +476,38 @@ export const STRUCTURED_DATA_SCHEMA_REGISTRY = deepFreeze([
       image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
     },
   }, ["thingRef", "courseInstanceLike", "image"])),
+  entry("CourseInstance", "course-instance", "Structured Data CourseInstance Input", withSharedDefs({
+    type: "object",
+    additionalProperties: false,
+    required: ["name"],
+    properties: {
+      ...thingBaseProperties,
+      courseMode: { type: "string" },
+      startDate: { type: "string" },
+      endDate: { type: "string" },
+      location: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+      instructor: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+    },
+  }, ["thingRef"])),
+  entry("Dataset", "dataset", "Structured Data Dataset Input", withSharedDefs({
+    type: "object",
+    additionalProperties: false,
+    required: ["name"],
+    properties: {
+      ...thingBaseProperties,
+      creator: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+      distribution: {
+        anyOf: [
+          { $ref: "#/$defs/thingRef" },
+          { type: "array", minItems: 1, items: { $ref: "#/$defs/thingRef" } },
+        ],
+      },
+      keywords: { type: "array", items: { type: "string", minLength: 1 } },
+      datePublished: { type: "string" },
+      dateModified: { type: "string" },
+      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
+    },
+  }, ["thingRef", "image"])),
   entry("DiscussionForumPosting", "discussion-forum-posting", "Structured Data DiscussionForumPosting Input", withSharedDefs({
     type: "object",
     additionalProperties: false,
@@ -493,6 +549,27 @@ export const STRUCTURED_DATA_SCHEMA_REGISTRY = deepFreeze([
       image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
     },
   }, ["thingRef", "image"])),
+  entry("FAQPage", "faq-page", "Structured Data FAQPage Input", {
+    type: "object",
+    additionalProperties: false,
+    required: ["items"],
+    properties: {
+      id: { type: "string" },
+      items: {
+        type: "array",
+        minItems: 1,
+        items: {
+          type: "object",
+          additionalProperties: false,
+          required: ["question", "answer"],
+          properties: {
+            question: { type: "string", minLength: 1 },
+            answer: { type: "string", minLength: 1 },
+          },
+        },
+      },
+    },
+  }),
   entry("HowTo", "how-to", "Structured Data HowTo Input", withSharedDefs({
     type: "object",
     additionalProperties: false,
@@ -595,6 +672,15 @@ export const STRUCTURED_DATA_SCHEMA_REGISTRY = deepFreeze([
       },
     },
   }, ["solveMathAction", "learningResource", "thingRef"])),
+  entry("MemberProgram", "member-program", "Structured Data MemberProgram Input", withSharedDefs({
+    type: "object",
+    additionalProperties: false,
+    required: ["name"],
+    properties: {
+      ...thingBaseProperties,
+      provider: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+    },
+  }, ["thingRef"])),
   entry("MerchantReturnPolicy", "merchant-return-policy", "Structured Data MerchantReturnPolicy Input", {
     type: "object",
     additionalProperties: false,
@@ -660,6 +746,17 @@ export const STRUCTURED_DATA_SCHEMA_REGISTRY = deepFreeze([
       shippingRate: { $ref: "#/$defs/offerLike" },
     },
   }, ["thingRef", "offerLike"])),
+  entry("Organization", "organization", "Structured Data Organization Input", withSharedDefs({
+    type: "object",
+    additionalProperties: false,
+    required: ["name"],
+    properties: {
+      ...thingBaseProperties,
+      logo: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
+      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
+      sameAs: { type: "array", items: { type: "string", minLength: 1 } },
+    },
+  }, ["image"])),
   entry("Product", "product", "Structured Data Product Input", withSharedDefs({
     type: "object",
     additionalProperties: false,
@@ -722,6 +819,14 @@ export const STRUCTURED_DATA_SCHEMA_REGISTRY = deepFreeze([
       image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
     },
   }, ["thingRef", "image"])),
+  entry("ReadAction", "read-action", "Structured Data ReadAction Input", withSharedDefs({
+    type: "object",
+    additionalProperties: false,
+    required: ["target"],
+    properties: {
+      target: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+    },
+  }, ["thingRef"])),
   entry("QAPage", "qa-page", "Structured Data QAPage Input", withSharedDefs({
     type: "object",
     additionalProperties: false,
@@ -806,6 +911,46 @@ export const STRUCTURED_DATA_SCHEMA_REGISTRY = deepFreeze([
       image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
     },
   }, ["offerLike", "image"])),
+  entry("SoftwareSourceCode", "software-source-code", "Structured Data SoftwareSourceCode Input", withSharedDefs({
+    type: "object",
+    additionalProperties: false,
+    required: ["name"],
+    properties: {
+      ...thingBaseProperties,
+      codeRepository: { type: "string" },
+      programmingLanguage: {
+        anyOf: [
+          { type: "string", minLength: 1 },
+          { type: "array", minItems: 1, items: { type: "string", minLength: 1 } },
+        ],
+      },
+      runtimePlatform: { type: "string" },
+      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
+    },
+  }, ["image"])),
+  entry("SpeakableSpecification", "speakable-specification", "Structured Data SpeakableSpecification Input", {
+    type: "object",
+    additionalProperties: false,
+    properties: {
+      cssSelector: { type: "array", items: { type: "string", minLength: 1 } },
+      xpath: { type: "array", items: { type: "string", minLength: 1 } },
+    },
+  }),
+  entry("TechArticle", "tech-article", "Structured Data TechArticle Input", withSharedDefs({
+    type: "object",
+    additionalProperties: false,
+    required: ["name"],
+    properties: {
+      ...thingBaseProperties,
+      headline: { type: "string" },
+      author: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+      publisher: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+      datePublished: { type: "string" },
+      dateModified: { type: "string" },
+      mainEntityOfPage: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
+    },
+  }, ["thingRef", "image"])),
   entry("SolveMathAction", "solve-math-action", "Structured Data SolveMathAction Input", withSharedDefs(
     solveMathActionDefinition,
     ["thingRef"],
@@ -865,6 +1010,45 @@ export const STRUCTURED_DATA_SCHEMA_REGISTRY = deepFreeze([
       },
     },
   }, ["clip", "broadcastEvent"])),
+  entry("WebApplication", "web-application", "Structured Data WebApplication Input", withSharedDefs({
+    type: "object",
+    additionalProperties: false,
+    required: ["name"],
+    properties: {
+      ...thingBaseProperties,
+      applicationCategory: { type: "string" },
+      operatingSystem: { type: "string" },
+      offers: { $ref: "#/$defs/offerLike" },
+      softwareVersion: { type: "string" },
+      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
+    },
+  }, ["offerLike", "image"])),
+  entry("WebPage", "web-page", "Structured Data WebPage Input", withSharedDefs({
+    type: "object",
+    additionalProperties: false,
+    required: ["name"],
+    properties: {
+      ...thingBaseProperties,
+      primaryType: { type: "string" },
+      mainEntity: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+      breadcrumb: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+      isPartOf: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+      datePublished: { type: "string" },
+      dateModified: { type: "string" },
+      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
+    },
+  }, ["thingRef", "image"])),
+  entry("WebSite", "web-site", "Structured Data WebSite Input", withSharedDefs({
+    type: "object",
+    additionalProperties: false,
+    required: ["name"],
+    properties: {
+      ...thingBaseProperties,
+      publisher: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+      potentialAction: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
+      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
+    },
+  }, ["thingRef", "image"])),
 ] as const satisfies readonly StructuredDataSchemaRegistryEntry[]);
 
 const STRUCTURED_DATA_SCHEMA_BY_TYPE = new Map<string, StructuredDataSchemaRegistryEntry>(

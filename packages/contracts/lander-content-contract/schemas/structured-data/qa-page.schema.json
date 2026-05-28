@@ -4,47 +4,101 @@
   "title": "Structured Data QAPage Input",
   "type": "object",
   "additionalProperties": false,
-  "required": ["question"],
+  "required": [
+    "question"
+  ],
   "properties": {
-    "id": { "type": "string" },
-    "question": { "type": "string", "minLength": 1 },
-    "answer": { "type": "string", "minLength": 1 },
-    "acceptedAnswer": { "$ref": "#/$defs/answer" },
+    "id": {
+      "type": "string"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1
+    },
+    "answer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "acceptedAnswer": {
+      "$ref": "#/$defs/answer"
+    },
     "suggestedAnswer": {
       "type": "array",
-      "items": { "$ref": "#/$defs/answer" }
+      "items": {
+        "$ref": "#/$defs/answer"
+      }
     },
-    "answerCount": { "type": "number" },
-    "eduQuestionType": { "type": "string" },
-    "url": { "type": "string" }
+    "answerCount": {
+      "type": "number"
+    },
+    "eduQuestionType": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
   },
   "$defs": {
-    "thingRef": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "thingRef",
-      "title": "Structured Data Thing Reference",
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {}
-    },
     "answer": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "$id": "answer",
       "title": "Structured Data Answer",
       "type": "object",
       "additionalProperties": false,
-      "required": ["text"],
+      "required": [
+        "text"
+      ],
       "properties": {
-        "id": { "type": "string" },
-        "text": { "type": "string", "minLength": 1 },
-        "url": { "type": "string" },
-        "upvoteCount": { "type": "number" },
-        "dateCreated": { "type": "string" },
+        "id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string"
+        },
+        "upvoteCount": {
+          "type": "number"
+        },
+        "dateCreated": {
+          "type": "string"
+        },
         "author": {
           "anyOf": [
-            { "type": "string", "minLength": 1 },
-            { "$ref": "#/$defs/thingRef" }
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "$ref": "#/$defs/thingRef"
+            }
           ]
+        }
+      }
+    },
+    "thingRef": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "thingRef",
+      "title": "Structured Data Thing Reference",
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "@id": {
+          "type": "string"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
         }
       }
     }

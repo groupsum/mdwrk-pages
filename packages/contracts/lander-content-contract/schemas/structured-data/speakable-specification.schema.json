@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mdwrk.com/structured-data/speakable-specification.schema.json",
+  "title": "Structured Data SpeakableSpecification Input",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "cssSelector": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "xpath": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

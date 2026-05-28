@@ -5,11 +5,23 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": { "type": "string" },
-    "name": { "type": "string" },
-    "currency": { "type": "string" },
-    "minValue": { "type": "number" },
-    "maxValue": { "type": "number" },
-    "unitText": { "type": "string" }
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "minValue": {
+      "type": "number"
+    },
+    "maxValue": {
+      "type": "number"
+    },
+    "unitText": {
+      "type": "string"
+    }
   }
 }

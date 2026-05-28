@@ -4,13 +4,29 @@
   "title": "Structured Data MerchantReturnPolicy Input",
   "type": "object",
   "additionalProperties": false,
-  "required": ["name"],
+  "required": [
+    "name"
+  ],
   "properties": {
-    "id": { "type": "string" },
-    "name": { "type": "string", "minLength": 1 },
-    "description": { "type": "string" },
-    "url": { "type": "string", "minLength": 1 },
-    "merchantReturnDays": { "type": "number" },
-    "returnPolicyCategory": { "type": "string" }
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "merchantReturnDays": {
+      "type": "number"
+    },
+    "returnPolicyCategory": {
+      "type": "string"
+    }
   }
 }

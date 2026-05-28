@@ -1,6 +1,6 @@
 {
   "name": "@mdwrk/lander-content-contract",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "type": "module",
   "license": "Apache-2.0",
   "publishConfig": {
@@ -23,7 +23,7 @@
   ],
   "description": "Portable content contract types for product landing sites.",
   "scripts": {
-    "build": "tsc -p tsconfig.json && node ./scripts/copy-schemas.mjs",
+    "build": "tsc -p tsconfig.json && node ./scripts/generate-structured-data-schemas.mjs && node ./scripts/copy-schemas.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "npm run typecheck",
     "test": "npm run build && node --test tests/structured-data-schema-registry-t0.test.mjs tests/structured-data-schema-registry-t1.test.mjs tests/structured-data-schema-registry-t2.test.mjs tests/strict-structured-data-intent-validation-t0.test.mjs tests/strict-structured-data-intent-validation-t1.test.mjs tests/strict-structured-data-intent-validation-t2.test.mjs tests/google-active-type-schema-hardening-t0.test.mjs tests/google-active-type-schema-hardening-t1.test.mjs tests/google-active-type-schema-hardening-t2.test.mjs && node ./tests/run-smoke.mjs",
