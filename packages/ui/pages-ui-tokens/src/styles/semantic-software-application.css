@@ -1,0 +1,30 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-software-application-padding: 1.6rem;
+  --mdp-semantic-software-application-gap: 1rem;
+  --mdp-semantic-software-application-radius: 1.45rem;
+  --mdp-semantic-software-application-surface: linear-gradient(180deg, color-mix(in srgb, var(--lander-panel) 95%, #edf2ff 5%), color-mix(in srgb, var(--lander-panel) 88%, #d4ddff 12%));
+  --mdp-semantic-software-application-border: color-mix(in srgb, var(--lander-border) 72%, #586fd1 28%);
+  --mdp-semantic-software-application-shadow: var(--mdwrk-shadow-strong);
+}
+
+.lander-semantic--software-application { display:grid; gap:var(--mdp-semantic-software-application-gap); padding:var(--mdp-semantic-software-application-padding); border:1px solid var(--mdp-semantic-software-application-border); border-radius:var(--mdp-semantic-software-application-radius); background:var(--mdp-semantic-software-application-surface); box-shadow:var(--mdp-semantic-software-application-shadow); color:var(--lander-fg); }
+.lander-semantic--software-application .lander-semantic__header,
+.lander-semantic--software-application .lander-semantic__body,
+.lander-semantic--software-application .lander-semantic__actions,
+.lander-semantic--software-application .lander-semantic__meta { display:grid; gap:var(--mdwrk-space-3); }
+.lander-semantic--software-application .lander-semantic__eyebrow { width:fit-content; margin:0; padding:.26rem .68rem; border-radius:999px; background:rgba(255,255,255,.82); color:#4058bc; font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.lander-semantic--software-application .lander-semantic__title { margin:0; color:var(--lander-heading-fg); font-size:clamp(1.5rem,4vw,2.5rem); line-height:1.04; }
+.lander-semantic--software-application .lander-semantic__subtitle,
+.lander-semantic--software-application .lander-semantic__description,
+.lander-semantic--software-application .lander-semantic__meta,
+.lander-semantic--software-application .lander-semantic__footer { margin:0; color:var(--lander-fg-muted); }
+.lander-semantic--software-application .lander-semantic__image { width:100%; max-width:100%; border-radius:var(--mdwrk-radius-lg); object-fit:cover; }
+.lander-semantic--software-application .lander-semantic__body > *,
+.lander-semantic--software-application .lander-semantic__actions > *,
+.lander-semantic--software-application .lander-semantic__footer > * { margin:0; }
+.lander-semantic--software-application .lander-semantic__app-spec-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(9rem,1fr)); gap:.75rem; }
+.lander-semantic--software-application .lander-semantic__app-spec { display:grid; gap:.35rem; padding:1rem; border-radius:1rem; background:rgba(255,255,255,.8); }
+.lander-semantic--software-application .lander-semantic__app-spec-label { color:#4d62c4; font-size:.74rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+.lander-semantic--software-application .lander-semantic__app-spec-value { color:var(--lander-heading-fg); }

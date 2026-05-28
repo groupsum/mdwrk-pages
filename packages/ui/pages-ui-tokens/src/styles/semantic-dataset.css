@@ -1,0 +1,28 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-dataset-padding: 1.6rem;
+  --mdp-semantic-dataset-gap: 1rem;
+  --mdp-semantic-dataset-radius: 1.45rem;
+  --mdp-semantic-dataset-surface: linear-gradient(180deg, color-mix(in srgb, var(--lander-panel) 95%, #eef8ff 5%), color-mix(in srgb, var(--lander-panel) 88%, #d6ecff 12%));
+  --mdp-semantic-dataset-border: color-mix(in srgb, var(--lander-border) 72%, #4f95c8 28%);
+  --mdp-semantic-dataset-shadow: var(--mdwrk-shadow-strong);
+}
+
+.lander-semantic--dataset { display:grid; gap:var(--mdp-semantic-dataset-gap); padding:var(--mdp-semantic-dataset-padding); border:1px solid var(--mdp-semantic-dataset-border); border-radius:var(--mdp-semantic-dataset-radius); background:var(--mdp-semantic-dataset-surface); box-shadow:var(--mdp-semantic-dataset-shadow); color:var(--lander-fg); }
+.lander-semantic--dataset .lander-semantic__header,
+.lander-semantic--dataset .lander-semantic__body,
+.lander-semantic--dataset .lander-semantic__actions,
+.lander-semantic--dataset .lander-semantic__meta { display:grid; gap:var(--mdwrk-space-3); }
+.lander-semantic--dataset .lander-semantic__eyebrow { width:fit-content; margin:0; padding:.26rem .68rem; border-radius:999px; background:rgba(255,255,255,.82); color:#0c5e90; font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.lander-semantic--dataset .lander-semantic__title { margin:0; color:var(--lander-heading-fg); font-size:clamp(1.5rem,4vw,2.5rem); line-height:1.04; }
+.lander-semantic--dataset .lander-semantic__subtitle,
+.lander-semantic--dataset .lander-semantic__description,
+.lander-semantic--dataset .lander-semantic__meta,
+.lander-semantic--dataset .lander-semantic__footer { margin:0; color:var(--lander-fg-muted); }
+.lander-semantic--dataset .lander-semantic__image { width:100%; max-width:100%; border-radius:var(--mdwrk-radius-lg); object-fit:cover; }
+.lander-semantic--dataset .lander-semantic__body > *,
+.lander-semantic--dataset .lander-semantic__actions > *,
+.lander-semantic--dataset .lander-semantic__footer > * { margin:0; }
+.lander-semantic--dataset .lander-semantic__keyword-cloud { display:flex; flex-wrap:wrap; gap:.6rem; padding:0; margin:0; list-style:none; }
+.lander-semantic--dataset .lander-semantic__keyword-chip { padding:.48rem .82rem; border-radius:999px; background:rgba(255,255,255,.82); color:#116a9f; font-size:.88rem; }

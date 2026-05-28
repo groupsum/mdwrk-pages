@@ -1,0 +1,28 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-vacation-rental-padding: 1.6rem;
+  --mdp-semantic-vacation-rental-gap: 1rem;
+  --mdp-semantic-vacation-rental-radius: 1.45rem;
+  --mdp-semantic-vacation-rental-surface: linear-gradient(180deg, color-mix(in srgb, var(--lander-panel) 95%, #f0fbff 5%), color-mix(in srgb, var(--lander-panel) 88%, #d7f4ff 12%));
+  --mdp-semantic-vacation-rental-border: color-mix(in srgb, var(--lander-border) 72%, #48b0c7 28%);
+  --mdp-semantic-vacation-rental-shadow: var(--mdwrk-shadow-strong);
+}
+
+.lander-semantic--vacation-rental { display:grid; gap:var(--mdp-semantic-vacation-rental-gap); padding:var(--mdp-semantic-vacation-rental-padding); border:1px solid var(--mdp-semantic-vacation-rental-border); border-radius:var(--mdp-semantic-vacation-rental-radius); background:var(--mdp-semantic-vacation-rental-surface); box-shadow:var(--mdp-semantic-vacation-rental-shadow); color:var(--lander-fg); }
+.lander-semantic--vacation-rental .lander-semantic__header,
+.lander-semantic--vacation-rental .lander-semantic__body,
+.lander-semantic--vacation-rental .lander-semantic__actions,
+.lander-semantic--vacation-rental .lander-semantic__meta { display:grid; gap:var(--mdwrk-space-3); }
+.lander-semantic--vacation-rental .lander-semantic__eyebrow { width:fit-content; margin:0; padding:.26rem .68rem; border-radius:999px; background:rgba(255,255,255,.82); color:#0f7b92; font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.lander-semantic--vacation-rental .lander-semantic__title { margin:0; color:var(--lander-heading-fg); font-size:clamp(1.5rem,4vw,2.5rem); line-height:1.04; }
+.lander-semantic--vacation-rental .lander-semantic__subtitle,
+.lander-semantic--vacation-rental .lander-semantic__description,
+.lander-semantic--vacation-rental .lander-semantic__meta,
+.lander-semantic--vacation-rental .lander-semantic__footer { margin:0; color:var(--lander-fg-muted); }
+.lander-semantic--vacation-rental .lander-semantic__image { width:100%; max-width:100%; border-radius:var(--mdwrk-radius-lg); object-fit:cover; }
+.lander-semantic--vacation-rental .lander-semantic__body > *,
+.lander-semantic--vacation-rental .lander-semantic__actions > *,
+.lander-semantic--vacation-rental .lander-semantic__footer > * { margin:0; }
+.lander-semantic--vacation-rental .lander-semantic__amenity-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(9rem,1fr)); gap:.75rem; padding:0; margin:0; list-style:none; }
+.lander-semantic--vacation-rental .lander-semantic__amenity-card { padding:1rem; border-radius:1rem; background:rgba(255,255,255,.82); }

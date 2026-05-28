@@ -126,3 +126,34 @@ test("T0: identity-family fused components expose distinct layout hooks for prof
   assert.ok(speakableMarkup.includes("lander-semantic__selector-grid"));
   assert.ok(speakableMarkup.includes("lander-semantic__selector-block"));
 });
+
+test("T0: catalog-family fused components expose distinct layout hooks for keyword clouds, ranked lists, recipe cards, app specs, amenities, vehicle stats, salary bands, target previews, and event badges", async () => {
+  const mod = await importLanderReactDist();
+  const datasetMarkup = renderToStaticMarkup(React.createElement(mod.Dataset, { name: "Prompt metrics", keywords: ["latency", "quality"] }));
+  const itemListMarkup = renderToStaticMarkup(React.createElement(mod.ItemList, { name: "Top prompts", items: [{ name: "Prompt A", url: "/a" }] }));
+  const bookMarkup = renderToStaticMarkup(React.createElement(mod.Book, { name: "Prompt Systems", author: { name: "MDWRK" }, isbn: "123-456" }));
+  const recipeMarkup = renderToStaticMarkup(React.createElement(mod.Recipe, { name: "Starter", recipeIngredient: ["Flour"], recipeInstructions: [{ name: "Mix", text: "Combine." }] }));
+  const softwareMarkup = renderToStaticMarkup(React.createElement(mod.SoftwareApplication, { name: "Desktop Studio", applicationCategory: "IDE", operatingSystem: "Windows" }));
+  const webAppMarkup = renderToStaticMarkup(React.createElement(mod.WebApplication, { name: "Prompt Cloud", applicationCategory: "SaaS", softwareVersion: "2.4" }));
+  const sourceMarkup = renderToStaticMarkup(React.createElement(mod.SoftwareSourceCode, { name: "SDK", programmingLanguage: ["TypeScript", "Rust"] }));
+  const rentalMarkup = renderToStaticMarkup(React.createElement(mod.VacationRental, { name: "Lake House", containsPlace: [{ name: "Deck" }, { name: "Sauna" }] }));
+  const vehicleMarkup = renderToStaticMarkup(React.createElement(mod.Vehicle, { name: "Transit", brand: { name: "MDWRK Motors" }, price: 32000, priceCurrency: "USD", vehicleModelDate: "2026" }));
+  const jobMarkup = renderToStaticMarkup(React.createElement(mod.JobPosting, { name: "Senior Prompt Engineer", title: "Senior Prompt Engineer", datePosted: "2026-05-28", hiringOrganization: "MDWRK", employmentType: ["Full-time"], baseSalary: "$180k" }));
+  const readMarkup = renderToStaticMarkup(React.createElement(mod.ReadAction, { target: "https://mdwrk.test/docs" }));
+  const eventMarkup = renderToStaticMarkup(React.createElement(mod.Event, { name: "Launch", startDate: "2026-05-28", eventStatus: "Scheduled", eventAttendanceMode: "OnlineEventAttendanceMode" }));
+
+  assert.ok(datasetMarkup.includes("lander-semantic__keyword-cloud"));
+  assert.ok(itemListMarkup.includes("lander-semantic__item-list-grid"));
+  assert.ok(itemListMarkup.includes("lander-semantic__item-rank"));
+  assert.ok(bookMarkup.includes("lander-semantic__book-spine"));
+  assert.ok(recipeMarkup.includes("lander-semantic__ingredient-list"));
+  assert.ok(recipeMarkup.includes("lander-semantic__recipe-step"));
+  assert.ok(softwareMarkup.includes("lander-semantic__app-spec-grid"));
+  assert.ok(webAppMarkup.includes("lander-semantic__app-spec-grid"));
+  assert.ok(sourceMarkup.includes("lander-semantic__language-list"));
+  assert.ok(rentalMarkup.includes("lander-semantic__amenity-list"));
+  assert.ok(vehicleMarkup.includes("lander-semantic__vehicle-dashboard"));
+  assert.ok(jobMarkup.includes("lander-semantic__salary-band"));
+  assert.ok(readMarkup.includes("lander-semantic__target-preview"));
+  assert.ok(eventMarkup.includes("lander-semantic__event-badges"));
+});

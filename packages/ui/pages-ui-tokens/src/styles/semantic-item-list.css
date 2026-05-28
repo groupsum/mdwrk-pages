@@ -1,0 +1,29 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-item-list-padding: 1.5rem;
+  --mdp-semantic-item-list-gap: 1rem;
+  --mdp-semantic-item-list-radius: 1.35rem;
+  --mdp-semantic-item-list-surface: linear-gradient(180deg, color-mix(in srgb, var(--lander-panel) 95%, #fdf7e8 5%), color-mix(in srgb, var(--lander-panel) 89%, #f9e6b2 11%));
+  --mdp-semantic-item-list-border: color-mix(in srgb, var(--lander-border) 72%, #cb9e32 28%);
+  --mdp-semantic-item-list-shadow: var(--mdwrk-shadow-strong);
+}
+
+.lander-semantic--item-list { display:grid; gap:var(--mdp-semantic-item-list-gap); padding:var(--mdp-semantic-item-list-padding); border:1px solid var(--mdp-semantic-item-list-border); border-radius:var(--mdp-semantic-item-list-radius); background:var(--mdp-semantic-item-list-surface); box-shadow:var(--mdp-semantic-item-list-shadow); color:var(--lander-fg); }
+.lander-semantic--item-list .lander-semantic__header,
+.lander-semantic--item-list .lander-semantic__body,
+.lander-semantic--item-list .lander-semantic__actions,
+.lander-semantic--item-list .lander-semantic__meta { display:grid; gap:var(--mdwrk-space-3); }
+.lander-semantic--item-list .lander-semantic__eyebrow { width:fit-content; margin:0; padding:.26rem .68rem; border-radius:999px; background:rgba(255,255,255,.82); color:#8a6211; font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.lander-semantic--item-list .lander-semantic__title { margin:0; color:var(--lander-heading-fg); font-size:clamp(1.5rem,4vw,2.5rem); line-height:1.04; }
+.lander-semantic--item-list .lander-semantic__subtitle,
+.lander-semantic--item-list .lander-semantic__description,
+.lander-semantic--item-list .lander-semantic__meta,
+.lander-semantic--item-list .lander-semantic__footer { margin:0; color:var(--lander-fg-muted); }
+.lander-semantic--item-list .lander-semantic__image { width:100%; max-width:100%; border-radius:var(--mdwrk-radius-lg); object-fit:cover; }
+.lander-semantic--item-list .lander-semantic__body > *,
+.lander-semantic--item-list .lander-semantic__actions > *,
+.lander-semantic--item-list .lander-semantic__footer > * { margin:0; }
+.lander-semantic--item-list .lander-semantic__item-list-grid { display:grid; gap:.75rem; padding:0; margin:0; list-style:none; }
+.lander-semantic--item-list .lander-semantic__item-card { display:grid; grid-template-columns:auto 1fr; gap:.8rem; align-items:center; padding:.9rem 1rem; border-radius:1rem; background:rgba(255,255,255,.82); }
+.lander-semantic--item-list .lander-semantic__item-rank { display:inline-grid; place-items:center; width:2rem; height:2rem; border-radius:999px; background:#c99727; color:white; font-weight:700; }

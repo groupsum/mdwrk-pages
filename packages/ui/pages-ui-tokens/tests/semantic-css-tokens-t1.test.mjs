@@ -157,3 +157,31 @@ test("T1: identity-family token files define distinct layout hooks beyond the sh
   assert.ok(breadcrumbCss.includes(".lander-semantic__breadcrumb-trail"), "breadcrumb list should style the breadcrumb trail");
   assert.ok(speakableCss.includes(".lander-semantic__selector-grid"), "speakable specification should style selector blocks");
 });
+
+test("T1: catalog-family token files define distinct layout hooks beyond the shared shell baseline", () => {
+  const datasetCss = readCssFile("semantic-dataset.css");
+  const itemListCss = readCssFile("semantic-item-list.css");
+  const bookCss = readCssFile("semantic-book.css");
+  const recipeCss = readCssFile("semantic-recipe.css");
+  const softwareCss = readCssFile("semantic-software-application.css");
+  const webAppCss = readCssFile("semantic-web-application.css");
+  const sourceCss = readCssFile("semantic-software-source-code.css");
+  const rentalCss = readCssFile("semantic-vacation-rental.css");
+  const vehicleCss = readCssFile("semantic-vehicle.css");
+  const jobCss = readCssFile("semantic-job-posting.css");
+  const readCss = readCssFile("semantic-read-action.css");
+  const eventCss = readCssFile("semantic-event.css");
+
+  assert.ok(datasetCss.includes(".lander-semantic__keyword-cloud"), "dataset should style keyword chips");
+  assert.ok(itemListCss.includes(".lander-semantic__item-card"), "item list should style ranked cards");
+  assert.ok(bookCss.includes(".lander-semantic__book-spine"), "book should style the book spine block");
+  assert.ok(recipeCss.includes(".lander-semantic__recipe-step"), "recipe should style recipe steps");
+  assert.ok(softwareCss.includes(".lander-semantic__app-spec-grid"), "software application should style spec cards");
+  assert.ok(webAppCss.includes(".lander-semantic__app-spec-grid"), "web application should style spec cards");
+  assert.ok(sourceCss.includes(".lander-semantic__language-chip"), "software source code should style language chips");
+  assert.ok(rentalCss.includes(".lander-semantic__amenity-list"), "vacation rental should style amenity cards");
+  assert.ok(vehicleCss.includes(".lander-semantic__vehicle-dashboard"), "vehicle should style the stat dashboard");
+  assert.ok(jobCss.includes(".lander-semantic__salary-band"), "job posting should style the salary band");
+  assert.ok(readCss.includes(".lander-semantic__target-preview"), "read action should style the target preview");
+  assert.ok(eventCss.includes(".lander-semantic__event-badge"), "event should style status badges");
+});

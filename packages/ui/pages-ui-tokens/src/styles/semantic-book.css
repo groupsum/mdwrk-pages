@@ -1,0 +1,29 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-book-padding: 1.6rem;
+  --mdp-semantic-book-gap: 1rem;
+  --mdp-semantic-book-radius: 1.45rem;
+  --mdp-semantic-book-surface: linear-gradient(180deg, color-mix(in srgb, var(--lander-panel) 95%, #f7efe8 5%), color-mix(in srgb, var(--lander-panel) 87%, #e2c8ab 13%));
+  --mdp-semantic-book-border: color-mix(in srgb, var(--lander-border) 72%, #99663c 28%);
+  --mdp-semantic-book-shadow: var(--mdwrk-shadow-strong);
+}
+
+.lander-semantic--book { display:grid; gap:var(--mdp-semantic-book-gap); padding:var(--mdp-semantic-book-padding); border:1px solid var(--mdp-semantic-book-border); border-radius:var(--mdp-semantic-book-radius); background:var(--mdp-semantic-book-surface); box-shadow:var(--mdp-semantic-book-shadow); color:var(--lander-fg); }
+.lander-semantic--book .lander-semantic__header,
+.lander-semantic--book .lander-semantic__body,
+.lander-semantic--book .lander-semantic__actions,
+.lander-semantic--book .lander-semantic__meta { display:grid; gap:var(--mdwrk-space-3); }
+.lander-semantic--book .lander-semantic__eyebrow { width:fit-content; margin:0; padding:.26rem .68rem; border-radius:999px; background:rgba(255,255,255,.82); color:#7b4f2a; font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.lander-semantic--book .lander-semantic__title { margin:0; color:var(--lander-heading-fg); font-size:clamp(1.6rem,4vw,2.6rem); line-height:1.02; }
+.lander-semantic--book .lander-semantic__subtitle,
+.lander-semantic--book .lander-semantic__description,
+.lander-semantic--book .lander-semantic__meta,
+.lander-semantic--book .lander-semantic__footer { margin:0; color:var(--lander-fg-muted); }
+.lander-semantic--book .lander-semantic__image { width:100%; max-width:100%; border-radius:var(--mdwrk-radius-lg); object-fit:cover; }
+.lander-semantic--book .lander-semantic__body > *,
+.lander-semantic--book .lander-semantic__actions > *,
+.lander-semantic--book .lander-semantic__footer > * { margin:0; }
+.lander-semantic--book .lander-semantic__book-spine { display:grid; gap:.35rem; padding:1rem 1.05rem; border-left:6px solid #9a663a; border-radius:0 1rem 1rem 0; background:rgba(255,255,255,.76); }
+.lander-semantic--book .lander-semantic__book-author { font-weight:700; color:var(--lander-heading-fg); }
+.lander-semantic--book .lander-semantic__book-isbn { font-family:var(--mdwrk-font-mono); font-size:.88rem; color:#7a583e; }
