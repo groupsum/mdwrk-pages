@@ -1,0 +1,45 @@
+schema_version: "0.6.0"
+kind: "adr"
+id: "adr:1083"
+number: 1083
+slug: "example-demos-are-workspace-consumer-delivery-contracts"
+title: "Example Demos Are Workspace Consumer Delivery Contracts"
+status: "draft"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "The example demos in `mdwrk-pages` shall be treated as governed workspace consumer delivery contracts rather than informal showcase apps."
+supersedes: []
+superseded_by: []
+status_notes: []
+references: []
+body: |-
+  # ADR-1083: Example Demos Are Workspace Consumer Delivery Contracts
+  
+  ## Decision
+  
+  The example demos in `mdwrk-pages` shall be treated as governed workspace consumer delivery contracts rather than informal showcase apps.
+  
+  Each demo that consumes local workspace packages through Vite shall prove that its real import graph resolves cleanly in both build-time output and dev-server import analysis. A demo is not healthy merely because a production bundle can be built. It must also avoid runtime dev-overlay failures caused by unresolved workspace package imports.
+  
+  The demo fleet currently includes `page-template-demo`, `learning-path-demo`, and `subscription-store-demo`. Those demos shall remain representative consumers of the current package split and shall verify their actual workspace package entrypoints rather than masking failures behind app-local shims.
+  
+  ## Rationale
+  
+  The observed failure mode was not a schema or content bug. It was a consumer-delivery problem: Vite could not resolve a workspace package import from a built distribution entrypoint, which left the browser running but broken behind an import-analysis overlay.
+  
+  That class of failure is exactly what example demos are supposed to surface. If they are governed only as showcase copy or static build outputs, they miss the delivery behavior that matters to downstream adopters using the same package graph.
+  
+  Treating demos as consumer delivery contracts makes the package split provable end to end:
+  
+  1. package build output exists,
+  2. demo Vite aliases resolve the workspace package graph,
+  3. the dev server serves transformed modules without import-analysis failures,
+  4. the browser receives a usable application rather than a broken overlay.
+  
+  ## Consequences
+  
+  1. Demo verification must include dev-server import-analysis coverage, not only static bundle smoke.
+  2. Workspace package aliasing and dist entrypoint resolution become governed demo responsibilities.
+  3. A regression in any demo that breaks workspace package delivery is a real package-consumer failure, not a cosmetic demo issue.
+  4. Feature, test, claim, and evidence rows for examples shall distinguish showcase semantics from workspace delivery guarantees.

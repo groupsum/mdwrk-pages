@@ -1,0 +1,40 @@
+schema_version: "0.6.0"
+kind: "spec"
+id: "spc:2107"
+number: 2107
+slug: "example-demo-vite-workspace-delivery-contract"
+title: "Example Demo Vite Workspace Delivery Contract"
+status: "draft"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "This SPEC governs how `mdwrk-pages` example demos consume local workspace packages through Vite and how those demos prove that build-time and dev-server delivery remain healthy."
+supersedes: []
+superseded_by: []
+status_notes: []
+references: []
+body: |-
+  # SPEC-2107: Example Demo Vite Workspace Delivery Contract
+  
+  ## Scope
+  
+  This SPEC governs how `mdwrk-pages` example demos consume local workspace packages through Vite and how those demos prove that build-time and dev-server delivery remain healthy.
+  
+  ## Requirements
+  
+  1. Every example demo that imports local workspace packages through Vite shall resolve those imports from stable workspace entrypoints rather than relying on brittle relative string aliasing.
+  2. The demo Vite configuration shall resolve workspace package entrypoints through explicit absolute file paths to built `dist` outputs when direct package-name resolution is not otherwise available in the demo environment.
+  3. A demo shall not be considered healthy solely because `vite build` succeeds; the dev server must also be able to transform the real application entrypoint without unresolved-import overlay failures.
+  4. Demo delivery tests shall exercise Vite import analysis against the real entry module and follow transformed workspace imports deeply enough to catch unresolved package references from built dependency graphs.
+  5. `page-template-demo`, `learning-path-demo`, and `subscription-store-demo` shall each maintain a delivery test that verifies workspace package import resolution through their current Vite configuration.
+  6. Demo delivery tests shall fail closed when the transformed module graph contains unresolved workspace package imports or Vite import-analysis failure overlays.
+  7. Demos that showcase `@mdwrk/lander-react` and `@mdwrk/lander-react-structured-data` shall prove those packages are consumable through the demoâ€™s real Vite graph, not only through static asset inspection.
+  8. The delivery contract is consumer-facing. Fixes shall prefer correcting workspace entrypoint resolution, alias stability, or package-output expectations instead of suppressing overlays or bypassing the import graph.
+  
+  ## Acceptance
+  
+  Passing evidence shall include demo-local delivery tests that instantiate Vite against each demo, transform the live entrypoint, traverse the resulting workspace import graph, and confirm that no unresolved-import failures remain.
+spec_kind: "normative"
+adr_ids:
+  - "adr:1079"
+  - "adr:1083"
