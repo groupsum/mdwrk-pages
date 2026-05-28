@@ -1,6 +1,6 @@
 {
   "name": "@mdwrk/lander-react",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "type": "module",
   "license": "Apache-2.0",
   "publishConfig": {
@@ -37,7 +37,7 @@
     "build": "npm run build -w @mdwrk/lander-react-structured-data && npm run build -w @mdwrk/lander-core && tsc -p tsconfig.json",
     "typecheck": "npm run build -w @mdwrk/lander-react-structured-data && npm run build -w @mdwrk/lander-core && tsc --noEmit -p tsconfig.json",
     "lint": "npm run typecheck",
-    "test": "npm run build && node --test tests/visible-only-t0.test.mjs tests/visible-only-t1.test.mjs tests/visible-only-t2.test.mjs tests/compat-reexports-t0.test.mjs tests/compat-reexports-t1.test.mjs tests/compat-reexports-t2.test.mjs tests/semantic-component-api-t0.test.mjs tests/semantic-component-api-t1.test.mjs tests/semantic-components-t0.test.mjs tests/semantic-components-t1.test.mjs tests/semantic-components-t2.test.mjs tests/breadcrumb-rendering.test.mjs && node tests/run-smoke.mjs",
+    "test": "npm run build && node --test tests/visible-only-t0.test.mjs tests/visible-only-t1.test.mjs tests/visible-only-t2.test.mjs tests/compat-reexports-t0.test.mjs tests/compat-reexports-t1.test.mjs tests/compat-reexports-t2.test.mjs tests/semantic-component-api-t0.test.mjs tests/semantic-component-api-t1.test.mjs tests/semantic-component-classnames-t0.test.mjs tests/semantic-components-t0.test.mjs tests/semantic-components-t1.test.mjs tests/semantic-components-t2.test.mjs tests/breadcrumb-rendering.test.mjs && node tests/run-smoke.mjs",
     "prepack": "npm run build"
   },
   "exports": {
