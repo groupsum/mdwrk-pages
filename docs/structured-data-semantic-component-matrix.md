@@ -16,22 +16,22 @@ Notes:
 
 | Structured data type | JSON Schema? | JSON-LD emitting React component? | JSON-LD emitting Visible Semantic React component? | Fused? | Fused ClassNames | Fused ClassName CSS Tokens |
 |---|---:|---:|---:|---:|---:|---:|
-| `AggregateRating` | `—` | `✅` | `—` | `—` | `—` | `—` |
+| `AggregateRating` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `Answer` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `Article` | `✅` | `✅` | `✅` | `✅` | `✅` | `✅` |
 | `BlogPosting` | `✅` | `✅` | `—` | `—` | `—` | `—` |
-| `Book` | `—` | `✅` | `—` | `—` | `—` | `—` |
+| `Book` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `BroadcastEvent` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `BreadcrumbList` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `ClaimReview` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `Clip` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `Course` | `✅` | `✅` | `✅` | `✅` | `✅` | `✅` |
-| `CourseInstance` | `—` | `✅` | `—` | `—` | `—` | `—` |
-| `Dataset` | `—` | `✅` | `—` | `—` | `—` | `—` |
+| `CourseInstance` | `✅` | `✅` | `—` | `—` | `—` | `—` |
+| `Dataset` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `DiscussionForumPosting` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `EmployerAggregateRating` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `Event` | `✅` | `✅` | `—` | `—` | `—` | `—` |
-| `FAQPage` | `—` | `✅` | `—` | `—` | `—` | `—` |
+| `FAQPage` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `HowTo` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `ImageObject` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `ItemList` | `✅` | `✅` | `—` | `—` | `—` | `—` |
@@ -39,37 +39,37 @@ Notes:
 | `LearningResource` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `LocalBusiness` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `MathSolver` | `✅` | `✅` | `—` | `—` | `—` | `—` |
-| `MemberProgram` | `—` | `✅` | `—` | `—` | `—` | `—` |
+| `MemberProgram` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `MerchantReturnPolicy` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `MonetaryAmountDistribution` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `Movie` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `NewsArticle` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `OfferShippingDetails` | `✅` | `✅` | `—` | `—` | `—` | `—` |
-| `Organization` | `—` | `✅` | `—` | `—` | `—` | `—` |
+| `Organization` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `Product` | `✅` | `✅` | `✅` | `✅` | `✅` | `✅` |
 | `ProductGroup` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `ProfilePage` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `QAPage` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `Question` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `Quiz` | `✅` | `✅` | `✅` | `✅` | `✅` | `✅` |
-| `ReadAction` | `—` | `✅` | `—` | `—` | `—` | `—` |
+| `ReadAction` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `Recipe` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `Review` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `SolveMathAction` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `SoftwareApplication` | `✅` | `✅` | `—` | `—` | `—` | `—` |
-| `SoftwareSourceCode` | `—` | `✅` | `—` | `—` | `—` | `—` |
-| `SpeakableSpecification` | `—` | `✅` | `—` | `—` | `—` | `—` |
-| `TechArticle` | `—` | `✅` | `—` | `—` | `—` | `—` |
+| `SoftwareSourceCode` | `✅` | `✅` | `—` | `—` | `—` | `—` |
+| `SpeakableSpecification` | `✅` | `✅` | `—` | `—` | `—` | `—` |
+| `TechArticle` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `VacationRental` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `Vehicle` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 | `VideoObject` | `✅` | `✅` | `—` | `—` | `—` | `—` |
-| `WebApplication` | `—` | `✅` | `—` | `—` | `—` | `—` |
-| `WebPage` | `—` | `✅` | `—` | `—` | `—` | `—` |
-| `WebSite` | `—` | `✅` | `—` | `—` | `—` | `—` |
+| `WebApplication` | `✅` | `✅` | `—` | `—` | `—` | `—` |
+| `WebPage` | `✅` | `✅` | `—` | `—` | `—` | `—` |
+| `WebSite` | `✅` | `✅` | `—` | `—` | `—` | `—` |
 
 ## Totals
 
-- `JSON Schema`: `36 / 50`
+- `JSON Schema`: `50 / 50`
 - `JSON-LD emitting React component`: `50 / 50`
 - `JSON-LD emitting Visible Semantic React component`: `4 / 50`
 - `Fused`: `4 / 50`
@@ -84,3 +84,9 @@ These fused visible + JSON-LD components exist today in `@mdwrk/lander-react` an
 - `Product`
 - `Course`
 - `Quiz`
+
+The current fused frontier is now T2-backed for:
+
+- fused visible + JSON-LD behavior
+- fused `className` support
+- fused class-name CSS token support
