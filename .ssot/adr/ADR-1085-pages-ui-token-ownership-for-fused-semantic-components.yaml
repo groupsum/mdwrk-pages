@@ -1,0 +1,42 @@
+schema_version: "0.6.0"
+kind: "adr"
+id: "adr:1085"
+number: 1085
+slug: "pages-ui-token-ownership-for-fused-semantic-components"
+title: "Pages UI Token Ownership for Fused Semantic Components"
+status: "draft"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "MdWrk Pages-specific CSS tokens for fused semantic components shall be owned by `@mdwrk/pages-ui-tokens`, not by `@mdwrk/lander-theme`."
+supersedes: []
+superseded_by: []
+status_notes: []
+references: []
+body: |-
+  # ADR-1085: Pages UI Token Ownership for Fused Semantic Components
+  
+  ## Decision
+  
+  MdWrk Pages-specific CSS tokens for fused semantic components shall be owned by `@mdwrk/pages-ui-tokens`, not by `@mdwrk/lander-theme`.
+  
+  `@mdwrk/lander-theme` may compose token CSS exported by `@mdwrk/pages-ui-tokens`, but it shall not own the canonical source files for fused semantic component token bands.
+  
+  For each fused semantic component promoted into the frontier set, token ownership shall include:
+  
+  1. one dedicated CSS file per component in `@mdwrk/pages-ui-tokens`
+  2. stable selector and variable naming aligned to the componentâ€™s `className` contract
+  3. additive Pages-scoped token names that do not claim ownership of upstream shared token surfaces
+  
+  ## Rationale
+  
+  `@mdwrk/lander-theme` is a theme-composition surface. It should not become the ownership location for every Pages-specific semantic-component token band. Doing so would blur the boundary between shared theme composition and Pages-owned token assets.
+  
+  The repo now has a distinct semantic frontier with fused visible + JSON-LD components such as `Article`, `Product`, `Course`, and `Quiz`. Those components need stable tokenized styling, but the token source should remain repo-local, package-local, and clearly separate from the theme-composition package.
+  
+  ## Consequences
+  
+  1. Pages semantic token CSS shall live in `@mdwrk/pages-ui-tokens`.
+  2. `@mdwrk/lander-theme` shall import and compose those token files rather than duplicating them.
+  3. Fused className token rollout becomes independently governable from generic theme output.
+  4. Future token-package work shall avoid naming collisions with core mdwrk token packages.

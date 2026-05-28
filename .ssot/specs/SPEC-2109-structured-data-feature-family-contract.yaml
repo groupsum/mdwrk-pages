@@ -1,0 +1,45 @@
+schema_version: "0.6.0"
+kind: "spec"
+id: "spc:2109"
+number: 2109
+slug: "structured-data-feature-family-contract"
+title: "Structured Data Feature Family Contract"
+status: "draft"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "This SPEC governs the per-type feature-family model used to track structured-data maturity in mdwrk-pages."
+supersedes: []
+superseded_by: []
+status_notes: []
+references: []
+body: |-
+  # SPEC-2109: Structured Data Feature Family Contract
+  
+  ## Scope
+  
+  This SPEC governs the per-type feature-family model used to track structured-data maturity in mdwrk-pages.
+  
+  ## Requirements
+  
+  1. Each governed structured-data type shall have one umbrella feature:
+     - `feat:structured-data.<x>`
+  2. Each governed structured-data type shall have four standard leaf features:
+     - `feat:structured-data.<x>.json-schema`
+     - `feat:structured-data.<x>.fused`
+     - `feat:structured-data.<x>.fused-classnames`
+     - `feat:structured-data.<x>.fused-classname-css-tokens`
+  3. Feature ids shall normalize Schema.org type names to lower-kebab-case.
+  4. The umbrella feature shall mark the governed semantic surface for the type but shall not imply all four leaves are complete.
+  5. `fused-classnames` shall depend on `fused`.
+  6. `fused-classname-css-tokens` shall depend on `fused-classnames`.
+  7. `json-schema` shall remain independently targetable from `fused`.
+  8. A structured-data type may remain low-level and schema-backed without being promoted to a fused visible semantic component.
+  9. Matrix, docs, tests, and proof chains shall map claims to the exact leaf maturity being asserted.
+  
+  ## Acceptance
+  
+  Passing evidence shall include feature-row creation rules that follow this naming model, documentation/matrices that map current type maturity to those leaves, and proof wiring that can distinguish schema, fused, className, and tokenized-styling claims separately.
+spec_kind: "governance"
+adr_ids:
+  - "adr:1084"

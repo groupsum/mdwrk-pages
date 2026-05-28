@@ -26,6 +26,8 @@ body: |-
   
   `@mdwrk/structured-data` shall remain the pure typed builder, graph-primitive, and Schema.org helper layer. `@mdwrk/lander-react` shall remain the visible lander UI renderer and shall own page shells, article surfaces, navigation UI, breadcrumb UI, FAQ presentation, media presentation, and other visible reusable components. `@mdwrk/lander-react-structured-data` shall own non-visual JSON-LD React wrappers, structured-data intent registries, and schema-intent-to-builder-backed-renderer mapping.
   
+  `@mdwrk/lander-react` may additionally own prop-native visible semantic components such as `Article`, `Product`, `Course`, and `Quiz` when those components render visible UI and internally compose the matching low-level JSON-LD emitter. Those fused semantic components shall not change wrapper ownership. The reusable type-specific JSON-LD emitters remain owned by `@mdwrk/lander-react-structured-data`.
+  
   `@mdwrk/lander-core` and `@mdwrk/lander-page-templates` shall continue to emit portable schema intent data and route semantics, but they shall not own React JSON-LD rendering. Product hosts such as `apps/mdwrkcom` shall consume the split packages rather than choosing type-specific JSON-LD components in app-local code.
   
   Breadcrumbs remain explicit. `@mdwrk/structured-data` owns `BreadcrumbList` builders, `@mdwrk/lander-react` owns visible breadcrumb UI, `@mdwrk/lander-react-structured-data` owns breadcrumb JSON-LD React emission, and `@mdwrk/lander-core` owns only the route semantics those packages consume.
@@ -40,12 +42,15 @@ body: |-
   2. `@mdwrk/lander-react-structured-data` turns schema intent into React JSON-LD emission.
   3. `@mdwrk/lander-react` stays focused on visible UI.
   
-  That split keeps the reusable builder layer non-UI, keeps the visible renderer free of JSON-LD wrapper ownership, and gives downstream landers a stable import surface for structured-data React emission that is distinct from visible component APIs.
+  That split keeps the reusable builder layer non-UI, keeps the visible renderer free of low-level JSON-LD wrapper ownership, and gives downstream landers a stable import surface for structured-data React emission that is distinct from visible component APIs.
+  
+  At the same time, downstream authors still need a clean semantic front door for common visible content types. Allowing `@mdwrk/lander-react` to own prop-native visible semantic components preserves a good authoring surface without collapsing the package boundary back into one payload-oriented wrapper layer.
   
   ## Consequences
   
   1. New structured-data type rollout is not complete until builder support exists in `@mdwrk/structured-data` and JSON-LD React wrapper support exists in `@mdwrk/lander-react-structured-data`.
-  2. `@mdwrk/lander-react` shall no longer be the long-term ownership location for structured-data React wrappers.
-  3. Migration may temporarily require compatibility re-exports from `@mdwrk/lander-react`, but those re-exports are migration bridges rather than the target package boundary.
-  4. Feature, test, claim, and evidence rows shall distinguish builder support, visible UI support, JSON-LD React wrapper support, and downstream host adoption separately.
-  5. Downstream landers and demos can showcase the package split directly instead of treating visible rendering and schema emission as one opaque renderer.
+  2. `@mdwrk/lander-react` shall no longer be the long-term ownership location for low-level structured-data React wrappers.
+  3. `@mdwrk/lander-react` may expose fused visible semantic components that compose low-level emitters, but those components shall derive JSON-LD from semantic props rather than accept raw structured-data payloads as their primary authoring contract.
+  4. Migration may temporarily require compatibility re-exports from `@mdwrk/lander-react`, but those re-exports are migration bridges rather than the target package boundary.
+  5. Feature, test, claim, and evidence rows shall distinguish builder support, visible UI support, low-level JSON-LD React wrapper support, fused semantic component support, and downstream host adoption separately.
+  6. Downstream landers and demos can showcase the package split directly instead of treating visible rendering and schema emission as one opaque renderer.

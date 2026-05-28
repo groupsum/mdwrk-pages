@@ -1,0 +1,47 @@
+schema_version: "0.6.0"
+kind: "spec"
+id: "spc:2108"
+number: 2108
+slug: "lander-react-fused-semantic-component-contract"
+title: "Lander React Fused Semantic Component Contract"
+status: "draft"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "This SPEC governs prop-native fused semantic components in `@mdwrk/lander-react` that render visible UI and emit matching JSON-LD internally."
+supersedes: []
+superseded_by: []
+status_notes: []
+references: []
+body: |-
+  # SPEC-2108: Lander React Fused Semantic Component Contract
+  
+  ## Scope
+  
+  This SPEC governs prop-native fused semantic components in `@mdwrk/lander-react` that render visible UI and emit matching JSON-LD internally.
+  
+  ## Requirements
+  
+  1. Fused semantic components shall live in `@mdwrk/lander-react`.
+  2. The initial frontier set shall be explicitly governed and may begin with `Article`, `Product`, `Course`, and `Quiz`.
+  3. Fused semantic components shall be prop-native. Their primary authoring surface shall be semantic props rather than raw structured-data payloads.
+  4. Fused semantic components may support only the following narrow escape hatches:
+     - `className?`
+     - `emitStructuredData?`
+     - `structuredDataOverrides?`
+     - optional `viewModel?`
+  5. Fused semantic components shall derive JSON-LD internally and shall compose the corresponding low-level wrapper from `@mdwrk/lander-react-structured-data`.
+  6. Fused semantic components shall not own low-level JSON-LD wrapper logic directly.
+  7. `structuredDataOverrides` shall not be allowed to remove required semantic fields from emitted JSON-LD.
+  8. Visible rendering shall not depend on override payload mutations.
+  9. Fused semantic components that claim className support shall expose stable class selectors suitable for tokenized styling.
+  10. Fused semantic components that claim tokenized styling shall have dedicated token CSS files owned by `@mdwrk/pages-ui-tokens`.
+  
+  ## Acceptance
+  
+  Passing evidence shall include export tests, visible render tests, JSON-LD emission tests, `emitStructuredData={false}` suppression tests, override-safety tests, className tests, and token CSS presence/tests for each promoted fused frontier component.
+spec_kind: "normative"
+adr_ids:
+  - "adr:1079"
+  - "adr:1084"
+  - "adr:1085"
