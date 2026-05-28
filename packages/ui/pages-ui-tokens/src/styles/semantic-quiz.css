@@ -1,0 +1,77 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-quiz-padding: 1.5rem;
+  --mdp-semantic-quiz-gap: 1rem;
+  --mdp-semantic-quiz-radius: 1.25rem;
+  --mdp-semantic-quiz-surface: color-mix(in srgb, var(--lander-panel) 94%, transparent);
+  --mdp-semantic-quiz-border: var(--lander-border);
+  --mdp-semantic-quiz-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-quiz-card-gap: 1rem;
+  --mdp-semantic-quiz-answer-radius: 0.875rem;
+  --mdp-semantic-quiz-answer-surface: color-mix(in srgb, var(--lander-panel-muted) 88%, transparent);
+}
+
+.lander-semantic--quiz {
+  display: grid;
+  gap: var(--mdp-semantic-quiz-gap);
+  padding: var(--mdp-semantic-quiz-padding);
+  border: 1px solid var(--mdp-semantic-quiz-border);
+  border-radius: var(--mdp-semantic-quiz-radius);
+  background: var(--mdp-semantic-quiz-surface);
+  box-shadow: var(--mdp-semantic-quiz-shadow);
+  color: var(--lander-fg);
+}
+
+.lander-semantic--quiz .lander-semantic__header {
+  display: grid;
+  gap: var(--mdwrk-space-3);
+}
+
+.lander-semantic--quiz .lander-semantic__title {
+  margin: 0;
+  color: var(--lander-heading-fg);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.08;
+}
+
+.lander-semantic--quiz .lander-semantic__description {
+  margin: 0;
+  color: var(--lander-fg-muted);
+}
+
+.lander-semantic--quiz .lander-semantic__body {
+  display: grid;
+  gap: var(--mdwrk-space-3);
+}
+
+.lander-semantic--quiz .lander-page__assessment-grid {
+  display: grid;
+  gap: var(--mdp-semantic-quiz-card-gap);
+}
+
+.lander-semantic--quiz .lander-page__flashcard {
+  display: grid;
+  gap: var(--mdwrk-space-3);
+}
+
+.lander-semantic--quiz .lander-page__flashcard h2,
+.lander-semantic--quiz .lander-page__flashcard ul {
+  margin: 0;
+}
+
+.lander-semantic--quiz .lander-page__flashcard-answer {
+  border-radius: var(--mdp-semantic-quiz-answer-radius);
+  background: var(--mdp-semantic-quiz-answer-surface);
+  padding: 0.875rem 1rem;
+}
+
+.lander-semantic--quiz .lander-page__flashcard-answer-text,
+.lander-semantic--quiz .lander-page__flashcard-placeholder {
+  margin: 0;
+}
+
+.lander-semantic--quiz .lander-semantic__footer {
+  color: var(--lander-fg-muted);
+  font-size: 0.9375rem;
+}

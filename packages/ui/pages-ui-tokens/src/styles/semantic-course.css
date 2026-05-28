@@ -1,0 +1,93 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-course-padding: 1.5rem;
+  --mdp-semantic-course-gap: 1rem;
+  --mdp-semantic-course-radius: 1.25rem;
+  --mdp-semantic-course-surface: color-mix(in srgb, var(--lander-panel) 94%, transparent);
+  --mdp-semantic-course-border: var(--lander-border);
+  --mdp-semantic-course-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-course-meta-gap: 1rem;
+  --mdp-semantic-course-module-gap: 0.875rem;
+  --mdp-semantic-course-outcome-gap: 0.625rem;
+}
+
+.lander-semantic--course {
+  display: grid;
+  gap: var(--mdp-semantic-course-gap);
+  padding: var(--mdp-semantic-course-padding);
+  border: 1px solid var(--mdp-semantic-course-border);
+  border-radius: var(--mdp-semantic-course-radius);
+  background: var(--mdp-semantic-course-surface);
+  box-shadow: var(--mdp-semantic-course-shadow);
+  color: var(--lander-fg);
+}
+
+.lander-semantic--course .lander-semantic__header {
+  display: grid;
+  gap: var(--mdwrk-space-3);
+}
+
+.lander-semantic--course .lander-semantic__eyebrow {
+  width: fit-content;
+  margin: 0;
+  color: var(--lander-fg-muted);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lander-semantic--course .lander-semantic__title {
+  margin: 0;
+  color: var(--lander-heading-fg);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.08;
+}
+
+.lander-semantic--course .lander-semantic__description {
+  margin: 0;
+  color: var(--lander-fg-muted);
+}
+
+.lander-semantic--course .lander-semantic__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem var(--mdp-semantic-course-meta-gap);
+  margin: 0;
+  color: var(--lander-fg-subtle);
+}
+
+.lander-semantic--course .lander-semantic__image {
+  width: 100%;
+  max-width: 100%;
+  border-radius: var(--mdwrk-radius-lg);
+  object-fit: cover;
+}
+
+.lander-semantic--course .lander-semantic__body {
+  display: grid;
+  gap: var(--mdwrk-space-3);
+}
+
+.lander-semantic--course .lander-semantic__body > * {
+  margin: 0;
+}
+
+.lander-semantic--course .lander-semantic__body ol,
+.lander-semantic--course .lander-semantic__body ul {
+  display: grid;
+  gap: var(--mdp-semantic-course-module-gap);
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.lander-semantic--course .lander-semantic__body li p {
+  margin-top: 0.35rem;
+  color: var(--lander-fg-muted);
+}
+
+.lander-semantic--course .lander-semantic__footer {
+  color: var(--lander-fg-muted);
+  font-size: 0.9375rem;
+}

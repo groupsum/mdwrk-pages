@@ -1,6 +1,6 @@
 {
-  "name": "@mdwrk/lander-theme",
-  "version": "0.1.6",
+  "name": "@mdwrk/pages-ui-tokens",
+  "version": "0.1.0",
   "type": "module",
   "license": "Apache-2.0",
   "publishConfig": {
@@ -15,17 +15,20 @@
     "README.md"
   ],
   "sideEffects": [
-    "./src/styles/default.css"
+    "./src/styles/root.css",
+    "./src/styles/semantic-article.css",
+    "./src/styles/semantic-product.css",
+    "./src/styles/semantic-course.css",
+    "./src/styles/semantic-quiz.css"
   ],
   "keywords": [
-    "lander",
-    "theme",
-    "tokens"
+    "mdwrk",
+    "pages",
+    "ui",
+    "tokens",
+    "css"
   ],
-  "description": "Portable design tokens and default styles for generic lander components.",
-  "dependencies": {
-    "@mdwrk/pages-ui-tokens": "^0.1.0"
-  },
+  "description": "Repo-local CSS token package for MdWrk Pages UI surfaces.",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc --noEmit -p tsconfig.json",
@@ -42,7 +45,11 @@
       "types": "./dist/version.d.ts",
       "import": "./dist/version.js"
     },
-    "./styles/default.css": "./src/styles/default.css"
+    "./styles/root.css": "./src/styles/root.css",
+    "./styles/semantic-article.css": "./src/styles/semantic-article.css",
+    "./styles/semantic-product.css": "./src/styles/semantic-product.css",
+    "./styles/semantic-course.css": "./src/styles/semantic-course.css",
+    "./styles/semantic-quiz.css": "./src/styles/semantic-quiz.css"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

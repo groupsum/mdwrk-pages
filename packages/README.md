@@ -19,7 +19,8 @@ The lander stack is intentionally modular. This index separates content contract
 - `@mdwrk/lander-commerce-contract` for reusable cart, pricing, and checkout runtime contracts.
 - `@mdwrk/lander-core` for compile, validation, route semantics, canonical URLs, and page-text inputs.
 - `@mdwrk/lander-seo` for sitemap, robots, llms, metadata, scoring, and discovery artifacts.
-- `@mdwrk/lander-theme` for default styles and tokens.
+- `@mdwrk/pages-ui-tokens` for repo-local CSS tokens and semantic component token files.
+- `@mdwrk/lander-theme` for default styles and theme composition.
 - `@mdwrk/lander-react` for visible UI components.
 - `@mdwrk/lander-react-commerce` for opt-in add-to-cart, cart, and checkout React components.
 - `@mdwrk/lander-react-structured-data` for JSON-LD React wrappers and schema-intent rendering.
@@ -31,7 +32,7 @@ The lander stack is intentionally modular. This index separates content contract
 Node.js 20.x through 22.x, matching the workspace engine contract in the root package manifest.
 
 ```bash
-npm install @mdwrk/lander-content-contract @mdwrk/lander-commerce-contract @mdwrk/lander-core @mdwrk/lander-seo @mdwrk/lander-theme @mdwrk/lander-react @mdwrk/lander-react-commerce @mdwrk/lander-react-structured-data @mdwrk/lander-markdown-content-adapter @mdwrk/lander-page-templates @mdwrk/lander-page-template-presets
+npm install @mdwrk/lander-content-contract @mdwrk/lander-commerce-contract @mdwrk/lander-core @mdwrk/lander-seo @mdwrk/pages-ui-tokens @mdwrk/lander-theme @mdwrk/lander-react @mdwrk/lander-react-commerce @mdwrk/lander-react-structured-data @mdwrk/lander-markdown-content-adapter @mdwrk/lander-page-templates @mdwrk/lander-page-template-presets
 ```
 
 ## Usage
@@ -41,6 +42,7 @@ Start with the content contract and core compiler, then add SEO, theming, markdo
 - [lander-commerce-contract](./contracts/lander-commerce-contract/README.md)
 - [lander-core](./core/lander-core/README.md)
 - [lander-seo](./machine/lander-seo/README.md)
+- [pages-ui-tokens](./ui/pages-ui-tokens/README.md)
 - [lander-theme](./ui/lander-theme/README.md)
 - [lander-react](./ui/lander-react/README.md)
 - [lander-react-commerce](./ui/lander-react-commerce/README.md)

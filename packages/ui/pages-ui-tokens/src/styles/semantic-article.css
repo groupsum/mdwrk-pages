@@ -1,0 +1,83 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-article-padding: 1.5rem;
+  --mdp-semantic-article-gap: 1rem;
+  --mdp-semantic-article-radius: 1.25rem;
+  --mdp-semantic-article-surface: color-mix(in srgb, var(--lander-panel) 94%, transparent);
+  --mdp-semantic-article-border: var(--lander-border);
+  --mdp-semantic-article-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-article-title-size: clamp(2rem, 5vw, 3rem);
+  --mdp-semantic-article-image-radius: 1rem;
+  --mdp-semantic-article-meta-gap: 1rem;
+}
+
+.lander-semantic--article {
+  display: grid;
+  gap: var(--mdp-semantic-article-gap);
+  padding: var(--mdp-semantic-article-padding);
+  border: 1px solid var(--mdp-semantic-article-border);
+  border-radius: var(--mdp-semantic-article-radius);
+  background: var(--mdp-semantic-article-surface);
+  box-shadow: var(--mdp-semantic-article-shadow);
+  color: var(--lander-fg);
+}
+
+.lander-semantic--article .lander-semantic__header {
+  display: grid;
+  gap: var(--mdwrk-space-3);
+}
+
+.lander-semantic--article .lander-semantic__eyebrow {
+  width: fit-content;
+  margin: 0;
+  color: var(--lander-fg-muted);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lander-semantic--article .lander-semantic__title {
+  margin: 0;
+  color: var(--lander-heading-fg);
+  font-size: var(--mdp-semantic-article-title-size);
+  line-height: 1.05;
+}
+
+.lander-semantic--article .lander-semantic__subtitle,
+.lander-semantic--article .lander-semantic__description {
+  margin: 0;
+  color: var(--lander-fg-muted);
+  line-height: 1.7;
+}
+
+.lander-semantic--article .lander-semantic__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem var(--mdp-semantic-article-meta-gap);
+  margin: 0;
+  color: var(--lander-fg-subtle);
+  font-size: 0.9375rem;
+}
+
+.lander-semantic--article .lander-semantic__image {
+  width: 100%;
+  max-width: 100%;
+  border-radius: var(--mdp-semantic-article-image-radius);
+  object-fit: cover;
+}
+
+.lander-semantic--article .lander-semantic__body {
+  display: grid;
+  gap: var(--mdwrk-space-4);
+}
+
+.lander-semantic--article .lander-semantic__body > * {
+  margin: 0;
+}
+
+.lander-semantic--article .lander-semantic__footer {
+  color: var(--lander-fg-muted);
+  font-size: 0.9375rem;
+}

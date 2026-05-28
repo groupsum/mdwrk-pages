@@ -1,4 +1,8 @@
-@import url("@mdwrk/ui-tokens/styles/root.css");
+@import url("@mdwrk/pages-ui-tokens/styles/root.css");
+@import url("@mdwrk/pages-ui-tokens/styles/semantic-article.css");
+@import url("@mdwrk/pages-ui-tokens/styles/semantic-product.css");
+@import url("@mdwrk/pages-ui-tokens/styles/semantic-course.css");
+@import url("@mdwrk/pages-ui-tokens/styles/semantic-quiz.css");
 
 :root,
 :root[data-lander-theme="lander-light"],

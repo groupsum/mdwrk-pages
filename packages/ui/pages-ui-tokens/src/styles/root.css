@@ -1,0 +1,23 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdwrk-font-ui: "Inter", "Segoe UI", Arial, sans-serif;
+  --mdwrk-font-head: "Inter", "Segoe UI", Arial, sans-serif;
+  --mdwrk-font-mono: "JetBrains Mono", "IBM Plex Mono", Consolas, monospace;
+  --mdwrk-radius-sm: 0.5rem;
+  --mdwrk-radius-md: 0.75rem;
+  --mdwrk-radius-lg: 1rem;
+  --mdwrk-space-2: 0.5rem;
+  --mdwrk-space-3: 0.75rem;
+  --mdwrk-space-4: 1rem;
+  --mdwrk-space-6: 1.5rem;
+  --mdwrk-shadow-soft: 0 12px 32px rgba(15, 23, 42, 0.12);
+  --mdwrk-shadow-strong: 0 18px 50px rgba(15, 23, 42, 0.18);
+}
+
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdwrk-shadow-soft: 0 12px 32px rgba(0, 0, 0, 0.28);
+  --mdwrk-shadow-strong: 0 18px 50px rgba(0, 0, 0, 0.34);
+}
