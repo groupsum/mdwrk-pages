@@ -105,7 +105,7 @@ export function Course({
         {heroImage ? <img className="lander-semantic__image" src={heroImage} alt={name} /> : null}
         {body ? <div className="lander-semantic__body">{body}</div> : null}
         {modules?.length ? (
-          <section className="lander-semantic__body">
+          <section className="lander-semantic__body lander-semantic__body--modules">
             <h2>Modules</h2>
             <ol>
               {modules.map((module, index) => (
@@ -118,7 +118,7 @@ export function Course({
           </section>
         ) : null}
         {viewModel?.outcomes?.length ? (
-          <section className="lander-semantic__body">
+          <section className="lander-semantic__body lander-semantic__body--outcomes">
             <h2>Outcomes</h2>
             <ul>
               {viewModel.outcomes.map((outcome, index) => (

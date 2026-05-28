@@ -76,10 +76,18 @@
 
 .lander-semantic--course .lander-semantic__body ol,
 .lander-semantic--course .lander-semantic__body ul {
-  display: grid;
-  gap: var(--mdp-semantic-course-module-gap);
   margin: 0;
   padding-left: 1.25rem;
+}
+
+.lander-semantic--course .lander-semantic__body--modules ol {
+  display: grid;
+  gap: var(--mdp-semantic-course-module-gap);
+}
+
+.lander-semantic--course .lander-semantic__body--outcomes ul {
+  display: grid;
+  gap: var(--mdp-semantic-course-outcome-gap);
 }
 
 .lander-semantic--course .lander-semantic__body li p {

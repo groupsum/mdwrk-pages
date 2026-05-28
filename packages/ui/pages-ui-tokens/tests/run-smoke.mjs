@@ -17,7 +17,7 @@ const courseCss = readFileSync(resolve("src/styles/semantic-course.css"), "utf8"
 const quizCss = readFileSync(resolve("src/styles/semantic-quiz.css"), "utf8");
 const packageJson = JSON.parse(readFileSync(resolve("package.json"), "utf8"));
 
-assert.equal(MDWRK_PAGES_UI_TOKENS_VERSION, "0.1.0");
+assert.equal(MDWRK_PAGES_UI_TOKENS_VERSION, packageJson.version);
 assert.ok(MDWRK_PAGES_UI_ROOT_TOKEN_NAMES.includes("mdwrk-font-ui"));
 assert.ok(MDWRK_PAGES_UI_SEMANTIC_ARTICLE_TOKEN_NAMES.includes("mdp-semantic-article-padding"));
 assert.ok(MDWRK_PAGES_UI_SEMANTIC_PRODUCT_TOKEN_NAMES.includes("mdp-semantic-product-padding"));
@@ -32,6 +32,7 @@ assert.ok(productCss.includes(".lander-semantic--product"));
 assert.ok(productCss.includes("--mdp-semantic-product-padding"));
 assert.ok(courseCss.includes(".lander-semantic--course"));
 assert.ok(courseCss.includes("--mdp-semantic-course-padding"));
+assert.ok(courseCss.includes("--mdp-semantic-course-outcome-gap"));
 assert.ok(quizCss.includes(".lander-semantic--quiz"));
 assert.ok(quizCss.includes("--mdp-semantic-quiz-padding"));
 
