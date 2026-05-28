@@ -34,6 +34,16 @@ export function mergeArrayByIndex<T extends object>(base: T[], override: unknown
   return merged;
 }
 
+export function mergeArrayByIndexCapped<T extends object>(base: T[], override: unknown): T[] {
+  if (!Array.isArray(override)) return base;
+  const overrideRecords = override.filter((entry): entry is Record<string, unknown> => isRecord(entry));
+  return base.map((entry, index) => ({ ...entry, ...(overrideRecords[index] ?? {}) })) as T[];
+}
+
+export function nonEmptyString(value: unknown): string | undefined {
+  return typeof value === "string" && value.trim() ? value : undefined;
+}
+
 export function firstImage(value?: string | string[]): string | undefined {
   if (typeof value === "string" && value.trim()) return value;
   if (Array.isArray(value)) return value.find((entry) => typeof entry === "string" && Boolean(entry.trim()));

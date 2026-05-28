@@ -1,6 +1,14 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { SemanticStructuredDataGate, firstImage, isRecord, joinClassNames, mergeArrayByIndex, mergeRecordLike } from "./shared.js";
+import {
+  SemanticStructuredDataGate,
+  firstImage,
+  isRecord,
+  joinClassNames,
+  mergeArrayByIndexCapped,
+  mergeRecordLike,
+  nonEmptyString,
+} from "./shared.js";
 
 type CourseStructuredDataInput = React.ComponentProps<typeof structuredDataReact.CourseStructuredData>["data"];
 
@@ -41,12 +49,23 @@ function buildCourseStructuredData(props: CourseProps): CourseStructuredDataInpu
     hasCourseInstance: baseInstances,
   };
   const merged = { ...base, ...(props.structuredDataOverrides ?? {}) };
-  merged.provider = isRecord(base.provider) ? mergeRecordLike(base.provider, props.structuredDataOverrides?.provider) : merged.provider;
+  if (isRecord(base.provider)) {
+    const mergedProvider = mergeRecordLike(base.provider, props.structuredDataOverrides?.provider);
+    merged.provider = {
+      ...mergedProvider,
+      name: nonEmptyString(mergedProvider.name) ?? base.provider.name,
+      url: nonEmptyString(mergedProvider.url) ?? base.provider.url,
+    };
+  }
   if (Array.isArray(base.hasCourseInstance)) {
-    merged.hasCourseInstance = mergeArrayByIndex(
+    merged.hasCourseInstance = mergeArrayByIndexCapped(
       base.hasCourseInstance.filter(isRecord),
       props.structuredDataOverrides?.hasCourseInstance,
-    );
+    ).map((entry, index) => ({
+      ...entry,
+      name: nonEmptyString(entry.name) ?? base.hasCourseInstance?.[index]?.name ?? `${props.name} instance`,
+      courseMode: nonEmptyString(entry.courseMode) ?? base.hasCourseInstance?.[index]?.courseMode,
+    }));
   }
   merged.name = props.name;
   return merged;

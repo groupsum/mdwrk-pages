@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { SemanticStructuredDataGate, firstImage, isRecord, joinClassNames, mergeRecordLike } from "./shared.js";
+import { SemanticStructuredDataGate, firstImage, isRecord, joinClassNames, mergeRecordLike, nonEmptyString } from "./shared.js";
 
 type ArticleStructuredDataInput = React.ComponentProps<typeof structuredDataReact.ArticleStructuredData>["data"];
 
@@ -35,9 +35,16 @@ function buildArticleStructuredData(props: ArticleProps): ArticleStructuredDataI
     mainEntityOfPage: props.url,
   };
   const merged = { ...base, ...(props.structuredDataOverrides ?? {}) };
-  merged.author = isRecord(base.author) ? mergeRecordLike(base.author, props.structuredDataOverrides?.author) : merged.author;
+  if (isRecord(base.author)) {
+    const mergedAuthor = mergeRecordLike(base.author, props.structuredDataOverrides?.author);
+    merged.author = {
+      ...mergedAuthor,
+      name: nonEmptyString(mergedAuthor.name) ?? base.author.name,
+      url: nonEmptyString(mergedAuthor.url) ?? base.author.url,
+    };
+  }
   merged.name = props.title;
-  merged.headline = props.structuredDataOverrides?.headline ?? props.title;
+  merged.headline = nonEmptyString(props.structuredDataOverrides?.headline) ?? props.title;
   return merged;
 }
 

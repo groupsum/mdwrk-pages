@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { SemanticStructuredDataGate, joinClassNames, mergeArrayByIndex } from "./shared.js";
+import { SemanticStructuredDataGate, joinClassNames, mergeArrayByIndexCapped, nonEmptyString } from "./shared.js";
 
 type QuizStructuredDataInput = React.ComponentProps<typeof structuredDataReact.QuizStructuredData>["data"];
 
@@ -39,10 +39,12 @@ function buildQuizStructuredData(props: QuizProps): QuizStructuredDataInput {
     (value as { text: string }).text.trim()
       ? ((value as { text: string }).text as string)
       : undefined;
-  merged.hasPart = mergeArrayByIndex(base.hasPart, props.structuredDataOverrides?.hasPart).map((entry, index) => ({
+  merged.hasPart = mergeArrayByIndexCapped(base.hasPart, props.structuredDataOverrides?.hasPart).map((entry, index) => ({
     ...entry,
     name: base.hasPart[index]?.name ?? (typeof entry.name === "string" ? entry.name : `Question ${index + 1}`),
     text: base.hasPart[index]?.text ?? (typeof entry.text === "string" ? entry.text : undefined),
+    answerCount: base.hasPart[index]?.answerCount ?? entry.answerCount,
+    suggestedAnswer: base.hasPart[index]?.suggestedAnswer,
     acceptedAnswer: {
       ...(base.hasPart[index]?.acceptedAnswer ?? {}),
       ...(entry.acceptedAnswer && typeof entry.acceptedAnswer === "object" ? entry.acceptedAnswer : {}),
@@ -50,6 +52,7 @@ function buildQuizStructuredData(props: QuizProps): QuizStructuredDataInput {
     },
   }));
   merged.name = props.name;
+  merged.learningResourceType = nonEmptyString(props.structuredDataOverrides?.learningResourceType) ?? base.learningResourceType;
   return merged;
 }
 

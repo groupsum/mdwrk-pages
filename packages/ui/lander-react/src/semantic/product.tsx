@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { SemanticStructuredDataGate, firstImage, isRecord, joinClassNames, mergeRecordLike } from "./shared.js";
+import { SemanticStructuredDataGate, firstImage, isRecord, joinClassNames, mergeRecordLike, nonEmptyString } from "./shared.js";
 
 type ProductStructuredDataInput = React.ComponentProps<typeof structuredDataReact.ProductStructuredData>["data"];
 
@@ -45,8 +45,23 @@ function buildProductStructuredData(props: ProductProps): ProductStructuredDataI
     offers: baseOffers,
   };
   const merged = { ...base, ...(props.structuredDataOverrides ?? {}) };
-  merged.brand = isRecord(base.brand) ? mergeRecordLike(base.brand, props.structuredDataOverrides?.brand) : merged.brand;
-  merged.offers = isRecord(base.offers) ? mergeRecordLike(base.offers, props.structuredDataOverrides?.offers) : merged.offers;
+  if (isRecord(base.brand)) {
+    const mergedBrand = mergeRecordLike(base.brand, props.structuredDataOverrides?.brand);
+    merged.brand = {
+      ...mergedBrand,
+      name: nonEmptyString(mergedBrand.name) ?? base.brand.name,
+    };
+  }
+  if (isRecord(base.offers)) {
+    const mergedOffers = mergeRecordLike(base.offers, props.structuredDataOverrides?.offers);
+    merged.offers = {
+      ...mergedOffers,
+      url: nonEmptyString(mergedOffers.url) ?? base.offers.url,
+      priceCurrency: nonEmptyString(mergedOffers.priceCurrency) ?? base.offers.priceCurrency,
+      availability: nonEmptyString(mergedOffers.availability) ?? base.offers.availability,
+      price: mergedOffers.price ?? base.offers.price,
+    };
+  }
   merged.name = props.name;
   return merged;
 }
