@@ -1,0 +1,25 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-question-padding: 1.35rem;
+  --mdp-semantic-question-gap: 0.95rem;
+  --mdp-semantic-question-radius: 1.25rem;
+  --mdp-semantic-question-surface: linear-gradient(180deg, #ffffff, #f7fbff);
+  --mdp-semantic-question-border: color-mix(in srgb, var(--lander-border) 74%, #7c3aed 26%);
+  --mdp-semantic-question-shadow: 0 1rem 2rem rgba(76, 42, 134, 0.12);
+  --mdp-semantic-question-accent: #7c3aed;
+}
+
+.lander-semantic--question { display: grid; gap: var(--mdp-semantic-question-gap); padding: var(--mdp-semantic-question-padding); border: 1px solid var(--mdp-semantic-question-border); border-radius: var(--mdp-semantic-question-radius); background: var(--mdp-semantic-question-surface); box-shadow: var(--mdp-semantic-question-shadow); color: var(--lander-fg); }
+.lander-semantic--question .lander-semantic__header { display: grid; gap: 0.7rem; }
+.lander-semantic--question .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-question-accent); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.lander-semantic--question .lander-semantic__title { margin: 0; font-size: clamp(1.35rem, 3vw, 1.9rem); line-height: 1.08; }
+.lander-semantic--question .lander-semantic__accepted-answer { padding: 0.85rem 1rem; border-radius: 0.95rem; background: color-mix(in srgb, var(--mdp-semantic-question-accent) 8%, white 92%); border: 1px solid color-mix(in srgb, var(--mdp-semantic-question-accent) 24%, transparent); }
+.lander-semantic--question .lander-semantic__suggested-answer-list ul { display: grid; gap: 0.45rem; padding-left: 1rem; }
+.lander-semantic--question .lander-semantic__meta,
+.lander-semantic--question .lander-semantic__subtitle,
+.lander-semantic--question .lander-semantic__description,
+.lander-semantic--question .lander-semantic__footer { margin: 0; color: var(--lander-fg-muted); }
+.lander-semantic--question .lander-semantic__image { width: 100%; max-width: 100%; border-radius: 1rem; object-fit: cover; }
+.lander-semantic--question .lander-semantic__body,
+.lander-semantic--question .lander-semantic__actions { display: grid; gap: var(--mdwrk-space-3); }

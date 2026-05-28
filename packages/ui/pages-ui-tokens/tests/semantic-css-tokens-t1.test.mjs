@@ -77,3 +77,29 @@ test("T1: article-family token files define distinct layout hooks beyond the sha
   assert.ok(discussionCss.includes("background: rgba(255, 255, 255, 0.74)"), "discussion posting should style its body as a thread panel");
   assert.ok(claimCss.includes(".lander-semantic__callout"), "claim review should style the reviewed-claim callout");
 });
+
+test("T1: education-family token files define distinct layout hooks beyond the shared shell baseline", () => {
+  const courseCss = readCssFile("semantic-course.css");
+  const courseInstanceCss = readCssFile("semantic-course-instance.css");
+  const quizCss = readCssFile("semantic-quiz.css");
+  const qaCss = readCssFile("semantic-qa-page.css");
+  const questionCss = readCssFile("semantic-question.css");
+  const answerCss = readCssFile("semantic-answer.css");
+  const faqCss = readCssFile("semantic-faq-page.css");
+  const howToCss = readCssFile("semantic-how-to.css");
+  const resourceCss = readCssFile("semantic-learning-resource.css");
+  const mathCss = readCssFile("semantic-math-solver.css");
+  const solveCss = readCssFile("semantic-solve-math-action.css");
+
+  assert.ok(courseCss.includes(".lander-semantic__module-list"), "course should style module cards");
+  assert.ok(courseInstanceCss.includes("grid-template-columns"), "course instance should style meta as a schedule grid");
+  assert.ok(quizCss.includes(".lander-semantic__quiz-card"), "quiz should style quiz cards");
+  assert.ok(qaCss.includes(".lander-semantic__accepted-answer"), "qa page should style accepted answers");
+  assert.ok(questionCss.includes(".lander-semantic__accepted-answer"), "question should style accepted answers");
+  assert.ok(answerCss.includes(".lander-semantic__answer-prose"), "answer should style its prose rail");
+  assert.ok(faqCss.includes(".lander-semantic__faq-item"), "faq page should style faq items");
+  assert.ok(howToCss.includes(".lander-semantic__how-to-step::before"), "how-to should number step cards");
+  assert.ok(resourceCss.includes(".lander-semantic__learning-resource-tags"), "learning resource should style teaching tags");
+  assert.ok(mathCss.includes("font-family: var(--mdwrk-font-mono)"), "math solver should expose calculator typography");
+  assert.ok(solveCss.includes(".lander-semantic__solve-math-summary"), "solve math action should style the action summary");
+});

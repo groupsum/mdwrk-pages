@@ -1,1 +1,1 @@
-export const MDWRK_PAGES_UI_TOKENS_VERSION = "0.1.4";
+export const MDWRK_PAGES_UI_TOKENS_VERSION = "0.1.5";

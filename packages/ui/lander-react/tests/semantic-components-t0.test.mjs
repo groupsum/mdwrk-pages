@@ -36,3 +36,31 @@ test("T0: article-family fused components render distinct shell classes for thei
   assert.ok(claimMarkup.includes("lander-semantic--claim-review"));
   assert.ok(claimMarkup.includes("lander-semantic__callout"));
 });
+
+test("T0: education-family fused components expose distinct layout hooks for their richer token surfaces", async () => {
+  const mod = await importLanderReactDist();
+  const courseMarkup = renderToStaticMarkup(React.createElement(mod.Course, { name: "Course", modules: [{ title: "Module A", summary: "Foundations" }], viewModel: { outcomes: ["Ship prompts"] } }));
+  const quizMarkup = renderToStaticMarkup(React.createElement(mod.Quiz, { name: "Quiz", questions: [{ prompt: "What is drift?", answer: "Behavior change." }] }));
+  const qaMarkup = renderToStaticMarkup(React.createElement(mod.QAPage, { question: "What is prompt drift?", acceptedAnswer: { text: "Behavior change." }, suggestedAnswer: [{ text: "Latency issue." }] }));
+  const answerMarkup = renderToStaticMarkup(React.createElement(mod.Answer, { text: "Behavior change.", author: { name: "MDWRK" } }));
+  const howToMarkup = renderToStaticMarkup(React.createElement(mod.HowTo, { name: "Ship prompts", steps: [{ name: "Baseline", text: "Capture current behavior." }] }));
+  const resourceMarkup = renderToStaticMarkup(React.createElement(mod.LearningResource, { name: "Guide", teaches: ["Prompt validation"] }));
+  const mathMarkup = renderToStaticMarkup(React.createElement(mod.MathSolver, { name: "Solver", mathExpression: "2x+4=10", potentialAction: [{ target: "https://mdwrk.test/math" }] }));
+  const solveMarkup = renderToStaticMarkup(React.createElement(mod.SolveMathAction, { target: "https://mdwrk.test/math", mathExpressionInput: "x+2=4" }));
+  const faqMarkup = renderToStaticMarkup(React.createElement(mod.FAQPage, { items: [{ question: "What is drift?", answer: "Behavior change." }], viewModel: { collapsible: true } }));
+
+  assert.ok(courseMarkup.includes("lander-semantic__module-list"));
+  assert.ok(courseMarkup.includes("lander-semantic__outcomes-list"));
+  assert.ok(quizMarkup.includes("lander-semantic__quiz-grid"));
+  assert.ok(quizMarkup.includes("lander-semantic__quiz-card"));
+  assert.ok(qaMarkup.includes("lander-semantic__accepted-answer"));
+  assert.ok(qaMarkup.includes("lander-semantic__suggested-answer-list"));
+  assert.ok(answerMarkup.includes("lander-semantic__answer-prose"));
+  assert.ok(howToMarkup.includes("lander-semantic__how-to-steps"));
+  assert.ok(resourceMarkup.includes("lander-semantic__learning-resource-tags"));
+  assert.ok(mathMarkup.includes("lander-semantic__math-expression"));
+  assert.ok(mathMarkup.includes("lander-semantic__math-targets"));
+  assert.ok(solveMarkup.includes("lander-semantic__solve-math-summary"));
+  assert.ok(faqMarkup.includes("lander-semantic__faq-list"));
+  assert.ok(faqMarkup.includes("lander-semantic__faq-item"));
+});

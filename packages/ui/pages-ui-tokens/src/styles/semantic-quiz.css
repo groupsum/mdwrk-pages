@@ -1,77 +1,29 @@
 :root,
 :root[data-lander-theme="lander-light"],
 [data-lander-theme="lander-light"] {
-  --mdp-semantic-quiz-padding: 1.5rem;
-  --mdp-semantic-quiz-gap: 1rem;
-  --mdp-semantic-quiz-radius: 1.25rem;
-  --mdp-semantic-quiz-surface: color-mix(in srgb, var(--lander-panel) 94%, transparent);
-  --mdp-semantic-quiz-border: var(--lander-border);
-  --mdp-semantic-quiz-shadow: var(--mdwrk-shadow-strong);
-  --mdp-semantic-quiz-card-gap: 1rem;
-  --mdp-semantic-quiz-answer-radius: 0.875rem;
-  --mdp-semantic-quiz-answer-surface: color-mix(in srgb, var(--lander-panel-muted) 88%, transparent);
+  --mdp-semantic-quiz-padding: 1.6rem;
+  --mdp-semantic-quiz-gap: 1.15rem;
+  --mdp-semantic-quiz-radius: 1.5rem;
+  --mdp-semantic-quiz-surface: linear-gradient(160deg, #fffdf7, #eef7ff);
+  --mdp-semantic-quiz-border: color-mix(in srgb, var(--lander-border) 68%, #ff9f0a 32%);
+  --mdp-semantic-quiz-shadow: 0 1.5rem 2.8rem rgba(99, 74, 22, 0.14);
+  --mdp-semantic-quiz-accent: #d97706;
 }
 
-.lander-semantic--quiz {
-  display: grid;
-  gap: var(--mdp-semantic-quiz-gap);
-  padding: var(--mdp-semantic-quiz-padding);
-  border: 1px solid var(--mdp-semantic-quiz-border);
-  border-radius: var(--mdp-semantic-quiz-radius);
-  background: var(--mdp-semantic-quiz-surface);
-  box-shadow: var(--mdp-semantic-quiz-shadow);
-  color: var(--lander-fg);
-}
-
-.lander-semantic--quiz .lander-semantic__header {
-  display: grid;
-  gap: var(--mdwrk-space-3);
-}
-
-.lander-semantic--quiz .lander-semantic__title {
-  margin: 0;
-  color: var(--lander-heading-fg);
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  line-height: 1.08;
-}
-
-.lander-semantic--quiz .lander-semantic__description {
-  margin: 0;
-  color: var(--lander-fg-muted);
-}
-
-.lander-semantic--quiz .lander-semantic__body {
-  display: grid;
-  gap: var(--mdwrk-space-3);
-}
-
-.lander-semantic--quiz .lander-page__assessment-grid {
-  display: grid;
-  gap: var(--mdp-semantic-quiz-card-gap);
-}
-
-.lander-semantic--quiz .lander-page__flashcard {
-  display: grid;
-  gap: var(--mdwrk-space-3);
-}
-
-.lander-semantic--quiz .lander-page__flashcard h2,
-.lander-semantic--quiz .lander-page__flashcard ul {
-  margin: 0;
-}
-
-.lander-semantic--quiz .lander-page__flashcard-answer {
-  border-radius: var(--mdp-semantic-quiz-answer-radius);
-  background: var(--mdp-semantic-quiz-answer-surface);
-  padding: 0.875rem 1rem;
-}
-
-.lander-semantic--quiz .lander-page__flashcard-answer-text,
-.lander-semantic--quiz .lander-page__flashcard-placeholder {
-  margin: 0;
-}
-
-.lander-semantic--quiz .lander-semantic__footer {
-  color: var(--lander-fg-muted);
-  font-size: 0.9375rem;
-}
+.lander-semantic--quiz { display: grid; gap: var(--mdp-semantic-quiz-gap); padding: var(--mdp-semantic-quiz-padding); border: 1px solid var(--mdp-semantic-quiz-border); border-radius: var(--mdp-semantic-quiz-radius); background: var(--mdp-semantic-quiz-surface); box-shadow: var(--mdp-semantic-quiz-shadow); color: var(--lander-fg); }
+.lander-semantic--quiz .lander-semantic__header { display: grid; gap: 0.8rem; }
+.lander-semantic--quiz .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-quiz-accent); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.lander-semantic--quiz .lander-semantic__title { margin: 0; font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.03; }
+.lander-semantic--quiz .lander-semantic__subtitle,
+.lander-semantic--quiz .lander-semantic__description,
+.lander-semantic--quiz .lander-semantic__meta,
+.lander-semantic--quiz .lander-semantic__footer { margin: 0; color: var(--lander-fg-muted); }
+.lander-semantic--quiz .lander-semantic__image { width: 100%; max-width: 100%; border-radius: 1rem; object-fit: cover; }
+.lander-semantic--quiz .lander-semantic__body,
+.lander-semantic--quiz .lander-semantic__actions { display: grid; gap: var(--mdwrk-space-3); }
+.lander-semantic--quiz .lander-semantic__quiz-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.lander-semantic--quiz .lander-semantic__quiz-card { position: relative; display: grid; gap: 0.8rem; min-height: 100%; padding: 1.1rem; border-radius: 1.15rem; background: rgba(255,255,255,0.84); border: 1px solid color-mix(in srgb, var(--mdp-semantic-quiz-border) 72%, white 28%); box-shadow: 0 1rem 1.8rem rgba(85, 71, 23, 0.08); }
+.lander-semantic--quiz .lander-semantic__quiz-kicker { width: fit-content; padding: 0.2rem 0.55rem; border-radius: 999px; background: color-mix(in srgb, var(--mdp-semantic-quiz-accent) 16%, white 84%); color: var(--mdp-semantic-quiz-accent); font-weight: 800; }
+.lander-semantic--quiz .lander-semantic__quiz-alternatives ul { display: grid; gap: 0.45rem; padding-left: 1rem; }
+.lander-semantic--quiz .lander-semantic__quiz-response { padding: 0.9rem 1rem; border-radius: 0.9rem; background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,244,214,0.7)); border: 1px dashed color-mix(in srgb, var(--mdp-semantic-quiz-accent) 40%, transparent); }
+.lander-semantic--quiz .lander-page__button { justify-self: start; }
