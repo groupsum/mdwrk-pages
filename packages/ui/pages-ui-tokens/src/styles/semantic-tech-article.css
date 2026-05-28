@@ -1,0 +1,150 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-tech-article-padding: clamp(1.2rem, 2vw, 1.9rem);
+  --mdp-semantic-tech-article-gap: 1rem;
+  --mdp-semantic-tech-article-radius: 1.4rem;
+  --mdp-semantic-tech-article-surface: linear-gradient(180deg, color-mix(in srgb, #0d1721 88%, var(--lander-panel)) 0%, color-mix(in srgb, #112637 82%, var(--lander-panel)) 100%);
+  --mdp-semantic-tech-article-border: color-mix(in srgb, #67c2ff 32%, var(--lander-border));
+  --mdp-semantic-tech-article-shadow: 0 1.5rem 3.2rem rgba(6, 19, 29, 0.3);
+}
+
+.lander-semantic--tech-article {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(14rem, 0.85fr);
+  grid-template-areas:
+    "header image"
+    "body image"
+    "footer footer";
+  align-items: start;
+  gap: var(--mdp-semantic-tech-article-gap);
+  padding: var(--mdp-semantic-tech-article-padding);
+  border: 1px solid var(--mdp-semantic-tech-article-border);
+  border-radius: var(--mdp-semantic-tech-article-radius);
+  background: var(--mdp-semantic-tech-article-surface);
+  box-shadow: var(--mdp-semantic-tech-article-shadow);
+  color: color-mix(in srgb, white 88%, #d7ebff 12%);
+  overflow: hidden;
+  position: relative;
+}
+
+.lander-semantic--tech-article::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0.35rem;
+  background: linear-gradient(180deg, #67c2ff 0%, #31e3b6 100%);
+}
+
+.lander-semantic--tech-article .lander-semantic__header {
+  grid-area: header;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.lander-semantic--tech-article .lander-semantic__eyebrow {
+  width: fit-content;
+  margin: 0;
+  padding: 0.24rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(103, 194, 255, 0.14);
+  color: #9fe0ff;
+  font-size: 0.8125rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: var(--mdwrk-font-mono);
+}
+
+.lander-semantic--tech-article .lander-semantic__title {
+  margin: 0;
+  color: #f4fbff;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1;
+  max-width: 15ch;
+}
+
+.lander-semantic--tech-article .lander-semantic__subtitle,
+.lander-semantic--tech-article .lander-semantic__description,
+.lander-semantic--tech-article .lander-semantic__meta,
+.lander-semantic--tech-article .lander-semantic__footer {
+  margin: 0;
+  color: rgba(232, 245, 255, 0.78);
+}
+
+.lander-semantic--tech-article .lander-semantic__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+  font-size: 0.88rem;
+}
+
+.lander-semantic--tech-article .lander-semantic__meta dt {
+  margin: 0;
+  color: #9fe0ff;
+  font-weight: 800;
+}
+
+.lander-semantic--tech-article .lander-semantic__meta dd {
+  margin: 0;
+}
+
+.lander-semantic--tech-article .lander-semantic__image {
+  grid-area: image;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--mdwrk-radius-lg);
+  object-fit: cover;
+  border: 1px solid rgba(103, 194, 255, 0.18);
+}
+
+.lander-semantic--tech-article .lander-semantic__body,
+.lander-semantic--tech-article .lander-semantic__actions {
+  grid-area: body;
+  display: grid;
+  gap: var(--mdwrk-space-3);
+}
+
+.lander-semantic--tech-article .lander-semantic__body {
+  line-height: 1.72;
+}
+
+.lander-semantic--tech-article .lander-semantic__body code,
+.lander-semantic--tech-article .lander-semantic__body pre {
+  font-family: var(--mdwrk-font-mono);
+}
+
+.lander-semantic--tech-article .lander-semantic__body > *,
+.lander-semantic--tech-article .lander-semantic__actions > *,
+.lander-semantic--tech-article .lander-semantic__footer > * {
+  margin: 0;
+}
+
+.lander-semantic--tech-article .lander-semantic__footer {
+  grid-area: footer;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(103, 194, 255, 0.16);
+}
+
+@media (max-width: 860px) {
+  .lander-semantic--tech-article {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "image"
+      "body"
+      "footer";
+  }
+
+  .lander-semantic--tech-article .lander-semantic__title {
+    max-width: none;
+  }
+
+  .lander-semantic--tech-article .lander-semantic__image {
+    aspect-ratio: 16 / 10;
+    min-height: 0;
+  }
+}
+
