@@ -1,0 +1,32 @@
+{
+  "name": "@mdwrk/example-semantic-components-demo",
+  "private": true,
+  "version": "0.1.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "npm run build -w @mdwrk/lander-content-contract && npm run build -w @mdwrk/lander-core && npm run build -w @mdwrk/structured-data && npm run build -w @mdwrk/pages-ui-tokens && npm run build -w @mdwrk/lander-react-structured-data && npm run build -w @mdwrk/lander-react && tsc --noEmit && vite build",
+    "test": "npm run build && node --test tests/semantic-components-demo-t0.test.mjs tests/semantic-components-demo-t1.test.mjs tests/vite-delivery-t1.test.mjs",
+    "typecheck": "npm run build -w @mdwrk/lander-content-contract && npm run build -w @mdwrk/lander-core && npm run build -w @mdwrk/structured-data && npm run build -w @mdwrk/pages-ui-tokens && npm run build -w @mdwrk/lander-react-structured-data && npm run build -w @mdwrk/lander-react && tsc --noEmit",
+    "lint": "npm run typecheck"
+  },
+  "dependencies": {
+    "@mdwrk/lander-content-contract": "^0.1.0",
+    "@mdwrk/lander-core": "^0.1.0",
+    "@mdwrk/lander-react": "^0.1.0",
+    "@mdwrk/lander-react-structured-data": "^0.1.0",
+    "@mdwrk/structured-data": "^0.1.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  },
+  "license": "Apache-2.0",
+  "author": "Jacob Stewart <jacob@swarmauri.com>",
+  "homepage": "https://mdwrk.com"
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import type { CompiledLanderSite, CompiledPage } from "@mdwrk/lander-core";
-import { productDomainBundle } from "../../../packages/lander/lander-page-templates/dist/domains/product.js";
+import { productDomainBundle } from "../../../packages/core/lander-page-templates/dist/domains/product.js";
 import { VisibleLanderPage } from "@mdwrk/lander-react";
 import { LanderStructuredData } from "@mdwrk/lander-react-structured-data";
 import {

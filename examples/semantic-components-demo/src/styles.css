@@ -1,0 +1,217 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", Inter, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(122, 165, 141, 0.18), transparent 32rem),
+    linear-gradient(180deg, #f6f3ea 0%, #edf2eb 100%);
+  color: #17201b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+code {
+  font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.semantic-demo {
+  width: min(1600px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.5rem 0 3rem;
+}
+
+.semantic-demo__hero {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(23, 32, 27, 0.12);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 1.5rem 4rem rgba(23, 32, 27, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.semantic-demo__hero h1,
+.semantic-demo__family-header h2 {
+  margin: 0;
+}
+
+.semantic-demo__lede {
+  max-width: 72rem;
+  margin: 0;
+  color: #42534a;
+  line-height: 1.55;
+}
+
+.semantic-demo__summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.semantic-demo__summary div {
+  padding: 0.9rem 1rem;
+  border-radius: 0.9rem;
+  background: rgba(237, 242, 235, 0.88);
+  border: 1px solid rgba(23, 32, 27, 0.08);
+}
+
+.semantic-demo__summary dt {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #567564;
+}
+
+.semantic-demo__summary dd {
+  margin: 0.35rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.semantic-demo__families {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.semantic-demo__family {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(23, 32, 27, 0.12);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 1rem 3rem rgba(23, 32, 27, 0.06);
+}
+
+.semantic-demo__family-header {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.semantic-demo__family-header p {
+  margin: 0;
+  color: #42534a;
+  line-height: 1.5;
+}
+
+.semantic-demo__kicker {
+  margin: 0;
+  color: #2f735f;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.semantic-demo__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.semantic-demo__entry {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.semantic-demo__entry-meta {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.semantic-demo__entry-meta code {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(47, 115, 95, 0.12);
+  color: #184e40;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.semantic-demo__entry-meta p {
+  margin: 0;
+  color: #42534a;
+  font-size: 0.94rem;
+}
+
+.semantic-demo__card {
+  min-width: 0;
+}
+
+.semantic-demo__card .lander-semantic__header {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 0.85rem;
+}
+
+.semantic-demo__card .lander-semantic__eyebrow {
+  margin: 0;
+  color: #2f735f;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.semantic-demo__card .lander-semantic__title {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.08;
+}
+
+.semantic-demo__card .lander-semantic__subtitle,
+.semantic-demo__card .lander-semantic__description,
+.semantic-demo__card .lander-semantic__meta,
+.semantic-demo__card .lander-semantic__body p,
+.semantic-demo__card .lander-semantic__footer {
+  margin: 0;
+  color: #42534a;
+}
+
+.semantic-demo__card .lander-semantic__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+}
+
+.semantic-demo__card .lander-semantic__body {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.semantic-demo__card .lander-semantic__body ul,
+.semantic-demo__card .lander-semantic__body ol {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: #42534a;
+}
+
+.semantic-demo__card .lander-semantic__image {
+  width: 100%;
+  border-radius: 0.7rem;
+  object-fit: cover;
+}
+
+@media (max-width: 1100px) {
+  .semantic-demo__summary,
+  .semantic-demo__grid {
+    grid-template-columns: 1fr;
+  }
+}
