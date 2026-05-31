@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:eli:passed_by",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "title": "eli:passed_by",
+  "type": [
+    "string",
+    "number",
+    "boolean",
+    "object",
+    "array",
+    "null"
+  ],
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:bookingAgent",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "'bookingAgent' is an out-dated term indicating a 'broker' that serves as a booking agent.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "bookingAgent",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,43 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:RentalCarReservation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Reservation.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "RentalCarReservation"
+        },
+        "dropoffLocation": {
+          "$ref": "../properties/dropoffLocation.schema.json",
+          "description": "Where a rental car can be dropped off."
+        },
+        "dropoffTime": {
+          "$ref": "../properties/dropoffTime.schema.json",
+          "description": "When a rental car can be dropped off."
+        },
+        "pickupLocation": {
+          "$ref": "../properties/pickupLocation.schema.json",
+          "description": "Where a taxi will pick up a passenger or a rental car can be picked up."
+        },
+        "pickupTime": {
+          "$ref": "../properties/pickupTime.schema.json",
+          "description": "When a taxi will pick up a passenger or a rental car can be picked up."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A reservation for a rental car.\\n\\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.",
+  "title": "RentalCarReservation"
+}

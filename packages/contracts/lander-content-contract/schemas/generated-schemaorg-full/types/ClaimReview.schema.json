@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ClaimReview",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Review.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ClaimReview"
+        },
+        "claimReviewed": {
+          "$ref": "../properties/claimReviewed.schema.json",
+          "description": "A short summary of the specific claims reviewed in a ClaimReview."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A fact-checking review of claims made (or reported) in some creative work (referenced via itemReviewed).",
+  "title": "ClaimReview"
+}

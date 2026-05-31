@@ -1,11 +1,13 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { SemanticShell, SemanticStructuredDataGate, bodyList, renderJsonPreview } from "./shared.js";
+import { SemanticShell, SemanticStructuredDataGate, bodyList, renderJsonPreview, thingReference } from "./shared.js";
 
 type ProfilePageStructuredDataInput = React.ComponentProps<typeof structuredDataReact.ProfilePageStructuredData>["data"];
 type OrganizationStructuredDataInput = React.ComponentProps<typeof structuredDataReact.OrganizationStructuredData>["data"];
+type EducationalOrganizationStructuredDataInput = React.ComponentProps<typeof structuredDataReact.EducationalOrganizationStructuredData>["data"];
 type LocalBusinessStructuredDataInput = React.ComponentProps<typeof structuredDataReact.LocalBusinessStructuredData>["data"];
 type MemberProgramStructuredDataInput = React.ComponentProps<typeof structuredDataReact.MemberProgramStructuredData>["data"];
+type MemberProgramTierStructuredDataInput = React.ComponentProps<typeof structuredDataReact.MemberProgramTierStructuredData>["data"];
 type WebPageStructuredDataInput = React.ComponentProps<typeof structuredDataReact.WebPageStructuredData>["data"];
 type WebSiteStructuredDataInput = React.ComponentProps<typeof structuredDataReact.WebSiteStructuredData>["data"];
 type BreadcrumbListStructuredDataInput = React.ComponentProps<typeof structuredDataReact.BreadcrumbListStructuredData>["data"];
@@ -43,6 +45,11 @@ export interface LocalBusinessProps extends OrganizationProps {
   structuredDataOverrides?: Partial<LocalBusinessStructuredDataInput>;
 }
 
+export interface EducationalOrganizationProps extends OrganizationProps {
+  address?: string;
+  structuredDataOverrides?: Partial<EducationalOrganizationStructuredDataInput>;
+}
+
 export interface MemberProgramProps {
   name: string;
   description?: string;
@@ -52,6 +59,21 @@ export interface MemberProgramProps {
   className?: string;
   emitStructuredData?: boolean;
   structuredDataOverrides?: Partial<MemberProgramStructuredDataInput>;
+}
+
+export interface MemberProgramTierProps {
+  name: string;
+  description?: string;
+  hasTierBenefit?: string[];
+  membershipPointsEarned?: number | string;
+  membershipPointsRequired?: number | string;
+  validFrom?: string;
+  validThrough?: string;
+  body?: React.ReactNode;
+  viewModel?: { eyebrow?: string; footer?: React.ReactNode };
+  className?: string;
+  emitStructuredData?: boolean;
+  structuredDataOverrides?: Partial<MemberProgramTierStructuredDataInput>;
 }
 
 export interface WebPageProps {
@@ -104,7 +126,7 @@ export function ProfilePage(props: ProfilePageProps) {
   const base: ProfilePageStructuredDataInput = {
     name: props.name,
     description: props.description,
-    mainEntity: props.mainEntity,
+    mainEntity: thingReference(props.mainEntity),
   };
   const structuredData = { ...base, ...(props.structuredDataOverrides ?? {}) };
   return (
@@ -154,6 +176,52 @@ export function Organization(props: OrganizationProps) {
         description={props.description}
         imageSrc={props.logo}
         imageAlt={props.name}
+        body={
+          <>
+            {props.sameAs?.length ? (
+              <ul className="lander-semantic__network-list">
+                {props.sameAs.map((link) => (
+                  <li key={link} className="lander-semantic__network-item">
+                    <a className="lander-semantic__network-chip" href={link}>
+                      {link.replace(/^https?:\/\//, "")}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            {props.body}
+          </>
+        }
+        footer={props.viewModel?.footer}
+        className={props.className}
+      />
+    </>
+  );
+}
+
+export function EducationalOrganization(props: EducationalOrganizationProps) {
+  const base: EducationalOrganizationStructuredDataInput = {
+    name: props.name,
+    description: props.description,
+    url: props.url,
+    logo: props.logo,
+    sameAs: props.sameAs,
+    address: props.address,
+  };
+  const structuredData = { ...base, ...(props.structuredDataOverrides ?? {}) };
+  return (
+    <>
+      <SemanticStructuredDataGate emitStructuredData={props.emitStructuredData}>
+        <structuredDataReact.EducationalOrganizationStructuredData data={structuredData} />
+      </SemanticStructuredDataGate>
+      <SemanticShell
+        kind="educational-organization"
+        title={props.name}
+        eyebrow={props.viewModel?.eyebrow ?? "Educational organization"}
+        description={props.description}
+        imageSrc={props.logo}
+        imageAlt={props.name}
+        meta={[props.address ? { label: "Address", value: props.address } : null].filter(Boolean) as Array<{ label: string; value: React.ReactNode }>}
         body={
           <>
             {props.sameAs?.length ? (
@@ -239,7 +307,6 @@ export function MemberProgram(props: MemberProgramProps) {
   const base: MemberProgramStructuredDataInput = {
     name: props.name,
     description: props.description,
-    provider: props.provider,
   };
   const structuredData = { ...base, ...(props.structuredDataOverrides ?? {}) };
   return (
@@ -260,6 +327,43 @@ export function MemberProgram(props: MemberProgramProps) {
                 <strong className="lander-semantic__member-provider-value">{props.provider}</strong>
               </div>
             ) : null}
+            {props.body}
+          </>
+        }
+        footer={props.viewModel?.footer}
+        className={props.className}
+      />
+    </>
+  );
+}
+
+export function MemberProgramTier(props: MemberProgramTierProps) {
+  const base: MemberProgramTierStructuredDataInput = {
+    name: props.name,
+    description: props.description,
+    validFrom: props.validFrom,
+    validThrough: props.validThrough,
+  };
+  const structuredData = { ...base, ...(props.structuredDataOverrides ?? {}) };
+  return (
+    <>
+      <SemanticStructuredDataGate emitStructuredData={props.emitStructuredData}>
+        <structuredDataReact.MemberProgramTierStructuredData data={structuredData} />
+      </SemanticStructuredDataGate>
+      <SemanticShell
+        kind="member-program-tier"
+        title={props.name}
+        eyebrow={props.viewModel?.eyebrow ?? "Member program tier"}
+        description={props.description}
+        meta={[
+          props.membershipPointsEarned !== undefined ? { label: "Points earned", value: String(props.membershipPointsEarned) } : null,
+          props.membershipPointsRequired !== undefined ? { label: "Points required", value: String(props.membershipPointsRequired) } : null,
+          props.validFrom ? { label: "Valid from", value: props.validFrom } : null,
+          props.validThrough ? { label: "Valid through", value: props.validThrough } : null,
+        ].filter(Boolean) as Array<{ label: string; value: React.ReactNode }>}
+        body={
+          <>
+            {props.hasTierBenefit?.length ? <div className="lander-semantic__member-tier-benefits">{bodyList(props.hasTierBenefit)}</div> : null}
             {props.body}
           </>
         }

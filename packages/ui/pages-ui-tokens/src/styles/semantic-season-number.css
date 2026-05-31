@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-season-number-padding: 1rem;
+  --mdp-semantic-season-number-gap: 0.75rem;
+  --mdp-semantic-season-number-radius: 1rem;
+  --mdp-semantic-season-number-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-season-number-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-season-number-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--season-number {
+  padding: var(--mdp-semantic-season-number-padding);
+  gap: var(--mdp-semantic-season-number-gap);
+  border-radius: var(--mdp-semantic-season-number-radius);
+  background: var(--mdp-semantic-season-number-surface);
+  border: 1px solid var(--mdp-semantic-season-number-border);
+  box-shadow: var(--mdp-semantic-season-number-shadow);
+}
+
+.lander-semantic--season-number .lander-semantic__header,
+.lander-semantic--season-number .lander-semantic__body,
+.lander-semantic--season-number .lander-semantic__footer,
+.lander-semantic--season-number .lander-semantic__actions {
+  gap: var(--mdp-semantic-season-number-gap);
+}
+
+.lander-semantic--season-number .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--season-number .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--season-number .lander-semantic__subtitle,
+.lander-semantic--season-number .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--season-number .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-season-number-gap) * 0.8);
+}
+
+.lander-semantic--season-number .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--season-number .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

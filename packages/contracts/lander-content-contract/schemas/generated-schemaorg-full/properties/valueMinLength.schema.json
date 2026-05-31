@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:valueMinLength",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Specifies the minimum allowed range for number of characters in a literal value.",
+  "title": "valueMinLength",
+  "x-schemaorg-cardinality": "open-world"
+}

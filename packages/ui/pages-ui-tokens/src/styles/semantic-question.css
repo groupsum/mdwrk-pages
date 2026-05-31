@@ -14,8 +14,13 @@
 .lander-semantic--question .lander-semantic__header { display: grid; gap: 0.7rem; }
 .lander-semantic--question .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-question-accent); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
 .lander-semantic--question .lander-semantic__title { margin: 0; font-size: clamp(1.35rem, 3vw, 1.9rem); line-height: 1.08; }
-.lander-semantic--question .lander-semantic__accepted-answer { padding: 0.85rem 1rem; border-radius: 0.95rem; background: color-mix(in srgb, var(--mdp-semantic-question-accent) 8%, white 92%); border: 1px solid color-mix(in srgb, var(--mdp-semantic-question-accent) 24%, transparent); }
-.lander-semantic--question .lander-semantic__suggested-answer-list ul { display: grid; gap: 0.45rem; padding-left: 1rem; }
+.lander-semantic--question .lander-semantic__prompt-panel { display: grid; gap: 0.45rem; padding: 1rem 1.05rem; border-radius: 1rem; background: rgba(255,255,255,0.74); border: 1px solid color-mix(in srgb, var(--mdp-semantic-question-border) 55%, white 45%); }
+.lander-semantic--question .lander-semantic__section-kicker { width: fit-content; padding: 0.2rem 0.5rem; border-radius: 999px; background: rgba(124,58,237,0.12); color: var(--mdp-semantic-question-accent); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
+.lander-semantic--question .lander-semantic__accepted-answer { display: grid; gap: 0.4rem; padding: 0.85rem 1rem; border-radius: 0.95rem; background: color-mix(in srgb, var(--mdp-semantic-question-accent) 8%, white 92%); border: 1px solid color-mix(in srgb, var(--mdp-semantic-question-accent) 24%, transparent); }
+.lander-semantic--question .lander-semantic__answer-kicker { width: fit-content; padding: 0.18rem 0.48rem; border-radius: 999px; background: rgba(124,58,237,0.12); color: var(--mdp-semantic-question-accent); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
+.lander-semantic--question .lander-semantic__suggested-answer-list { display: grid; gap: 0.6rem; }
+.lander-semantic--question .lander-semantic__suggested-answer-card { display: grid; gap: 0.4rem; padding: 0.9rem 1rem; border-radius: 0.95rem; background: rgba(255,255,255,0.8); border: 1px solid rgba(124,58,237,0.14); }
+.lander-semantic--question .lander-semantic__suggested-answer-card p { margin: 0; }
 .lander-semantic--question .lander-semantic__meta,
 .lander-semantic--question .lander-semantic__subtitle,
 .lander-semantic--question .lander-semantic__description,

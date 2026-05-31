@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:acquireLicensePage",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates a page documenting how licenses can be purchased or otherwise acquired, for the current item.",
+  "oneOf": [
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "acquireLicensePage",
+  "x-schemaorg-cardinality": "open-world"
+}

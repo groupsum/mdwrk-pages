@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:SurgicalProcedure",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalProcedure.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "SurgicalProcedure"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A medical procedure involving an incision with instruments; performed for diagnose, or therapeutic purposes.",
+  "title": "SurgicalProcedure"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:worstRating",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The lowest value allowed in this rating system.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "worstRating",
+  "x-schemaorg-cardinality": "open-world"
+}

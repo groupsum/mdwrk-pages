@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ReviewAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "AssessAction.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ReviewAction"
+        },
+        "resultReview": {
+          "$ref": "../properties/resultReview.schema.json",
+          "description": "A sub property of result. The review that resulted in the performing of the action."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The act of producing a balanced opinion about the object for an audience. An agent reviews an object with participants resulting in a review.",
+  "title": "ReviewAction"
+}

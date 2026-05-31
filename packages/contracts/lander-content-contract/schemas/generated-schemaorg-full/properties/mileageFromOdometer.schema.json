@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:mileageFromOdometer",
+  "$ref": "../types/QuantitativeValue.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The total distance travelled by the particular vehicle since its initial production, as read from its odometer.\\n\\nTypical unit code(s): KMT for kilometers, SMI for statute miles.",
+  "title": "mileageFromOdometer",
+  "x-schemaorg-cardinality": "open-world"
+}

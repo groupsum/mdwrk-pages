@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:suitableForDiet",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates a dietary restriction or guideline for which this recipe or menu item is suitable, e.g. diabetic, halal etc.",
+  "oneOf": [
+    {
+      "$ref": "../types/Diet.schema.json"
+    },
+    {
+      "$ref": "../enumerations/RestrictedDiet.schema.json"
+    }
+  ],
+  "title": "suitableForDiet",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -5,13 +5,20 @@ import { pathToFileURL } from "node:url";
 import { fileURLToPath } from "node:url";
 
 import {
+  actionNode,
+  administrativeAreaNode,
+  aggregateOfferNode,
   aggregateRatingNode,
+  alignmentObjectNode,
   articleNode,
+  audienceNode,
+  audioObjectNode,
   bookNode,
   breadcrumbListSchema,
   courseNode,
   courseInstanceNode,
   datasetNode,
+  estimatedSalaryNode,
   faqPageSchema,
   howToNode,
   loyaltyProgramNode,
@@ -22,6 +29,7 @@ import {
   quizNode,
   readActionNode,
   reviewNode,
+  searchResultsPageNode,
   solveMathActionNode,
   softwareSourceCodeNode,
   speakableSpecificationNode,
@@ -47,18 +55,54 @@ test("T1: representative structured-data builder payloads satisfy published JSON
     url: "https://mdwrk.test/article",
     headline: "Article headline",
   });
-  assert.deepEqual(validateStructuredDataByType("Article", {
-    name: article.name,
-    url: article.url,
-    headline: article.headline,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("Article", article), []);
+
+  const action = actionNode({
+    name: "Read docs",
+    target: "https://mdwrk.test/docs",
+  });
+  assert.deepEqual(validateStructuredDataByType("Action", action), []);
+
+  const administrativeArea = administrativeAreaNode({
+    name: "Illinois",
+    containedInPlace: { "@type": "Place", name: "United States" },
+  });
+  assert.deepEqual(validateStructuredDataByType("AdministrativeArea", administrativeArea), []);
 
   const breadcrumb = breadcrumbListSchema({
     items: [{ label: "Home", href: "https://mdwrk.test/" }],
   });
-  assert.deepEqual(validateStructuredDataByType("BreadcrumbList", {
-    items: breadcrumb.itemListElement.map((entry) => ({ label: entry.name, href: entry.item })),
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("BreadcrumbList", breadcrumb), []);
+
+  const aggregateOffer = aggregateOfferNode({
+    name: "Offer range",
+    lowPrice: "10.00",
+    highPrice: "30.00",
+    offerCount: 3,
+    offers: [{ "@type": "Offer", price: "10.00", priceCurrency: "USD" }],
+  });
+  assert.deepEqual(validateStructuredDataByType("AggregateOffer", aggregateOffer), []);
+
+  const alignmentObject = alignmentObjectNode({
+    name: "Curriculum alignment",
+    alignmentType: "educationalSubject",
+    targetName: "Prompt operations",
+  });
+  assert.deepEqual(validateStructuredDataByType("AlignmentObject", alignmentObject), []);
+
+  const audience = audienceNode({
+    name: "Operators",
+    audienceType: "Prompt operators",
+    geographicArea: { "@type": "AdministrativeArea", name: "Illinois" },
+  });
+  assert.deepEqual(validateStructuredDataByType("Audience", audience), []);
+
+  const audioObject = audioObjectNode({
+    name: "Release call",
+    contentUrl: "https://mdwrk.test/audio.mp3",
+    transcript: "Release transcript.",
+  });
+  assert.deepEqual(validateStructuredDataByType("AudioObject", audioObject), []);
 
   const course = courseNode({
     name: "Course",
@@ -67,13 +111,7 @@ test("T1: representative structured-data builder payloads satisfy published JSON
     coursePrerequisites: ["TypeScript"],
     hasCourseInstance: [{ "@type": "CourseInstance", name: "May cohort" }],
   });
-  assert.deepEqual(validateStructuredDataByType("Course", {
-    name: course.name,
-    url: course.url,
-    provider: "MdWrk",
-    coursePrerequisites: ["TypeScript"],
-    hasCourseInstance: [{ "@type": "CourseInstance", name: "May cohort" }],
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("Course", course), []);
 
   const qaPage = qaPageSchema({
     question: "Q?",
@@ -82,14 +120,7 @@ test("T1: representative structured-data builder payloads satisfy published JSON
     answerCount: 2,
     url: "https://mdwrk.test/qa",
   });
-  const qaQuestion = qaPage.mainEntity;
-  assert.deepEqual(validateStructuredDataByType("QAPage", {
-    question: qaQuestion.name,
-    acceptedAnswer: { text: qaQuestion.acceptedAnswer.text },
-    suggestedAnswer: qaQuestion.suggestedAnswer.map((entry) => ({ text: entry.text })),
-    answerCount: qaQuestion.answerCount,
-    url: qaPage.url,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("QAPage", qaPage), []);
 
   const quiz = quizNode({
     name: "Quiz",
@@ -103,31 +134,14 @@ test("T1: representative structured-data builder payloads satisfy published JSON
       },
     ],
   });
-  assert.deepEqual(validateStructuredDataByType("Quiz", {
-    name: quiz.name,
-    hasPart: quiz.hasPart.map((question) => ({
-      name: question.name,
-      acceptedAnswer: { text: question.acceptedAnswer.text },
-      suggestedAnswer: question.suggestedAnswer.map((entry) => ({ text: entry.text })),
-      answerCount: question.answerCount,
-      eduQuestionType: question.eduQuestionType,
-    })),
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("Quiz", quiz), []);
 
   const howTo = howToNode({
     name: "How To",
     url: "https://mdwrk.test/how-to",
     steps: [{ name: "Step 1", text: "Do it." }],
   });
-  assert.deepEqual(validateStructuredDataByType("HowTo", {
-    name: howTo.name,
-    url: howTo.url,
-    steps: howTo.step.map((step) => ({
-      name: step.name,
-      text: step.text,
-      ...(step.url ? { url: step.url } : {}),
-    })),
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("HowTo", howTo), []);
 
   const video = videoObjectNode({
     name: "Video",
@@ -137,33 +151,14 @@ test("T1: representative structured-data builder payloads satisfy published JSON
     clip: [{ name: "Key moment", startOffset: 10, endOffset: 20 }],
     publication: [{ name: "Live stream", startDate: "2026-05-27T10:00:00Z", isLiveBroadcast: true }],
   });
-  assert.deepEqual(validateStructuredDataByType("VideoObject", {
-    name: video.name,
-    url: video.url,
-    thumbnailUrl: video.thumbnailUrl,
-    uploadDate: video.uploadDate,
-    clip: video.hasPart.map((entry) => ({
-      name: entry.name,
-      startOffset: entry.startOffset,
-      endOffset: entry.endOffset,
-    })),
-    publication: [{
-      name: video.publication[0].name,
-      startDate: video.publication[0].startDate,
-      isLiveBroadcast: video.publication[0].isLiveBroadcast,
-    }],
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("VideoObject", video), []);
 
   const review = reviewNode({
     name: "Review",
-    itemReviewed: "https://mdwrk.test/product",
+    itemReviewed: { "@type": "Product", name: "Product" },
     reviewBody: "Solid.",
   });
-  assert.deepEqual(validateStructuredDataByType("Review", {
-    name: review.name,
-    itemReviewed: review.itemReviewed,
-    reviewBody: review.reviewBody,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("Review", review), []);
 
   const mathSolver = mathSolverNode({
     name: "Math Solver",
@@ -180,13 +175,7 @@ test("T1: representative structured-data builder payloads satisfy published JSON
       teaches: ["Algebra"],
     }),
   });
-  assert.deepEqual(validateStructuredDataByType("MathSolver", {
-    name: mathSolver.name,
-    url: mathSolver.url,
-    potentialAction: mathSolver.potentialAction,
-    learningResourceType: mathSolver.learningResourceType,
-    subjectOf: mathSolver.subjectOf,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("MathSolver", mathSolver), []);
 
   const product = productNode({
     name: "Product",
@@ -194,21 +183,13 @@ test("T1: representative structured-data builder payloads satisfy published JSON
     brand: "MdWrk",
     offers: { "@type": "Offer", price: "10.00", priceCurrency: "USD" },
   });
-  assert.deepEqual(validateStructuredDataByType("Product", {
-    name: product.name,
-    url: product.url,
-    brand: "MdWrk",
-    offers: product.offers,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("Product", product), []);
 
   const aggregateRating = aggregateRatingNode({
     ratingValue: "4.8",
     reviewCount: 10,
   });
-  assert.deepEqual(validateStructuredDataByType("AggregateRating", {
-    ratingValue: aggregateRating.ratingValue,
-    reviewCount: aggregateRating.reviewCount,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("AggregateRating", aggregateRating), []);
 
   const book = bookNode({
     name: "Book",
@@ -216,89 +197,55 @@ test("T1: representative structured-data builder payloads satisfy published JSON
     isbn: "9780000000000",
     readAction: "https://mdwrk.test/read",
   });
-  assert.deepEqual(validateStructuredDataByType("Book", {
-    name: book.name,
-    author: book.author,
-    isbn: book.isbn,
-    readAction: book.potentialAction,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("Book", book), []);
 
   const courseInstance = courseInstanceNode({
     name: "May cohort",
     courseMode: "online",
     instructor: "MdWrk",
   });
-  assert.deepEqual(validateStructuredDataByType("CourseInstance", {
-    name: courseInstance.name,
-    courseMode: courseInstance.courseMode,
-    instructor: courseInstance.instructor,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("CourseInstance", courseInstance), []);
 
   const dataset = datasetNode({
     name: "Dataset",
     creator: "MdWrk",
     keywords: ["schema", "json-ld"],
   });
-  assert.deepEqual(validateStructuredDataByType("Dataset", {
-    name: dataset.name,
-    creator: dataset.creator,
-    keywords: dataset.keywords,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("Dataset", dataset), []);
 
   const faq = faqPageSchema({
     items: [{ question: "What is this?", answer: "A FAQ page." }],
   });
-  assert.deepEqual(validateStructuredDataByType("FAQPage", {
-    items: faq.mainEntity.map((entry) => ({
-      question: entry.name,
-      answer: entry.acceptedAnswer.text,
-    })),
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("FAQPage", faq), []);
 
   const memberProgram = loyaltyProgramNode({
     name: "Member program",
     provider: "MdWrk",
   });
-  assert.deepEqual(validateStructuredDataByType("MemberProgram", {
-    name: memberProgram.name,
-    provider: memberProgram.provider,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("MemberProgram", memberProgram), []);
+  assert.equal("provider" in memberProgram, false);
 
   const organization = organizationNode({
     name: "MdWrk",
     url: "https://mdwrk.test",
     sameAs: ["https://github.com/groupsum/mdwrk-pages"],
   });
-  assert.deepEqual(validateStructuredDataByType("Organization", {
-    name: organization.name,
-    url: organization.url,
-    sameAs: organization.sameAs,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("Organization", organization), []);
 
-  const readAction = readActionNode({
-    target: "https://mdwrk.test/read",
-  });
-  assert.deepEqual(validateStructuredDataByType("ReadAction", {
-    target: readAction.target,
-  }), []);
+  const readAction = readActionNode("https://mdwrk.test/read");
+  assert.deepEqual(validateStructuredDataByType("ReadAction", readAction), []);
 
   const sourceCode = softwareSourceCodeNode({
     name: "Repo",
     codeRepository: "https://github.com/groupsum/mdwrk-pages",
     programmingLanguage: ["TypeScript"],
   });
-  assert.deepEqual(validateStructuredDataByType("SoftwareSourceCode", {
-    name: sourceCode.name,
-    codeRepository: sourceCode.codeRepository,
-    programmingLanguage: sourceCode.programmingLanguage,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("SoftwareSourceCode", sourceCode), []);
 
   const speakable = speakableSpecificationNode({
     cssSelector: [".answer-summary"],
   });
-  assert.deepEqual(validateStructuredDataByType("SpeakableSpecification", {
-    cssSelector: speakable.cssSelector,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("SpeakableSpecification", speakable), []);
 
   const techArticle = techArticleNode({
     name: "Tech article",
@@ -306,23 +253,14 @@ test("T1: representative structured-data builder payloads satisfy published JSON
     author: "MdWrk",
     url: "https://mdwrk.test/tech",
   });
-  assert.deepEqual(validateStructuredDataByType("TechArticle", {
-    name: techArticle.name,
-    headline: techArticle.headline,
-    author: techArticle.author,
-    url: techArticle.url,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("TechArticle", techArticle), []);
 
   const webApplication = webApplicationNode({
     name: "Web app",
     applicationCategory: "DeveloperApplication",
     offers: { "@type": "Offer", price: "10.00", priceCurrency: "USD" },
   });
-  assert.deepEqual(validateStructuredDataByType("WebApplication", {
-    name: webApplication.name,
-    applicationCategory: webApplication.applicationCategory,
-    offers: webApplication.offers,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("WebApplication", webApplication), []);
 
   const webPage = webPageSchema({
     name: "Page",
@@ -330,21 +268,67 @@ test("T1: representative structured-data builder payloads satisfy published JSON
     breadcrumb: "https://mdwrk.test/",
     isPartOf: "https://mdwrk.test",
   });
-  assert.deepEqual(validateStructuredDataByType("WebPage", {
-    name: webPage.name,
-    url: webPage.url,
-    breadcrumb: webPage.breadcrumb,
-    isPartOf: webPage.isPartOf,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("WebPage", webPage), []);
 
   const webSite = webSiteSchema({
     name: "Site",
     url: "https://mdwrk.test",
     publisher: "MdWrk",
   });
-  assert.deepEqual(validateStructuredDataByType("WebSite", {
-    name: webSite.name,
-    url: webSite.url,
-    publisher: webSite.publisher,
-  }), []);
+  assert.deepEqual(validateStructuredDataByType("WebSite", webSite), []);
+});
+
+test("T1: builders preserve extra schema-valid properties beyond the curated input subset", async () => {
+  const { validateStructuredDataByType } = await import(contractDistEntry);
+
+  const article = articleNode({
+    name: "Article",
+    url: "https://mdwrk.test/article",
+    headline: "Article headline",
+    keywords: ["schema", "json-ld"],
+    inLanguage: "en",
+  });
+
+  assert.deepEqual(article.keywords, ["schema", "json-ld"]);
+  assert.equal(article.inLanguage, "en");
+  assert.deepEqual(validateStructuredDataByType("Article", article), []);
+});
+
+test("T1: repo-local authored helper fields do not leak into emitted JSON-LD and schema-valid mappings do survive", async () => {
+  const { validateStructuredDataByType } = await import(contractDistEntry);
+
+  const searchResultsPage = searchResultsPageNode({
+    name: "Search results",
+    url: "https://mdwrk.test/search",
+    query: "prompt delivery",
+    significantLinks: ["https://mdwrk.test/search/result-1"],
+  });
+  assert.equal("query" in searchResultsPage, false);
+  assert.deepEqual(validateStructuredDataByType("SearchResultsPage", searchResultsPage), []);
+
+  const solveMathAction = solveMathActionNode({
+    target: "https://mdwrk.test/math?q={mathExpression}",
+    mathExpressionInput: "required name=mathExpression",
+    eduQuestionType: ["Algebra"],
+  });
+  assert.equal("mathExpressionInput" in solveMathAction, false);
+  assert.equal("mathExpression-input" in solveMathAction, false);
+  assert.deepEqual(validateStructuredDataByType("SolveMathAction", solveMathAction), []);
+
+  const monetaryAmountDistribution = estimatedSalaryNode({
+    name: "Salary band",
+    currency: "USD",
+    minValue: 100000,
+    maxValue: 140000,
+    unitText: "YEAR",
+  });
+  const memberProgram = loyaltyProgramNode({
+    name: "Member program",
+    provider: "MdWrk",
+  });
+  assert.equal("provider" in memberProgram, false);
+  assert.deepEqual(validateStructuredDataByType("MemberProgram", memberProgram), []);
+  assert.equal("unitText" in monetaryAmountDistribution, false);
+  assert.equal("duration" in monetaryAmountDistribution, false);
+  assert.deepEqual(validateStructuredDataByType("MonetaryAmountDistribution", monetaryAmountDistribution), []);
 });

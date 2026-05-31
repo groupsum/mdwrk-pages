@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:cmns-loc:hasLongitude",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "title": "cmns-loc:hasLongitude",
+  "type": [
+    "string",
+    "number",
+    "boolean",
+    "object",
+    "array",
+    "null"
+  ],
+  "x-schemaorg-cardinality": "open-world"
+}

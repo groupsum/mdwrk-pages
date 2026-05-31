@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:tourBookingPage",
+  "$ref": "../types/URL.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A page providing information on how to book a tour of some [[Place]], such as an [[Accommodation]] or [[ApartmentComplex]] in a real estate setting, as well as other kinds of tours as appropriate.",
+  "title": "tourBookingPage",
+  "x-schemaorg-cardinality": "open-world"
+}

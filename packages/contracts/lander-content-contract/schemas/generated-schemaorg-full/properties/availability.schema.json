@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:availability",
+  "$ref": "../enumerations/ItemAvailability.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The availability of this item&#x2014;for example In stock, Out of stock, Pre-order, etc.",
+  "title": "availability",
+  "x-schemaorg-cardinality": "open-world"
+}

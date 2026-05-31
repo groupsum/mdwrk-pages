@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:guideline",
+  "$ref": "../types/MedicalGuideline.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A medical guideline related to this entity.",
+  "title": "guideline",
+  "x-schemaorg-cardinality": "open-world"
+}

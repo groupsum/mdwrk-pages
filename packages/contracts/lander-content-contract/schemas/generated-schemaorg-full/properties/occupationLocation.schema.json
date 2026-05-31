@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:occupationLocation",
+  "$ref": "../types/AdministrativeArea.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": " The region/country for which this occupational description is appropriate. Note that educational requirements and qualifications can vary between jurisdictions.",
+  "title": "occupationLocation",
+  "x-schemaorg-cardinality": "open-world"
+}

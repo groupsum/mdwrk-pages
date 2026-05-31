@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:subTest",
+  "$ref": "../types/MedicalTest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A component test of the panel.",
+  "title": "subTest",
+  "x-schemaorg-cardinality": "open-world"
+}

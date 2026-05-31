@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MonetaryGrant",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Grant.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MonetaryGrant"
+        },
+        "amount": {
+          "$ref": "../properties/amount.schema.json",
+          "description": "The amount of money."
+        },
+        "funder": {
+          "$ref": "../properties/funder.schema.json",
+          "description": "A person or organization that supports (sponsors) something through some kind of financial contribution."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A monetary grant.",
+  "title": "MonetaryGrant"
+}

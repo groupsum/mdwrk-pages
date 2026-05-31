@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:CommunityHealth",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalBusiness.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "CommunityHealth"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A field of public health focusing on improving health characteristics of a defined population in relation with their geographical or environment areas.",
+  "title": "CommunityHealth"
+}

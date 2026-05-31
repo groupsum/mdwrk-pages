@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:OnlineStore",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "OnlineBusiness.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "OnlineStore"
+        },
+        "isStoreOn": {
+          "$ref": "../properties/isStoreOn.schema.json",
+          "description": "The eCommerce marketplace this online store is on."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An eCommerce site.",
+  "title": "OnlineStore"
+}

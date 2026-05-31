@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:weight",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The weight of the product or person.",
+  "oneOf": [
+    {
+      "$ref": "../types/Mass.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "weight",
+  "x-schemaorg-cardinality": "open-world"
+}

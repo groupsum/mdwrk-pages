@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:faxNumber",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The fax number.",
+  "title": "faxNumber",
+  "x-schemaorg-cardinality": "open-world"
+}

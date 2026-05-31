@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:readonlyValue",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Whether or not a property is mutable.  Default is false. Specifying this for a property that also has a value makes it act similar to a \"hidden\" input in an HTML form.",
+  "title": "readonlyValue",
+  "x-schemaorg-cardinality": "open-world"
+}

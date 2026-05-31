@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:eligibleDuration",
+  "$ref": "../types/QuantitativeValue.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The duration for which the given offer is valid.",
+  "title": "eligibleDuration",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:colorSwatch",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A color swatch image, visualizing the color of a [[Product]]. Should match the textual description specified in the [[color]] property. This can be a URL or a fully described ImageObject.",
+  "oneOf": [
+    {
+      "$ref": "../types/ImageObject.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "colorSwatch",
+  "x-schemaorg-cardinality": "open-world"
+}

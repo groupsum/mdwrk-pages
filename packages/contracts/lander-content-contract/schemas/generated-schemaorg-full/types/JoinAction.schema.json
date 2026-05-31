@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:JoinAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "InteractAction.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "JoinAction"
+        },
+        "event": {
+          "$ref": "../properties/event.schema.json",
+          "description": "Upcoming or past event associated with this place, organization, or action."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An agent joins an event/group with participants/friends at a location.\\n\\nRelated actions:\\n\\n* [[RegisterAction]]: Unlike RegisterAction, JoinAction refers to joining a group/team of people.\\n* [[SubscribeAction]]: Unlike SubscribeAction, JoinAction does not imply that you'll be receiving updates.\\n* [[FollowAction]]: Unlike FollowAction, JoinAction does not imply that you'll be polling for updates.",
+  "title": "JoinAction"
+}

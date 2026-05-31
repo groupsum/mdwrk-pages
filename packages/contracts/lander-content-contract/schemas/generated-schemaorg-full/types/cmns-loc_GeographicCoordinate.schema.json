@@ -1,0 +1,20 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:cmns-loc:GeographicCoordinate",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "cmns-loc:GeographicCoordinate"
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "title": "cmns-loc:GeographicCoordinate",
+  "type": "object",
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

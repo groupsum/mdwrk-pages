@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:totalJobOpenings",
+  "$ref": "../types/Integer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of positions open for this job posting. Use a positive integer. Do not use if the number of positions is unclear or not known.",
+  "title": "totalJobOpenings",
+  "x-schemaorg-cardinality": "open-world"
+}

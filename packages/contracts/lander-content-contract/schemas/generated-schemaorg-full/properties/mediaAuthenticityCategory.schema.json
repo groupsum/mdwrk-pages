@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:mediaAuthenticityCategory",
+  "$ref": "../enumerations/MediaManipulationRatingEnumeration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates a MediaManipulationRatingEnumeration classification of a media object (in the context of how it was published or shared).",
+  "title": "mediaAuthenticityCategory",
+  "x-schemaorg-cardinality": "open-world"
+}

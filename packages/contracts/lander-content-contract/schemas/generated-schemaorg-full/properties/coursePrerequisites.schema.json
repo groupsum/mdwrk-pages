@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:coursePrerequisites",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Requirements for taking the Course. May be completion of another [[Course]] or a textual description like \"permission of instructor\". Requirements may be a pre-requisite competency, referenced using [[AlignmentObject]].",
+  "oneOf": [
+    {
+      "$ref": "../types/AlignmentObject.schema.json"
+    },
+    {
+      "$ref": "../types/Course.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "coursePrerequisites",
+  "x-schemaorg-cardinality": "open-world"
+}

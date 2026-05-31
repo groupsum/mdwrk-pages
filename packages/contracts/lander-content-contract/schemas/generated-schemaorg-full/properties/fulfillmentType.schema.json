@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:fulfillmentType",
+  "$ref": "../enumerations/FulfillmentTypeEnumeration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Type of fulfillment applicable to the [[ShippingService]].",
+  "title": "fulfillmentType",
+  "x-schemaorg-cardinality": "open-world"
+}

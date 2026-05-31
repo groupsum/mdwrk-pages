@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:variesBy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the property or properties by which the variants in a [[ProductGroup]] vary, e.g. their size, color etc. Schema.org properties can be referenced by their short name e.g. \"color\"; terms defined elsewhere can be referenced with their URIs.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "variesBy",
+  "x-schemaorg-cardinality": "open-world"
+}

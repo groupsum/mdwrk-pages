@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-evidence-origin-padding: 1rem;
+  --mdp-semantic-evidence-origin-gap: 0.75rem;
+  --mdp-semantic-evidence-origin-radius: 1rem;
+  --mdp-semantic-evidence-origin-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-evidence-origin-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-evidence-origin-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--evidence-origin {
+  padding: var(--mdp-semantic-evidence-origin-padding);
+  gap: var(--mdp-semantic-evidence-origin-gap);
+  border-radius: var(--mdp-semantic-evidence-origin-radius);
+  background: var(--mdp-semantic-evidence-origin-surface);
+  border: 1px solid var(--mdp-semantic-evidence-origin-border);
+  box-shadow: var(--mdp-semantic-evidence-origin-shadow);
+}
+
+.lander-semantic--evidence-origin .lander-semantic__header,
+.lander-semantic--evidence-origin .lander-semantic__body,
+.lander-semantic--evidence-origin .lander-semantic__footer,
+.lander-semantic--evidence-origin .lander-semantic__actions {
+  gap: var(--mdp-semantic-evidence-origin-gap);
+}
+
+.lander-semantic--evidence-origin .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--evidence-origin .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--evidence-origin .lander-semantic__subtitle,
+.lander-semantic--evidence-origin .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--evidence-origin .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-evidence-origin-gap) * 0.8);
+}
+
+.lander-semantic--evidence-origin .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--evidence-origin .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

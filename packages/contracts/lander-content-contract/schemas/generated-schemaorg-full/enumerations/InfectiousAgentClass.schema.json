@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:InfectiousAgentClass",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Classes of agents or pathogens that transmit infectious diseases. Enumerated type.",
+  "enum": [],
+  "title": "InfectiousAgentClass",
+  "type": "string"
+}

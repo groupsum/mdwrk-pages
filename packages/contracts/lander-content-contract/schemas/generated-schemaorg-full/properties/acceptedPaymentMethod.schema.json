@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:acceptedPaymentMethod",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The payment method(s) that are accepted in general by an organization, or for some specific demand or offer.",
+  "oneOf": [
+    {
+      "$ref": "../types/LoanOrCredit.schema.json"
+    },
+    {
+      "$ref": "../types/PaymentMethod.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "acceptedPaymentMethod",
+  "x-schemaorg-cardinality": "open-world"
+}

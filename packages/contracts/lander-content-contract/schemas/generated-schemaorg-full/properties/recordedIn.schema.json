@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:recordedIn",
+  "$ref": "../types/CreativeWork.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The CreativeWork that captured all or part of this Event.",
+  "title": "recordedIn",
+  "x-schemaorg-cardinality": "open-world"
+}

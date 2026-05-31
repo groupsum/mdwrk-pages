@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:video",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An embedded video object.",
+  "oneOf": [
+    {
+      "$ref": "../types/Clip.schema.json"
+    },
+    {
+      "$ref": "../types/VideoObject.schema.json"
+    }
+  ],
+  "title": "video",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:broadcastAffiliateOf",
+  "$ref": "../types/Organization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The media network(s) whose content is broadcast on this station.",
+  "title": "broadcastAffiliateOf",
+  "x-schemaorg-cardinality": "open-world"
+}

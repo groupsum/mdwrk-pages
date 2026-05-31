@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:domainIncludes",
+  "$ref": "../types/Class.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Relates a property to a class that is (one of) the type(s) the property is expected to be used on.",
+  "title": "domainIncludes",
+  "x-schemaorg-cardinality": "open-world"
+}

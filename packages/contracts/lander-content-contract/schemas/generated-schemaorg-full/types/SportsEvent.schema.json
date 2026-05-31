@@ -1,0 +1,47 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:SportsEvent",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Event.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "SportsEvent"
+        },
+        "awayTeam": {
+          "$ref": "../properties/awayTeam.schema.json",
+          "description": "The away team in a sports event."
+        },
+        "competitor": {
+          "$ref": "../properties/competitor.schema.json",
+          "description": "A competitor in a sports event."
+        },
+        "homeTeam": {
+          "$ref": "../properties/homeTeam.schema.json",
+          "description": "The home team in a sports event."
+        },
+        "referee": {
+          "$ref": "../properties/referee.schema.json",
+          "description": "An official who watches a game or match closely to enforce the rules and arbitrate on matters arising from the play such as referees, umpires or judges. The name of the effective function can vary according to the sport."
+        },
+        "sport": {
+          "$ref": "../properties/sport.schema.json",
+          "description": "A type of sport (e.g. Baseball)."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Event type: Sports event.",
+  "title": "SportsEvent"
+}

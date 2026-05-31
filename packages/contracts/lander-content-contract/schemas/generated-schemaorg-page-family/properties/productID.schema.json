@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:productID",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The product identifier, such as ISBN. For example: ``` meta itemprop=\"productID\" content=\"isbn:123-456-789\" ```.",
+  "title": "productID",
+  "x-schemaorg-cardinality": "open-world"
+}

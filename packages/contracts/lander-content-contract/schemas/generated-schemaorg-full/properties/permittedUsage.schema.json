@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:permittedUsage",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indications regarding the permitted usage of the accommodation.",
+  "title": "permittedUsage",
+  "x-schemaorg-cardinality": "open-world"
+}

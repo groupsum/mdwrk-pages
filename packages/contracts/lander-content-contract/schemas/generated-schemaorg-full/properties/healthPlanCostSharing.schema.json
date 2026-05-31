@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:healthPlanCostSharing",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The costs to the patient for services under this network or formulary.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Boolean.schema.json"
+    },
+    {
+      "$ref": "../types/HealthPlanCostSharingSpecification.schema.json"
+    }
+  ],
+  "title": "healthPlanCostSharing",
+  "x-schemaorg-cardinality": "open-world"
+}

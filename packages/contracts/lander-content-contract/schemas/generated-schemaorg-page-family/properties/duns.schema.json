@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:duns",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The Dun & Bradstreet DUNS number for identifying an organization or business person.",
+  "title": "duns",
+  "x-schemaorg-cardinality": "open-world"
+}

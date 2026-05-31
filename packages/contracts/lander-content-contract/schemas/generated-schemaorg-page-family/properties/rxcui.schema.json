@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:rxcui",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The RxCUI drug identifier from RXNORM.",
+  "title": "rxcui",
+  "x-schemaorg-cardinality": "open-world"
+}

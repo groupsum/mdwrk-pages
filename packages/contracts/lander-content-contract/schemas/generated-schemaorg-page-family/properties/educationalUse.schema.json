@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:educationalUse",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The purpose of a work in the context of education; for example, 'assignment', 'group work'.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "educationalUse",
+  "x-schemaorg-cardinality": "open-world"
+}

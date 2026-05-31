@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:seatingType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type/class of the seat.",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/QualitativeValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "seatingType",
+  "x-schemaorg-cardinality": "open-world"
+}

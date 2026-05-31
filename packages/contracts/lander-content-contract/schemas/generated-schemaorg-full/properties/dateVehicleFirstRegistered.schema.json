@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:dateVehicleFirstRegistered",
+  "$ref": "../datatypes/Date.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The date of the first registration of the vehicle with the respective public authorities.",
+  "title": "dateVehicleFirstRegistered",
+  "x-schemaorg-cardinality": "open-world"
+}

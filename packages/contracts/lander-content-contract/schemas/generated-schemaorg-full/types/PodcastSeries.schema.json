@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:PodcastSeries",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWorkSeries.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "PodcastSeries"
+        },
+        "actor": {
+          "$ref": "../properties/actor.schema.json",
+          "description": "An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip."
+        },
+        "webFeed": {
+          "$ref": "../properties/webFeed.schema.json",
+          "description": "The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped updates. This is usually RSS or Atom."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A podcast is an episodic series of digital audio or video files which a user can download and listen to.",
+  "title": "PodcastSeries"
+}

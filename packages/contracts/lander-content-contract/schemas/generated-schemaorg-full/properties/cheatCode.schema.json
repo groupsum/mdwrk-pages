@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:cheatCode",
+  "$ref": "../types/CreativeWork.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Cheat codes to the game.",
+  "title": "cheatCode",
+  "x-schemaorg-cardinality": "open-world"
+}

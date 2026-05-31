@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:makesOffer",
+  "$ref": "../types/Offer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A pointer to products or services offered by the organization or person.",
+  "title": "makesOffer",
+  "x-schemaorg-cardinality": "open-world"
+}

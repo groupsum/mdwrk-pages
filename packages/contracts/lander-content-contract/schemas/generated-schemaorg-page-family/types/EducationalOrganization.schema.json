@@ -1,0 +1,34 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:EducationalOrganization",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CivicStructure.schema.json"
+    },
+    {
+      "$ref": "Organization.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "EducationalOrganization"
+        },
+        "alumni": {
+          "$ref": "../properties/alumni.schema.json",
+          "description": "Alumni of an organization."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An educational organization.",
+  "title": "EducationalOrganization"
+}

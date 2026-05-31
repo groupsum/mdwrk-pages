@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:qualifications",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Specific qualifications required for this role or Occupation.",
+  "oneOf": [
+    {
+      "$ref": "../types/Credential.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "qualifications",
+  "x-schemaorg-cardinality": "open-world"
+}

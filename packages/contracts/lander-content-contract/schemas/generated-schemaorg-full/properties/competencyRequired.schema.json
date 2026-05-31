@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:competencyRequired",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Knowledge, skill, ability or personal attribute that must be demonstrated by a person or other entity in order to do something such as earn an Educational Occupational Credential or understand a LearningResource.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "competencyRequired",
+  "x-schemaorg-cardinality": "open-world"
+}

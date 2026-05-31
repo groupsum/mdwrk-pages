@@ -1,0 +1,60 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-about-page-padding: 1.7rem;
+  --mdp-semantic-about-page-gap: 1rem;
+  --mdp-semantic-about-page-radius: 1.4rem;
+  --mdp-semantic-about-page-surface: linear-gradient(180deg, color-mix(in srgb, var(--lander-panel) 95%, #f7efe4 5%), color-mix(in srgb, var(--lander-panel) 88%, #f0ddc2 12%));
+  --mdp-semantic-about-page-border: color-mix(in srgb, var(--lander-border) 70%, #b68744 30%);
+  --mdp-semantic-about-page-shadow: var(--mdwrk-shadow-strong);
+}
+
+.lander-semantic--about-page {
+  display: grid;
+  gap: var(--mdp-semantic-about-page-gap);
+  padding: var(--mdp-semantic-about-page-padding);
+  border: 1px solid var(--mdp-semantic-about-page-border);
+  border-radius: var(--mdp-semantic-about-page-radius);
+  background: var(--mdp-semantic-about-page-surface);
+  box-shadow: var(--mdp-semantic-about-page-shadow);
+}
+
+.lander-semantic--about-page .lander-semantic__header,
+.lander-semantic--about-page .lander-semantic__body,
+.lander-semantic--about-page .lander-semantic__actions,
+.lander-semantic--about-page .lander-semantic__footer,
+.lander-semantic--about-page .lander-semantic__meta {
+  display: grid;
+  gap: var(--mdwrk-space-3);
+}
+
+.lander-semantic--about-page .lander-semantic__eyebrow,
+.lander-semantic--about-page .lander-semantic__title,
+.lander-semantic--about-page .lander-semantic__subtitle,
+.lander-semantic--about-page .lander-semantic__description,
+.lander-semantic--about-page .lander-semantic__image {
+  margin: 0;
+}
+
+.lander-semantic--about-page .lander-semantic__page-band,
+.lander-semantic--about-page .lander-semantic__page-fact-card {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem 1.05rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.lander-semantic--about-page .lander-semantic__page-band-label,
+.lander-semantic--about-page .lander-semantic__page-fact-label {
+  color: #9a6225;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lander-semantic--about-page .lander-semantic__page-band-value,
+.lander-semantic--about-page .lander-semantic__page-fact-value {
+  color: var(--lander-heading-fg);
+}

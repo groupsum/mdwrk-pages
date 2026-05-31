@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:dateRead",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The date/time at which the message has been read by the recipient if a single recipient exists.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "dateRead",
+  "x-schemaorg-cardinality": "open-world"
+}

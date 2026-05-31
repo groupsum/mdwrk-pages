@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:location",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The location of, for example, where an event is happening, where an organization is located, or where an action takes place.",
+  "oneOf": [
+    {
+      "$ref": "../types/Place.schema.json"
+    },
+    {
+      "$ref": "../types/PostalAddress.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/VirtualLocation.schema.json"
+    }
+  ],
+  "title": "location",
+  "x-schemaorg-cardinality": "open-world"
+}

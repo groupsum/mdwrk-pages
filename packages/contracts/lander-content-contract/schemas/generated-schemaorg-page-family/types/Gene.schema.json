@@ -1,0 +1,43 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Gene",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "BioChemEntity.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Gene"
+        },
+        "alternativeOf": {
+          "$ref": "../properties/alternativeOf.schema.json",
+          "description": "Another gene which is a variation of this one."
+        },
+        "encodesBioChemEntity": {
+          "$ref": "../properties/encodesBioChemEntity.schema.json",
+          "description": "Another BioChemEntity encoded by this one. "
+        },
+        "expressedIn": {
+          "$ref": "../properties/expressedIn.schema.json",
+          "description": "Tissue, organ, biological sample, etc in which activity of this gene has been observed experimentally. For example brain, digestive system."
+        },
+        "hasBioPolymerSequence": {
+          "$ref": "../properties/hasBioPolymerSequence.schema.json",
+          "description": "A symbolic representation of a BioChemEntity. For example, a nucleotide sequence of a Gene or an amino acid sequence of a Protein."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A discrete unit of inheritance which affects one or more biological traits (Source: [https://en.wikipedia.org/wiki/Gene](https://en.wikipedia.org/wiki/Gene)). Examples include FOXP2 (Forkhead box protein P2), SCARNA21 (small Cajal body-specific RNA 21), A- (agouti genotype).",
+  "title": "Gene"
+}

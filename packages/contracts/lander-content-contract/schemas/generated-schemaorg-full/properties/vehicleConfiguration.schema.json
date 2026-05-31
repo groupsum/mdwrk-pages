@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:vehicleConfiguration",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.",
+  "title": "vehicleConfiguration",
+  "x-schemaorg-cardinality": "open-world"
+}

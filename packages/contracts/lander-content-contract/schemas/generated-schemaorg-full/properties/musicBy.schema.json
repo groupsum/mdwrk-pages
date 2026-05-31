@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:musicBy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The composer of the soundtrack.",
+  "oneOf": [
+    {
+      "$ref": "../types/MusicGroup.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "musicBy",
+  "x-schemaorg-cardinality": "open-world"
+}

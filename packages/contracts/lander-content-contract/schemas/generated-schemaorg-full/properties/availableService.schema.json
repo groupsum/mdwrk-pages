@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:availableService",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A medical service available from this provider.",
+  "oneOf": [
+    {
+      "$ref": "../types/MedicalProcedure.schema.json"
+    },
+    {
+      "$ref": "../types/MedicalTest.schema.json"
+    },
+    {
+      "$ref": "../types/MedicalTherapy.schema.json"
+    }
+  ],
+  "title": "availableService",
+  "x-schemaorg-cardinality": "open-world"
+}

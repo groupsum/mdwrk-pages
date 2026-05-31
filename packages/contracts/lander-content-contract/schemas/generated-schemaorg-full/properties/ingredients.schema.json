@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:ingredients",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A single ingredient used in the recipe, e.g. sugar, flour or garlic.",
+  "title": "ingredients",
+  "x-schemaorg-cardinality": "open-world"
+}

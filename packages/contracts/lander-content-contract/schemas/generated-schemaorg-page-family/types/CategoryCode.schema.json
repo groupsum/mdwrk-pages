@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:CategoryCode",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "DefinedTerm.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "CategoryCode"
+        },
+        "codeValue": {
+          "$ref": "../properties/codeValue.schema.json",
+          "description": "A short textual code that uniquely identifies the value."
+        },
+        "inCodeSet": {
+          "$ref": "../properties/inCodeSet.schema.json",
+          "description": "A [[CategoryCodeSet]] that contains this category code."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A Category Code.",
+  "title": "CategoryCode"
+}

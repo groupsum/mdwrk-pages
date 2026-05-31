@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:availableAtOrFrom",
+  "$ref": "../types/Place.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The place(s) from which the offer can be obtained (e.g. store locations).",
+  "title": "availableAtOrFrom",
+  "x-schemaorg-cardinality": "open-world"
+}

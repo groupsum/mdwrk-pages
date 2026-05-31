@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:instrument",
+  "$ref": "../types/Thing.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The object that helped the agent perform the action. E.g. John wrote a book with *a pen*.",
+  "title": "instrument",
+  "x-schemaorg-cardinality": "open-world"
+}

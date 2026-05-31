@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:correction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates a correction to a [[CreativeWork]], either via a [[CorrectionComment]], textually or in another document.",
+  "oneOf": [
+    {
+      "$ref": "../types/CorrectionComment.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "correction",
+  "x-schemaorg-cardinality": "open-world"
+}

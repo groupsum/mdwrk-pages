@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:lastReviewed",
+  "$ref": "../datatypes/Date.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Date on which the content on this web page was last reviewed for accuracy and/or completeness.",
+  "title": "lastReviewed",
+  "x-schemaorg-cardinality": "open-world"
+}

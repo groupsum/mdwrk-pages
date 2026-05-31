@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:reservedTicket",
+  "$ref": "../types/Ticket.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A ticket associated with the reservation.",
+  "title": "reservedTicket",
+  "x-schemaorg-cardinality": "open-world"
+}

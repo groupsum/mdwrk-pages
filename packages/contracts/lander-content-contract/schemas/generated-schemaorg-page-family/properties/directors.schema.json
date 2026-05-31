@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:directors",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A director of e.g. TV, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.",
+  "title": "directors",
+  "x-schemaorg-cardinality": "open-world"
+}

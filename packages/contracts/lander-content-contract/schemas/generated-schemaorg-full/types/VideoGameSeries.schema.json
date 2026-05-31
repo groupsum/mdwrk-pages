@@ -1,0 +1,115 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:VideoGameSeries",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWorkSeries.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "VideoGameSeries"
+        },
+        "actor": {
+          "$ref": "../properties/actor.schema.json",
+          "description": "An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip."
+        },
+        "actors": {
+          "$ref": "../properties/actors.schema.json",
+          "description": "An actor, e.g. in TV, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip."
+        },
+        "characterAttribute": {
+          "$ref": "../properties/characterAttribute.schema.json",
+          "description": "A piece of data that represents a particular aspect of a fictional character (skill, power, character points, advantage, disadvantage)."
+        },
+        "cheatCode": {
+          "$ref": "../properties/cheatCode.schema.json",
+          "description": "Cheat codes to the game."
+        },
+        "containsSeason": {
+          "$ref": "../properties/containsSeason.schema.json",
+          "description": "A season that is part of the media series."
+        },
+        "director": {
+          "$ref": "../properties/director.schema.json",
+          "description": "A director of e.g. TV, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip."
+        },
+        "directors": {
+          "$ref": "../properties/directors.schema.json",
+          "description": "A director of e.g. TV, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip."
+        },
+        "episode": {
+          "$ref": "../properties/episode.schema.json",
+          "description": "An episode of a TV, radio or game media within a series or season."
+        },
+        "episodes": {
+          "$ref": "../properties/episodes.schema.json",
+          "description": "An episode of a TV/radio series or season."
+        },
+        "gameItem": {
+          "$ref": "../properties/gameItem.schema.json",
+          "description": "An item is an object within the game world that can be collected by a player or, occasionally, a non-player character."
+        },
+        "gameLocation": {
+          "$ref": "../properties/gameLocation.schema.json",
+          "description": "Real or fictional location of the game (or part of game)."
+        },
+        "gamePlatform": {
+          "$ref": "../properties/gamePlatform.schema.json",
+          "description": "The electronic systems used to play <a href=\"http://en.wikipedia.org/wiki/Category:Video_game_platforms\">video games</a>."
+        },
+        "musicBy": {
+          "$ref": "../properties/musicBy.schema.json",
+          "description": "The composer of the soundtrack."
+        },
+        "numberOfEpisodes": {
+          "$ref": "../properties/numberOfEpisodes.schema.json",
+          "description": "The number of episodes in this season or series."
+        },
+        "numberOfPlayers": {
+          "$ref": "../properties/numberOfPlayers.schema.json",
+          "description": "Indicate how many people can play this game (minimum, maximum, or range)."
+        },
+        "numberOfSeasons": {
+          "$ref": "../properties/numberOfSeasons.schema.json",
+          "description": "The number of seasons in this series."
+        },
+        "playMode": {
+          "$ref": "../properties/playMode.schema.json",
+          "description": "Indicates whether this game is multi-player, co-op or single-player.  The game can be marked as multi-player, co-op and single-player at the same time."
+        },
+        "productionCompany": {
+          "$ref": "../properties/productionCompany.schema.json",
+          "description": "The production company or studio responsible for the item, e.g. series, video game, episode etc."
+        },
+        "quest": {
+          "$ref": "../properties/quest.schema.json",
+          "description": "The task that a player-controlled character, or group of characters may complete in order to gain a reward."
+        },
+        "season": {
+          "$ref": "../properties/season.schema.json",
+          "description": "A season in a media series."
+        },
+        "seasons": {
+          "$ref": "../properties/seasons.schema.json",
+          "description": "A season in a media series."
+        },
+        "trailer": {
+          "$ref": "../properties/trailer.schema.json",
+          "description": "The trailer of a movie or TV/radio series, season, episode, etc."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A video game series.",
+  "title": "VideoGameSeries"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:artist",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The primary artist for a work\n    \tin a medium other than pencils or digital line art--for example, if the\n    \tprimary artwork is done in watercolors or digital paints.",
+  "title": "artist",
+  "x-schemaorg-cardinality": "open-world"
+}

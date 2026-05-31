@@ -22,3 +22,5 @@
 .lander-semantic--solve-math-action .lander-semantic__body,
 .lander-semantic--solve-math-action .lander-semantic__actions { display: grid; gap: var(--mdwrk-space-3); }
 .lander-semantic--solve-math-action .lander-semantic__solve-math-summary { display: grid; gap: 0.55rem; padding: 0.95rem 1rem; border-radius: 1rem; background: rgba(255,255,255,0.78); border: 1px solid color-mix(in srgb, var(--mdp-semantic-solve-math-action-border) 72%, white 28%); }
+.lander-semantic--solve-math-action .lander-semantic__solve-math-row { display: grid; gap: 0.25rem; }
+.lander-semantic--solve-math-action .lander-semantic__section-kicker { width: fit-content; padding: 0.18rem 0.48rem; border-radius: 999px; background: rgba(37, 99, 235, 0.1); color: var(--mdp-semantic-solve-math-action-accent); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }

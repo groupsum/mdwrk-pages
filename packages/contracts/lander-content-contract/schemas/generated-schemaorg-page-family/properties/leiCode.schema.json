@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:leiCode",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An organization identifier that uniquely identifies a legal entity as defined in ISO 17442.",
+  "title": "leiCode",
+  "x-schemaorg-cardinality": "open-world"
+}

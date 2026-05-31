@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:mapType",
+  "$ref": "../enumerations/MapCategoryType.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the kind of Map, from the MapCategoryType Enumeration.",
+  "title": "mapType",
+  "x-schemaorg-cardinality": "open-world"
+}

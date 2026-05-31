@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasDefinedTerm",
+  "$ref": "../types/DefinedTerm.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A Defined Term contained in this term set.",
+  "title": "hasDefinedTerm",
+  "x-schemaorg-cardinality": "open-world"
+}

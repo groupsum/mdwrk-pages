@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:infectiousAgentClass",
+  "$ref": "../enumerations/InfectiousAgentClass.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The class of infectious agent (bacteria, prion, etc.) that causes the disease.",
+  "title": "infectiousAgentClass",
+  "x-schemaorg-cardinality": "open-world"
+}

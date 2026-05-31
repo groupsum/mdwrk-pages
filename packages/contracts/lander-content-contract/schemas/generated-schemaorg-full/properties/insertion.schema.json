@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:insertion",
+  "$ref": "../types/AnatomicalStructure.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The place of attachment of a muscle, or what the muscle moves.",
+  "title": "insertion",
+  "x-schemaorg-cardinality": "open-world"
+}

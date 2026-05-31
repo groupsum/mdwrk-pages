@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:relatedDrug",
+  "$ref": "../types/Drug.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Any other drug related to this one, for example commonly-prescribed alternatives.",
+  "title": "relatedDrug",
+  "x-schemaorg-cardinality": "open-world"
+}

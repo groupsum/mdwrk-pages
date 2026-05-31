@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { importLanderReactDist } from "./load-dist.mjs";
+import { semanticFixtures, semanticNames } from "./semantic-fixtures.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const packageRoot = path.resolve(here, "..");
@@ -15,47 +16,34 @@ function read(filePath) {
   return fs.readFileSync(filePath, "utf8");
 }
 
-test("T0: fused semantic component declarations expose className on the public API", () => {
-  for (const fileName of ["article.d.ts", "product.d.ts", "course.d.ts", "quiz.d.ts"]) {
+function extractShellClass(markup) {
+  const match = markup.match(/<(?:article|section|nav|aside|div) class="([^"]*lander-semantic[^"]*)"/u);
+  assert.ok(match, "expected semantic shell class");
+  return match[1];
+}
+
+test("T0: fused semantic component declarations expose className on the public API for all governed core kinds", () => {
+  for (const fileName of fs.readdirSync(semanticDir)) {
+    if (!fileName.endsWith(".d.ts") || fileName === "index.d.ts") continue;
     const dts = read(path.join(semanticDir, fileName));
     assert.match(dts, /className\?: string;/, `${fileName} should expose className`);
   }
 });
 
-test("T0: fused semantic components apply caller className to the visible shell", async () => {
+test("T0: fused semantic components apply caller className to the visible shell for all governed core kinds", async () => {
   const mod = await importLanderReactDist();
 
-  const articleMarkup = renderToStaticMarkup(
-    React.createElement(mod.Article, {
-      title: "Prompt Delivery Studio",
-      className: "article-shell",
-      body: React.createElement("p", null, "Body"),
-    }),
-  );
-  assert.ok(articleMarkup.includes('class="lander-semantic lander-semantic--article article-shell"'));
-
-  const productMarkup = renderToStaticMarkup(
-    React.createElement(mod.Product, {
-      name: "Prompt Delivery Studio",
-      className: "product-shell",
-    }),
-  );
-  assert.ok(productMarkup.includes('class="lander-semantic lander-semantic--product product-shell"'));
-
-  const courseMarkup = renderToStaticMarkup(
-    React.createElement(mod.Course, {
-      name: "Prompt Delivery 101",
-      className: "course-shell",
-    }),
-  );
-  assert.ok(courseMarkup.includes('class="lander-semantic lander-semantic--course course-shell"'));
-
-  const quizMarkup = renderToStaticMarkup(
-    React.createElement(mod.Quiz, {
-      name: "Prompt QA",
-      className: "quiz-shell",
-      questions: [{ prompt: "What is latency?", answer: "Elapsed time." }],
-    }),
-  );
-  assert.ok(quizMarkup.includes('class="lander-semantic lander-semantic--quiz quiz-shell"'));
+  for (const fixture of semanticFixtures) {
+    assert.ok(semanticNames.includes(fixture.name));
+    const shellClass = `${fixture.name.toLowerCase()}-shell`;
+    const markup = renderToStaticMarkup(
+      React.createElement(mod[fixture.name], {
+        ...fixture.props,
+        className: shellClass,
+      }),
+    );
+    const classAttr = extractShellClass(markup);
+    assert.ok(classAttr.includes("lander-semantic"), `${fixture.name} should include lander-semantic`);
+    assert.ok(classAttr.includes(shellClass), `${fixture.name} should include caller className`);
+  }
 });

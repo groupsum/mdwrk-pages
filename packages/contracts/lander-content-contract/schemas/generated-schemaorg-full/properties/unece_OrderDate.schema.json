@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:unece:OrderDate",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "title": "unece:OrderDate",
+  "type": [
+    "string",
+    "number",
+    "boolean",
+    "object",
+    "array",
+    "null"
+  ],
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:DENonprofitType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "DENonprofitType: Non-profit organization type originating from Germany in accordance with article 52 of the German fiscal code (Abgabenverordnung or AO).",
+  "enum": [],
+  "title": "DENonprofitType",
+  "type": "string"
+}

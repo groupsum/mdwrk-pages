@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:InstantaneousEvent",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "StructuredValue.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "InstantaneousEvent"
+        },
+        "data": {
+          "$ref": "../properties/data.schema.json",
+          "description": "Data associated with the event, like for instance a log message."
+        },
+        "source": {
+          "$ref": "../properties/source.schema.json",
+          "description": "The source or cause of the event."
+        },
+        "timestamp": {
+          "$ref": "../properties/timestamp.schema.json",
+          "description": "The instant the event occured."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An event with no duration, like for instance a computer log entry.",
+  "title": "InstantaneousEvent"
+}

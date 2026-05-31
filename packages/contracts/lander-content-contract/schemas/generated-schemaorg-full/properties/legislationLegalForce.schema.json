@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:legislationLegalForce",
+  "$ref": "../enumerations/LegalForceStatus.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Whether the legislation is currently in force, not in force, or partially in force.",
+  "title": "legislationLegalForce",
+  "x-schemaorg-cardinality": "open-world"
+}

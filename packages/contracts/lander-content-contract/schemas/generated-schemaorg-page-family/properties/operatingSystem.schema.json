@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:operatingSystem",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Operating systems supported (Windows 7, OS X 10.6, Android 1.6).",
+  "oneOf": [
+    {
+      "$ref": "../types/OperatingSystem.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "operatingSystem",
+  "x-schemaorg-cardinality": "open-world"
+}

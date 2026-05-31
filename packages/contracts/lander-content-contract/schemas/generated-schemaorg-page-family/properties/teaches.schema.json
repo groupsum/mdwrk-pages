@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:teaches",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "teaches",
+  "x-schemaorg-cardinality": "open-world"
+}

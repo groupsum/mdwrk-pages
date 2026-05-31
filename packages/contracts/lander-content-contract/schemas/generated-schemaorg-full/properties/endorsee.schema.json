@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:endorsee",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of participant. The person/organization being supported.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "endorsee",
+  "x-schemaorg-cardinality": "open-world"
+}

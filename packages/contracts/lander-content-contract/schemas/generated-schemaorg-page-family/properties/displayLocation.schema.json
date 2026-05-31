@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:displayLocation",
+  "$ref": "../types/Place.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The location at which an item can be viewed or experienced in-person.",
+  "title": "displayLocation",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:DietNutrition",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalBusiness.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "DietNutrition"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Dietetics and nutrition as a medical specialty.",
+  "title": "DietNutrition"
+}

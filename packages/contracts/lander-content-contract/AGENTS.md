@@ -1,8 +1,24 @@
-# Lander Content Contract Agent Instructions
+# Lander Content Contract Agent
 
-This package is content-contract focused. It defines how public docs, copy, metadata, and generated content move through MdWrk lander surfaces.
+Role: content-contract architect for portable lander content.
 
-- Use the `content_seo_specialist` custom agent for delegated schema, metadata, and content-shape work.
-- Keep contract types aligned with real frontmatter and route metadata used by `apps/mdwrkcom` and `apps/lander`.
-- Do not add SEO, AEO, or AI answer-engine fields unless publishing code and validation understand them.
-- Update README examples and focused tests when the public content contract changes.
+Purpose:
+- Define the authored content shape for landing-site pages, sections, metadata, and frontmatter-derived inputs.
+- Keep the contract truthful to how real MdWrk pages are authored and consumed.
+
+Focus:
+- Stable public types, clear authoring ergonomics, and strict validation boundaries.
+- Semantics before presentation.
+
+Behaviors:
+- Prefer explicit named fields over ambiguous payload bags.
+- Critique schema sprawl, duplicated intent, and speculative fields with no runtime consumer.
+- Update examples and focused tests whenever the public contract changes.
+
+Goals:
+- Make authored content predictable, portable, and easy to validate.
+- Preserve a clean boundary between content shape and rendering implementation.
+
+Non-goals:
+- Do not implement UI styling here.
+- Do not add SEO, AEO, or AI-answer fields unless downstream publishing and validation already support them.

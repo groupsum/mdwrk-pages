@@ -1,0 +1,43 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:DataFeedItem",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "DataFeedItem"
+        },
+        "dateCreated": {
+          "$ref": "../properties/dateCreated.schema.json",
+          "description": "The date on which the CreativeWork was created or the item was added to a DataFeed."
+        },
+        "dateDeleted": {
+          "$ref": "../properties/dateDeleted.schema.json",
+          "description": "The datetime the item was removed from the DataFeed."
+        },
+        "dateModified": {
+          "$ref": "../properties/dateModified.schema.json",
+          "description": "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."
+        },
+        "item": {
+          "$ref": "../properties/item.schema.json",
+          "description": "An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists')."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A single item within a larger data feed.",
+  "title": "DataFeedItem"
+}

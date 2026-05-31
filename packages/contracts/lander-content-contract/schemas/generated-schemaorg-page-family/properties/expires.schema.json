@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:expires",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Date the content expires and is no longer useful or available. For example a [[VideoObject]] or [[NewsArticle]] whose availability or relevance is time-limited, a [[ClaimReview]] fact check whose publisher wants to indicate that it may no longer be relevant (or helpful to highlight) after some date, or a [[Certification]] the validity has expired.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "expires",
+  "x-schemaorg-cardinality": "open-world"
+}

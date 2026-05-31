@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:coverageStartTime",
+  "$ref": "../datatypes/DateTime.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The time when the live blog will begin covering the Event. Note that coverage may begin before the Event's start time. The LiveBlogPosting may also be created before coverage begins.",
+  "title": "coverageStartTime",
+  "x-schemaorg-cardinality": "open-world"
+}

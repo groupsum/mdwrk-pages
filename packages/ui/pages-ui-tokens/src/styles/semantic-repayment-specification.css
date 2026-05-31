@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-repayment-specification-padding: 1rem;
+  --mdp-semantic-repayment-specification-gap: 0.75rem;
+  --mdp-semantic-repayment-specification-radius: 1rem;
+  --mdp-semantic-repayment-specification-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-repayment-specification-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-repayment-specification-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--repayment-specification {
+  padding: var(--mdp-semantic-repayment-specification-padding);
+  gap: var(--mdp-semantic-repayment-specification-gap);
+  border-radius: var(--mdp-semantic-repayment-specification-radius);
+  background: var(--mdp-semantic-repayment-specification-surface);
+  border: 1px solid var(--mdp-semantic-repayment-specification-border);
+  box-shadow: var(--mdp-semantic-repayment-specification-shadow);
+}
+
+.lander-semantic--repayment-specification .lander-semantic__header,
+.lander-semantic--repayment-specification .lander-semantic__body,
+.lander-semantic--repayment-specification .lander-semantic__footer,
+.lander-semantic--repayment-specification .lander-semantic__actions {
+  gap: var(--mdp-semantic-repayment-specification-gap);
+}
+
+.lander-semantic--repayment-specification .lander-semantic__header,
+.lander-semantic--repayment-specification .lander-semantic__eyebrow,
+.lander-semantic--repayment-specification .lander-semantic__title,
+.lander-semantic--repayment-specification .lander-semantic__subtitle,
+.lander-semantic--repayment-specification .lander-semantic__description,
+.lander-semantic--repayment-specification .lander-semantic__meta,
+.lander-semantic--repayment-specification .lander-semantic__image,
+.lander-semantic--repayment-specification .lander-semantic__body,
+.lander-semantic--repayment-specification .lander-semantic__actions,
+.lander-semantic--repayment-specification .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--repayment-specification .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--repayment-specification .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--repayment-specification .lander-semantic__subtitle,
+.lander-semantic--repayment-specification .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--repayment-specification .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-repayment-specification-gap) * 0.8);
+}
+
+.lander-semantic--repayment-specification .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-repayment-specification-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--repayment-specification .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--repayment-specification .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--repayment-specification .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

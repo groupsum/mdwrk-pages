@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:webFeed",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped updates. This is usually RSS or Atom.",
+  "oneOf": [
+    {
+      "$ref": "../types/DataFeed.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "webFeed",
+  "x-schemaorg-cardinality": "open-world"
+}

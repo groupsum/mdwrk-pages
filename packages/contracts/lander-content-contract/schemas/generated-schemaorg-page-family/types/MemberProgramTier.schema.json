@@ -1,0 +1,43 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MemberProgramTier",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MemberProgramTier"
+        },
+        "hasTierBenefit": {
+          "$ref": "../properties/hasTierBenefit.schema.json",
+          "description": "A member benefit for a particular tier of a loyalty program."
+        },
+        "hasTierRequirement": {
+          "$ref": "../properties/hasTierRequirement.schema.json",
+          "description": "A requirement for a user to join a membership tier, for example: a CreditCard if the tier requires sign up for a credit card, A UnitPriceSpecification if the user is required to pay a (periodic) fee, or a MonetaryAmount if the user needs to spend a minimum amount to join the tier. If a tier is free to join then this property does not need to be specified."
+        },
+        "isTierOf": {
+          "$ref": "../properties/isTierOf.schema.json",
+          "description": "The member program this tier is a part of."
+        },
+        "membershipPointsEarned": {
+          "$ref": "../properties/membershipPointsEarned.schema.json",
+          "description": "The number of membership points earned by the member. If necessary, the unitText can be used to express the units the points are issued in. (E.g. stars, miles, etc.)"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A MemberProgramTier specifies a tier under a loyalty (member) program, for example \"gold\".",
+  "title": "MemberProgramTier"
+}

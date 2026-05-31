@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:regionsAllowed",
+  "$ref": "../types/Place.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The regions where the media is allowed. If not specified, then it's assumed to be allowed everywhere. Specify the countries in [ISO 3166 format](http://en.wikipedia.org/wiki/ISO_3166).",
+  "title": "regionsAllowed",
+  "x-schemaorg-cardinality": "open-world"
+}

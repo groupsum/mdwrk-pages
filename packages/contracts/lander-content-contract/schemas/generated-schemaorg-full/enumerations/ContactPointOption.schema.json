@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:ContactPointOption",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerated options related to a ContactPoint.",
+  "enum": [],
+  "title": "ContactPointOption",
+  "type": "string"
+}

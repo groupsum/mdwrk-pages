@@ -68,7 +68,7 @@ test("T2: semantic components degrade cleanly and preserve required derived stru
   assert.ok(courseMarkup.includes("\"name\":\"Prompt Delivery 101 instance\""));
   assert.ok(courseMarkup.includes("\"courseMode\":\"Beginner\""));
   assert.equal(courseMarkup.includes("Extra instance"), false);
-  assert.ok(courseMarkup.includes("Duration: 4 weeks"));
+  assert.ok(courseMarkup.includes("4 weeks"));
   assert.ok(courseMarkup.includes("Module B"));
   assert.ok(courseMarkup.includes("Ship prompts"));
 

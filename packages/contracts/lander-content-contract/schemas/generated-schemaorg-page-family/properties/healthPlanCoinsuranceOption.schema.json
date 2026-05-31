@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:healthPlanCoinsuranceOption",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Whether the coinsurance applies before or after deductible, etc. TODO: Is this a closed set?",
+  "title": "healthPlanCoinsuranceOption",
+  "x-schemaorg-cardinality": "open-world"
+}

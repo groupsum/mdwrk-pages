@@ -1,0 +1,51 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:TrainTrip",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Trip.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "TrainTrip"
+        },
+        "arrivalPlatform": {
+          "$ref": "../properties/arrivalPlatform.schema.json",
+          "description": "The platform where the train arrives."
+        },
+        "arrivalStation": {
+          "$ref": "../properties/arrivalStation.schema.json",
+          "description": "The station where the train trip ends."
+        },
+        "departurePlatform": {
+          "$ref": "../properties/departurePlatform.schema.json",
+          "description": "The platform from which the train departs."
+        },
+        "departureStation": {
+          "$ref": "../properties/departureStation.schema.json",
+          "description": "The station from which the train departs."
+        },
+        "trainName": {
+          "$ref": "../properties/trainName.schema.json",
+          "description": "The name of the train (e.g. The Orient Express)."
+        },
+        "trainNumber": {
+          "$ref": "../properties/trainNumber.schema.json",
+          "description": "The unique identifier for the train."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A trip on a commercial train line.",
+  "title": "TrainTrip"
+}

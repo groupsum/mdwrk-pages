@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:arrivalPlatform",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The platform where the train arrives.",
+  "title": "arrivalPlatform",
+  "x-schemaorg-cardinality": "open-world"
+}

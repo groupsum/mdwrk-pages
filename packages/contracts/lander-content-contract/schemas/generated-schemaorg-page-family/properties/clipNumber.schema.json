@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:clipNumber",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Position of the clip within an ordered group of clips.",
+  "oneOf": [
+    {
+      "$ref": "../types/Integer.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "clipNumber",
+  "x-schemaorg-cardinality": "open-world"
+}

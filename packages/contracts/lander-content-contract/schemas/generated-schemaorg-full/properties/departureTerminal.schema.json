@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:departureTerminal",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Identifier of the flight's departure terminal.",
+  "title": "departureTerminal",
+  "x-schemaorg-cardinality": "open-world"
+}

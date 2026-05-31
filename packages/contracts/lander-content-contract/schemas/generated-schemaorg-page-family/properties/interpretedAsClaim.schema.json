@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:interpretedAsClaim",
+  "$ref": "../types/Claim.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Used to indicate a specific claim contained, implied, translated or refined from the content of a [[MediaObject]] or other [[CreativeWork]]. The interpreting party can be indicated using [[claimInterpreter]].",
+  "title": "interpretedAsClaim",
+  "x-schemaorg-cardinality": "open-world"
+}

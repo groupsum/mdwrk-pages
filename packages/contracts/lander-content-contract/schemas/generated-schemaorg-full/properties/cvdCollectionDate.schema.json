@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:cvdCollectionDate",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "collectiondate - Date for which patient counts are reported.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "cvdCollectionDate",
+  "x-schemaorg-cardinality": "open-world"
+}

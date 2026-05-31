@@ -1,0 +1,47 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:FoodEstablishment",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "LocalBusiness.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "FoodEstablishment"
+        },
+        "acceptsReservations": {
+          "$ref": "../properties/acceptsReservations.schema.json",
+          "description": "Indicates whether a FoodEstablishment accepts reservations. Values can be Boolean, an URL at which reservations can be made or (for backwards compatibility) the strings ```Yes``` or ```No```."
+        },
+        "hasMenu": {
+          "$ref": "../properties/hasMenu.schema.json",
+          "description": "Either the actual menu as a structured representation, as text, or a URL of the menu."
+        },
+        "menu": {
+          "$ref": "../properties/menu.schema.json",
+          "description": "Either the actual menu as a structured representation, as text, or a URL of the menu."
+        },
+        "servesCuisine": {
+          "$ref": "../properties/servesCuisine.schema.json",
+          "description": "The cuisine of the restaurant."
+        },
+        "starRating": {
+          "$ref": "../properties/starRating.schema.json",
+          "description": "An official rating for a lodging business or food establishment, e.g. from national associations or standards bodies. Use the author property to indicate the rating organization, e.g. as an Organization with name such as (e.g. HOTREC, DEHOGA, WHR, or Hotelstars)."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A food-related business.",
+  "title": "FoodEstablishment"
+}

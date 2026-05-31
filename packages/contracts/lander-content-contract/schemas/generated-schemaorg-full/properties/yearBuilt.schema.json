@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:yearBuilt",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The year an [[Accommodation]] was constructed. This corresponds to the [YearBuilt field in RESO](https://ddwiki.reso.org/display/DDW17/YearBuilt+Field). ",
+  "title": "yearBuilt",
+  "x-schemaorg-cardinality": "open-world"
+}

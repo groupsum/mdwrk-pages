@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:bibo:issue",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "title": "bibo:issue",
+  "type": [
+    "string",
+    "number",
+    "boolean",
+    "object",
+    "array",
+    "null"
+  ],
+  "x-schemaorg-cardinality": "open-world"
+}

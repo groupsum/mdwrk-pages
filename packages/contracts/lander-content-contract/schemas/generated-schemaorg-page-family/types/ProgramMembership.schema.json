@@ -1,0 +1,55 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ProgramMembership",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ProgramMembership"
+        },
+        "hostingOrganization": {
+          "$ref": "../properties/hostingOrganization.schema.json",
+          "description": "The Organization (airline, travelers' club, retailer, etc.) the membership is made with or which offers the  MemberProgram."
+        },
+        "member": {
+          "$ref": "../properties/member.schema.json",
+          "description": "A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals."
+        },
+        "members": {
+          "$ref": "../properties/members.schema.json",
+          "description": "A member of this organization."
+        },
+        "membershipNumber": {
+          "$ref": "../properties/membershipNumber.schema.json",
+          "description": "A unique identifier for the membership."
+        },
+        "membershipPointsEarned": {
+          "$ref": "../properties/membershipPointsEarned.schema.json",
+          "description": "The number of membership points earned by the member. If necessary, the unitText can be used to express the units the points are issued in. (E.g. stars, miles, etc.)"
+        },
+        "program": {
+          "$ref": "../properties/program.schema.json",
+          "description": "The [MemberProgram](https://schema.org/MemberProgram) associated with a [ProgramMembership](https://schema.org/ProgramMembership)."
+        },
+        "programName": {
+          "$ref": "../properties/programName.schema.json",
+          "description": "The program providing the membership. It is preferable to use [:program](https://schema.org/program) instead."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Used to describe membership in a loyalty programs (e.g. \"StarAliance\"), traveler clubs (e.g. \"AAA\"), purchase clubs (\"Safeway Club\"), etc.",
+  "title": "ProgramMembership"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:photo",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A photograph of this place.",
+  "oneOf": [
+    {
+      "$ref": "../types/ImageObject.schema.json"
+    },
+    {
+      "$ref": "../types/Photograph.schema.json"
+    }
+  ],
+  "title": "photo",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:offeredBy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A pointer to the organization or person making the offer.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "offeredBy",
+  "x-schemaorg-cardinality": "open-world"
+}

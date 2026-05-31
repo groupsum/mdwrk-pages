@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:numTracks",
+  "$ref": "../types/Integer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of tracks in this album or playlist.",
+  "title": "numTracks",
+  "x-schemaorg-cardinality": "open-world"
+}

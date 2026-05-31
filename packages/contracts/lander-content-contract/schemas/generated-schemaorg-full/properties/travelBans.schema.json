@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:travelBans",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Information about travel bans, e.g. in the context of a pandemic.",
+  "oneOf": [
+    {
+      "$ref": "../types/URL.schema.json"
+    },
+    {
+      "$ref": "../types/WebContent.schema.json"
+    }
+  ],
+  "title": "travelBans",
+  "x-schemaorg-cardinality": "open-world"
+}

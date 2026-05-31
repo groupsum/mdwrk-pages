@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:BodyOfWater",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Landform.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "BodyOfWater"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A body of water, such as a sea, ocean, or lake.",
+  "title": "BodyOfWater"
+}

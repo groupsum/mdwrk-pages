@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:performerIn",
+  "$ref": "../types/Event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Event that this person is a performer or participant in.",
+  "title": "performerIn",
+  "x-schemaorg-cardinality": "open-world"
+}

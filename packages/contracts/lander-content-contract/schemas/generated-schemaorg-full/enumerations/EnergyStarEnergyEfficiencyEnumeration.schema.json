@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:EnergyStarEnergyEfficiencyEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Used to indicate whether a product is EnergyStar certified.",
+  "enum": [],
+  "title": "EnergyStarEnergyEfficiencyEnumeration",
+  "type": "string"
+}

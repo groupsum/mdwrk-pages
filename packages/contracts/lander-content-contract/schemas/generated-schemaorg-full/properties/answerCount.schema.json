@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:answerCount",
+  "$ref": "../types/Integer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of answers this question has received.",
+  "title": "answerCount",
+  "x-schemaorg-cardinality": "open-world"
+}

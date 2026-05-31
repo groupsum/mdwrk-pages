@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:affiliation",
+  "$ref": "../types/Organization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An organization that this person is affiliated with. For example, a school/university, a club, or a team.",
+  "title": "affiliation",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:homeTeam",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The home team in a sports event.",
+  "oneOf": [
+    {
+      "$ref": "../types/Person.schema.json"
+    },
+    {
+      "$ref": "../types/SportsTeam.schema.json"
+    }
+  ],
+  "title": "homeTeam",
+  "x-schemaorg-cardinality": "open-world"
+}

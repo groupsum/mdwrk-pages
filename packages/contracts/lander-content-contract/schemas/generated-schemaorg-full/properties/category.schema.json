@@ -1,0 +1,24 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:category",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.",
+  "oneOf": [
+    {
+      "$ref": "../types/CategoryCode.schema.json"
+    },
+    {
+      "$ref": "../enumerations/PhysicalActivityCategory.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/Thing.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "category",
+  "x-schemaorg-cardinality": "open-world"
+}

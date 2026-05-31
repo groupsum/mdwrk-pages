@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:members",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A member of this organization.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "members",
+  "x-schemaorg-cardinality": "open-world"
+}

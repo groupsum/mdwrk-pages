@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-rating-padding: 1rem;
+  --mdp-semantic-rating-gap: 0.75rem;
+  --mdp-semantic-rating-radius: 1rem;
+  --mdp-semantic-rating-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-rating-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-rating-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--rating {
+  padding: var(--mdp-semantic-rating-padding);
+  gap: var(--mdp-semantic-rating-gap);
+  border-radius: var(--mdp-semantic-rating-radius);
+  background: var(--mdp-semantic-rating-surface);
+  border: 1px solid var(--mdp-semantic-rating-border);
+  box-shadow: var(--mdp-semantic-rating-shadow);
+}
+
+.lander-semantic--rating .lander-semantic__header,
+.lander-semantic--rating .lander-semantic__body,
+.lander-semantic--rating .lander-semantic__footer,
+.lander-semantic--rating .lander-semantic__actions {
+  gap: var(--mdp-semantic-rating-gap);
+}
+
+.lander-semantic--rating .lander-semantic__header,
+.lander-semantic--rating .lander-semantic__eyebrow,
+.lander-semantic--rating .lander-semantic__title,
+.lander-semantic--rating .lander-semantic__subtitle,
+.lander-semantic--rating .lander-semantic__description,
+.lander-semantic--rating .lander-semantic__meta,
+.lander-semantic--rating .lander-semantic__image,
+.lander-semantic--rating .lander-semantic__body,
+.lander-semantic--rating .lander-semantic__actions,
+.lander-semantic--rating .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--rating .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--rating .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--rating .lander-semantic__subtitle,
+.lander-semantic--rating .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--rating .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-rating-gap) * 0.8);
+}
+
+.lander-semantic--rating .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-rating-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--rating .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--rating .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--rating .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

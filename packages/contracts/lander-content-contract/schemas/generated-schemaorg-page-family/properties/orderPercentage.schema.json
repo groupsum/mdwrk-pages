@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:orderPercentage",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Value representing the fraction of the value of the order that is charged as shipping cost. Example: 0.10 would mean shipping rate is 10% of the total order value.",
+  "title": "orderPercentage",
+  "x-schemaorg-cardinality": "open-world"
+}

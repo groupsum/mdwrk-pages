@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:isFamilyFriendly",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates whether this content is family friendly.",
+  "title": "isFamilyFriendly",
+  "x-schemaorg-cardinality": "open-world"
+}

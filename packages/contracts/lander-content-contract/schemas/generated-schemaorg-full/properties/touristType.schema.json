@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:touristType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Attraction suitable for type(s) of tourist. E.g. children, visitors from a particular country, etc. ",
+  "oneOf": [
+    {
+      "$ref": "../types/Audience.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "touristType",
+  "x-schemaorg-cardinality": "open-world"
+}

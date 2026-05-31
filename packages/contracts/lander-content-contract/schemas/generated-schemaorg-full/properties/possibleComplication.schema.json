@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:possibleComplication",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A possible unexpected and unfavorable evolution of a medical condition. Complications may include worsening of the signs or symptoms of the disease, extension of the condition to other organ systems, etc.",
+  "title": "possibleComplication",
+  "x-schemaorg-cardinality": "open-world"
+}

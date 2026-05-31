@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:broadcaster",
+  "$ref": "../types/Organization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The organization owning or operating the broadcast service.",
+  "title": "broadcaster",
+  "x-schemaorg-cardinality": "open-world"
+}

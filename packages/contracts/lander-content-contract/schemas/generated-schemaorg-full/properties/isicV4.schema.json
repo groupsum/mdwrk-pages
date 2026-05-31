@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:isicV4",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.",
+  "title": "isicV4",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:doorTime",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The time admission will commence.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Time.schema.json"
+    }
+  ],
+  "title": "doorTime",
+  "x-schemaorg-cardinality": "open-world"
+}

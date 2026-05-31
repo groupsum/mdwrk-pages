@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:sodiumContent",
+  "$ref": "../types/Mass.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of milligrams of sodium.",
+  "title": "sodiumContent",
+  "x-schemaorg-cardinality": "open-world"
+}

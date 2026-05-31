@@ -1,0 +1,94 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:TVSeries",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "$ref": "CreativeWorkSeries.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "TVSeries"
+        },
+        "actor": {
+          "$ref": "../properties/actor.schema.json",
+          "description": "An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip."
+        },
+        "actors": {
+          "$ref": "../properties/actors.schema.json",
+          "description": "An actor, e.g. in TV, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip."
+        },
+        "containsSeason": {
+          "$ref": "../properties/containsSeason.schema.json",
+          "description": "A season that is part of the media series."
+        },
+        "countryOfOrigin": {
+          "$ref": "../properties/countryOfOrigin.schema.json",
+          "description": "The country of origin of something, including products as well as creative  works such as movie and TV content.\n\nIn the case of TV and movie, this would be the country of the principle offices of the production company or individual responsible for the movie. For other kinds of [[CreativeWork]] it is difficult to provide fully general guidance, and properties such as [[contentLocation]] and [[locationCreated]] may be more applicable.\n\nIn the case of products, the country of origin of the product. The exact interpretation of this may vary by context and product type, and cannot be fully enumerated here."
+        },
+        "director": {
+          "$ref": "../properties/director.schema.json",
+          "description": "A director of e.g. TV, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip."
+        },
+        "directors": {
+          "$ref": "../properties/directors.schema.json",
+          "description": "A director of e.g. TV, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip."
+        },
+        "episode": {
+          "$ref": "../properties/episode.schema.json",
+          "description": "An episode of a TV, radio or game media within a series or season."
+        },
+        "episodes": {
+          "$ref": "../properties/episodes.schema.json",
+          "description": "An episode of a TV/radio series or season."
+        },
+        "musicBy": {
+          "$ref": "../properties/musicBy.schema.json",
+          "description": "The composer of the soundtrack."
+        },
+        "numberOfEpisodes": {
+          "$ref": "../properties/numberOfEpisodes.schema.json",
+          "description": "The number of episodes in this season or series."
+        },
+        "numberOfSeasons": {
+          "$ref": "../properties/numberOfSeasons.schema.json",
+          "description": "The number of seasons in this series."
+        },
+        "productionCompany": {
+          "$ref": "../properties/productionCompany.schema.json",
+          "description": "The production company or studio responsible for the item, e.g. series, video game, episode etc."
+        },
+        "season": {
+          "$ref": "../properties/season.schema.json",
+          "description": "A season in a media series."
+        },
+        "seasons": {
+          "$ref": "../properties/seasons.schema.json",
+          "description": "A season in a media series."
+        },
+        "titleEIDR": {
+          "$ref": "../properties/titleEIDR.schema.json",
+          "description": "An [EIDR](https://eidr.org/) (Entertainment Identifier Registry) [[identifier]] representing at the most general/abstract level, a work of film or television.\n\nFor example, the motion picture known as \"Ghostbusters\" has a titleEIDR of  \"10.5240/7EC7-228A-510A-053E-CBB8-J\". This title (or work) may have several variants, which EIDR calls \"edits\". See [[editEIDR]].\n\nSince schema.org types like [[Movie]], [[TVEpisode]], [[TVSeason]], and [[TVSeries]] can be used for both works and their multiple expressions, it is possible to use [[titleEIDR]] alone (for a general description), or alongside [[editEIDR]] for a more edit-specific description.\n"
+        },
+        "trailer": {
+          "$ref": "../properties/trailer.schema.json",
+          "description": "The trailer of a movie or TV/radio series, season, episode, etc."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "CreativeWorkSeries dedicated to TV broadcast and associated online delivery.",
+  "title": "TVSeries"
+}

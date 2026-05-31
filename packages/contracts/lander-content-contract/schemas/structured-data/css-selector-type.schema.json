@@ -1,0 +1,20 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:CssSelectorType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CssSelectorType",
+  "description": "Text representing a CSS selector.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "CssSelectorType"
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

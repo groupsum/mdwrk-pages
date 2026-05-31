@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:jobTitle",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The job title of the person (for example, Financial Manager).",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "jobTitle",
+  "x-schemaorg-cardinality": "open-world"
+}

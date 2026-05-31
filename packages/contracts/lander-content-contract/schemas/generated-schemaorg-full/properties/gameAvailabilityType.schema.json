@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:gameAvailabilityType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the availability type of the game content associated with this action, such as whether it is a full version or a demo.",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/GameAvailabilityEnumeration.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "gameAvailabilityType",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:arrivalStation",
+  "$ref": "../types/TrainStation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The station where the train trip ends.",
+  "title": "arrivalStation",
+  "x-schemaorg-cardinality": "open-world"
+}

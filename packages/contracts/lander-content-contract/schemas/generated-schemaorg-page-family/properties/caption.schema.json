@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:caption",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]].",
+  "oneOf": [
+    {
+      "$ref": "../types/MediaObject.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "caption",
+  "x-schemaorg-cardinality": "open-world"
+}

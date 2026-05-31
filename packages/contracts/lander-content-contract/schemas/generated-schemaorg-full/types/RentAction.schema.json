@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:RentAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "TradeAction.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "RentAction"
+        },
+        "landlord": {
+          "$ref": "../properties/landlord.schema.json",
+          "description": "A sub property of participant. The owner of the real estate property."
+        },
+        "realEstateAgent": {
+          "$ref": "../properties/realEstateAgent.schema.json",
+          "description": "A sub property of participant. The real estate agent involved in the action."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The act of giving money in return for temporary use, but not ownership, of an object such as a vehicle or property. For example, an agent rents a property from a landlord in exchange for a periodic payment.",
+  "title": "RentAction"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:itemDefectReturnLabelSource",
+  "$ref": "../enumerations/ReturnLabelSourceEnumeration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The method (from an enumeration) by which the customer obtains a return shipping label for a defect product.",
+  "title": "itemDefectReturnLabelSource",
+  "x-schemaorg-cardinality": "open-world"
+}

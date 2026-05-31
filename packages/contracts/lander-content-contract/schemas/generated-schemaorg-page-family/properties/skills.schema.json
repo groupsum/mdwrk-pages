@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:skills",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is either claimed by a person, an organization or desired or required to fulfill a role or to work in an occupation.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "skills",
+  "x-schemaorg-cardinality": "open-world"
+}

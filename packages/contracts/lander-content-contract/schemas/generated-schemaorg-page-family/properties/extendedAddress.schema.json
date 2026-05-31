@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:extendedAddress",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An address extension such as an apartment number, C/O or alternative name.",
+  "title": "extendedAddress",
+  "x-schemaorg-cardinality": "open-world"
+}

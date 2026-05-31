@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Answer",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Comment.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Answer"
+        },
+        "answerExplanation": {
+          "$ref": "../properties/answerExplanation.schema.json",
+          "description": "A step-by-step or full explanation about Answer. Can outline how this Answer was achieved or contain more broad clarification or statement about it. "
+        },
+        "parentItem": {
+          "$ref": "../properties/parentItem.schema.json",
+          "description": "The parent of a question, answer or item in general. Typically used for Q/A discussion threads e.g. a chain of comments with the first comment being an [[Article]] or other [[CreativeWork]]. See also [[comment]] which points from something to a comment about it."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An answer offered to a question; perhaps correct, perhaps opinionated or wrong.",
+  "title": "Answer"
+}

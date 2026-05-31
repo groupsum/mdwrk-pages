@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:surface",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A material used as a surface in some artwork, e.g. Canvas, Paper, Wood, Board, etc.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "surface",
+  "x-schemaorg-cardinality": "open-world"
+}

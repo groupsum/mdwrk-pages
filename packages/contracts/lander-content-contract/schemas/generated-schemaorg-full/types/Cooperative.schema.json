@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Cooperative",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Organization.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Cooperative"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An organization that is a joint project of multiple organizations or persons.",
+  "title": "Cooperative"
+}

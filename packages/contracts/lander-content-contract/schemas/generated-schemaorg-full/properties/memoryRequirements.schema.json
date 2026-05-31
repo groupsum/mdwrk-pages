@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:memoryRequirements",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Minimum memory requirements.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "memoryRequirements",
+  "x-schemaorg-cardinality": "open-world"
+}

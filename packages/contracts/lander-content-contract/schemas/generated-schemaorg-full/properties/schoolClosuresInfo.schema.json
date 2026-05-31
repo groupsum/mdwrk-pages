@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:schoolClosuresInfo",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Information about school closures.",
+  "oneOf": [
+    {
+      "$ref": "../types/URL.schema.json"
+    },
+    {
+      "$ref": "../types/WebContent.schema.json"
+    }
+  ],
+  "title": "schoolClosuresInfo",
+  "x-schemaorg-cardinality": "open-world"
+}

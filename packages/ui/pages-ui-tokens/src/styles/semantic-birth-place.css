@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-birth-place-padding: 1rem;
+  --mdp-semantic-birth-place-gap: 0.75rem;
+  --mdp-semantic-birth-place-radius: 1rem;
+  --mdp-semantic-birth-place-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-birth-place-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-birth-place-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--birth-place {
+  padding: var(--mdp-semantic-birth-place-padding);
+  gap: var(--mdp-semantic-birth-place-gap);
+  border-radius: var(--mdp-semantic-birth-place-radius);
+  background: var(--mdp-semantic-birth-place-surface);
+  border: 1px solid var(--mdp-semantic-birth-place-border);
+  box-shadow: var(--mdp-semantic-birth-place-shadow);
+}
+
+.lander-semantic--birth-place .lander-semantic__header,
+.lander-semantic--birth-place .lander-semantic__body,
+.lander-semantic--birth-place .lander-semantic__footer,
+.lander-semantic--birth-place .lander-semantic__actions {
+  gap: var(--mdp-semantic-birth-place-gap);
+}
+
+.lander-semantic--birth-place .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--birth-place .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--birth-place .lander-semantic__subtitle,
+.lander-semantic--birth-place .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--birth-place .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-birth-place-gap) * 0.8);
+}
+
+.lander-semantic--birth-place .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--birth-place .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

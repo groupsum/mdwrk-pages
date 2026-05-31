@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:datasetTimeInterval",
+  "$ref": "../datatypes/DateTime.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The range of temporal applicability of a dataset, e.g. for a 2011 census dataset, the year 2011 (in ISO 8601 time interval format).",
+  "title": "datasetTimeInterval",
+  "x-schemaorg-cardinality": "open-world"
+}

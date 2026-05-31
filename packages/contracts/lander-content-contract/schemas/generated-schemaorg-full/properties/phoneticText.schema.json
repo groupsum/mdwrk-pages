@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:phoneticText",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Representation of a text [[textValue]] using the specified [[speechToTextMarkup]]. For example the city name of Houston in IPA: /\u02c8hju\u02d0st\u0259n/.",
+  "title": "phoneticText",
+  "x-schemaorg-cardinality": "open-world"
+}

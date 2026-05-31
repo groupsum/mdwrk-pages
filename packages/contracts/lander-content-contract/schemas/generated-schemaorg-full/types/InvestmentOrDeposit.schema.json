@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:InvestmentOrDeposit",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "FinancialProduct.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "InvestmentOrDeposit"
+        },
+        "amount": {
+          "$ref": "../properties/amount.schema.json",
+          "description": "The amount of money."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A type of financial product that typically requires the client to transfer funds to a financial service in return for potential beneficial financial return.",
+  "title": "InvestmentOrDeposit"
+}

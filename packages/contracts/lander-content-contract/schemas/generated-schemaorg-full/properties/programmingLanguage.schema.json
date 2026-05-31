@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:programmingLanguage",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The computer programming language.",
+  "oneOf": [
+    {
+      "$ref": "../types/ComputerLanguage.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "programmingLanguage",
+  "x-schemaorg-cardinality": "open-world"
+}

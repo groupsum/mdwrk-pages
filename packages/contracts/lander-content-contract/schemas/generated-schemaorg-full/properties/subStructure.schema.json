@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:subStructure",
+  "$ref": "../types/AnatomicalStructure.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Component (sub-)structure(s) that comprise this anatomical structure.",
+  "title": "subStructure",
+  "x-schemaorg-cardinality": "open-world"
+}

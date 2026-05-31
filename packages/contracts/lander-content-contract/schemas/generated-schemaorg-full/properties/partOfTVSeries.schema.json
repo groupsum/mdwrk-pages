@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:partOfTVSeries",
+  "$ref": "../types/TVSeries.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The TV series to which this episode or season belongs.",
+  "title": "partOfTVSeries",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:measurementQualifier",
+  "$ref": "../types/Enumeration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Provides additional qualification to an observation. For example, a GDP observation measures the Nominal value.",
+  "title": "measurementQualifier",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -4,11 +4,13 @@ import {
   SemanticShell,
   SemanticStructuredDataGate,
   bodyList,
+  definedRegionReference,
   firstImage,
   isRecord,
   mergeRecordLike,
   nonEmptyString,
   renderJsonPreview,
+  thingReference,
 } from "./shared.js";
 
 type ProductStructuredDataInput = React.ComponentProps<typeof structuredDataReact.ProductStructuredData>["data"];
@@ -17,6 +19,9 @@ type ReviewStructuredDataInput = React.ComponentProps<typeof structuredDataReact
 type AggregateRatingStructuredDataInput = React.ComponentProps<typeof structuredDataReact.AggregateRatingStructuredData>["data"];
 type OfferShippingDetailsStructuredDataInput = React.ComponentProps<typeof structuredDataReact.OfferShippingDetailsStructuredData>["data"];
 type MerchantReturnPolicyStructuredDataInput = React.ComponentProps<typeof structuredDataReact.MerchantReturnPolicyStructuredData>["data"];
+type MerchantReturnPolicySeasonalOverrideStructuredDataInput = React.ComponentProps<
+  typeof structuredDataReact.MerchantReturnPolicySeasonalOverrideStructuredData
+>["data"];
 type MonetaryAmountDistributionStructuredDataInput = React.ComponentProps<
   typeof structuredDataReact.MonetaryAmountDistributionStructuredData
 >["data"];
@@ -98,6 +103,19 @@ export interface MerchantReturnPolicyProps {
   className?: string;
   emitStructuredData?: boolean;
   structuredDataOverrides?: Partial<MerchantReturnPolicyStructuredDataInput>;
+}
+
+export interface MerchantReturnPolicySeasonalOverrideProps {
+  name: string;
+  merchantReturnDays?: number;
+  returnPolicyCategory?: string;
+  startDate?: string;
+  endDate?: string;
+  body?: React.ReactNode;
+  viewModel?: { eyebrow?: string; footer?: React.ReactNode };
+  className?: string;
+  emitStructuredData?: boolean;
+  structuredDataOverrides?: Partial<MerchantReturnPolicySeasonalOverrideStructuredDataInput>;
 }
 
 export interface MonetaryAmountDistributionProps {
@@ -250,7 +268,7 @@ export function ProductGroup(props: ProductGroupProps) {
 export function Review(props: ReviewProps) {
   const base: ReviewStructuredDataInput = {
     name: props.name,
-    itemReviewed: props.itemReviewed,
+    itemReviewed: thingReference(props.itemReviewed),
     author: props.author ? { "@type": "Person", name: props.author.name, url: props.author.url } : undefined,
     reviewBody: props.reviewBody,
     reviewRating: props.ratingValue ? { "@type": "Rating", ratingValue: props.ratingValue } : undefined,
@@ -364,8 +382,7 @@ export function OfferShippingDetails(props: OfferShippingDetailsProps) {
   const base: OfferShippingDetailsStructuredDataInput = {
     name: props.name,
     merchantReturnDays: props.merchantReturnDays,
-    returnPolicyCategory: props.returnPolicyCategory,
-    shippingDestination: props.shippingDestination,
+    shippingDestination: definedRegionReference(props.shippingDestination),
     shippingRate: props.shippingRate ? { "@type": "MonetaryAmount", value: props.shippingRate } : undefined,
   };
   const structuredData = { ...base, ...(props.structuredDataOverrides ?? {}) };
@@ -386,8 +403,7 @@ export function MerchantReturnPolicy(props: MerchantReturnPolicyProps) {
   const base: MerchantReturnPolicyStructuredDataInput = {
     name: props.name,
     merchantReturnDays: props.merchantReturnDays,
-    returnPolicyCategory: props.returnPolicyCategory,
-    shippingDestination: props.shippingDestination,
+    shippingDestination: definedRegionReference(props.shippingDestination),
     shippingRate: props.shippingRate ? { "@type": "MonetaryAmount", value: props.shippingRate } : undefined,
   };
   const structuredData = { ...base, ...(props.structuredDataOverrides ?? {}) };
@@ -399,6 +415,37 @@ export function MerchantReturnPolicy(props: MerchantReturnPolicyProps) {
       {policyShell("merchant-return-policy", props.name, {
         ...props,
         footer: props.viewModel?.footer,
+      })}
+    </>
+  );
+}
+
+export function MerchantReturnPolicySeasonalOverride(props: MerchantReturnPolicySeasonalOverrideProps) {
+  const base: MerchantReturnPolicySeasonalOverrideStructuredDataInput = {
+    name: props.name,
+    merchantReturnDays: props.merchantReturnDays,
+    returnPolicyCategory: props.returnPolicyCategory,
+    startDate: props.startDate,
+    endDate: props.endDate,
+  };
+  const structuredData = { ...base, ...(props.structuredDataOverrides ?? {}) };
+  return (
+    <>
+      <SemanticStructuredDataGate emitStructuredData={props.emitStructuredData}>
+        <structuredDataReact.MerchantReturnPolicySeasonalOverrideStructuredData data={structuredData} />
+      </SemanticStructuredDataGate>
+      {policyShell("merchant-return-policy-seasonal-override", props.name, {
+        merchantReturnDays: props.merchantReturnDays,
+        returnPolicyCategory: props.returnPolicyCategory,
+        body: (
+          <>
+            {props.startDate ? <p>Starts: {props.startDate}</p> : null}
+            {props.endDate ? <p>Ends: {props.endDate}</p> : null}
+            {props.body}
+          </>
+        ),
+        footer: props.viewModel?.footer,
+        className: props.className,
       })}
     </>
   );

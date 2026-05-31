@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:AudioObject",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MediaObject.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "AudioObject"
+        },
+        "caption": {
+          "$ref": "../properties/caption.schema.json",
+          "description": "The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]]."
+        },
+        "embeddedTextCaption": {
+          "$ref": "../properties/embeddedTextCaption.schema.json",
+          "description": "Represents textual captioning from a [[MediaObject]], e.g. text of a 'meme'."
+        },
+        "transcript": {
+          "$ref": "../properties/transcript.schema.json",
+          "description": "If this MediaObject is an AudioObject or VideoObject, the transcript of that object."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An audio file.",
+  "title": "AudioObject"
+}

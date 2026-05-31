@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Audience",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Audience"
+        },
+        "audienceType": {
+          "$ref": "../properties/audienceType.schema.json",
+          "description": "The target group associated with a given audience (e.g. veterans, car owners, musicians, etc.)."
+        },
+        "geographicArea": {
+          "$ref": "../properties/geographicArea.schema.json",
+          "description": "The geographic area associated with the audience."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Intended audience for an item, i.e. the group for whom the item was created.",
+  "title": "Audience"
+}

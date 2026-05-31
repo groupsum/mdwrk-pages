@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:customerRemorseReturnShippingFeesAmount",
+  "$ref": "../types/MonetaryAmount.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The amount of shipping costs if a product is returned due to customer remorse. Applicable when property [[customerRemorseReturnFees]] equals [[ReturnShippingFees]].",
+  "title": "customerRemorseReturnShippingFeesAmount",
+  "x-schemaorg-cardinality": "open-world"
+}

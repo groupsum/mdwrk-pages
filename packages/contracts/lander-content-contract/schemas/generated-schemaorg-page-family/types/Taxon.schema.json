@@ -1,0 +1,43 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Taxon",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Thing.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Taxon"
+        },
+        "childTaxon": {
+          "$ref": "../properties/childTaxon.schema.json",
+          "description": "Closest child taxa of the taxon in question."
+        },
+        "hasDefinedTerm": {
+          "$ref": "../properties/hasDefinedTerm.schema.json",
+          "description": "A Defined Term contained in this term set."
+        },
+        "parentTaxon": {
+          "$ref": "../properties/parentTaxon.schema.json",
+          "description": "Closest parent taxon of the taxon in question."
+        },
+        "taxonRank": {
+          "$ref": "../properties/taxonRank.schema.json",
+          "description": "The taxonomic rank of this taxon given preferably as a URI from a controlled vocabulary \u2013 typically the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A set of organisms asserted to represent a natural cohesive biological unit.",
+  "title": "Taxon"
+}

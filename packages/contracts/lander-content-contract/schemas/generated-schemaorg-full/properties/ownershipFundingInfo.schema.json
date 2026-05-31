@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:ownershipFundingInfo",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a description of organizational ownership structure; funding and grants. In a news/media setting, this is with particular reference to editorial independence.   Note that the [[funder]] is also available and can be used to make basic funder information machine-readable.",
+  "oneOf": [
+    {
+      "$ref": "../types/AboutPage.schema.json"
+    },
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "ownershipFundingInfo",
+  "x-schemaorg-cardinality": "open-world"
+}

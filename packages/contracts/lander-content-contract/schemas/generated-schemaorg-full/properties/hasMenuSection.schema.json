@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasMenuSection",
+  "$ref": "../types/MenuSection.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A subgrouping of the menu (by dishes, course, serving time period, etc.).",
+  "title": "hasMenuSection",
+  "x-schemaorg-cardinality": "open-world"
+}

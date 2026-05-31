@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:cvdNumBedsOcc",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "numbedsocc - HOSPITAL INPATIENT BED OCCUPANCY: Total number of staffed inpatient beds that are occupied.",
+  "title": "cvdNumBedsOcc",
+  "x-schemaorg-cardinality": "open-world"
+}

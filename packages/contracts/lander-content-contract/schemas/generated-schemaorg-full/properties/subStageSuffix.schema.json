@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:subStageSuffix",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The substage, e.g. 'a' for Stage IIIa.",
+  "title": "subStageSuffix",
+  "x-schemaorg-cardinality": "open-world"
+}

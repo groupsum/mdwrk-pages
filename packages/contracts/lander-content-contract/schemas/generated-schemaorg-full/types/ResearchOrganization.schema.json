@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ResearchOrganization",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Organization.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ResearchOrganization"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A Research Organization (e.g. scientific institute, research company).",
+  "title": "ResearchOrganization"
+}

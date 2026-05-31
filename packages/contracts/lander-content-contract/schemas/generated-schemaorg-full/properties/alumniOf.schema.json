@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:alumniOf",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An organization that the person is an alumni of.",
+  "oneOf": [
+    {
+      "$ref": "../types/EducationalOrganization.schema.json"
+    },
+    {
+      "$ref": "../types/Organization.schema.json"
+    }
+  ],
+  "title": "alumniOf",
+  "x-schemaorg-cardinality": "open-world"
+}

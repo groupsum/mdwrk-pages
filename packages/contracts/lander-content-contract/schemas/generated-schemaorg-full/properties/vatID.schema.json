@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:vatID",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The value-added Tax ID of the organization or person with national prefix (for example IT123456789). Can also be described as [[iso6523Code]] with proper prefix.",
+  "title": "vatID",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:doseSchedule",
+  "$ref": "../types/DoseSchedule.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A dosing schedule for the drug for a given population, either observed, recommended, or maximum dose based on the type used.",
+  "title": "doseSchedule",
+  "x-schemaorg-cardinality": "open-world"
+}

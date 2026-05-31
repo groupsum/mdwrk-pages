@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:drug",
+  "$ref": "../types/Drug.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Specifying a drug or medicine used in a medication procedure.",
+  "title": "drug",
+  "x-schemaorg-cardinality": "open-world"
+}

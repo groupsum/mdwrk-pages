@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:cookTime",
+  "$ref": "../types/Duration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The time it takes to actually cook the dish, in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
+  "title": "cookTime",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,6 +1,6 @@
 # Structured Data Type Support Matrix
 
-Snapshot date: `2026-05-27`
+Snapshot date: `2026-05-30`
 
 Legend:
 
@@ -9,71 +9,86 @@ Legend:
 - `⚠️` = Google deprecated / limited / phasing-out / not a practical current target
 - `✅` = active Google target worth supporting for us
 
-| Structured data type | Google feature | Risk/status | Target? | In `@mdwrk/structured-data` | JSON Schema for this type? | Concrete React component? |
-|---|---:|---:|---:|---:|---:|---:|
-| `AggregateRating` |  |  |  | Yes | No | Yes |
-| `Answer` | `🧩` |  | `✅` | Yes | No | Yes |
-| `Article` | `✨` |  | `✅` | Yes | No | Yes |
-| `BlogPosting` | `✨` |  | `✅` | Yes | No | Yes |
-| `Book` |  |  |  | Yes | No | Yes |
-| `BroadcastEvent` | `🧩` |  | `✅` | Yes | No | Yes |
-| `BreadcrumbList` | `✨` |  | `✅` | Yes | No | Yes |
-| `ClaimReview` | `✨` |  | `✅` | Yes | No | Yes |
-| `Clip` | `🧩` |  | `✅` | Yes | No | Yes |
-| `Course` | `✨` |  | `✅` | Yes | No | Yes |
-| `CourseInstance` |  |  |  | Yes | No | Yes |
-| `Dataset` |  | `⚠️` |  | Yes | No | Yes |
-| `DiscussionForumPosting` | `✨` |  | `✅` | Yes | No | Yes |
-| `EmployerAggregateRating` | `✨` |  | `✅` | Yes | No | Yes |
-| `Event` | `✨` |  | `✅` | Yes | No | Yes |
-| `FAQPage` |  | `⚠️` |  | Yes | No | Yes |
-| `HowTo` | `✨` |  | `✅` | Yes | No | Yes |
-| `ImageObject` | `✨` |  | `✅` | Yes | No | Yes |
-| `ItemList` | `🧩` |  | `✅` | Yes | No | Yes |
-| `JobPosting` | `✨` |  | `✅` | Yes | No | Yes |
-| `LearningResource` |  |  |  | Yes | No | Yes |
-| `LocalBusiness` | `✨` |  | `✅` | Yes | No | Yes |
-| `MathSolver` | `✨` |  | `✅` | Yes | No | Yes |
-| `MemberProgram` |  |  |  | Yes | No | Yes |
-| `MerchantReturnPolicy` | `🧩` |  | `✅` | Yes | No | Yes |
-| `MonetaryAmountDistribution` | `🧩` |  | `✅` | Yes | No | Yes |
-| `Movie` | `✨` |  | `✅` | Yes | No | Yes |
-| `NewsArticle` | `✨` |  | `✅` | Yes | No | Yes |
-| `OfferShippingDetails` | `🧩` |  | `✅` | Yes | No | Yes |
-| `Organization` |  |  |  | Yes | No | Yes |
-| `Product` | `✨` |  | `✅` | Yes | No | Yes |
-| `ProductGroup` | `🧩` |  | `✅` | Yes | No | Yes |
-| `ProfilePage` | `✨` |  | `✅` | Yes | No | Yes |
-| `QAPage` | `✨` |  | `✅` | Yes | No | Yes |
-| `Question` | `🧩` |  | `✅` | Yes | No | Yes |
-| `Quiz` | `✨` |  | `✅` | Yes | No | Yes |
-| `ReadAction` |  |  |  | Yes | No | Yes |
-| `Recipe` | `✨` |  | `✅` | Yes | No | Yes |
-| `Review` | `✨` |  | `✅` | Yes | No | Yes |
-| `SoftwareApplication` | `✨` |  | `✅` | Yes | No | Yes |
-| `SoftwareSourceCode` |  |  |  | Yes | No | Yes |
-| `SolveMathAction` | `🧩` |  | `✅` | Yes | No | Yes |
-| `SpeakableSpecification` |  |  |  | Yes | No | Yes |
-| `TechArticle` |  |  |  | Yes | No | Yes |
-| `VacationRental` | `✨` |  | `✅` | Yes | No | Yes |
-| `Vehicle` | `✨` |  | `✅` | Yes | No | Yes |
-| `VideoObject` | `✨` |  | `✅` | Yes | No | Yes |
-| `WebApplication` |  |  |  | Yes | No | Yes |
-| `WebPage` |  |  |  | Yes | No | Yes |
-| `WebSite` |  |  |  | Yes | No | Yes |
+| Structured data type | Google feature | Risk/status | Target? | In `@mdwrk/structured-data` | JSON Schema for this type? | JSON-LD React component? | First-class fused export in `@mdwrk/lander-react`? |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| `AboutPage` |  |  |  | Yes | Yes | Yes | Yes |
+| `AggregateRating` |  |  |  | Yes | Yes | Yes | Yes |
+| `Answer` | `🧩` |  | `✅` | Yes | Yes | Yes | Yes |
+| `Article` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `BlogPosting` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `Book` |  |  |  | Yes | Yes | Yes | Yes |
+| `BroadcastEvent` | `🧩` |  | `✅` | Yes | Yes | Yes | Yes |
+| `BreadcrumbList` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `CheckoutPage` |  |  |  | Yes | Yes | Yes | Yes |
+| `ClaimReview` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `Clip` | `🧩` |  | `✅` | Yes | Yes | Yes | Yes |
+| `CollectionPage` |  |  |  | Yes | Yes | Yes | Yes |
+| `ContactPage` |  |  |  | Yes | Yes | Yes | Yes |
+| `Course` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `CourseInstance` |  |  |  | Yes | Yes | Yes | Yes |
+| `Dataset` |  | `⚠️` |  | Yes | Yes | Yes | Yes |
+| `DiscussionForumPosting` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `EmployerAggregateRating` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `Event` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `FAQPage` |  | `⚠️` |  | Yes | Yes | Yes | Yes |
+| `HowTo` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `ImageObject` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `ItemList` | `🧩` |  | `✅` | Yes | Yes | Yes | Yes |
+| `ItemPage` |  |  |  | Yes | Yes | Yes | Yes |
+| `JobPosting` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `LearningResource` |  |  |  | Yes | Yes | Yes | Yes |
+| `LocalBusiness` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `MathSolver` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `MemberProgram` |  |  |  | Yes | Yes | Yes | Yes |
+| `MerchantReturnPolicy` | `🧩` |  | `✅` | Yes | Yes | Yes | Yes |
+| `MonetaryAmountDistribution` | `🧩` |  | `✅` | Yes | Yes | Yes | Yes |
+| `Movie` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `NewsArticle` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `OfferShippingDetails` | `🧩` |  | `✅` | Yes | Yes | Yes | Yes |
+| `Organization` |  |  |  | Yes | Yes | Yes | Yes |
+| `Product` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `ProductGroup` | `🧩` |  | `✅` | Yes | Yes | Yes | Yes |
+| `ProfilePage` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `QAPage` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `Question` | `🧩` |  | `✅` | Yes | Yes | Yes | Yes |
+| `Quiz` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `ReadAction` |  |  |  | Yes | Yes | Yes | Yes |
+| `RealEstateListing` |  |  |  | Yes | Yes | Yes | Yes |
+| `Recipe` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `Review` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `SearchResultsPage` |  |  |  | Yes | Yes | Yes | Yes |
+| `SoftwareApplication` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `SoftwareSourceCode` |  |  |  | Yes | Yes | Yes | Yes |
+| `SolveMathAction` | `🧩` |  | `✅` | Yes | Yes | Yes | Yes |
+| `SpeakableSpecification` |  |  |  | Yes | Yes | Yes | Yes |
+| `TechArticle` |  |  |  | Yes | Yes | Yes | Yes |
+| `VacationRental` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `Vehicle` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `VideoGallery` |  |  |  | Yes | Yes | Yes | Yes |
+| `VideoObject` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `WebApplication` |  |  |  | Yes | Yes | Yes | Yes |
+| `WebPage` |  |  |  | Yes | Yes | Yes | Yes |
+| `WebSite` |  |  |  | Yes | Yes | Yes | Yes |
+
+## Totals
+
+- `@mdwrk/structured-data`: `58 / 58`
+- `JSON Schema`: `58 / 58`
+- `JSON-LD React component`: `58 / 58`
+- `First-class fused export in @mdwrk/lander-react`: `58 / 58`
 
 ## Recommended Buckets
 
 Bucket rules:
 
-- `implement JSON Schema next`
-  Use for active Google targets already supported in runtime and React, but still missing per-type JSON Schema contracts.
-- `keep as builder+React only`
+- `fully implemented active Google targets`
+  Use for active Google targets already supported across builders, schema contracts, JSON-LD React wrappers, and fused visible semantic exports.
+- `fully implemented lower-priority support`
   Use for supported types that remain valid/internal/useful, but are not current priority Google targets.
 - `warn, don't invest further`
   Use for types that are deprecated, limited, or not practical current Google investments.
 
-### Implement JSON Schema Next
+### Fully Implemented Active Google Targets
 
 - `Answer`
 - `Article`
@@ -111,18 +126,26 @@ Bucket rules:
 - `Vehicle`
 - `VideoObject`
 
-### Keep as Builder+React Only
+### Fully Implemented Lower-Priority Support
 
+- `AboutPage`
 - `AggregateRating`
 - `Book`
+- `CheckoutPage`
+- `CollectionPage`
+- `ContactPage`
 - `CourseInstance`
+- `ItemPage`
 - `LearningResource`
 - `MemberProgram`
 - `Organization`
 - `ReadAction`
+- `RealEstateListing`
+- `SearchResultsPage`
 - `SoftwareSourceCode`
 - `SpeakableSpecification`
 - `TechArticle`
+- `VideoGallery`
 - `WebApplication`
 - `WebPage`
 - `WebSite`
@@ -132,4 +155,4 @@ Bucket rules:
 - `Dataset`
   Google relevance is outside normal Search rich results and is not a practical default investment target.
 - `FAQPage`
-  Google support is limited/deprecated enough that we should keep local support but avoid further investment as a Google-facing feature target.
+  Google support is limited or deprecated enough that we should keep local support but avoid further investment as a Google-facing feature target.

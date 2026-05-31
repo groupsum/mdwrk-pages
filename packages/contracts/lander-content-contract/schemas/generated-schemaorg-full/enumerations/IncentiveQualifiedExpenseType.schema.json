@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:IncentiveQualifiedExpenseType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The types of expenses that are covered by the incentive. For example some incentives are only for the goods (tangible items) but the services (labor) are excluded.",
+  "enum": [],
+  "title": "IncentiveQualifiedExpenseType",
+  "type": "string"
+}

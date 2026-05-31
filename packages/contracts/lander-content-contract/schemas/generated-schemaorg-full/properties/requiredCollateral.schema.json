@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:requiredCollateral",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Assets required to secure loan or credit repayments. It may take form of third party pledge, goods, financial instruments (cash, securities, etc.)",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/Thing.schema.json"
+    }
+  ],
+  "title": "requiredCollateral",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:legislationTransposes",
+  "$ref": "../types/Legislation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates that this legislation (or part of legislation) fulfills the objectives set by another legislation, by passing appropriate implementation measures. Typically, some legislations of European Union's member states or regions transpose European Directives. This indicates a legally binding link between the 2 legislations.",
+  "title": "legislationTransposes",
+  "x-schemaorg-cardinality": "open-world"
+}

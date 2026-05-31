@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:ticketToken",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Reference to an asset (e.g., Barcode, QR code image or PDF) usable for entrance.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "ticketToken",
+  "x-schemaorg-cardinality": "open-world"
+}

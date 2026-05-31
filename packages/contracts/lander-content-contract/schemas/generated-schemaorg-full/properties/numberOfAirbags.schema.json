@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:numberOfAirbags",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number or type of airbags in the vehicle.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "numberOfAirbags",
+  "x-schemaorg-cardinality": "open-world"
+}

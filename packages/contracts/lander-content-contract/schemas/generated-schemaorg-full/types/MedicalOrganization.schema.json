@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalOrganization",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Organization.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MedicalOrganization"
+        },
+        "healthPlanNetworkId": {
+          "$ref": "../properties/healthPlanNetworkId.schema.json",
+          "description": "Name or unique ID of network. (Networks are often reused across different insurance plans.)"
+        },
+        "isAcceptingNewPatients": {
+          "$ref": "../properties/isAcceptingNewPatients.schema.json",
+          "description": "Whether the provider is accepting new patients."
+        },
+        "medicalSpecialty": {
+          "$ref": "../properties/medicalSpecialty.schema.json",
+          "description": "A medical specialty of the provider."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A medical organization (physical or not), such as hospital, institution or clinic.",
+  "title": "MedicalOrganization"
+}

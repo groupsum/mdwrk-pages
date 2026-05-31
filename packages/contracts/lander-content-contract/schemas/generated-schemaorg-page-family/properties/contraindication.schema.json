@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:contraindication",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A contraindication for this therapy.",
+  "oneOf": [
+    {
+      "$ref": "../types/MedicalContraindication.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "contraindication",
+  "x-schemaorg-cardinality": "open-world"
+}

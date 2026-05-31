@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-color-padding: 1rem;
+  --mdp-semantic-color-gap: 0.75rem;
+  --mdp-semantic-color-radius: 1rem;
+  --mdp-semantic-color-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-color-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-color-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--color {
+  padding: var(--mdp-semantic-color-padding);
+  gap: var(--mdp-semantic-color-gap);
+  border-radius: var(--mdp-semantic-color-radius);
+  background: var(--mdp-semantic-color-surface);
+  border: 1px solid var(--mdp-semantic-color-border);
+  box-shadow: var(--mdp-semantic-color-shadow);
+}
+
+.lander-semantic--color .lander-semantic__header,
+.lander-semantic--color .lander-semantic__body,
+.lander-semantic--color .lander-semantic__footer,
+.lander-semantic--color .lander-semantic__actions {
+  gap: var(--mdp-semantic-color-gap);
+}
+
+.lander-semantic--color .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--color .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--color .lander-semantic__subtitle,
+.lander-semantic--color .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--color .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-color-gap) * 0.8);
+}
+
+.lander-semantic--color .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--color .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

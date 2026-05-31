@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:reviewedBy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "People or organizations that have reviewed the content on this web page for accuracy and/or completeness.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "reviewedBy",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasStore",
+  "$ref": "../types/OnlineStore.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An eCommerce store part of an online marketplace.",
+  "title": "hasStore",
+  "x-schemaorg-cardinality": "open-world"
+}

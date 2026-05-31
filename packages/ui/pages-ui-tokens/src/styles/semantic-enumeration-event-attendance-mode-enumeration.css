@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-enumeration-event-attendance-mode-enumeration-padding: 1rem;
+  --mdp-semantic-enumeration-event-attendance-mode-enumeration-gap: 0.75rem;
+  --mdp-semantic-enumeration-event-attendance-mode-enumeration-radius: 1rem;
+  --mdp-semantic-enumeration-event-attendance-mode-enumeration-surface: linear-gradient(180deg, rgba(28, 98, 46, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-enumeration-event-attendance-mode-enumeration-border: rgba(28, 98, 46, 0.22);
+  --mdp-semantic-enumeration-event-attendance-mode-enumeration-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--enumeration-event-attendance-mode-enumeration {
+  padding: var(--mdp-semantic-enumeration-event-attendance-mode-enumeration-padding);
+  gap: var(--mdp-semantic-enumeration-event-attendance-mode-enumeration-gap);
+  border-radius: var(--mdp-semantic-enumeration-event-attendance-mode-enumeration-radius);
+  background: var(--mdp-semantic-enumeration-event-attendance-mode-enumeration-surface);
+  border: 1px solid var(--mdp-semantic-enumeration-event-attendance-mode-enumeration-border);
+  box-shadow: var(--mdp-semantic-enumeration-event-attendance-mode-enumeration-shadow);
+}
+
+.lander-semantic--enumeration-event-attendance-mode-enumeration .lander-semantic__header,
+.lander-semantic--enumeration-event-attendance-mode-enumeration .lander-semantic__body,
+.lander-semantic--enumeration-event-attendance-mode-enumeration .lander-semantic__footer,
+.lander-semantic--enumeration-event-attendance-mode-enumeration .lander-semantic__actions {
+  gap: var(--mdp-semantic-enumeration-event-attendance-mode-enumeration-gap);
+}
+
+.lander-semantic--enumeration-event-attendance-mode-enumeration .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--enumeration-event-attendance-mode-enumeration .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--enumeration-event-attendance-mode-enumeration .lander-semantic__subtitle,
+.lander-semantic--enumeration-event-attendance-mode-enumeration .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--enumeration-event-attendance-mode-enumeration .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-enumeration-event-attendance-mode-enumeration-gap) * 0.8);
+}
+
+.lander-semantic--enumeration-event-attendance-mode-enumeration .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--enumeration-event-attendance-mode-enumeration .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

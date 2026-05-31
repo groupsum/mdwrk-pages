@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:target",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates a target EntryPoint, or url, for an Action.",
+  "oneOf": [
+    {
+      "$ref": "../types/EntryPoint.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "target",
+  "x-schemaorg-cardinality": "open-world"
+}

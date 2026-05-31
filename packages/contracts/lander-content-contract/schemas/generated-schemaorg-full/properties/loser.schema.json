@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:loser",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of participant. The loser of the action.",
+  "title": "loser",
+  "x-schemaorg-cardinality": "open-world"
+}

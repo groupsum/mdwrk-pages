@@ -1,0 +1,75 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ParcelDelivery",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ParcelDelivery"
+        },
+        "carrier": {
+          "$ref": "../properties/carrier.schema.json",
+          "description": "'carrier' is an out-dated term indicating the 'provider' for parcel delivery and flights."
+        },
+        "deliveryAddress": {
+          "$ref": "../properties/deliveryAddress.schema.json",
+          "description": "Destination address."
+        },
+        "deliveryStatus": {
+          "$ref": "../properties/deliveryStatus.schema.json",
+          "description": "New entry added as the package passes through each leg of its journey (from shipment to final delivery)."
+        },
+        "expectedArrivalFrom": {
+          "$ref": "../properties/expectedArrivalFrom.schema.json",
+          "description": "The earliest date the package may arrive."
+        },
+        "expectedArrivalUntil": {
+          "$ref": "../properties/expectedArrivalUntil.schema.json",
+          "description": "The latest date the package may arrive."
+        },
+        "hasDeliveryMethod": {
+          "$ref": "../properties/hasDeliveryMethod.schema.json",
+          "description": "Method used for delivery or shipping."
+        },
+        "itemShipped": {
+          "$ref": "../properties/itemShipped.schema.json",
+          "description": "Item(s) being shipped."
+        },
+        "originAddress": {
+          "$ref": "../properties/originAddress.schema.json",
+          "description": "Shipper's address."
+        },
+        "partOfOrder": {
+          "$ref": "../properties/partOfOrder.schema.json",
+          "description": "The overall order the items in this delivery were included in."
+        },
+        "provider": {
+          "$ref": "../properties/provider.schema.json",
+          "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
+        },
+        "trackingNumber": {
+          "$ref": "../properties/trackingNumber.schema.json",
+          "description": "Shipper tracking number."
+        },
+        "trackingUrl": {
+          "$ref": "../properties/trackingUrl.schema.json",
+          "description": "Tracking url for the parcel delivery."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The delivery of a parcel either via the postal service or a commercial service.",
+  "title": "ParcelDelivery"
+}

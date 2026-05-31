@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:authenticator",
+  "$ref": "../types/Organization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The Organization responsible for authenticating the user's subscription. For example, many media apps require a cable/satellite provider to authenticate your subscription before playing media.",
+  "title": "authenticator",
+  "x-schemaorg-cardinality": "open-world"
+}

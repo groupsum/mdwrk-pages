@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Manuscript",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Manuscript"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A book, document, or piece of music written by hand rather than typed or printed.",
+  "title": "Manuscript"
+}

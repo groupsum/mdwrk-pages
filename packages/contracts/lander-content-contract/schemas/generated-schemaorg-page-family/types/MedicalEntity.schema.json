@@ -1,0 +1,59 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalEntity",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Thing.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MedicalEntity"
+        },
+        "code": {
+          "$ref": "../properties/code.schema.json",
+          "description": "A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc."
+        },
+        "funding": {
+          "$ref": "../properties/funding.schema.json",
+          "description": "A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]]."
+        },
+        "guideline": {
+          "$ref": "../properties/guideline.schema.json",
+          "description": "A medical guideline related to this entity."
+        },
+        "legalStatus": {
+          "$ref": "../properties/legalStatus.schema.json",
+          "description": "The drug or supplement's legal status, including any controlled substance schedules that apply."
+        },
+        "medicineSystem": {
+          "$ref": "../properties/medicineSystem.schema.json",
+          "description": "The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc."
+        },
+        "recognizingAuthority": {
+          "$ref": "../properties/recognizingAuthority.schema.json",
+          "description": "If applicable, the organization that officially recognizes this entity as part of its endorsed system of medicine."
+        },
+        "relevantSpecialty": {
+          "$ref": "../properties/relevantSpecialty.schema.json",
+          "description": "If applicable, a medical specialty in which this entity is relevant."
+        },
+        "study": {
+          "$ref": "../properties/study.schema.json",
+          "description": "A medical study or trial related to this entity."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The most generic type of entity related to health and the practice of medicine.",
+  "title": "MedicalEntity"
+}

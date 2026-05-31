@@ -1,0 +1,70 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:DietarySupplement",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Product.schema.json"
+    },
+    {
+      "$ref": "Substance.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "DietarySupplement"
+        },
+        "activeIngredient": {
+          "$ref": "../properties/activeIngredient.schema.json",
+          "description": "An active ingredient, typically chemical compounds and/or biologic substances."
+        },
+        "isProprietary": {
+          "$ref": "../properties/isProprietary.schema.json",
+          "description": "True if this item's name is a proprietary/brand name (vs. generic name)."
+        },
+        "legalStatus": {
+          "$ref": "../properties/legalStatus.schema.json",
+          "description": "The drug or supplement's legal status, including any controlled substance schedules that apply."
+        },
+        "maximumIntake": {
+          "$ref": "../properties/maximumIntake.schema.json",
+          "description": "Recommended intake of this supplement for a given population as defined by a specific recommending authority."
+        },
+        "mechanismOfAction": {
+          "$ref": "../properties/mechanismOfAction.schema.json",
+          "description": "The specific biochemical interaction through which this drug or supplement produces its pharmacological effect."
+        },
+        "nonProprietaryName": {
+          "$ref": "../properties/nonProprietaryName.schema.json",
+          "description": "The generic name of this drug or supplement."
+        },
+        "proprietaryName": {
+          "$ref": "../properties/proprietaryName.schema.json",
+          "description": "Proprietary name given to the diet plan, typically by its originator or creator."
+        },
+        "recommendedIntake": {
+          "$ref": "../properties/recommendedIntake.schema.json",
+          "description": "Recommended intake of this supplement for a given population as defined by a specific recommending authority."
+        },
+        "safetyConsideration": {
+          "$ref": "../properties/safetyConsideration.schema.json",
+          "description": "Any potential safety concern associated with the supplement. May include interactions with other drugs and foods, pregnancy, breastfeeding, known adverse reactions, and documented efficacy of the supplement."
+        },
+        "targetPopulation": {
+          "$ref": "../properties/targetPopulation.schema.json",
+          "description": "Characteristics of the population for which this is intended, or which typically uses it, e.g. 'adults'."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A product taken by mouth that contains a dietary ingredient intended to supplement the diet. Dietary ingredients may include vitamins, minerals, herbs or other botanicals, amino acids, and substances such as enzymes, organ tissues, glandulars and metabolites.",
+  "title": "DietarySupplement"
+}

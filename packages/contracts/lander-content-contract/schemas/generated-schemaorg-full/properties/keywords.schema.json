@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:keywords",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "keywords",
+  "x-schemaorg-cardinality": "open-world"
+}

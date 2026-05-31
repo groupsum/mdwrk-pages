@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:thumbnailUrl",
+  "$ref": "../types/URL.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A thumbnail image relevant to the Thing.",
+  "title": "thumbnailUrl",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:reservationId",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A unique identifier for the reservation.",
+  "title": "reservationId",
+  "x-schemaorg-cardinality": "open-world"
+}

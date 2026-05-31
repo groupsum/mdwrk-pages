@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:orderQuantity",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of the item ordered. If the property is not set, assume the quantity is one.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "orderQuantity",
+  "x-schemaorg-cardinality": "open-world"
+}

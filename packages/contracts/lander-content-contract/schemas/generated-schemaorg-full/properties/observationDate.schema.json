@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:observationDate",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The observationDate of an [[Observation]].",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "observationDate",
+  "x-schemaorg-cardinality": "open-world"
+}

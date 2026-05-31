@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:geoOverlaps",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
+  "oneOf": [
+    {
+      "$ref": "../types/GeospatialGeometry.schema.json"
+    },
+    {
+      "$ref": "../types/Place.schema.json"
+    }
+  ],
+  "title": "geoOverlaps",
+  "x-schemaorg-cardinality": "open-world"
+}

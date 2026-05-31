@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:jobStartDate",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The date on which a successful applicant for this job would be expected to start work. Choose a specific date in the future or use the jobImmediateStart property to indicate the position is to be filled as soon as possible.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "jobStartDate",
+  "x-schemaorg-cardinality": "open-world"
+}

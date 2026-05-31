@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:honorificPrefix",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An honorific prefix preceding a Person's name such as Dr/Mrs/Mr.",
+  "title": "honorificPrefix",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:sponsor",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "sponsor",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:AchieveAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Action.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "AchieveAction"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The act of accomplishing something via previous efforts. It is an instantaneous action rather than an ongoing process.",
+  "title": "AchieveAction"
+}

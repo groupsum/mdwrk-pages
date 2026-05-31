@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:regionDrained",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The anatomical or organ system drained by this vessel; generally refers to a specific part of an organ.",
+  "oneOf": [
+    {
+      "$ref": "../types/AnatomicalStructure.schema.json"
+    },
+    {
+      "$ref": "../types/AnatomicalSystem.schema.json"
+    }
+  ],
+  "title": "regionDrained",
+  "x-schemaorg-cardinality": "open-world"
+}

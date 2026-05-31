@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:merchantReturnDays",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Specifies either a fixed return date or the number of days (from the delivery date) that a product can be returned. Used when the [[returnPolicyCategory]] property is specified as [[MerchantReturnFiniteReturnWindow]].",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    },
+    {
+      "$ref": "../types/Integer.schema.json"
+    }
+  ],
+  "title": "merchantReturnDays",
+  "x-schemaorg-cardinality": "open-world"
+}

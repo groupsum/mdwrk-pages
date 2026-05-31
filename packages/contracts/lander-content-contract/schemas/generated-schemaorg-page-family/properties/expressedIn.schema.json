@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:expressedIn",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tissue, organ, biological sample, etc in which activity of this gene has been observed experimentally. For example brain, digestive system.",
+  "oneOf": [
+    {
+      "$ref": "../types/AnatomicalStructure.schema.json"
+    },
+    {
+      "$ref": "../types/AnatomicalSystem.schema.json"
+    },
+    {
+      "$ref": "../types/BioChemEntity.schema.json"
+    },
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    }
+  ],
+  "title": "expressedIn",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:recipeCategory",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The category of the recipe\u2014for example, appetizer, entree, etc.",
+  "title": "recipeCategory",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:sensoryUnit",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The neurological pathway extension that inputs and sends information to the brain or spinal cord.",
+  "oneOf": [
+    {
+      "$ref": "../types/AnatomicalStructure.schema.json"
+    },
+    {
+      "$ref": "../types/SuperficialAnatomy.schema.json"
+    }
+  ],
+  "title": "sensoryUnit",
+  "x-schemaorg-cardinality": "open-world"
+}

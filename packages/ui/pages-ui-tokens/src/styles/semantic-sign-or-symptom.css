@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-sign-or-symptom-padding: 1rem;
+  --mdp-semantic-sign-or-symptom-gap: 0.75rem;
+  --mdp-semantic-sign-or-symptom-radius: 1rem;
+  --mdp-semantic-sign-or-symptom-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-sign-or-symptom-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-sign-or-symptom-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--sign-or-symptom {
+  padding: var(--mdp-semantic-sign-or-symptom-padding);
+  gap: var(--mdp-semantic-sign-or-symptom-gap);
+  border-radius: var(--mdp-semantic-sign-or-symptom-radius);
+  background: var(--mdp-semantic-sign-or-symptom-surface);
+  border: 1px solid var(--mdp-semantic-sign-or-symptom-border);
+  box-shadow: var(--mdp-semantic-sign-or-symptom-shadow);
+}
+
+.lander-semantic--sign-or-symptom .lander-semantic__header,
+.lander-semantic--sign-or-symptom .lander-semantic__body,
+.lander-semantic--sign-or-symptom .lander-semantic__footer,
+.lander-semantic--sign-or-symptom .lander-semantic__actions {
+  gap: var(--mdp-semantic-sign-or-symptom-gap);
+}
+
+.lander-semantic--sign-or-symptom .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--sign-or-symptom .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--sign-or-symptom .lander-semantic__subtitle,
+.lander-semantic--sign-or-symptom .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--sign-or-symptom .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-sign-or-symptom-gap) * 0.8);
+}
+
+.lander-semantic--sign-or-symptom .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--sign-or-symptom .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

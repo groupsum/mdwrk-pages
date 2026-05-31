@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:transmissionMethod",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "How the disease spreads, either as a route or vector, for example 'direct contact', 'Aedes aegypti', etc.",
+  "title": "transmissionMethod",
+  "x-schemaorg-cardinality": "open-world"
+}

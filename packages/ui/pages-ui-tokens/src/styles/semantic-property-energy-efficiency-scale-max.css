@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-property-energy-efficiency-scale-max-padding: 1rem;
+  --mdp-semantic-property-energy-efficiency-scale-max-gap: 0.75rem;
+  --mdp-semantic-property-energy-efficiency-scale-max-radius: 1rem;
+  --mdp-semantic-property-energy-efficiency-scale-max-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-property-energy-efficiency-scale-max-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-property-energy-efficiency-scale-max-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--property-energy-efficiency-scale-max {
+  padding: var(--mdp-semantic-property-energy-efficiency-scale-max-padding);
+  gap: var(--mdp-semantic-property-energy-efficiency-scale-max-gap);
+  border-radius: var(--mdp-semantic-property-energy-efficiency-scale-max-radius);
+  background: var(--mdp-semantic-property-energy-efficiency-scale-max-surface);
+  border: 1px solid var(--mdp-semantic-property-energy-efficiency-scale-max-border);
+  box-shadow: var(--mdp-semantic-property-energy-efficiency-scale-max-shadow);
+}
+
+.lander-semantic--property-energy-efficiency-scale-max .lander-semantic__header,
+.lander-semantic--property-energy-efficiency-scale-max .lander-semantic__body,
+.lander-semantic--property-energy-efficiency-scale-max .lander-semantic__footer,
+.lander-semantic--property-energy-efficiency-scale-max .lander-semantic__actions {
+  gap: var(--mdp-semantic-property-energy-efficiency-scale-max-gap);
+}
+
+.lander-semantic--property-energy-efficiency-scale-max .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--property-energy-efficiency-scale-max .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--property-energy-efficiency-scale-max .lander-semantic__subtitle,
+.lander-semantic--property-energy-efficiency-scale-max .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--property-energy-efficiency-scale-max .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-property-energy-efficiency-scale-max-gap) * 0.8);
+}
+
+.lander-semantic--property-energy-efficiency-scale-max .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--property-energy-efficiency-scale-max .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

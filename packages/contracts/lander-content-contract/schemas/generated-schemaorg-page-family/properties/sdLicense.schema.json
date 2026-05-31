@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:sdLicense",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A license document that applies to this structured data, typically indicated by URL.",
+  "oneOf": [
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "sdLicense",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:baseSalary",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The base salary of the job or of an employee in an EmployeeRole.",
+  "oneOf": [
+    {
+      "$ref": "../types/MonetaryAmount.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../types/PriceSpecification.schema.json"
+    }
+  ],
+  "title": "baseSalary",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:dateCreated",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The date on which the CreativeWork was created or the item was added to a DataFeed.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "dateCreated",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:articleSection",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Articles may belong to one or more 'sections' in a magazine or newspaper, such as Sports, Lifestyle, etc.",
+  "title": "articleSection",
+  "x-schemaorg-cardinality": "open-world"
+}

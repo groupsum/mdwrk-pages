@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:steeringPosition",
+  "$ref": "../enumerations/SteeringPositionValue.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The position of the steering wheel or similar device (mostly for cars).",
+  "title": "steeringPosition",
+  "x-schemaorg-cardinality": "open-world"
+}

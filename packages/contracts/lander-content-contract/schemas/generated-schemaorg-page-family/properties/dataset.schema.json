@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:dataset",
+  "$ref": "../types/Dataset.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A dataset contained in this catalog.",
+  "title": "dataset",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:doseValue",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The value of the dose, e.g. 500.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../enumerations/QualitativeValue.schema.json"
+    }
+  ],
+  "title": "doseValue",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,94 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Invoice",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "$ref": "fibo-fnd-arr-doc_LegalDocument.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Invoice"
+        },
+        "accountId": {
+          "$ref": "../properties/accountId.schema.json",
+          "description": "The identifier for the account the payment will be applied to."
+        },
+        "billingPeriod": {
+          "$ref": "../properties/billingPeriod.schema.json",
+          "description": "The time interval used to compute the invoice."
+        },
+        "broker": {
+          "$ref": "../properties/broker.schema.json",
+          "description": "An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred."
+        },
+        "category": {
+          "$ref": "../properties/category.schema.json",
+          "description": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy."
+        },
+        "confirmationNumber": {
+          "$ref": "../properties/confirmationNumber.schema.json",
+          "description": "A number that confirms the given order or payment has been received."
+        },
+        "customer": {
+          "$ref": "../properties/customer.schema.json",
+          "description": "Party placing the order or paying the invoice."
+        },
+        "minimumPaymentDue": {
+          "$ref": "../properties/minimumPaymentDue.schema.json",
+          "description": "The minimum payment required at this time."
+        },
+        "paymentDue": {
+          "$ref": "../properties/paymentDue.schema.json",
+          "description": "The date that payment is due."
+        },
+        "paymentDueDate": {
+          "$ref": "../properties/paymentDueDate.schema.json",
+          "description": "The date that payment is due."
+        },
+        "paymentMethod": {
+          "$ref": "../properties/paymentMethod.schema.json",
+          "description": "The name of the credit card or other method of payment for the order."
+        },
+        "paymentMethodId": {
+          "$ref": "../properties/paymentMethodId.schema.json",
+          "description": "An identifier for the method of payment used (e.g. the last 4 digits of the credit card)."
+        },
+        "paymentStatus": {
+          "$ref": "../properties/paymentStatus.schema.json",
+          "description": "The status of payment; whether the invoice has been paid or not."
+        },
+        "provider": {
+          "$ref": "../properties/provider.schema.json",
+          "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
+        },
+        "referencesOrder": {
+          "$ref": "../properties/referencesOrder.schema.json",
+          "description": "The Order(s) related to this Invoice. One or more Orders may be combined into a single Invoice."
+        },
+        "scheduledPaymentDate": {
+          "$ref": "../properties/scheduledPaymentDate.schema.json",
+          "description": "The date the invoice is scheduled to be paid."
+        },
+        "totalPaymentDue": {
+          "$ref": "../properties/totalPaymentDue.schema.json",
+          "description": "The total amount due."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A statement of the money due for goods or services; a bill.",
+  "title": "Invoice"
+}

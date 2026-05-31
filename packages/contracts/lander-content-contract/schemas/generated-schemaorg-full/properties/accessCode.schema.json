@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:accessCode",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Password, PIN, or access code needed for delivery (e.g. from a locker).",
+  "title": "accessCode",
+  "x-schemaorg-cardinality": "open-world"
+}

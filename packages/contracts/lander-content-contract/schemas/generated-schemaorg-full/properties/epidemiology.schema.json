@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:epidemiology",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The characteristics of associated patients, such as age, gender, race etc.",
+  "title": "epidemiology",
+  "x-schemaorg-cardinality": "open-world"
+}

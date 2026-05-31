@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:departureTime",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The expected departure time.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Time.schema.json"
+    }
+  ],
+  "title": "departureTime",
+  "x-schemaorg-cardinality": "open-world"
+}

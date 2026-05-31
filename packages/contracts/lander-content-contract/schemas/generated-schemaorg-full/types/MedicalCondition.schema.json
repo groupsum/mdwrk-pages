@@ -1,0 +1,95 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalCondition",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalEntity.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MedicalCondition"
+        },
+        "associatedAnatomy": {
+          "$ref": "../properties/associatedAnatomy.schema.json",
+          "description": "The anatomy of the underlying organ system or structures associated with this entity."
+        },
+        "cause": {
+          "$ref": "../properties/cause.schema.json",
+          "description": "The cause of a medical condition."
+        },
+        "differentialDiagnosis": {
+          "$ref": "../properties/differentialDiagnosis.schema.json",
+          "description": "One of a set of differential diagnoses for the condition. Specifically, a closely-related or competing diagnosis typically considered later in the cognitive process whereby this medical condition is distinguished from others most likely responsible for a similar collection of signs and symptoms to reach the most parsimonious diagnosis or diagnoses in a patient."
+        },
+        "drug": {
+          "$ref": "../properties/drug.schema.json",
+          "description": "Specifying a drug or medicine used in a medication procedure."
+        },
+        "epidemiology": {
+          "$ref": "../properties/epidemiology.schema.json",
+          "description": "The characteristics of associated patients, such as age, gender, race etc."
+        },
+        "expectedPrognosis": {
+          "$ref": "../properties/expectedPrognosis.schema.json",
+          "description": "The likely outcome in either the short term or long term of the medical condition."
+        },
+        "naturalProgression": {
+          "$ref": "../properties/naturalProgression.schema.json",
+          "description": "The expected progression of the condition if it is not treated and allowed to progress naturally."
+        },
+        "pathophysiology": {
+          "$ref": "../properties/pathophysiology.schema.json",
+          "description": "Changes in the normal mechanical, physical, and biochemical functions that are associated with this activity or condition."
+        },
+        "possibleComplication": {
+          "$ref": "../properties/possibleComplication.schema.json",
+          "description": "A possible unexpected and unfavorable evolution of a medical condition. Complications may include worsening of the signs or symptoms of the disease, extension of the condition to other organ systems, etc."
+        },
+        "possibleTreatment": {
+          "$ref": "../properties/possibleTreatment.schema.json",
+          "description": "A possible treatment to address this condition, sign or symptom."
+        },
+        "primaryPrevention": {
+          "$ref": "../properties/primaryPrevention.schema.json",
+          "description": "A preventative therapy used to prevent an initial occurrence of the medical condition, such as vaccination."
+        },
+        "riskFactor": {
+          "$ref": "../properties/riskFactor.schema.json",
+          "description": "A modifiable or non-modifiable factor that increases the risk of a patient contracting this condition, e.g. age,  coexisting condition."
+        },
+        "secondaryPrevention": {
+          "$ref": "../properties/secondaryPrevention.schema.json",
+          "description": "A preventative therapy used to prevent reoccurrence of the medical condition after an initial episode of the condition."
+        },
+        "signOrSymptom": {
+          "$ref": "../properties/signOrSymptom.schema.json",
+          "description": "A sign or symptom of this condition. Signs are objective or physically observable manifestations of the medical condition while symptoms are the subjective experience of the medical condition."
+        },
+        "stage": {
+          "$ref": "../properties/stage.schema.json",
+          "description": "The stage of the condition, if applicable."
+        },
+        "status": {
+          "$ref": "../properties/status.schema.json",
+          "description": "The status of the study (enumerated)."
+        },
+        "typicalTest": {
+          "$ref": "../properties/typicalTest.schema.json",
+          "description": "A medical test typically performed given this condition."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Any condition of the human body that affects the normal functioning of a person, whether physically or mentally. Includes diseases, injuries, disabilities, disorders, syndromes, etc.",
+  "title": "MedicalCondition"
+}

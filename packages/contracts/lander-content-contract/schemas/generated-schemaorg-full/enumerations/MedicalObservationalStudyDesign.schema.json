@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:MedicalObservationalStudyDesign",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Design models for observational medical studies. Enumerated type.",
+  "enum": [],
+  "title": "MedicalObservationalStudyDesign",
+  "type": "string"
+}

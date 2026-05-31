@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:studySubject",
+  "$ref": "../types/MedicalEntity.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A subject of the study, i.e. one of the medical conditions, therapies, devices, drugs, etc. investigated by the study.",
+  "title": "studySubject",
+  "x-schemaorg-cardinality": "open-world"
+}

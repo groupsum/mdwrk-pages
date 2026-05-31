@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:financialAidEligible",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A financial aid type or program which students may use to pay for tuition or fees associated with the program.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "financialAidEligible",
+  "x-schemaorg-cardinality": "open-world"
+}

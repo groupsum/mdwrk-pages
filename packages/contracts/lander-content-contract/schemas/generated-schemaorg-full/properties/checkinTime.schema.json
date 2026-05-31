@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:checkinTime",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The earliest someone may check into a lodging establishment.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Time.schema.json"
+    }
+  ],
+  "title": "checkinTime",
+  "x-schemaorg-cardinality": "open-world"
+}

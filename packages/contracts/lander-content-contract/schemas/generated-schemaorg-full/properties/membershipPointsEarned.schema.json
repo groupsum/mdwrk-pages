@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:membershipPointsEarned",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of membership points earned by the member. If necessary, the unitText can be used to express the units the points are issued in. (E.g. stars, miles, etc.)",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "membershipPointsEarned",
+  "x-schemaorg-cardinality": "open-world"
+}

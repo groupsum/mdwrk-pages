@@ -1,0 +1,20 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:gs1:Organization",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "gs1:Organization"
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "title": "gs1:Organization",
+  "type": "object",
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

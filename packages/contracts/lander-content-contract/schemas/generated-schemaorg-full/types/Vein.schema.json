@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Vein",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Vessel.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Vein"
+        },
+        "drainsTo": {
+          "$ref": "../properties/drainsTo.schema.json",
+          "description": "The vasculature that the vein drains into."
+        },
+        "regionDrained": {
+          "$ref": "../properties/regionDrained.schema.json",
+          "description": "The anatomical or organ system drained by this vessel; generally refers to a specific part of an organ."
+        },
+        "tributary": {
+          "$ref": "../properties/tributary.schema.json",
+          "description": "The anatomical or organ system that the vein flows into; a larger structure that the vein connects to."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A type of blood vessel that specifically carries blood to the heart.",
+  "title": "Vein"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:datePublished",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Date of first publication or broadcast. For example the date a [[CreativeWork]] was broadcast or a [[Certification]] was issued.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "datePublished",
+  "x-schemaorg-cardinality": "open-world"
+}

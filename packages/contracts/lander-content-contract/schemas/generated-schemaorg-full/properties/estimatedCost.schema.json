@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:estimatedCost",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The estimated cost of the supply or supplies consumed when performing instructions.",
+  "oneOf": [
+    {
+      "$ref": "../types/MonetaryAmount.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "estimatedCost",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:readBy",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A person who reads (performs) the audiobook.",
+  "title": "readBy",
+  "x-schemaorg-cardinality": "open-world"
+}

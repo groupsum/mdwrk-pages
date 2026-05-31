@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-interaction-counter-padding: 1rem;
+  --mdp-semantic-interaction-counter-gap: 0.75rem;
+  --mdp-semantic-interaction-counter-radius: 1rem;
+  --mdp-semantic-interaction-counter-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-interaction-counter-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-interaction-counter-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--interaction-counter {
+  padding: var(--mdp-semantic-interaction-counter-padding);
+  gap: var(--mdp-semantic-interaction-counter-gap);
+  border-radius: var(--mdp-semantic-interaction-counter-radius);
+  background: var(--mdp-semantic-interaction-counter-surface);
+  border: 1px solid var(--mdp-semantic-interaction-counter-border);
+  box-shadow: var(--mdp-semantic-interaction-counter-shadow);
+}
+
+.lander-semantic--interaction-counter .lander-semantic__header,
+.lander-semantic--interaction-counter .lander-semantic__body,
+.lander-semantic--interaction-counter .lander-semantic__footer,
+.lander-semantic--interaction-counter .lander-semantic__actions {
+  gap: var(--mdp-semantic-interaction-counter-gap);
+}
+
+.lander-semantic--interaction-counter .lander-semantic__header,
+.lander-semantic--interaction-counter .lander-semantic__eyebrow,
+.lander-semantic--interaction-counter .lander-semantic__title,
+.lander-semantic--interaction-counter .lander-semantic__subtitle,
+.lander-semantic--interaction-counter .lander-semantic__description,
+.lander-semantic--interaction-counter .lander-semantic__meta,
+.lander-semantic--interaction-counter .lander-semantic__image,
+.lander-semantic--interaction-counter .lander-semantic__body,
+.lander-semantic--interaction-counter .lander-semantic__actions,
+.lander-semantic--interaction-counter .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--interaction-counter .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--interaction-counter .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--interaction-counter .lander-semantic__subtitle,
+.lander-semantic--interaction-counter .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--interaction-counter .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-interaction-counter-gap) * 0.8);
+}
+
+.lander-semantic--interaction-counter .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-interaction-counter-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--interaction-counter .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--interaction-counter .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--interaction-counter .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

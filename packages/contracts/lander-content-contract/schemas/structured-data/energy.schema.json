@@ -1,0 +1,20 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Energy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Energy",
+  "description": "Properties that take Energy as values are of the form '&lt;Number&gt; &lt;Energy unit of measure&gt;'.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "Energy"
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

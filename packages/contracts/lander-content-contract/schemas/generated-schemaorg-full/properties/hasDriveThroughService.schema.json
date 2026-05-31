@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasDriveThroughService",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates whether some facility (e.g. [[FoodEstablishment]], [[CovidTestingFacility]]) offers a service that can be used by driving through in a car. In the case of [[CovidTestingFacility]] such facilities could potentially help with social distancing from other potentially-infected users.",
+  "title": "hasDriveThroughService",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:competitor",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A competitor in a sports event.",
+  "oneOf": [
+    {
+      "$ref": "../types/Person.schema.json"
+    },
+    {
+      "$ref": "../types/SportsTeam.schema.json"
+    }
+  ],
+  "title": "competitor",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:auditDate",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Date when a certification was last audited. See also  [gs1:certificationAuditDate](https://www.gs1.org/voc/certificationAuditDate).",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "auditDate",
+  "x-schemaorg-cardinality": "open-world"
+}

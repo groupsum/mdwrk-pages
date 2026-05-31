@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:postalCodePrefix",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A defined range of postal codes indicated by a common textual prefix. Used for non-numeric systems such as UK.",
+  "title": "postalCodePrefix",
+  "x-schemaorg-cardinality": "open-world"
+}

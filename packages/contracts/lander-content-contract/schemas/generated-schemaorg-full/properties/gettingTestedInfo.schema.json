@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:gettingTestedInfo",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Information about getting tested (for a [[MedicalCondition]]), e.g. in the context of a pandemic.",
+  "oneOf": [
+    {
+      "$ref": "../types/URL.schema.json"
+    },
+    {
+      "$ref": "../types/WebContent.schema.json"
+    }
+  ],
+  "title": "gettingTestedInfo",
+  "x-schemaorg-cardinality": "open-world"
+}

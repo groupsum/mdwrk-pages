@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:DrugPrescriptionStatus",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates whether this drug is available by prescription or over-the-counter.",
+  "enum": [],
+  "title": "DrugPrescriptionStatus",
+  "type": "string"
+}

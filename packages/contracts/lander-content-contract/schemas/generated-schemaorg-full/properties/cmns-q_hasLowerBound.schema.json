@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:cmns-q:hasLowerBound",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "title": "cmns-q:hasLowerBound",
+  "type": [
+    "string",
+    "number",
+    "boolean",
+    "object",
+    "array",
+    "null"
+  ],
+  "x-schemaorg-cardinality": "open-world"
+}

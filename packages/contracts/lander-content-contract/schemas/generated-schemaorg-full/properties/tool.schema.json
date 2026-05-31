@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:tool",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of instrument. An object used (but not consumed) when performing instructions or a direction.",
+  "oneOf": [
+    {
+      "$ref": "../types/HowToTool.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "tool",
+  "x-schemaorg-cardinality": "open-world"
+}

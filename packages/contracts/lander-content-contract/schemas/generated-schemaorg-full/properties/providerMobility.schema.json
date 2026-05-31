@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:providerMobility",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the mobility of a provided service (e.g. 'static', 'dynamic').",
+  "title": "providerMobility",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Oncologic",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalBusiness.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Oncologic"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A specific branch of medical science that deals with benign and malignant tumors, including the study of their development, diagnosis, treatment and prevention.",
+  "title": "Oncologic"
+}

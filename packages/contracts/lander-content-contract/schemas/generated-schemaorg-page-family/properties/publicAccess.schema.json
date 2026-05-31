@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:publicAccess",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A flag to signal that the [[Place]] is open to public visitors.  If this property is omitted there is no assumed default boolean value.",
+  "title": "publicAccess",
+  "x-schemaorg-cardinality": "open-world"
+}

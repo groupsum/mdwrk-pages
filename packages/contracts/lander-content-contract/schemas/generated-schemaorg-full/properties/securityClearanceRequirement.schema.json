@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:securityClearanceRequirement",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A description of any security clearance requirements of the job.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "securityClearanceRequirement",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-medical-evidence-level-padding: 1rem;
+  --mdp-semantic-medical-evidence-level-gap: 0.75rem;
+  --mdp-semantic-medical-evidence-level-radius: 1rem;
+  --mdp-semantic-medical-evidence-level-surface: linear-gradient(180deg, rgba(28, 98, 46, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-medical-evidence-level-border: rgba(28, 98, 46, 0.22);
+  --mdp-semantic-medical-evidence-level-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--medical-evidence-level {
+  padding: var(--mdp-semantic-medical-evidence-level-padding);
+  gap: var(--mdp-semantic-medical-evidence-level-gap);
+  border-radius: var(--mdp-semantic-medical-evidence-level-radius);
+  background: var(--mdp-semantic-medical-evidence-level-surface);
+  border: 1px solid var(--mdp-semantic-medical-evidence-level-border);
+  box-shadow: var(--mdp-semantic-medical-evidence-level-shadow);
+}
+
+.lander-semantic--medical-evidence-level .lander-semantic__header,
+.lander-semantic--medical-evidence-level .lander-semantic__body,
+.lander-semantic--medical-evidence-level .lander-semantic__footer,
+.lander-semantic--medical-evidence-level .lander-semantic__actions {
+  gap: var(--mdp-semantic-medical-evidence-level-gap);
+}
+
+.lander-semantic--medical-evidence-level .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--medical-evidence-level .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--medical-evidence-level .lander-semantic__subtitle,
+.lander-semantic--medical-evidence-level .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--medical-evidence-level .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-medical-evidence-level-gap) * 0.8);
+}
+
+.lander-semantic--medical-evidence-level .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--medical-evidence-level .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

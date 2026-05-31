@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:expectedArrivalFrom",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The earliest date the package may arrive.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "expectedArrivalFrom",
+  "x-schemaorg-cardinality": "open-world"
+}

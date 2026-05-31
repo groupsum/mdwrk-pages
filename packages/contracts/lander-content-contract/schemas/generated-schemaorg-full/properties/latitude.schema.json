@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:latitude",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The latitude of a location. For example ```37.42242``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "latitude",
+  "x-schemaorg-cardinality": "open-world"
+}

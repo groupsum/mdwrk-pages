@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:IndividualPhysician",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Physician.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "IndividualPhysician"
+        },
+        "practicesAt": {
+          "$ref": "../properties/practicesAt.schema.json",
+          "description": "A [[MedicalOrganization]] where the [[IndividualPhysician]] practices."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An individual medical practitioner. For their official address use [[address]], for affiliations to hospitals use [[hospitalAffiliation]]. \nThe [[practicesAt]] property can be used to indicate [[MedicalOrganization]] hospitals, clinics, pharmacies etc. where this physician practices.",
+  "title": "IndividualPhysician"
+}

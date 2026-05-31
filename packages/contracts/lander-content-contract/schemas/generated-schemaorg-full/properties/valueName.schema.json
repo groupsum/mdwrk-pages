@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:valueName",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the name of the PropertyValueSpecification to be used in URL templates and form encoding in a manner analogous to HTML's input@name.",
+  "title": "valueName",
+  "x-schemaorg-cardinality": "open-world"
+}

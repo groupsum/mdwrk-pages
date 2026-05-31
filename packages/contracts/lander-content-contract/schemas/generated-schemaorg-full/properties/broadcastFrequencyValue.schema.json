@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:broadcastFrequencyValue",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The frequency in MHz for a particular broadcast.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "broadcastFrequencyValue",
+  "x-schemaorg-cardinality": "open-world"
+}

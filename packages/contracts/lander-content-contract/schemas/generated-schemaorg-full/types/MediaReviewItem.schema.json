@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MediaReviewItem",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MediaReviewItem"
+        },
+        "mediaItemAppearance": {
+          "$ref": "../properties/mediaItemAppearance.schema.json",
+          "description": "In the context of a [[MediaReview]], indicates specific media item(s) that are grouped using a [[MediaReviewItem]]."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Represents an item or group of closely related items treated as a unit for the sake of evaluation in a [[MediaReview]]. Authorship etc. apply to the items rather than to the curation/grouping or reviewing party.",
+  "title": "MediaReviewItem"
+}

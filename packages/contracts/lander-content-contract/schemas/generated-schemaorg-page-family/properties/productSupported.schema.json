@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:productSupported",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. \"iPhone\") or a general category of products or services (e.g. \"smartphones\").",
+  "oneOf": [
+    {
+      "$ref": "../types/Product.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "productSupported",
+  "x-schemaorg-cardinality": "open-world"
+}

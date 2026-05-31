@@ -1,0 +1,172 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalCondition",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MedicalCondition",
+  "description": "Any condition of the human body that affects the normal functioning of a person, whether physically or mentally. Includes diseases, injuries, disabilities, disorders, syndromes, etc.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "MedicalCondition"
+    },
+    "additionalType": {
+      "$ref": "../generated-schemaorg-full/properties/additionalType.schema.json",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
+    },
+    "alternateName": {
+      "$ref": "../generated-schemaorg-full/properties/alternateName.schema.json",
+      "description": "An alias for the item."
+    },
+    "description": {
+      "$ref": "../generated-schemaorg-full/properties/description.schema.json",
+      "description": "A description of the item."
+    },
+    "disambiguatingDescription": {
+      "$ref": "../generated-schemaorg-full/properties/disambiguatingDescription.schema.json",
+      "description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."
+    },
+    "identifier": {
+      "$ref": "../generated-schemaorg-full/properties/identifier.schema.json",
+      "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        "
+    },
+    "image": {
+      "$ref": "../generated-schemaorg-full/properties/image.schema.json",
+      "description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
+    },
+    "mainEntityOfPage": {
+      "$ref": "../generated-schemaorg-full/properties/mainEntityOfPage.schema.json",
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
+    },
+    "name": {
+      "$ref": "../generated-schemaorg-full/properties/name.schema.json",
+      "description": "The name of the item."
+    },
+    "owner": {
+      "$ref": "../generated-schemaorg-full/properties/owner.schema.json",
+      "description": "A person or organization who owns this Thing."
+    },
+    "potentialAction": {
+      "$ref": "../generated-schemaorg-full/properties/potentialAction.schema.json",
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
+    },
+    "sameAs": {
+      "$ref": "../generated-schemaorg-full/properties/sameAs.schema.json",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."
+    },
+    "subjectOf": {
+      "$ref": "../generated-schemaorg-full/properties/subjectOf.schema.json",
+      "description": "A CreativeWork or Event about this Thing."
+    },
+    "url": {
+      "$ref": "../generated-schemaorg-full/properties/url.schema.json",
+      "description": "URL of the item."
+    },
+    "code": {
+      "$ref": "../generated-schemaorg-full/properties/code.schema.json",
+      "description": "A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc."
+    },
+    "funding": {
+      "$ref": "../generated-schemaorg-full/properties/funding.schema.json",
+      "description": "A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]]."
+    },
+    "guideline": {
+      "$ref": "../generated-schemaorg-full/properties/guideline.schema.json",
+      "description": "A medical guideline related to this entity."
+    },
+    "legalStatus": {
+      "$ref": "../generated-schemaorg-full/properties/legalStatus.schema.json",
+      "description": "The drug or supplement's legal status, including any controlled substance schedules that apply."
+    },
+    "medicineSystem": {
+      "$ref": "../generated-schemaorg-full/properties/medicineSystem.schema.json",
+      "description": "The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc."
+    },
+    "recognizingAuthority": {
+      "$ref": "../generated-schemaorg-full/properties/recognizingAuthority.schema.json",
+      "description": "If applicable, the organization that officially recognizes this entity as part of its endorsed system of medicine."
+    },
+    "relevantSpecialty": {
+      "$ref": "../generated-schemaorg-full/properties/relevantSpecialty.schema.json",
+      "description": "If applicable, a medical specialty in which this entity is relevant."
+    },
+    "study": {
+      "$ref": "../generated-schemaorg-full/properties/study.schema.json",
+      "description": "A medical study or trial related to this entity."
+    },
+    "associatedAnatomy": {
+      "$ref": "../generated-schemaorg-full/properties/associatedAnatomy.schema.json",
+      "description": "The anatomy of the underlying organ system or structures associated with this entity."
+    },
+    "cause": {
+      "$ref": "../generated-schemaorg-full/properties/cause.schema.json",
+      "description": "The cause of a medical condition."
+    },
+    "differentialDiagnosis": {
+      "$ref": "../generated-schemaorg-full/properties/differentialDiagnosis.schema.json",
+      "description": "One of a set of differential diagnoses for the condition. Specifically, a closely-related or competing diagnosis typically considered later in the cognitive process whereby this medical condition is distinguished from others most likely responsible for a similar collection of signs and symptoms to reach the most parsimonious diagnosis or diagnoses in a patient."
+    },
+    "drug": {
+      "$ref": "../generated-schemaorg-full/properties/drug.schema.json",
+      "description": "Specifying a drug or medicine used in a medication procedure."
+    },
+    "epidemiology": {
+      "$ref": "../generated-schemaorg-full/properties/epidemiology.schema.json",
+      "description": "The characteristics of associated patients, such as age, gender, race etc."
+    },
+    "expectedPrognosis": {
+      "$ref": "../generated-schemaorg-full/properties/expectedPrognosis.schema.json",
+      "description": "The likely outcome in either the short term or long term of the medical condition."
+    },
+    "naturalProgression": {
+      "$ref": "../generated-schemaorg-full/properties/naturalProgression.schema.json",
+      "description": "The expected progression of the condition if it is not treated and allowed to progress naturally."
+    },
+    "pathophysiology": {
+      "$ref": "../generated-schemaorg-full/properties/pathophysiology.schema.json",
+      "description": "Changes in the normal mechanical, physical, and biochemical functions that are associated with this activity or condition."
+    },
+    "possibleComplication": {
+      "$ref": "../generated-schemaorg-full/properties/possibleComplication.schema.json",
+      "description": "A possible unexpected and unfavorable evolution of a medical condition. Complications may include worsening of the signs or symptoms of the disease, extension of the condition to other organ systems, etc."
+    },
+    "possibleTreatment": {
+      "$ref": "../generated-schemaorg-full/properties/possibleTreatment.schema.json",
+      "description": "A possible treatment to address this condition, sign or symptom."
+    },
+    "primaryPrevention": {
+      "$ref": "../generated-schemaorg-full/properties/primaryPrevention.schema.json",
+      "description": "A preventative therapy used to prevent an initial occurrence of the medical condition, such as vaccination."
+    },
+    "riskFactor": {
+      "$ref": "../generated-schemaorg-full/properties/riskFactor.schema.json",
+      "description": "A modifiable or non-modifiable factor that increases the risk of a patient contracting this condition, e.g. age,  coexisting condition."
+    },
+    "secondaryPrevention": {
+      "$ref": "../generated-schemaorg-full/properties/secondaryPrevention.schema.json",
+      "description": "A preventative therapy used to prevent reoccurrence of the medical condition after an initial episode of the condition."
+    },
+    "signOrSymptom": {
+      "$ref": "../generated-schemaorg-full/properties/signOrSymptom.schema.json",
+      "description": "A sign or symptom of this condition. Signs are objective or physically observable manifestations of the medical condition while symptoms are the subjective experience of the medical condition."
+    },
+    "stage": {
+      "$ref": "../generated-schemaorg-full/properties/stage.schema.json",
+      "description": "The stage of the condition, if applicable."
+    },
+    "status": {
+      "$ref": "../generated-schemaorg-full/properties/status.schema.json",
+      "description": "The status of the study (enumerated)."
+    },
+    "typicalTest": {
+      "$ref": "../generated-schemaorg-full/properties/typicalTest.schema.json",
+      "description": "A medical test typically performed given this condition."
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

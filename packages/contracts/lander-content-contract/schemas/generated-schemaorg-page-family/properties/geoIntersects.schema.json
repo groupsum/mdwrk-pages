@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:geoIntersects",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Represents spatial relations in which two geometries (or the places they represent) have at least one point in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
+  "oneOf": [
+    {
+      "$ref": "../types/GeospatialGeometry.schema.json"
+    },
+    {
+      "$ref": "../types/Place.schema.json"
+    }
+  ],
+  "title": "geoIntersects",
+  "x-schemaorg-cardinality": "open-world"
+}

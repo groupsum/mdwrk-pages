@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:billingIncrement",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "This property specifies the minimal quantity and rounding increment that will be the basis for the billing. The unit of measurement is specified by the unitCode property.",
+  "title": "billingIncrement",
+  "x-schemaorg-cardinality": "open-world"
+}

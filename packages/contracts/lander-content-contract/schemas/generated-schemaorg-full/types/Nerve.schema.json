@@ -1,0 +1,43 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Nerve",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "AnatomicalStructure.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Nerve"
+        },
+        "branch": {
+          "$ref": "../properties/branch.schema.json",
+          "description": "The branches that delineate from the nerve bundle. Not to be confused with [[branchOf]]."
+        },
+        "nerveMotor": {
+          "$ref": "../properties/nerveMotor.schema.json",
+          "description": "The neurological pathway extension that involves muscle control."
+        },
+        "sensoryUnit": {
+          "$ref": "../properties/sensoryUnit.schema.json",
+          "description": "The neurological pathway extension that inputs and sends information to the brain or spinal cord."
+        },
+        "sourcedFrom": {
+          "$ref": "../properties/sourcedFrom.schema.json",
+          "description": "The neurological pathway that originates the neurons."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A common pathway for the electrochemical nerve impulses that are transmitted along each of the axons.",
+  "title": "Nerve"
+}

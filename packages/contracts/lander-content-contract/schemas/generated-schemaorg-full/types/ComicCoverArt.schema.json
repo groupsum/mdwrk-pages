@@ -1,0 +1,30 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ComicCoverArt",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "ComicStory.schema.json"
+    },
+    {
+      "$ref": "CoverArt.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ComicCoverArt"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The artwork on the cover of a comic.",
+  "title": "ComicCoverArt"
+}

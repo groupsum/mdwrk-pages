@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:interactionService",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The WebSite or SoftwareApplication where the interactions took place.",
+  "oneOf": [
+    {
+      "$ref": "../types/SoftwareApplication.schema.json"
+    },
+    {
+      "$ref": "../types/WebSite.schema.json"
+    }
+  ],
+  "title": "interactionService",
+  "x-schemaorg-cardinality": "open-world"
+}

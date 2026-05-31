@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:albumProductionType",
+  "$ref": "../enumerations/MusicAlbumProductionType.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Classification of the album by its type of content: soundtrack, live album, studio album, etc.",
+  "title": "albumProductionType",
+  "x-schemaorg-cardinality": "open-world"
+}

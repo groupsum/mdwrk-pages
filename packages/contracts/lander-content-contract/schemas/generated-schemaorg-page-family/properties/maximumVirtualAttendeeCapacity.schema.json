@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:maximumVirtualAttendeeCapacity",
+  "$ref": "../types/Integer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The maximum virtual attendee capacity of an [[Event]] whose [[eventAttendanceMode]] is [[OnlineEventAttendanceMode]] (or the online aspects, in the case of a [[MixedEventAttendanceMode]]). ",
+  "title": "maximumVirtualAttendeeCapacity",
+  "x-schemaorg-cardinality": "open-world"
+}

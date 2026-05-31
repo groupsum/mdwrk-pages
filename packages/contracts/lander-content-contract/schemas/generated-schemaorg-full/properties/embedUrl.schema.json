@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:embedUrl",
+  "$ref": "../types/URL.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A URL pointing to a player for a specific video. In general, this is the information in the ```src``` element of an ```embed``` tag and should not be the same as the content of the ```loc``` tag.",
+  "title": "embedUrl",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,104 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Occupation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Occupation",
+  "description": "A profession, may involve prolonged training and/or a formal qualification.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "Occupation"
+    },
+    "additionalType": {
+      "$ref": "../generated-schemaorg-full/properties/additionalType.schema.json",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
+    },
+    "alternateName": {
+      "$ref": "../generated-schemaorg-full/properties/alternateName.schema.json",
+      "description": "An alias for the item."
+    },
+    "description": {
+      "$ref": "../generated-schemaorg-full/properties/description.schema.json",
+      "description": "A description of the item."
+    },
+    "disambiguatingDescription": {
+      "$ref": "../generated-schemaorg-full/properties/disambiguatingDescription.schema.json",
+      "description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."
+    },
+    "identifier": {
+      "$ref": "../generated-schemaorg-full/properties/identifier.schema.json",
+      "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        "
+    },
+    "image": {
+      "$ref": "../generated-schemaorg-full/properties/image.schema.json",
+      "description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
+    },
+    "mainEntityOfPage": {
+      "$ref": "../generated-schemaorg-full/properties/mainEntityOfPage.schema.json",
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
+    },
+    "name": {
+      "$ref": "../generated-schemaorg-full/properties/name.schema.json",
+      "description": "The name of the item."
+    },
+    "owner": {
+      "$ref": "../generated-schemaorg-full/properties/owner.schema.json",
+      "description": "A person or organization who owns this Thing."
+    },
+    "potentialAction": {
+      "$ref": "../generated-schemaorg-full/properties/potentialAction.schema.json",
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
+    },
+    "sameAs": {
+      "$ref": "../generated-schemaorg-full/properties/sameAs.schema.json",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."
+    },
+    "subjectOf": {
+      "$ref": "../generated-schemaorg-full/properties/subjectOf.schema.json",
+      "description": "A CreativeWork or Event about this Thing."
+    },
+    "url": {
+      "$ref": "../generated-schemaorg-full/properties/url.schema.json",
+      "description": "URL of the item."
+    },
+    "educationRequirements": {
+      "$ref": "../generated-schemaorg-full/properties/educationRequirements.schema.json",
+      "description": "Educational background needed for the position or Occupation."
+    },
+    "estimatedSalary": {
+      "$ref": "../generated-schemaorg-full/properties/estimatedSalary.schema.json",
+      "description": "An estimated salary for a job posting or occupation, based on a variety of variables including, but not limited to industry, job title, and location. Estimated salaries  are often computed by outside organizations rather than the hiring organization, who may not have committed to the estimated value."
+    },
+    "experienceRequirements": {
+      "$ref": "../generated-schemaorg-full/properties/experienceRequirements.schema.json",
+      "description": "Description of skills and experience needed for the position or Occupation."
+    },
+    "occupationLocation": {
+      "$ref": "../generated-schemaorg-full/properties/occupationLocation.schema.json",
+      "description": " The region/country for which this occupational description is appropriate. Note that educational requirements and qualifications can vary between jurisdictions."
+    },
+    "occupationalCategory": {
+      "$ref": "../generated-schemaorg-full/properties/occupationalCategory.schema.json",
+      "description": "A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\\n\nNote: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC."
+    },
+    "qualifications": {
+      "$ref": "../generated-schemaorg-full/properties/qualifications.schema.json",
+      "description": "Specific qualifications required for this role or Occupation."
+    },
+    "responsibilities": {
+      "$ref": "../generated-schemaorg-full/properties/responsibilities.schema.json",
+      "description": "Responsibilities associated with this role or Occupation."
+    },
+    "skills": {
+      "$ref": "../generated-schemaorg-full/properties/skills.schema.json",
+      "description": "A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is either claimed by a person, an organization or desired or required to fulfill a role or to work in an occupation."
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

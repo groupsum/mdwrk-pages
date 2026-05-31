@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:codingSystem",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The coding system, e.g. 'ICD-10'.",
+  "title": "codingSystem",
+  "x-schemaorg-cardinality": "open-world"
+}

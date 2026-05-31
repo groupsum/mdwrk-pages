@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:evidenceOrigin",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Source of the data used to formulate the guidance, e.g. RCT, consensus opinion, etc.",
+  "title": "evidenceOrigin",
+  "x-schemaorg-cardinality": "open-world"
+}

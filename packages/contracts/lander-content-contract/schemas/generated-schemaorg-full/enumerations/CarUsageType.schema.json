@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:CarUsageType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A value indicating a special usage of a car, e.g. commercial rental, driving school, or as a taxi.",
+  "enum": [],
+  "title": "CarUsageType",
+  "type": "string"
+}

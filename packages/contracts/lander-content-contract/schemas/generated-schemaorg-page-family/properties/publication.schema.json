@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:publication",
+  "$ref": "../types/PublicationEvent.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A publication event associated with the item.",
+  "title": "publication",
+  "x-schemaorg-cardinality": "open-world"
+}

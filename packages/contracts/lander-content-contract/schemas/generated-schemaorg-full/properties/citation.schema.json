@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:citation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.",
+  "oneOf": [
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "citation",
+  "x-schemaorg-cardinality": "open-world"
+}

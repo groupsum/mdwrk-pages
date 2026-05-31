@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:MusicAlbumReleaseType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The kind of release which this album is: single, EP or album.",
+  "enum": [],
+  "title": "MusicAlbumReleaseType",
+  "type": "string"
+}

@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:physicalRequirement",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A description of the types of physical activity associated with the job. Defined terms such as those in O*net may be used, but note that there is no way to specify the level of ability as well as its nature when using a defined term.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "physicalRequirement",
+  "x-schemaorg-cardinality": "open-world"
+}

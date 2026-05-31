@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:carbohydrateContent",
+  "$ref": "../types/Mass.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of grams of carbohydrates.",
+  "title": "carbohydrateContent",
+  "x-schemaorg-cardinality": "open-world"
+}

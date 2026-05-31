@@ -1,0 +1,33 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:HowToStep",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "$ref": "ItemList.schema.json"
+    },
+    {
+      "$ref": "ListItem.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "HowToStep"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A step in the instructions for how to achieve a result. It is an ordered list with HowToDirection and/or HowToTip items.",
+  "title": "HowToStep"
+}

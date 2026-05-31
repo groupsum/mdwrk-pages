@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:materialExtent",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The quantity of the materials being described or an expression of the physical space they occupy.",
+  "oneOf": [
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "materialExtent",
+  "x-schemaorg-cardinality": "open-world"
+}

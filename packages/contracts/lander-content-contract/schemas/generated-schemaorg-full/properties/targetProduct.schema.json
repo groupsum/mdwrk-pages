@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:targetProduct",
+  "$ref": "../types/SoftwareApplication.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Target Operating System / Product to which the code applies.  If applies to several versions, just the product name can be used.",
+  "title": "targetProduct",
+  "x-schemaorg-cardinality": "open-world"
+}

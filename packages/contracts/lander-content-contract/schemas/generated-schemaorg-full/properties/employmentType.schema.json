@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:employmentType",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Type of employment (e.g. full-time, part-time, contract, temporary, seasonal, internship).",
+  "title": "employmentType",
+  "x-schemaorg-cardinality": "open-world"
+}

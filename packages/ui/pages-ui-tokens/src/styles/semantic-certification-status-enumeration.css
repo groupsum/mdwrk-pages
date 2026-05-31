@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-certification-status-enumeration-padding: 1rem;
+  --mdp-semantic-certification-status-enumeration-gap: 0.75rem;
+  --mdp-semantic-certification-status-enumeration-radius: 1rem;
+  --mdp-semantic-certification-status-enumeration-surface: linear-gradient(180deg, rgba(28, 98, 46, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-certification-status-enumeration-border: rgba(28, 98, 46, 0.22);
+  --mdp-semantic-certification-status-enumeration-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--certification-status-enumeration {
+  padding: var(--mdp-semantic-certification-status-enumeration-padding);
+  gap: var(--mdp-semantic-certification-status-enumeration-gap);
+  border-radius: var(--mdp-semantic-certification-status-enumeration-radius);
+  background: var(--mdp-semantic-certification-status-enumeration-surface);
+  border: 1px solid var(--mdp-semantic-certification-status-enumeration-border);
+  box-shadow: var(--mdp-semantic-certification-status-enumeration-shadow);
+}
+
+.lander-semantic--certification-status-enumeration .lander-semantic__header,
+.lander-semantic--certification-status-enumeration .lander-semantic__body,
+.lander-semantic--certification-status-enumeration .lander-semantic__footer,
+.lander-semantic--certification-status-enumeration .lander-semantic__actions {
+  gap: var(--mdp-semantic-certification-status-enumeration-gap);
+}
+
+.lander-semantic--certification-status-enumeration .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--certification-status-enumeration .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--certification-status-enumeration .lander-semantic__subtitle,
+.lander-semantic--certification-status-enumeration .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--certification-status-enumeration .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-certification-status-enumeration-gap) * 0.8);
+}
+
+.lander-semantic--certification-status-enumeration .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--certification-status-enumeration .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:legislationDateOfApplicability",
+  "$ref": "../datatypes/Date.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The date at which the Legislation becomes applicable. This can sometimes be distinct from the date of entry into force : a text may come in force today, and state it will become applicable in 3 months.",
+  "title": "legislationDateOfApplicability",
+  "x-schemaorg-cardinality": "open-world"
+}

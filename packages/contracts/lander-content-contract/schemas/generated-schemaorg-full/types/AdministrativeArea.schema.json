@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:AdministrativeArea",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Place.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "AdministrativeArea"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A geographical region, typically under the jurisdiction of a particular government.",
+  "title": "AdministrativeArea"
+}

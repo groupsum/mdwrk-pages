@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:material",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A material that something is made from, e.g. leather, wool, cotton, paper.",
+  "oneOf": [
+    {
+      "$ref": "../types/Product.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "material",
+  "x-schemaorg-cardinality": "open-world"
+}

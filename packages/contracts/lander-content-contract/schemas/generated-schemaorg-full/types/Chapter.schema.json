@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Chapter",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Chapter"
+        },
+        "pageEnd": {
+          "$ref": "../properties/pageEnd.schema.json",
+          "description": "The page on which the work ends; for example \"138\" or \"xvi\"."
+        },
+        "pageStart": {
+          "$ref": "../properties/pageStart.schema.json",
+          "description": "The page on which the work starts; for example \"135\" or \"xiii\"."
+        },
+        "pagination": {
+          "$ref": "../properties/pagination.schema.json",
+          "description": "Any description of pages that is not separated into pageStart and pageEnd; for example, \"1-6, 9, 55\" or \"10-12, 46-49\"."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "One of the sections into which a book is divided. A chapter usually has a section number or a name.",
+  "title": "Chapter"
+}

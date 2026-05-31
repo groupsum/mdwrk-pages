@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:LocationFeatureSpecification",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "PropertyValue.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "LocationFeatureSpecification"
+        },
+        "hoursAvailable": {
+          "$ref": "../properties/hoursAvailable.schema.json",
+          "description": "The hours during which this service or contact is available."
+        },
+        "validFrom": {
+          "$ref": "../properties/validFrom.schema.json",
+          "description": "The date when the item becomes valid."
+        },
+        "validThrough": {
+          "$ref": "../properties/validThrough.schema.json",
+          "description": "The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Specifies a location feature by providing a structured value representing a feature of an accommodation as a property-value pair of varying degrees of formality.",
+  "title": "LocationFeatureSpecification"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:code",
+  "$ref": "../types/MedicalCode.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc.",
+  "title": "code",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:seasonalOverride",
+  "$ref": "../types/OpeningHoursSpecification.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Limited period during which these shipping conditions apply.",
+  "title": "seasonalOverride",
+  "x-schemaorg-cardinality": "open-world"
+}

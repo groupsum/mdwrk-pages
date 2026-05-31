@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:dayOfWeek",
+  "$ref": "../enumerations/DayOfWeek.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The day of the week for which these opening hours are valid.",
+  "title": "dayOfWeek",
+  "x-schemaorg-cardinality": "open-world"
+}

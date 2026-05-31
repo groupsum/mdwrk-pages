@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:incentiveStatus",
+  "$ref": "../enumerations/IncentiveStatus.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The status of the incentive (active, on hold, retired, etc.).",
+  "title": "incentiveStatus",
+  "x-schemaorg-cardinality": "open-world"
+}

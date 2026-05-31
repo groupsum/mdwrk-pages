@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:SizeSystemEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerates common size systems for different categories of products, for example \"EN-13402\" or \"UK\" for wearables or \"Imperial\" for screws.",
+  "enum": [],
+  "title": "SizeSystemEnumeration",
+  "type": "string"
+}

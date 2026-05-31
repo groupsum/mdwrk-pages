@@ -1,0 +1,20 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:fibo-be-corp-corp:Corporation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "fibo-be-corp-corp:Corporation"
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "title": "fibo-be-corp-corp:Corporation",
+  "type": "object",
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

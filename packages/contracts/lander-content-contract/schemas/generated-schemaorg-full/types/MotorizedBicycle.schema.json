@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MotorizedBicycle",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Vehicle.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MotorizedBicycle"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A motorized bicycle is a bicycle with an attached motor used to power the vehicle, or to assist with pedaling.",
+  "title": "MotorizedBicycle"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:muscleAction",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The movement the muscle generates.",
+  "title": "muscleAction",
+  "x-schemaorg-cardinality": "open-world"
+}

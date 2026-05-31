@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:sizeGroup",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The size group (also known as \"size type\") for a product's size. Size groups are common in the fashion industry to define size segments and suggested audiences for wearable products. Multiple values can be combined, for example \"men's big and tall\", \"petite maternity\" or \"regular\".",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/SizeGroupEnumeration.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "sizeGroup",
+  "x-schemaorg-cardinality": "open-world"
+}

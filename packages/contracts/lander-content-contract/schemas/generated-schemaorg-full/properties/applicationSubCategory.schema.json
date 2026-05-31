@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:applicationSubCategory",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Subcategory of the application, e.g. 'Arcade Game'.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "applicationSubCategory",
+  "x-schemaorg-cardinality": "open-world"
+}

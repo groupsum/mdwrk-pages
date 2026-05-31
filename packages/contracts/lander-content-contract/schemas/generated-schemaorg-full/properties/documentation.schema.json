@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:documentation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Further documentation describing the Web API in more detail.",
+  "oneOf": [
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "documentation",
+  "x-schemaorg-cardinality": "open-world"
+}

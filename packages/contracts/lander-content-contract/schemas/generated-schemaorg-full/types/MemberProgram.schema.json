@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MemberProgram",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MemberProgram"
+        },
+        "hasTiers": {
+          "$ref": "../properties/hasTiers.schema.json",
+          "description": "The tiers of a member program."
+        },
+        "hostingOrganization": {
+          "$ref": "../properties/hostingOrganization.schema.json",
+          "description": "The Organization (airline, travelers' club, retailer, etc.) the membership is made with or which offers the  MemberProgram."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A MemberProgram defines a loyalty (or membership) program that provides its members with certain benefits, for example better pricing, free shipping or returns, or the ability to earn loyalty points. Member programs may have multiple tiers, for example silver and gold members, each with different benefits.",
+  "title": "MemberProgram"
+}

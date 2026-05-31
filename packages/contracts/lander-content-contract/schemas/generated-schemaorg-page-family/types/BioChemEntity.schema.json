@@ -1,0 +1,79 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:BioChemEntity",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Thing.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "BioChemEntity"
+        },
+        "associatedDisease": {
+          "$ref": "../properties/associatedDisease.schema.json",
+          "description": "Disease associated to this BioChemEntity. Such disease can be a MedicalCondition or a URL. If you want to add an evidence supporting the association, please use PropertyValue."
+        },
+        "bioChemInteraction": {
+          "$ref": "../properties/bioChemInteraction.schema.json",
+          "description": "A BioChemEntity that is known to interact with this item."
+        },
+        "bioChemSimilarity": {
+          "$ref": "../properties/bioChemSimilarity.schema.json",
+          "description": "A similar BioChemEntity, e.g., obtained by fingerprint similarity algorithms."
+        },
+        "biologicalRole": {
+          "$ref": "../properties/biologicalRole.schema.json",
+          "description": "A role played by the BioChemEntity within a biological context."
+        },
+        "funding": {
+          "$ref": "../properties/funding.schema.json",
+          "description": "A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]]."
+        },
+        "hasBioChemEntityPart": {
+          "$ref": "../properties/hasBioChemEntityPart.schema.json",
+          "description": "Indicates a BioChemEntity that (in some sense) has this BioChemEntity as a part. "
+        },
+        "hasMolecularFunction": {
+          "$ref": "../properties/hasMolecularFunction.schema.json",
+          "description": "Molecular function performed by this BioChemEntity; please use PropertyValue if you want to include any evidence."
+        },
+        "hasRepresentation": {
+          "$ref": "../properties/hasRepresentation.schema.json",
+          "description": "A common representation such as a protein sequence or chemical structure for this entity. For images use schema.org/image."
+        },
+        "isEncodedByBioChemEntity": {
+          "$ref": "../properties/isEncodedByBioChemEntity.schema.json",
+          "description": "Another BioChemEntity encoding by this one."
+        },
+        "isInvolvedInBiologicalProcess": {
+          "$ref": "../properties/isInvolvedInBiologicalProcess.schema.json",
+          "description": "Biological process this BioChemEntity is involved in; please use PropertyValue if you want to include any evidence."
+        },
+        "isLocatedInSubcellularLocation": {
+          "$ref": "../properties/isLocatedInSubcellularLocation.schema.json",
+          "description": "Subcellular location where this BioChemEntity is located; please use PropertyValue if you want to include any evidence."
+        },
+        "isPartOfBioChemEntity": {
+          "$ref": "../properties/isPartOfBioChemEntity.schema.json",
+          "description": "Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity. "
+        },
+        "taxonomicRange": {
+          "$ref": "../properties/taxonomicRange.schema.json",
+          "description": "The taxonomic grouping of the organism that expresses, encodes, or in some way related to the BioChemEntity."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Any biological, chemical, or biochemical thing. For example: a protein; a gene; a chemical; a synthetic chemical.",
+  "title": "BioChemEntity"
+}

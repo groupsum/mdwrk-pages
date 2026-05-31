@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-predecessor-of-padding: 1rem;
+  --mdp-semantic-predecessor-of-gap: 0.75rem;
+  --mdp-semantic-predecessor-of-radius: 1rem;
+  --mdp-semantic-predecessor-of-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-predecessor-of-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-predecessor-of-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--predecessor-of {
+  padding: var(--mdp-semantic-predecessor-of-padding);
+  gap: var(--mdp-semantic-predecessor-of-gap);
+  border-radius: var(--mdp-semantic-predecessor-of-radius);
+  background: var(--mdp-semantic-predecessor-of-surface);
+  border: 1px solid var(--mdp-semantic-predecessor-of-border);
+  box-shadow: var(--mdp-semantic-predecessor-of-shadow);
+}
+
+.lander-semantic--predecessor-of .lander-semantic__header,
+.lander-semantic--predecessor-of .lander-semantic__body,
+.lander-semantic--predecessor-of .lander-semantic__footer,
+.lander-semantic--predecessor-of .lander-semantic__actions {
+  gap: var(--mdp-semantic-predecessor-of-gap);
+}
+
+.lander-semantic--predecessor-of .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--predecessor-of .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--predecessor-of .lander-semantic__subtitle,
+.lander-semantic--predecessor-of .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--predecessor-of .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-predecessor-of-gap) * 0.8);
+}
+
+.lander-semantic--predecessor-of .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--predecessor-of .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

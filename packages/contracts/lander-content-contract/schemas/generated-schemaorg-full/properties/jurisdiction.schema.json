@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:jurisdiction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based.",
+  "oneOf": [
+    {
+      "$ref": "../types/AdministrativeArea.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "jurisdiction",
+  "x-schemaorg-cardinality": "open-world"
+}

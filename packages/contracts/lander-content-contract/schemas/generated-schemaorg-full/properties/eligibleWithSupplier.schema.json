@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:eligibleWithSupplier",
+  "$ref": "../types/Organization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The supplier of the incentivized item/service for which the incentive is valid for such as a utility company, merchant, or contractor.",
+  "title": "eligibleWithSupplier",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:includedDataCatalog",
+  "$ref": "../types/DataCatalog.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A data catalog which contains this dataset (this property was previously 'catalog', preferred name is now 'includedInDataCatalog').",
+  "title": "includedDataCatalog",
+  "x-schemaorg-cardinality": "open-world"
+}

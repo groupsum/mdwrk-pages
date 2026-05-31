@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:actionApplication",
+  "$ref": "../types/SoftwareApplication.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An application that can complete the request.",
+  "title": "actionApplication",
+  "x-schemaorg-cardinality": "open-world"
+}

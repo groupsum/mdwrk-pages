@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:DefinedTermSet",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "DefinedTermSet"
+        },
+        "about": {
+          "$ref": "../properties/about.schema.json",
+          "description": "The subject matter of an object."
+        },
+        "hasDefinedTerm": {
+          "$ref": "../properties/hasDefinedTerm.schema.json",
+          "description": "A Defined Term contained in this term set."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A set of defined terms, for example a set of categories or a classification scheme, a glossary, dictionary or enumeration. Use the about property to specify what the term set is about.",
+  "title": "DefinedTermSet"
+}

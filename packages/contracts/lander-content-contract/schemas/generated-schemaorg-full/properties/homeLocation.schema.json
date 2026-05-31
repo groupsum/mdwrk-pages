@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:homeLocation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A contact location for a person's residence.",
+  "oneOf": [
+    {
+      "$ref": "../types/ContactPoint.schema.json"
+    },
+    {
+      "$ref": "../types/Place.schema.json"
+    }
+  ],
+  "title": "homeLocation",
+  "x-schemaorg-cardinality": "open-world"
+}

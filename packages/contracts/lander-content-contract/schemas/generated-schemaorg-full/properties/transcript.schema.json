@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:transcript",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "If this MediaObject is an AudioObject or VideoObject, the transcript of that object.",
+  "title": "transcript",
+  "x-schemaorg-cardinality": "open-world"
+}

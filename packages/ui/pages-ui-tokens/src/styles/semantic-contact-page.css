@@ -1,0 +1,60 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-contact-page-padding: 1.7rem;
+  --mdp-semantic-contact-page-gap: 1rem;
+  --mdp-semantic-contact-page-radius: 1.4rem;
+  --mdp-semantic-contact-page-surface: linear-gradient(180deg, color-mix(in srgb, var(--lander-panel) 95%, #fff3ec 5%), color-mix(in srgb, var(--lander-panel) 88%, #ffe0cf 12%));
+  --mdp-semantic-contact-page-border: color-mix(in srgb, var(--lander-border) 70%, #cb7c48 30%);
+  --mdp-semantic-contact-page-shadow: var(--mdwrk-shadow-strong);
+}
+
+.lander-semantic--contact-page {
+  display: grid;
+  gap: var(--mdp-semantic-contact-page-gap);
+  padding: var(--mdp-semantic-contact-page-padding);
+  border: 1px solid var(--mdp-semantic-contact-page-border);
+  border-radius: var(--mdp-semantic-contact-page-radius);
+  background: var(--mdp-semantic-contact-page-surface);
+  box-shadow: var(--mdp-semantic-contact-page-shadow);
+}
+
+.lander-semantic--contact-page .lander-semantic__header,
+.lander-semantic--contact-page .lander-semantic__body,
+.lander-semantic--contact-page .lander-semantic__actions,
+.lander-semantic--contact-page .lander-semantic__footer,
+.lander-semantic--contact-page .lander-semantic__meta {
+  display: grid;
+  gap: var(--mdwrk-space-3);
+}
+
+.lander-semantic--contact-page .lander-semantic__eyebrow,
+.lander-semantic--contact-page .lander-semantic__title,
+.lander-semantic--contact-page .lander-semantic__subtitle,
+.lander-semantic--contact-page .lander-semantic__description,
+.lander-semantic--contact-page .lander-semantic__image {
+  margin: 0;
+}
+
+.lander-semantic--contact-page .lander-semantic__contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 0.9rem;
+}
+
+.lander-semantic--contact-page .lander-semantic__contact-card,
+.lander-semantic--contact-page .lander-semantic__page-link-item {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem 1.05rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.lander-semantic--contact-page .lander-semantic__page-link-list {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}

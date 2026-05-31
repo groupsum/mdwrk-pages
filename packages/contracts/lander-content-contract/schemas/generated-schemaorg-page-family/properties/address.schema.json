@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:address",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Physical address of the item.",
+  "oneOf": [
+    {
+      "$ref": "../types/PostalAddress.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "address",
+  "x-schemaorg-cardinality": "open-world"
+}

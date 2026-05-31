@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:isStoreOn",
+  "$ref": "../types/OnlineMarketplace.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The eCommerce marketplace this online store is on.",
+  "title": "isStoreOn",
+  "x-schemaorg-cardinality": "open-world"
+}

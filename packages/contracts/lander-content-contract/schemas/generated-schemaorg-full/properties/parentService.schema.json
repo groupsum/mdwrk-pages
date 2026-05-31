@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:parentService",
+  "$ref": "../types/BroadcastService.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A broadcast service to which the broadcast service may belong to such as regional variations of a national channel.",
+  "title": "parentService",
+  "x-schemaorg-cardinality": "open-world"
+}

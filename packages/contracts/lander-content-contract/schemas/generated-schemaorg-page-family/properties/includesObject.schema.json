@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:includesObject",
+  "$ref": "../types/TypeAndQuantityNode.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "This links to a node or nodes indicating the exact quantity of the products included in  an [[Offer]] or [[ProductCollection]].",
+  "title": "includesObject",
+  "x-schemaorg-cardinality": "open-world"
+}

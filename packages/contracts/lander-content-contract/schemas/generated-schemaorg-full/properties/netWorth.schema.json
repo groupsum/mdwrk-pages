@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:netWorth",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The total financial value of the person as calculated by subtracting the total value of liabilities from the total value of assets.",
+  "oneOf": [
+    {
+      "$ref": "../types/MonetaryAmount.schema.json"
+    },
+    {
+      "$ref": "../types/PriceSpecification.schema.json"
+    }
+  ],
+  "title": "netWorth",
+  "x-schemaorg-cardinality": "open-world"
+}

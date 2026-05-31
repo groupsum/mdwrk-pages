@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:breadcrumb",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A set of links that can help a user understand and navigate a website hierarchy.",
+  "oneOf": [
+    {
+      "$ref": "../types/BreadcrumbList.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "breadcrumb",
+  "x-schemaorg-cardinality": "open-world"
+}

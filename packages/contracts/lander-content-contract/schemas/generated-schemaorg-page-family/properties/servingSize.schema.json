@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:servingSize",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The serving size, in terms of the number of volume or mass.",
+  "title": "servingSize",
+  "x-schemaorg-cardinality": "open-world"
+}

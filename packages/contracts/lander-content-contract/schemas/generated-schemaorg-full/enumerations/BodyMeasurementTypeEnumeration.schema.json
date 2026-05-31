@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:BodyMeasurementTypeEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerates types (or dimensions) of a person's body measurements, for example for fitting of clothes.",
+  "enum": [],
+  "title": "BodyMeasurementTypeEnumeration",
+  "type": "string"
+}

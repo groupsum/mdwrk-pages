@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:fibo-fbc-pas-fpas:hasPaymentMechanism",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "title": "fibo-fbc-pas-fpas:hasPaymentMechanism",
+  "type": [
+    "string",
+    "number",
+    "boolean",
+    "object",
+    "array",
+    "null"
+  ],
+  "x-schemaorg-cardinality": "open-world"
+}

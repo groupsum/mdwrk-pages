@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:PurchaseType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerates a purchase type for an item.",
+  "enum": [],
+  "title": "PurchaseType",
+  "type": "string"
+}

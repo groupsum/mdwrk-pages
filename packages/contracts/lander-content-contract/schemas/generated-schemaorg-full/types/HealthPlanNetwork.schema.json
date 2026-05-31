@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:HealthPlanNetwork",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "HealthPlanNetwork"
+        },
+        "healthPlanCostSharing": {
+          "$ref": "../properties/healthPlanCostSharing.schema.json",
+          "description": "The costs to the patient for services under this network or formulary."
+        },
+        "healthPlanNetworkId": {
+          "$ref": "../properties/healthPlanNetworkId.schema.json",
+          "description": "Name or unique ID of network. (Networks are often reused across different insurance plans.)"
+        },
+        "healthPlanNetworkTier": {
+          "$ref": "../properties/healthPlanNetworkTier.schema.json",
+          "description": "The tier(s) for this network."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A US-style health insurance plan network.",
+  "title": "HealthPlanNetwork"
+}

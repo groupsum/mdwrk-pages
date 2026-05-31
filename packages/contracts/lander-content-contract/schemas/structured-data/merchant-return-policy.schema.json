@@ -1,32 +1,160 @@
 {
+  "$id": "urn:groupsum:schemaorg:class:MerchantReturnPolicy",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.mdwrk.com/structured-data/merchant-return-policy.schema.json",
-  "title": "Structured Data MerchantReturnPolicy Input",
+  "title": "MerchantReturnPolicy",
+  "description": "A MerchantReturnPolicy provides information about product return policies associated with an [[Organization]], [[Product]], or [[Offer]].",
   "type": "object",
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ],
   "properties": {
-    "id": {
-      "type": "string"
+    "@context": {
+      "const": "https://schema.org"
     },
-    "name": {
-      "type": "string",
-      "minLength": 1
+    "@type": {
+      "const": "MerchantReturnPolicy"
+    },
+    "additionalType": {
+      "$ref": "../generated-schemaorg-full/properties/additionalType.schema.json",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
+    },
+    "alternateName": {
+      "$ref": "../generated-schemaorg-full/properties/alternateName.schema.json",
+      "description": "An alias for the item."
     },
     "description": {
-      "type": "string"
+      "$ref": "../generated-schemaorg-full/properties/description.schema.json",
+      "description": "A description of the item."
+    },
+    "disambiguatingDescription": {
+      "$ref": "../generated-schemaorg-full/properties/disambiguatingDescription.schema.json",
+      "description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."
+    },
+    "identifier": {
+      "$ref": "../generated-schemaorg-full/properties/identifier.schema.json",
+      "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        "
+    },
+    "image": {
+      "$ref": "../generated-schemaorg-full/properties/image.schema.json",
+      "description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
+    },
+    "mainEntityOfPage": {
+      "$ref": "../generated-schemaorg-full/properties/mainEntityOfPage.schema.json",
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
+    },
+    "name": {
+      "$ref": "../generated-schemaorg-full/properties/name.schema.json",
+      "description": "The name of the item."
+    },
+    "owner": {
+      "$ref": "../generated-schemaorg-full/properties/owner.schema.json",
+      "description": "A person or organization who owns this Thing."
+    },
+    "potentialAction": {
+      "$ref": "../generated-schemaorg-full/properties/potentialAction.schema.json",
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
+    },
+    "sameAs": {
+      "$ref": "../generated-schemaorg-full/properties/sameAs.schema.json",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."
+    },
+    "subjectOf": {
+      "$ref": "../generated-schemaorg-full/properties/subjectOf.schema.json",
+      "description": "A CreativeWork or Event about this Thing."
     },
     "url": {
-      "type": "string",
-      "minLength": 1
+      "$ref": "../generated-schemaorg-full/properties/url.schema.json",
+      "description": "URL of the item."
+    },
+    "additionalProperty": {
+      "$ref": "../generated-schemaorg-full/properties/additionalProperty.schema.json",
+      "description": "A property-value pair representing an additional characteristic of the entity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\\n\\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. https://schema.org/width, https://schema.org/color, https://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.\n"
+    },
+    "applicableCountry": {
+      "$ref": "../generated-schemaorg-full/properties/applicableCountry.schema.json",
+      "description": "A country where a particular merchant return policy applies to, for example the two-letter ISO 3166-1 alpha-2 country code."
+    },
+    "customerRemorseReturnFees": {
+      "$ref": "../generated-schemaorg-full/properties/customerRemorseReturnFees.schema.json",
+      "description": "The type of return fees if the product is returned due to customer remorse."
+    },
+    "customerRemorseReturnLabelSource": {
+      "$ref": "../generated-schemaorg-full/properties/customerRemorseReturnLabelSource.schema.json",
+      "description": "The method (from an enumeration) by which the customer obtains a return shipping label for a product returned due to customer remorse."
+    },
+    "customerRemorseReturnShippingFeesAmount": {
+      "$ref": "../generated-schemaorg-full/properties/customerRemorseReturnShippingFeesAmount.schema.json",
+      "description": "The amount of shipping costs if a product is returned due to customer remorse. Applicable when property [[customerRemorseReturnFees]] equals [[ReturnShippingFees]]."
+    },
+    "inStoreReturnsOffered": {
+      "$ref": "../generated-schemaorg-full/properties/inStoreReturnsOffered.schema.json",
+      "description": "Are in-store returns offered? (For more advanced return methods use the [[returnMethod]] property.)"
+    },
+    "itemCondition": {
+      "$ref": "../generated-schemaorg-full/properties/itemCondition.schema.json",
+      "description": "A predefined value from OfferItemCondition specifying the condition of the product or service, or the products or services included in the offer. Also used for product return policies to specify the condition of products accepted for returns."
+    },
+    "itemDefectReturnFees": {
+      "$ref": "../generated-schemaorg-full/properties/itemDefectReturnFees.schema.json",
+      "description": "The type of return fees for returns of defect products."
+    },
+    "itemDefectReturnLabelSource": {
+      "$ref": "../generated-schemaorg-full/properties/itemDefectReturnLabelSource.schema.json",
+      "description": "The method (from an enumeration) by which the customer obtains a return shipping label for a defect product."
+    },
+    "itemDefectReturnShippingFeesAmount": {
+      "$ref": "../generated-schemaorg-full/properties/itemDefectReturnShippingFeesAmount.schema.json",
+      "description": "Amount of shipping costs for defect product returns. Applicable when property [[itemDefectReturnFees]] equals [[ReturnShippingFees]]."
     },
     "merchantReturnDays": {
-      "type": "number"
+      "$ref": "../generated-schemaorg-full/properties/merchantReturnDays.schema.json",
+      "description": "Specifies either a fixed return date or the number of days (from the delivery date) that a product can be returned. Used when the [[returnPolicyCategory]] property is specified as [[MerchantReturnFiniteReturnWindow]]."
+    },
+    "merchantReturnLink": {
+      "$ref": "../generated-schemaorg-full/properties/merchantReturnLink.schema.json",
+      "description": "Specifies a Web page or service by URL, for product returns."
+    },
+    "refundType": {
+      "$ref": "../generated-schemaorg-full/properties/refundType.schema.json",
+      "description": "A refund type, from an enumerated list."
+    },
+    "restockingFee": {
+      "$ref": "../generated-schemaorg-full/properties/restockingFee.schema.json",
+      "description": "Use [[MonetaryAmount]] to specify a fixed restocking fee for product returns, or use [[Number]] to specify a percentage of the product price paid by the customer."
+    },
+    "returnFees": {
+      "$ref": "../generated-schemaorg-full/properties/returnFees.schema.json",
+      "description": "The type of return fees for purchased products (for any return reason)."
+    },
+    "returnLabelSource": {
+      "$ref": "../generated-schemaorg-full/properties/returnLabelSource.schema.json",
+      "description": "The method (from an enumeration) by which the customer obtains a return shipping label for a product returned for any reason."
+    },
+    "returnMethod": {
+      "$ref": "../generated-schemaorg-full/properties/returnMethod.schema.json",
+      "description": "The type of return method offered, specified from an enumeration."
     },
     "returnPolicyCategory": {
-      "type": "string"
+      "$ref": "../generated-schemaorg-full/properties/returnPolicyCategory.schema.json",
+      "description": "Specifies an applicable return policy (from an enumeration)."
+    },
+    "returnPolicyCountry": {
+      "$ref": "../generated-schemaorg-full/properties/returnPolicyCountry.schema.json",
+      "description": "The country where the product has to be sent to for returns, for example \"Ireland\" using the [[name]] property of [[Country]]. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1). Note that this can be different from the country where the product was originally shipped from or sent to."
+    },
+    "returnPolicySeasonalOverride": {
+      "$ref": "../generated-schemaorg-full/properties/returnPolicySeasonalOverride.schema.json",
+      "description": "Seasonal override of a return policy."
+    },
+    "returnShippingFeesAmount": {
+      "$ref": "../generated-schemaorg-full/properties/returnShippingFeesAmount.schema.json",
+      "description": "Amount of shipping costs for product returns (for any reason). Applicable when property [[returnFees]] equals [[ReturnShippingFees]]."
+    },
+    "validForMemberTier": {
+      "$ref": "../generated-schemaorg-full/properties/validForMemberTier.schema.json",
+      "description": "The membership program tier(s) an Offer (or a PriceSpecification, OfferShippingDetails, or MerchantReturnPolicy under an Offer) is valid for."
     }
-  }
+  },
+  "required": [
+    "@type"
+  ],
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
 }

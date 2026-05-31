@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:fuelCapacity",
+  "$ref": "../types/QuantitativeValue.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The capacity of the fuel tank or in the case of electric cars, the battery. If there are multiple components for storage, this should indicate the total of all storage of the same type.\\n\\nTypical unit code(s): LTR for liters, GLL of US gallons, GLI for UK / imperial gallons, AMH for ampere-hours (for electrical vehicles).",
+  "title": "fuelCapacity",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:applicableLocation",
+  "$ref": "../types/AdministrativeArea.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The location in which the status applies.",
+  "title": "applicableLocation",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:termsOfService",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Human-readable terms of service documentation.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "termsOfService",
+  "x-schemaorg-cardinality": "open-world"
+}

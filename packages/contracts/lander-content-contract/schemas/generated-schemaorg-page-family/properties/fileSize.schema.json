@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:fileSize",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Size of the application / package (e.g. 18MB). In the absence of a unit (MB, KB etc.), KB will be assumed.",
+  "title": "fileSize",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:arrivalTime",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The expected arrival time.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Time.schema.json"
+    }
+  ],
+  "title": "arrivalTime",
+  "x-schemaorg-cardinality": "open-world"
+}

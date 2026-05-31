@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:minimumPaymentDue",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The minimum payment required at this time.",
+  "oneOf": [
+    {
+      "$ref": "../types/MonetaryAmount.schema.json"
+    },
+    {
+      "$ref": "../types/PriceSpecification.schema.json"
+    }
+  ],
+  "title": "minimumPaymentDue",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-medical-audience-padding: 1rem;
+  --mdp-semantic-medical-audience-gap: 0.75rem;
+  --mdp-semantic-medical-audience-radius: 1rem;
+  --mdp-semantic-medical-audience-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-medical-audience-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-medical-audience-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--medical-audience {
+  padding: var(--mdp-semantic-medical-audience-padding);
+  gap: var(--mdp-semantic-medical-audience-gap);
+  border-radius: var(--mdp-semantic-medical-audience-radius);
+  background: var(--mdp-semantic-medical-audience-surface);
+  border: 1px solid var(--mdp-semantic-medical-audience-border);
+  box-shadow: var(--mdp-semantic-medical-audience-shadow);
+}
+
+.lander-semantic--medical-audience .lander-semantic__header,
+.lander-semantic--medical-audience .lander-semantic__body,
+.lander-semantic--medical-audience .lander-semantic__footer,
+.lander-semantic--medical-audience .lander-semantic__actions {
+  gap: var(--mdp-semantic-medical-audience-gap);
+}
+
+.lander-semantic--medical-audience .lander-semantic__header,
+.lander-semantic--medical-audience .lander-semantic__eyebrow,
+.lander-semantic--medical-audience .lander-semantic__title,
+.lander-semantic--medical-audience .lander-semantic__subtitle,
+.lander-semantic--medical-audience .lander-semantic__description,
+.lander-semantic--medical-audience .lander-semantic__meta,
+.lander-semantic--medical-audience .lander-semantic__image,
+.lander-semantic--medical-audience .lander-semantic__body,
+.lander-semantic--medical-audience .lander-semantic__actions,
+.lander-semantic--medical-audience .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--medical-audience .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--medical-audience .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--medical-audience .lander-semantic__subtitle,
+.lander-semantic--medical-audience .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--medical-audience .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-medical-audience-gap) * 0.8);
+}
+
+.lander-semantic--medical-audience .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-medical-audience-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--medical-audience .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--medical-audience .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--medical-audience .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

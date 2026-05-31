@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:legislationAmends",
+  "$ref": "../types/Legislation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Another legislation that this legislation amends, introducing legal changes.",
+  "title": "legislationAmends",
+  "x-schemaorg-cardinality": "open-world"
+}

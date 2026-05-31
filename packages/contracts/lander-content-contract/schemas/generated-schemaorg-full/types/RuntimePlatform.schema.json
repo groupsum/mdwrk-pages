@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:RuntimePlatform",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "SoftwareApplication.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "RuntimePlatform"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Specialized software environment that provides the essential infrastructure, libraries, and services required to execute a program.",
+  "title": "RuntimePlatform"
+}

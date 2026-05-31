@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:isPartOf",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of.",
+  "oneOf": [
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "isPartOf",
+  "x-schemaorg-cardinality": "open-world"
+}

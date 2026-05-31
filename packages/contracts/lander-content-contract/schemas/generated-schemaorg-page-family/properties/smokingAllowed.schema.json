@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:smokingAllowed",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates whether it is allowed to smoke in the place, e.g. in the restaurant, hotel or hotel room.",
+  "title": "smokingAllowed",
+  "x-schemaorg-cardinality": "open-world"
+}

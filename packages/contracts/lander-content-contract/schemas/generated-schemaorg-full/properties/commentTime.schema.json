@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:commentTime",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The time at which the UserComment was made.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "commentTime",
+  "x-schemaorg-cardinality": "open-world"
+}

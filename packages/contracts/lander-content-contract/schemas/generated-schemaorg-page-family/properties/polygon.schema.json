@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:polygon",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.",
+  "title": "polygon",
+  "x-schemaorg-cardinality": "open-world"
+}

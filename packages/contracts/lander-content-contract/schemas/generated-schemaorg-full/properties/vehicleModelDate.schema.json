@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:vehicleModelDate",
+  "$ref": "../datatypes/Date.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The release date of a vehicle model (often used to differentiate versions of the same make and model).",
+  "title": "vehicleModelDate",
+  "x-schemaorg-cardinality": "open-world"
+}

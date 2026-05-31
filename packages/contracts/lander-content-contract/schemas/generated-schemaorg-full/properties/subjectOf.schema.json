@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:subjectOf",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A CreativeWork or Event about this Thing.",
+  "oneOf": [
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../types/Event.schema.json"
+    }
+  ],
+  "title": "subjectOf",
+  "x-schemaorg-cardinality": "open-world"
+}

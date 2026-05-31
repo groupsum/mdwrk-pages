@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MiddleSchool",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "EducationalOrganization.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MiddleSchool"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A middle school (typically for children aged around 11-14, although this varies somewhat).",
+  "title": "MiddleSchool"
+}

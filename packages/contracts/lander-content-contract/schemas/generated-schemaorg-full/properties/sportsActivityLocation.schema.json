@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:sportsActivityLocation",
+  "$ref": "../types/SportsActivityLocation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of location. The sports activity location where this action occurred.",
+  "title": "sportsActivityLocation",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:creator",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "creator",
+  "x-schemaorg-cardinality": "open-world"
+}

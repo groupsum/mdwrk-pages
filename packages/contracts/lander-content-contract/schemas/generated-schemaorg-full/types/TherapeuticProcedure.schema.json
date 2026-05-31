@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:TherapeuticProcedure",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalProcedure.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "TherapeuticProcedure"
+        },
+        "adverseOutcome": {
+          "$ref": "../properties/adverseOutcome.schema.json",
+          "description": "A possible complication and/or side effect of this therapy. If it is known that an adverse outcome is serious (resulting in death, disability, or permanent damage; requiring hospitalization; or otherwise life-threatening or requiring immediate medical attention), tag it as a seriousAdverseOutcome instead."
+        },
+        "doseSchedule": {
+          "$ref": "../properties/doseSchedule.schema.json",
+          "description": "A dosing schedule for the drug for a given population, either observed, recommended, or maximum dose based on the type used."
+        },
+        "drug": {
+          "$ref": "../properties/drug.schema.json",
+          "description": "Specifying a drug or medicine used in a medication procedure."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A medical procedure intended primarily for therapeutic purposes, aimed at improving a health condition.",
+  "title": "TherapeuticProcedure"
+}

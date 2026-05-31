@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:athlete",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A person that acts as performing member of a sports team; a player as opposed to a coach.",
+  "title": "athlete",
+  "x-schemaorg-cardinality": "open-world"
+}

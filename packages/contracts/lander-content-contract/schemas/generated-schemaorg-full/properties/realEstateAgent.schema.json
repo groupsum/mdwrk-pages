@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:realEstateAgent",
+  "$ref": "../types/RealEstateAgent.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of participant. The real estate agent involved in the action.",
+  "title": "realEstateAgent",
+  "x-schemaorg-cardinality": "open-world"
+}

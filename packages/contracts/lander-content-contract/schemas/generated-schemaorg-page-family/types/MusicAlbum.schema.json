@@ -1,0 +1,43 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MusicAlbum",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MusicPlaylist.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MusicAlbum"
+        },
+        "albumProductionType": {
+          "$ref": "../properties/albumProductionType.schema.json",
+          "description": "Classification of the album by its type of content: soundtrack, live album, studio album, etc."
+        },
+        "albumRelease": {
+          "$ref": "../properties/albumRelease.schema.json",
+          "description": "A release of this album."
+        },
+        "albumReleaseType": {
+          "$ref": "../properties/albumReleaseType.schema.json",
+          "description": "The kind of release which this album is: single, EP or album."
+        },
+        "byArtist": {
+          "$ref": "../properties/byArtist.schema.json",
+          "description": "The artist that performed this album or recording."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A collection of music tracks.",
+  "title": "MusicAlbum"
+}

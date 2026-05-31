@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:foodEstablishment",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of location. The specific food establishment where the action occurred.",
+  "oneOf": [
+    {
+      "$ref": "../types/FoodEstablishment.schema.json"
+    },
+    {
+      "$ref": "../types/Place.schema.json"
+    }
+  ],
+  "title": "foodEstablishment",
+  "x-schemaorg-cardinality": "open-world"
+}

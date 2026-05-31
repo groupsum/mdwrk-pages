@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:mentions",
+  "$ref": "../types/Thing.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept.",
+  "title": "mentions",
+  "x-schemaorg-cardinality": "open-world"
+}

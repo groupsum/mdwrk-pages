@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:funder",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A person or organization that supports (sponsors) something through some kind of financial contribution.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "funder",
+  "x-schemaorg-cardinality": "open-world"
+}

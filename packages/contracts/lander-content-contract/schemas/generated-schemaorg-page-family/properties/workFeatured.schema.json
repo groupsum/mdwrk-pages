@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:workFeatured",
+  "$ref": "../types/CreativeWork.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A work featured in some event, e.g. exhibited in an ExhibitionEvent.\n       Specific subproperties are available for workPerformed (e.g. a play), or a workPresented (a Movie at a ScreeningEvent).",
+  "title": "workFeatured",
+  "x-schemaorg-cardinality": "open-world"
+}

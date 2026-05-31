@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:BookFormatType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The publication format of the book.",
+  "enum": [],
+  "title": "BookFormatType",
+  "type": "string"
+}

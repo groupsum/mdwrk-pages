@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:isrcCode",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The International Standard Recording Code for the recording.",
+  "title": "isrcCode",
+  "x-schemaorg-cardinality": "open-world"
+}

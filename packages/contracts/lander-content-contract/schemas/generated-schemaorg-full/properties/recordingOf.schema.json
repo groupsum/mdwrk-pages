@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:recordingOf",
+  "$ref": "../types/MusicComposition.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The composition this track is a recording of.",
+  "title": "recordingOf",
+  "x-schemaorg-cardinality": "open-world"
+}

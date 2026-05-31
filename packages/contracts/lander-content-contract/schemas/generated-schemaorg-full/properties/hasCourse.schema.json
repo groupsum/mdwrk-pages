@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasCourse",
+  "$ref": "../types/Course.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A course or class that is one of the learning opportunities that constitute an educational / occupational program. No information is implied about whether the course is mandatory or optional; no guarantee is implied about whether the course will be available to everyone on the program.",
+  "title": "hasCourse",
+  "x-schemaorg-cardinality": "open-world"
+}

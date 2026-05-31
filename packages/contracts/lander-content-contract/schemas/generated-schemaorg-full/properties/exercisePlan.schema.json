@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:exercisePlan",
+  "$ref": "../types/ExercisePlan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of instrument. The exercise plan used on this action.",
+  "title": "exercisePlan",
+  "x-schemaorg-cardinality": "open-world"
+}

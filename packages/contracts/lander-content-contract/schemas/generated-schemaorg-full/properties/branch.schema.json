@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:branch",
+  "$ref": "../types/AnatomicalStructure.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The branches that delineate from the nerve bundle. Not to be confused with [[branchOf]].",
+  "title": "branch",
+  "x-schemaorg-cardinality": "open-world"
+}

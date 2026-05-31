@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:QualitativeValue",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A predefined value for a product characteristic, e.g. the power cord plug type 'US' or the garment sizes 'S', 'M', 'L', and 'XL'.",
+  "enum": [],
+  "title": "QualitativeValue",
+  "type": "string"
+}

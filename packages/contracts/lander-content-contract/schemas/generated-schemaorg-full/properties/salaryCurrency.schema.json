@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:salaryCurrency",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The currency (coded using [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217)) used for the main salary information in this job posting or for this employee.",
+  "title": "salaryCurrency",
+  "x-schemaorg-cardinality": "open-world"
+}

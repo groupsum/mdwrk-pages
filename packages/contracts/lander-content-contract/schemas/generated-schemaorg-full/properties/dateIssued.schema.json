@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:dateIssued",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The date the ticket was issued.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "dateIssued",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:actionOption",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of object. The options subject to this action.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/Thing.schema.json"
+    }
+  ],
+  "title": "actionOption",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,184 @@
+erDiagram
+  CONTRACTS_BUCKET {
+    string path "packages/contracts"
+    string role "typed contracts and schemas"
+  }
+
+  CORE_BUCKET {
+    string path "packages/core"
+    string role "compile and authoring logic"
+  }
+
+  UI_BUCKET {
+    string path "packages/ui"
+    string role "visible rendering"
+  }
+
+  MACHINE_BUCKET {
+    string path "packages/machine"
+    string role "machine-readable output"
+  }
+
+  CONTENT_BUCKET {
+    string path "packages/content"
+    string role "authored content packs"
+  }
+
+  EXAMPLES_BUCKET {
+    string path "examples"
+    string role "consumer demo apps"
+  }
+
+  LANDER_CONTENT_CONTRACT {
+    string package "@mdwrk/lander-content-contract"
+    string bucket "contracts"
+  }
+
+  STRUCTURED_DATA {
+    string package "@mdwrk/structured-data"
+    string bucket "contracts"
+  }
+
+  LANDER_COMMERCE_CONTRACT {
+    string package "@mdwrk/lander-commerce-contract"
+    string bucket "contracts"
+  }
+
+  LANDER_CORE {
+    string package "@mdwrk/lander-core"
+    string bucket "core"
+  }
+
+  LANDER_PAGE_TEMPLATES {
+    string package "@mdwrk/lander-page-templates"
+    string bucket "core"
+  }
+
+  LANDER_PAGE_TEMPLATE_PRESETS {
+    string package "@mdwrk/lander-page-template-presets"
+    string bucket "core"
+  }
+
+  LANDER_MARKDOWN_CONTENT_ADAPTER {
+    string package "@mdwrk/lander-markdown-content-adapter"
+    string bucket "core"
+  }
+
+  LANDER_REACT {
+    string package "@mdwrk/lander-react"
+    string bucket "ui"
+  }
+
+  LANDER_REACT_COMMERCE {
+    string package "@mdwrk/lander-react-commerce"
+    string bucket "ui"
+  }
+
+  LANDER_THEME {
+    string package "@mdwrk/lander-theme"
+    string bucket "ui"
+  }
+
+  LANDER_REACT_STRUCTURED_DATA {
+    string package "@mdwrk/lander-react-structured-data"
+    string bucket "machine"
+  }
+
+  LANDER_SEO {
+    string package "@mdwrk/lander-seo"
+    string bucket "machine"
+  }
+
+  PAGE_TEMPLATE_DEMO_CONTENT_PACK {
+    string package "@mdwrk/page-template-demo-content-pack"
+    string bucket "content"
+  }
+
+  SUBSCRIPTION_STORE_CONTENT_PACK {
+    string package "@mdwrk/subscription-store-content-pack"
+    string bucket "content"
+  }
+
+  EXAMPLE_PAGE_TEMPLATE_DEMO {
+    string package "@mdwrk/example-page-template-demo"
+    string bucket "examples"
+  }
+
+  EXAMPLE_LEARNING_PATH_DEMO {
+    string package "@mdwrk/example-learning-path-demo"
+    string bucket "examples"
+  }
+
+  EXAMPLE_SUBSCRIPTION_STORE_DEMO {
+    string package "@mdwrk/example-subscription-store-demo"
+    string bucket "examples"
+  }
+
+  CONTRACTS_BUCKET ||--o{ LANDER_CONTENT_CONTRACT : contains
+  CONTRACTS_BUCKET ||--o{ STRUCTURED_DATA : contains
+  CONTRACTS_BUCKET ||--o{ LANDER_COMMERCE_CONTRACT : contains
+
+  CORE_BUCKET ||--o{ LANDER_CORE : contains
+  CORE_BUCKET ||--o{ LANDER_PAGE_TEMPLATES : contains
+  CORE_BUCKET ||--o{ LANDER_PAGE_TEMPLATE_PRESETS : contains
+  CORE_BUCKET ||--o{ LANDER_MARKDOWN_CONTENT_ADAPTER : contains
+
+  UI_BUCKET ||--o{ LANDER_REACT : contains
+  UI_BUCKET ||--o{ LANDER_REACT_COMMERCE : contains
+  UI_BUCKET ||--o{ LANDER_THEME : contains
+
+  MACHINE_BUCKET ||--o{ LANDER_REACT_STRUCTURED_DATA : contains
+  MACHINE_BUCKET ||--o{ LANDER_SEO : contains
+
+  CONTENT_BUCKET ||--o{ PAGE_TEMPLATE_DEMO_CONTENT_PACK : contains
+  CONTENT_BUCKET ||--o{ SUBSCRIPTION_STORE_CONTENT_PACK : contains
+
+  EXAMPLES_BUCKET ||--o{ EXAMPLE_PAGE_TEMPLATE_DEMO : contains
+  EXAMPLES_BUCKET ||--o{ EXAMPLE_LEARNING_PATH_DEMO : contains
+  EXAMPLES_BUCKET ||--o{ EXAMPLE_SUBSCRIPTION_STORE_DEMO : contains
+
+  LANDER_CONTENT_CONTRACT ||--o{ LANDER_CORE : supports
+  LANDER_CONTENT_CONTRACT ||--o{ LANDER_PAGE_TEMPLATES : supports
+  LANDER_CONTENT_CONTRACT ||--o{ LANDER_PAGE_TEMPLATE_PRESETS : supports
+  LANDER_CONTENT_CONTRACT ||--o{ LANDER_MARKDOWN_CONTENT_ADAPTER : supports
+  LANDER_CONTENT_CONTRACT ||--o{ LANDER_REACT : supports
+  LANDER_CONTENT_CONTRACT ||--o{ PAGE_TEMPLATE_DEMO_CONTENT_PACK : supports
+  LANDER_CONTENT_CONTRACT ||--o{ SUBSCRIPTION_STORE_CONTENT_PACK : supports
+  LANDER_CONTENT_CONTRACT ||--o{ EXAMPLE_LEARNING_PATH_DEMO : supports
+  LANDER_CONTENT_CONTRACT ||--o{ EXAMPLE_SUBSCRIPTION_STORE_DEMO : supports
+
+  STRUCTURED_DATA ||--o{ LANDER_REACT_STRUCTURED_DATA : supports
+  STRUCTURED_DATA ||--o{ EXAMPLE_LEARNING_PATH_DEMO : supports
+  STRUCTURED_DATA ||--o{ EXAMPLE_SUBSCRIPTION_STORE_DEMO : supports
+
+  LANDER_COMMERCE_CONTRACT ||--o{ LANDER_REACT_COMMERCE : supports
+  LANDER_COMMERCE_CONTRACT ||--o{ EXAMPLE_SUBSCRIPTION_STORE_DEMO : supports
+
+  LANDER_PAGE_TEMPLATES ||--o{ LANDER_PAGE_TEMPLATE_PRESETS : composes
+  LANDER_PAGE_TEMPLATES ||--o{ PAGE_TEMPLATE_DEMO_CONTENT_PACK : composes
+  LANDER_PAGE_TEMPLATES ||--o{ SUBSCRIPTION_STORE_CONTENT_PACK : composes
+  LANDER_PAGE_TEMPLATES ||--o{ EXAMPLE_PAGE_TEMPLATE_DEMO : supports
+  LANDER_PAGE_TEMPLATES ||--o{ EXAMPLE_LEARNING_PATH_DEMO : supports
+  LANDER_PAGE_TEMPLATES ||--o{ EXAMPLE_SUBSCRIPTION_STORE_DEMO : supports
+
+  LANDER_PAGE_TEMPLATE_PRESETS ||--o{ PAGE_TEMPLATE_DEMO_CONTENT_PACK : seeds
+  LANDER_PAGE_TEMPLATE_PRESETS ||--o{ SUBSCRIPTION_STORE_CONTENT_PACK : seeds
+  LANDER_PAGE_TEMPLATE_PRESETS ||--o{ EXAMPLE_LEARNING_PATH_DEMO : seeds
+  LANDER_PAGE_TEMPLATE_PRESETS ||--o{ EXAMPLE_SUBSCRIPTION_STORE_DEMO : seeds
+
+  LANDER_CORE ||--o{ LANDER_MARKDOWN_CONTENT_ADAPTER : compiles
+  LANDER_CORE ||--o{ LANDER_REACT : compiles_for
+  LANDER_CORE ||--o{ LANDER_REACT_STRUCTURED_DATA : compiles_for
+  LANDER_CORE ||--o{ LANDER_SEO : compiles_for
+  LANDER_CORE ||--o{ EXAMPLE_PAGE_TEMPLATE_DEMO : supports
+  LANDER_CORE ||--o{ EXAMPLE_LEARNING_PATH_DEMO : supports
+  LANDER_CORE ||--o{ EXAMPLE_SUBSCRIPTION_STORE_DEMO : supports
+
+  LANDER_REACT_STRUCTURED_DATA ||--o{ LANDER_REACT : augments
+  LANDER_REACT ||--o{ EXAMPLE_PAGE_TEMPLATE_DEMO : renders
+  LANDER_REACT ||--o{ EXAMPLE_LEARNING_PATH_DEMO : renders
+  LANDER_REACT ||--o{ EXAMPLE_SUBSCRIPTION_STORE_DEMO : renders
+  LANDER_REACT_STRUCTURED_DATA ||--o{ EXAMPLE_PAGE_TEMPLATE_DEMO : emits
+  LANDER_REACT_STRUCTURED_DATA ||--o{ EXAMPLE_LEARNING_PATH_DEMO : emits
+  LANDER_REACT_STRUCTURED_DATA ||--o{ EXAMPLE_SUBSCRIPTION_STORE_DEMO : emits
+  LANDER_REACT_COMMERCE ||--o{ EXAMPLE_SUBSCRIPTION_STORE_DEMO : powers

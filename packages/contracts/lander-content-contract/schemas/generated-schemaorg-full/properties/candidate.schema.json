@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:candidate",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of object. The candidate subject of this action.",
+  "title": "candidate",
+  "x-schemaorg-cardinality": "open-world"
+}

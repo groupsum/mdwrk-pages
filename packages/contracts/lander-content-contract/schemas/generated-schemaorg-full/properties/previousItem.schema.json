@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:previousItem",
+  "$ref": "../types/ListItem.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A link to the ListItem that precedes the current one.",
+  "title": "previousItem",
+  "x-schemaorg-cardinality": "open-world"
+}

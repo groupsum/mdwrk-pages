@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:size",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A standardized size of a product or creative work, specified either through a simple textual string (for example 'XL', '32Wx34L'), a  QuantitativeValue with a unitCode, or a comprehensive and structured [[SizeSpecification]]; in other cases, the [[width]], [[height]], [[depth]] and [[weight]] properties may be more applicable. ",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    },
+    {
+      "$ref": "../enumerations/SizeSpecification.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "size",
+  "x-schemaorg-cardinality": "open-world"
+}

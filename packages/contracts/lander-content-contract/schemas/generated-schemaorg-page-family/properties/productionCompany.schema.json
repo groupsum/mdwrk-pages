@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:productionCompany",
+  "$ref": "../types/Organization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The production company or studio responsible for the item, e.g. series, video game, episode etc.",
+  "title": "productionCompany",
+  "x-schemaorg-cardinality": "open-world"
+}

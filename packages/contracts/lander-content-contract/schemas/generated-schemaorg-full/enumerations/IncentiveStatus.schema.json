@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:IncentiveStatus",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerates a status for an incentive, such as whether it is active.",
+  "enum": [],
+  "title": "IncentiveStatus",
+  "type": "string"
+}

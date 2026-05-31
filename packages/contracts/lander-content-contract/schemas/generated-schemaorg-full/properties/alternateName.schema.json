@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:alternateName",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An alias for the item.",
+  "title": "alternateName",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,34 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Error",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "InstantaneousEvent.schema.json"
+    },
+    {
+      "$ref": "sarif_Result.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Error"
+        },
+        "errorCode": {
+          "$ref": "../properties/errorCode.schema.json",
+          "description": "Application or platform dependant error code."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Representation of an Error.",
+  "title": "Error"
+}

@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:PodcastSeason",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWorkSeason.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "PodcastSeason"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A single season of a podcast. Many podcasts do not break down into separate seasons. In that case, PodcastSeries should be used.",
+  "title": "PodcastSeason"
+}

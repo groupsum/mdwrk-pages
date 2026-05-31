@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:AggregateRating",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Rating.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "AggregateRating"
+        },
+        "itemReviewed": {
+          "$ref": "../properties/itemReviewed.schema.json",
+          "description": "The item that is being reviewed/rated."
+        },
+        "ratingCount": {
+          "$ref": "../properties/ratingCount.schema.json",
+          "description": "The count of total number of ratings."
+        },
+        "reviewCount": {
+          "$ref": "../properties/reviewCount.schema.json",
+          "description": "The count of total number of reviews."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The average rating based on multiple ratings or reviews.",
+  "title": "AggregateRating"
+}

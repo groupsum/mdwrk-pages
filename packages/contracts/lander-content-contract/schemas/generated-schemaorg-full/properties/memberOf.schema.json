@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:memberOf",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An Organization (or ProgramMembership) to which this Person or Organization belongs.",
+  "oneOf": [
+    {
+      "$ref": "../types/MemberProgramTier.schema.json"
+    },
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/ProgramMembership.schema.json"
+    }
+  ],
+  "title": "memberOf",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Airline",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Organization.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Airline"
+        },
+        "boardingPolicy": {
+          "$ref": "../properties/boardingPolicy.schema.json",
+          "description": "The type of boarding policy used by the airline (e.g. zone-based or group-based)."
+        },
+        "iataCode": {
+          "$ref": "../properties/iataCode.schema.json",
+          "description": "IATA identifier for an airline or airport."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An organization that provides flights for passengers.",
+  "title": "Airline"
+}

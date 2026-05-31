@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:preparation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Typical preparation that a patient must undergo before having the procedure performed.",
+  "oneOf": [
+    {
+      "$ref": "../types/MedicalEntity.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "preparation",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:followee",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of object. The person or organization being followed.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "followee",
+  "x-schemaorg-cardinality": "open-world"
+}

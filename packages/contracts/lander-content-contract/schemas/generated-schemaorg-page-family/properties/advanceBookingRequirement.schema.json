@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:advanceBookingRequirement",
+  "$ref": "../types/QuantitativeValue.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The amount of time that is required between accepting the offer and the actual usage of the resource or service.",
+  "title": "advanceBookingRequirement",
+  "x-schemaorg-cardinality": "open-world"
+}

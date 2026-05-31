@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:TVClip",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Clip.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "TVClip"
+        },
+        "partOfTVSeries": {
+          "$ref": "../properties/partOfTVSeries.schema.json",
+          "description": "The TV series to which this episode or season belongs."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A short TV program or a segment/part of a TV program.",
+  "title": "TVClip"
+}

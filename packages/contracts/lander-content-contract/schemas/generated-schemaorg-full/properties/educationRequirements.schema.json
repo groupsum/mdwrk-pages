@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:educationRequirements",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Educational background needed for the position or Occupation.",
+  "oneOf": [
+    {
+      "$ref": "../types/EducationalOccupationalCredential.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "educationRequirements",
+  "x-schemaorg-cardinality": "open-world"
+}

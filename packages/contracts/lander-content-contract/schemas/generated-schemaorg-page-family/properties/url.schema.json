@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:url",
+  "$ref": "../types/URL.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "URL of the item.",
+  "title": "url",
+  "x-schemaorg-cardinality": "open-world"
+}

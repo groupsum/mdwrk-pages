@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:distance",
+  "$ref": "../types/Distance.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The distance travelled, e.g. exercising or travelling.",
+  "title": "distance",
+  "x-schemaorg-cardinality": "open-world"
+}

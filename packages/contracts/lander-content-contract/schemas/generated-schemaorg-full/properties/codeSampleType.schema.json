@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:codeSampleType",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "What type of code sample: full (compile ready) solution, code snippet, inline code, scripts, template.",
+  "title": "codeSampleType",
+  "x-schemaorg-cardinality": "open-world"
+}

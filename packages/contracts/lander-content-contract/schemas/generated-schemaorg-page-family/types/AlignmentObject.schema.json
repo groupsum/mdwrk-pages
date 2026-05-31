@@ -1,0 +1,47 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:AlignmentObject",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "AlignmentObject"
+        },
+        "alignmentType": {
+          "$ref": "../properties/alignmentType.schema.json",
+          "description": "A category of alignment between the learning resource and the framework node. Recommended values include: 'requires', 'textComplexity', 'readingLevel', and 'educationalSubject'."
+        },
+        "educationalFramework": {
+          "$ref": "../properties/educationalFramework.schema.json",
+          "description": "The framework to which the resource being described is aligned."
+        },
+        "targetDescription": {
+          "$ref": "../properties/targetDescription.schema.json",
+          "description": "The description of a node in an established educational framework."
+        },
+        "targetName": {
+          "$ref": "../properties/targetName.schema.json",
+          "description": "The name of a node in an established educational framework."
+        },
+        "targetUrl": {
+          "$ref": "../properties/targetUrl.schema.json",
+          "description": "The URL of a node in an established educational framework."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An intangible item that describes an alignment between a learning resource and a node in an educational framework.\nShould not be used where the nature of the alignment can be described using a simple property, for example to express that a resource [[teaches]] or [[assesses]] a competency.",
+  "title": "AlignmentObject"
+}

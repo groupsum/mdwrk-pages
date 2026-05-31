@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ChemicalSubstance",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "BioChemEntity.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ChemicalSubstance"
+        },
+        "chemicalComposition": {
+          "$ref": "../properties/chemicalComposition.schema.json",
+          "description": "The chemical composition describes the identity and relative ratio of the chemical elements that make up the substance."
+        },
+        "chemicalRole": {
+          "$ref": "../properties/chemicalRole.schema.json",
+          "description": "A role played by the BioChemEntity within a chemical context."
+        },
+        "potentialUse": {
+          "$ref": "../properties/potentialUse.schema.json",
+          "description": "Intended use of the BioChemEntity by humans."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A chemical substance is 'a portion of matter of constant composition, composed of molecular entities of the same type or of different types' (source: [ChEBI:59999](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=59999)).",
+  "title": "ChemicalSubstance"
+}

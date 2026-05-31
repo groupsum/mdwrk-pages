@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-estimated-salary-padding: 1rem;
+  --mdp-semantic-estimated-salary-gap: 0.75rem;
+  --mdp-semantic-estimated-salary-radius: 1rem;
+  --mdp-semantic-estimated-salary-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-estimated-salary-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-estimated-salary-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--estimated-salary {
+  padding: var(--mdp-semantic-estimated-salary-padding);
+  gap: var(--mdp-semantic-estimated-salary-gap);
+  border-radius: var(--mdp-semantic-estimated-salary-radius);
+  background: var(--mdp-semantic-estimated-salary-surface);
+  border: 1px solid var(--mdp-semantic-estimated-salary-border);
+  box-shadow: var(--mdp-semantic-estimated-salary-shadow);
+}
+
+.lander-semantic--estimated-salary .lander-semantic__header,
+.lander-semantic--estimated-salary .lander-semantic__body,
+.lander-semantic--estimated-salary .lander-semantic__footer,
+.lander-semantic--estimated-salary .lander-semantic__actions {
+  gap: var(--mdp-semantic-estimated-salary-gap);
+}
+
+.lander-semantic--estimated-salary .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--estimated-salary .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--estimated-salary .lander-semantic__subtitle,
+.lander-semantic--estimated-salary .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--estimated-salary .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-estimated-salary-gap) * 0.8);
+}
+
+.lander-semantic--estimated-salary .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--estimated-salary .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

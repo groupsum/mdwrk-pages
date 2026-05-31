@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:DanceGroup",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "PerformingGroup.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "DanceGroup"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A dance group&#x2014;for example, the Alvin Ailey Dance Theater or Riverdance.",
+  "title": "DanceGroup"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:timeRequired",
+  "$ref": "../types/Duration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Approximate or typical time it usually takes to work with or through the content of this work for the typical or target audience.",
+  "title": "timeRequired",
+  "x-schemaorg-cardinality": "open-world"
+}

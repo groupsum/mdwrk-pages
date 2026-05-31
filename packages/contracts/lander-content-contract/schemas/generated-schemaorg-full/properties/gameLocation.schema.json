@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:gameLocation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Real or fictional location of the game (or part of game).",
+  "oneOf": [
+    {
+      "$ref": "../types/Place.schema.json"
+    },
+    {
+      "$ref": "../types/PostalAddress.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "gameLocation",
+  "x-schemaorg-cardinality": "open-world"
+}

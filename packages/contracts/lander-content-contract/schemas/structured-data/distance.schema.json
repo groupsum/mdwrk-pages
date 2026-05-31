@@ -1,0 +1,20 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Distance",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Distance",
+  "description": "Properties that take Distances as values are of the form '&lt;Number&gt; &lt;Length unit of measure&gt;'. E.g., '7 ft'.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "Distance"
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

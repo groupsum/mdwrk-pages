@@ -1,4 +1,5 @@
 @import "../../../packages/ui/pages-ui-tokens/src/styles/root.css";
+@import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-about-page.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-aggregate-rating.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-answer.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-article.css";
@@ -6,8 +7,11 @@
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-book.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-broadcast-event.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-breadcrumb-list.css";
+@import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-checkout-page.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-claim-review.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-clip.css";
+@import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-collection-page.css";
+@import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-contact-page.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-course.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-course-instance.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-dataset.css";
@@ -18,6 +22,7 @@
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-how-to.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-image-object.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-item-list.css";
+@import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-item-page.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-job-posting.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-learning-resource.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-local-business.css";
@@ -36,8 +41,10 @@
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-question.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-quiz.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-read-action.css";
+@import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-real-estate-listing.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-recipe.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-review.css";
+@import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-search-results-page.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-solve-math-action.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-software-application.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-software-source-code.css";
@@ -45,6 +52,7 @@
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-tech-article.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-vacation-rental.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-vehicle.css";
+@import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-video-gallery.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-video-object.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-web-application.css";
 @import "../../../packages/ui/pages-ui-tokens/src/styles/semantic-web-page.css";

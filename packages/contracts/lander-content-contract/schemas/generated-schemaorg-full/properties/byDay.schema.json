@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:byDay",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Defines the day(s) of the week on which a recurring [[Event]] takes place. May be specified using either [[DayOfWeek]], or alternatively [[Text]] conforming to iCal's syntax for byDay recurrence rules.",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/DayOfWeek.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "byDay",
+  "x-schemaorg-cardinality": "open-world"
+}

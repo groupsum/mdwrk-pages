@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:unitText",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for\n<a href='unitCode'>unitCode</a>.",
+  "title": "unitText",
+  "x-schemaorg-cardinality": "open-world"
+}

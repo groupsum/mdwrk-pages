@@ -1,0 +1,43 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Seat",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Seat"
+        },
+        "seatNumber": {
+          "$ref": "../properties/seatNumber.schema.json",
+          "description": "The location of the reserved seat (e.g., 27)."
+        },
+        "seatRow": {
+          "$ref": "../properties/seatRow.schema.json",
+          "description": "The row location of the reserved seat (e.g., B)."
+        },
+        "seatSection": {
+          "$ref": "../properties/seatSection.schema.json",
+          "description": "The section location of the reserved seat (e.g. Orchestra)."
+        },
+        "seatingType": {
+          "$ref": "../properties/seatingType.schema.json",
+          "description": "The type/class of the seat."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Used to describe a seat, such as a reserved seat in an event reservation.",
+  "title": "Seat"
+}

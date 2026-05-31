@@ -1,0 +1,63 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Message",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Message"
+        },
+        "bccRecipient": {
+          "$ref": "../properties/bccRecipient.schema.json",
+          "description": "A sub property of recipient. The recipient blind copied on a message."
+        },
+        "ccRecipient": {
+          "$ref": "../properties/ccRecipient.schema.json",
+          "description": "A sub property of recipient. The recipient copied on a message."
+        },
+        "dateRead": {
+          "$ref": "../properties/dateRead.schema.json",
+          "description": "The date/time at which the message has been read by the recipient if a single recipient exists."
+        },
+        "dateReceived": {
+          "$ref": "../properties/dateReceived.schema.json",
+          "description": "The date/time the message was received if a single recipient exists."
+        },
+        "dateSent": {
+          "$ref": "../properties/dateSent.schema.json",
+          "description": "The date/time at which the message was sent."
+        },
+        "messageAttachment": {
+          "$ref": "../properties/messageAttachment.schema.json",
+          "description": "A CreativeWork attached to the message."
+        },
+        "recipient": {
+          "$ref": "../properties/recipient.schema.json",
+          "description": "A sub property of participant. The participant who is at the receiving end of the action."
+        },
+        "sender": {
+          "$ref": "../properties/sender.schema.json",
+          "description": "A sub property of participant. The participant who is at the sending end of the action."
+        },
+        "toRecipient": {
+          "$ref": "../properties/toRecipient.schema.json",
+          "description": "A sub property of recipient. The recipient who was directly sent the message."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A single message from a sender to one or more organizations or people.",
+  "title": "Message"
+}

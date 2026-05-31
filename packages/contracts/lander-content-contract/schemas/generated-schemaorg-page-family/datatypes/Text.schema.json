@@ -1,0 +1,7 @@
+{
+  "$id": "urn:groupsum:schemaorg:datatype:Text",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Data type: Text.",
+  "title": "Text",
+  "type": "string"
+}

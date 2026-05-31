@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:cause",
+  "$ref": "../types/MedicalCause.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The cause of a medical condition.",
+  "title": "cause",
+  "x-schemaorg-cardinality": "open-world"
+}

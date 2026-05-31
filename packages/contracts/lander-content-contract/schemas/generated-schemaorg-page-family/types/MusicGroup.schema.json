@@ -1,0 +1,51 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MusicGroup",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "PerformingGroup.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MusicGroup"
+        },
+        "album": {
+          "$ref": "../properties/album.schema.json",
+          "description": "A music album."
+        },
+        "albums": {
+          "$ref": "../properties/albums.schema.json",
+          "description": "A collection of music albums."
+        },
+        "genre": {
+          "$ref": "../properties/genre.schema.json",
+          "description": "Genre of the creative work, broadcast channel or group."
+        },
+        "musicGroupMember": {
+          "$ref": "../properties/musicGroupMember.schema.json",
+          "description": "A member of a music group&#x2014;for example, John, Paul, George, or Ringo."
+        },
+        "track": {
+          "$ref": "../properties/track.schema.json",
+          "description": "A music recording (track)&#x2014;usually a single song. If an ItemList is given, the list should contain items of type MusicRecording."
+        },
+        "tracks": {
+          "$ref": "../properties/tracks.schema.json",
+          "description": "A music recording (track)&#x2014;usually a single song."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A musical group, such as a band, an orchestra, or a choir. Can also be a solo musician.",
+  "title": "MusicGroup"
+}

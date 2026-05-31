@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:entertainmentBusiness",
+  "$ref": "../types/EntertainmentBusiness.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of location. The entertainment business where the action occurred.",
+  "title": "entertainmentBusiness",
+  "x-schemaorg-cardinality": "open-world"
+}

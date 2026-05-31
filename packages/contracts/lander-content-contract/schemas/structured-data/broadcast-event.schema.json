@@ -1,32 +1,272 @@
 {
+  "$id": "urn:groupsum:schemaorg:class:BroadcastEvent",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "broadcastEvent",
-  "title": "Structured Data Broadcast Event",
+  "title": "BroadcastEvent",
+  "description": "An over the air or online broadcast event.",
   "type": "object",
-  "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": "string"
+    "@context": {
+      "const": "https://schema.org"
     },
-    "name": {
-      "type": "string",
-      "minLength": 1
+    "@type": {
+      "const": "BroadcastEvent"
+    },
+    "additionalType": {
+      "$ref": "../generated-schemaorg-full/properties/additionalType.schema.json",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
+    },
+    "alternateName": {
+      "$ref": "../generated-schemaorg-full/properties/alternateName.schema.json",
+      "description": "An alias for the item."
     },
     "description": {
-      "type": "string"
+      "$ref": "../generated-schemaorg-full/properties/description.schema.json",
+      "description": "A description of the item."
+    },
+    "disambiguatingDescription": {
+      "$ref": "../generated-schemaorg-full/properties/disambiguatingDescription.schema.json",
+      "description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."
+    },
+    "identifier": {
+      "$ref": "../generated-schemaorg-full/properties/identifier.schema.json",
+      "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        "
+    },
+    "image": {
+      "$ref": "../generated-schemaorg-full/properties/image.schema.json",
+      "description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
+    },
+    "mainEntityOfPage": {
+      "$ref": "../generated-schemaorg-full/properties/mainEntityOfPage.schema.json",
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
+    },
+    "name": {
+      "$ref": "../generated-schemaorg-full/properties/name.schema.json",
+      "description": "The name of the item."
+    },
+    "owner": {
+      "$ref": "../generated-schemaorg-full/properties/owner.schema.json",
+      "description": "A person or organization who owns this Thing."
+    },
+    "potentialAction": {
+      "$ref": "../generated-schemaorg-full/properties/potentialAction.schema.json",
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
+    },
+    "sameAs": {
+      "$ref": "../generated-schemaorg-full/properties/sameAs.schema.json",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."
+    },
+    "subjectOf": {
+      "$ref": "../generated-schemaorg-full/properties/subjectOf.schema.json",
+      "description": "A CreativeWork or Event about this Thing."
     },
     "url": {
-      "type": "string",
-      "minLength": 1
+      "$ref": "../generated-schemaorg-full/properties/url.schema.json",
+      "description": "URL of the item."
     },
-    "startDate": {
-      "type": "string"
+    "about": {
+      "$ref": "../generated-schemaorg-full/properties/about.schema.json",
+      "description": "The subject matter of an object."
+    },
+    "actor": {
+      "$ref": "../generated-schemaorg-full/properties/actor.schema.json",
+      "description": "An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip."
+    },
+    "aggregateRating": {
+      "$ref": "../generated-schemaorg-full/properties/aggregateRating.schema.json",
+      "description": "The overall rating, based on a collection of reviews or ratings, of the item."
+    },
+    "attendee": {
+      "$ref": "../generated-schemaorg-full/properties/attendee.schema.json",
+      "description": "A person or organization attending the event."
+    },
+    "attendees": {
+      "$ref": "../generated-schemaorg-full/properties/attendees.schema.json",
+      "description": "A person attending the event."
+    },
+    "audience": {
+      "$ref": "../generated-schemaorg-full/properties/audience.schema.json",
+      "description": "An intended audience, i.e. a group for whom something was created."
+    },
+    "composer": {
+      "$ref": "../generated-schemaorg-full/properties/composer.schema.json",
+      "description": "The person or organization who wrote a composition, or who is the composer of a work performed at some event."
+    },
+    "contributor": {
+      "$ref": "../generated-schemaorg-full/properties/contributor.schema.json",
+      "description": "A secondary contributor to the CreativeWork or Event."
+    },
+    "director": {
+      "$ref": "../generated-schemaorg-full/properties/director.schema.json",
+      "description": "A director of e.g. TV, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip."
+    },
+    "doorTime": {
+      "$ref": "../generated-schemaorg-full/properties/doorTime.schema.json",
+      "description": "The time admission will commence."
+    },
+    "duration": {
+      "$ref": "../generated-schemaorg-full/properties/duration.schema.json",
+      "description": "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601)."
     },
     "endDate": {
-      "type": "string"
+      "$ref": "../generated-schemaorg-full/properties/endDate.schema.json",
+      "description": "The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601))."
+    },
+    "eventAttendanceMode": {
+      "$ref": "../generated-schemaorg-full/properties/eventAttendanceMode.schema.json",
+      "description": "The eventAttendanceMode of an event indicates whether it occurs online, offline, or a mix."
+    },
+    "eventSchedule": {
+      "$ref": "../generated-schemaorg-full/properties/eventSchedule.schema.json",
+      "description": "Associates an [[Event]] with a [[Schedule]]. There are circumstances where it is preferable to share a schedule for a series of\n      repeating events rather than data on the individual events themselves. For example, a website or application might prefer to publish a schedule for a weekly\n      gym class rather than provide data on every event. A schedule could be processed by applications to add forthcoming events to a calendar. An [[Event]] that\n      is associated with a [[Schedule]] using this property should not have [[startDate]] or [[endDate]] properties. These are instead defined within the associated\n      [[Schedule]], this avoids any ambiguity for clients using the data. The property might have repeated values to specify different schedules, e.g. for different months\n      or seasons."
+    },
+    "eventStatus": {
+      "$ref": "../generated-schemaorg-full/properties/eventStatus.schema.json",
+      "description": "An eventStatus of an event represents its status; particularly useful when an event is cancelled or rescheduled."
+    },
+    "funder": {
+      "$ref": "../generated-schemaorg-full/properties/funder.schema.json",
+      "description": "A person or organization that supports (sponsors) something through some kind of financial contribution."
+    },
+    "funding": {
+      "$ref": "../generated-schemaorg-full/properties/funding.schema.json",
+      "description": "A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]]."
+    },
+    "hasParticipationOffer": {
+      "$ref": "../generated-schemaorg-full/properties/hasParticipationOffer.schema.json",
+      "description": "An offer to participate in the event, for example, Call for Proposals, Call for Speakers, or Call for Performers."
+    },
+    "hasSponsorshipOffer": {
+      "$ref": "../generated-schemaorg-full/properties/hasSponsorshipOffer.schema.json",
+      "description": "An offer to sponsor the event, for example, Sponsorship Prospectus, Sponsorship Opportunities, or Sponsor Packages."
+    },
+    "inLanguage": {
+      "$ref": "../generated-schemaorg-full/properties/inLanguage.schema.json",
+      "description": "The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]]."
+    },
+    "isAccessibleForFree": {
+      "$ref": "../generated-schemaorg-full/properties/isAccessibleForFree.schema.json",
+      "description": "A flag to signal that the item, event, or place is accessible for free."
+    },
+    "keywords": {
+      "$ref": "../generated-schemaorg-full/properties/keywords.schema.json",
+      "description": "Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property."
+    },
+    "location": {
+      "$ref": "../generated-schemaorg-full/properties/location.schema.json",
+      "description": "The location of, for example, where an event is happening, where an organization is located, or where an action takes place."
+    },
+    "maximumAttendeeCapacity": {
+      "$ref": "../generated-schemaorg-full/properties/maximumAttendeeCapacity.schema.json",
+      "description": "The total number of individuals that may attend an event or venue."
+    },
+    "maximumPhysicalAttendeeCapacity": {
+      "$ref": "../generated-schemaorg-full/properties/maximumPhysicalAttendeeCapacity.schema.json",
+      "description": "The maximum physical attendee capacity of an [[Event]] whose [[eventAttendanceMode]] is [[OfflineEventAttendanceMode]] (or the offline aspects, in the case of a [[MixedEventAttendanceMode]]). "
+    },
+    "maximumVirtualAttendeeCapacity": {
+      "$ref": "../generated-schemaorg-full/properties/maximumVirtualAttendeeCapacity.schema.json",
+      "description": "The maximum virtual attendee capacity of an [[Event]] whose [[eventAttendanceMode]] is [[OnlineEventAttendanceMode]] (or the online aspects, in the case of a [[MixedEventAttendanceMode]]). "
+    },
+    "offers": {
+      "$ref": "../generated-schemaorg-full/properties/offers.schema.json",
+      "description": "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.\n      "
+    },
+    "organizer": {
+      "$ref": "../generated-schemaorg-full/properties/organizer.schema.json",
+      "description": "An organizer of an Event."
+    },
+    "performer": {
+      "$ref": "../generated-schemaorg-full/properties/performer.schema.json",
+      "description": "A performer at the event&#x2014;for example, a presenter, musician, musical group or actor."
+    },
+    "performers": {
+      "$ref": "../generated-schemaorg-full/properties/performers.schema.json",
+      "description": "The main performer or performers of the event&#x2014;for example, a presenter, musician, or actor."
+    },
+    "previousStartDate": {
+      "$ref": "../generated-schemaorg-full/properties/previousStartDate.schema.json",
+      "description": "Used in conjunction with eventStatus for rescheduled or cancelled events. This property contains the previously scheduled start date. For rescheduled events, the startDate property should be used for the newly scheduled start date. In the (rare) case of an event that has been postponed and rescheduled multiple times, this field may be repeated."
+    },
+    "recordedIn": {
+      "$ref": "../generated-schemaorg-full/properties/recordedIn.schema.json",
+      "description": "The CreativeWork that captured all or part of this Event."
+    },
+    "remainingAttendeeCapacity": {
+      "$ref": "../generated-schemaorg-full/properties/remainingAttendeeCapacity.schema.json",
+      "description": "The number of attendee places for an event that remain unallocated."
+    },
+    "review": {
+      "$ref": "../generated-schemaorg-full/properties/review.schema.json",
+      "description": "A review of the item."
+    },
+    "sponsor": {
+      "$ref": "../generated-schemaorg-full/properties/sponsor.schema.json",
+      "description": "A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event."
+    },
+    "startDate": {
+      "$ref": "../generated-schemaorg-full/properties/startDate.schema.json",
+      "description": "The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601))."
+    },
+    "subEvent": {
+      "$ref": "../generated-schemaorg-full/properties/subEvent.schema.json",
+      "description": "An Event that is part of this event. For example, a conference event includes many presentations, each of which is a subEvent of the conference."
+    },
+    "subEvents": {
+      "$ref": "../generated-schemaorg-full/properties/subEvents.schema.json",
+      "description": "Events that are a part of this event. For example, a conference event includes many presentations, each subEvents of the conference."
+    },
+    "superEvent": {
+      "$ref": "../generated-schemaorg-full/properties/superEvent.schema.json",
+      "description": "An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent."
+    },
+    "translator": {
+      "$ref": "../generated-schemaorg-full/properties/translator.schema.json",
+      "description": "Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market, or that translates during some event."
+    },
+    "typicalAgeRange": {
+      "$ref": "../generated-schemaorg-full/properties/typicalAgeRange.schema.json",
+      "description": "The typical expected age range, e.g. '7-9', '11-'."
+    },
+    "workFeatured": {
+      "$ref": "../generated-schemaorg-full/properties/workFeatured.schema.json",
+      "description": "A work featured in some event, e.g. exhibited in an ExhibitionEvent.\n       Specific subproperties are available for workPerformed (e.g. a play), or a workPresented (a Movie at a ScreeningEvent)."
+    },
+    "workPerformed": {
+      "$ref": "../generated-schemaorg-full/properties/workPerformed.schema.json",
+      "description": "A work performed in some event, for example a play performed in a TheaterEvent."
+    },
+    "free": {
+      "$ref": "../generated-schemaorg-full/properties/free.schema.json",
+      "description": "A flag to signal that the item, event, or place is accessible for free."
+    },
+    "publishedBy": {
+      "$ref": "../generated-schemaorg-full/properties/publishedBy.schema.json",
+      "description": "An agent associated with the publication event."
+    },
+    "publishedOn": {
+      "$ref": "../generated-schemaorg-full/properties/publishedOn.schema.json",
+      "description": "A broadcast service associated with the publication event."
+    },
+    "broadcastOfEvent": {
+      "$ref": "../generated-schemaorg-full/properties/broadcastOfEvent.schema.json",
+      "description": "The event being broadcast such as a sporting event or awards ceremony."
     },
     "isLiveBroadcast": {
-      "type": "boolean"
+      "$ref": "../generated-schemaorg-full/properties/isLiveBroadcast.schema.json",
+      "description": "True if the broadcast is of a live event."
+    },
+    "subtitleLanguage": {
+      "$ref": "../generated-schemaorg-full/properties/subtitleLanguage.schema.json",
+      "description": "Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47)."
+    },
+    "videoFormat": {
+      "$ref": "../generated-schemaorg-full/properties/videoFormat.schema.json",
+      "description": "The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.)."
     }
-  }
+  },
+  "required": [
+    "@type"
+  ],
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
 }

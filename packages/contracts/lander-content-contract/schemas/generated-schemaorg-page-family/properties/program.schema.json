@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:program",
+  "$ref": "../types/MemberProgram.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The [MemberProgram](https://schema.org/MemberProgram) associated with a [ProgramMembership](https://schema.org/ProgramMembership).",
+  "title": "program",
+  "x-schemaorg-cardinality": "open-world"
+}

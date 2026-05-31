@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:clinicalPharmacology",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Description of the absorption and elimination of drugs, including their concentration (pharmacokinetics, pK) and biological effects (pharmacodynamics, pD).",
+  "title": "clinicalPharmacology",
+  "x-schemaorg-cardinality": "open-world"
+}

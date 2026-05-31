@@ -27,6 +27,6 @@ test("T0: learning-path demo depends on schema-backed education runtime and Dock
   assert.ok(siteSource.includes('templateId: "education.flashcards"'));
   assert.ok(siteSource.includes('templateId: "education.quiz"'));
   assert.ok(siteSource.includes('"education.course-test"'));
-  assert.ok(dockerfile.includes("@mdwrk/example-learning-path-demo"));
+  assert.ok(dockerfile.includes("examples/learning-path-demo/dist"));
   assert.ok(compose.includes("4191:80"));
 });

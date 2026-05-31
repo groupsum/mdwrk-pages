@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:strengthUnit",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The units of an active ingredient's strength, e.g. mg.",
+  "title": "strengthUnit",
+  "x-schemaorg-cardinality": "open-world"
+}

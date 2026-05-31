@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:associatedClaimReview",
+  "$ref": "../types/Review.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An associated [[ClaimReview]], related by specific common content, topic or claim. The expectation is that this property would be most typically used in cases where a single activity is conducting both claim reviews and media reviews, in which case [[relatedMediaReview]] would commonly be used on a [[ClaimReview]], while [[associatedClaimReview]] would be used on [[MediaReview]].",
+  "title": "associatedClaimReview",
+  "x-schemaorg-cardinality": "open-world"
+}

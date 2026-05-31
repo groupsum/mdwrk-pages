@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:ReturnLabelSourceEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerates several types of return labels for product returns.",
+  "enum": [],
+  "title": "ReturnLabelSourceEnumeration",
+  "type": "string"
+}

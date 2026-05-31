@@ -1,0 +1,30 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:AutoPartsStore",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "AutomotiveBusiness.schema.json"
+    },
+    {
+      "$ref": "Store.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "AutoPartsStore"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An auto parts store.",
+  "title": "AutoPartsStore"
+}

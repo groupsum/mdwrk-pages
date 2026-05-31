@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-claim-padding: 1rem;
+  --mdp-semantic-claim-gap: 0.75rem;
+  --mdp-semantic-claim-radius: 1rem;
+  --mdp-semantic-claim-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-claim-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-claim-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--claim {
+  padding: var(--mdp-semantic-claim-padding);
+  gap: var(--mdp-semantic-claim-gap);
+  border-radius: var(--mdp-semantic-claim-radius);
+  background: var(--mdp-semantic-claim-surface);
+  border: 1px solid var(--mdp-semantic-claim-border);
+  box-shadow: var(--mdp-semantic-claim-shadow);
+}
+
+.lander-semantic--claim .lander-semantic__header,
+.lander-semantic--claim .lander-semantic__body,
+.lander-semantic--claim .lander-semantic__footer,
+.lander-semantic--claim .lander-semantic__actions {
+  gap: var(--mdp-semantic-claim-gap);
+}
+
+.lander-semantic--claim .lander-semantic__header,
+.lander-semantic--claim .lander-semantic__eyebrow,
+.lander-semantic--claim .lander-semantic__title,
+.lander-semantic--claim .lander-semantic__subtitle,
+.lander-semantic--claim .lander-semantic__description,
+.lander-semantic--claim .lander-semantic__meta,
+.lander-semantic--claim .lander-semantic__image,
+.lander-semantic--claim .lander-semantic__body,
+.lander-semantic--claim .lander-semantic__actions,
+.lander-semantic--claim .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--claim .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--claim .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--claim .lander-semantic__subtitle,
+.lander-semantic--claim .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--claim .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-claim-gap) * 0.8);
+}
+
+.lander-semantic--claim .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-claim-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--claim .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--claim .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--claim .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

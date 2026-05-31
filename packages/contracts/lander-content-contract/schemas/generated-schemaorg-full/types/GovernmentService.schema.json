@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:GovernmentService",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Service.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "GovernmentService"
+        },
+        "jurisdiction": {
+          "$ref": "../properties/jurisdiction.schema.json",
+          "description": "Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based."
+        },
+        "serviceOperator": {
+          "$ref": "../properties/serviceOperator.schema.json",
+          "description": "The operating organization, if different from the provider.  This enables the representation of services that are provided by an organization, but operated by another organization like a subcontractor."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A service provided by a government organization, e.g. food stamps, veterans benefits, etc.",
+  "title": "GovernmentService"
+}

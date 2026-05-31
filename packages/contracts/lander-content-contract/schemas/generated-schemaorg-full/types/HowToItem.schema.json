@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:HowToItem",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "ListItem.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "HowToItem"
+        },
+        "requiredQuantity": {
+          "$ref": "../properties/requiredQuantity.schema.json",
+          "description": "The required quantity of the item(s)."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An item used as either a tool or supply when performing the instructions for how to achieve a result.",
+  "title": "HowToItem"
+}

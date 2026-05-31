@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:exerciseType",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Type(s) of exercise or activity, such as strength training, flexibility training, aerobics, cardiac rehabilitation, etc.",
+  "title": "exerciseType",
+  "x-schemaorg-cardinality": "open-world"
+}

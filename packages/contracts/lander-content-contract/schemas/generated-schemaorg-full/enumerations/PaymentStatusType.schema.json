@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:PaymentStatusType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A specific payment status. For example, PaymentDue, PaymentComplete, etc.",
+  "enum": [],
+  "title": "PaymentStatusType",
+  "type": "string"
+}

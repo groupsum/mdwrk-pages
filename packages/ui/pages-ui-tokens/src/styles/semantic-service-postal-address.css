@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-service-postal-address-padding: 1rem;
+  --mdp-semantic-service-postal-address-gap: 0.75rem;
+  --mdp-semantic-service-postal-address-radius: 1rem;
+  --mdp-semantic-service-postal-address-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-service-postal-address-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-service-postal-address-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--service-postal-address {
+  padding: var(--mdp-semantic-service-postal-address-padding);
+  gap: var(--mdp-semantic-service-postal-address-gap);
+  border-radius: var(--mdp-semantic-service-postal-address-radius);
+  background: var(--mdp-semantic-service-postal-address-surface);
+  border: 1px solid var(--mdp-semantic-service-postal-address-border);
+  box-shadow: var(--mdp-semantic-service-postal-address-shadow);
+}
+
+.lander-semantic--service-postal-address .lander-semantic__header,
+.lander-semantic--service-postal-address .lander-semantic__body,
+.lander-semantic--service-postal-address .lander-semantic__footer,
+.lander-semantic--service-postal-address .lander-semantic__actions {
+  gap: var(--mdp-semantic-service-postal-address-gap);
+}
+
+.lander-semantic--service-postal-address .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--service-postal-address .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--service-postal-address .lander-semantic__subtitle,
+.lander-semantic--service-postal-address .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--service-postal-address .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-service-postal-address-gap) * 0.8);
+}
+
+.lander-semantic--service-postal-address .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--service-postal-address .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

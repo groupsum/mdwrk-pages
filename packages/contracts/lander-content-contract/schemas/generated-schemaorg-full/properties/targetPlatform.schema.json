@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:targetPlatform",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Type of app development: phone, Metro style, desktop, XBox, etc.",
+  "title": "targetPlatform",
+  "x-schemaorg-cardinality": "open-world"
+}

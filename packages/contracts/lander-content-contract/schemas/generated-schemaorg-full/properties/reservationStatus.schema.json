@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:reservationStatus",
+  "$ref": "../enumerations/ReservationStatusType.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The current status of the reservation.",
+  "title": "reservationStatus",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:recipeCuisine",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The cuisine of the recipe (for example, French or Ethiopian).",
+  "title": "recipeCuisine",
+  "x-schemaorg-cardinality": "open-world"
+}

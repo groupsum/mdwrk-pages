@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:experienceInPlaceOfEducation",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates whether a [[JobPosting]] will accept experience (as indicated by [[OccupationalExperienceRequirements]]) in place of its formal educational qualifications (as indicated by [[educationRequirements]]). If true, indicates that satisfying one of these requirements is sufficient.",
+  "title": "experienceInPlaceOfEducation",
+  "x-schemaorg-cardinality": "open-world"
+}

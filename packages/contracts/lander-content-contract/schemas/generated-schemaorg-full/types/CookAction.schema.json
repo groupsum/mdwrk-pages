@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:CookAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreateAction.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "CookAction"
+        },
+        "foodEstablishment": {
+          "$ref": "../properties/foodEstablishment.schema.json",
+          "description": "A sub property of location. The specific food establishment where the action occurred."
+        },
+        "foodEvent": {
+          "$ref": "../properties/foodEvent.schema.json",
+          "description": "A sub property of location. The specific food event where the action occurred."
+        },
+        "recipe": {
+          "$ref": "../properties/recipe.schema.json",
+          "description": "A sub property of instrument. The recipe/instructions used to perform the action."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The act of producing/preparing food.",
+  "title": "CookAction"
+}

@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:geoRadius",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise via Distance notation).",
+  "oneOf": [
+    {
+      "$ref": "../types/Distance.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "geoRadius",
+  "x-schemaorg-cardinality": "open-world"
+}

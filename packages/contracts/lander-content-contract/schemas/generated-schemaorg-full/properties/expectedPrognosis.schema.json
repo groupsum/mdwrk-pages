@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:expectedPrognosis",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The likely outcome in either the short term or long term of the medical condition.",
+  "title": "expectedPrognosis",
+  "x-schemaorg-cardinality": "open-world"
+}

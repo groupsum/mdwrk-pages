@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:free",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A flag to signal that the item, event, or place is accessible for free.",
+  "title": "free",
+  "x-schemaorg-cardinality": "open-world"
+}

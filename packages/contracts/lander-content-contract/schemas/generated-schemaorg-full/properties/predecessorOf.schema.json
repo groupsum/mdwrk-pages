@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:predecessorOf",
+  "$ref": "../types/ProductModel.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A pointer from a previous, often discontinued variant of the product to its newer variant.",
+  "title": "predecessorOf",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,84 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:EnergyConsumptionDetails",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EnergyConsumptionDetails",
+  "description": "EnergyConsumptionDetails represents information related to the energy efficiency of a product that consumes energy. The information that can be provided is based on international regulations such as for example [EU directive 2017/1369](https://eur-lex.europa.eu/eli/reg/2017/1369/oj) for energy labeling and the [Energy labeling rule](https://www.ftc.gov/enforcement/rules/rulemaking-regulatory-reform-proceedings/energy-water-use-labeling-consumer) under the Energy Policy and Conservation Act (EPCA) in the US.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "EnergyConsumptionDetails"
+    },
+    "additionalType": {
+      "$ref": "../generated-schemaorg-full/properties/additionalType.schema.json",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
+    },
+    "alternateName": {
+      "$ref": "../generated-schemaorg-full/properties/alternateName.schema.json",
+      "description": "An alias for the item."
+    },
+    "description": {
+      "$ref": "../generated-schemaorg-full/properties/description.schema.json",
+      "description": "A description of the item."
+    },
+    "disambiguatingDescription": {
+      "$ref": "../generated-schemaorg-full/properties/disambiguatingDescription.schema.json",
+      "description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."
+    },
+    "identifier": {
+      "$ref": "../generated-schemaorg-full/properties/identifier.schema.json",
+      "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        "
+    },
+    "image": {
+      "$ref": "../generated-schemaorg-full/properties/image.schema.json",
+      "description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
+    },
+    "mainEntityOfPage": {
+      "$ref": "../generated-schemaorg-full/properties/mainEntityOfPage.schema.json",
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
+    },
+    "name": {
+      "$ref": "../generated-schemaorg-full/properties/name.schema.json",
+      "description": "The name of the item."
+    },
+    "owner": {
+      "$ref": "../generated-schemaorg-full/properties/owner.schema.json",
+      "description": "A person or organization who owns this Thing."
+    },
+    "potentialAction": {
+      "$ref": "../generated-schemaorg-full/properties/potentialAction.schema.json",
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
+    },
+    "sameAs": {
+      "$ref": "../generated-schemaorg-full/properties/sameAs.schema.json",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."
+    },
+    "subjectOf": {
+      "$ref": "../generated-schemaorg-full/properties/subjectOf.schema.json",
+      "description": "A CreativeWork or Event about this Thing."
+    },
+    "url": {
+      "$ref": "../generated-schemaorg-full/properties/url.schema.json",
+      "description": "URL of the item."
+    },
+    "energyEfficiencyScaleMax": {
+      "$ref": "../generated-schemaorg-full/properties/energyEfficiencyScaleMax.schema.json",
+      "description": "Specifies the most energy efficient class on the regulated EU energy consumption scale for the product category a product belongs to. For example, energy consumption for televisions placed on the market after January 1, 2020 is scaled from D to A+++."
+    },
+    "energyEfficiencyScaleMin": {
+      "$ref": "../generated-schemaorg-full/properties/energyEfficiencyScaleMin.schema.json",
+      "description": "Specifies the least energy efficient class on the regulated EU energy consumption scale for the product category a product belongs to. For example, energy consumption for televisions placed on the market after January 1, 2020 is scaled from D to A+++."
+    },
+    "hasEnergyEfficiencyCategory": {
+      "$ref": "../generated-schemaorg-full/properties/hasEnergyEfficiencyCategory.schema.json",
+      "description": "Defines the energy efficiency Category (which could be either a rating out of range of values or a yes/no certification) for a product according to an international energy efficiency standard."
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

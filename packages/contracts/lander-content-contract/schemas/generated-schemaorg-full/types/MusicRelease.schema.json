@@ -1,0 +1,51 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MusicRelease",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MusicPlaylist.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MusicRelease"
+        },
+        "catalogNumber": {
+          "$ref": "../properties/catalogNumber.schema.json",
+          "description": "The catalog number for the release."
+        },
+        "creditedTo": {
+          "$ref": "../properties/creditedTo.schema.json",
+          "description": "The group the release is credited to if different than the byArtist. For example, Red and Blue is credited to \"Stefani Germanotta Band\", but by Lady Gaga."
+        },
+        "duration": {
+          "$ref": "../properties/duration.schema.json",
+          "description": "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601)."
+        },
+        "musicReleaseFormat": {
+          "$ref": "../properties/musicReleaseFormat.schema.json",
+          "description": "Format of this release (the type of recording media used, i.e. compact disc, digital media, LP, etc.)."
+        },
+        "recordLabel": {
+          "$ref": "../properties/recordLabel.schema.json",
+          "description": "The label that issued the release."
+        },
+        "releaseOf": {
+          "$ref": "../properties/releaseOf.schema.json",
+          "description": "The album this is a release of."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A MusicRelease is a specific release of a music album.",
+  "title": "MusicRelease"
+}

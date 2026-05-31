@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:USNonprofitType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "USNonprofitType: Non-profit organization type originating from the United States.",
+  "enum": [],
+  "title": "USNonprofitType",
+  "type": "string"
+}

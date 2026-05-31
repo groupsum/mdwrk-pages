@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:lifeEvent",
+  "$ref": "../types/Event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A life event like baptism, communions, Bar Mitzvahs, Aqiqah, Namakarana, Miyamairi, burial, ....",
+  "title": "lifeEvent",
+  "x-schemaorg-cardinality": "open-world"
+}

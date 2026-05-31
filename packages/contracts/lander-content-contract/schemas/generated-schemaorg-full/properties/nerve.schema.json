@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:nerve",
+  "$ref": "../types/Nerve.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The underlying innervation associated with the muscle.",
+  "title": "nerve",
+  "x-schemaorg-cardinality": "open-world"
+}

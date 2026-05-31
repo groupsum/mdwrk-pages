@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:TaxiReservation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Reservation.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "TaxiReservation"
+        },
+        "partySize": {
+          "$ref": "../properties/partySize.schema.json",
+          "description": "Number of people the reservation should accommodate."
+        },
+        "pickupLocation": {
+          "$ref": "../properties/pickupLocation.schema.json",
+          "description": "Where a taxi will pick up a passenger or a rental car can be picked up."
+        },
+        "pickupTime": {
+          "$ref": "../properties/pickupTime.schema.json",
+          "description": "When a taxi will pick up a passenger or a rental car can be picked up."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A reservation for a taxi.\\n\\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].",
+  "title": "TaxiReservation"
+}

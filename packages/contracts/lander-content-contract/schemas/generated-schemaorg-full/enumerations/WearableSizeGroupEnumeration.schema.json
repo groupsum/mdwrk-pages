@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:WearableSizeGroupEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerates common size groups (also known as \"size types\") for wearable products.",
+  "enum": [],
+  "title": "WearableSizeGroupEnumeration",
+  "type": "string"
+}

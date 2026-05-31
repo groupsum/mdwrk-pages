@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:contactOption",
+  "$ref": "../enumerations/ContactPointOption.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers).",
+  "title": "contactOption",
+  "x-schemaorg-cardinality": "open-world"
+}

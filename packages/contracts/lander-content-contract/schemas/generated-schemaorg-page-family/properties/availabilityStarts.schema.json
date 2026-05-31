@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:availabilityStarts",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The beginning of the availability of the product or service included in the offer.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Time.schema.json"
+    }
+  ],
+  "title": "availabilityStarts",
+  "x-schemaorg-cardinality": "open-world"
+}

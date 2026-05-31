@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:VacationRental",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "LodgingBusiness.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "VacationRental"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A kind of lodging business that focuses on renting single properties for limited time.",
+  "title": "VacationRental"
+}

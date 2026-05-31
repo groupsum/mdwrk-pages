@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:numberOfPartialBathrooms",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Number of partial bathrooms - The total number of half and \u00bc bathrooms in an [[Accommodation]]. This corresponds to the [BathroomsPartial field in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsPartial+Field). ",
+  "title": "numberOfPartialBathrooms",
+  "x-schemaorg-cardinality": "open-world"
+}

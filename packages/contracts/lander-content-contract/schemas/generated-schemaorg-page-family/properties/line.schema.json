@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:line",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A line is a point-to-point path consisting of two or more points. A line is expressed as a series of two or more point objects separated by space.",
+  "title": "line",
+  "x-schemaorg-cardinality": "open-world"
+}

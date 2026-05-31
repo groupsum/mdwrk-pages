@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:layoutImage",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A schematic image showing the floorplan layout.",
+  "oneOf": [
+    {
+      "$ref": "../types/ImageObject.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "layoutImage",
+  "x-schemaorg-cardinality": "open-world"
+}

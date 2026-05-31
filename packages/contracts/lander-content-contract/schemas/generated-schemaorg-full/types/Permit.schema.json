@@ -1,0 +1,55 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Permit",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Permit"
+        },
+        "issuedBy": {
+          "$ref": "../properties/issuedBy.schema.json",
+          "description": "The organization issuing the item, for example a [[Permit]], [[Ticket]], or [[Certification]]."
+        },
+        "issuedThrough": {
+          "$ref": "../properties/issuedThrough.schema.json",
+          "description": "The service through which the permit was granted."
+        },
+        "permitAudience": {
+          "$ref": "../properties/permitAudience.schema.json",
+          "description": "The target audience for this permit."
+        },
+        "validFor": {
+          "$ref": "../properties/validFor.schema.json",
+          "description": "The duration of validity of a permit or similar thing."
+        },
+        "validFrom": {
+          "$ref": "../properties/validFrom.schema.json",
+          "description": "The date when the item becomes valid."
+        },
+        "validIn": {
+          "$ref": "../properties/validIn.schema.json",
+          "description": "The geographic area where the item is valid. Applies for example to a [[Permit]], a [[Certification]], or an [[EducationalOccupationalCredential]]. "
+        },
+        "validUntil": {
+          "$ref": "../properties/validUntil.schema.json",
+          "description": "The date when the item is no longer valid."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A permit issued by an organization, e.g. a parking pass.",
+  "title": "Permit"
+}

@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ImagingTest",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalTest.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ImagingTest"
+        },
+        "imagingTechnique": {
+          "$ref": "../properties/imagingTechnique.schema.json",
+          "description": "Imaging technique used."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Any medical imaging modality typically used for diagnostic purposes.",
+  "title": "ImagingTest"
+}

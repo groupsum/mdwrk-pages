@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:screenshot",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A link to a screenshot image of the app.",
+  "oneOf": [
+    {
+      "$ref": "../types/ImageObject.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "screenshot",
+  "x-schemaorg-cardinality": "open-world"
+}

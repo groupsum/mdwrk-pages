@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:earlyPrepaymentPenalty",
+  "$ref": "../types/MonetaryAmount.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The amount to be paid as a penalty in the event of early payment of the loan.",
+  "title": "earlyPrepaymentPenalty",
+  "x-schemaorg-cardinality": "open-world"
+}

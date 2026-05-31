@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-bio-chem-entity-padding: 1rem;
+  --mdp-semantic-bio-chem-entity-gap: 0.75rem;
+  --mdp-semantic-bio-chem-entity-radius: 1rem;
+  --mdp-semantic-bio-chem-entity-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-bio-chem-entity-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-bio-chem-entity-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--bio-chem-entity {
+  padding: var(--mdp-semantic-bio-chem-entity-padding);
+  gap: var(--mdp-semantic-bio-chem-entity-gap);
+  border-radius: var(--mdp-semantic-bio-chem-entity-radius);
+  background: var(--mdp-semantic-bio-chem-entity-surface);
+  border: 1px solid var(--mdp-semantic-bio-chem-entity-border);
+  box-shadow: var(--mdp-semantic-bio-chem-entity-shadow);
+}
+
+.lander-semantic--bio-chem-entity .lander-semantic__header,
+.lander-semantic--bio-chem-entity .lander-semantic__body,
+.lander-semantic--bio-chem-entity .lander-semantic__footer,
+.lander-semantic--bio-chem-entity .lander-semantic__actions {
+  gap: var(--mdp-semantic-bio-chem-entity-gap);
+}
+
+.lander-semantic--bio-chem-entity .lander-semantic__header,
+.lander-semantic--bio-chem-entity .lander-semantic__eyebrow,
+.lander-semantic--bio-chem-entity .lander-semantic__title,
+.lander-semantic--bio-chem-entity .lander-semantic__subtitle,
+.lander-semantic--bio-chem-entity .lander-semantic__description,
+.lander-semantic--bio-chem-entity .lander-semantic__meta,
+.lander-semantic--bio-chem-entity .lander-semantic__image,
+.lander-semantic--bio-chem-entity .lander-semantic__body,
+.lander-semantic--bio-chem-entity .lander-semantic__actions,
+.lander-semantic--bio-chem-entity .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--bio-chem-entity .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--bio-chem-entity .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--bio-chem-entity .lander-semantic__subtitle,
+.lander-semantic--bio-chem-entity .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--bio-chem-entity .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-bio-chem-entity-gap) * 0.8);
+}
+
+.lander-semantic--bio-chem-entity .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-bio-chem-entity-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--bio-chem-entity .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--bio-chem-entity .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--bio-chem-entity .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

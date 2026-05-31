@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:runsTo",
+  "$ref": "../types/Vessel.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The vasculature the lymphatic structure runs, or efferents, to.",
+  "title": "runsTo",
+  "x-schemaorg-cardinality": "open-world"
+}

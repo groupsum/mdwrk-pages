@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:dosageForm",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A dosage form in which this drug/supplement is available, e.g. 'tablet', 'suspension', 'injection'.",
+  "title": "dosageForm",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -11,11 +11,11 @@ test("T0: strict structured-data intent validation remains opt-in and preserves 
   assert.deepEqual(validateStructuredDataIntent({ kind: "FAQPage", data: { name: "FAQ" } }), []);
   assert.ok(
     validateStructuredDataIntentStrict({ kind: "FAQPage", data: { name: "FAQ" } }).some((failure) =>
-      failure.includes("data.items"),
+      failure.includes("data.@type"),
     ),
   );
   assert.deepEqual(
-    validateStructuredDataIntentStrict({ kind: "Dataset", data: { name: "Dataset" } }),
+    validateStructuredDataIntentStrict({ kind: "Dataset", data: { "@type": "Dataset" } }),
     [],
   );
 });

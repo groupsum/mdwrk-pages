@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:deathPlace",
+  "$ref": "../types/Place.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The place where the person died.",
+  "title": "deathPlace",
+  "x-schemaorg-cardinality": "open-world"
+}

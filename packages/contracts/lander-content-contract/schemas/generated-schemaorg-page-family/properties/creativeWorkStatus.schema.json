@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:creativeWorkStatus",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The status of a creative work in terms of its stage in a lifecycle. Example terms include Incomplete, Draft, Published, Obsolete. Some organizations define a set of terms for the stages of their publication lifecycle.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "creativeWorkStatus",
+  "x-schemaorg-cardinality": "open-world"
+}

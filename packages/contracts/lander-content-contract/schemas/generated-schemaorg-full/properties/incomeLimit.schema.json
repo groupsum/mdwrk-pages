@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:incomeLimit",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Optional. Income limit for which the incentive is applicable for.\n    \n<p>If MonetaryAmount is specified, this should be based on annualized income (e.g. if an incentive is limited to those making <$114,000 annually):</p>\n    {\n        \"@type\": \"MonetaryAmount\",\n        \"maxValue\": 114000,\n        \"currency\": \"USD\",\n    }\n\nUse Text for incentives that are limited based on other criteria, for example if an incentive is only available to recipients making 120% of the median poverty income in their area.",
+  "oneOf": [
+    {
+      "$ref": "../types/MonetaryAmount.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "incomeLimit",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,67 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MusicComposition",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MusicComposition"
+        },
+        "composer": {
+          "$ref": "../properties/composer.schema.json",
+          "description": "The person or organization who wrote a composition, or who is the composer of a work performed at some event."
+        },
+        "firstPerformance": {
+          "$ref": "../properties/firstPerformance.schema.json",
+          "description": "The date and place the work was first performed."
+        },
+        "includedComposition": {
+          "$ref": "../properties/includedComposition.schema.json",
+          "description": "Smaller compositions included in this work (e.g. a movement in a symphony)."
+        },
+        "iswcCode": {
+          "$ref": "../properties/iswcCode.schema.json",
+          "description": "The International Standard Musical Work Code for the composition."
+        },
+        "lyricist": {
+          "$ref": "../properties/lyricist.schema.json",
+          "description": "The person who wrote the words."
+        },
+        "lyrics": {
+          "$ref": "../properties/lyrics.schema.json",
+          "description": "The words in the song."
+        },
+        "musicArrangement": {
+          "$ref": "../properties/musicArrangement.schema.json",
+          "description": "An arrangement derived from the composition."
+        },
+        "musicCompositionForm": {
+          "$ref": "../properties/musicCompositionForm.schema.json",
+          "description": "The type of composition (e.g. overture, sonata, symphony, etc.)."
+        },
+        "musicalKey": {
+          "$ref": "../properties/musicalKey.schema.json",
+          "description": "The key, mode, or scale this composition uses."
+        },
+        "recordedAs": {
+          "$ref": "../properties/recordedAs.schema.json",
+          "description": "An audio recording of the work."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A musical composition.",
+  "title": "MusicComposition"
+}

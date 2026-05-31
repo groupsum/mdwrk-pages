@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:distribution",
+  "$ref": "../types/DataDownload.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A downloadable form of this dataset, at a specific location, in a specific format. This property can be repeated if different variations are available. There is no expectation that different downloadable distributions must contain exactly equivalent information (see also [DCAT](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution) on this point). Different distributions might include or exclude different subsets of the entire dataset, for example.",
+  "title": "distribution",
+  "x-schemaorg-cardinality": "open-world"
+}

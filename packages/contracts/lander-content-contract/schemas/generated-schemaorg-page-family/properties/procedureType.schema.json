@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:procedureType",
+  "$ref": "../enumerations/MedicalProcedureType.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type of procedure, for example Surgical, Noninvasive, or Percutaneous.",
+  "title": "procedureType",
+  "x-schemaorg-cardinality": "open-world"
+}

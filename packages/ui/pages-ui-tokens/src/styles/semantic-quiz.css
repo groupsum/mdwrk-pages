@@ -21,9 +21,17 @@
 .lander-semantic--quiz .lander-semantic__image { width: 100%; max-width: 100%; border-radius: 1rem; object-fit: cover; }
 .lander-semantic--quiz .lander-semantic__body,
 .lander-semantic--quiz .lander-semantic__actions { display: grid; gap: var(--mdwrk-space-3); }
+.lander-semantic--quiz .lander-semantic__assessment-brief { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+.lander-semantic--quiz .lander-semantic__assessment-stat { display: grid; gap: 0.35rem; padding: 0.95rem 1rem; border-radius: 1rem; background: rgba(255,255,255,0.82); border: 1px solid color-mix(in srgb, var(--mdp-semantic-quiz-border) 60%, white 40%); }
+.lander-semantic--quiz .lander-semantic__section-kicker { width: fit-content; padding: 0.2rem 0.5rem; border-radius: 999px; background: rgba(217, 119, 6, 0.12); color: var(--mdp-semantic-quiz-accent); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
 .lander-semantic--quiz .lander-semantic__quiz-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
 .lander-semantic--quiz .lander-semantic__quiz-card { position: relative; display: grid; gap: 0.8rem; min-height: 100%; padding: 1.1rem; border-radius: 1.15rem; background: rgba(255,255,255,0.84); border: 1px solid color-mix(in srgb, var(--mdp-semantic-quiz-border) 72%, white 28%); box-shadow: 0 1rem 1.8rem rgba(85, 71, 23, 0.08); }
 .lander-semantic--quiz .lander-semantic__quiz-kicker { width: fit-content; padding: 0.2rem 0.55rem; border-radius: 999px; background: color-mix(in srgb, var(--mdp-semantic-quiz-accent) 16%, white 84%); color: var(--mdp-semantic-quiz-accent); font-weight: 800; }
-.lander-semantic--quiz .lander-semantic__quiz-alternatives ul { display: grid; gap: 0.45rem; padding-left: 1rem; }
+.lander-semantic--quiz .lander-semantic__quiz-alternatives { display: grid; gap: 0.55rem; }
+.lander-semantic--quiz .lander-semantic__quiz-option { padding: 0.72rem 0.8rem; border-radius: 0.9rem; background: rgba(255,255,255,0.7); border: 1px solid rgba(217, 119, 6, 0.14); color: var(--lander-fg-muted); }
 .lander-semantic--quiz .lander-semantic__quiz-response { padding: 0.9rem 1rem; border-radius: 0.9rem; background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,244,214,0.7)); border: 1px dashed color-mix(in srgb, var(--mdp-semantic-quiz-accent) 40%, transparent); }
+.lander-semantic--quiz .lander-semantic__quiz-response-label { width: fit-content; padding: 0.2rem 0.5rem; border-radius: 999px; background: rgba(217, 119, 6, 0.12); color: var(--mdp-semantic-quiz-accent); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
 .lander-semantic--quiz .lander-page__button { justify-self: start; }
+@media (max-width: 720px) {
+  .lander-semantic--quiz .lander-semantic__assessment-brief { grid-template-columns: 1fr; }
+}

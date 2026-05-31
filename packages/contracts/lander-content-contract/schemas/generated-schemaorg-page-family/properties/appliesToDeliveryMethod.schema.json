@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:appliesToDeliveryMethod",
+  "$ref": "../enumerations/DeliveryMethod.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The delivery method(s) to which the delivery charge or payment charge specification applies.",
+  "title": "appliesToDeliveryMethod",
+  "x-schemaorg-cardinality": "open-world"
+}

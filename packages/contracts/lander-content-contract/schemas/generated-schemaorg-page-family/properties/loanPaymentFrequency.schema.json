@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:loanPaymentFrequency",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Frequency of payments due, i.e. number of months between payments. This is defined as a frequency, i.e. the reciprocal of a period of time.",
+  "title": "loanPaymentFrequency",
+  "x-schemaorg-cardinality": "open-world"
+}

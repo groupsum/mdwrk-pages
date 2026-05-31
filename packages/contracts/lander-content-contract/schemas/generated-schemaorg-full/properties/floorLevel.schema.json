@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:floorLevel",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The floor level for an [[Accommodation]] in a multi-storey building. Since counting\n  systems [vary internationally](https://en.wikipedia.org/wiki/Storey#Consecutive_number_floor_designations), the local system should be used where possible.",
+  "title": "floorLevel",
+  "x-schemaorg-cardinality": "open-world"
+}

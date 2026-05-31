@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:vehicleInteriorType",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.). While most interior types are characterized by the material used, an interior type can also be based on vehicle usage or target audience.",
+  "title": "vehicleInteriorType",
+  "x-schemaorg-cardinality": "open-world"
+}

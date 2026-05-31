@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasVariant",
+  "$ref": "../types/Product.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates a [[Product]] that is a member of this [[ProductGroup]] (or [[ProductModel]]).",
+  "title": "hasVariant",
+  "x-schemaorg-cardinality": "open-world"
+}

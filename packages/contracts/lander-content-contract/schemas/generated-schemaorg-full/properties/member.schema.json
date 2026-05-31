@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:member",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "member",
+  "x-schemaorg-cardinality": "open-world"
+}

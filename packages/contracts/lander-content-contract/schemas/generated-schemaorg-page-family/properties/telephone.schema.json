@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:telephone",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The telephone number.",
+  "title": "telephone",
+  "x-schemaorg-cardinality": "open-world"
+}

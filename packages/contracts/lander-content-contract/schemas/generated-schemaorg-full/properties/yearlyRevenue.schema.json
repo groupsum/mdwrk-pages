@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:yearlyRevenue",
+  "$ref": "../types/QuantitativeValue.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The size of the business in annual revenue.",
+  "title": "yearlyRevenue",
+  "x-schemaorg-cardinality": "open-world"
+}

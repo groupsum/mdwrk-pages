@@ -1,0 +1,55 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ShippingRateSettings",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "StructuredValue.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ShippingRateSettings"
+        },
+        "doesNotShip": {
+          "$ref": "../properties/doesNotShip.schema.json",
+          "description": "Indicates when shipping to a particular [[shippingDestination]] is not available."
+        },
+        "freeShippingThreshold": {
+          "$ref": "../properties/freeShippingThreshold.schema.json",
+          "description": "A monetary value above (or at) which the shipping rate becomes free. Intended to be used via an [[OfferShippingDetails]] with [[shippingSettingsLink]] matching this [[ShippingRateSettings]]."
+        },
+        "isUnlabelledFallback": {
+          "$ref": "../properties/isUnlabelledFallback.schema.json",
+          "description": "This can be marked 'true' to indicate that some published [[DeliveryTimeSettings]] or [[ShippingRateSettings]] are intended to apply to all [[OfferShippingDetails]] published by the same merchant, when referenced by a [[shippingSettingsLink]] in those settings. It is not meaningful to use a 'true' value for this property alongside a transitTimeLabel (for [[DeliveryTimeSettings]]) or shippingLabel (for [[ShippingRateSettings]]), since this property is for use with unlabelled settings."
+        },
+        "orderPercentage": {
+          "$ref": "../properties/orderPercentage.schema.json",
+          "description": "Value representing the fraction of the value of the order that is charged as shipping cost. Example: 0.10 would mean shipping rate is 10% of the total order value."
+        },
+        "shippingDestination": {
+          "$ref": "../properties/shippingDestination.schema.json",
+          "description": "indicates (possibly multiple) shipping destinations. These can be defined in several ways, e.g. postalCode ranges."
+        },
+        "shippingRate": {
+          "$ref": "../properties/shippingRate.schema.json",
+          "description": "The shipping rate is the cost of shipping to the specified destination. Typically, the maxValue and currency values (of the [[MonetaryAmount]]) are most appropriate."
+        },
+        "weightPercentage": {
+          "$ref": "../properties/weightPercentage.schema.json",
+          "description": "Value representing the fraction of the weight that is used to compute the shipping price. Example: 0.10 and a shipping weight of 15kg would add $1.5 to the order price, where the $ is the currency of the order."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A ShippingRateSettings represents re-usable pieces of shipping information. It is designed for publication on an URL that may be referenced via the [[shippingSettingsLink]] property of an [[OfferShippingDetails]]. Several occurrences can be published, distinguished and matched (i.e. identified/referenced) by their different values for [[shippingLabel]].",
+  "title": "ShippingRateSettings"
+}

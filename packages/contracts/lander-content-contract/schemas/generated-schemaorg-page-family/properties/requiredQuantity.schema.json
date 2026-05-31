@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:requiredQuantity",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The required quantity of the item(s).",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "requiredQuantity",
+  "x-schemaorg-cardinality": "open-world"
+}

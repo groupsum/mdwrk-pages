@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:legislationLegalValue",
+  "$ref": "../enumerations/LegalValueLevel.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The legal value of this legislation file. The same legislation can be written in multiple files with different legal values. Typically a digitally signed PDF have a \"stronger\" legal value than the HTML file of the same act.",
+  "title": "legislationLegalValue",
+  "x-schemaorg-cardinality": "open-world"
+}

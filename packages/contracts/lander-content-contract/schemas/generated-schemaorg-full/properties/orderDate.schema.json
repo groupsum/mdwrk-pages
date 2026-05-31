@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:orderDate",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Date order was placed.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "orderDate",
+  "x-schemaorg-cardinality": "open-world"
+}

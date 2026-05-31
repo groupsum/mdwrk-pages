@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:position",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The position of an item in a series or sequence of items.",
+  "oneOf": [
+    {
+      "$ref": "../types/Integer.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "position",
+  "x-schemaorg-cardinality": "open-world"
+}

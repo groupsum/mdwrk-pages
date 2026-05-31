@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:season",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A season in a media series.",
+  "oneOf": [
+    {
+      "$ref": "../types/CreativeWorkSeason.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "season",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:datePosted",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Publication date of an online listing.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "datePosted",
+  "x-schemaorg-cardinality": "open-world"
+}

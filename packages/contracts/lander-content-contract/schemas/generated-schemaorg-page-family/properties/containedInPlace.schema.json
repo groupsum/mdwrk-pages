@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:containedInPlace",
+  "$ref": "../types/Place.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The basic containment relation between a place and one that contains it.",
+  "title": "containedInPlace",
+  "x-schemaorg-cardinality": "open-world"
+}

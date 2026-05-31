@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:tributary",
+  "$ref": "../types/AnatomicalStructure.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The anatomical or organ system that the vein flows into; a larger structure that the vein connects to.",
+  "title": "tributary",
+  "x-schemaorg-cardinality": "open-world"
+}

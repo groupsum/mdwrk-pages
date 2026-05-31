@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:eligibleQuantity",
+  "$ref": "../types/QuantitativeValue.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.",
+  "title": "eligibleQuantity",
+  "x-schemaorg-cardinality": "open-world"
+}

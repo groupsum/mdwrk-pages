@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:geoTouches",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Represents spatial relations in which two geometries (or the places they represent) touch: \"they have at least one boundary point in common, but no interior points.\" (A symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).)",
+  "oneOf": [
+    {
+      "$ref": "../types/GeospatialGeometry.schema.json"
+    },
+    {
+      "$ref": "../types/Place.schema.json"
+    }
+  ],
+  "title": "geoTouches",
+  "x-schemaorg-cardinality": "open-world"
+}

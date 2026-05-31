@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:programPrerequisites",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Prerequisites for enrolling in the program.",
+  "oneOf": [
+    {
+      "$ref": "../types/AlignmentObject.schema.json"
+    },
+    {
+      "$ref": "../types/Course.schema.json"
+    },
+    {
+      "$ref": "../types/EducationalOccupationalCredential.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "programPrerequisites",
+  "x-schemaorg-cardinality": "open-world"
+}

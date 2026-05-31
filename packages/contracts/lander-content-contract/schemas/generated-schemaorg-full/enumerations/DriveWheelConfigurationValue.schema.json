@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:DriveWheelConfigurationValue",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A value indicating which roadwheels will receive torque.",
+  "enum": [],
+  "title": "DriveWheelConfigurationValue",
+  "type": "string"
+}

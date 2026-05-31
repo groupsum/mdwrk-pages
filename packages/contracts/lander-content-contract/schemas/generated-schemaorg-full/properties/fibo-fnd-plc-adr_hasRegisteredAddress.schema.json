@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:fibo-fnd-plc-adr:hasRegisteredAddress",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "title": "fibo-fnd-plc-adr:hasRegisteredAddress",
+  "type": [
+    "string",
+    "number",
+    "boolean",
+    "object",
+    "array",
+    "null"
+  ],
+  "x-schemaorg-cardinality": "open-world"
+}

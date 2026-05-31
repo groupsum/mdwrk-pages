@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:lyrics",
+  "$ref": "../types/CreativeWork.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The words in the song.",
+  "title": "lyrics",
+  "x-schemaorg-cardinality": "open-world"
+}

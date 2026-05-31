@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:acquiredFrom",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The organization or person from which the product was acquired.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "acquiredFrom",
+  "x-schemaorg-cardinality": "open-world"
+}

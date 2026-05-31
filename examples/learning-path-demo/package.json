@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "npm run build -w @mdwrk/lander-content-contract && npm run build -w @mdwrk/lander-core && npm run build -w @mdwrk/structured-data && npm run build -w @mdwrk/lander-page-templates && npm run build -w @mdwrk/lander-page-template-presets && npm run build -w @mdwrk/lander-react-structured-data && npm run build -w @mdwrk/lander-react && tsc --noEmit && vite build",
-    "test": "npm run build && node --test tests/learning-path-demo-t0.test.mjs tests/learning-path-demo-t1.test.mjs tests/learning-path-demo-t2.test.mjs",
+    "test": "npm run build && node --test tests/learning-path-demo-t0.test.mjs tests/learning-path-demo-t1.test.mjs tests/learning-path-demo-t2.test.mjs tests/vite-delivery-t1.test.mjs",
     "typecheck": "npm run build -w @mdwrk/lander-content-contract && npm run build -w @mdwrk/lander-core && npm run build -w @mdwrk/structured-data && npm run build -w @mdwrk/lander-page-templates && npm run build -w @mdwrk/lander-page-template-presets && npm run build -w @mdwrk/lander-react-structured-data && npm run build -w @mdwrk/lander-react && tsc --noEmit",
     "lint": "npm run typecheck"
   },

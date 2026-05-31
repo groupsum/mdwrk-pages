@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:GenderType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An enumeration of genders.",
+  "enum": [],
+  "title": "GenderType",
+  "type": "string"
+}

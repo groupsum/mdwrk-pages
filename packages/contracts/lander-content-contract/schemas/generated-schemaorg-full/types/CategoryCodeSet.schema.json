@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:CategoryCodeSet",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "DefinedTermSet.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "CategoryCodeSet"
+        },
+        "hasCategoryCode": {
+          "$ref": "../properties/hasCategoryCode.schema.json",
+          "description": "A Category code contained in this code set."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A set of Category Code values.",
+  "title": "CategoryCodeSet"
+}

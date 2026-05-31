@@ -1,0 +1,62 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ExercisePlan",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "$ref": "PhysicalActivity.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ExercisePlan"
+        },
+        "activityDuration": {
+          "$ref": "../properties/activityDuration.schema.json",
+          "description": "Length of time to engage in the activity."
+        },
+        "activityFrequency": {
+          "$ref": "../properties/activityFrequency.schema.json",
+          "description": "How often one should engage in the activity."
+        },
+        "additionalVariable": {
+          "$ref": "../properties/additionalVariable.schema.json",
+          "description": "Any additional component of the exercise prescription that may need to be articulated to the patient. This may include the order of exercises, the number of repetitions of movement, quantitative distance, progressions over time, etc."
+        },
+        "exerciseType": {
+          "$ref": "../properties/exerciseType.schema.json",
+          "description": "Type(s) of exercise or activity, such as strength training, flexibility training, aerobics, cardiac rehabilitation, etc."
+        },
+        "intensity": {
+          "$ref": "../properties/intensity.schema.json",
+          "description": "Quantitative measure gauging the degree of force involved in the exercise, for example, heartbeats per minute. May include the velocity of the movement."
+        },
+        "repetitions": {
+          "$ref": "../properties/repetitions.schema.json",
+          "description": "Number of times one should repeat the activity."
+        },
+        "restPeriods": {
+          "$ref": "../properties/restPeriods.schema.json",
+          "description": "How often one should break from the activity."
+        },
+        "workload": {
+          "$ref": "../properties/workload.schema.json",
+          "description": "Quantitative measure of the physiologic output of the exercise; also referred to as energy expenditure."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Fitness-related activity designed for a specific health-related purpose, including defined exercise routines as well as activity prescribed by a clinician.",
+  "title": "ExercisePlan"
+}

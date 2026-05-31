@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:LibrarySystem",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Organization.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "LibrarySystem"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A [[LibrarySystem]] is a collaborative system amongst several libraries.",
+  "title": "LibrarySystem"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasEnergyConsumptionDetails",
+  "$ref": "../types/EnergyConsumptionDetails.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Defines the energy efficiency Category (also known as \"class\" or \"rating\") for a product according to an international energy efficiency standard.",
+  "title": "hasEnergyConsumptionDetails",
+  "x-schemaorg-cardinality": "open-world"
+}

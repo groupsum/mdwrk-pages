@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:discount",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Any discount applied (to an Order).",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "discount",
+  "x-schemaorg-cardinality": "open-world"
+}

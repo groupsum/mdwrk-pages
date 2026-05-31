@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:issn",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.",
+  "title": "issn",
+  "x-schemaorg-cardinality": "open-world"
+}

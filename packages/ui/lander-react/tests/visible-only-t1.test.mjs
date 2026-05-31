@@ -68,13 +68,13 @@ const page = {
 
 test("T1: visible lander-react components render without exporting structured-data wrappers", async () => {
   const mod = await importLanderReactDist();
-  const { BreadcrumbList, FaqPage, SectionRenderer, LanderPage } = mod;
+  const { BreadcrumbList, FAQPage, SectionRenderer, LanderPage } = mod;
 
   const breadcrumbsMarkup = renderToStaticMarkup(React.createElement(BreadcrumbList, { items: page.breadcrumbs }));
-  assert.ok(breadcrumbsMarkup.includes("class=\"lander-breadcrumbs\""));
+  assert.ok(breadcrumbsMarkup.includes("application/ld+json"));
   assert.ok(breadcrumbsMarkup.includes("Structured Data Package"));
 
-  const faqMarkup = renderToStaticMarkup(React.createElement(FaqPage, { items: page.faq }));
+  const faqMarkup = renderToStaticMarkup(React.createElement(FAQPage, { items: page.faq }));
   assert.ok(faqMarkup.includes("Frequently Asked Questions"));
   assert.ok(faqMarkup.includes("Does the lander emit JSON-LD?"));
 

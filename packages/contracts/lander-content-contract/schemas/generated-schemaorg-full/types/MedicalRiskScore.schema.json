@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalRiskScore",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalRiskEstimator.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MedicalRiskScore"
+        },
+        "algorithm": {
+          "$ref": "../properties/algorithm.schema.json",
+          "description": "The algorithm or rules to follow to compute the score."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A simple system that adds up the number of risk factors to yield a score that is associated with prognosis, e.g. CHAD score, TIMI risk score.",
+  "title": "MedicalRiskScore"
+}

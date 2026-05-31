@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:fibo-fbc-dae-dbt:hasPaymentDueDate",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "title": "fibo-fbc-dae-dbt:hasPaymentDueDate",
+  "type": [
+    "string",
+    "number",
+    "boolean",
+    "object",
+    "array",
+    "null"
+  ],
+  "x-schemaorg-cardinality": "open-world"
+}

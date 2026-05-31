@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:CoverArt",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "VisualArtwork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "CoverArt"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The artwork on the outer surface of a CreativeWork.",
+  "title": "CoverArt"
+}

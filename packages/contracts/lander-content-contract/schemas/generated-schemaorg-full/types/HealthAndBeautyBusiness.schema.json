@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:HealthAndBeautyBusiness",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "LocalBusiness.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "HealthAndBeautyBusiness"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Health and beauty.",
+  "title": "HealthAndBeautyBusiness"
+}

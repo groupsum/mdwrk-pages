@@ -34,10 +34,11 @@
     "@types/react-dom": "^19.0.3"
   },
   "scripts": {
-    "build": "npm run build -w @mdwrk/structured-data && npm run build -w @mdwrk/lander-core && tsc -p tsconfig.json",
+    "build": "npm run build -w @mdwrk/structured-data && npm run build -w @mdwrk/lander-core && node ../../../tools/generate-schemaorg-fused-surface.mjs && tsc -p tsconfig.json",
     "typecheck": "npm run build -w @mdwrk/structured-data && npm run build -w @mdwrk/lander-core && tsc --noEmit -p tsconfig.json",
     "lint": "npm run typecheck",
-    "test": "npm run build && npm run build -w @mdwrk/lander-page-template-presets && node --test tests/intent-registry-t0.test.mjs tests/intent-registry-t1.test.mjs tests/intent-registry-t2.test.mjs && node tests/run-smoke.mjs",
+    "test:schema-conformance": "npm run build && npm run build -w @mdwrk/lander-page-template-presets && node --test tests/schema-conformance-t1.test.mjs",
+    "test": "npm run build && npm run build -w @mdwrk/lander-page-template-presets && node --test tests/intent-registry-t0.test.mjs tests/intent-registry-t1.test.mjs tests/intent-registry-t2.test.mjs tests/schema-conformance-t1.test.mjs && node tests/run-smoke.mjs",
     "prepack": "npm run build"
   },
   "exports": {

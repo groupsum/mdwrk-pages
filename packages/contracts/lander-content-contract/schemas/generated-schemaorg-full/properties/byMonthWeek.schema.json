@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:byMonthWeek",
+  "$ref": "../types/Integer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Defines the week(s) of the month on which a recurring Event takes place. Specified as an Integer between 1-5. For clarity, byMonthWeek is best used in conjunction with byDay to indicate concepts like the first and third Mondays of a month.",
+  "title": "byMonthWeek",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,20 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:fibo-fnd-plc-adr:PostalAddress",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "fibo-fnd-plc-adr:PostalAddress"
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "title": "fibo-fnd-plc-adr:PostalAddress",
+  "type": "object",
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

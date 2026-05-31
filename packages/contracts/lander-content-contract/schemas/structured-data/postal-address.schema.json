@@ -1,0 +1,140 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:PostalAddress",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PostalAddress",
+  "description": "The mailing address.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "PostalAddress"
+    },
+    "additionalType": {
+      "$ref": "../generated-schemaorg-full/properties/additionalType.schema.json",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
+    },
+    "alternateName": {
+      "$ref": "../generated-schemaorg-full/properties/alternateName.schema.json",
+      "description": "An alias for the item."
+    },
+    "description": {
+      "$ref": "../generated-schemaorg-full/properties/description.schema.json",
+      "description": "A description of the item."
+    },
+    "disambiguatingDescription": {
+      "$ref": "../generated-schemaorg-full/properties/disambiguatingDescription.schema.json",
+      "description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."
+    },
+    "identifier": {
+      "$ref": "../generated-schemaorg-full/properties/identifier.schema.json",
+      "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        "
+    },
+    "image": {
+      "$ref": "../generated-schemaorg-full/properties/image.schema.json",
+      "description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
+    },
+    "mainEntityOfPage": {
+      "$ref": "../generated-schemaorg-full/properties/mainEntityOfPage.schema.json",
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
+    },
+    "name": {
+      "$ref": "../generated-schemaorg-full/properties/name.schema.json",
+      "description": "The name of the item."
+    },
+    "owner": {
+      "$ref": "../generated-schemaorg-full/properties/owner.schema.json",
+      "description": "A person or organization who owns this Thing."
+    },
+    "potentialAction": {
+      "$ref": "../generated-schemaorg-full/properties/potentialAction.schema.json",
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
+    },
+    "sameAs": {
+      "$ref": "../generated-schemaorg-full/properties/sameAs.schema.json",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."
+    },
+    "subjectOf": {
+      "$ref": "../generated-schemaorg-full/properties/subjectOf.schema.json",
+      "description": "A CreativeWork or Event about this Thing."
+    },
+    "url": {
+      "$ref": "../generated-schemaorg-full/properties/url.schema.json",
+      "description": "URL of the item."
+    },
+    "areaServed": {
+      "$ref": "../generated-schemaorg-full/properties/areaServed.schema.json",
+      "description": "The geographic area where a service or offered item is provided."
+    },
+    "availableLanguage": {
+      "$ref": "../generated-schemaorg-full/properties/availableLanguage.schema.json",
+      "description": "A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]]."
+    },
+    "contactOption": {
+      "$ref": "../generated-schemaorg-full/properties/contactOption.schema.json",
+      "description": "An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers)."
+    },
+    "contactType": {
+      "$ref": "../generated-schemaorg-full/properties/contactType.schema.json",
+      "description": "A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point."
+    },
+    "email": {
+      "$ref": "../generated-schemaorg-full/properties/email.schema.json",
+      "description": "Email address."
+    },
+    "faxNumber": {
+      "$ref": "../generated-schemaorg-full/properties/faxNumber.schema.json",
+      "description": "The fax number."
+    },
+    "hoursAvailable": {
+      "$ref": "../generated-schemaorg-full/properties/hoursAvailable.schema.json",
+      "description": "The hours during which this service or contact is available."
+    },
+    "productSupported": {
+      "$ref": "../generated-schemaorg-full/properties/productSupported.schema.json",
+      "description": "The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. \"iPhone\") or a general category of products or services (e.g. \"smartphones\")."
+    },
+    "serviceArea": {
+      "$ref": "../generated-schemaorg-full/properties/serviceArea.schema.json",
+      "description": "The geographic area where the service is provided."
+    },
+    "telephone": {
+      "$ref": "../generated-schemaorg-full/properties/telephone.schema.json",
+      "description": "The telephone number."
+    },
+    "addressCountry": {
+      "$ref": "../generated-schemaorg-full/properties/addressCountry.schema.json",
+      "description": "The country. Recommended to be in 2-letter [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1) format, for example \"US\". For backward compatibility, a 3-letter [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code such as \"SGP\" or a full country name such as \"Singapore\" can also be used."
+    },
+    "addressLocality": {
+      "$ref": "../generated-schemaorg-full/properties/addressLocality.schema.json",
+      "description": "The locality in which the street address is, and which is in the region. For example, Mountain View."
+    },
+    "addressRegion": {
+      "$ref": "../generated-schemaorg-full/properties/addressRegion.schema.json",
+      "description": "The region in which the locality is, and which is in the country. For example, California or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country) such as the Province in Italy or Region in Germany."
+    },
+    "extendedAddress": {
+      "$ref": "../generated-schemaorg-full/properties/extendedAddress.schema.json",
+      "description": "An address extension such as an apartment number, C/O or alternative name."
+    },
+    "postOfficeBoxNumber": {
+      "$ref": "../generated-schemaorg-full/properties/postOfficeBoxNumber.schema.json",
+      "description": "The post office box number for PO box addresses."
+    },
+    "postalCode": {
+      "$ref": "../generated-schemaorg-full/properties/postalCode.schema.json",
+      "description": "The postal code. For example, 94043."
+    },
+    "streetAddress": {
+      "$ref": "../generated-schemaorg-full/properties/streetAddress.schema.json",
+      "description": "The street address. For example, 1600 Amphitheatre Pkwy."
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

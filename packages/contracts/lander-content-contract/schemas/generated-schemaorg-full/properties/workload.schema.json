@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:workload",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Quantitative measure of the physiologic output of the exercise; also referred to as energy expenditure.",
+  "oneOf": [
+    {
+      "$ref": "../types/Energy.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "workload",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:relatedCondition",
+  "$ref": "../types/MedicalCondition.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A medical condition associated with this anatomy.",
+  "title": "relatedCondition",
+  "x-schemaorg-cardinality": "open-world"
+}

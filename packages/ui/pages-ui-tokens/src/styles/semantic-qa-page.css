@@ -23,5 +23,10 @@
 .lander-semantic--qa-page .lander-semantic__image { width: 100%; max-width: 100%; border-radius: 1rem; object-fit: cover; }
 .lander-semantic--qa-page .lander-semantic__body { display: grid; gap: 0.9rem; }
 .lander-semantic--qa-page .lander-semantic__actions { display: grid; gap: var(--mdwrk-space-3); }
-.lander-semantic--qa-page .lander-semantic__accepted-answer { padding: 1rem 1.1rem; border-radius: 1rem; background: rgba(255,255,255,0.8); border-left: 0.35rem solid var(--mdp-semantic-qa-page-accent); box-shadow: 0 0.8rem 1.6rem rgba(28, 72, 132, 0.08); }
-.lander-semantic--qa-page .lander-semantic__suggested-answer-list ul { display: grid; gap: 0.55rem; padding-left: 1.1rem; }
+.lander-semantic--qa-page .lander-semantic__prompt-panel { display: grid; gap: 0.45rem; padding: 1rem 1.05rem; border-radius: 1rem; background: rgba(255,255,255,0.72); border: 1px solid color-mix(in srgb, var(--mdp-semantic-qa-page-border) 55%, white 45%); }
+.lander-semantic--qa-page .lander-semantic__section-kicker { width: fit-content; padding: 0.2rem 0.5rem; border-radius: 999px; background: rgba(47,126,247,0.12); color: var(--mdp-semantic-qa-page-accent); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.lander-semantic--qa-page .lander-semantic__accepted-answer { display: grid; gap: 0.45rem; padding: 1rem 1.1rem; border-radius: 1rem; background: rgba(255,255,255,0.8); border-left: 0.35rem solid var(--mdp-semantic-qa-page-accent); box-shadow: 0 0.8rem 1.6rem rgba(28, 72, 132, 0.08); }
+.lander-semantic--qa-page .lander-semantic__answer-kicker { width: fit-content; padding: 0.2rem 0.5rem; border-radius: 999px; background: rgba(47,126,247,0.12); color: var(--mdp-semantic-qa-page-accent); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.lander-semantic--qa-page .lander-semantic__suggested-answer-list { display: grid; gap: 0.7rem; }
+.lander-semantic--qa-page .lander-semantic__suggested-answer-card { display: grid; gap: 0.45rem; padding: 0.95rem 1rem; border-radius: 1rem; background: rgba(255,255,255,0.72); border: 1px solid rgba(47,126,247,0.14); }
+.lander-semantic--qa-page .lander-semantic__suggested-answer-card p { margin: 0; }

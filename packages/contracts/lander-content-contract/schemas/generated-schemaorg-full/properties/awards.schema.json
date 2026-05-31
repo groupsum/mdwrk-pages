@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:awards",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Awards won by or for this item.",
+  "title": "awards",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hiringOrganization",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Organization or Person offering the job position.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "hiringOrganization",
+  "x-schemaorg-cardinality": "open-world"
+}

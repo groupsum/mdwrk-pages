@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:returnPolicyCategory",
+  "$ref": "../enumerations/MerchantReturnEnumeration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Specifies an applicable return policy (from an enumeration).",
+  "title": "returnPolicyCategory",
+  "x-schemaorg-cardinality": "open-world"
+}

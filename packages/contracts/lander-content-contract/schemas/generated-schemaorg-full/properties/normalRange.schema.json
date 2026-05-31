@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:normalRange",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Range of acceptable values for a typical patient, when applicable.",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/MedicalEnumeration.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "normalRange",
+  "x-schemaorg-cardinality": "open-world"
+}

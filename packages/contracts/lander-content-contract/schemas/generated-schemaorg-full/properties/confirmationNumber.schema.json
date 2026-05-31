@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:confirmationNumber",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A number that confirms the given order or payment has been received.",
+  "title": "confirmationNumber",
+  "x-schemaorg-cardinality": "open-world"
+}

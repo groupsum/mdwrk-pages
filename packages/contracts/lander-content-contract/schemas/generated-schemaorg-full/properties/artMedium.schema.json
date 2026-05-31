@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:artMedium",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The material used. (E.g. Oil, Watercolour, Acrylic, Linoprint, Marble, Cyanotype, Digital, Lithograph, DryPoint, Intaglio, Pastel, Woodcut, Pencil, Mixed Media, etc.)",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "artMedium",
+  "x-schemaorg-cardinality": "open-world"
+}

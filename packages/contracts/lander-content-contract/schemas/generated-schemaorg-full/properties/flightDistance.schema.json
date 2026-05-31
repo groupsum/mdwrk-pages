@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:flightDistance",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The distance of the flight.",
+  "oneOf": [
+    {
+      "$ref": "../types/Distance.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "flightDistance",
+  "x-schemaorg-cardinality": "open-world"
+}

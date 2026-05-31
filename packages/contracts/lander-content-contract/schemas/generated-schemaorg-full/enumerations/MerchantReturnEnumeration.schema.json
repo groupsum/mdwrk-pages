@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:MerchantReturnEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerates several kinds of product return policies.",
+  "enum": [],
+  "title": "MerchantReturnEnumeration",
+  "type": "string"
+}

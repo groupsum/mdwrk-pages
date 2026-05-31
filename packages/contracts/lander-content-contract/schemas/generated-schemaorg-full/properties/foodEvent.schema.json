@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:foodEvent",
+  "$ref": "../types/FoodEvent.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of location. The specific food event where the action occurred.",
+  "title": "foodEvent",
+  "x-schemaorg-cardinality": "open-world"
+}

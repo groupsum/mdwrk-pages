@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:estimatedFlightDuration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The estimated time the flight will take.",
+  "oneOf": [
+    {
+      "$ref": "../types/Duration.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "estimatedFlightDuration",
+  "x-schemaorg-cardinality": "open-world"
+}

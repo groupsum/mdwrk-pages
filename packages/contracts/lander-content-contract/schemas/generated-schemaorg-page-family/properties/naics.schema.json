@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:naics",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The North American Industry Classification System (NAICS) code for a particular organization or business person.",
+  "title": "naics",
+  "x-schemaorg-cardinality": "open-world"
+}

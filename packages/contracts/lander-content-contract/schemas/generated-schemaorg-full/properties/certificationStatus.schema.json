@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:certificationStatus",
+  "$ref": "../enumerations/CertificationStatusEnumeration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the current status of a certification: active or inactive. See also  [gs1:certificationStatus](https://www.gs1.org/voc/certificationStatus).",
+  "title": "certificationStatus",
+  "x-schemaorg-cardinality": "open-world"
+}

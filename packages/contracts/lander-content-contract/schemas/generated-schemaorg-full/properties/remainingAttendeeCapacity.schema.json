@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:remainingAttendeeCapacity",
+  "$ref": "../types/Integer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of attendee places for an event that remain unallocated.",
+  "title": "remainingAttendeeCapacity",
+  "x-schemaorg-cardinality": "open-world"
+}

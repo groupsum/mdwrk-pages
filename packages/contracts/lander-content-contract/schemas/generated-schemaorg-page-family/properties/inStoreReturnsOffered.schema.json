@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:inStoreReturnsOffered",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Are in-store returns offered? (For more advanced return methods use the [[returnMethod]] property.)",
+  "title": "inStoreReturnsOffered",
+  "x-schemaorg-cardinality": "open-world"
+}

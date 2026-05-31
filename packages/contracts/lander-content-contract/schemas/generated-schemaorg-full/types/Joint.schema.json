@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Joint",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "AnatomicalStructure.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Joint"
+        },
+        "biomechnicalClass": {
+          "$ref": "../properties/biomechnicalClass.schema.json",
+          "description": "The biomechanical properties of the bone."
+        },
+        "functionalClass": {
+          "$ref": "../properties/functionalClass.schema.json",
+          "description": "The degree of mobility the joint allows."
+        },
+        "structuralClass": {
+          "$ref": "../properties/structuralClass.schema.json",
+          "description": "The name given to how bone physically connects to each other."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The anatomical location at which two or more bones make contact.",
+  "title": "Joint"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:jobDuration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The expected duration of an employment offer as advertised by the employer. Relevant for job postings that have a clearly defined period in mind such as seasonal work, substitutes for maternal leave or any other temporary employment.",
+  "oneOf": [
+    {
+      "$ref": "../types/Duration.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "jobDuration",
+  "x-schemaorg-cardinality": "open-world"
+}

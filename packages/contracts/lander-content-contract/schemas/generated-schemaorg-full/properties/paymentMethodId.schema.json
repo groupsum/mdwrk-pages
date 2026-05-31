@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:paymentMethodId",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An identifier for the method of payment used (e.g. the last 4 digits of the credit card).",
+  "title": "paymentMethodId",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:codeRepository",
+  "$ref": "../types/URL.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Link to the repository where the un-compiled, human readable code and related code is located (SVN, GitHub, CodePlex).",
+  "title": "codeRepository",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:inker",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The individual who traces over the pencil drawings in ink after pencils are complete.",
+  "title": "inker",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:fuelType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle.",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/QualitativeValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "fuelType",
+  "x-schemaorg-cardinality": "open-world"
+}

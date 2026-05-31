@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:buyer",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of participant. The participant/person/organization that bought the object.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "buyer",
+  "x-schemaorg-cardinality": "open-world"
+}

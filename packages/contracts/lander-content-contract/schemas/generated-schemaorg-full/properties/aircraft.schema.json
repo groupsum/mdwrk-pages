@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:aircraft",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The kind of aircraft (e.g., \"Boeing 747\").",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/Vehicle.schema.json"
+    }
+  ],
+  "title": "aircraft",
+  "x-schemaorg-cardinality": "open-world"
+}

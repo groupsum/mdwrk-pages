@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Nursing",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalBusiness.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Nursing"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A health profession of a person formally educated and trained in the care of the sick or infirm person.",
+  "title": "Nursing"
+}

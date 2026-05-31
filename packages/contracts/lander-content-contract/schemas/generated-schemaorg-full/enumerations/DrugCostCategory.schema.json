@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:DrugCostCategory",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerated categories of medical drug costs.",
+  "enum": [],
+  "title": "DrugCostCategory",
+  "type": "string"
+}

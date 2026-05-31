@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:disambiguatingDescription",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.",
+  "title": "disambiguatingDescription",
+  "x-schemaorg-cardinality": "open-world"
+}

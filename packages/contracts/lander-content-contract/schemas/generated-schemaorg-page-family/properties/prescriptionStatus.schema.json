@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:prescriptionStatus",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the status of drug prescription, e.g. local catalogs classifications or whether the drug is available by prescription or over-the-counter, etc.",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/DrugPrescriptionStatus.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "prescriptionStatus",
+  "x-schemaorg-cardinality": "open-world"
+}

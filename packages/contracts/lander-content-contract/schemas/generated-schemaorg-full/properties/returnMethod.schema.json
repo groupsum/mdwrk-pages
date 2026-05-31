@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:returnMethod",
+  "$ref": "../enumerations/ReturnMethodEnumeration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type of return method offered, specified from an enumeration.",
+  "title": "returnMethod",
+  "x-schemaorg-cardinality": "open-world"
+}

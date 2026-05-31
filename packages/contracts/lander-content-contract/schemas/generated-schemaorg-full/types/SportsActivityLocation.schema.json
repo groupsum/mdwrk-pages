@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:SportsActivityLocation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "LocalBusiness.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "SportsActivityLocation"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A sports location, such as a playing field.",
+  "title": "SportsActivityLocation"
+}

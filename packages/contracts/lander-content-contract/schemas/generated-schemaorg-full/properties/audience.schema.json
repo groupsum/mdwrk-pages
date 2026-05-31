@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:audience",
+  "$ref": "../types/Audience.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An intended audience, i.e. a group for whom something was created.",
+  "title": "audience",
+  "x-schemaorg-cardinality": "open-world"
+}

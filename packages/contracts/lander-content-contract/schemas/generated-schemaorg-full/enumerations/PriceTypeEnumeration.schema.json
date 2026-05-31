@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:PriceTypeEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerates different price types, for example list price, invoice price, and sale price.",
+  "enum": [],
+  "title": "PriceTypeEnumeration",
+  "type": "string"
+}

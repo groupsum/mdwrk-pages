@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:serviceSmsNumber",
+  "$ref": "../types/ContactPoint.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number to access the service by text message.",
+  "title": "serviceSmsNumber",
+  "x-schemaorg-cardinality": "open-world"
+}

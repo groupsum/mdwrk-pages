@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:cvdNumC19HOPats",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "numc19hopats - HOSPITAL ONSET: Patients hospitalized in an NHSN inpatient care location with onset of suspected or confirmed COVID-19 14 or more days after hospitalization.",
+  "title": "cvdNumC19HOPats",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:itemCondition",
+  "$ref": "../enumerations/OfferItemCondition.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A predefined value from OfferItemCondition specifying the condition of the product or service, or the products or services included in the offer. Also used for product return policies to specify the condition of products accepted for returns.",
+  "title": "itemCondition",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:mealService",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Description of the meals that will be provided or available for purchase.",
+  "title": "mealService",
+  "x-schemaorg-cardinality": "open-world"
+}

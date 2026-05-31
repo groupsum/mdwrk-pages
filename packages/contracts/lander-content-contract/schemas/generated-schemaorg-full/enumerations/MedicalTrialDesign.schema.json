@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:MedicalTrialDesign",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Design models for medical trials. Enumerated type.",
+  "enum": [],
+  "title": "MedicalTrialDesign",
+  "type": "string"
+}

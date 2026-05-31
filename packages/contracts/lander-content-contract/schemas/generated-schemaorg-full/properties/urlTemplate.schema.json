@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:urlTemplate",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An url template (RFC6570) that will be used to construct the target of the execution of the action.",
+  "title": "urlTemplate",
+  "x-schemaorg-cardinality": "open-world"
+}

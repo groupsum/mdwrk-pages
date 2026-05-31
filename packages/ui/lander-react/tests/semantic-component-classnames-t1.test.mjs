@@ -3,63 +3,45 @@ import test from "node:test";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { importLanderReactDist } from "./load-dist.mjs";
+import { semanticFixtures } from "./semantic-fixtures.mjs";
 
-test("T1: fused semantic className support composes with semantic props, overrides, and JSON-LD emission settings", async () => {
+function extractShellClass(markup) {
+  const match = markup.match(/<(?:article|section|nav|aside|div) class="([^"]*lander-semantic[^"]*)"/u);
+  assert.ok(match, "expected semantic shell class");
+  return match[1];
+}
+
+test("T1: fused semantic className support composes with semantic props, overrides, and JSON-LD emission settings for all governed core kinds", async () => {
   const mod = await importLanderReactDist();
 
-  const articleMarkup = renderToStaticMarkup(
-    React.createElement(mod.Article, {
-      title: "Prompt Delivery Studio",
-      description: "Ship prompt systems.",
-      author: { name: "MDWRK" },
-      className: "article-shell",
-      structuredDataOverrides: { headline: "Override headline" },
-      body: React.createElement("p", null, "Article body"),
-    }),
-  );
-  assert.ok(articleMarkup.includes('class="lander-semantic lander-semantic--article article-shell"'));
-  assert.ok(articleMarkup.includes("\"headline\":\"Override headline\""));
-  assert.ok(articleMarkup.includes(">Prompt Delivery Studio<"));
+  for (const fixture of semanticFixtures) {
+    const shellClass = `${fixture.name.toLowerCase()}-shell`;
+    const overrideMarkup = renderToStaticMarkup(
+      React.createElement(mod[fixture.name], {
+        ...fixture.props,
+        className: shellClass,
+        structuredDataOverrides: fixture.override,
+      }),
+    );
+    const classAttr = extractShellClass(overrideMarkup);
+    assert.ok(classAttr.includes(shellClass), `${fixture.name} should preserve className with overrides`);
+    assert.ok(overrideMarkup.includes(fixture.overrideSnippet), `${fixture.name} should still emit override payload`);
+    for (const snippet of fixture.visible) {
+      assert.ok(overrideMarkup.includes(snippet), `${fixture.name} should keep visible snippet with overrides: ${snippet}`);
+    }
 
-  const productMarkup = renderToStaticMarkup(
-    React.createElement(mod.Product, {
-      name: "Prompt Delivery Studio",
-      brand: { name: "MDWRK" },
-      price: 49,
-      priceCurrency: "USD",
-      offersCta: { label: "Buy now", href: "/buy" },
-      className: "product-shell",
-      structuredDataOverrides: { offers: { url: "https://override.test/buy" } },
-    }),
-  );
-  assert.ok(productMarkup.includes('class="lander-semantic lander-semantic--product product-shell"'));
-  assert.ok(productMarkup.includes("\"url\":\"https://override.test/buy\""));
-  assert.ok(productMarkup.includes(">Prompt Delivery Studio<"));
-
-  const courseMarkup = renderToStaticMarkup(
-    React.createElement(mod.Course, {
-      name: "Prompt Delivery 101",
-      provider: { name: "MDWRK", url: "https://mdwrk.test/provider" },
-      modules: [{ title: "Module A", summary: "Foundations." }],
-      className: "course-shell",
-      structuredDataOverrides: { provider: { url: "https://override.test/provider" } },
-    }),
-  );
-  assert.ok(courseMarkup.includes('class="lander-semantic lander-semantic--course course-shell"'));
-  assert.ok(courseMarkup.includes("\"url\":\"https://override.test/provider\""));
-  assert.ok(courseMarkup.includes("Module A"));
-
-  const hiddenQuizMarkup = renderToStaticMarkup(
-    React.createElement(mod.Quiz, {
-      name: "Prompt QA",
-      className: "quiz-shell",
-      emitStructuredData: false,
-      questions: [{ prompt: "What is latency?", answer: "Elapsed time.", alternatives: ["A timeout"] }],
-      structuredDataOverrides: { hasPart: [{ acceptedAnswer: { text: "Override answer" } }] },
-    }),
-  );
-  assert.ok(hiddenQuizMarkup.includes('class="lander-semantic lander-semantic--quiz quiz-shell"'));
-  assert.equal(hiddenQuizMarkup.includes("application/ld+json"), false);
-  assert.ok(hiddenQuizMarkup.includes("Elapsed time."));
-  assert.equal(hiddenQuizMarkup.includes("\"text\":\"Override answer\""), false);
+    const hiddenMarkup = renderToStaticMarkup(
+      React.createElement(mod[fixture.name], {
+        ...fixture.props,
+        className: shellClass,
+        emitStructuredData: false,
+      }),
+    );
+    const hiddenClass = extractShellClass(hiddenMarkup);
+    assert.ok(hiddenClass.includes(shellClass), `${fixture.name} should preserve className when JSON-LD is hidden`);
+    assert.equal(hiddenMarkup.includes("application/ld+json"), false, `${fixture.name} should suppress JSON-LD`);
+    for (const snippet of fixture.visible) {
+      assert.ok(hiddenMarkup.includes(snippet), `${fixture.name} should keep visible snippet with hidden JSON-LD: ${snippet}`);
+    }
+  }
 });

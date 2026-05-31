@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:characterAttribute",
+  "$ref": "../types/Thing.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A piece of data that represents a particular aspect of a fictional character (skill, power, character points, advantage, disadvantage).",
+  "title": "characterAttribute",
+  "x-schemaorg-cardinality": "open-world"
+}

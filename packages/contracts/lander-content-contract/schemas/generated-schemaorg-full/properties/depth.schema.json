@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:depth",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The depth of the item.",
+  "oneOf": [
+    {
+      "$ref": "../types/Distance.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "depth",
+  "x-schemaorg-cardinality": "open-world"
+}

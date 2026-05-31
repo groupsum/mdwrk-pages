@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:medicineSystem",
+  "$ref": "../enumerations/MedicineSystem.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc.",
+  "title": "medicineSystem",
+  "x-schemaorg-cardinality": "open-world"
+}

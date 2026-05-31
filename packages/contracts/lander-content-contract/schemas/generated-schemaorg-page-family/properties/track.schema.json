@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:track",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A music recording (track)&#x2014;usually a single song. If an ItemList is given, the list should contain items of type MusicRecording.",
+  "oneOf": [
+    {
+      "$ref": "../types/ItemList.schema.json"
+    },
+    {
+      "$ref": "../types/MusicRecording.schema.json"
+    }
+  ],
+  "title": "track",
+  "x-schemaorg-cardinality": "open-world"
+}

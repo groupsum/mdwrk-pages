@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:mainContentOfPage",
+  "$ref": "../types/WebPageElement.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates if this web page element is the main subject of the page.",
+  "title": "mainContentOfPage",
+  "x-schemaorg-cardinality": "open-world"
+}

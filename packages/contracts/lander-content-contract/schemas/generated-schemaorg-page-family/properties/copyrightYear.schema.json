@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:copyrightYear",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The year during which the claimed copyright for the CreativeWork was first asserted.",
+  "title": "copyrightYear",
+  "x-schemaorg-cardinality": "open-world"
+}

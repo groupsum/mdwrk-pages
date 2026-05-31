@@ -1,0 +1,47 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Game",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Game"
+        },
+        "characterAttribute": {
+          "$ref": "../properties/characterAttribute.schema.json",
+          "description": "A piece of data that represents a particular aspect of a fictional character (skill, power, character points, advantage, disadvantage)."
+        },
+        "gameItem": {
+          "$ref": "../properties/gameItem.schema.json",
+          "description": "An item is an object within the game world that can be collected by a player or, occasionally, a non-player character."
+        },
+        "gameLocation": {
+          "$ref": "../properties/gameLocation.schema.json",
+          "description": "Real or fictional location of the game (or part of game)."
+        },
+        "numberOfPlayers": {
+          "$ref": "../properties/numberOfPlayers.schema.json",
+          "description": "Indicate how many people can play this game (minimum, maximum, or range)."
+        },
+        "quest": {
+          "$ref": "../properties/quest.schema.json",
+          "description": "The task that a player-controlled character, or group of characters may complete in order to gain a reward."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The Game type represents things which are games. These are typically rule-governed recreational activities, e.g. role-playing games in which players assume the role of characters in a fictional setting.",
+  "title": "Game"
+}

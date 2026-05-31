@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:suggestedGender",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The suggested gender of the intended person or audience, for example \"male\", \"female\", or \"unisex\".",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/GenderType.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "suggestedGender",
+  "x-schemaorg-cardinality": "open-world"
+}

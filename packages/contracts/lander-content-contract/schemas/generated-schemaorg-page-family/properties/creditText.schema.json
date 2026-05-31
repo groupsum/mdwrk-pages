@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:creditText",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Text that can be used to credit person(s) and/or organization(s) associated with a published Creative Work.",
+  "title": "creditText",
+  "x-schemaorg-cardinality": "open-world"
+}

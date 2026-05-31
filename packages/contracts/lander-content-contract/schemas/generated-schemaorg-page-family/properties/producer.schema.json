@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:producer",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The person or organization who produced the work (e.g. music album, movie, TV/radio series etc.).",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "producer",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:spokenByCharacter",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The (e.g. fictional) character, Person or Organization to whom the quotation is attributed within the containing CreativeWork.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "spokenByCharacter",
+  "x-schemaorg-cardinality": "open-world"
+}

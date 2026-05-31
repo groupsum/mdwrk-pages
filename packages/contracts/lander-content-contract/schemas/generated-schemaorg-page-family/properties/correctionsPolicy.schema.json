@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:correctionsPolicy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "For an [[Organization]] (e.g. [[NewsMediaOrganization]]), a statement describing (in news media, the newsroom\u2019s) disclosure and correction policy for errors.",
+  "oneOf": [
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "correctionsPolicy",
+  "x-schemaorg-cardinality": "open-world"
+}

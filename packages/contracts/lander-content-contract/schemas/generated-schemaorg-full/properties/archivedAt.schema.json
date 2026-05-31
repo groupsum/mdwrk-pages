@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:archivedAt",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates a page or other link involved in archival of a [[CreativeWork]]. In the case of [[MediaReview]], the items in a [[MediaReviewItem]] may often become inaccessible, but be archived by archival, journalistic, activist, or law enforcement organizations. In such cases, the referenced page may not directly publish the content.",
+  "oneOf": [
+    {
+      "$ref": "../types/URL.schema.json"
+    },
+    {
+      "$ref": "../types/WebPage.schema.json"
+    }
+  ],
+  "title": "archivedAt",
+  "x-schemaorg-cardinality": "open-world"
+}

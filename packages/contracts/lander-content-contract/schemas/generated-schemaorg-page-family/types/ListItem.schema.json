@@ -1,0 +1,43 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ListItem",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ListItem"
+        },
+        "item": {
+          "$ref": "../properties/item.schema.json",
+          "description": "An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists')."
+        },
+        "nextItem": {
+          "$ref": "../properties/nextItem.schema.json",
+          "description": "A link to the ListItem that follows the current one."
+        },
+        "position": {
+          "$ref": "../properties/position.schema.json",
+          "description": "The position of an item in a series or sequence of items."
+        },
+        "previousItem": {
+          "$ref": "../properties/previousItem.schema.json",
+          "description": "A link to the ListItem that precedes the current one."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An list item, e.g. a step in a checklist or how-to description.",
+  "title": "ListItem"
+}

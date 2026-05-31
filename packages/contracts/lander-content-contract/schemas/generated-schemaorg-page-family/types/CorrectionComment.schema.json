@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:CorrectionComment",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Comment.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "CorrectionComment"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A [[comment]] that corrects [[CreativeWork]].",
+  "title": "CorrectionComment"
+}

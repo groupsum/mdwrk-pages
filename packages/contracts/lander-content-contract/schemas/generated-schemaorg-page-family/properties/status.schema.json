@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:status",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The status of the study (enumerated).",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/EventStatusType.schema.json"
+    },
+    {
+      "$ref": "../enumerations/MedicalStudyStatus.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "status",
+  "x-schemaorg-cardinality": "open-world"
+}

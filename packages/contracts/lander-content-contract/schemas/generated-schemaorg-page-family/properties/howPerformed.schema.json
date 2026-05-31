@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:howPerformed",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "How the procedure is performed.",
+  "title": "howPerformed",
+  "x-schemaorg-cardinality": "open-world"
+}

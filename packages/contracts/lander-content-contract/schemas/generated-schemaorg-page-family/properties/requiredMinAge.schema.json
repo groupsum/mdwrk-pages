@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:requiredMinAge",
+  "$ref": "../types/Integer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Audiences defined by a person's minimum age.",
+  "title": "requiredMinAge",
+  "x-schemaorg-cardinality": "open-world"
+}

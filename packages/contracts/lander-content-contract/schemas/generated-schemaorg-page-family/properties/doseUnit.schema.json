@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:doseUnit",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The unit of the dose, e.g. 'mg'.",
+  "title": "doseUnit",
+  "x-schemaorg-cardinality": "open-world"
+}

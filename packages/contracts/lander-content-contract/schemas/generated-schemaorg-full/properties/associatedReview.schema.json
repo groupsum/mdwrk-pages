@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:associatedReview",
+  "$ref": "../types/Review.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An associated [[Review]].",
+  "title": "associatedReview",
+  "x-schemaorg-cardinality": "open-world"
+}

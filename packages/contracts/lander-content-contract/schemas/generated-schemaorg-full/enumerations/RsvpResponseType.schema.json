@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:RsvpResponseType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "RsvpResponseType is an enumeration type whose instances represent responding to an RSVP request.",
+  "enum": [],
+  "title": "RsvpResponseType",
+  "type": "string"
+}

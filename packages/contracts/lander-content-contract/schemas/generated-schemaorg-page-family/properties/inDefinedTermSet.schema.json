@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:inDefinedTermSet",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A [[DefinedTermSet]] that contains this term.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTermSet.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "inDefinedTermSet",
+  "x-schemaorg-cardinality": "open-world"
+}

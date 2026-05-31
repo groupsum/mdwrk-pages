@@ -1,0 +1,51 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-real-estate-listing-padding: 1.7rem;
+  --mdp-semantic-real-estate-listing-gap: 1rem;
+  --mdp-semantic-real-estate-listing-radius: 1.4rem;
+  --mdp-semantic-real-estate-listing-surface: linear-gradient(180deg, color-mix(in srgb, var(--lander-panel) 95%, #f7f3e8 5%), color-mix(in srgb, var(--lander-panel) 88%, #eadbb7 12%));
+  --mdp-semantic-real-estate-listing-border: color-mix(in srgb, var(--lander-border) 70%, #9f8451 30%);
+  --mdp-semantic-real-estate-listing-shadow: var(--mdwrk-shadow-strong);
+}
+
+.lander-semantic--real-estate-listing {
+  display: grid;
+  gap: var(--mdp-semantic-real-estate-listing-gap);
+  padding: var(--mdp-semantic-real-estate-listing-padding);
+  border: 1px solid var(--mdp-semantic-real-estate-listing-border);
+  border-radius: var(--mdp-semantic-real-estate-listing-radius);
+  background: var(--mdp-semantic-real-estate-listing-surface);
+  box-shadow: var(--mdp-semantic-real-estate-listing-shadow);
+}
+
+.lander-semantic--real-estate-listing .lander-semantic__header,
+.lander-semantic--real-estate-listing .lander-semantic__body,
+.lander-semantic--real-estate-listing .lander-semantic__actions,
+.lander-semantic--real-estate-listing .lander-semantic__footer,
+.lander-semantic--real-estate-listing .lander-semantic__meta {
+  display: grid;
+  gap: var(--mdwrk-space-3);
+}
+
+.lander-semantic--real-estate-listing .lander-semantic__eyebrow,
+.lander-semantic--real-estate-listing .lander-semantic__title,
+.lander-semantic--real-estate-listing .lander-semantic__subtitle,
+.lander-semantic--real-estate-listing .lander-semantic__description,
+.lander-semantic--real-estate-listing .lander-semantic__image {
+  margin: 0;
+}
+
+.lander-semantic--real-estate-listing .lander-semantic__listing-offers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 0.9rem;
+}
+
+.lander-semantic--real-estate-listing .lander-semantic__listing-offer-card {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1rem 1.05rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.84);
+}

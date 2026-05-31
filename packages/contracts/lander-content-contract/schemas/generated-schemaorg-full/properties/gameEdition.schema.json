@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:gameEdition",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The edition of a video game.",
+  "title": "gameEdition",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:PriceComponentTypeEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerates different price components that together make up the total price for an offered product.",
+  "enum": [],
+  "title": "PriceComponentTypeEnumeration",
+  "type": "string"
+}

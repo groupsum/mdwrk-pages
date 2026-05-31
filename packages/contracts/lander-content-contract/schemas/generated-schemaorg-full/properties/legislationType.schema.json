@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:legislationType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type of the legislation. Examples of values are \"law\", \"act\", \"directive\", \"decree\", \"regulation\", \"statutory instrument\", \"loi organique\", \"r\u00e8glement grand-ducal\", etc., depending on the country.",
+  "oneOf": [
+    {
+      "$ref": "../types/CategoryCode.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "legislationType",
+  "x-schemaorg-cardinality": "open-world"
+}

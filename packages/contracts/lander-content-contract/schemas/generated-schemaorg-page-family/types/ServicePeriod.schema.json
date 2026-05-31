@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ServicePeriod",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "StructuredValue.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ServicePeriod"
+        },
+        "businessDays": {
+          "$ref": "../properties/businessDays.schema.json",
+          "description": "Days of the week when the merchant typically operates, indicated via opening hours markup."
+        },
+        "cutoffTime": {
+          "$ref": "../properties/cutoffTime.schema.json",
+          "description": "Order cutoff time allows merchants to describe the time after which they will no longer process orders received on that day. For orders processed after cutoff time, one day gets added to the delivery time estimate. This property is expected to be most typically used via the [[ShippingRateSettings]] publication pattern. The time is indicated using the ISO-8601 Time format, e.g. \"23:30:00-05:00\" would represent 6:30 pm Eastern Standard Time (EST) which is 5 hours behind Coordinated Universal Time (UTC)."
+        },
+        "duration": {
+          "$ref": "../properties/duration.schema.json",
+          "description": "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601)."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "ServicePeriod represents a duration with some constraints about cutoff time and business days. This is used e.g. in shipping for handling times or transit time.",
+  "title": "ServicePeriod"
+}

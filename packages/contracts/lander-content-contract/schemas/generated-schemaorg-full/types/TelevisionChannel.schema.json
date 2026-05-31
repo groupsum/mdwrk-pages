@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:TelevisionChannel",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "BroadcastChannel.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "TelevisionChannel"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A unique instance of a television BroadcastService on a CableOrSatelliteService lineup.",
+  "title": "TelevisionChannel"
+}

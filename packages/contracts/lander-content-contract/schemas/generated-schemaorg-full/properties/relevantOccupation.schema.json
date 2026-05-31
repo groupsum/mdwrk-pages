@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:relevantOccupation",
+  "$ref": "../types/Occupation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The Occupation for the JobPosting.",
+  "title": "relevantOccupation",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:certificationIdentification",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Identifier of a certification instance (as registered with an independent certification body). Typically this identifier can be used to consult and verify the certification instance. See also [gs1:certificationIdentification](https://www.gs1.org/voc/certificationIdentification).",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "certificationIdentification",
+  "x-schemaorg-cardinality": "open-world"
+}

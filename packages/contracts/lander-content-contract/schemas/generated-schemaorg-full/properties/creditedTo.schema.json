@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:creditedTo",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The group the release is credited to if different than the byArtist. For example, Red and Blue is credited to \"Stefani Germanotta Band\", but by Lady Gaga.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "creditedTo",
+  "x-schemaorg-cardinality": "open-world"
+}

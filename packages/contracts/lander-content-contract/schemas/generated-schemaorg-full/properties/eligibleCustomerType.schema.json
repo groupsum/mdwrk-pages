@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:eligibleCustomerType",
+  "$ref": "../enumerations/BusinessEntityType.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type(s) of customers for which the given offer is valid.",
+  "title": "eligibleCustomerType",
+  "x-schemaorg-cardinality": "open-world"
+}

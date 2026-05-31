@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ScreeningEvent",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Event.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ScreeningEvent"
+        },
+        "subtitleLanguage": {
+          "$ref": "../properties/subtitleLanguage.schema.json",
+          "description": "Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47)."
+        },
+        "videoFormat": {
+          "$ref": "../properties/videoFormat.schema.json",
+          "description": "The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.)."
+        },
+        "workPresented": {
+          "$ref": "../properties/workPresented.schema.json",
+          "description": "The movie presented during this event."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A screening of a movie or other video.",
+  "title": "ScreeningEvent"
+}

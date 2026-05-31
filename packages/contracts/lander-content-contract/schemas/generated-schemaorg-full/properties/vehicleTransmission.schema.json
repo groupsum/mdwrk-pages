@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:vehicleTransmission",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type of component used for transmitting the power from a rotating power source to the wheels or other relevant component(s) (\"gearbox\" for cars).",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/QualitativeValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "vehicleTransmission",
+  "x-schemaorg-cardinality": "open-world"
+}

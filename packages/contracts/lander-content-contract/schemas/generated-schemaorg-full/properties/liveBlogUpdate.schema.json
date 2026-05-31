@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:liveBlogUpdate",
+  "$ref": "../types/BlogPosting.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An update to the LiveBlog.",
+  "title": "liveBlogUpdate",
+  "x-schemaorg-cardinality": "open-world"
+}

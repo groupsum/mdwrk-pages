@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:defaultValue",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The default value of the input.  For properties that expect a literal, the default is a literal value, for properties that expect an object, it's an ID reference to one of the current values.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/Thing.schema.json"
+    }
+  ],
+  "title": "defaultValue",
+  "x-schemaorg-cardinality": "open-world"
+}

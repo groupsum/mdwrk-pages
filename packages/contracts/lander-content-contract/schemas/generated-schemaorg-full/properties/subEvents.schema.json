@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:subEvents",
+  "$ref": "../types/Event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Events that are a part of this event. For example, a conference event includes many presentations, each subEvents of the conference.",
+  "title": "subEvents",
+  "x-schemaorg-cardinality": "open-world"
+}

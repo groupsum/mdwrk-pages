@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:recourseLoan",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The only way you get the money back in the event of default is the security. Recourse is where you still have the opportunity to go back to the borrower for the rest of the money.",
+  "title": "recourseLoan",
+  "x-schemaorg-cardinality": "open-world"
+}

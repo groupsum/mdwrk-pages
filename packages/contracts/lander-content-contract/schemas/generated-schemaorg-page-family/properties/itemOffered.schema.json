@@ -1,0 +1,30 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:itemOffered",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An item being offered (or demanded). The transactional nature of the offer or demand is documented using [[businessFunction]], e.g. sell, lease etc. While several common expected types are listed explicitly in this definition, others can be used. Using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.",
+  "oneOf": [
+    {
+      "$ref": "../types/AggregateOffer.schema.json"
+    },
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../types/Event.schema.json"
+    },
+    {
+      "$ref": "../types/MenuItem.schema.json"
+    },
+    {
+      "$ref": "../types/Product.schema.json"
+    },
+    {
+      "$ref": "../types/Service.schema.json"
+    },
+    {
+      "$ref": "../types/Trip.schema.json"
+    }
+  ],
+  "title": "itemOffered",
+  "x-schemaorg-cardinality": "open-world"
+}

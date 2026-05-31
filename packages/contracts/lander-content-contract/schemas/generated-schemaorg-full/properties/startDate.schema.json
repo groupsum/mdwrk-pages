@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:startDate",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "startDate",
+  "x-schemaorg-cardinality": "open-world"
+}

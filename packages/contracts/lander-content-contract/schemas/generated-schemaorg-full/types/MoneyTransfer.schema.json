@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MoneyTransfer",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "TransferAction.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MoneyTransfer"
+        },
+        "amount": {
+          "$ref": "../properties/amount.schema.json",
+          "description": "The amount of money."
+        },
+        "beneficiaryBank": {
+          "$ref": "../properties/beneficiaryBank.schema.json",
+          "description": "A bank or bank\u2019s branch, financial institution or international financial institution operating the beneficiary\u2019s bank account or releasing funds for the beneficiary."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The act of transferring money from one place to another place. This may occur electronically or physically.",
+  "title": "MoneyTransfer"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:cvdNumTotBeds",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "numtotbeds - ALL HOSPITAL BEDS: Total number of all inpatient and outpatient beds, including all staffed, ICU, licensed, and overflow (surge) beds used for inpatients or outpatients.",
+  "title": "cvdNumTotBeds",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:eventStatus",
+  "$ref": "../enumerations/EventStatusType.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An eventStatus of an event represents its status; particularly useful when an event is cancelled or rescheduled.",
+  "title": "eventStatus",
+  "x-schemaorg-cardinality": "open-world"
+}

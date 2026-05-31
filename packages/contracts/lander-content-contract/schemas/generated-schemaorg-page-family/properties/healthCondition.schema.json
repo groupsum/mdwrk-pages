@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:healthCondition",
+  "$ref": "../types/MedicalCondition.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Specifying the health condition(s) of a patient, medical study, or other target audience.",
+  "title": "healthCondition",
+  "x-schemaorg-cardinality": "open-world"
+}

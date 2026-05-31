@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:evidenceLevel",
+  "$ref": "../enumerations/MedicalEvidenceLevel.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Strength of evidence of the data used to formulate the guideline (enumerated).",
+  "title": "evidenceLevel",
+  "x-schemaorg-cardinality": "open-world"
+}

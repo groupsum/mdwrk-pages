@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:drugUnit",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The unit in which the drug is measured, e.g. '5 mg tablet'.",
+  "title": "drugUnit",
+  "x-schemaorg-cardinality": "open-world"
+}

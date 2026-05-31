@@ -1,112 +1,116 @@
 {
+  "$id": "urn:groupsum:schemaorg:class:OfferShippingDetails",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.mdwrk.com/structured-data/offer-shipping-details.schema.json",
-  "title": "Structured Data OfferShippingDetails Input",
+  "title": "OfferShippingDetails",
+  "description": "OfferShippingDetails represents information about shipping destinations.\n\nMultiple of these entities can be used to represent different shipping rates for different destinations:\n\nOne entity for Alaska/Hawaii. A different one for continental US. A different one for all France.\n\nMultiple of these entities can be used to represent different shipping costs and delivery times.\n\nTwo entities that are identical but differ in rate and time:\n\nE.g. Cheaper and slower: $5 in 5-7 days\nor Fast and expensive: $15 in 1-2 days.",
   "type": "object",
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ],
   "properties": {
-    "id": {
-      "type": "string"
+    "@context": {
+      "const": "https://schema.org"
     },
-    "name": {
-      "type": "string",
-      "minLength": 1
+    "@type": {
+      "const": "OfferShippingDetails"
+    },
+    "additionalType": {
+      "$ref": "../generated-schemaorg-full/properties/additionalType.schema.json",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
+    },
+    "alternateName": {
+      "$ref": "../generated-schemaorg-full/properties/alternateName.schema.json",
+      "description": "An alias for the item."
     },
     "description": {
-      "type": "string"
+      "$ref": "../generated-schemaorg-full/properties/description.schema.json",
+      "description": "A description of the item."
+    },
+    "disambiguatingDescription": {
+      "$ref": "../generated-schemaorg-full/properties/disambiguatingDescription.schema.json",
+      "description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."
+    },
+    "identifier": {
+      "$ref": "../generated-schemaorg-full/properties/identifier.schema.json",
+      "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        "
+    },
+    "image": {
+      "$ref": "../generated-schemaorg-full/properties/image.schema.json",
+      "description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
+    },
+    "mainEntityOfPage": {
+      "$ref": "../generated-schemaorg-full/properties/mainEntityOfPage.schema.json",
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
+    },
+    "name": {
+      "$ref": "../generated-schemaorg-full/properties/name.schema.json",
+      "description": "The name of the item."
+    },
+    "owner": {
+      "$ref": "../generated-schemaorg-full/properties/owner.schema.json",
+      "description": "A person or organization who owns this Thing."
+    },
+    "potentialAction": {
+      "$ref": "../generated-schemaorg-full/properties/potentialAction.schema.json",
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
+    },
+    "sameAs": {
+      "$ref": "../generated-schemaorg-full/properties/sameAs.schema.json",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."
+    },
+    "subjectOf": {
+      "$ref": "../generated-schemaorg-full/properties/subjectOf.schema.json",
+      "description": "A CreativeWork or Event about this Thing."
     },
     "url": {
-      "type": "string",
-      "minLength": 1
+      "$ref": "../generated-schemaorg-full/properties/url.schema.json",
+      "description": "URL of the item."
+    },
+    "deliveryTime": {
+      "$ref": "../generated-schemaorg-full/properties/deliveryTime.schema.json",
+      "description": "The total delay between the receipt of the order and the goods reaching the final customer."
+    },
+    "depth": {
+      "$ref": "../generated-schemaorg-full/properties/depth.schema.json",
+      "description": "The depth of the item."
+    },
+    "doesNotShip": {
+      "$ref": "../generated-schemaorg-full/properties/doesNotShip.schema.json",
+      "description": "Indicates when shipping to a particular [[shippingDestination]] is not available."
+    },
+    "hasShippingService": {
+      "$ref": "../generated-schemaorg-full/properties/hasShippingService.schema.json",
+      "description": "Specification of a shipping service offered by the organization."
+    },
+    "height": {
+      "$ref": "../generated-schemaorg-full/properties/height.schema.json",
+      "description": "The height of the item."
     },
     "shippingDestination": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1
-        },
-        {
-          "$ref": "#/$defs/thingRef"
-        }
-      ]
+      "$ref": "../generated-schemaorg-full/properties/shippingDestination.schema.json",
+      "description": "indicates (possibly multiple) shipping destinations. These can be defined in several ways, e.g. postalCode ranges."
+    },
+    "shippingOrigin": {
+      "$ref": "../generated-schemaorg-full/properties/shippingOrigin.schema.json",
+      "description": "Indicates the origin of a shipment, i.e. where it should be coming from."
     },
     "shippingRate": {
-      "$ref": "#/$defs/offerLike"
+      "$ref": "../generated-schemaorg-full/properties/shippingRate.schema.json",
+      "description": "The shipping rate is the cost of shipping to the specified destination. Typically, the maxValue and currency values (of the [[MonetaryAmount]]) are most appropriate."
+    },
+    "validForMemberTier": {
+      "$ref": "../generated-schemaorg-full/properties/validForMemberTier.schema.json",
+      "description": "The membership program tier(s) an Offer (or a PriceSpecification, OfferShippingDetails, or MerchantReturnPolicy under an Offer) is valid for."
+    },
+    "weight": {
+      "$ref": "../generated-schemaorg-full/properties/weight.schema.json",
+      "description": "The weight of the product or person."
+    },
+    "width": {
+      "$ref": "../generated-schemaorg-full/properties/width.schema.json",
+      "description": "The width of the item."
     }
   },
-  "$defs": {
-    "thingRef": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "thingRef",
-      "title": "Structured Data Thing Reference",
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      }
-    },
-    "offerLike": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "offerLike",
-      "title": "Offer-like node",
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "type": "string"
-        },
-        "price": {
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string",
-              "minLength": 1
-            }
-          ]
-        },
-        "priceCurrency": {
-          "type": "string"
-        },
-        "availability": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        },
-        "seller": {
-          "anyOf": [
-            {
-              "type": "string",
-              "minLength": 1
-            },
-            {
-              "$ref": "#/$defs/thingRef"
-            }
-          ]
-        }
-      }
-    }
-  }
+  "required": [
+    "@type"
+  ],
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
 }

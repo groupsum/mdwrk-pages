@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:numberOfBeds",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The quantity of the given bed type available in the HotelRoom, Suite, House, or Apartment.",
+  "title": "numberOfBeds",
+  "x-schemaorg-cardinality": "open-world"
+}

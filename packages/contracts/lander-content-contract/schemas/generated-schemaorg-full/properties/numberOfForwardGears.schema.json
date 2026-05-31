@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:numberOfForwardGears",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The total number of forward gears available for the transmission system of the vehicle.\\n\\nTypical unit code(s): C62.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "numberOfForwardGears",
+  "x-schemaorg-cardinality": "open-world"
+}

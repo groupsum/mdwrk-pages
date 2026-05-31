@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-place-padding: 1rem;
+  --mdp-semantic-place-gap: 0.75rem;
+  --mdp-semantic-place-radius: 1rem;
+  --mdp-semantic-place-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-place-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-place-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--place {
+  padding: var(--mdp-semantic-place-padding);
+  gap: var(--mdp-semantic-place-gap);
+  border-radius: var(--mdp-semantic-place-radius);
+  background: var(--mdp-semantic-place-surface);
+  border: 1px solid var(--mdp-semantic-place-border);
+  box-shadow: var(--mdp-semantic-place-shadow);
+}
+
+.lander-semantic--place .lander-semantic__header,
+.lander-semantic--place .lander-semantic__body,
+.lander-semantic--place .lander-semantic__footer,
+.lander-semantic--place .lander-semantic__actions {
+  gap: var(--mdp-semantic-place-gap);
+}
+
+.lander-semantic--place .lander-semantic__header,
+.lander-semantic--place .lander-semantic__eyebrow,
+.lander-semantic--place .lander-semantic__title,
+.lander-semantic--place .lander-semantic__subtitle,
+.lander-semantic--place .lander-semantic__description,
+.lander-semantic--place .lander-semantic__meta,
+.lander-semantic--place .lander-semantic__image,
+.lander-semantic--place .lander-semantic__body,
+.lander-semantic--place .lander-semantic__actions,
+.lander-semantic--place .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--place .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--place .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--place .lander-semantic__subtitle,
+.lander-semantic--place .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--place .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-place-gap) * 0.8);
+}
+
+.lander-semantic--place .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-place-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--place .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--place .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--place .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

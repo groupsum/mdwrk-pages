@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:refundType",
+  "$ref": "../enumerations/RefundTypeEnumeration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A refund type, from an enumerated list.",
+  "title": "refundType",
+  "x-schemaorg-cardinality": "open-world"
+}

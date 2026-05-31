@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:greaterOrEqual",
+  "$ref": "../enumerations/QualitativeValue.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "This ordering relation for qualitative values indicates that the subject is greater than or equal to the object.",
+  "title": "greaterOrEqual",
+  "x-schemaorg-cardinality": "open-world"
+}

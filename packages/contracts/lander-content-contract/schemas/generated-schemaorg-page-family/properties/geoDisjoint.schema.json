@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:geoDisjoint",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint: \"they have no point in common. They form a set of disconnected geometries.\" (A symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).)",
+  "oneOf": [
+    {
+      "$ref": "../types/GeospatialGeometry.schema.json"
+    },
+    {
+      "$ref": "../types/Place.schema.json"
+    }
+  ],
+  "title": "geoDisjoint",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:legislationChanges",
+  "$ref": "../types/Legislation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Another legislation that this legislation changes. This encompasses the notions of amendment, replacement, correction, repeal, or other types of change. This may be a direct change (textual or non-textual amendment) or a consequential or indirect change. The property is to be used to express the existence of a change relationship between two acts rather than the existence of a consolidated version of the text that shows the result of the change. For consolidation relationships, use the <a href=\"/legislationConsolidates\">legislationConsolidates</a> property.",
+  "title": "legislationChanges",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:UpdateAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Action.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "UpdateAction"
+        },
+        "collection": {
+          "$ref": "../properties/collection.schema.json",
+          "description": "A sub property of object. The collection target of the action."
+        },
+        "targetCollection": {
+          "$ref": "../properties/targetCollection.schema.json",
+          "description": "A sub property of object. The collection target of the action."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The act of managing by changing/editing the state of the object.",
+  "title": "UpdateAction"
+}

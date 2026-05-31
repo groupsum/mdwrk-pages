@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:supersededBy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Relates a term (i.e. a property, class or enumeration) to one that supersedes it.",
+  "oneOf": [
+    {
+      "$ref": "../types/Class.schema.json"
+    },
+    {
+      "$ref": "../types/Enumeration.schema.json"
+    },
+    {
+      "$ref": "../types/Property.schema.json"
+    }
+  ],
+  "title": "supersededBy",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:strengthValue",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The value of an active ingredient's strength, e.g. 325.",
+  "title": "strengthValue",
+  "x-schemaorg-cardinality": "open-world"
+}

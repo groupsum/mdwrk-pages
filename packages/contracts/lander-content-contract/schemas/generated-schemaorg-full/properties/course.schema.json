@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:course",
+  "$ref": "../types/Place.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of location. The course where this action was taken.",
+  "title": "course",
+  "x-schemaorg-cardinality": "open-world"
+}

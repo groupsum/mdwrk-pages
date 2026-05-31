@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:exifData",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "exif data for this object.",
+  "oneOf": [
+    {
+      "$ref": "../types/PropertyValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "exifData",
+  "x-schemaorg-cardinality": "open-world"
+}

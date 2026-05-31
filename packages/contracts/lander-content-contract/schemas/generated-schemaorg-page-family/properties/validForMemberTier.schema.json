@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:validForMemberTier",
+  "$ref": "../types/MemberProgramTier.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The membership program tier(s) an Offer (or a PriceSpecification, OfferShippingDetails, or MerchantReturnPolicy under an Offer) is valid for.",
+  "title": "validForMemberTier",
+  "x-schemaorg-cardinality": "open-world"
+}

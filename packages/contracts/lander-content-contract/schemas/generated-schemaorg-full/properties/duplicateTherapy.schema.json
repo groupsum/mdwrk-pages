@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:duplicateTherapy",
+  "$ref": "../types/MedicalTherapy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A therapy that duplicates or overlaps this one.",
+  "title": "duplicateTherapy",
+  "x-schemaorg-cardinality": "open-world"
+}

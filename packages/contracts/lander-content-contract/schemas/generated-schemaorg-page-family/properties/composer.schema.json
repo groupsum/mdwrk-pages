@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:composer",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The person or organization who wrote a composition, or who is the composer of a work performed at some event.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "composer",
+  "x-schemaorg-cardinality": "open-world"
+}

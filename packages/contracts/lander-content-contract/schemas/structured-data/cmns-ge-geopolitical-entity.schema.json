@@ -1,0 +1,20 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:cmns-ge:GeopoliticalEntity",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "cmns-ge:GeopoliticalEntity",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "cmns-ge:GeopoliticalEntity"
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,127 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:SoftwareApplication",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "SoftwareApplication"
+        },
+        "applicationCategory": {
+          "$ref": "../properties/applicationCategory.schema.json",
+          "description": "Type of software application, e.g. 'Game, Multimedia'."
+        },
+        "applicationSubCategory": {
+          "$ref": "../properties/applicationSubCategory.schema.json",
+          "description": "Subcategory of the application, e.g. 'Arcade Game'."
+        },
+        "applicationSuite": {
+          "$ref": "../properties/applicationSuite.schema.json",
+          "description": "The name of the application suite to which the application belongs (e.g. Excel belongs to Office)."
+        },
+        "availableOnDevice": {
+          "$ref": "../properties/availableOnDevice.schema.json",
+          "description": "Device required to run the application. Used in cases where a specific make/model is required to run the application."
+        },
+        "countriesNotSupported": {
+          "$ref": "../properties/countriesNotSupported.schema.json",
+          "description": "Countries for which the application is not supported. You can also provide the two-letter ISO 3166-1 alpha-2 country code."
+        },
+        "countriesSupported": {
+          "$ref": "../properties/countriesSupported.schema.json",
+          "description": "Countries for which the application is supported. You can also provide the two-letter ISO 3166-1 alpha-2 country code."
+        },
+        "device": {
+          "$ref": "../properties/device.schema.json",
+          "description": "Device required to run the application. Used in cases where a specific make/model is required to run the application."
+        },
+        "downloadUrl": {
+          "$ref": "../properties/downloadUrl.schema.json",
+          "description": "If the file can be downloaded, URL to download the binary."
+        },
+        "featureList": {
+          "$ref": "../properties/featureList.schema.json",
+          "description": "Features or modules provided by this application (and possibly required by other applications)."
+        },
+        "fileSize": {
+          "$ref": "../properties/fileSize.schema.json",
+          "description": "Size of the application / package (e.g. 18MB). In the absence of a unit (MB, KB etc.), KB will be assumed."
+        },
+        "installUrl": {
+          "$ref": "../properties/installUrl.schema.json",
+          "description": "URL at which the app may be installed, if different from the URL of the item."
+        },
+        "memoryRequirements": {
+          "$ref": "../properties/memoryRequirements.schema.json",
+          "description": "Minimum memory requirements."
+        },
+        "operatingSystem": {
+          "$ref": "../properties/operatingSystem.schema.json",
+          "description": "Operating systems supported (Windows 7, OS X 10.6, Android 1.6)."
+        },
+        "permissions": {
+          "$ref": "../properties/permissions.schema.json",
+          "description": "Permission(s) required to run the app (for example, a mobile app may require full internet access or may run only on wifi)."
+        },
+        "processorRequirements": {
+          "$ref": "../properties/processorRequirements.schema.json",
+          "description": "Processor architecture required to run the application (e.g. IA64)."
+        },
+        "releaseNotes": {
+          "$ref": "../properties/releaseNotes.schema.json",
+          "description": "Description of what changed in this version."
+        },
+        "requirements": {
+          "$ref": "../properties/requirements.schema.json",
+          "description": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime)."
+        },
+        "runtimePlatform": {
+          "$ref": "../properties/runtimePlatform.schema.json",
+          "description": "Runtime platform or script interpreter dependencies (example: Java v1, Python 2.3, .NET Framework 3.0)."
+        },
+        "screenshot": {
+          "$ref": "../properties/screenshot.schema.json",
+          "description": "A link to a screenshot image of the app."
+        },
+        "softwareAddOn": {
+          "$ref": "../properties/softwareAddOn.schema.json",
+          "description": "Additional content for a software application."
+        },
+        "softwareHelp": {
+          "$ref": "../properties/softwareHelp.schema.json",
+          "description": "Software application help."
+        },
+        "softwareRequirements": {
+          "$ref": "../properties/softwareRequirements.schema.json",
+          "description": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime)."
+        },
+        "softwareVersion": {
+          "$ref": "../properties/softwareVersion.schema.json",
+          "description": "Version of the software instance."
+        },
+        "storageRequirements": {
+          "$ref": "../properties/storageRequirements.schema.json",
+          "description": "Storage requirements (free space required)."
+        },
+        "supportingData": {
+          "$ref": "../properties/supportingData.schema.json",
+          "description": "Supporting data for a SoftwareApplication."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A software application.",
+  "title": "SoftwareApplication"
+}

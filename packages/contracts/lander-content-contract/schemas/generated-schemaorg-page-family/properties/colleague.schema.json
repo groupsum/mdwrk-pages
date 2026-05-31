@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:colleague",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A colleague of the person.",
+  "oneOf": [
+    {
+      "$ref": "../types/Person.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "colleague",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,43 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:OwnershipInfo",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "StructuredValue.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "OwnershipInfo"
+        },
+        "acquiredFrom": {
+          "$ref": "../properties/acquiredFrom.schema.json",
+          "description": "The organization or person from which the product was acquired."
+        },
+        "ownedFrom": {
+          "$ref": "../properties/ownedFrom.schema.json",
+          "description": "The date and time of obtaining the product."
+        },
+        "ownedThrough": {
+          "$ref": "../properties/ownedThrough.schema.json",
+          "description": "The date and time of giving up ownership on the product."
+        },
+        "typeOfGood": {
+          "$ref": "../properties/typeOfGood.schema.json",
+          "description": "The product that this structured value is referring to."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A structured value providing information about when a certain organization or person owned a certain product.",
+  "title": "OwnershipInfo"
+}

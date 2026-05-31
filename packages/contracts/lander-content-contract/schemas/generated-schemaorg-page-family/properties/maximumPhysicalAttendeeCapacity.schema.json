@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:maximumPhysicalAttendeeCapacity",
+  "$ref": "../types/Integer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The maximum physical attendee capacity of an [[Event]] whose [[eventAttendanceMode]] is [[OfflineEventAttendanceMode]] (or the offline aspects, in the case of a [[MixedEventAttendanceMode]]). ",
+  "title": "maximumPhysicalAttendeeCapacity",
+  "x-schemaorg-cardinality": "open-world"
+}

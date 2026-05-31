@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:additionalVariable",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Any additional component of the exercise prescription that may need to be articulated to the patient. This may include the order of exercises, the number of repetitions of movement, quantitative distance, progressions over time, etc.",
+  "title": "additionalVariable",
+  "x-schemaorg-cardinality": "open-world"
+}

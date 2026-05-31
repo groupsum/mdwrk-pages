@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:episodeNumber",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Position of the episode within an ordered group of episodes.",
+  "oneOf": [
+    {
+      "$ref": "../types/Integer.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "episodeNumber",
+  "x-schemaorg-cardinality": "open-world"
+}

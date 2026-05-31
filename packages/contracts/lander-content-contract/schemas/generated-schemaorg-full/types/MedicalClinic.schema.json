@@ -1,0 +1,38 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalClinic",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalBusiness.schema.json"
+    },
+    {
+      "$ref": "MedicalOrganization.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MedicalClinic"
+        },
+        "availableService": {
+          "$ref": "../properties/availableService.schema.json",
+          "description": "A medical service available from this provider."
+        },
+        "medicalSpecialty": {
+          "$ref": "../properties/medicalSpecialty.schema.json",
+          "description": "A medical specialty of the provider."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A facility, often associated with a hospital or medical school, that is devoted to the specific diagnosis and/or healthcare. Previously limited to outpatients but with evolution it may be open to inpatients as well.",
+  "title": "MedicalClinic"
+}

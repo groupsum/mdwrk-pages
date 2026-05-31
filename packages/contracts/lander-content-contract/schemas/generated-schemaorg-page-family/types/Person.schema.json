@@ -1,0 +1,299 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Person",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Thing.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Person"
+        },
+        "additionalName": {
+          "$ref": "../properties/additionalName.schema.json",
+          "description": "An additional name for a Person, can be used for a middle name."
+        },
+        "address": {
+          "$ref": "../properties/address.schema.json",
+          "description": "Physical address of the item."
+        },
+        "affiliation": {
+          "$ref": "../properties/affiliation.schema.json",
+          "description": "An organization that this person is affiliated with. For example, a school/university, a club, or a team."
+        },
+        "agentInteractionStatistic": {
+          "$ref": "../properties/agentInteractionStatistic.schema.json",
+          "description": "The number of completed interactions for this entity, in a particular role (the 'agent'), in a particular action (indicated in the statistic), and in a particular context (i.e. interactionService)."
+        },
+        "alumniOf": {
+          "$ref": "../properties/alumniOf.schema.json",
+          "description": "An organization that the person is an alumni of."
+        },
+        "award": {
+          "$ref": "../properties/award.schema.json",
+          "description": "An award won by or for this item."
+        },
+        "awards": {
+          "$ref": "../properties/awards.schema.json",
+          "description": "Awards won by or for this item."
+        },
+        "birthDate": {
+          "$ref": "../properties/birthDate.schema.json",
+          "description": "Date of birth."
+        },
+        "birthPlace": {
+          "$ref": "../properties/birthPlace.schema.json",
+          "description": "The place where the person was born."
+        },
+        "brand": {
+          "$ref": "../properties/brand.schema.json",
+          "description": "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person."
+        },
+        "callSign": {
+          "$ref": "../properties/callSign.schema.json",
+          "description": "A [callsign](https://en.wikipedia.org/wiki/Call_sign), as used in broadcasting and radio communications to identify people, radio and TV stations, or vehicles."
+        },
+        "children": {
+          "$ref": "../properties/children.schema.json",
+          "description": "A child of the person."
+        },
+        "colleague": {
+          "$ref": "../properties/colleague.schema.json",
+          "description": "A colleague of the person."
+        },
+        "colleagues": {
+          "$ref": "../properties/colleagues.schema.json",
+          "description": "A colleague of the person."
+        },
+        "contactPoint": {
+          "$ref": "../properties/contactPoint.schema.json",
+          "description": "A contact point for a person or organization."
+        },
+        "contactPoints": {
+          "$ref": "../properties/contactPoints.schema.json",
+          "description": "A contact point for a person or organization."
+        },
+        "deathDate": {
+          "$ref": "../properties/deathDate.schema.json",
+          "description": "Date of death."
+        },
+        "deathPlace": {
+          "$ref": "../properties/deathPlace.schema.json",
+          "description": "The place where the person died."
+        },
+        "duns": {
+          "$ref": "../properties/duns.schema.json",
+          "description": "The Dun & Bradstreet DUNS number for identifying an organization or business person."
+        },
+        "email": {
+          "$ref": "../properties/email.schema.json",
+          "description": "Email address."
+        },
+        "familyName": {
+          "$ref": "../properties/familyName.schema.json",
+          "description": "Family name. In the U.S., the last name of a Person."
+        },
+        "faxNumber": {
+          "$ref": "../properties/faxNumber.schema.json",
+          "description": "The fax number."
+        },
+        "follows": {
+          "$ref": "../properties/follows.schema.json",
+          "description": "The most generic uni-directional social relation."
+        },
+        "funder": {
+          "$ref": "../properties/funder.schema.json",
+          "description": "A person or organization that supports (sponsors) something through some kind of financial contribution."
+        },
+        "funding": {
+          "$ref": "../properties/funding.schema.json",
+          "description": "A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]]."
+        },
+        "gender": {
+          "$ref": "../properties/gender.schema.json",
+          "description": "Gender of something, typically a [[Person]], but possibly also fictional characters, animals, etc. While https://schema.org/Male and https://schema.org/Female may be used, text strings are also acceptable for people who are not a binary gender. The [[gender]] property can also be used in an extended sense to cover e.g. the gender of sports teams. As with the gender of individuals, we do not try to enumerate all possibilities. A mixed-gender [[SportsTeam]] can be indicated with a text value of \"Mixed\"."
+        },
+        "givenName": {
+          "$ref": "../properties/givenName.schema.json",
+          "description": "Given name. In the U.S., the first name of a Person."
+        },
+        "globalLocationNumber": {
+          "$ref": "../properties/globalLocationNumber.schema.json",
+          "description": "The [Global Location Number](http://www.gs1.org/gln) (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations."
+        },
+        "hasCertification": {
+          "$ref": "../properties/hasCertification.schema.json",
+          "description": "Certification information about a product, organization, service, place, or person."
+        },
+        "hasCredential": {
+          "$ref": "../properties/hasCredential.schema.json",
+          "description": "A credential awarded to the Person or Organization."
+        },
+        "hasOccupation": {
+          "$ref": "../properties/hasOccupation.schema.json",
+          "description": "The Person's occupation. For past professions, use Role for expressing dates."
+        },
+        "hasOfferCatalog": {
+          "$ref": "../properties/hasOfferCatalog.schema.json",
+          "description": "Indicates an OfferCatalog listing for this Organization, Person, or Service."
+        },
+        "hasPOS": {
+          "$ref": "../properties/hasPOS.schema.json",
+          "description": "Points-of-Sales operated by the organization or person."
+        },
+        "height": {
+          "$ref": "../properties/height.schema.json",
+          "description": "The height of the item."
+        },
+        "homeLocation": {
+          "$ref": "../properties/homeLocation.schema.json",
+          "description": "A contact location for a person's residence."
+        },
+        "honorificPrefix": {
+          "$ref": "../properties/honorificPrefix.schema.json",
+          "description": "An honorific prefix preceding a Person's name such as Dr/Mrs/Mr."
+        },
+        "honorificSuffix": {
+          "$ref": "../properties/honorificSuffix.schema.json",
+          "description": "An honorific suffix following a Person's name such as M.D./PhD/MSCSW."
+        },
+        "interactionStatistic": {
+          "$ref": "../properties/interactionStatistic.schema.json",
+          "description": "The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used."
+        },
+        "isicV4": {
+          "$ref": "../properties/isicV4.schema.json",
+          "description": "The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place."
+        },
+        "jobTitle": {
+          "$ref": "../properties/jobTitle.schema.json",
+          "description": "The job title of the person (for example, Financial Manager)."
+        },
+        "knows": {
+          "$ref": "../properties/knows.schema.json",
+          "description": "The most generic bi-directional social/work relation."
+        },
+        "knowsAbout": {
+          "$ref": "../properties/knowsAbout.schema.json",
+          "description": "Of a [[Person]], and less typically of an [[Organization]], to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or relate this to educational content, events, objectives or [[JobPosting]] descriptions."
+        },
+        "knowsLanguage": {
+          "$ref": "../properties/knowsLanguage.schema.json",
+          "description": "Of a [[Person]], and less typically of an [[Organization]], to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47)."
+        },
+        "lifeEvent": {
+          "$ref": "../properties/lifeEvent.schema.json",
+          "description": "A life event like baptism, communions, Bar Mitzvahs, Aqiqah, Namakarana, Miyamairi, burial, ...."
+        },
+        "makesOffer": {
+          "$ref": "../properties/makesOffer.schema.json",
+          "description": "A pointer to products or services offered by the organization or person."
+        },
+        "memberOf": {
+          "$ref": "../properties/memberOf.schema.json",
+          "description": "An Organization (or ProgramMembership) to which this Person or Organization belongs."
+        },
+        "naics": {
+          "$ref": "../properties/naics.schema.json",
+          "description": "The North American Industry Classification System (NAICS) code for a particular organization or business person."
+        },
+        "nationality": {
+          "$ref": "../properties/nationality.schema.json",
+          "description": "Nationality of the person."
+        },
+        "netWorth": {
+          "$ref": "../properties/netWorth.schema.json",
+          "description": "The total financial value of the person as calculated by subtracting the total value of liabilities from the total value of assets."
+        },
+        "owns": {
+          "$ref": "../properties/owns.schema.json",
+          "description": "Things owned by the organization or person."
+        },
+        "parent": {
+          "$ref": "../properties/parent.schema.json",
+          "description": "A parent of this person."
+        },
+        "parents": {
+          "$ref": "../properties/parents.schema.json",
+          "description": "A parents of the person."
+        },
+        "performerIn": {
+          "$ref": "../properties/performerIn.schema.json",
+          "description": "Event that this person is a performer or participant in."
+        },
+        "pronouns": {
+          "$ref": "../properties/pronouns.schema.json",
+          "description": "A short string listing or describing pronouns for a person. Typically the person concerned is the best authority as pronouns are a critical part of personal identity and expression. Publishers and consumers of this information are reminded to treat this data responsibly, take country-specific laws related to gender expression into account, and be wary of out-of-date data and drawing unwarranted inferences about the person being described.\n\nIn English, formulations such as \"they/them\", \"she/her\", and \"he/him\" are commonly used online and can also be used here. We do not intend to enumerate all possible micro-syntaxes in all languages. More structured and well-defined external values for pronouns can be referenced using the [[StructuredValue]] or [[DefinedTerm]] values.\n"
+        },
+        "publishingPrinciples": {
+          "$ref": "../properties/publishingPrinciples.schema.json",
+          "description": "The publishingPrinciples property indicates (typically via [[URL]]) a document describing the editorial principles of an [[Organization]] (or individual, e.g. a [[Person]] writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a [[CreativeWork]] (e.g. [[NewsArticle]]) the principles are those of the party primarily responsible for the creation of the [[CreativeWork]].\n\nWhile such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a [[funder]]) can be expressed using schema.org terminology.\n"
+        },
+        "relatedTo": {
+          "$ref": "../properties/relatedTo.schema.json",
+          "description": "The most generic familial relation."
+        },
+        "seeks": {
+          "$ref": "../properties/seeks.schema.json",
+          "description": "A pointer to products or services sought by the organization or person (demand)."
+        },
+        "sibling": {
+          "$ref": "../properties/sibling.schema.json",
+          "description": "A sibling of the person."
+        },
+        "siblings": {
+          "$ref": "../properties/siblings.schema.json",
+          "description": "A sibling of the person."
+        },
+        "skills": {
+          "$ref": "../properties/skills.schema.json",
+          "description": "A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is either claimed by a person, an organization or desired or required to fulfill a role or to work in an occupation."
+        },
+        "sponsor": {
+          "$ref": "../properties/sponsor.schema.json",
+          "description": "A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event."
+        },
+        "spouse": {
+          "$ref": "../properties/spouse.schema.json",
+          "description": "The person's spouse."
+        },
+        "taxID": {
+          "$ref": "../properties/taxID.schema.json",
+          "description": "The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain."
+        },
+        "telephone": {
+          "$ref": "../properties/telephone.schema.json",
+          "description": "The telephone number."
+        },
+        "vatID": {
+          "$ref": "../properties/vatID.schema.json",
+          "description": "The value-added Tax ID of the organization or person with national prefix (for example IT123456789). Can also be described as [[iso6523Code]] with proper prefix."
+        },
+        "weight": {
+          "$ref": "../properties/weight.schema.json",
+          "description": "The weight of the product or person."
+        },
+        "workLocation": {
+          "$ref": "../properties/workLocation.schema.json",
+          "description": "A contact location for a person's place of work."
+        },
+        "worksFor": {
+          "$ref": "../properties/worksFor.schema.json",
+          "description": "Organizations that the person works for."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A person (alive, dead, undead, or fictional).",
+  "title": "Person"
+}

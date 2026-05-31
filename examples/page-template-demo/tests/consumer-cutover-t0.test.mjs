@@ -15,7 +15,8 @@ test("T0: demo consumer imports split renderer packages and avoids app-local str
   assert.ok(packageJson.scripts.test.includes("consumer-cutover-t0.test.mjs"));
   assert.ok(viteConfig.includes('"@mdwrk/lander-react-structured-data"'));
 
-  assert.ok(mainSource.includes('import { VisibleLanderPage } from "@mdwrk/lander-react";'));
+  assert.ok(mainSource.includes('from "@mdwrk/lander-react";'));
+  assert.ok(mainSource.includes("VisibleLanderPage"));
   assert.ok(mainSource.includes('import { LanderStructuredData } from "@mdwrk/lander-react-structured-data";'));
   assert.equal(mainSource.includes("import { LanderPage } from \"@mdwrk/lander-react\";"), false);
   assert.equal(mainSource.includes("buildLanderJsonLdGraph"), false);

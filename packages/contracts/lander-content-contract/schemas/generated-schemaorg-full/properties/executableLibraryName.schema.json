@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:executableLibraryName",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Library file name, e.g., mscorlib.dll, system.web.dll.",
+  "title": "executableLibraryName",
+  "x-schemaorg-cardinality": "open-world"
+}

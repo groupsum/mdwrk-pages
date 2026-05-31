@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:answerExplanation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A step-by-step or full explanation about Answer. Can outline how this Answer was achieved or contain more broad clarification or statement about it. ",
+  "oneOf": [
+    {
+      "$ref": "../types/Comment.schema.json"
+    },
+    {
+      "$ref": "../types/WebContent.schema.json"
+    }
+  ],
+  "title": "answerExplanation",
+  "x-schemaorg-cardinality": "open-world"
+}

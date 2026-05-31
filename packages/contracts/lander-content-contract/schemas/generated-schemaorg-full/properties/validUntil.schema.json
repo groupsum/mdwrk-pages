@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:validUntil",
+  "$ref": "../datatypes/Date.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The date when the item is no longer valid.",
+  "title": "validUntil",
+  "x-schemaorg-cardinality": "open-world"
+}

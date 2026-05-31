@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:intensity",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Quantitative measure gauging the degree of force involved in the exercise, for example, heartbeats per minute. May include the velocity of the movement.",
+  "oneOf": [
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "intensity",
+  "x-schemaorg-cardinality": "open-world"
+}

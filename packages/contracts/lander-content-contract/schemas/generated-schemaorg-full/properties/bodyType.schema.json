@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:bodyType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/QualitativeValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "bodyType",
+  "x-schemaorg-cardinality": "open-world"
+}

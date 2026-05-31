@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:cvdFacilityCounty",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Name of the County of the NHSN facility that this data record applies to. Use [[cvdFacilityId]] to identify the facility. To provide other details, [[healthcareReportingData]] can be used on a [[Hospital]] entry.",
+  "title": "cvdFacilityCounty",
+  "x-schemaorg-cardinality": "open-world"
+}

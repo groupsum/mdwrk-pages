@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:musicGroupMember",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A member of a music group&#x2014;for example, John, Paul, George, or Ringo.",
+  "title": "musicGroupMember",
+  "x-schemaorg-cardinality": "open-world"
+}

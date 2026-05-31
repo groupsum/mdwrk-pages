@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:PhysicalActivityCategory",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Categories of physical activity, organized by physiologic classification.",
+  "enum": [],
+  "title": "PhysicalActivityCategory",
+  "type": "string"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:noBylinesPolicy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement explaining when authors of articles are not named in bylines.",
+  "oneOf": [
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "noBylinesPolicy",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:textValue",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Text value being annotated.",
+  "title": "textValue",
+  "x-schemaorg-cardinality": "open-world"
+}

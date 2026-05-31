@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-certification-padding: 1rem;
+  --mdp-semantic-certification-gap: 0.75rem;
+  --mdp-semantic-certification-radius: 1rem;
+  --mdp-semantic-certification-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-certification-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-certification-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--certification {
+  padding: var(--mdp-semantic-certification-padding);
+  gap: var(--mdp-semantic-certification-gap);
+  border-radius: var(--mdp-semantic-certification-radius);
+  background: var(--mdp-semantic-certification-surface);
+  border: 1px solid var(--mdp-semantic-certification-border);
+  box-shadow: var(--mdp-semantic-certification-shadow);
+}
+
+.lander-semantic--certification .lander-semantic__header,
+.lander-semantic--certification .lander-semantic__body,
+.lander-semantic--certification .lander-semantic__footer,
+.lander-semantic--certification .lander-semantic__actions {
+  gap: var(--mdp-semantic-certification-gap);
+}
+
+.lander-semantic--certification .lander-semantic__header,
+.lander-semantic--certification .lander-semantic__eyebrow,
+.lander-semantic--certification .lander-semantic__title,
+.lander-semantic--certification .lander-semantic__subtitle,
+.lander-semantic--certification .lander-semantic__description,
+.lander-semantic--certification .lander-semantic__meta,
+.lander-semantic--certification .lander-semantic__image,
+.lander-semantic--certification .lander-semantic__body,
+.lander-semantic--certification .lander-semantic__actions,
+.lander-semantic--certification .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--certification .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--certification .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--certification .lander-semantic__subtitle,
+.lander-semantic--certification .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--certification .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-certification-gap) * 0.8);
+}
+
+.lander-semantic--certification .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-certification-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--certification .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--certification .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--certification .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

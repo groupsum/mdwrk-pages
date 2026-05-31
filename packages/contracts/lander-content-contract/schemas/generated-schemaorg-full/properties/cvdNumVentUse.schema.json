@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:cvdNumVentUse",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "numventuse - MECHANICAL VENTILATORS IN USE: Total number of ventilators in use.",
+  "title": "cvdNumVentUse",
+  "x-schemaorg-cardinality": "open-world"
+}

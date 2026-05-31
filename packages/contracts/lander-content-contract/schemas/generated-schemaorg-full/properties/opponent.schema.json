@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:opponent",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of participant. The opponent on this action.",
+  "title": "opponent",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:typicalAgeRange",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The typical expected age range, e.g. '7-9', '11-'.",
+  "title": "typicalAgeRange",
+  "x-schemaorg-cardinality": "open-world"
+}

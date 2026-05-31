@@ -1,0 +1,30 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:fundedItem",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates something directly or indirectly funded or sponsored through a [[Grant]]. See also [[ownershipFundingInfo]].",
+  "oneOf": [
+    {
+      "$ref": "../types/BioChemEntity.schema.json"
+    },
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../types/Event.schema.json"
+    },
+    {
+      "$ref": "../types/MedicalEntity.schema.json"
+    },
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    },
+    {
+      "$ref": "../types/Product.schema.json"
+    }
+  ],
+  "title": "fundedItem",
+  "x-schemaorg-cardinality": "open-world"
+}

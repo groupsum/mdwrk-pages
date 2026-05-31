@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalConditionStage",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalIntangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MedicalConditionStage"
+        },
+        "stageAsNumber": {
+          "$ref": "../properties/stageAsNumber.schema.json",
+          "description": "The stage represented as a number, e.g. 3."
+        },
+        "subStageSuffix": {
+          "$ref": "../properties/subStageSuffix.schema.json",
+          "description": "The substage, e.g. 'a' for Stage IIIa."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A stage of a medical condition, such as 'Stage IIIa'.",
+  "title": "MedicalConditionStage"
+}

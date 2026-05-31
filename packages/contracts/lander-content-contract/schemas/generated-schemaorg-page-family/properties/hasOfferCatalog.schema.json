@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasOfferCatalog",
+  "$ref": "../types/OfferCatalog.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates an OfferCatalog listing for this Organization, Person, or Service.",
+  "title": "hasOfferCatalog",
+  "x-schemaorg-cardinality": "open-world"
+}

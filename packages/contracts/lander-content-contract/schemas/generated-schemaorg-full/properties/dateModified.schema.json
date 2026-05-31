@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:dateModified",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "dateModified",
+  "x-schemaorg-cardinality": "open-world"
+}

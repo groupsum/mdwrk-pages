@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:foundingLocation",
+  "$ref": "../types/Place.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The place where the Organization was founded.",
+  "title": "foundingLocation",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,87 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Flight",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Trip.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Flight"
+        },
+        "aircraft": {
+          "$ref": "../properties/aircraft.schema.json",
+          "description": "The kind of aircraft (e.g., \"Boeing 747\")."
+        },
+        "arrivalAirport": {
+          "$ref": "../properties/arrivalAirport.schema.json",
+          "description": "The airport where the flight terminates."
+        },
+        "arrivalGate": {
+          "$ref": "../properties/arrivalGate.schema.json",
+          "description": "Identifier of the flight's arrival gate."
+        },
+        "arrivalTerminal": {
+          "$ref": "../properties/arrivalTerminal.schema.json",
+          "description": "Identifier of the flight's arrival terminal."
+        },
+        "boardingPolicy": {
+          "$ref": "../properties/boardingPolicy.schema.json",
+          "description": "The type of boarding policy used by the airline (e.g. zone-based or group-based)."
+        },
+        "carrier": {
+          "$ref": "../properties/carrier.schema.json",
+          "description": "'carrier' is an out-dated term indicating the 'provider' for parcel delivery and flights."
+        },
+        "departureAirport": {
+          "$ref": "../properties/departureAirport.schema.json",
+          "description": "The airport where the flight originates."
+        },
+        "departureGate": {
+          "$ref": "../properties/departureGate.schema.json",
+          "description": "Identifier of the flight's departure gate."
+        },
+        "departureTerminal": {
+          "$ref": "../properties/departureTerminal.schema.json",
+          "description": "Identifier of the flight's departure terminal."
+        },
+        "estimatedFlightDuration": {
+          "$ref": "../properties/estimatedFlightDuration.schema.json",
+          "description": "The estimated time the flight will take."
+        },
+        "flightDistance": {
+          "$ref": "../properties/flightDistance.schema.json",
+          "description": "The distance of the flight."
+        },
+        "flightNumber": {
+          "$ref": "../properties/flightNumber.schema.json",
+          "description": "The unique identifier for a flight including the airline IATA code. For example, if describing United flight 110, where the IATA code for United is 'UA', the flightNumber is 'UA110'."
+        },
+        "mealService": {
+          "$ref": "../properties/mealService.schema.json",
+          "description": "Description of the meals that will be provided or available for purchase."
+        },
+        "seller": {
+          "$ref": "../properties/seller.schema.json",
+          "description": "An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider."
+        },
+        "webCheckinTime": {
+          "$ref": "../properties/webCheckinTime.schema.json",
+          "description": "The time when a passenger can check into the flight online."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An airline flight.",
+  "title": "Flight"
+}

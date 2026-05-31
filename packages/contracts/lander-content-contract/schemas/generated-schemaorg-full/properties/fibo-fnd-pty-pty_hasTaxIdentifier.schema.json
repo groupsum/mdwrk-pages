@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:fibo-fnd-pty-pty:hasTaxIdentifier",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "title": "fibo-fnd-pty-pty:hasTaxIdentifier",
+  "type": [
+    "string",
+    "number",
+    "boolean",
+    "object",
+    "array",
+    "null"
+  ],
+  "x-schemaorg-cardinality": "open-world"
+}

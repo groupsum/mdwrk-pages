@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Guide",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Guide"
+        },
+        "category": {
+          "$ref": "../properties/category.schema.json",
+          "description": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy."
+        },
+        "reviewAspect": {
+          "$ref": "../properties/reviewAspect.schema.json",
+          "description": "This Review or Rating is relevant to this part or facet of the itemReviewed."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "[[Guide]] is a page or article that recommends specific products or services, or aspects of a thing for a user to consider. A [[Guide]] may represent a Buying Guide and detail aspects of products or services for a user to consider. A [[Guide]] may represent a Product Guide and recommend specific products or services. A [[Guide]] may represent a Ranked List and recommend specific products or services with ranking.",
+  "title": "Guide"
+}

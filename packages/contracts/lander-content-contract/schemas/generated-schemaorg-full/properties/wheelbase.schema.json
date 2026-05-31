@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:wheelbase",
+  "$ref": "../types/QuantitativeValue.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The distance between the centers of the front and rear wheels.\\n\\nTypical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet.",
+  "title": "wheelbase",
+  "x-schemaorg-cardinality": "open-world"
+}

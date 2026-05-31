@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-digital-platform-enumeration-padding: 1rem;
+  --mdp-semantic-digital-platform-enumeration-gap: 0.75rem;
+  --mdp-semantic-digital-platform-enumeration-radius: 1rem;
+  --mdp-semantic-digital-platform-enumeration-surface: linear-gradient(180deg, rgba(28, 98, 46, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-digital-platform-enumeration-border: rgba(28, 98, 46, 0.22);
+  --mdp-semantic-digital-platform-enumeration-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--digital-platform-enumeration {
+  padding: var(--mdp-semantic-digital-platform-enumeration-padding);
+  gap: var(--mdp-semantic-digital-platform-enumeration-gap);
+  border-radius: var(--mdp-semantic-digital-platform-enumeration-radius);
+  background: var(--mdp-semantic-digital-platform-enumeration-surface);
+  border: 1px solid var(--mdp-semantic-digital-platform-enumeration-border);
+  box-shadow: var(--mdp-semantic-digital-platform-enumeration-shadow);
+}
+
+.lander-semantic--digital-platform-enumeration .lander-semantic__header,
+.lander-semantic--digital-platform-enumeration .lander-semantic__body,
+.lander-semantic--digital-platform-enumeration .lander-semantic__footer,
+.lander-semantic--digital-platform-enumeration .lander-semantic__actions {
+  gap: var(--mdp-semantic-digital-platform-enumeration-gap);
+}
+
+.lander-semantic--digital-platform-enumeration .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--digital-platform-enumeration .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--digital-platform-enumeration .lander-semantic__subtitle,
+.lander-semantic--digital-platform-enumeration .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--digital-platform-enumeration .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-digital-platform-enumeration-gap) * 0.8);
+}
+
+.lander-semantic--digital-platform-enumeration .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--digital-platform-enumeration .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

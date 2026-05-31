@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-medical-device-padding: 1rem;
+  --mdp-semantic-medical-device-gap: 0.75rem;
+  --mdp-semantic-medical-device-radius: 1rem;
+  --mdp-semantic-medical-device-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-medical-device-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-medical-device-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--medical-device {
+  padding: var(--mdp-semantic-medical-device-padding);
+  gap: var(--mdp-semantic-medical-device-gap);
+  border-radius: var(--mdp-semantic-medical-device-radius);
+  background: var(--mdp-semantic-medical-device-surface);
+  border: 1px solid var(--mdp-semantic-medical-device-border);
+  box-shadow: var(--mdp-semantic-medical-device-shadow);
+}
+
+.lander-semantic--medical-device .lander-semantic__header,
+.lander-semantic--medical-device .lander-semantic__body,
+.lander-semantic--medical-device .lander-semantic__footer,
+.lander-semantic--medical-device .lander-semantic__actions {
+  gap: var(--mdp-semantic-medical-device-gap);
+}
+
+.lander-semantic--medical-device .lander-semantic__header,
+.lander-semantic--medical-device .lander-semantic__eyebrow,
+.lander-semantic--medical-device .lander-semantic__title,
+.lander-semantic--medical-device .lander-semantic__subtitle,
+.lander-semantic--medical-device .lander-semantic__description,
+.lander-semantic--medical-device .lander-semantic__meta,
+.lander-semantic--medical-device .lander-semantic__image,
+.lander-semantic--medical-device .lander-semantic__body,
+.lander-semantic--medical-device .lander-semantic__actions,
+.lander-semantic--medical-device .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--medical-device .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--medical-device .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--medical-device .lander-semantic__subtitle,
+.lander-semantic--medical-device .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--medical-device .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-medical-device-gap) * 0.8);
+}
+
+.lander-semantic--medical-device .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-medical-device-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--medical-device .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--medical-device .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--medical-device .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

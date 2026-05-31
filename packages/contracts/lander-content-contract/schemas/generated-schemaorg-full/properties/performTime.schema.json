@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:performTime",
+  "$ref": "../types/Duration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The length of time it takes to perform instructions or a direction (not including time to prepare the supplies), in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
+  "title": "performTime",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:contentRating",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Official rating of a piece of content&#x2014;for example, 'MPAA PG-13'.",
+  "oneOf": [
+    {
+      "$ref": "../types/Rating.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "contentRating",
+  "x-schemaorg-cardinality": "open-world"
+}

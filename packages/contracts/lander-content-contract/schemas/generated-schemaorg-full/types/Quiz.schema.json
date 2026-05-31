@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Quiz",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "LearningResource.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Quiz"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Quiz: A test of knowledge, skills and abilities.",
+  "title": "Quiz"
+}

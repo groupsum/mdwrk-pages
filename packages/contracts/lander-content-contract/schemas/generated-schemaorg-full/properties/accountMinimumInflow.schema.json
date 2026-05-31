@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:accountMinimumInflow",
+  "$ref": "../types/MonetaryAmount.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A minimum amount that has to be paid in every month.",
+  "title": "accountMinimumInflow",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:taxID",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.",
+  "title": "taxID",
+  "x-schemaorg-cardinality": "open-world"
+}

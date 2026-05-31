@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:subOrganization",
+  "$ref": "../types/Organization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property.",
+  "title": "subOrganization",
+  "x-schemaorg-cardinality": "open-world"
+}

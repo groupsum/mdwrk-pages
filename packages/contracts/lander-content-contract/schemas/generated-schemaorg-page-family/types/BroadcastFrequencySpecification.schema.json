@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:BroadcastFrequencySpecification",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "BroadcastFrequencySpecification"
+        },
+        "broadcastFrequencyValue": {
+          "$ref": "../properties/broadcastFrequencyValue.schema.json",
+          "description": "The frequency in MHz for a particular broadcast."
+        },
+        "broadcastSignalModulation": {
+          "$ref": "../properties/broadcastSignalModulation.schema.json",
+          "description": "The modulation (e.g. FM, AM, etc) used by a particular broadcast service."
+        },
+        "broadcastSubChannel": {
+          "$ref": "../properties/broadcastSubChannel.schema.json",
+          "description": "The subchannel used for the broadcast."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The frequency in MHz and the modulation used for a particular BroadcastService.",
+  "title": "BroadcastFrequencySpecification"
+}

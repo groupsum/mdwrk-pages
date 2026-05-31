@@ -3,10 +3,10 @@
 Demo app for the full fused semantic surface in `@mdwrk/lander-react`.
 
 The app showcases:
-- all `50` first-class structured-data-named exports
+- all `58` first-class structured-data-named exports
 - visible semantic rendering through `@mdwrk/lander-react`
 - built-in JSON-LD emission for every showcased component
-- family-grouped examples for article, education, commerce, media, identity, and catalog surfaces
+- family-grouped examples for article, education, commerce, media, identity, page, and catalog surfaces
 - per-type semantic CSS token files from `@mdwrk/pages-ui-tokens`
 
 ## Run locally

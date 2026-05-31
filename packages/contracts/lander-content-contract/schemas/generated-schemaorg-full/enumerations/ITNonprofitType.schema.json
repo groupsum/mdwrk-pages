@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:ITNonprofitType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "ITNonprofitType: Non-profit organization type originating from Italy.",
+  "enum": [],
+  "title": "ITNonprofitType",
+  "type": "string"
+}

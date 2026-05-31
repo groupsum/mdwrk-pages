@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:lodgingUnitDescription",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A full description of the lodging unit.",
+  "title": "lodgingUnitDescription",
+  "x-schemaorg-cardinality": "open-world"
+}

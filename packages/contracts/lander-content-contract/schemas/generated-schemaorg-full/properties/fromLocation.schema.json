@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:fromLocation",
+  "$ref": "../types/Place.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of location. The original location of the object or the agent before the action.",
+  "title": "fromLocation",
+  "x-schemaorg-cardinality": "open-world"
+}

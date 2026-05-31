@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:colorist",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The individual who adds color to inked drawings.",
+  "title": "colorist",
+  "x-schemaorg-cardinality": "open-world"
+}

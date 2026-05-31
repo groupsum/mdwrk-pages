@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:ccRecipient",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of recipient. The recipient copied on a message.",
+  "oneOf": [
+    {
+      "$ref": "../types/ContactPoint.schema.json"
+    },
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "ccRecipient",
+  "x-schemaorg-cardinality": "open-world"
+}

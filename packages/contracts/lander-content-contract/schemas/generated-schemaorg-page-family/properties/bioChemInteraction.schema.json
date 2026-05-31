@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:bioChemInteraction",
+  "$ref": "../types/BioChemEntity.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A BioChemEntity that is known to interact with this item.",
+  "title": "bioChemInteraction",
+  "x-schemaorg-cardinality": "open-world"
+}

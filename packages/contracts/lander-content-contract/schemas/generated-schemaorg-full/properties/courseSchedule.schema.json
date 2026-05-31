@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:courseSchedule",
+  "$ref": "../types/Schedule.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Represents the length and pace of a course, expressed as a [[Schedule]].",
+  "title": "courseSchedule",
+  "x-schemaorg-cardinality": "open-world"
+}

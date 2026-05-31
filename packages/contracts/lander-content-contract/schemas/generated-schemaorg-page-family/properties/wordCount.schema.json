@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:wordCount",
+  "$ref": "../types/Integer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of words in the text of the CreativeWork such as an Article, Book, etc.",
+  "title": "wordCount",
+  "x-schemaorg-cardinality": "open-world"
+}

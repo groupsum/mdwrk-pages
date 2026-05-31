@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:iupacName",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Systematic method of naming chemical compounds as recommended by the International Union of Pure and Applied Chemistry (IUPAC).",
+  "title": "iupacName",
+  "x-schemaorg-cardinality": "open-world"
+}

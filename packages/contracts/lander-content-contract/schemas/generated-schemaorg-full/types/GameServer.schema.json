@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:GameServer",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "GameServer"
+        },
+        "game": {
+          "$ref": "../properties/game.schema.json",
+          "description": "Video game which is played on this server."
+        },
+        "playersOnline": {
+          "$ref": "../properties/playersOnline.schema.json",
+          "description": "Number of players on the server."
+        },
+        "serverStatus": {
+          "$ref": "../properties/serverStatus.schema.json",
+          "description": "Status of a game server."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Server that provides game interaction in a multiplayer game.",
+  "title": "GameServer"
+}

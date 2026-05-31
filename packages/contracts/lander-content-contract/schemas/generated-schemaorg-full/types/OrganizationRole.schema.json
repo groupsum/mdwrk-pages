@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:OrganizationRole",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Role.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "OrganizationRole"
+        },
+        "numberedPosition": {
+          "$ref": "../properties/numberedPosition.schema.json",
+          "description": "A number associated with a role in an organization, for example, the number on an athlete's jersey."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A subclass of Role used to describe roles within organizations.",
+  "title": "OrganizationRole"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:sku",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.",
+  "title": "sku",
+  "x-schemaorg-cardinality": "open-world"
+}

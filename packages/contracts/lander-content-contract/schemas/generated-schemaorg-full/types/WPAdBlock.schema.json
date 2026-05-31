@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:WPAdBlock",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "WebPageElement.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "WPAdBlock"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An advertising section of the page.",
+  "title": "WPAdBlock"
+}

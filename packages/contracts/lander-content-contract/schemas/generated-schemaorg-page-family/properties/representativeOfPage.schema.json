@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:representativeOfPage",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates whether this image is representative of the content of the page.",
+  "title": "representativeOfPage",
+  "x-schemaorg-cardinality": "open-world"
+}

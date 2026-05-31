@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:statType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the kind of statistic represented by a [[StatisticalVariable]], e.g. mean, count etc. The value of statType is a property, either from within Schema.org (e.g. [[median]], [[marginOfError]], [[maxValue]], [[minValue]]) or from other compatible (e.g. RDF) systems such as DataCommons.org or Wikidata.org. ",
+  "oneOf": [
+    {
+      "$ref": "../types/Property.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "statType",
+  "x-schemaorg-cardinality": "open-world"
+}

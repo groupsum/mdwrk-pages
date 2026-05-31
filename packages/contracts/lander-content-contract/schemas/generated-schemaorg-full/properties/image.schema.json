@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:image",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].",
+  "oneOf": [
+    {
+      "$ref": "../types/ImageObject.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "image",
+  "x-schemaorg-cardinality": "open-world"
+}

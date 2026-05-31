@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:streetAddress",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The street address. For example, 1600 Amphitheatre Pkwy.",
+  "title": "streetAddress",
+  "x-schemaorg-cardinality": "open-world"
+}

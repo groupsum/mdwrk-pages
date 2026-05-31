@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:overdosage",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Any information related to overdose on a drug, including signs or symptoms, treatments, contact information for emergency response.",
+  "title": "overdosage",
+  "x-schemaorg-cardinality": "open-world"
+}

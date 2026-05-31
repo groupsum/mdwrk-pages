@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:recognizingAuthority",
+  "$ref": "../types/Organization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "If applicable, the organization that officially recognizes this entity as part of its endorsed system of medicine.",
+  "title": "recognizingAuthority",
+  "x-schemaorg-cardinality": "open-world"
+}

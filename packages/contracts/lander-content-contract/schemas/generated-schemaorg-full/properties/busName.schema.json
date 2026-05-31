@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:busName",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The name of the bus (e.g. Bolt Express).",
+  "title": "busName",
+  "x-schemaorg-cardinality": "open-world"
+}

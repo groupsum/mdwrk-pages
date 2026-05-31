@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:lesser",
+  "$ref": "../enumerations/QualitativeValue.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "This ordering relation for qualitative values indicates that the subject is lesser than the object.",
+  "title": "lesser",
+  "x-schemaorg-cardinality": "open-world"
+}

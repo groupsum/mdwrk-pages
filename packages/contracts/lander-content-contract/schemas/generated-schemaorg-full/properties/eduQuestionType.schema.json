@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:eduQuestionType",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "For questions that are part of learning resources (e.g. Quiz), eduQuestionType indicates the format of question being given. Example: \"Multiple choice\", \"Open ended\", \"Flashcard\".",
+  "title": "eduQuestionType",
+  "x-schemaorg-cardinality": "open-world"
+}

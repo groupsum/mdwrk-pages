@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:brand",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.",
+  "oneOf": [
+    {
+      "$ref": "../types/Brand.schema.json"
+    },
+    {
+      "$ref": "../types/Organization.schema.json"
+    }
+  ],
+  "title": "brand",
+  "x-schemaorg-cardinality": "open-world"
+}

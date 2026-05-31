@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:parent",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A parent of this person.",
+  "title": "parent",
+  "x-schemaorg-cardinality": "open-world"
+}

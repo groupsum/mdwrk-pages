@@ -1,0 +1,33 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:valueReference",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../types/Enumeration.schema.json"
+    },
+    {
+      "$ref": "../enumerations/MeasurementTypeEnumeration.schema.json"
+    },
+    {
+      "$ref": "../types/PropertyValue.schema.json"
+    },
+    {
+      "$ref": "../enumerations/QualitativeValue.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    },
+    {
+      "$ref": "../types/StructuredValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "valueReference",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-property-padding: 1rem;
+  --mdp-semantic-property-gap: 0.75rem;
+  --mdp-semantic-property-radius: 1rem;
+  --mdp-semantic-property-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-property-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-property-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--property {
+  padding: var(--mdp-semantic-property-padding);
+  gap: var(--mdp-semantic-property-gap);
+  border-radius: var(--mdp-semantic-property-radius);
+  background: var(--mdp-semantic-property-surface);
+  border: 1px solid var(--mdp-semantic-property-border);
+  box-shadow: var(--mdp-semantic-property-shadow);
+}
+
+.lander-semantic--property .lander-semantic__header,
+.lander-semantic--property .lander-semantic__body,
+.lander-semantic--property .lander-semantic__footer,
+.lander-semantic--property .lander-semantic__actions {
+  gap: var(--mdp-semantic-property-gap);
+}
+
+.lander-semantic--property .lander-semantic__header,
+.lander-semantic--property .lander-semantic__eyebrow,
+.lander-semantic--property .lander-semantic__title,
+.lander-semantic--property .lander-semantic__subtitle,
+.lander-semantic--property .lander-semantic__description,
+.lander-semantic--property .lander-semantic__meta,
+.lander-semantic--property .lander-semantic__image,
+.lander-semantic--property .lander-semantic__body,
+.lander-semantic--property .lander-semantic__actions,
+.lander-semantic--property .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--property .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--property .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--property .lander-semantic__subtitle,
+.lander-semantic--property .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--property .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-property-gap) * 0.8);
+}
+
+.lander-semantic--property .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-property-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--property .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--property .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--property .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

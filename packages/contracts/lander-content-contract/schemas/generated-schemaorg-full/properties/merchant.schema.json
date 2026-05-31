@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:merchant",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "'merchant' is an out-dated term for 'seller'.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "merchant",
+  "x-schemaorg-cardinality": "open-world"
+}

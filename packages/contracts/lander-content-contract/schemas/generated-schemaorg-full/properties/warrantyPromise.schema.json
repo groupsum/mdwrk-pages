@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:warrantyPromise",
+  "$ref": "../types/WarrantyPromise.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The warranty promise(s) included in the offer.",
+  "title": "warrantyPromise",
+  "x-schemaorg-cardinality": "open-world"
+}

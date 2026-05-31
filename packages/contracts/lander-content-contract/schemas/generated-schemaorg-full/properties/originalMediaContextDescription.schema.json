@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:originalMediaContextDescription",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Describes, in a [[MediaReview]] when dealing with [[DecontextualizedContent]], background information that can contribute to better interpretation of the [[MediaObject]].",
+  "title": "originalMediaContextDescription",
+  "x-schemaorg-cardinality": "open-world"
+}

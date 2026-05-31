@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:PublicationEvent",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Event.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "PublicationEvent"
+        },
+        "free": {
+          "$ref": "../properties/free.schema.json",
+          "description": "A flag to signal that the item, event, or place is accessible for free."
+        },
+        "publishedBy": {
+          "$ref": "../properties/publishedBy.schema.json",
+          "description": "An agent associated with the publication event."
+        },
+        "publishedOn": {
+          "$ref": "../properties/publishedOn.schema.json",
+          "description": "A broadcast service associated with the publication event."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A PublicationEvent corresponds indifferently to the event of publication for a CreativeWork of any type, e.g. a broadcast event, an on-demand event, a book/journal publication via a variety of delivery media.",
+  "title": "PublicationEvent"
+}

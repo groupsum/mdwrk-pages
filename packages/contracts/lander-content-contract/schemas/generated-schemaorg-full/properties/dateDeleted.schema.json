@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:dateDeleted",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The datetime the item was removed from the DataFeed.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "dateDeleted",
+  "x-schemaorg-cardinality": "open-world"
+}

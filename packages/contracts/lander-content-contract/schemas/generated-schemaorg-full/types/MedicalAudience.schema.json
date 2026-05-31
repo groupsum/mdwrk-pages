@@ -1,0 +1,30 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalAudience",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Audience.schema.json"
+    },
+    {
+      "$ref": "PeopleAudience.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MedicalAudience"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Target audiences for medical web pages.",
+  "title": "MedicalAudience"
+}

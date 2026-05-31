@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:EventStatusType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "EventStatusType is an enumeration type whose instances represent several states that an Event may be in.",
+  "enum": [],
+  "title": "EventStatusType",
+  "type": "string"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:arrivalAirport",
+  "$ref": "../types/Airport.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The airport where the flight terminates.",
+  "title": "arrivalAirport",
+  "x-schemaorg-cardinality": "open-world"
+}

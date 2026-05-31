@@ -20,12 +20,17 @@
 .lander-semantic--learning-resource .lander-semantic__subtitle,
 .lander-semantic--learning-resource .lander-semantic__description,
 .lander-semantic--learning-resource .lander-semantic__actions { margin: 0; }
+.lander-semantic--learning-resource .lander-semantic__section-kicker { width: fit-content; padding: 0.2rem 0.52rem; border-radius: 999px; background: rgba(31, 143, 95, 0.1); color: var(--mdp-semantic-learning-resource-accent); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
 .lander-semantic--learning-resource .lander-semantic__meta { display: flex; flex-wrap: wrap; gap: 0.7rem 0.9rem; }
 .lander-semantic--learning-resource .lander-semantic__meta dt { margin: 0; color: var(--mdp-semantic-learning-resource-accent); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em; }
 .lander-semantic--learning-resource .lander-semantic__meta dd { margin: 0; font-weight: 600; }
-.lander-semantic--learning-resource .lander-semantic__learning-resource-tags ul { display: flex; flex-wrap: wrap; gap: 0.55rem; padding: 0; margin: 0; list-style: none; }
-.lander-semantic--learning-resource .lander-semantic__learning-resource-tags li { padding: 0.4rem 0.7rem; border-radius: 999px; background: rgba(255,255,255,0.8); border: 1px solid color-mix(in srgb, var(--mdp-semantic-learning-resource-border) 72%, white 28%); }
+.lander-semantic--learning-resource .lander-semantic__resource-rail { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+.lander-semantic--learning-resource .lander-semantic__resource-fact { display: grid; gap: 0.35rem; padding: 0.95rem 1rem; border-radius: 1rem; background: rgba(255,255,255,0.76); border: 1px solid color-mix(in srgb, var(--mdp-semantic-learning-resource-border) 60%, white 40%); }
+.lander-semantic--learning-resource .lander-semantic__teaches-inline { display: grid; gap: 0.4rem; padding: 0.95rem 1rem; border-radius: 1rem; background: rgba(255,255,255,0.78); border: 1px solid color-mix(in srgb, var(--mdp-semantic-learning-resource-border) 72%, white 28%); }
+.lander-semantic--learning-resource .lander-semantic__learning-resource-tags { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+.lander-semantic--learning-resource .lander-semantic__learning-tag { padding: 0.4rem 0.7rem; border-radius: 999px; background: rgba(255,255,255,0.8); border: 1px solid color-mix(in srgb, var(--mdp-semantic-learning-resource-border) 72%, white 28%); }
 @media (max-width: 860px) {
   .lander-semantic--learning-resource { grid-template-columns: 1fr; grid-template-areas: "header" "image" "body" "footer"; }
   .lander-semantic--learning-resource .lander-semantic__image { min-height: 12rem; }
+  .lander-semantic--learning-resource .lander-semantic__resource-rail { grid-template-columns: 1fr; }
 }

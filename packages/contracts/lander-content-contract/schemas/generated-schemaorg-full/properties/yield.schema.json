@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:yield",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The quantity that results by performing instructions. For example, a paper airplane, 10 personalized candles.",
+  "oneOf": [
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "yield",
+  "x-schemaorg-cardinality": "open-world"
+}

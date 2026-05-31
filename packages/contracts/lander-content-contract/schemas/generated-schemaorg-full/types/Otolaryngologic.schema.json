@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Otolaryngologic",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalBusiness.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Otolaryngologic"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A specific branch of medical science that is concerned with the ear, nose and throat and their respective disease states.",
+  "title": "Otolaryngologic"
+}

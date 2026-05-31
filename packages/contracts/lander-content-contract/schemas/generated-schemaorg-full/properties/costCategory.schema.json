@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:costCategory",
+  "$ref": "../enumerations/DrugCostCategory.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The category of cost, such as wholesale, retail, reimbursement cap, etc.",
+  "title": "costCategory",
+  "x-schemaorg-cardinality": "open-world"
+}

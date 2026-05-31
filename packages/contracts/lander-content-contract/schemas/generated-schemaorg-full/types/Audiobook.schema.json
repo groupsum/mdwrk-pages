@@ -1,0 +1,38 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Audiobook",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "AudioObject.schema.json"
+    },
+    {
+      "$ref": "Book.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Audiobook"
+        },
+        "duration": {
+          "$ref": "../properties/duration.schema.json",
+          "description": "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601)."
+        },
+        "readBy": {
+          "$ref": "../properties/readBy.schema.json",
+          "description": "A person who reads (performs) the audiobook."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An audiobook.",
+  "title": "Audiobook"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:Specialty",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Any branch of a field in which people typically develop specific expertise, usually after significant study, time, and effort.",
+  "enum": [],
+  "title": "Specialty",
+  "type": "string"
+}

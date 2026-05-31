@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:awayTeam",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The away team in a sports event.",
+  "oneOf": [
+    {
+      "$ref": "../types/Person.schema.json"
+    },
+    {
+      "$ref": "../types/SportsTeam.schema.json"
+    }
+  ],
+  "title": "awayTeam",
+  "x-schemaorg-cardinality": "open-world"
+}

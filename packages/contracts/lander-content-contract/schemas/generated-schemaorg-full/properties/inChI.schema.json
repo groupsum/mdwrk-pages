@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:inChI",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Non-proprietary identifier for molecular entity that can be used in printed and electronic data sources thus enabling easier linking of diverse data compilations.",
+  "title": "inChI",
+  "x-schemaorg-cardinality": "open-world"
+}

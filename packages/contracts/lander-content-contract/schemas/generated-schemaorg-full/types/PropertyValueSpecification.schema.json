@@ -1,0 +1,71 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:PropertyValueSpecification",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "PropertyValueSpecification"
+        },
+        "defaultValue": {
+          "$ref": "../properties/defaultValue.schema.json",
+          "description": "The default value of the input.  For properties that expect a literal, the default is a literal value, for properties that expect an object, it's an ID reference to one of the current values."
+        },
+        "maxValue": {
+          "$ref": "../properties/maxValue.schema.json",
+          "description": "The upper value of some characteristic or property."
+        },
+        "minValue": {
+          "$ref": "../properties/minValue.schema.json",
+          "description": "The lower value of some characteristic or property."
+        },
+        "multipleValues": {
+          "$ref": "../properties/multipleValues.schema.json",
+          "description": "Whether multiple values are allowed for the property.  Default is false."
+        },
+        "readonlyValue": {
+          "$ref": "../properties/readonlyValue.schema.json",
+          "description": "Whether or not a property is mutable.  Default is false. Specifying this for a property that also has a value makes it act similar to a \"hidden\" input in an HTML form."
+        },
+        "stepValue": {
+          "$ref": "../properties/stepValue.schema.json",
+          "description": "The stepValue attribute indicates the granularity that is expected (and required) of the value in a PropertyValueSpecification."
+        },
+        "valueMaxLength": {
+          "$ref": "../properties/valueMaxLength.schema.json",
+          "description": "Specifies the allowed range for number of characters in a literal value."
+        },
+        "valueMinLength": {
+          "$ref": "../properties/valueMinLength.schema.json",
+          "description": "Specifies the minimum allowed range for number of characters in a literal value."
+        },
+        "valueName": {
+          "$ref": "../properties/valueName.schema.json",
+          "description": "Indicates the name of the PropertyValueSpecification to be used in URL templates and form encoding in a manner analogous to HTML's input@name."
+        },
+        "valuePattern": {
+          "$ref": "../properties/valuePattern.schema.json",
+          "description": "Specifies a regular expression for testing literal values according to the HTML spec."
+        },
+        "valueRequired": {
+          "$ref": "../properties/valueRequired.schema.json",
+          "description": "Whether the property must be filled in to complete the action.  Default is false."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A Property value specification.",
+  "title": "PropertyValueSpecification"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:participant",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Other co-agents that participated in the action indirectly. E.g. John wrote a book with *Steve*.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "participant",
+  "x-schemaorg-cardinality": "open-world"
+}

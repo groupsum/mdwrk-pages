@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:PaymentMethodType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type of payment method, only for generic payment types, specific forms of payments, like card payment should be expressed using subclasses of PaymentMethod.",
+  "enum": [],
+  "title": "PaymentMethodType",
+  "type": "string"
+}

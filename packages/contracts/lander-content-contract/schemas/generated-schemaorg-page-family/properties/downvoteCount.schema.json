@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:downvoteCount",
+  "$ref": "../types/Integer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of downvotes this question, answer or comment has received from the community.",
+  "title": "downvoteCount",
+  "x-schemaorg-cardinality": "open-world"
+}

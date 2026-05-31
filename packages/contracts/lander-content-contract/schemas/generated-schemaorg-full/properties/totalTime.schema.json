@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:totalTime",
+  "$ref": "../types/Duration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The total time required to perform instructions or a direction (including time to prepare the supplies), in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
+  "title": "totalTime",
+  "x-schemaorg-cardinality": "open-world"
+}

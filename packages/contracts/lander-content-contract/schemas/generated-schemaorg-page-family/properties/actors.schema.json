@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:actors",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An actor, e.g. in TV, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.",
+  "title": "actors",
+  "x-schemaorg-cardinality": "open-world"
+}

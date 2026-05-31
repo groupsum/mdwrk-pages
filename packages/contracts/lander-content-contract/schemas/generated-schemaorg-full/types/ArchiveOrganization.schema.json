@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ArchiveOrganization",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "LocalBusiness.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ArchiveOrganization"
+        },
+        "archiveHeld": {
+          "$ref": "../properties/archiveHeld.schema.json",
+          "description": "Collection, [fonds](https://en.wikipedia.org/wiki/Fonds), or item held, kept or maintained by an [[ArchiveOrganization]]."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An organization with archival holdings. An organization which keeps and preserves archival material and typically makes it accessible to the public.",
+  "title": "ArchiveOrganization"
+}

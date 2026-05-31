@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:abridged",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates whether the book is an abridged edition.",
+  "title": "abridged",
+  "x-schemaorg-cardinality": "open-world"
+}

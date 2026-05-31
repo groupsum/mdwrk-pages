@@ -102,7 +102,7 @@ test("T2: representative structured-data builders do not mutate frozen inputs an
   const faq = faqPageSchema(faqInput);
   const organization = organizationNode(organizationInput);
   const aggregateRating = aggregateRatingNode(Object.freeze({ ratingValue: "4.8", reviewCount: 10 }));
-  const readAction = readActionNode(Object.freeze({ target: "https://mdwrk.test/read" }));
+  const readAction = readActionNode("https://mdwrk.test/read");
   const sourceCode = softwareSourceCodeNode(
     Object.freeze({
       name: "Repo",
@@ -128,118 +128,34 @@ test("T2: representative structured-data builders do not mutate frozen inputs an
   );
 
   const first = [
-    validateStructuredDataByType("Article", { name: article.name, url: article.url, headline: article.headline }),
-    validateStructuredDataByType("Quiz", {
-      name: quiz.name,
-      hasPart: quiz.hasPart.map((question) => ({
-        name: question.name,
-        acceptedAnswer: { text: question.acceptedAnswer.text },
-      })),
-    }),
-    validateStructuredDataByType("Product", { name: product.name, offers: product.offers }),
-    validateStructuredDataByType("VideoObject", {
-      name: video.name,
-      thumbnailUrl: video.thumbnailUrl,
-      uploadDate: video.uploadDate,
-    }),
-    validateStructuredDataByType("MathSolver", {
-      name: math.name,
-      potentialAction: math.potentialAction,
-      subjectOf: math.subjectOf,
-    }),
-    validateStructuredDataByType("Dataset", {
-      name: dataset.name,
-      creator: dataset.creator,
-      keywords: dataset.keywords,
-    }),
-    validateStructuredDataByType("FAQPage", {
-      items: faq.mainEntity.map((entry) => ({
-        question: entry.name,
-        answer: entry.acceptedAnswer.text,
-      })),
-    }),
-    validateStructuredDataByType("Organization", {
-      name: organization.name,
-      url: organization.url,
-      sameAs: organization.sameAs,
-    }),
-    validateStructuredDataByType("AggregateRating", {
-      ratingValue: aggregateRating.ratingValue,
-      reviewCount: aggregateRating.reviewCount,
-    }),
-    validateStructuredDataByType("ReadAction", {
-      target: readAction.target,
-    }),
-    validateStructuredDataByType("SoftwareSourceCode", {
-      name: sourceCode.name,
-      codeRepository: sourceCode.codeRepository,
-      programmingLanguage: sourceCode.programmingLanguage,
-    }),
-    validateStructuredDataByType("SpeakableSpecification", {
-      cssSelector: speakable.cssSelector,
-    }),
-    validateStructuredDataByType("WebSite", {
-      name: webSite.name,
-      url: webSite.url,
-      publisher: webSite.publisher,
-    }),
+    validateStructuredDataByType("Article", article),
+    validateStructuredDataByType("Quiz", quiz),
+    validateStructuredDataByType("Product", product),
+    validateStructuredDataByType("VideoObject", video),
+    validateStructuredDataByType("MathSolver", math),
+    validateStructuredDataByType("Dataset", dataset),
+    validateStructuredDataByType("FAQPage", faq),
+    validateStructuredDataByType("Organization", organization),
+    validateStructuredDataByType("AggregateRating", aggregateRating),
+    validateStructuredDataByType("ReadAction", readAction),
+    validateStructuredDataByType("SoftwareSourceCode", sourceCode),
+    validateStructuredDataByType("SpeakableSpecification", speakable),
+    validateStructuredDataByType("WebSite", webSite),
   ];
   const second = [
-    validateStructuredDataByType("Article", { name: article.name, url: article.url, headline: article.headline }),
-    validateStructuredDataByType("Quiz", {
-      name: quiz.name,
-      hasPart: quiz.hasPart.map((question) => ({
-        name: question.name,
-        acceptedAnswer: { text: question.acceptedAnswer.text },
-      })),
-    }),
-    validateStructuredDataByType("Product", { name: product.name, offers: product.offers }),
-    validateStructuredDataByType("VideoObject", {
-      name: video.name,
-      thumbnailUrl: video.thumbnailUrl,
-      uploadDate: video.uploadDate,
-    }),
-    validateStructuredDataByType("MathSolver", {
-      name: math.name,
-      potentialAction: math.potentialAction,
-      subjectOf: math.subjectOf,
-    }),
-    validateStructuredDataByType("Dataset", {
-      name: dataset.name,
-      creator: dataset.creator,
-      keywords: dataset.keywords,
-    }),
-    validateStructuredDataByType("FAQPage", {
-      items: faq.mainEntity.map((entry) => ({
-        question: entry.name,
-        answer: entry.acceptedAnswer.text,
-      })),
-    }),
-    validateStructuredDataByType("Organization", {
-      name: organization.name,
-      url: organization.url,
-      sameAs: organization.sameAs,
-    }),
-    validateStructuredDataByType("AggregateRating", {
-      ratingValue: aggregateRating.ratingValue,
-      reviewCount: aggregateRating.reviewCount,
-    }),
-    validateStructuredDataByType("ReadAction", {
-      target: readAction.target,
-    }),
-    validateStructuredDataByType("SoftwareSourceCode", {
-      name: sourceCode.name,
-      codeRepository: sourceCode.codeRepository,
-      programmingLanguage: sourceCode.programmingLanguage,
-    }),
-    validateStructuredDataByType("SpeakableSpecification", {
-      cssSelector: speakable.cssSelector,
-    }),
-    validateStructuredDataByType("WebSite", {
-      name: webSite.name,
-      url: webSite.url,
-      publisher: webSite.publisher,
-    }),
+    validateStructuredDataByType("Article", article),
+    validateStructuredDataByType("Quiz", quiz),
+    validateStructuredDataByType("Product", product),
+    validateStructuredDataByType("VideoObject", video),
+    validateStructuredDataByType("MathSolver", math),
+    validateStructuredDataByType("Dataset", dataset),
+    validateStructuredDataByType("FAQPage", faq),
+    validateStructuredDataByType("Organization", organization),
+    validateStructuredDataByType("AggregateRating", aggregateRating),
+    validateStructuredDataByType("ReadAction", readAction),
+    validateStructuredDataByType("SoftwareSourceCode", sourceCode),
+    validateStructuredDataByType("SpeakableSpecification", speakable),
+    validateStructuredDataByType("WebSite", webSite),
   ];
 
   assert.deepEqual(first, second);

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:nsn",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the [NATO stock number](https://en.wikipedia.org/wiki/NATO_Stock_Number) (nsn) of a [[Product]]. ",
+  "title": "nsn",
+  "x-schemaorg-cardinality": "open-world"
+}

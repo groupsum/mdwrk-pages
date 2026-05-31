@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:accommodationFloorPlan",
+  "$ref": "../types/FloorPlan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A floorplan of some [[Accommodation]].",
+  "title": "accommodationFloorPlan",
+  "x-schemaorg-cardinality": "open-world"
+}

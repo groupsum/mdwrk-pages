@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:LiquorStore",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Store.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "LiquorStore"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A shop that sells alcoholic drinks such as wine, beer, whisky and other spirits.",
+  "title": "LiquorStore"
+}

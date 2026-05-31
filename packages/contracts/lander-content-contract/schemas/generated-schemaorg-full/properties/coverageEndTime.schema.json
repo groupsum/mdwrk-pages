@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:coverageEndTime",
+  "$ref": "../datatypes/DateTime.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The time when the live blog will stop covering the Event. Note that coverage may continue after the Event concludes.",
+  "title": "coverageEndTime",
+  "x-schemaorg-cardinality": "open-world"
+}

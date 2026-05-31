@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:offersPrescriptionByMail",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Whether prescriptions can be delivered by mail.",
+  "title": "offersPrescriptionByMail",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:termDuration",
+  "$ref": "../types/Duration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The amount of time in a term as defined by the institution. A term is a length of time where students take one or more classes. Semesters and quarters are common units for term.",
+  "title": "termDuration",
+  "x-schemaorg-cardinality": "open-world"
+}

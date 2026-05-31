@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:logo",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An associated logo.",
+  "oneOf": [
+    {
+      "$ref": "../types/ImageObject.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "logo",
+  "x-schemaorg-cardinality": "open-world"
+}

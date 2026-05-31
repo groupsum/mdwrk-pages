@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:fibo-fnd-org-org:hasMember",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "title": "fibo-fnd-org-org:hasMember",
+  "type": [
+    "string",
+    "number",
+    "boolean",
+    "object",
+    "array",
+    "null"
+  ],
+  "x-schemaorg-cardinality": "open-world"
+}

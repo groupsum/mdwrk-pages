@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:provider",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "provider",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:runtimePlatform",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Runtime platform or script interpreter dependencies (example: Java v1, Python 2.3, .NET Framework 3.0).",
+  "oneOf": [
+    {
+      "$ref": "../types/RuntimePlatform.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "runtimePlatform",
+  "x-schemaorg-cardinality": "open-world"
+}

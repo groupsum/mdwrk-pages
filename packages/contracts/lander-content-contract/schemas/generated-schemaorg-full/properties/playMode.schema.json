@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:playMode",
+  "$ref": "../enumerations/GamePlayMode.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates whether this game is multi-player, co-op or single-player.  The game can be marked as multi-player, co-op and single-player at the same time.",
+  "title": "playMode",
+  "x-schemaorg-cardinality": "open-world"
+}

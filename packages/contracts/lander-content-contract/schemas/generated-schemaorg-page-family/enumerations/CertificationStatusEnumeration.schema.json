@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:CertificationStatusEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerates the different statuses of a Certification (Active and Inactive).",
+  "enum": [],
+  "title": "CertificationStatusEnumeration",
+  "type": "string"
+}

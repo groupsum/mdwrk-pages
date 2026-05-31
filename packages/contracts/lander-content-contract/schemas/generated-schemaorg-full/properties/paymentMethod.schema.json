@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:paymentMethod",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The name of the credit card or other method of payment for the order.",
+  "oneOf": [
+    {
+      "$ref": "../types/PaymentMethod.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "paymentMethod",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:sdDatePublished",
+  "$ref": "../datatypes/Date.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the date on which the current structured data was generated / published. Typically used alongside [[sdPublisher]].",
+  "title": "sdDatePublished",
+  "x-schemaorg-cardinality": "open-world"
+}

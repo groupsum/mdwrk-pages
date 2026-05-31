@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:uploadDate",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Date (including time if available) when this media object was uploaded to this site.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "uploadDate",
+  "x-schemaorg-cardinality": "open-world"
+}

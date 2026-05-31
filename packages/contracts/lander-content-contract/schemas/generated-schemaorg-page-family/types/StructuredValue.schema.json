@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:StructuredValue",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "StructuredValue"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Structured values are used when the value of a property has a more complex structure than simply being a textual value or a reference to another thing.",
+  "title": "StructuredValue"
+}

@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:originalMediaLink",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Link to the page containing an original version of the content, or directly to an online copy of the original [[MediaObject]] content, e.g. video file.",
+  "oneOf": [
+    {
+      "$ref": "../types/MediaObject.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    },
+    {
+      "$ref": "../types/WebPage.schema.json"
+    }
+  ],
+  "title": "originalMediaLink",
+  "x-schemaorg-cardinality": "open-world"
+}

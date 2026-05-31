@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:shippingRate",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The shipping rate is the cost of shipping to the specified destination. Typically, the maxValue and currency values (of the [[MonetaryAmount]]) are most appropriate.",
+  "oneOf": [
+    {
+      "$ref": "../types/MonetaryAmount.schema.json"
+    },
+    {
+      "$ref": "../types/ShippingRateSettings.schema.json"
+    }
+  ],
+  "title": "shippingRate",
+  "x-schemaorg-cardinality": "open-world"
+}

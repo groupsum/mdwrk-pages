@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:audio",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An embedded audio object.",
+  "oneOf": [
+    {
+      "$ref": "../types/AudioObject.schema.json"
+    },
+    {
+      "$ref": "../types/Clip.schema.json"
+    },
+    {
+      "$ref": "../types/MusicRecording.schema.json"
+    }
+  ],
+  "title": "audio",
+  "x-schemaorg-cardinality": "open-world"
+}

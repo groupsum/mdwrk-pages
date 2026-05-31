@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:broadcastTimezone",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The timezone in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601) for which the service bases its broadcasts.",
+  "title": "broadcastTimezone",
+  "x-schemaorg-cardinality": "open-world"
+}

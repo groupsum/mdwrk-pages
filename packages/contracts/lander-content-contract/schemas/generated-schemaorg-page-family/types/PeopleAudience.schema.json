@@ -1,0 +1,63 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:PeopleAudience",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Audience.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "PeopleAudience"
+        },
+        "healthCondition": {
+          "$ref": "../properties/healthCondition.schema.json",
+          "description": "Specifying the health condition(s) of a patient, medical study, or other target audience."
+        },
+        "requiredGender": {
+          "$ref": "../properties/requiredGender.schema.json",
+          "description": "Audiences defined by a person's gender."
+        },
+        "requiredMaxAge": {
+          "$ref": "../properties/requiredMaxAge.schema.json",
+          "description": "Audiences defined by a person's maximum age."
+        },
+        "requiredMinAge": {
+          "$ref": "../properties/requiredMinAge.schema.json",
+          "description": "Audiences defined by a person's minimum age."
+        },
+        "suggestedAge": {
+          "$ref": "../properties/suggestedAge.schema.json",
+          "description": "The age or age range for the intended audience or person, for example 3-12 months for infants, 1-5 years for toddlers."
+        },
+        "suggestedGender": {
+          "$ref": "../properties/suggestedGender.schema.json",
+          "description": "The suggested gender of the intended person or audience, for example \"male\", \"female\", or \"unisex\"."
+        },
+        "suggestedMaxAge": {
+          "$ref": "../properties/suggestedMaxAge.schema.json",
+          "description": "Maximum recommended age in years for the audience or user."
+        },
+        "suggestedMeasurement": {
+          "$ref": "../properties/suggestedMeasurement.schema.json",
+          "description": "A suggested range of body measurements for the intended audience or person, for example inseam between 32 and 34 inches or height between 170 and 190 cm. Typically found on a size chart for wearable products."
+        },
+        "suggestedMinAge": {
+          "$ref": "../properties/suggestedMinAge.schema.json",
+          "description": "Minimum recommended age in years for the audience or user."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A set of characteristics belonging to people, e.g. who compose an item's target audience.",
+  "title": "PeopleAudience"
+}

@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-physical-activity-category-padding: 1rem;
+  --mdp-semantic-physical-activity-category-gap: 0.75rem;
+  --mdp-semantic-physical-activity-category-radius: 1rem;
+  --mdp-semantic-physical-activity-category-surface: linear-gradient(180deg, rgba(28, 98, 46, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-physical-activity-category-border: rgba(28, 98, 46, 0.22);
+  --mdp-semantic-physical-activity-category-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--physical-activity-category {
+  padding: var(--mdp-semantic-physical-activity-category-padding);
+  gap: var(--mdp-semantic-physical-activity-category-gap);
+  border-radius: var(--mdp-semantic-physical-activity-category-radius);
+  background: var(--mdp-semantic-physical-activity-category-surface);
+  border: 1px solid var(--mdp-semantic-physical-activity-category-border);
+  box-shadow: var(--mdp-semantic-physical-activity-category-shadow);
+}
+
+.lander-semantic--physical-activity-category .lander-semantic__header,
+.lander-semantic--physical-activity-category .lander-semantic__body,
+.lander-semantic--physical-activity-category .lander-semantic__footer,
+.lander-semantic--physical-activity-category .lander-semantic__actions {
+  gap: var(--mdp-semantic-physical-activity-category-gap);
+}
+
+.lander-semantic--physical-activity-category .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--physical-activity-category .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--physical-activity-category .lander-semantic__subtitle,
+.lander-semantic--physical-activity-category .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--physical-activity-category .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-physical-activity-category-gap) * 0.8);
+}
+
+.lander-semantic--physical-activity-category .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--physical-activity-category .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

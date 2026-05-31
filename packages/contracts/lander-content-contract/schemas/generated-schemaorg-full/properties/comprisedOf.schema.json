@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:comprisedOf",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Specifying something physically contained by something else. Typically used here for the underlying anatomical structures, such as organs, that comprise the anatomical system.",
+  "oneOf": [
+    {
+      "$ref": "../types/AnatomicalStructure.schema.json"
+    },
+    {
+      "$ref": "../types/AnatomicalSystem.schema.json"
+    }
+  ],
+  "title": "comprisedOf",
+  "x-schemaorg-cardinality": "open-world"
+}

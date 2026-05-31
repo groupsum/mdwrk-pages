@@ -1,0 +1,47 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:APIReference",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "TechArticle.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "APIReference"
+        },
+        "assembly": {
+          "$ref": "../properties/assembly.schema.json",
+          "description": "Library file name, e.g., mscorlib.dll, system.web.dll."
+        },
+        "assemblyVersion": {
+          "$ref": "../properties/assemblyVersion.schema.json",
+          "description": "Associated product/technology version. E.g., .NET Framework 4.5."
+        },
+        "executableLibraryName": {
+          "$ref": "../properties/executableLibraryName.schema.json",
+          "description": "Library file name, e.g., mscorlib.dll, system.web.dll."
+        },
+        "programmingModel": {
+          "$ref": "../properties/programmingModel.schema.json",
+          "description": "Indicates whether API is managed or unmanaged."
+        },
+        "targetPlatform": {
+          "$ref": "../properties/targetPlatform.schema.json",
+          "description": "Type of app development: phone, Metro style, desktop, XBox, etc."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Reference documentation for application programming interfaces (APIs).",
+  "title": "APIReference"
+}

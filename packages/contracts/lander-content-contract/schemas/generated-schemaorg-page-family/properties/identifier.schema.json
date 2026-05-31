@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:identifier",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        ",
+  "oneOf": [
+    {
+      "$ref": "../types/PropertyValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "identifier",
+  "x-schemaorg-cardinality": "open-world"
+}

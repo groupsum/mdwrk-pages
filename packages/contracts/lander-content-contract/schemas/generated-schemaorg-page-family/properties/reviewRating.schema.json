@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:reviewRating",
+  "$ref": "../types/Rating.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The rating given in this review. Note that reviews can themselves be rated. The ```reviewRating``` applies to rating given by the review. The [[aggregateRating]] property applies to the review itself, as a creative work.",
+  "title": "reviewRating",
+  "x-schemaorg-cardinality": "open-world"
+}

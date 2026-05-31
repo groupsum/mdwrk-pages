@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:tocContinuation",
+  "$ref": "../types/HyperTocEntry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A [[HyperTocEntry]] can have a [[tocContinuation]] indicated, which is another [[HyperTocEntry]] that would be the default next item to play or render.",
+  "title": "tocContinuation",
+  "x-schemaorg-cardinality": "open-world"
+}

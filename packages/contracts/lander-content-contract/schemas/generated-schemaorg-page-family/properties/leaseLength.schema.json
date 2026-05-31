@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:leaseLength",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Length of the lease for some [[Accommodation]], either particular to some [[Offer]] or in some cases intrinsic to the property.",
+  "oneOf": [
+    {
+      "$ref": "../types/Duration.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "leaseLength",
+  "x-schemaorg-cardinality": "open-world"
+}

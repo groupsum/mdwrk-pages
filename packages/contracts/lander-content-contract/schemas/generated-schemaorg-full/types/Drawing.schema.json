@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Drawing",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Drawing"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A picture or diagram made with a pencil, pen, or crayon rather than paint.",
+  "title": "Drawing"
+}

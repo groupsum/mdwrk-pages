@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:itemDefectReturnFees",
+  "$ref": "../enumerations/ReturnFeesEnumeration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type of return fees for returns of defect products.",
+  "title": "itemDefectReturnFees",
+  "x-schemaorg-cardinality": "open-world"
+}

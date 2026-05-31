@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:geographicArea",
+  "$ref": "../types/AdministrativeArea.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The geographic area associated with the audience.",
+  "title": "geographicArea",
+  "x-schemaorg-cardinality": "open-world"
+}

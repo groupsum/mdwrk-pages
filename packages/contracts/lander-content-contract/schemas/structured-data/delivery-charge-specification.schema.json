@@ -1,0 +1,132 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:DeliveryChargeSpecification",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DeliveryChargeSpecification",
+  "description": "The price for the delivery of an offer using a particular delivery method.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "DeliveryChargeSpecification"
+    },
+    "additionalType": {
+      "$ref": "../generated-schemaorg-full/properties/additionalType.schema.json",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
+    },
+    "alternateName": {
+      "$ref": "../generated-schemaorg-full/properties/alternateName.schema.json",
+      "description": "An alias for the item."
+    },
+    "description": {
+      "$ref": "../generated-schemaorg-full/properties/description.schema.json",
+      "description": "A description of the item."
+    },
+    "disambiguatingDescription": {
+      "$ref": "../generated-schemaorg-full/properties/disambiguatingDescription.schema.json",
+      "description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."
+    },
+    "identifier": {
+      "$ref": "../generated-schemaorg-full/properties/identifier.schema.json",
+      "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        "
+    },
+    "image": {
+      "$ref": "../generated-schemaorg-full/properties/image.schema.json",
+      "description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
+    },
+    "mainEntityOfPage": {
+      "$ref": "../generated-schemaorg-full/properties/mainEntityOfPage.schema.json",
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
+    },
+    "name": {
+      "$ref": "../generated-schemaorg-full/properties/name.schema.json",
+      "description": "The name of the item."
+    },
+    "owner": {
+      "$ref": "../generated-schemaorg-full/properties/owner.schema.json",
+      "description": "A person or organization who owns this Thing."
+    },
+    "potentialAction": {
+      "$ref": "../generated-schemaorg-full/properties/potentialAction.schema.json",
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
+    },
+    "sameAs": {
+      "$ref": "../generated-schemaorg-full/properties/sameAs.schema.json",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."
+    },
+    "subjectOf": {
+      "$ref": "../generated-schemaorg-full/properties/subjectOf.schema.json",
+      "description": "A CreativeWork or Event about this Thing."
+    },
+    "url": {
+      "$ref": "../generated-schemaorg-full/properties/url.schema.json",
+      "description": "URL of the item."
+    },
+    "eligibleQuantity": {
+      "$ref": "../generated-schemaorg-full/properties/eligibleQuantity.schema.json",
+      "description": "The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity."
+    },
+    "eligibleTransactionVolume": {
+      "$ref": "../generated-schemaorg-full/properties/eligibleTransactionVolume.schema.json",
+      "description": "The transaction volume, in a monetary unit, for which the offer or price specification is valid, e.g. for indicating a minimal purchasing volume, to express free shipping above a certain order volume, or to limit the acceptance of credit cards to purchases to a certain minimal amount."
+    },
+    "maxPrice": {
+      "$ref": "../generated-schemaorg-full/properties/maxPrice.schema.json",
+      "description": "The highest price if the price is a range."
+    },
+    "membershipPointsEarned": {
+      "$ref": "../generated-schemaorg-full/properties/membershipPointsEarned.schema.json",
+      "description": "The number of membership points earned by the member. If necessary, the unitText can be used to express the units the points are issued in. (E.g. stars, miles, etc.)"
+    },
+    "minPrice": {
+      "$ref": "../generated-schemaorg-full/properties/minPrice.schema.json",
+      "description": "The lowest price if the price is a range."
+    },
+    "price": {
+      "$ref": "../generated-schemaorg-full/properties/price.schema.json",
+      "description": "The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\\n\\nUsage guidelines:\\n\\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. \"USD\"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. \"BTC\"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. \"Ithaca HOUR\") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '$' in the value.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a \"content=\" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\n      "
+    },
+    "priceCurrency": {
+      "$ref": "../generated-schemaorg-full/properties/priceCurrency.schema.json",
+      "description": "The currency of the price, or a price component when attached to [[PriceSpecification]] and its subtypes.\\n\\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. \"USD\"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. \"BTC\"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. \"Ithaca HOUR\"."
+    },
+    "validForMemberTier": {
+      "$ref": "../generated-schemaorg-full/properties/validForMemberTier.schema.json",
+      "description": "The membership program tier(s) an Offer (or a PriceSpecification, OfferShippingDetails, or MerchantReturnPolicy under an Offer) is valid for."
+    },
+    "validFrom": {
+      "$ref": "../generated-schemaorg-full/properties/validFrom.schema.json",
+      "description": "The date when the item becomes valid."
+    },
+    "validThrough": {
+      "$ref": "../generated-schemaorg-full/properties/validThrough.schema.json",
+      "description": "The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours."
+    },
+    "valueAddedTaxIncluded": {
+      "$ref": "../generated-schemaorg-full/properties/valueAddedTaxIncluded.schema.json",
+      "description": "Specifies whether the applicable value-added tax (VAT) is included in the price specification or not."
+    },
+    "appliesToDeliveryMethod": {
+      "$ref": "../generated-schemaorg-full/properties/appliesToDeliveryMethod.schema.json",
+      "description": "The delivery method(s) to which the delivery charge or payment charge specification applies."
+    },
+    "areaServed": {
+      "$ref": "../generated-schemaorg-full/properties/areaServed.schema.json",
+      "description": "The geographic area where a service or offered item is provided."
+    },
+    "eligibleRegion": {
+      "$ref": "../generated-schemaorg-full/properties/eligibleRegion.schema.json",
+      "description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\\n\\nSee also [[ineligibleRegion]].\n    "
+    },
+    "ineligibleRegion": {
+      "$ref": "../generated-schemaorg-full/properties/ineligibleRegion.schema.json",
+      "description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\\n\\nSee also [[eligibleRegion]].\n      "
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

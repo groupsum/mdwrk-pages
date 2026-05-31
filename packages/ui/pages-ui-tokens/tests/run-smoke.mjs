@@ -1,47 +1,33 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import {
-  MDWRK_PAGES_UI_ROOT_TOKEN_NAMES,
-  MDWRK_PAGES_UI_SEMANTIC_ARTICLE_TOKEN_NAMES,
-  MDWRK_PAGES_UI_SEMANTIC_COURSE_TOKEN_NAMES,
-  MDWRK_PAGES_UI_SEMANTIC_PRODUCT_TOKEN_NAMES,
-  MDWRK_PAGES_UI_SEMANTIC_QUIZ_TOKEN_NAMES,
-  MDWRK_PAGES_UI_TOKENS_VERSION,
-} from "../dist/index.js";
 
-const rootCss = readFileSync(resolve("src/styles/root.css"), "utf8");
-const articleCss = readFileSync(resolve("src/styles/semantic-article.css"), "utf8");
-const productCss = readFileSync(resolve("src/styles/semantic-product.css"), "utf8");
-const courseCss = readFileSync(resolve("src/styles/semantic-course.css"), "utf8");
-const quizCss = readFileSync(resolve("src/styles/semantic-quiz.css"), "utf8");
+import * as tokenExports from "../dist/index.js";
+import { semanticTokenFixtures } from "./semantic-token-fixtures.mjs";
+
 const packageJson = JSON.parse(readFileSync(resolve("package.json"), "utf8"));
+const rootCss = readFileSync(resolve("src/styles/root.css"), "utf8");
 
-assert.equal(MDWRK_PAGES_UI_TOKENS_VERSION, packageJson.version);
-assert.ok(MDWRK_PAGES_UI_ROOT_TOKEN_NAMES.includes("mdwrk-font-ui"));
-assert.ok(MDWRK_PAGES_UI_SEMANTIC_ARTICLE_TOKEN_NAMES.includes("mdp-semantic-article-padding"));
-assert.ok(MDWRK_PAGES_UI_SEMANTIC_PRODUCT_TOKEN_NAMES.includes("mdp-semantic-product-padding"));
-assert.ok(MDWRK_PAGES_UI_SEMANTIC_COURSE_TOKEN_NAMES.includes("mdp-semantic-course-padding"));
-assert.ok(MDWRK_PAGES_UI_SEMANTIC_QUIZ_TOKEN_NAMES.includes("mdp-semantic-quiz-padding"));
+function hasCssExport(cssExportPath) {
+  return Boolean(packageJson.exports[cssExportPath] || packageJson.exports["./styles/*.css"]);
+}
 
+function hasCssSideEffect(cssSourcePath) {
+  return packageJson.sideEffects.includes(cssSourcePath) || packageJson.sideEffects.includes("./src/styles/*.css");
+}
+
+assert.equal(tokenExports.MDWRK_PAGES_UI_TOKENS_VERSION, packageJson.version);
+assert.ok(tokenExports.MDWRK_PAGES_UI_ROOT_TOKEN_NAMES.includes("mdwrk-font-ui"));
 assert.ok(rootCss.includes("--mdwrk-font-ui"));
 assert.ok(rootCss.includes("--mdwrk-shadow-strong"));
-assert.ok(articleCss.includes(".lander-semantic--article"));
-assert.ok(articleCss.includes("--mdp-semantic-article-padding"));
-assert.ok(productCss.includes(".lander-semantic--product"));
-assert.ok(productCss.includes("--mdp-semantic-product-padding"));
-assert.ok(courseCss.includes(".lander-semantic--course"));
-assert.ok(courseCss.includes("--mdp-semantic-course-padding"));
-assert.ok(courseCss.includes("--mdp-semantic-course-outcome-gap"));
-assert.ok(quizCss.includes(".lander-semantic--quiz"));
-assert.ok(quizCss.includes("--mdp-semantic-quiz-padding"));
 
-for (const exportKey of [
-  "./styles/root.css",
-  "./styles/semantic-article.css",
-  "./styles/semantic-product.css",
-  "./styles/semantic-course.css",
-  "./styles/semantic-quiz.css",
-]) {
-  assert.ok(packageJson.exports[exportKey], `missing export ${exportKey}`);
+for (const fixture of semanticTokenFixtures) {
+  const cssText = readFileSync(resolve("src/styles", fixture.cssFilename), "utf8");
+  const tokenNames = tokenExports[fixture.tokenConstExportName];
+
+  assert.ok(Array.isArray(tokenNames) && tokenNames.length > 0, `missing token export ${fixture.tokenConstExportName}`);
+  assert.ok(hasCssExport(fixture.cssExportPath), `missing export ${fixture.cssExportPath}`);
+  assert.ok(hasCssSideEffect(fixture.cssSourcePath), `missing sideEffects entry ${fixture.cssSourcePath}`);
+  assert.ok(cssText.includes(fixture.shellSelector), `${fixture.cssFilename} should target ${fixture.shellSelector}`);
+  assert.ok(cssText.includes(`--${tokenNames[0]}`), `${fixture.cssFilename} should define ${tokenNames[0]}`);
 }

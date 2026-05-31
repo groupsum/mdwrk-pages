@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:actionProcess",
+  "$ref": "../types/HowTo.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Description of the process by which the action was performed.",
+  "title": "actionProcess",
+  "x-schemaorg-cardinality": "open-world"
+}

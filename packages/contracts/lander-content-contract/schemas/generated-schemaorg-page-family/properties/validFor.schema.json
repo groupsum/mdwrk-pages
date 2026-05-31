@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:validFor",
+  "$ref": "../types/Duration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The duration of validity of a permit or similar thing.",
+  "title": "validFor",
+  "x-schemaorg-cardinality": "open-world"
+}

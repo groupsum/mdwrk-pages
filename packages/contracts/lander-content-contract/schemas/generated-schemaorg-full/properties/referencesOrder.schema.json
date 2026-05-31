@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:referencesOrder",
+  "$ref": "../types/Order.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The Order(s) related to this Invoice. One or more Orders may be combined into a single Invoice.",
+  "title": "referencesOrder",
+  "x-schemaorg-cardinality": "open-world"
+}

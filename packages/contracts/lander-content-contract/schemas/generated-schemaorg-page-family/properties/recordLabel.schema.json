@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:recordLabel",
+  "$ref": "../types/Organization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The label that issued the release.",
+  "title": "recordLabel",
+  "x-schemaorg-cardinality": "open-world"
+}

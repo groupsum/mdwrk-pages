@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:printSection",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "If this NewsArticle appears in print, this field indicates the print section in which the article appeared.",
+  "title": "printSection",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:recipeInstructions",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A step in making the recipe, in the form of a single item (document, video, etc.) or an ordered list with HowToStep and/or HowToSection items.",
+  "oneOf": [
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../types/ItemList.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "recipeInstructions",
+  "x-schemaorg-cardinality": "open-world"
+}

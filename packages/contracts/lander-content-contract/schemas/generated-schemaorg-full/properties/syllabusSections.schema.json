@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:syllabusSections",
+  "$ref": "../types/Syllabus.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates (typically several) Syllabus entities that lay out what each section of the overall course will cover.",
+  "title": "syllabusSections",
+  "x-schemaorg-cardinality": "open-world"
+}

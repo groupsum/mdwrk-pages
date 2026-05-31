@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-property-checkout-page-url-template-padding: 1rem;
+  --mdp-semantic-property-checkout-page-url-template-gap: 0.75rem;
+  --mdp-semantic-property-checkout-page-url-template-radius: 1rem;
+  --mdp-semantic-property-checkout-page-url-template-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-property-checkout-page-url-template-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-property-checkout-page-url-template-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--property-checkout-page-url-template {
+  padding: var(--mdp-semantic-property-checkout-page-url-template-padding);
+  gap: var(--mdp-semantic-property-checkout-page-url-template-gap);
+  border-radius: var(--mdp-semantic-property-checkout-page-url-template-radius);
+  background: var(--mdp-semantic-property-checkout-page-url-template-surface);
+  border: 1px solid var(--mdp-semantic-property-checkout-page-url-template-border);
+  box-shadow: var(--mdp-semantic-property-checkout-page-url-template-shadow);
+}
+
+.lander-semantic--property-checkout-page-url-template .lander-semantic__header,
+.lander-semantic--property-checkout-page-url-template .lander-semantic__body,
+.lander-semantic--property-checkout-page-url-template .lander-semantic__footer,
+.lander-semantic--property-checkout-page-url-template .lander-semantic__actions {
+  gap: var(--mdp-semantic-property-checkout-page-url-template-gap);
+}
+
+.lander-semantic--property-checkout-page-url-template .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--property-checkout-page-url-template .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--property-checkout-page-url-template .lander-semantic__subtitle,
+.lander-semantic--property-checkout-page-url-template .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--property-checkout-page-url-template .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-property-checkout-page-url-template-gap) * 0.8);
+}
+
+.lander-semantic--property-checkout-page-url-template .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--property-checkout-page-url-template .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

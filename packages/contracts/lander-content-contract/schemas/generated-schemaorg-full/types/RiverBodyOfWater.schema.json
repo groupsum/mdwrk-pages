@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:RiverBodyOfWater",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "BodyOfWater.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "RiverBodyOfWater"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A river (for example, the broad majestic Shannon).",
+  "title": "RiverBodyOfWater"
+}

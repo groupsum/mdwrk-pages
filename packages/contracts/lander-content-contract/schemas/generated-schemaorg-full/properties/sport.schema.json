@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:sport",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A type of sport (e.g. Baseball).",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "sport",
+  "x-schemaorg-cardinality": "open-world"
+}

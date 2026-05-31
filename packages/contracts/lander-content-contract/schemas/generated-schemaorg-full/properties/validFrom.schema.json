@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:validFrom",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The date when the item becomes valid.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "validFrom",
+  "x-schemaorg-cardinality": "open-world"
+}

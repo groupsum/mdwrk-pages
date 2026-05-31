@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:comment",
+  "$ref": "../types/Comment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Comments, typically from users.",
+  "title": "comment",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:ticketedSeat",
+  "$ref": "../types/Seat.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The seat associated with the ticket.",
+  "title": "ticketedSeat",
+  "x-schemaorg-cardinality": "open-world"
+}

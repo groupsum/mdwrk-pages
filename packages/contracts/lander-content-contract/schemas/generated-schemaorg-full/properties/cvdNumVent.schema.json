@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:cvdNumVent",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "numvent - MECHANICAL VENTILATORS: Total number of ventilators available.",
+  "title": "cvdNumVent",
+  "x-schemaorg-cardinality": "open-world"
+}

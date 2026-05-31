@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:countryOfAssembly",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The place where the product was assembled.",
+  "title": "countryOfAssembly",
+  "x-schemaorg-cardinality": "open-world"
+}

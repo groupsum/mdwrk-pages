@@ -1,0 +1,30 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ReviewNewsArticle",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CriticReview.schema.json"
+    },
+    {
+      "$ref": "NewsArticle.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ReviewNewsArticle"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A [[NewsArticle]] and [[CriticReview]] providing a professional critic's assessment of a service, product, performance, or artistic or literary work.",
+  "title": "ReviewNewsArticle"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:interactionCount",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "This property is deprecated, alongside the UserInteraction types on which it depended.",
+  "title": "interactionCount",
+  "type": [
+    "string",
+    "number",
+    "boolean",
+    "object",
+    "array",
+    "null"
+  ],
+  "x-schemaorg-cardinality": "open-world"
+}

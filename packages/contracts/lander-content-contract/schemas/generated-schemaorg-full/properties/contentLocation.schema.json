@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:contentLocation",
+  "$ref": "../types/Place.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The location depicted or described in the content. For example, the location in a photograph or painting.",
+  "title": "contentLocation",
+  "x-schemaorg-cardinality": "open-world"
+}

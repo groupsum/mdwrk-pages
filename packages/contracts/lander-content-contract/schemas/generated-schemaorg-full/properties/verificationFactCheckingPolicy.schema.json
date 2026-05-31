@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:verificationFactCheckingPolicy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Disclosure about verification and fact-checking processes for a [[NewsMediaOrganization]] or other fact-checking [[Organization]].",
+  "oneOf": [
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "verificationFactCheckingPolicy",
+  "x-schemaorg-cardinality": "open-world"
+}

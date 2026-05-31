@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:stage",
+  "$ref": "../types/MedicalConditionStage.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The stage of the condition, if applicable.",
+  "title": "stage",
+  "x-schemaorg-cardinality": "open-world"
+}

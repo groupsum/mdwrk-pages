@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:PreOrderAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "TradeAction.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "PreOrderAction"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An agent orders a (not yet released) object/product/service to be delivered/sent.",
+  "title": "PreOrderAction"
+}

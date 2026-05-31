@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:typeOfGood",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The product that this structured value is referring to.",
+  "oneOf": [
+    {
+      "$ref": "../types/Product.schema.json"
+    },
+    {
+      "$ref": "../types/Service.schema.json"
+    }
+  ],
+  "title": "typeOfGood",
+  "x-schemaorg-cardinality": "open-world"
+}

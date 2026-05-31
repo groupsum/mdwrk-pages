@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-property-video-quality-padding: 1rem;
+  --mdp-semantic-property-video-quality-gap: 0.75rem;
+  --mdp-semantic-property-video-quality-radius: 1rem;
+  --mdp-semantic-property-video-quality-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-property-video-quality-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-property-video-quality-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--property-video-quality {
+  padding: var(--mdp-semantic-property-video-quality-padding);
+  gap: var(--mdp-semantic-property-video-quality-gap);
+  border-radius: var(--mdp-semantic-property-video-quality-radius);
+  background: var(--mdp-semantic-property-video-quality-surface);
+  border: 1px solid var(--mdp-semantic-property-video-quality-border);
+  box-shadow: var(--mdp-semantic-property-video-quality-shadow);
+}
+
+.lander-semantic--property-video-quality .lander-semantic__header,
+.lander-semantic--property-video-quality .lander-semantic__body,
+.lander-semantic--property-video-quality .lander-semantic__footer,
+.lander-semantic--property-video-quality .lander-semantic__actions {
+  gap: var(--mdp-semantic-property-video-quality-gap);
+}
+
+.lander-semantic--property-video-quality .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--property-video-quality .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--property-video-quality .lander-semantic__subtitle,
+.lander-semantic--property-video-quality .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--property-video-quality .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-property-video-quality-gap) * 0.8);
+}
+
+.lander-semantic--property-video-quality .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--property-video-quality .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

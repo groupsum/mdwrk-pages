@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:populationType",
+  "$ref": "../types/Class.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the populationType common to all members of a [[StatisticalPopulation]] or all cases within the scope of a [[StatisticalVariable]].",
+  "title": "populationType",
+  "x-schemaorg-cardinality": "open-world"
+}

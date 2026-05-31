@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:ownedThrough",
+  "$ref": "../datatypes/DateTime.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The date and time of giving up ownership on the product.",
+  "title": "ownedThrough",
+  "x-schemaorg-cardinality": "open-world"
+}

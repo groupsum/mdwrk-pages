@@ -19,6 +19,24 @@ test("T0: every fused semantic component exports, renders visible markup, and em
   }
 });
 
+test("T0: supporting-family fused components expose distinct layout hooks for actions, regions, offer stacks, alignments, audiences, and audio transcripts", async () => {
+  const mod = await importLanderReactDist();
+  const actionMarkup = renderToStaticMarkup(React.createElement(mod.Action, { name: "Read docs", target: "https://mdwrk.test/docs", agent: { name: "MDWRK" }, object: "Docs", result: "Guide opened" }));
+  const areaMarkup = renderToStaticMarkup(React.createElement(mod.AdministrativeArea, { name: "Illinois", containedInPlace: "United States" }));
+  const offerMarkup = renderToStaticMarkup(React.createElement(mod.AggregateOffer, { name: "Offer range", lowPrice: "10.00", highPrice: "30.00", offers: [{ name: "Starter", price: "10.00" }] }));
+  const alignmentMarkup = renderToStaticMarkup(React.createElement(mod.AlignmentObject, { name: "Curriculum alignment", targetName: "Prompt operations", targetDescription: "Maps to the operations competency band." }));
+  const audienceMarkup = renderToStaticMarkup(React.createElement(mod.Audience, { name: "Operators", audienceType: "Prompt operators", geographicArea: "Illinois" }));
+  const audioMarkup = renderToStaticMarkup(React.createElement(mod.AudioObject, { name: "Release call", transcript: "Release transcript." }));
+
+  assert.ok(actionMarkup.includes("lander-semantic__action-flow"));
+  assert.ok(actionMarkup.includes("lander-semantic__action-result"));
+  assert.ok(areaMarkup.includes("United States"));
+  assert.ok(offerMarkup.includes("lander-semantic__offer-stack"));
+  assert.ok(alignmentMarkup.includes("lander-semantic__alignment-target"));
+  assert.ok(audienceMarkup.includes("Prompt operators"));
+  assert.ok(audioMarkup.includes("lander-semantic__audio-transcript"));
+});
+
 test("T0: article-family fused components render distinct shell classes for their family-specific token surfaces", async () => {
   const mod = await importLanderReactDist();
   const articleMarkup = renderToStaticMarkup(React.createElement(mod.Article, { title: "Article", body: React.createElement("p", null, "body") }));
@@ -50,19 +68,39 @@ test("T0: education-family fused components expose distinct layout hooks for the
   const faqMarkup = renderToStaticMarkup(React.createElement(mod.FAQPage, { items: [{ question: "What is drift?", answer: "Behavior change." }], viewModel: { collapsible: true } }));
 
   assert.ok(courseMarkup.includes("lander-semantic__module-list"));
+  assert.ok(courseMarkup.includes("lander-semantic__section-header"));
+  assert.ok(courseMarkup.includes("lander-semantic__module-index"));
+  assert.ok(courseMarkup.includes("lander-semantic__course-stat-grid"));
   assert.ok(courseMarkup.includes("lander-semantic__outcomes-list"));
+  assert.ok(courseMarkup.includes("lander-semantic__outcome-chip"));
+  const courseInstanceMarkup = renderToStaticMarkup(React.createElement(mod.CourseInstance, { name: "Course instance", startDate: "2026-07-01", location: "Remote" }));
+  assert.ok(courseInstanceMarkup.includes("lander-semantic__session-facts"));
   assert.ok(quizMarkup.includes("lander-semantic__quiz-grid"));
   assert.ok(quizMarkup.includes("lander-semantic__quiz-card"));
+  assert.ok(quizMarkup.includes("lander-semantic__assessment-brief"));
+  assert.ok(quizMarkup.includes("lander-semantic__quiz-response-label"));
+  assert.ok(qaMarkup.includes("lander-semantic__prompt-panel"));
   assert.ok(qaMarkup.includes("lander-semantic__accepted-answer"));
   assert.ok(qaMarkup.includes("lander-semantic__suggested-answer-list"));
+  assert.ok(qaMarkup.includes("lander-semantic__suggested-answer-card"));
   assert.ok(answerMarkup.includes("lander-semantic__answer-prose"));
+  assert.ok(answerMarkup.includes("lander-semantic__answer-kicker"));
   assert.ok(howToMarkup.includes("lander-semantic__how-to-steps"));
+  assert.ok(howToMarkup.includes("lander-semantic__how-to-overview"));
+  assert.ok(howToMarkup.includes("lander-semantic__how-to-step-kicker"));
   assert.ok(resourceMarkup.includes("lander-semantic__learning-resource-tags"));
+  assert.ok(resourceMarkup.includes("lander-semantic__resource-rail"));
+  assert.ok(resourceMarkup.includes("lander-semantic__learning-tag"));
   assert.ok(mathMarkup.includes("lander-semantic__math-expression"));
+  assert.ok(mathMarkup.includes("lander-semantic__solver-brief"));
   assert.ok(mathMarkup.includes("lander-semantic__math-targets"));
+  assert.ok(mathMarkup.includes("lander-semantic__math-panel"));
   assert.ok(solveMarkup.includes("lander-semantic__solve-math-summary"));
+  assert.ok(solveMarkup.includes("lander-semantic__solve-math-row"));
+  assert.ok(faqMarkup.includes("lander-semantic__faq-overview"));
   assert.ok(faqMarkup.includes("lander-semantic__faq-list"));
   assert.ok(faqMarkup.includes("lander-semantic__faq-item"));
+  assert.ok(faqMarkup.includes("lander-semantic__faq-kicker"));
 });
 
 test("T0: commerce-family fused components expose distinct layout hooks for pricing, rating, variant, and policy surfaces", async () => {

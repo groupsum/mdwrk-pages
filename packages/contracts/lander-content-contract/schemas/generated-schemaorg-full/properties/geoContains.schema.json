@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:geoContains",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. \"a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a\". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
+  "oneOf": [
+    {
+      "$ref": "../types/GeospatialGeometry.schema.json"
+    },
+    {
+      "$ref": "../types/Place.schema.json"
+    }
+  ],
+  "title": "geoContains",
+  "x-schemaorg-cardinality": "open-world"
+}

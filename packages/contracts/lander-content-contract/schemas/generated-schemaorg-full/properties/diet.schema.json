@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:diet",
+  "$ref": "../types/Diet.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of instrument. The diet used in this action.",
+  "title": "diet",
+  "x-schemaorg-cardinality": "open-world"
+}

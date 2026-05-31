@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:OccupationalExperienceRequirements",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "OccupationalExperienceRequirements"
+        },
+        "monthsOfExperience": {
+          "$ref": "../properties/monthsOfExperience.schema.json",
+          "description": "Indicates the minimal number of months of experience required for a position."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Indicates employment-related experience requirements, e.g. [[monthsOfExperience]].",
+  "title": "OccupationalExperienceRequirements"
+}

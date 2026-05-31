@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MediaSubscription",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MediaSubscription"
+        },
+        "authenticator": {
+          "$ref": "../properties/authenticator.schema.json",
+          "description": "The Organization responsible for authenticating the user's subscription. For example, many media apps require a cable/satellite provider to authenticate your subscription before playing media."
+        },
+        "expectsAcceptanceOf": {
+          "$ref": "../properties/expectsAcceptanceOf.schema.json",
+          "description": "An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A subscription which allows a user to access media including audio, video, books, etc.",
+  "title": "MediaSubscription"
+}

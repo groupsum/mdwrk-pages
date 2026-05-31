@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:recipient",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of participant. The participant who is at the receiving end of the action.",
+  "oneOf": [
+    {
+      "$ref": "../types/Audience.schema.json"
+    },
+    {
+      "$ref": "../types/ContactPoint.schema.json"
+    },
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "recipient",
+  "x-schemaorg-cardinality": "open-world"
+}

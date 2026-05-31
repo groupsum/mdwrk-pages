@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:validThrough",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "validThrough",
+  "x-schemaorg-cardinality": "open-world"
+}

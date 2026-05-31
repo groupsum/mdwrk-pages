@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:review",
+  "$ref": "../types/Review.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A review of the item.",
+  "title": "review",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:inPlaylist",
+  "$ref": "../types/MusicPlaylist.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The playlist to which this recording belongs.",
+  "title": "inPlaylist",
+  "x-schemaorg-cardinality": "open-world"
+}

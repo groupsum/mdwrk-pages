@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:winner",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of participant. The winner of the action.",
+  "title": "winner",
+  "x-schemaorg-cardinality": "open-world"
+}

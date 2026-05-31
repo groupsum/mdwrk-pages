@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasPart",
+  "$ref": "../types/CreativeWork.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).",
+  "title": "hasPart",
+  "x-schemaorg-cardinality": "open-world"
+}

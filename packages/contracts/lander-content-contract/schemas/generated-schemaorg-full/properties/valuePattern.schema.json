@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:valuePattern",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Specifies a regular expression for testing literal values according to the HTML spec.",
+  "title": "valuePattern",
+  "x-schemaorg-cardinality": "open-world"
+}

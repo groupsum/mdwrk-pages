@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:releaseDate",
+  "$ref": "../datatypes/Date.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The release date of a product or product model. This can be used to distinguish the exact variant of a product.",
+  "title": "releaseDate",
+  "x-schemaorg-cardinality": "open-world"
+}

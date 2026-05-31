@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:bankAccountType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type of a bank account.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "bankAccountType",
+  "x-schemaorg-cardinality": "open-world"
+}

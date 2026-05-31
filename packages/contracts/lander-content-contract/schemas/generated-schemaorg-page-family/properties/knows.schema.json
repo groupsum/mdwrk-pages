@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:knows",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The most generic bi-directional social/work relation.",
+  "title": "knows",
+  "x-schemaorg-cardinality": "open-world"
+}

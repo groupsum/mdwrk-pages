@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:eli:responsibility_of",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "title": "eli:responsibility_of",
+  "type": [
+    "string",
+    "number",
+    "boolean",
+    "object",
+    "array",
+    "null"
+  ],
+  "x-schemaorg-cardinality": "open-world"
+}

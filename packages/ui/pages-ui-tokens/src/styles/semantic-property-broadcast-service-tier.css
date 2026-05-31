@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-property-broadcast-service-tier-padding: 1rem;
+  --mdp-semantic-property-broadcast-service-tier-gap: 0.75rem;
+  --mdp-semantic-property-broadcast-service-tier-radius: 1rem;
+  --mdp-semantic-property-broadcast-service-tier-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-property-broadcast-service-tier-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-property-broadcast-service-tier-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--property-broadcast-service-tier {
+  padding: var(--mdp-semantic-property-broadcast-service-tier-padding);
+  gap: var(--mdp-semantic-property-broadcast-service-tier-gap);
+  border-radius: var(--mdp-semantic-property-broadcast-service-tier-radius);
+  background: var(--mdp-semantic-property-broadcast-service-tier-surface);
+  border: 1px solid var(--mdp-semantic-property-broadcast-service-tier-border);
+  box-shadow: var(--mdp-semantic-property-broadcast-service-tier-shadow);
+}
+
+.lander-semantic--property-broadcast-service-tier .lander-semantic__header,
+.lander-semantic--property-broadcast-service-tier .lander-semantic__body,
+.lander-semantic--property-broadcast-service-tier .lander-semantic__footer,
+.lander-semantic--property-broadcast-service-tier .lander-semantic__actions {
+  gap: var(--mdp-semantic-property-broadcast-service-tier-gap);
+}
+
+.lander-semantic--property-broadcast-service-tier .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--property-broadcast-service-tier .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--property-broadcast-service-tier .lander-semantic__subtitle,
+.lander-semantic--property-broadcast-service-tier .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--property-broadcast-service-tier .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-property-broadcast-service-tier-gap) * 0.8);
+}
+
+.lander-semantic--property-broadcast-service-tier .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--property-broadcast-service-tier .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

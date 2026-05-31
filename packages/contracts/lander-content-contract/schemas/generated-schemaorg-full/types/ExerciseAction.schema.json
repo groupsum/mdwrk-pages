@@ -1,0 +1,79 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ExerciseAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "PlayAction.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ExerciseAction"
+        },
+        "course": {
+          "$ref": "../properties/course.schema.json",
+          "description": "A sub property of location. The course where this action was taken."
+        },
+        "diet": {
+          "$ref": "../properties/diet.schema.json",
+          "description": "A sub property of instrument. The diet used in this action."
+        },
+        "distance": {
+          "$ref": "../properties/distance.schema.json",
+          "description": "The distance travelled, e.g. exercising or travelling."
+        },
+        "exerciseCourse": {
+          "$ref": "../properties/exerciseCourse.schema.json",
+          "description": "A sub property of location. The course where this action was taken."
+        },
+        "exercisePlan": {
+          "$ref": "../properties/exercisePlan.schema.json",
+          "description": "A sub property of instrument. The exercise plan used on this action."
+        },
+        "exerciseRelatedDiet": {
+          "$ref": "../properties/exerciseRelatedDiet.schema.json",
+          "description": "A sub property of instrument. The diet used in this action."
+        },
+        "exerciseType": {
+          "$ref": "../properties/exerciseType.schema.json",
+          "description": "Type(s) of exercise or activity, such as strength training, flexibility training, aerobics, cardiac rehabilitation, etc."
+        },
+        "fromLocation": {
+          "$ref": "../properties/fromLocation.schema.json",
+          "description": "A sub property of location. The original location of the object or the agent before the action."
+        },
+        "opponent": {
+          "$ref": "../properties/opponent.schema.json",
+          "description": "A sub property of participant. The opponent on this action."
+        },
+        "sportsActivityLocation": {
+          "$ref": "../properties/sportsActivityLocation.schema.json",
+          "description": "A sub property of location. The sports activity location where this action occurred."
+        },
+        "sportsEvent": {
+          "$ref": "../properties/sportsEvent.schema.json",
+          "description": "A sub property of location. The sports event where this action occurred."
+        },
+        "sportsTeam": {
+          "$ref": "../properties/sportsTeam.schema.json",
+          "description": "A sub property of participant. The sports team that participated on this action."
+        },
+        "toLocation": {
+          "$ref": "../properties/toLocation.schema.json",
+          "description": "A sub property of location. The final location of the object or the agent after the action."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The act of participating in exertive activity for the purposes of improving health and fitness.",
+  "title": "ExerciseAction"
+}

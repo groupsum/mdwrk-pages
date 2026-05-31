@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:observationAbout",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The [[observationAbout]] property identifies an entity, often a [[Place]], associated with an [[Observation]].",
+  "oneOf": [
+    {
+      "$ref": "../types/Place.schema.json"
+    },
+    {
+      "$ref": "../types/Thing.schema.json"
+    }
+  ],
+  "title": "observationAbout",
+  "x-schemaorg-cardinality": "open-world"
+}

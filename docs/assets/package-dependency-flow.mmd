@@ -1,0 +1,81 @@
+flowchart LR
+  subgraph Contracts["packages/contracts"]
+    LC["lander-content-contract"]
+    SD["structured-data"]
+    CC["lander-commerce-contract"]
+  end
+
+  subgraph Core["packages/core"]
+    LCore["lander-core"]
+    LPT["lander-page-templates"]
+    LPP["lander-page-template-presets"]
+    LMCA["lander-markdown-content-adapter"]
+  end
+
+  subgraph UI["packages/ui"]
+    LR["lander-react"]
+    LRC["lander-react-commerce"]
+    LT["lander-theme"]
+  end
+
+  subgraph Machine["packages/machine"]
+    LRSD["lander-react-structured-data"]
+    LSEO["lander-seo"]
+  end
+
+  subgraph Content["packages/content"]
+    PTD["page-template-demo-content-pack"]
+    SSCP["subscription-store-content-pack"]
+  end
+
+  subgraph Examples["examples"]
+    EPTD["page-template-demo"]
+    ELPD["learning-path-demo"]
+    ESSD["subscription-store-demo"]
+  end
+
+  LC --> LCore
+  LC --> LPT
+  LC --> LPP
+  LC --> LMCA
+  LC --> LR
+  LC --> PTD
+  LC --> SSCP
+  LC --> ELPD
+  LC --> ESSD
+
+  SD --> LRSD
+  SD --> ELPD
+  SD --> ESSD
+
+  CC --> LRC
+  CC --> ESSD
+
+  LPT --> LPP
+  LPT --> PTD
+  LPT --> SSCP
+  LPT --> EPTD
+  LPT --> ELPD
+  LPT --> ESSD
+
+  LPP --> PTD
+  LPP --> SSCP
+  LPP --> ELPD
+  LPP --> ESSD
+
+  LCore --> LMCA
+  LCore --> LSEO
+  LCore --> LRSD
+  LCore --> LR
+  LCore --> EPTD
+  LCore --> ELPD
+  LCore --> ESSD
+
+  LRSD --> LR
+  LR --> EPTD
+  LR --> ELPD
+  LR --> ESSD
+  LRSD --> EPTD
+  LRSD --> ELPD
+  LRSD --> ESSD
+  LRC --> ESSD

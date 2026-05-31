@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:recipeYield",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The quantity produced by the recipe (for example, number of people served, number of servings, etc).",
+  "oneOf": [
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "recipeYield",
+  "x-schemaorg-cardinality": "open-world"
+}

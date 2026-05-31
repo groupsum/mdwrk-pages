@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:restockingFee",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Use [[MonetaryAmount]] to specify a fixed restocking fee for product returns, or use [[Number]] to specify a percentage of the product price paid by the customer.",
+  "oneOf": [
+    {
+      "$ref": "../types/MonetaryAmount.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    }
+  ],
+  "title": "restockingFee",
+  "x-schemaorg-cardinality": "open-world"
+}

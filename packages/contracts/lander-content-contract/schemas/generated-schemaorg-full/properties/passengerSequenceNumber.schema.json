@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:passengerSequenceNumber",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The passenger's sequence number as assigned by the airline.",
+  "title": "passengerSequenceNumber",
+  "x-schemaorg-cardinality": "open-world"
+}

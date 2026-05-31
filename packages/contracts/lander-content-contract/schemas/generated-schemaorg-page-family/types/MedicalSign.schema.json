@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalSign",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalSignOrSymptom.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MedicalSign"
+        },
+        "identifyingExam": {
+          "$ref": "../properties/identifyingExam.schema.json",
+          "description": "A physical examination that can identify this sign."
+        },
+        "identifyingTest": {
+          "$ref": "../properties/identifyingTest.schema.json",
+          "description": "A diagnostic test that can identify this sign."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Any physical manifestation of a person's medical condition discoverable by objective diagnostic tests or physical examination.",
+  "title": "MedicalSign"
+}

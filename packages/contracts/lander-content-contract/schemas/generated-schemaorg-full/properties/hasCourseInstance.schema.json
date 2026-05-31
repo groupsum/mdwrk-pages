@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasCourseInstance",
+  "$ref": "../types/CourseInstance.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An offering of the course at a specific time and place or through specific media or mode of study or to a specific section of students.",
+  "title": "hasCourseInstance",
+  "x-schemaorg-cardinality": "open-world"
+}

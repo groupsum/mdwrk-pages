@@ -1,0 +1,51 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:QuantitativeValueDistribution",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "StructuredValue.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "QuantitativeValueDistribution"
+        },
+        "duration": {
+          "$ref": "../properties/duration.schema.json",
+          "description": "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601)."
+        },
+        "median": {
+          "$ref": "../properties/median.schema.json",
+          "description": "The median value."
+        },
+        "percentile10": {
+          "$ref": "../properties/percentile10.schema.json",
+          "description": "The 10th percentile value."
+        },
+        "percentile25": {
+          "$ref": "../properties/percentile25.schema.json",
+          "description": "The 25th percentile value."
+        },
+        "percentile75": {
+          "$ref": "../properties/percentile75.schema.json",
+          "description": "The 75th percentile value."
+        },
+        "percentile90": {
+          "$ref": "../properties/percentile90.schema.json",
+          "description": "The 90th percentile value."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A statistical distribution of values.",
+  "title": "QuantitativeValueDistribution"
+}

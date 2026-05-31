@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:durationOfWarranty",
+  "$ref": "../types/QuantitativeValue.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.",
+  "title": "durationOfWarranty",
+  "x-schemaorg-cardinality": "open-world"
+}

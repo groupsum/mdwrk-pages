@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:relevantSpecialty",
+  "$ref": "../enumerations/MedicalSpecialty.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "If applicable, a medical specialty in which this entity is relevant.",
+  "title": "relevantSpecialty",
+  "x-schemaorg-cardinality": "open-world"
+}

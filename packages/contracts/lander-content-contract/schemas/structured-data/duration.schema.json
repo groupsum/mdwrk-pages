@@ -1,0 +1,20 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Duration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Duration",
+  "description": "Quantity: Duration (use [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601)).",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "Duration"
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

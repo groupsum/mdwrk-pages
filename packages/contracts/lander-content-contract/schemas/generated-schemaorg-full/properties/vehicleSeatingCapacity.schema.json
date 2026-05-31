@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:vehicleSeatingCapacity",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.\\n\\nTypical unit code(s): C62 for persons.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "vehicleSeatingCapacity",
+  "x-schemaorg-cardinality": "open-world"
+}

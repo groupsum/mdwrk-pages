@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MediaGallery",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CollectionPage.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MediaGallery"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Web page type: Media gallery page. A mixed-media page that can contain media such as images, videos, and other multimedia.",
+  "title": "MediaGallery"
+}

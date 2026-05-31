@@ -1,0 +1,47 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:AnatomicalSystem",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalEntity.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "AnatomicalSystem"
+        },
+        "associatedPathophysiology": {
+          "$ref": "../properties/associatedPathophysiology.schema.json",
+          "description": "If applicable, a description of the pathophysiology associated with the anatomical system, including potential abnormal changes in the mechanical, physical, and biochemical functions of the system."
+        },
+        "comprisedOf": {
+          "$ref": "../properties/comprisedOf.schema.json",
+          "description": "Specifying something physically contained by something else. Typically used here for the underlying anatomical structures, such as organs, that comprise the anatomical system."
+        },
+        "relatedCondition": {
+          "$ref": "../properties/relatedCondition.schema.json",
+          "description": "A medical condition associated with this anatomy."
+        },
+        "relatedStructure": {
+          "$ref": "../properties/relatedStructure.schema.json",
+          "description": "Related anatomical structure(s) that are not part of the system but relate or connect to it, such as vascular bundles associated with an organ system."
+        },
+        "relatedTherapy": {
+          "$ref": "../properties/relatedTherapy.schema.json",
+          "description": "A medical therapy related to this anatomy."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An anatomical system is a group of anatomical structures that work together to perform a certain task. Anatomical systems, such as organ systems, are one organizing principle of anatomy, and can include circulatory, digestive, endocrine, integumentary, immune, lymphatic, muscular, nervous, reproductive, respiratory, skeletal, urinary, vestibular, and other systems.",
+  "title": "AnatomicalSystem"
+}

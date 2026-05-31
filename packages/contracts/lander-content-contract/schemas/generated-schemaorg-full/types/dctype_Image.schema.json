@@ -1,0 +1,20 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:dctype:Image",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "dctype:Image"
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "title": "dctype:Image",
+  "type": "object",
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

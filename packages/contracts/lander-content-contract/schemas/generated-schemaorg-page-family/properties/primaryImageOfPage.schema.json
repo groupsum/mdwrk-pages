@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:primaryImageOfPage",
+  "$ref": "../types/ImageObject.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the main image on the page.",
+  "title": "primaryImageOfPage",
+  "x-schemaorg-cardinality": "open-world"
+}

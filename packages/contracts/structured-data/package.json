@@ -24,9 +24,10 @@
   ],
   "description": "Reusable Schema.org and JSON-LD builders for MdWrk apps, packages, public content, and discovery surfaces.",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "node ../../../tools/generate-schemaorg-fused-surface.mjs && tsc -p tsconfig.json",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "npm run typecheck",
+    "test:schema-conformance": "npm run build && npm run build -w @mdwrk/lander-content-contract && node --test tests/schema-contract-t0.test.mjs tests/schema-contract-t1.test.mjs tests/schema-contract-t2.test.mjs",
     "test": "npm run build && npm run build -w @mdwrk/lander-content-contract && node --test tests/pure-builder-t0.test.mjs tests/pure-builder-t1.test.mjs tests/pure-builder-t2.test.mjs tests/schema-contract-t0.test.mjs tests/schema-contract-t1.test.mjs tests/schema-contract-t2.test.mjs && node tests/run-smoke.mjs",
     "prepack": "npm run build"
   },

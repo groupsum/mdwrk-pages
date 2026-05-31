@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:diagram",
+  "$ref": "../types/ImageObject.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An image containing a diagram that illustrates the structure and/or its component substructures and/or connections with other structures.",
+  "title": "diagram",
+  "x-schemaorg-cardinality": "open-world"
+}

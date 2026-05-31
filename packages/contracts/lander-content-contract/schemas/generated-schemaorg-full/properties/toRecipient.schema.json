@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:toRecipient",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of recipient. The recipient who was directly sent the message.",
+  "oneOf": [
+    {
+      "$ref": "../types/Audience.schema.json"
+    },
+    {
+      "$ref": "../types/ContactPoint.schema.json"
+    },
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "toRecipient",
+  "x-schemaorg-cardinality": "open-world"
+}

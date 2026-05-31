@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:serviceType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type of service being offered, e.g. veterans' benefits, emergency relief, etc.",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/GovernmentBenefitsType.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "serviceType",
+  "x-schemaorg-cardinality": "open-world"
+}

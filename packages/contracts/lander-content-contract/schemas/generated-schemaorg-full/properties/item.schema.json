@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:item",
+  "$ref": "../types/Thing.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists').",
+  "title": "item",
+  "x-schemaorg-cardinality": "open-world"
+}

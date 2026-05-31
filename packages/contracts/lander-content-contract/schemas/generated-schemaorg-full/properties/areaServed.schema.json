@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:areaServed",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The geographic area where a service or offered item is provided.",
+  "oneOf": [
+    {
+      "$ref": "../types/AdministrativeArea.schema.json"
+    },
+    {
+      "$ref": "../types/GeoShape.schema.json"
+    },
+    {
+      "$ref": "../types/Place.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "areaServed",
+  "x-schemaorg-cardinality": "open-world"
+}

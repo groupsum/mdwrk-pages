@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:isProprietary",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "True if this item's name is a proprietary/brand name (vs. generic name).",
+  "title": "isProprietary",
+  "x-schemaorg-cardinality": "open-world"
+}

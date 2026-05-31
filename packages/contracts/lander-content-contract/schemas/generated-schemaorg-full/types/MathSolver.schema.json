@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MathSolver",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MathSolver"
+        },
+        "mathExpression": {
+          "$ref": "../properties/mathExpression.schema.json",
+          "description": "A mathematical expression (e.g. 'x^2-3x=0') that may be solved for a specific variable, simplified, or transformed. This can take many formats, e.g. LaTeX, Ascii-Math, or math as you would write with a keyboard."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A math solver which is capable of solving a subset of mathematical problems.",
+  "title": "MathSolver"
+}

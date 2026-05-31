@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:gleif-L1:hasLEI",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "title": "gleif-L1:hasLEI",
+  "type": [
+    "string",
+    "number",
+    "boolean",
+    "object",
+    "array",
+    "null"
+  ],
+  "x-schemaorg-cardinality": "open-world"
+}

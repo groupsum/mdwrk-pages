@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:numberOfAxles",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of axles.\\n\\nTypical unit code(s): C62.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "numberOfAxles",
+  "x-schemaorg-cardinality": "open-world"
+}

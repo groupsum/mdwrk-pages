@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-gene-padding: 1rem;
+  --mdp-semantic-gene-gap: 0.75rem;
+  --mdp-semantic-gene-radius: 1rem;
+  --mdp-semantic-gene-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-gene-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-gene-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--gene {
+  padding: var(--mdp-semantic-gene-padding);
+  gap: var(--mdp-semantic-gene-gap);
+  border-radius: var(--mdp-semantic-gene-radius);
+  background: var(--mdp-semantic-gene-surface);
+  border: 1px solid var(--mdp-semantic-gene-border);
+  box-shadow: var(--mdp-semantic-gene-shadow);
+}
+
+.lander-semantic--gene .lander-semantic__header,
+.lander-semantic--gene .lander-semantic__body,
+.lander-semantic--gene .lander-semantic__footer,
+.lander-semantic--gene .lander-semantic__actions {
+  gap: var(--mdp-semantic-gene-gap);
+}
+
+.lander-semantic--gene .lander-semantic__header,
+.lander-semantic--gene .lander-semantic__eyebrow,
+.lander-semantic--gene .lander-semantic__title,
+.lander-semantic--gene .lander-semantic__subtitle,
+.lander-semantic--gene .lander-semantic__description,
+.lander-semantic--gene .lander-semantic__meta,
+.lander-semantic--gene .lander-semantic__image,
+.lander-semantic--gene .lander-semantic__body,
+.lander-semantic--gene .lander-semantic__actions,
+.lander-semantic--gene .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--gene .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--gene .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--gene .lander-semantic__subtitle,
+.lander-semantic--gene .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--gene .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-gene-gap) * 0.8);
+}
+
+.lander-semantic--gene .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-gene-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--gene .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--gene .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--gene .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

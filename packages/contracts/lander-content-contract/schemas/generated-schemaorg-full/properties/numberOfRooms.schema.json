@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:numberOfRooms",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business.\nTypical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "numberOfRooms",
+  "x-schemaorg-cardinality": "open-world"
+}

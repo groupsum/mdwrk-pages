@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:legislationCountersignedBy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The person or organization that countersigned the legislation. Depending on the legal context, a countersignature can indicate that the signed authority undertakes to assume responsibility for texts emanating from a person who is inviolable and irresponsible, (for example a King, Grand Duc or President), or that the authority is in charge of the implementation of the text.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "legislationCountersignedBy",
+  "x-schemaorg-cardinality": "open-world"
+}

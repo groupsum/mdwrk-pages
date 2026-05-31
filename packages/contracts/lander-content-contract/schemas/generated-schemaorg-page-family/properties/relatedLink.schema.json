@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:relatedLink",
+  "$ref": "../types/URL.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A link related to this web page, for example to other related web pages.",
+  "title": "relatedLink",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:partOfSystem",
+  "$ref": "../types/AnatomicalSystem.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The anatomical or organ system that this structure is part of.",
+  "title": "partOfSystem",
+  "x-schemaorg-cardinality": "open-world"
+}

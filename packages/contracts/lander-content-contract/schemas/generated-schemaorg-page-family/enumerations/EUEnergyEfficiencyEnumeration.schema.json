@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:EUEnergyEfficiencyEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerates the EU energy efficiency classes A-G as well as A+, A++, and A+++ as defined in EU directive 2017/1369.",
+  "enum": [],
+  "title": "EUEnergyEfficiencyEnumeration",
+  "type": "string"
+}

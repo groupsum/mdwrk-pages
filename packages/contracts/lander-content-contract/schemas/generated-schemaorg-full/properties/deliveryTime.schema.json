@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:deliveryTime",
+  "$ref": "../types/ShippingDeliveryTime.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The total delay between the receipt of the order and the goods reaching the final customer.",
+  "title": "deliveryTime",
+  "x-schemaorg-cardinality": "open-world"
+}

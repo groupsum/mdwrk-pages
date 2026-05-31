@@ -1,0 +1,45 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Hospital",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CivicStructure.schema.json"
+    },
+    {
+      "$ref": "EmergencyService.schema.json"
+    },
+    {
+      "$ref": "MedicalOrganization.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Hospital"
+        },
+        "availableService": {
+          "$ref": "../properties/availableService.schema.json",
+          "description": "A medical service available from this provider."
+        },
+        "healthcareReportingData": {
+          "$ref": "../properties/healthcareReportingData.schema.json",
+          "description": "Indicates data describing a hospital, e.g. a CDC [[CDCPMDRecord]] or as some kind of [[Dataset]]."
+        },
+        "medicalSpecialty": {
+          "$ref": "../properties/medicalSpecialty.schema.json",
+          "description": "A medical specialty of the provider."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A hospital.",
+  "title": "Hospital"
+}

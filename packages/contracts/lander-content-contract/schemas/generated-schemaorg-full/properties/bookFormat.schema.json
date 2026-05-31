@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:bookFormat",
+  "$ref": "../enumerations/BookFormatType.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The format of the book.",
+  "title": "bookFormat",
+  "x-schemaorg-cardinality": "open-world"
+}

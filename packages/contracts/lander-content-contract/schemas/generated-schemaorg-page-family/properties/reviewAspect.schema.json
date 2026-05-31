@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:reviewAspect",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "This Review or Rating is relevant to this part or facet of the itemReviewed.",
+  "oneOf": [
+    {
+      "$ref": "../types/StructuredValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "reviewAspect",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,46 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Brand",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "$ref": "cmns-cls_Classifier.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Brand"
+        },
+        "aggregateRating": {
+          "$ref": "../properties/aggregateRating.schema.json",
+          "description": "The overall rating, based on a collection of reviews or ratings, of the item."
+        },
+        "logo": {
+          "$ref": "../properties/logo.schema.json",
+          "description": "An associated logo."
+        },
+        "review": {
+          "$ref": "../properties/review.schema.json",
+          "description": "A review of the item."
+        },
+        "slogan": {
+          "$ref": "../properties/slogan.schema.json",
+          "description": "A slogan or motto associated with the item."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A brand is a name used by an organization or business person for labeling a product, product group, or similar.",
+  "title": "Brand"
+}

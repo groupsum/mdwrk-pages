@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:expectedArrivalUntil",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The latest date the package may arrive.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "expectedArrivalUntil",
+  "x-schemaorg-cardinality": "open-world"
+}

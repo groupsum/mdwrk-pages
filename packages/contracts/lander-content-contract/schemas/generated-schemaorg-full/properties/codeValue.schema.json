@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:codeValue",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A short textual code that uniquely identifies the value.",
+  "title": "codeValue",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:deliveryMethod",
+  "$ref": "../enumerations/DeliveryMethod.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of instrument. The method of delivery.",
+  "title": "deliveryMethod",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-is-accessory-or-spare-part-for-padding: 1rem;
+  --mdp-semantic-is-accessory-or-spare-part-for-gap: 0.75rem;
+  --mdp-semantic-is-accessory-or-spare-part-for-radius: 1rem;
+  --mdp-semantic-is-accessory-or-spare-part-for-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-is-accessory-or-spare-part-for-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-is-accessory-or-spare-part-for-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--is-accessory-or-spare-part-for {
+  padding: var(--mdp-semantic-is-accessory-or-spare-part-for-padding);
+  gap: var(--mdp-semantic-is-accessory-or-spare-part-for-gap);
+  border-radius: var(--mdp-semantic-is-accessory-or-spare-part-for-radius);
+  background: var(--mdp-semantic-is-accessory-or-spare-part-for-surface);
+  border: 1px solid var(--mdp-semantic-is-accessory-or-spare-part-for-border);
+  box-shadow: var(--mdp-semantic-is-accessory-or-spare-part-for-shadow);
+}
+
+.lander-semantic--is-accessory-or-spare-part-for .lander-semantic__header,
+.lander-semantic--is-accessory-or-spare-part-for .lander-semantic__body,
+.lander-semantic--is-accessory-or-spare-part-for .lander-semantic__footer,
+.lander-semantic--is-accessory-or-spare-part-for .lander-semantic__actions {
+  gap: var(--mdp-semantic-is-accessory-or-spare-part-for-gap);
+}
+
+.lander-semantic--is-accessory-or-spare-part-for .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--is-accessory-or-spare-part-for .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--is-accessory-or-spare-part-for .lander-semantic__subtitle,
+.lander-semantic--is-accessory-or-spare-part-for .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--is-accessory-or-spare-part-for .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-is-accessory-or-spare-part-for-gap) * 0.8);
+}
+
+.lander-semantic--is-accessory-or-spare-part-for .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--is-accessory-or-spare-part-for .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

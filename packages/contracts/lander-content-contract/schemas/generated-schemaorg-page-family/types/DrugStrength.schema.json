@@ -1,0 +1,47 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:DrugStrength",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalIntangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "DrugStrength"
+        },
+        "activeIngredient": {
+          "$ref": "../properties/activeIngredient.schema.json",
+          "description": "An active ingredient, typically chemical compounds and/or biologic substances."
+        },
+        "availableIn": {
+          "$ref": "../properties/availableIn.schema.json",
+          "description": "The location in which the strength is available."
+        },
+        "maximumIntake": {
+          "$ref": "../properties/maximumIntake.schema.json",
+          "description": "Recommended intake of this supplement for a given population as defined by a specific recommending authority."
+        },
+        "strengthUnit": {
+          "$ref": "../properties/strengthUnit.schema.json",
+          "description": "The units of an active ingredient's strength, e.g. mg."
+        },
+        "strengthValue": {
+          "$ref": "../properties/strengthValue.schema.json",
+          "description": "The value of an active ingredient's strength, e.g. 325."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A specific strength in which a medical drug is available in a specific country.",
+  "title": "DrugStrength"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hostingOrganization",
+  "$ref": "../types/Organization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The Organization (airline, travelers' club, retailer, etc.) the membership is made with or which offers the  MemberProgram.",
+  "title": "hostingOrganization",
+  "x-schemaorg-cardinality": "open-world"
+}

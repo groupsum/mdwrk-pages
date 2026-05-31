@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:cashBack",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A cardholder benefit that pays the cardholder a small percentage of their net expenditures.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Boolean.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    }
+  ],
+  "title": "cashBack",
+  "x-schemaorg-cardinality": "open-world"
+}

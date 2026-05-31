@@ -1,0 +1,51 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalDevice",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalEntity.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MedicalDevice"
+        },
+        "adverseOutcome": {
+          "$ref": "../properties/adverseOutcome.schema.json",
+          "description": "A possible complication and/or side effect of this therapy. If it is known that an adverse outcome is serious (resulting in death, disability, or permanent damage; requiring hospitalization; or otherwise life-threatening or requiring immediate medical attention), tag it as a seriousAdverseOutcome instead."
+        },
+        "contraindication": {
+          "$ref": "../properties/contraindication.schema.json",
+          "description": "A contraindication for this therapy."
+        },
+        "postOp": {
+          "$ref": "../properties/postOp.schema.json",
+          "description": "A description of the postoperative procedures, care, and/or followups for this device."
+        },
+        "preOp": {
+          "$ref": "../properties/preOp.schema.json",
+          "description": "A description of the workup, testing, and other preparations required before implanting this device."
+        },
+        "procedure": {
+          "$ref": "../properties/procedure.schema.json",
+          "description": "A description of the procedure involved in setting up, using, and/or installing the device."
+        },
+        "seriousAdverseOutcome": {
+          "$ref": "../properties/seriousAdverseOutcome.schema.json",
+          "description": "A possible serious complication and/or serious side effect of this therapy. Serious adverse outcomes include those that are life-threatening; result in death, disability, or permanent damage; require hospitalization or prolong existing hospitalization; cause congenital anomalies or birth defects; or jeopardize the patient and may require medical or surgical intervention to prevent one of the outcomes in this definition."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Any object used in a medical capacity, such as to diagnose or treat a patient.",
+  "title": "MedicalDevice"
+}

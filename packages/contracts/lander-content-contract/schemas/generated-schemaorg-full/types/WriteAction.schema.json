@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:WriteAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreateAction.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "WriteAction"
+        },
+        "inLanguage": {
+          "$ref": "../properties/inLanguage.schema.json",
+          "description": "The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]]."
+        },
+        "language": {
+          "$ref": "../properties/language.schema.json",
+          "description": "A sub property of instrument. The language used on this action."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The act of authoring written creative content.",
+  "title": "WriteAction"
+}

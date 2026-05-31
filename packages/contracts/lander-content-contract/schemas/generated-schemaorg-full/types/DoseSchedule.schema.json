@@ -1,0 +1,43 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:DoseSchedule",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalIntangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "DoseSchedule"
+        },
+        "doseUnit": {
+          "$ref": "../properties/doseUnit.schema.json",
+          "description": "The unit of the dose, e.g. 'mg'."
+        },
+        "doseValue": {
+          "$ref": "../properties/doseValue.schema.json",
+          "description": "The value of the dose, e.g. 500."
+        },
+        "frequency": {
+          "$ref": "../properties/frequency.schema.json",
+          "description": "How often the dose is taken, e.g. 'daily'."
+        },
+        "targetPopulation": {
+          "$ref": "../properties/targetPopulation.schema.json",
+          "description": "Characteristics of the population for which this is intended, or which typically uses it, e.g. 'adults'."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A specific dosing schedule for a drug or supplement.",
+  "title": "DoseSchedule"
+}

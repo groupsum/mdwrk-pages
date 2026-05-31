@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-music-group-padding: 1rem;
+  --mdp-semantic-music-group-gap: 0.75rem;
+  --mdp-semantic-music-group-radius: 1rem;
+  --mdp-semantic-music-group-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-music-group-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-music-group-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--music-group {
+  padding: var(--mdp-semantic-music-group-padding);
+  gap: var(--mdp-semantic-music-group-gap);
+  border-radius: var(--mdp-semantic-music-group-radius);
+  background: var(--mdp-semantic-music-group-surface);
+  border: 1px solid var(--mdp-semantic-music-group-border);
+  box-shadow: var(--mdp-semantic-music-group-shadow);
+}
+
+.lander-semantic--music-group .lander-semantic__header,
+.lander-semantic--music-group .lander-semantic__body,
+.lander-semantic--music-group .lander-semantic__footer,
+.lander-semantic--music-group .lander-semantic__actions {
+  gap: var(--mdp-semantic-music-group-gap);
+}
+
+.lander-semantic--music-group .lander-semantic__header,
+.lander-semantic--music-group .lander-semantic__eyebrow,
+.lander-semantic--music-group .lander-semantic__title,
+.lander-semantic--music-group .lander-semantic__subtitle,
+.lander-semantic--music-group .lander-semantic__description,
+.lander-semantic--music-group .lander-semantic__meta,
+.lander-semantic--music-group .lander-semantic__image,
+.lander-semantic--music-group .lander-semantic__body,
+.lander-semantic--music-group .lander-semantic__actions,
+.lander-semantic--music-group .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--music-group .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--music-group .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--music-group .lander-semantic__subtitle,
+.lander-semantic--music-group .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--music-group .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-music-group-gap) * 0.8);
+}
+
+.lander-semantic--music-group .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-music-group-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--music-group .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--music-group .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--music-group .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

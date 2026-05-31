@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:HealthPlanFormulary",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "HealthPlanFormulary"
+        },
+        "healthPlanCostSharing": {
+          "$ref": "../properties/healthPlanCostSharing.schema.json",
+          "description": "The costs to the patient for services under this network or formulary."
+        },
+        "healthPlanDrugTier": {
+          "$ref": "../properties/healthPlanDrugTier.schema.json",
+          "description": "The tier(s) of drugs offered by this formulary or insurance plan."
+        },
+        "offersPrescriptionByMail": {
+          "$ref": "../properties/offersPrescriptionByMail.schema.json",
+          "description": "Whether prescriptions can be delivered by mail."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "For a given health insurance plan, the specification for costs and coverage of prescription drugs.",
+  "title": "HealthPlanFormulary"
+}

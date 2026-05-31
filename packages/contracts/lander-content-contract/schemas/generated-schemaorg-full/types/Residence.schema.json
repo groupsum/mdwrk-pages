@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Residence",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Place.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Residence"
+        },
+        "accommodationFloorPlan": {
+          "$ref": "../properties/accommodationFloorPlan.schema.json",
+          "description": "A floorplan of some [[Accommodation]]."
+        },
+        "floorLevel": {
+          "$ref": "../properties/floorLevel.schema.json",
+          "description": "The floor level for an [[Accommodation]] in a multi-storey building. Since counting\n  systems [vary internationally](https://en.wikipedia.org/wiki/Storey#Consecutive_number_floor_designations), the local system should be used where possible."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The place where a person lives.",
+  "title": "Residence"
+}

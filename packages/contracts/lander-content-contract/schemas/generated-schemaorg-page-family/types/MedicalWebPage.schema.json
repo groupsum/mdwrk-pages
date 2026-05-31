@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalWebPage",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "WebPage.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MedicalWebPage"
+        },
+        "aspect": {
+          "$ref": "../properties/aspect.schema.json",
+          "description": "An aspect of medical practice that is considered on the page, such as 'diagnosis', 'treatment', 'causes', 'prognosis', 'etiology', 'epidemiology', etc."
+        },
+        "medicalAudience": {
+          "$ref": "../properties/medicalAudience.schema.json",
+          "description": "Medical audience for page."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A web page that provides medical information.",
+  "title": "MedicalWebPage"
+}

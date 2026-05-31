@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:DrugPregnancyCategory",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Categories that represent an assessment of the risk of fetal injury due to a drug or pharmaceutical used as directed by the mother during pregnancy.",
+  "enum": [],
+  "title": "DrugPregnancyCategory",
+  "type": "string"
+}

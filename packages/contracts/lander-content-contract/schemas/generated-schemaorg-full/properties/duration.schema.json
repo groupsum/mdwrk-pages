@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:duration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
+  "oneOf": [
+    {
+      "$ref": "../types/Duration.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "duration",
+  "x-schemaorg-cardinality": "open-world"
+}

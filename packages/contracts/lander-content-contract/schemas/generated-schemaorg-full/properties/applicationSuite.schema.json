@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:applicationSuite",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The name of the application suite to which the application belongs (e.g. Excel belongs to Office).",
+  "title": "applicationSuite",
+  "x-schemaorg-cardinality": "open-world"
+}

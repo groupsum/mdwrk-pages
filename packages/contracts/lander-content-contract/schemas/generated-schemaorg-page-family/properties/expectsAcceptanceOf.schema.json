@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:expectsAcceptanceOf",
+  "$ref": "../types/Offer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it.",
+  "title": "expectsAcceptanceOf",
+  "x-schemaorg-cardinality": "open-world"
+}

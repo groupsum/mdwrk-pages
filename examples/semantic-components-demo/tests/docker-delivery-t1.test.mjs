@@ -19,7 +19,8 @@ test("T1: semantic components demo container contract stays health-check ready a
   assert.ok(dockerfile.includes("COPY --from=build /workspace/examples/semantic-components-demo/dist /usr/share/nginx/html"));
   assert.ok(compose.includes("wget -qO- http://127.0.0.1/healthz || exit 1"));
   assert.equal(compose.includes("ports:"), false);
-  assert.ok(styles.includes("@media (max-width: 1100px)"));
+  assert.ok(styles.includes("@media (max-width: 1180px)"));
+  assert.ok(styles.includes(".semantic-demo__family--education-family .semantic-demo__grid"));
   assert.ok(styles.includes(".semantic-demo__summary"));
   assert.ok(styles.includes(".semantic-demo__grid"));
 

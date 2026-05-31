@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:sportsTeam",
+  "$ref": "../types/SportsTeam.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of participant. The sports team that participated on this action.",
+  "title": "sportsTeam",
+  "x-schemaorg-cardinality": "open-world"
+}

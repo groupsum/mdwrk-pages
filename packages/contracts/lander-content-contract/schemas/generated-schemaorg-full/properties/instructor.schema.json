@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:instructor",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A person assigned to instruct or provide instructional assistance for the [[CourseInstance]].",
+  "title": "instructor",
+  "x-schemaorg-cardinality": "open-world"
+}

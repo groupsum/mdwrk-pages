@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasCertification",
+  "$ref": "../types/Certification.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Certification information about a product, organization, service, place, or person.",
+  "title": "hasCertification",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:OnDemandEvent",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "PublicationEvent.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "OnDemandEvent"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A publication event, e.g. catch-up TV or radio podcast, during which a program is available on-demand.",
+  "title": "OnDemandEvent"
+}

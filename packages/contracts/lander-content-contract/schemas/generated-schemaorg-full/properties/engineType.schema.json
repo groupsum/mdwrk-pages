@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:engineType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type of engine or engines powering the vehicle.",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/QualitativeValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "engineType",
+  "x-schemaorg-cardinality": "open-world"
+}

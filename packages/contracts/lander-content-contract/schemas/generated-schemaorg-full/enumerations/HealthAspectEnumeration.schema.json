@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:HealthAspectEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "HealthAspectEnumeration enumerates several aspects of health content online, each of which might be described using [[hasHealthAspect]] and [[HealthTopicContent]].",
+  "enum": [],
+  "title": "HealthAspectEnumeration",
+  "type": "string"
+}

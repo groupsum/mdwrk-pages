@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:sizeSystem",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The size system used to identify a product's size. Typically either a standard (for example, \"GS1\" or \"ISO-EN13402\"), country code (for example \"US\" or \"JP\"), or a measuring system (for example \"Metric\" or \"Imperial\").",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/SizeSystemEnumeration.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "sizeSystem",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:speechToTextMarkup",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Form of markup used. eg. [SSML](https://www.w3.org/TR/speech-synthesis11) or [IPA](https://www.wikidata.org/wiki/Property:P898).",
+  "title": "speechToTextMarkup",
+  "x-schemaorg-cardinality": "open-world"
+}

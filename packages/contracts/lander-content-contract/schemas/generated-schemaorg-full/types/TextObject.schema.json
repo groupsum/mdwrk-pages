@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:TextObject",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MediaObject.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "TextObject"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A text file. The text can be unformatted or contain markup, html, etc.",
+  "title": "TextObject"
+}

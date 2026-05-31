@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:acceptedOffer",
+  "$ref": "../types/Offer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The offer(s) -- e.g., product, quantity and price combinations -- included in the order.",
+  "title": "acceptedOffer",
+  "x-schemaorg-cardinality": "open-world"
+}

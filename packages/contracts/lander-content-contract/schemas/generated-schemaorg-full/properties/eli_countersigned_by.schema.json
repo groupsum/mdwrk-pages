@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:eli:countersigned_by",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "title": "eli:countersigned_by",
+  "type": [
+    "string",
+    "number",
+    "boolean",
+    "object",
+    "array",
+    "null"
+  ],
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:nationality",
+  "$ref": "../types/Country.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Nationality of the person.",
+  "title": "nationality",
+  "x-schemaorg-cardinality": "open-world"
+}

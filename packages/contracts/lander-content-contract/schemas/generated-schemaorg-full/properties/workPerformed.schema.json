@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:workPerformed",
+  "$ref": "../types/CreativeWork.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A work performed in some event, for example a play performed in a TheaterEvent.",
+  "title": "workPerformed",
+  "x-schemaorg-cardinality": "open-world"
+}

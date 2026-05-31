@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:medicalSpecialty",
+  "$ref": "../enumerations/MedicalSpecialty.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A medical specialty of the provider.",
+  "title": "medicalSpecialty",
+  "x-schemaorg-cardinality": "open-world"
+}

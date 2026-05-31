@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:vehicleEngine",
+  "$ref": "../types/EngineSpecification.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Information about the engine or engines of the vehicle.",
+  "title": "vehicleEngine",
+  "x-schemaorg-cardinality": "open-world"
+}

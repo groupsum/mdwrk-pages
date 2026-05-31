@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:permissions",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Permission(s) required to run the app (for example, a mobile app may require full internet access or may run only on wifi).",
+  "title": "permissions",
+  "x-schemaorg-cardinality": "open-world"
+}

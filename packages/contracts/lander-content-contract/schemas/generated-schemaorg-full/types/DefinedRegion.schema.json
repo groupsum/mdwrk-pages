@@ -1,0 +1,50 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:DefinedRegion",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Place.schema.json"
+    },
+    {
+      "$ref": "StructuredValue.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "DefinedRegion"
+        },
+        "addressCountry": {
+          "$ref": "../properties/addressCountry.schema.json",
+          "description": "The country. Recommended to be in 2-letter [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1) format, for example \"US\". For backward compatibility, a 3-letter [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code such as \"SGP\" or a full country name such as \"Singapore\" can also be used."
+        },
+        "addressRegion": {
+          "$ref": "../properties/addressRegion.schema.json",
+          "description": "The region in which the locality is, and which is in the country. For example, California or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country) such as the Province in Italy or Region in Germany."
+        },
+        "postalCode": {
+          "$ref": "../properties/postalCode.schema.json",
+          "description": "The postal code. For example, 94043."
+        },
+        "postalCodePrefix": {
+          "$ref": "../properties/postalCodePrefix.schema.json",
+          "description": "A defined range of postal codes indicated by a common textual prefix. Used for non-numeric systems such as UK."
+        },
+        "postalCodeRange": {
+          "$ref": "../properties/postalCodeRange.schema.json",
+          "description": "A defined range of postal codes."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A DefinedRegion is a geographic area defined by potentially arbitrary (rather than political, administrative or natural geographical) criteria. Properties are provided for defining a region by reference to sets of postal codes.\n\nExamples: a delivery destination when shopping. Region where regional pricing is configured.\n\nRequirement 1:\nCountry: US\nStates: \"NY\", \"CA\"\n\nRequirement 2:\nCountry: US\nPostalCode Set: { [94000-94585], [97000, 97999], [13000, 13599]}\n{ [12345, 12345], [78945, 78945], }\nRegion = state, canton, prefecture, autonomous community...\n",
+  "title": "DefinedRegion"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:publisherImprint",
+  "$ref": "../types/Organization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The publishing division which published the comic.",
+  "title": "publisherImprint",
+  "x-schemaorg-cardinality": "open-world"
+}

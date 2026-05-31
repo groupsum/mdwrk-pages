@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:orderDelivery",
+  "$ref": "../types/ParcelDelivery.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The delivery of the parcel related to this order or order item.",
+  "title": "orderDelivery",
+  "x-schemaorg-cardinality": "open-world"
+}

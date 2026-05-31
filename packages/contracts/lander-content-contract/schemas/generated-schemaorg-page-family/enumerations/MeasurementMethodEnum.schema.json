@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:MeasurementMethodEnum",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumeration(s) for use with [[measurementMethod]].",
+  "enum": [],
+  "title": "MeasurementMethodEnum",
+  "type": "string"
+}

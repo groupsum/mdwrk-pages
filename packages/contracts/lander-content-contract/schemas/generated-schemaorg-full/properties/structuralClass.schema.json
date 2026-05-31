@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:structuralClass",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The name given to how bone physically connects to each other.",
+  "title": "structuralClass",
+  "x-schemaorg-cardinality": "open-world"
+}

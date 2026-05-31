@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:RespiratoryTherapy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalTherapy.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "RespiratoryTherapy"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The therapy that is concerned with the maintenance or improvement of respiratory function (as in patients with pulmonary disease).",
+  "title": "RespiratoryTherapy"
+}

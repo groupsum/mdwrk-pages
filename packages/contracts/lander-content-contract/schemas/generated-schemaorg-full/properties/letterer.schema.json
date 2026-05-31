@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:letterer",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The individual who adds lettering, including speech balloons and sound effects, to artwork.",
+  "title": "letterer",
+  "x-schemaorg-cardinality": "open-world"
+}

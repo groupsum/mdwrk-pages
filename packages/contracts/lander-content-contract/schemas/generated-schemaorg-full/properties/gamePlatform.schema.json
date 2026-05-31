@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:gamePlatform",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The electronic systems used to play <a href=\"http://en.wikipedia.org/wiki/Category:Video_game_platforms\">video games</a>.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/Thing.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "gamePlatform",
+  "x-schemaorg-cardinality": "open-world"
+}

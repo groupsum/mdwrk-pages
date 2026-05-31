@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:events",
+  "$ref": "../types/Event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Upcoming or past events associated with this place or organization.",
+  "title": "events",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:legislationResponsible",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An individual or organization that has some kind of responsibility for the legislation. Typically the ministry who is/was in charge of elaborating the legislation, or the adressee for potential questions about the legislation once it is published.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "legislationResponsible",
+  "x-schemaorg-cardinality": "open-world"
+}

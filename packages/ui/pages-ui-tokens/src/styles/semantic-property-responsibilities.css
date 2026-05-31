@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-property-responsibilities-padding: 1rem;
+  --mdp-semantic-property-responsibilities-gap: 0.75rem;
+  --mdp-semantic-property-responsibilities-radius: 1rem;
+  --mdp-semantic-property-responsibilities-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-property-responsibilities-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-property-responsibilities-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--property-responsibilities {
+  padding: var(--mdp-semantic-property-responsibilities-padding);
+  gap: var(--mdp-semantic-property-responsibilities-gap);
+  border-radius: var(--mdp-semantic-property-responsibilities-radius);
+  background: var(--mdp-semantic-property-responsibilities-surface);
+  border: 1px solid var(--mdp-semantic-property-responsibilities-border);
+  box-shadow: var(--mdp-semantic-property-responsibilities-shadow);
+}
+
+.lander-semantic--property-responsibilities .lander-semantic__header,
+.lander-semantic--property-responsibilities .lander-semantic__body,
+.lander-semantic--property-responsibilities .lander-semantic__footer,
+.lander-semantic--property-responsibilities .lander-semantic__actions {
+  gap: var(--mdp-semantic-property-responsibilities-gap);
+}
+
+.lander-semantic--property-responsibilities .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--property-responsibilities .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--property-responsibilities .lander-semantic__subtitle,
+.lander-semantic--property-responsibilities .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--property-responsibilities .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-property-responsibilities-gap) * 0.8);
+}
+
+.lander-semantic--property-responsibilities .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--property-responsibilities .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:maxPrice",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The highest price if the price is a range.",
+  "title": "maxPrice",
+  "x-schemaorg-cardinality": "open-world"
+}

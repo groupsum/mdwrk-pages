@@ -1,0 +1,51 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:LodgingReservation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Reservation.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "LodgingReservation"
+        },
+        "checkinTime": {
+          "$ref": "../properties/checkinTime.schema.json",
+          "description": "The earliest someone may check into a lodging establishment."
+        },
+        "checkoutTime": {
+          "$ref": "../properties/checkoutTime.schema.json",
+          "description": "The latest someone may check out of a lodging establishment."
+        },
+        "lodgingUnitDescription": {
+          "$ref": "../properties/lodgingUnitDescription.schema.json",
+          "description": "A full description of the lodging unit."
+        },
+        "lodgingUnitType": {
+          "$ref": "../properties/lodgingUnitType.schema.json",
+          "description": "Textual description of the unit type (including suite vs. room, size of bed, etc.)."
+        },
+        "numAdults": {
+          "$ref": "../properties/numAdults.schema.json",
+          "description": "The number of adults staying in the unit."
+        },
+        "numChildren": {
+          "$ref": "../properties/numChildren.schema.json",
+          "description": "The number of children staying in the unit."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A reservation for lodging at a hotel, motel, inn, etc.\\n\\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.",
+  "title": "LodgingReservation"
+}

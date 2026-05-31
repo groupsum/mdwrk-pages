@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:album",
+  "$ref": "../types/MusicAlbum.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A music album.",
+  "title": "album",
+  "x-schemaorg-cardinality": "open-world"
+}

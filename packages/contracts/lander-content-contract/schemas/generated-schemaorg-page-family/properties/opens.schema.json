@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:opens",
+  "$ref": "../datatypes/Time.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The opening hour of the place or service on the given day(s) of the week.",
+  "title": "opens",
+  "x-schemaorg-cardinality": "open-world"
+}

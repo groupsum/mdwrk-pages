@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:TheaterGroup",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "PerformingGroup.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "TheaterGroup"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A theater group or company, for example, the Royal Shakespeare Company or Druid Theatre.",
+  "title": "TheaterGroup"
+}

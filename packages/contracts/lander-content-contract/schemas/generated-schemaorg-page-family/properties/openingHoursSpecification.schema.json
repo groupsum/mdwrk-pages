@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:openingHoursSpecification",
+  "$ref": "../types/OpeningHoursSpecification.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The opening hours of a certain place.",
+  "title": "openingHoursSpecification",
+  "x-schemaorg-cardinality": "open-world"
+}

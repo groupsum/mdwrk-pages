@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:applicantLocationRequirements",
+  "$ref": "../types/AdministrativeArea.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The location(s) applicants can apply from. This is usually used for telecommuting jobs where the applicant does not need to be in a physical office. Note: This should not be used for citizenship or work visa requirements.",
+  "title": "applicantLocationRequirements",
+  "x-schemaorg-cardinality": "open-world"
+}

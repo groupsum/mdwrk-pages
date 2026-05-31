@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:SellAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "TradeAction.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "SellAction"
+        },
+        "buyer": {
+          "$ref": "../properties/buyer.schema.json",
+          "description": "A sub property of participant. The participant/person/organization that bought the object."
+        },
+        "warrantyPromise": {
+          "$ref": "../properties/warrantyPromise.schema.json",
+          "description": "The warranty promise(s) included in the offer."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The act of taking money from a buyer in exchange for goods or services rendered. An agent sells an object, product, or service to a buyer for a price. Reciprocal of BuyAction.",
+  "title": "SellAction"
+}

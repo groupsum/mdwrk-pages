@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:digitalSourceType",
+  "$ref": "../enumerations/IPTCDigitalSourceEnumeration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates an IPTCDigitalSourceEnumeration code indicating the nature of the digital source(s) for some [[CreativeWork]].",
+  "title": "digitalSourceType",
+  "x-schemaorg-cardinality": "open-world"
+}

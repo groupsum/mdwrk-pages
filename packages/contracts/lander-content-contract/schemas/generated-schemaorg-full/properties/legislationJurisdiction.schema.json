@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:legislationJurisdiction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The jurisdiction from which the legislation originates.",
+  "oneOf": [
+    {
+      "$ref": "../types/AdministrativeArea.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "legislationJurisdiction",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:antagonist",
+  "$ref": "../types/Muscle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The muscle whose action counteracts the specified muscle.",
+  "title": "antagonist",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -23,6 +23,14 @@
 .lander-semantic--how-to .lander-semantic__image { width: 100%; max-width: 100%; border-radius: 1rem; object-fit: cover; }
 .lander-semantic--how-to .lander-semantic__body,
 .lander-semantic--how-to .lander-semantic__actions { display: grid; gap: var(--mdwrk-space-3); }
+.lander-semantic--how-to .lander-semantic__how-to-overview { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+.lander-semantic--how-to .lander-semantic__how-to-stat { display: grid; gap: 0.35rem; padding: 0.95rem 1rem; border-radius: 1rem; background: rgba(255,255,255,0.8); border: 1px solid color-mix(in srgb, var(--mdp-semantic-how-to-border) 60%, white 40%); }
+.lander-semantic--how-to .lander-semantic__section-header { display: flex; align-items: center; justify-content: space-between; gap: 0.7rem; flex-wrap: wrap; }
+.lander-semantic--how-to .lander-semantic__section-kicker,
+.lander-semantic--how-to .lander-semantic__how-to-step-kicker { width: fit-content; padding: 0.2rem 0.55rem; border-radius: 999px; background: rgba(249, 115, 22, 0.12); color: var(--mdp-semantic-how-to-accent); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
 .lander-semantic--how-to .lander-semantic__how-to-steps { counter-reset: howto; display: grid; gap: 0.85rem; padding: 0; margin: 0; list-style: none; }
 .lander-semantic--how-to .lander-semantic__how-to-step { position: relative; display: grid; gap: 0.35rem; padding: 1rem 1rem 1rem 3.2rem; border-radius: 1rem; background: rgba(255,255,255,0.82); border: 1px solid color-mix(in srgb, var(--mdp-semantic-how-to-border) 70%, white 30%); }
 .lander-semantic--how-to .lander-semantic__how-to-step::before { counter-increment: howto; content: counter(howto); position: absolute; left: 1rem; top: 1rem; display: grid; place-items: center; width: 1.55rem; height: 1.55rem; border-radius: 999px; background: var(--mdp-semantic-how-to-accent); color: white; font-size: 0.78rem; font-weight: 800; }
+@media (max-width: 720px) {
+  .lander-semantic--how-to .lander-semantic__how-to-overview { grid-template-columns: 1fr; }
+}

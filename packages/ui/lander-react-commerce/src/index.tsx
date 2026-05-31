@@ -132,9 +132,23 @@ export function CartLineList({ className, emptyMessage = "Your cart is empty." }
             <span>Qty {line.quantity}</span>
             <span> {" · "} {formatMoney(line.lineTotal.amount, line.lineTotal.currency)}</span>
           </div>
-          <button type="button" onClick={() => void adapter.removeCartLine(line.id)}>
-            Remove
-          </button>
+          {adapter.updateQuantity ? (
+            <div>
+              <button type="button" onClick={() => void adapter.updateQuantity?.(line.id, line.quantity - 1)}>
+                -
+              </button>
+              <button type="button" onClick={() => void adapter.updateQuantity?.(line.id, line.quantity + 1)}>
+                +
+              </button>
+              <button type="button" onClick={() => void adapter.removeCartLine(line.id)}>
+                Remove
+              </button>
+            </div>
+          ) : (
+            <button type="button" onClick={() => void adapter.removeCartLine(line.id)}>
+              Remove
+            </button>
+          )}
         </li>
       ))}
     </ul>
@@ -191,4 +205,3 @@ export function CheckoutButton({ intent, label = "Checkout", onClick, onResult, 
     </button>
   );
 }
-

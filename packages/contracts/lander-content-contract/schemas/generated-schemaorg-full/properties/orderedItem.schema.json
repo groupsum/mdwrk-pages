@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:orderedItem",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The item ordered.",
+  "oneOf": [
+    {
+      "$ref": "../types/OrderItem.schema.json"
+    },
+    {
+      "$ref": "../types/Product.schema.json"
+    },
+    {
+      "$ref": "../types/Service.schema.json"
+    }
+  ],
+  "title": "orderedItem",
+  "x-schemaorg-cardinality": "open-world"
+}

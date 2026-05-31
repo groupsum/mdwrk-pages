@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MusicPlaylist",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MusicPlaylist"
+        },
+        "numTracks": {
+          "$ref": "../properties/numTracks.schema.json",
+          "description": "The number of tracks in this album or playlist."
+        },
+        "track": {
+          "$ref": "../properties/track.schema.json",
+          "description": "A music recording (track)&#x2014;usually a single song. If an ItemList is given, the list should contain items of type MusicRecording."
+        },
+        "tracks": {
+          "$ref": "../properties/tracks.schema.json",
+          "description": "A music recording (track)&#x2014;usually a single song."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A collection of music tracks in playlist form.",
+  "title": "MusicPlaylist"
+}

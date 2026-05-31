@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:costPerUnit",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The cost per unit of the drug.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../enumerations/QualitativeValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "costPerUnit",
+  "x-schemaorg-cardinality": "open-world"
+}

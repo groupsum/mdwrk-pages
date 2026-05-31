@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:sameAs",
+  "$ref": "../types/URL.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+  "title": "sameAs",
+  "x-schemaorg-cardinality": "open-world"
+}

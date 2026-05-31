@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:driveWheelConfiguration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The drive wheel configuration, i.e. which roadwheels will receive torque from the vehicle's engine via the drivetrain.",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/DriveWheelConfigurationValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "driveWheelConfiguration",
+  "x-schemaorg-cardinality": "open-world"
+}

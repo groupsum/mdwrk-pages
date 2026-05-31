@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:availabilityEnds",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The end of the availability of the product or service included in the offer.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Time.schema.json"
+    }
+  ],
+  "title": "availabilityEnds",
+  "x-schemaorg-cardinality": "open-world"
+}

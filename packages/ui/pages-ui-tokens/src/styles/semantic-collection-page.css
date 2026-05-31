@@ -1,0 +1,60 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-collection-page-padding: 1.7rem;
+  --mdp-semantic-collection-page-gap: 1rem;
+  --mdp-semantic-collection-page-radius: 1.4rem;
+  --mdp-semantic-collection-page-surface: linear-gradient(180deg, color-mix(in srgb, var(--lander-panel) 95%, #eef6ff 5%), color-mix(in srgb, var(--lander-panel) 88%, #d7e7ff 12%));
+  --mdp-semantic-collection-page-border: color-mix(in srgb, var(--lander-border) 70%, #4d85c9 30%);
+  --mdp-semantic-collection-page-shadow: var(--mdwrk-shadow-strong);
+}
+
+.lander-semantic--collection-page {
+  display: grid;
+  gap: var(--mdp-semantic-collection-page-gap);
+  padding: var(--mdp-semantic-collection-page-padding);
+  border: 1px solid var(--mdp-semantic-collection-page-border);
+  border-radius: var(--mdp-semantic-collection-page-radius);
+  background: var(--mdp-semantic-collection-page-surface);
+  box-shadow: var(--mdp-semantic-collection-page-shadow);
+}
+
+.lander-semantic--collection-page .lander-semantic__header,
+.lander-semantic--collection-page .lander-semantic__body,
+.lander-semantic--collection-page .lander-semantic__actions,
+.lander-semantic--collection-page .lander-semantic__footer,
+.lander-semantic--collection-page .lander-semantic__meta {
+  display: grid;
+  gap: var(--mdwrk-space-3);
+}
+
+.lander-semantic--collection-page .lander-semantic__eyebrow,
+.lander-semantic--collection-page .lander-semantic__title,
+.lander-semantic--collection-page .lander-semantic__subtitle,
+.lander-semantic--collection-page .lander-semantic__description,
+.lander-semantic--collection-page .lander-semantic__image {
+  margin: 0;
+}
+
+.lander-semantic--collection-page .lander-semantic__collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 0.9rem;
+}
+
+.lander-semantic--collection-page .lander-semantic__collection-card,
+.lander-semantic--collection-page .lander-semantic__page-link-item {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1rem 1.05rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.lander-semantic--collection-page .lander-semantic__page-link-list {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}

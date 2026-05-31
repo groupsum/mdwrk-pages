@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:RefundTypeEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerates several kinds of product return refund types.",
+  "enum": [],
+  "title": "RefundTypeEnumeration",
+  "type": "string"
+}

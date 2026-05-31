@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:itemShipped",
+  "$ref": "../types/Product.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Item(s) being shipped.",
+  "title": "itemShipped",
+  "x-schemaorg-cardinality": "open-world"
+}

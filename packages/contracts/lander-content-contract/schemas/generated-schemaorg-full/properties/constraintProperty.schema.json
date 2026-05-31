@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:constraintProperty",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates a property used as a constraint. For example, in the definition of a [[StatisticalVariable]]. The value is a property, either from within Schema.org or from other compatible (e.g. RDF) systems such as DataCommons.org or Wikidata.org. ",
+  "oneOf": [
+    {
+      "$ref": "../types/Property.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "constraintProperty",
+  "x-schemaorg-cardinality": "open-world"
+}

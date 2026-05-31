@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:validIn",
+  "$ref": "../types/AdministrativeArea.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The geographic area where the item is valid. Applies for example to a [[Permit]], a [[Certification]], or an [[EducationalOccupationalCredential]]. ",
+  "title": "validIn",
+  "x-schemaorg-cardinality": "open-world"
+}

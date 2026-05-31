@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:description",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A description of the item.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/TextObject.schema.json"
+    }
+  ],
+  "title": "description",
+  "x-schemaorg-cardinality": "open-world"
+}

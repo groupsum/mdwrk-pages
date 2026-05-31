@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:amount",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The amount of money.",
+  "oneOf": [
+    {
+      "$ref": "../types/MonetaryAmount.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    }
+  ],
+  "title": "amount",
+  "x-schemaorg-cardinality": "open-world"
+}

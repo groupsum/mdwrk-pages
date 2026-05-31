@@ -1,0 +1,118 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Order",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "$ref": "fibo-fnd-arr-doc_LegalDocument.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Order"
+        },
+        "acceptedOffer": {
+          "$ref": "../properties/acceptedOffer.schema.json",
+          "description": "The offer(s) -- e.g., product, quantity and price combinations -- included in the order."
+        },
+        "billingAddress": {
+          "$ref": "../properties/billingAddress.schema.json",
+          "description": "The billing address for the order."
+        },
+        "broker": {
+          "$ref": "../properties/broker.schema.json",
+          "description": "An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred."
+        },
+        "confirmationNumber": {
+          "$ref": "../properties/confirmationNumber.schema.json",
+          "description": "A number that confirms the given order or payment has been received."
+        },
+        "customer": {
+          "$ref": "../properties/customer.schema.json",
+          "description": "Party placing the order or paying the invoice."
+        },
+        "discount": {
+          "$ref": "../properties/discount.schema.json",
+          "description": "Any discount applied (to an Order)."
+        },
+        "discountCode": {
+          "$ref": "../properties/discountCode.schema.json",
+          "description": "Code used to redeem a discount."
+        },
+        "discountCurrency": {
+          "$ref": "../properties/discountCurrency.schema.json",
+          "description": "The currency of the discount.\\n\\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. \"USD\"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. \"BTC\"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. \"Ithaca HOUR\"."
+        },
+        "isGift": {
+          "$ref": "../properties/isGift.schema.json",
+          "description": "Indicates whether the offer was accepted as a gift for someone other than the buyer."
+        },
+        "merchant": {
+          "$ref": "../properties/merchant.schema.json",
+          "description": "'merchant' is an out-dated term for 'seller'."
+        },
+        "orderDate": {
+          "$ref": "../properties/orderDate.schema.json",
+          "description": "Date order was placed."
+        },
+        "orderDelivery": {
+          "$ref": "../properties/orderDelivery.schema.json",
+          "description": "The delivery of the parcel related to this order or order item."
+        },
+        "orderNumber": {
+          "$ref": "../properties/orderNumber.schema.json",
+          "description": "The identifier of the transaction."
+        },
+        "orderStatus": {
+          "$ref": "../properties/orderStatus.schema.json",
+          "description": "The current status of the order."
+        },
+        "orderedItem": {
+          "$ref": "../properties/orderedItem.schema.json",
+          "description": "The item ordered."
+        },
+        "partOfInvoice": {
+          "$ref": "../properties/partOfInvoice.schema.json",
+          "description": "The order is being paid as part of the referenced Invoice."
+        },
+        "paymentDue": {
+          "$ref": "../properties/paymentDue.schema.json",
+          "description": "The date that payment is due."
+        },
+        "paymentDueDate": {
+          "$ref": "../properties/paymentDueDate.schema.json",
+          "description": "The date that payment is due."
+        },
+        "paymentMethod": {
+          "$ref": "../properties/paymentMethod.schema.json",
+          "description": "The name of the credit card or other method of payment for the order."
+        },
+        "paymentMethodId": {
+          "$ref": "../properties/paymentMethodId.schema.json",
+          "description": "An identifier for the method of payment used (e.g. the last 4 digits of the credit card)."
+        },
+        "paymentUrl": {
+          "$ref": "../properties/paymentUrl.schema.json",
+          "description": "The URL for sending a payment."
+        },
+        "seller": {
+          "$ref": "../properties/seller.schema.json",
+          "description": "An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An order is a confirmation of a transaction (a receipt), which can contain multiple line items, each represented by an Offer that has been accepted by the customer.",
+  "title": "Order"
+}

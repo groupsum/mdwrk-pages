@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:associatedArticle",
+  "$ref": "../types/NewsArticle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A NewsArticle associated with the Media Object.",
+  "title": "associatedArticle",
+  "x-schemaorg-cardinality": "open-world"
+}

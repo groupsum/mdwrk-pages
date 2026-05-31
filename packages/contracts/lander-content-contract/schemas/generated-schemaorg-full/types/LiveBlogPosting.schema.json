@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:LiveBlogPosting",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "BlogPosting.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "LiveBlogPosting"
+        },
+        "coverageEndTime": {
+          "$ref": "../properties/coverageEndTime.schema.json",
+          "description": "The time when the live blog will stop covering the Event. Note that coverage may continue after the Event concludes."
+        },
+        "coverageStartTime": {
+          "$ref": "../properties/coverageStartTime.schema.json",
+          "description": "The time when the live blog will begin covering the Event. Note that coverage may begin before the Event's start time. The LiveBlogPosting may also be created before coverage begins."
+        },
+        "liveBlogUpdate": {
+          "$ref": "../properties/liveBlogUpdate.schema.json",
+          "description": "An update to the LiveBlog."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A [[LiveBlogPosting]] is a [[BlogPosting]] intended to provide a rolling textual coverage of an ongoing event through continuous updates.",
+  "title": "LiveBlogPosting"
+}

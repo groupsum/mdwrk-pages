@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:renegotiableLoan",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Whether the terms for payment of interest can be renegotiated during the life of the loan.",
+  "title": "renegotiableLoan",
+  "x-schemaorg-cardinality": "open-world"
+}

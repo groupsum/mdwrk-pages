@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:performers",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The main performer or performers of the event&#x2014;for example, a presenter, musician, or actor.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "performers",
+  "x-schemaorg-cardinality": "open-world"
+}

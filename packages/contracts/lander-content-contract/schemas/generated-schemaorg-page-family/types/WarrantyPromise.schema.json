@@ -1,0 +1,38 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:WarrantyPromise",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "StructuredValue.schema.json"
+    },
+    {
+      "$ref": "fibo-fnd-agr-ctr_MutualContractualAgreement.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "WarrantyPromise"
+        },
+        "durationOfWarranty": {
+          "$ref": "../properties/durationOfWarranty.schema.json",
+          "description": "The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days."
+        },
+        "warrantyScope": {
+          "$ref": "../properties/warrantyScope.schema.json",
+          "description": "The scope of the warranty promise."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.",
+  "title": "WarrantyPromise"
+}

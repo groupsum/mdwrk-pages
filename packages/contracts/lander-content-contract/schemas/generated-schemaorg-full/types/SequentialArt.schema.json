@@ -1,0 +1,30 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:SequentialArt",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Book.schema.json"
+    },
+    {
+      "$ref": "VisualArtwork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "SequentialArt"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An art forms that use images deployed in a specific order for the purpose of graphic storytelling (i.e., narration of graphic stories) or conveying information. Examples of SequentialArt are Franco-Belgian Bande Dessin\u00e9e, Comics in the USA and \u6f2b\u753b (Manga) in Japan.",
+  "title": "SequentialArt"
+}

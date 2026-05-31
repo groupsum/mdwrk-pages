@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-legal-status-padding: 1rem;
+  --mdp-semantic-legal-status-gap: 0.75rem;
+  --mdp-semantic-legal-status-radius: 1rem;
+  --mdp-semantic-legal-status-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-legal-status-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-legal-status-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--legal-status {
+  padding: var(--mdp-semantic-legal-status-padding);
+  gap: var(--mdp-semantic-legal-status-gap);
+  border-radius: var(--mdp-semantic-legal-status-radius);
+  background: var(--mdp-semantic-legal-status-surface);
+  border: 1px solid var(--mdp-semantic-legal-status-border);
+  box-shadow: var(--mdp-semantic-legal-status-shadow);
+}
+
+.lander-semantic--legal-status .lander-semantic__header,
+.lander-semantic--legal-status .lander-semantic__body,
+.lander-semantic--legal-status .lander-semantic__footer,
+.lander-semantic--legal-status .lander-semantic__actions {
+  gap: var(--mdp-semantic-legal-status-gap);
+}
+
+.lander-semantic--legal-status .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--legal-status .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--legal-status .lander-semantic__subtitle,
+.lander-semantic--legal-status .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--legal-status .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-legal-status-gap) * 0.8);
+}
+
+.lander-semantic--legal-status .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--legal-status .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

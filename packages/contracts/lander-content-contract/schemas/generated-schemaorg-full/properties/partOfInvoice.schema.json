@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:partOfInvoice",
+  "$ref": "../types/Invoice.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The order is being paid as part of the referenced Invoice.",
+  "title": "partOfInvoice",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasBroadcastChannel",
+  "$ref": "../types/BroadcastChannel.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A broadcast channel of a broadcast service.",
+  "title": "hasBroadcastChannel",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-shipping-conditions-padding: 1rem;
+  --mdp-semantic-shipping-conditions-gap: 0.75rem;
+  --mdp-semantic-shipping-conditions-radius: 1rem;
+  --mdp-semantic-shipping-conditions-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-shipping-conditions-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-shipping-conditions-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--shipping-conditions {
+  padding: var(--mdp-semantic-shipping-conditions-padding);
+  gap: var(--mdp-semantic-shipping-conditions-gap);
+  border-radius: var(--mdp-semantic-shipping-conditions-radius);
+  background: var(--mdp-semantic-shipping-conditions-surface);
+  border: 1px solid var(--mdp-semantic-shipping-conditions-border);
+  box-shadow: var(--mdp-semantic-shipping-conditions-shadow);
+}
+
+.lander-semantic--shipping-conditions .lander-semantic__header,
+.lander-semantic--shipping-conditions .lander-semantic__body,
+.lander-semantic--shipping-conditions .lander-semantic__footer,
+.lander-semantic--shipping-conditions .lander-semantic__actions {
+  gap: var(--mdp-semantic-shipping-conditions-gap);
+}
+
+.lander-semantic--shipping-conditions .lander-semantic__header,
+.lander-semantic--shipping-conditions .lander-semantic__eyebrow,
+.lander-semantic--shipping-conditions .lander-semantic__title,
+.lander-semantic--shipping-conditions .lander-semantic__subtitle,
+.lander-semantic--shipping-conditions .lander-semantic__description,
+.lander-semantic--shipping-conditions .lander-semantic__meta,
+.lander-semantic--shipping-conditions .lander-semantic__image,
+.lander-semantic--shipping-conditions .lander-semantic__body,
+.lander-semantic--shipping-conditions .lander-semantic__actions,
+.lander-semantic--shipping-conditions .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--shipping-conditions .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--shipping-conditions .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--shipping-conditions .lander-semantic__subtitle,
+.lander-semantic--shipping-conditions .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--shipping-conditions .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-shipping-conditions-gap) * 0.8);
+}
+
+.lander-semantic--shipping-conditions .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-shipping-conditions-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--shipping-conditions .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--shipping-conditions .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--shipping-conditions .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

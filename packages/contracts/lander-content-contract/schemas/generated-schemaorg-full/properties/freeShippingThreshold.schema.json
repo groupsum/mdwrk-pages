@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:freeShippingThreshold",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A monetary value above (or at) which the shipping rate becomes free. Intended to be used via an [[OfferShippingDetails]] with [[shippingSettingsLink]] matching this [[ShippingRateSettings]].",
+  "oneOf": [
+    {
+      "$ref": "../types/DeliveryChargeSpecification.schema.json"
+    },
+    {
+      "$ref": "../types/MonetaryAmount.schema.json"
+    }
+  ],
+  "title": "freeShippingThreshold",
+  "x-schemaorg-cardinality": "open-world"
+}

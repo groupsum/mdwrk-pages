@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:usesDevice",
+  "$ref": "../types/MedicalDevice.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Device used to perform the test.",
+  "title": "usesDevice",
+  "x-schemaorg-cardinality": "open-world"
+}

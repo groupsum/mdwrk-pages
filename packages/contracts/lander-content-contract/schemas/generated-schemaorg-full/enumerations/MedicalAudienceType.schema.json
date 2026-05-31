@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:MedicalAudienceType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Target audiences types for medical web pages. Enumerated type.",
+  "enum": [],
+  "title": "MedicalAudienceType",
+  "type": "string"
+}

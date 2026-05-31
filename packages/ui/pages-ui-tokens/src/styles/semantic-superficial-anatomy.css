@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-superficial-anatomy-padding: 1rem;
+  --mdp-semantic-superficial-anatomy-gap: 0.75rem;
+  --mdp-semantic-superficial-anatomy-radius: 1rem;
+  --mdp-semantic-superficial-anatomy-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-superficial-anatomy-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-superficial-anatomy-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--superficial-anatomy {
+  padding: var(--mdp-semantic-superficial-anatomy-padding);
+  gap: var(--mdp-semantic-superficial-anatomy-gap);
+  border-radius: var(--mdp-semantic-superficial-anatomy-radius);
+  background: var(--mdp-semantic-superficial-anatomy-surface);
+  border: 1px solid var(--mdp-semantic-superficial-anatomy-border);
+  box-shadow: var(--mdp-semantic-superficial-anatomy-shadow);
+}
+
+.lander-semantic--superficial-anatomy .lander-semantic__header,
+.lander-semantic--superficial-anatomy .lander-semantic__body,
+.lander-semantic--superficial-anatomy .lander-semantic__footer,
+.lander-semantic--superficial-anatomy .lander-semantic__actions {
+  gap: var(--mdp-semantic-superficial-anatomy-gap);
+}
+
+.lander-semantic--superficial-anatomy .lander-semantic__header,
+.lander-semantic--superficial-anatomy .lander-semantic__eyebrow,
+.lander-semantic--superficial-anatomy .lander-semantic__title,
+.lander-semantic--superficial-anatomy .lander-semantic__subtitle,
+.lander-semantic--superficial-anatomy .lander-semantic__description,
+.lander-semantic--superficial-anatomy .lander-semantic__meta,
+.lander-semantic--superficial-anatomy .lander-semantic__image,
+.lander-semantic--superficial-anatomy .lander-semantic__body,
+.lander-semantic--superficial-anatomy .lander-semantic__actions,
+.lander-semantic--superficial-anatomy .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--superficial-anatomy .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--superficial-anatomy .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--superficial-anatomy .lander-semantic__subtitle,
+.lander-semantic--superficial-anatomy .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--superficial-anatomy .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-superficial-anatomy-gap) * 0.8);
+}
+
+.lander-semantic--superficial-anatomy .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-superficial-anatomy-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--superficial-anatomy .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--superficial-anatomy .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--superficial-anatomy .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

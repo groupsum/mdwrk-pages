@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:preOp",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A description of the workup, testing, and other preparations required before implanting this device.",
+  "title": "preOp",
+  "x-schemaorg-cardinality": "open-world"
+}

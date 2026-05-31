@@ -1,0 +1,46 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:PaymentCard",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "FinancialProduct.schema.json"
+    },
+    {
+      "$ref": "PaymentMethod.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "PaymentCard"
+        },
+        "cashBack": {
+          "$ref": "../properties/cashBack.schema.json",
+          "description": "A cardholder benefit that pays the cardholder a small percentage of their net expenditures."
+        },
+        "contactlessPayment": {
+          "$ref": "../properties/contactlessPayment.schema.json",
+          "description": "A secure method for consumers to purchase products or services via debit, credit or smartcards by using RFID or NFC technology."
+        },
+        "floorLimit": {
+          "$ref": "../properties/floorLimit.schema.json",
+          "description": "A floor limit is the amount of money above which credit card transactions must be authorized."
+        },
+        "monthlyMinimumRepaymentAmount": {
+          "$ref": "../properties/monthlyMinimumRepaymentAmount.schema.json",
+          "description": "The minimum payment is the lowest amount of money that one is required to pay on a credit card statement each month."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A payment method using a credit, debit, store or other card to associate the payment with an account.",
+  "title": "PaymentCard"
+}

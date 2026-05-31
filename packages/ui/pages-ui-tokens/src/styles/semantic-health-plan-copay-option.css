@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-health-plan-copay-option-padding: 1rem;
+  --mdp-semantic-health-plan-copay-option-gap: 0.75rem;
+  --mdp-semantic-health-plan-copay-option-radius: 1rem;
+  --mdp-semantic-health-plan-copay-option-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-health-plan-copay-option-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-health-plan-copay-option-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--health-plan-copay-option {
+  padding: var(--mdp-semantic-health-plan-copay-option-padding);
+  gap: var(--mdp-semantic-health-plan-copay-option-gap);
+  border-radius: var(--mdp-semantic-health-plan-copay-option-radius);
+  background: var(--mdp-semantic-health-plan-copay-option-surface);
+  border: 1px solid var(--mdp-semantic-health-plan-copay-option-border);
+  box-shadow: var(--mdp-semantic-health-plan-copay-option-shadow);
+}
+
+.lander-semantic--health-plan-copay-option .lander-semantic__header,
+.lander-semantic--health-plan-copay-option .lander-semantic__body,
+.lander-semantic--health-plan-copay-option .lander-semantic__footer,
+.lander-semantic--health-plan-copay-option .lander-semantic__actions {
+  gap: var(--mdp-semantic-health-plan-copay-option-gap);
+}
+
+.lander-semantic--health-plan-copay-option .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--health-plan-copay-option .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--health-plan-copay-option .lander-semantic__subtitle,
+.lander-semantic--health-plan-copay-option .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--health-plan-copay-option .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-health-plan-copay-option-gap) * 0.8);
+}
+
+.lander-semantic--health-plan-copay-option .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--health-plan-copay-option .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

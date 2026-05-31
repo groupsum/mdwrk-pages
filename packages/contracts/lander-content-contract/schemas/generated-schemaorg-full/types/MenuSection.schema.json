@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MenuSection",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MenuSection"
+        },
+        "hasMenuItem": {
+          "$ref": "../properties/hasMenuItem.schema.json",
+          "description": "A food or drink item contained in a menu or menu section."
+        },
+        "hasMenuSection": {
+          "$ref": "../properties/hasMenuSection.schema.json",
+          "description": "A subgrouping of the menu (by dishes, course, serving time period, etc.)."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A sub-grouping of food or drink items in a menu. E.g. courses (such as 'Dinner', 'Breakfast', etc.), specific type of dishes (such as 'Meat', 'Vegan', 'Drinks', etc.), or some other classification made by the menu provider.",
+  "title": "MenuSection"
+}

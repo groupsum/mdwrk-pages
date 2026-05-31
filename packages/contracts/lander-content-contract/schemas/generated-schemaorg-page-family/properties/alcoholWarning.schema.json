@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:alcoholWarning",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Any precaution, guidance, contraindication, etc. related to consumption of alcohol while taking this drug.",
+  "title": "alcoholWarning",
+  "x-schemaorg-cardinality": "open-world"
+}

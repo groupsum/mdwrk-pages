@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:artform",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "e.g. Painting, Drawing, Sculpture, Print, Photograph, Assemblage, Collage, etc.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "artform",
+  "x-schemaorg-cardinality": "open-world"
+}

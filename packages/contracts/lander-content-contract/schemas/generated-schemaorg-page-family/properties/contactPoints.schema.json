@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:contactPoints",
+  "$ref": "../types/ContactPoint.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A contact point for a person or organization.",
+  "title": "contactPoints",
+  "x-schemaorg-cardinality": "open-world"
+}

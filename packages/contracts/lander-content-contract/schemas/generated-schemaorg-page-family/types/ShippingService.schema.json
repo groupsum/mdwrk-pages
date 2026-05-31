@@ -1,0 +1,43 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ShippingService",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "StructuredValue.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ShippingService"
+        },
+        "fulfillmentType": {
+          "$ref": "../properties/fulfillmentType.schema.json",
+          "description": "Type of fulfillment applicable to the [[ShippingService]]."
+        },
+        "handlingTime": {
+          "$ref": "../properties/handlingTime.schema.json",
+          "description": "The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup.\n\nIn the context of [[ShippingDeliveryTime]], Typical properties: minValue, maxValue, unitCode (d for DAY).  This is by common convention assumed to mean business days (if a unitCode is used, coded as \"d\"), i.e. only counting days when the business normally operates.\n\nIn the context of [[ShippingService]], use the [[ServicePeriod]] format, that contains the same information in a structured form, with cut-off time, business days and duration."
+        },
+        "shippingConditions": {
+          "$ref": "../properties/shippingConditions.schema.json",
+          "description": "The conditions (constraints, price) applicable to the [[ShippingService]]."
+        },
+        "validForMemberTier": {
+          "$ref": "../properties/validForMemberTier.schema.json",
+          "description": "The membership program tier(s) an Offer (or a PriceSpecification, OfferShippingDetails, or MerchantReturnPolicy under an Offer) is valid for."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "ShippingService represents the criteria used to determine if and how an offer could be shipped to a customer.",
+  "title": "ShippingService"
+}

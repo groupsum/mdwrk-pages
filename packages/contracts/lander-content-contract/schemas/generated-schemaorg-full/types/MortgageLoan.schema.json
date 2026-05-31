@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MortgageLoan",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "LoanOrCredit.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MortgageLoan"
+        },
+        "domiciledMortgage": {
+          "$ref": "../properties/domiciledMortgage.schema.json",
+          "description": "Whether borrower is a resident of the jurisdiction where the property is located."
+        },
+        "loanMortgageMandateAmount": {
+          "$ref": "../properties/loanMortgageMandateAmount.schema.json",
+          "description": "Amount of mortgage mandate that can be converted into a proper mortgage at a later stage."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A loan in which property or real estate is used as collateral. (A loan securitized against some real estate.)",
+  "title": "MortgageLoan"
+}

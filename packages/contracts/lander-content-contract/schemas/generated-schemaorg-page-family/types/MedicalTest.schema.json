@@ -1,0 +1,47 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalTest",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalEntity.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MedicalTest"
+        },
+        "affectedBy": {
+          "$ref": "../properties/affectedBy.schema.json",
+          "description": "Drugs that affect the test's results."
+        },
+        "normalRange": {
+          "$ref": "../properties/normalRange.schema.json",
+          "description": "Range of acceptable values for a typical patient, when applicable."
+        },
+        "signDetected": {
+          "$ref": "../properties/signDetected.schema.json",
+          "description": "A sign detected by the test."
+        },
+        "usedToDiagnose": {
+          "$ref": "../properties/usedToDiagnose.schema.json",
+          "description": "A condition the test is used to diagnose."
+        },
+        "usesDevice": {
+          "$ref": "../properties/usesDevice.schema.json",
+          "description": "Device used to perform the test."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Any medical test, typically performed for diagnostic purposes.",
+  "title": "MedicalTest"
+}

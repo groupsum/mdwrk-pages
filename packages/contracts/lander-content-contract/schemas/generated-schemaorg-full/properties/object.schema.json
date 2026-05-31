@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:object",
+  "$ref": "../types/Thing.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The object upon which the action is carried out, whose state is kept intact or changed. Also known as the semantic roles patient, affected or undergoer (which change their state) or theme (which doesn't). E.g. John read *a book*.",
+  "title": "object",
+  "x-schemaorg-cardinality": "open-world"
+}

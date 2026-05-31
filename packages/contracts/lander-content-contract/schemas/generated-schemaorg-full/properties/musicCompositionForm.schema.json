@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:musicCompositionForm",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type of composition (e.g. overture, sonata, symphony, etc.).",
+  "title": "musicCompositionForm",
+  "x-schemaorg-cardinality": "open-world"
+}

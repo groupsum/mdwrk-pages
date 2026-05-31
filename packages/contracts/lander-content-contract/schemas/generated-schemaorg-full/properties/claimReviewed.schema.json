@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:claimReviewed",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A short summary of the specific claims reviewed in a ClaimReview.",
+  "title": "claimReviewed",
+  "x-schemaorg-cardinality": "open-world"
+}

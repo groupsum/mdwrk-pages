@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:specialOpeningHoursSpecification",
+  "$ref": "../types/OpeningHoursSpecification.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The special opening hours of a certain place.\\n\\nUse this to explicitly override general opening hours brought in scope by [[openingHoursSpecification]] or [[openingHours]].\n      ",
+  "title": "specialOpeningHoursSpecification",
+  "x-schemaorg-cardinality": "open-world"
+}

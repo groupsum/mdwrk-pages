@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:jobImmediateStart",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An indicator as to whether a position is available for an immediate start.",
+  "title": "jobImmediateStart",
+  "x-schemaorg-cardinality": "open-world"
+}

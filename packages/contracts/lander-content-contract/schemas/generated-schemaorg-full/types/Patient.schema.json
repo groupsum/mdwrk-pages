@@ -1,0 +1,42 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Patient",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalAudience.schema.json"
+    },
+    {
+      "$ref": "Person.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Patient"
+        },
+        "diagnosis": {
+          "$ref": "../properties/diagnosis.schema.json",
+          "description": "One or more alternative conditions considered in the differential diagnosis process as output of a diagnosis process."
+        },
+        "drug": {
+          "$ref": "../properties/drug.schema.json",
+          "description": "Specifying a drug or medicine used in a medication procedure."
+        },
+        "healthCondition": {
+          "$ref": "../properties/healthCondition.schema.json",
+          "description": "Specifying the health condition(s) of a patient, medical study, or other target audience."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A patient is any person recipient of health care services.",
+  "title": "Patient"
+}

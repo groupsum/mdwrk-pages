@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:programName",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The program providing the membership. It is preferable to use [:program](https://schema.org/program) instead.",
+  "title": "programName",
+  "x-schemaorg-cardinality": "open-world"
+}

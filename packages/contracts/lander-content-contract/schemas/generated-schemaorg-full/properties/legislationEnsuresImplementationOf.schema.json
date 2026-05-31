@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:legislationEnsuresImplementationOf",
+  "$ref": "../types/Legislation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates that this Legislation ensures the implementation of another Legislation, for example by modifying national legislations so that they do not contradict to an EU regulation or decision. This implies a legal meaning. Transpositions of EU Directive should be captured with <a href=\"/legislationTransposes\">legislationTransposes</a>.",
+  "title": "legislationEnsuresImplementationOf",
+  "x-schemaorg-cardinality": "open-world"
+}

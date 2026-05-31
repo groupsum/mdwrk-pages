@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:MedicalDevicePurpose",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Categories of medical devices, organized by the purpose or intended use of the device.",
+  "enum": [],
+  "title": "MedicalDevicePurpose",
+  "type": "string"
+}

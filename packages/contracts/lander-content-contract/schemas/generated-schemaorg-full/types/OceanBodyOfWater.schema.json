@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:OceanBodyOfWater",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "BodyOfWater.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "OceanBodyOfWater"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An ocean (for example, the Pacific).",
+  "title": "OceanBodyOfWater"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:character",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Fictional person connected with a creative work.",
+  "title": "character",
+  "x-schemaorg-cardinality": "open-world"
+}

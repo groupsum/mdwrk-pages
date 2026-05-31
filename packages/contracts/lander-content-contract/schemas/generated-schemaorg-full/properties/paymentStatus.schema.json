@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:paymentStatus",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The status of payment; whether the invoice has been paid or not.",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/PaymentStatusType.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "paymentStatus",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasRepresentation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A common representation such as a protein sequence or chemical structure for this entity. For images use schema.org/image.",
+  "oneOf": [
+    {
+      "$ref": "../types/PropertyValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "hasRepresentation",
+  "x-schemaorg-cardinality": "open-world"
+}

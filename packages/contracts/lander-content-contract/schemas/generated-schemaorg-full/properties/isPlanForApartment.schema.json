@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:isPlanForApartment",
+  "$ref": "../types/Accommodation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates some accommodation that this floor plan describes.",
+  "title": "isPlanForApartment",
+  "x-schemaorg-cardinality": "open-world"
+}

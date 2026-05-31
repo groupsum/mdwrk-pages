@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:announcementLocation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates a specific [[CivicStructure]] or [[LocalBusiness]] associated with the SpecialAnnouncement. For example, a specific testing facility or business with special opening hours. For a larger geographic region like a quarantine of an entire region, use [[spatialCoverage]].",
+  "oneOf": [
+    {
+      "$ref": "../types/CivicStructure.schema.json"
+    },
+    {
+      "$ref": "../types/LocalBusiness.schema.json"
+    }
+  ],
+  "title": "announcementLocation",
+  "x-schemaorg-cardinality": "open-world"
+}

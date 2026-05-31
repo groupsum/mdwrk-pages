@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:IncentiveType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerates common financial incentives for products, including tax credits, tax deductions, rebates and subsidies, etc.",
+  "enum": [],
+  "title": "IncentiveType",
+  "type": "string"
+}

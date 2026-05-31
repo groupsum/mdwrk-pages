@@ -8,6 +8,12 @@ import { semanticTokenFixtures } from "./semantic-token-fixtures.mjs";
 
 const sharedSemanticShellSource = readFileSync(resolve("../lander-react/src/semantic/shared.tsx"), "utf8");
 const semanticSource = readFileSync(resolve("../lander-react/src/semantic/index.ts"), "utf8");
+const generatedFamilyEntrypoints = new Map([
+  ["type", './generated-type-family.js'],
+  ["datatype", './datatype-family.js'],
+  ["enumeration", './enumeration-family.js'],
+  ["property", './property-family.js'],
+]);
 
 const shellClassContract = [
   "lander-semantic__header",
@@ -37,7 +43,11 @@ test("T1: fused semantic token CSS aligns with the shared visible semantic shell
   }
 
   for (const fixture of semanticTokenFixtures) {
-    assert.ok(semanticSource.includes(fixture.name), `semantic entrypoint should export ${fixture.name}`);
+    const generatedEntrypoint = generatedFamilyEntrypoints.get(fixture.kind);
+    assert.ok(
+      semanticSource.includes(fixture.name) || (generatedEntrypoint && semanticSource.includes(`export * from "${generatedEntrypoint}";`)),
+      `semantic entrypoint should export ${fixture.name}`,
+    );
 
     const cssText = readCssFile(fixture.cssFilename);
     assert.ok(cssText.includes(fixture.shellSelector), `${fixture.cssFilename} should target ${fixture.shellSelector}`);
@@ -92,16 +102,21 @@ test("T1: education-family token files define distinct layout hooks beyond the s
   const solveCss = readCssFile("semantic-solve-math-action.css");
 
   assert.ok(courseCss.includes(".lander-semantic__module-list"), "course should style module cards");
-  assert.ok(courseInstanceCss.includes("grid-template-columns"), "course instance should style meta as a schedule grid");
+  assert.ok(courseCss.includes(".lander-semantic__course-stat-grid"), "course should style course summary stats");
+  assert.ok(courseCss.includes(".lander-semantic__outcome-chip"), "course should style completion chips");
+  assert.ok(courseInstanceCss.includes(".lander-semantic__session-facts"), "course instance should style session fact cards");
   assert.ok(quizCss.includes(".lander-semantic__quiz-card"), "quiz should style quiz cards");
-  assert.ok(qaCss.includes(".lander-semantic__accepted-answer"), "qa page should style accepted answers");
-  assert.ok(questionCss.includes(".lander-semantic__accepted-answer"), "question should style accepted answers");
-  assert.ok(answerCss.includes(".lander-semantic__answer-prose"), "answer should style its prose rail");
-  assert.ok(faqCss.includes(".lander-semantic__faq-item"), "faq page should style faq items");
-  assert.ok(howToCss.includes(".lander-semantic__how-to-step::before"), "how-to should number step cards");
-  assert.ok(resourceCss.includes(".lander-semantic__learning-resource-tags"), "learning resource should style teaching tags");
-  assert.ok(mathCss.includes("font-family: var(--mdwrk-font-mono)"), "math solver should expose calculator typography");
-  assert.ok(solveCss.includes(".lander-semantic__solve-math-summary"), "solve math action should style the action summary");
+  assert.ok(quizCss.includes(".lander-semantic__assessment-brief"), "quiz should style assessment summary stats");
+  assert.ok(quizCss.includes(".lander-semantic__quiz-option"), "quiz should style response options");
+  assert.ok(qaCss.includes(".lander-semantic__prompt-panel"), "qa page should style prompt framing");
+  assert.ok(qaCss.includes(".lander-semantic__suggested-answer-card"), "qa page should style suggested answer cards");
+  assert.ok(questionCss.includes(".lander-semantic__prompt-panel"), "question should style prompt framing");
+  assert.ok(answerCss.includes(".lander-semantic__answer-kicker"), "answer should style its response kicker");
+  assert.ok(faqCss.includes(".lander-semantic__faq-kicker"), "faq page should style faq question kickers");
+  assert.ok(howToCss.includes(".lander-semantic__how-to-overview"), "how-to should style execution summary stats");
+  assert.ok(resourceCss.includes(".lander-semantic__resource-rail"), "learning resource should style resource fact rails");
+  assert.ok(mathCss.includes(".lander-semantic__solver-brief"), "math solver should style solver summary stats");
+  assert.ok(solveCss.includes(".lander-semantic__solve-math-row"), "solve math action should style summary rows");
 });
 
 test("T1: commerce-family token files define distinct layout hooks beyond the shared shell baseline", () => {

@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Emergency",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalBusiness.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Emergency"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A specific branch of medical science that deals with the evaluation and initial treatment of medical conditions caused by trauma or sudden illness.",
+  "title": "Emergency"
+}

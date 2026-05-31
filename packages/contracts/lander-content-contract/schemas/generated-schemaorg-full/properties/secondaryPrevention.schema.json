@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:secondaryPrevention",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A preventative therapy used to prevent reoccurrence of the medical condition after an initial episode of the condition.",
+  "oneOf": [
+    {
+      "$ref": "../types/Drug.schema.json"
+    },
+    {
+      "$ref": "../types/DrugClass.schema.json"
+    },
+    {
+      "$ref": "../types/LifestyleModification.schema.json"
+    },
+    {
+      "$ref": "../types/MedicalTherapy.schema.json"
+    }
+  ],
+  "title": "secondaryPrevention",
+  "x-schemaorg-cardinality": "open-world"
+}

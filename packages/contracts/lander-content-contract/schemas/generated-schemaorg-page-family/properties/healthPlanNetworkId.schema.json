@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:healthPlanNetworkId",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Name or unique ID of network. (Networks are often reused across different insurance plans.)",
+  "title": "healthPlanNetworkId",
+  "x-schemaorg-cardinality": "open-world"
+}

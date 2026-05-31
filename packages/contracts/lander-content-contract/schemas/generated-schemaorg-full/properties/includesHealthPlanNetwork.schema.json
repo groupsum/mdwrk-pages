@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:includesHealthPlanNetwork",
+  "$ref": "../types/HealthPlanNetwork.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Networks covered by this plan.",
+  "title": "includesHealthPlanNetwork",
+  "x-schemaorg-cardinality": "open-world"
+}

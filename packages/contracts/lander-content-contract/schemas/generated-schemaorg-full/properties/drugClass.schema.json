@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:drugClass",
+  "$ref": "../types/DrugClass.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The class of drug this belongs to (e.g., statins).",
+  "title": "drugClass",
+  "x-schemaorg-cardinality": "open-world"
+}

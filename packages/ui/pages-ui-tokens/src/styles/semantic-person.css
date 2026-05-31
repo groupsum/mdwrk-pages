@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-person-padding: 1rem;
+  --mdp-semantic-person-gap: 0.75rem;
+  --mdp-semantic-person-radius: 1rem;
+  --mdp-semantic-person-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-person-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-person-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--person {
+  padding: var(--mdp-semantic-person-padding);
+  gap: var(--mdp-semantic-person-gap);
+  border-radius: var(--mdp-semantic-person-radius);
+  background: var(--mdp-semantic-person-surface);
+  border: 1px solid var(--mdp-semantic-person-border);
+  box-shadow: var(--mdp-semantic-person-shadow);
+}
+
+.lander-semantic--person .lander-semantic__header,
+.lander-semantic--person .lander-semantic__body,
+.lander-semantic--person .lander-semantic__footer,
+.lander-semantic--person .lander-semantic__actions {
+  gap: var(--mdp-semantic-person-gap);
+}
+
+.lander-semantic--person .lander-semantic__header,
+.lander-semantic--person .lander-semantic__eyebrow,
+.lander-semantic--person .lander-semantic__title,
+.lander-semantic--person .lander-semantic__subtitle,
+.lander-semantic--person .lander-semantic__description,
+.lander-semantic--person .lander-semantic__meta,
+.lander-semantic--person .lander-semantic__image,
+.lander-semantic--person .lander-semantic__body,
+.lander-semantic--person .lander-semantic__actions,
+.lander-semantic--person .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--person .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--person .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--person .lander-semantic__subtitle,
+.lander-semantic--person .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--person .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-person-gap) * 0.8);
+}
+
+.lander-semantic--person .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-person-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--person .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--person .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--person .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

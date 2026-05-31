@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:quarantineGuidelines",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Guidelines about quarantine rules, e.g. in the context of a pandemic.",
+  "oneOf": [
+    {
+      "$ref": "../types/URL.schema.json"
+    },
+    {
+      "$ref": "../types/WebContent.schema.json"
+    }
+  ],
+  "title": "quarantineGuidelines",
+  "x-schemaorg-cardinality": "open-world"
+}

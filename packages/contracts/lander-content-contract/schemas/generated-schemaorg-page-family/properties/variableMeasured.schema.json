@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:variableMeasured",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The variableMeasured property can indicate (repeated as necessary) the  variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue, or more explicitly as a [[StatisticalVariable]].",
+  "oneOf": [
+    {
+      "$ref": "../types/Property.schema.json"
+    },
+    {
+      "$ref": "../types/PropertyValue.schema.json"
+    },
+    {
+      "$ref": "../types/StatisticalVariable.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "variableMeasured",
+  "x-schemaorg-cardinality": "open-world"
+}

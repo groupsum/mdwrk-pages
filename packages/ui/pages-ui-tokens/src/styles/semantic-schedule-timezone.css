@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-schedule-timezone-padding: 1rem;
+  --mdp-semantic-schedule-timezone-gap: 0.75rem;
+  --mdp-semantic-schedule-timezone-radius: 1rem;
+  --mdp-semantic-schedule-timezone-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-schedule-timezone-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-schedule-timezone-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--schedule-timezone {
+  padding: var(--mdp-semantic-schedule-timezone-padding);
+  gap: var(--mdp-semantic-schedule-timezone-gap);
+  border-radius: var(--mdp-semantic-schedule-timezone-radius);
+  background: var(--mdp-semantic-schedule-timezone-surface);
+  border: 1px solid var(--mdp-semantic-schedule-timezone-border);
+  box-shadow: var(--mdp-semantic-schedule-timezone-shadow);
+}
+
+.lander-semantic--schedule-timezone .lander-semantic__header,
+.lander-semantic--schedule-timezone .lander-semantic__body,
+.lander-semantic--schedule-timezone .lander-semantic__footer,
+.lander-semantic--schedule-timezone .lander-semantic__actions {
+  gap: var(--mdp-semantic-schedule-timezone-gap);
+}
+
+.lander-semantic--schedule-timezone .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--schedule-timezone .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--schedule-timezone .lander-semantic__subtitle,
+.lander-semantic--schedule-timezone .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--schedule-timezone .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-schedule-timezone-gap) * 0.8);
+}
+
+.lander-semantic--schedule-timezone .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--schedule-timezone .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

@@ -1,140 +1,528 @@
 {
+  "$id": "urn:groupsum:schemaorg:class:LocalBusiness",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.mdwrk.com/structured-data/local-business.schema.json",
-  "title": "Structured Data LocalBusiness Input",
+  "title": "LocalBusiness",
+  "description": "A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc.",
   "type": "object",
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ],
   "properties": {
-    "id": {
-      "type": "string"
+    "@context": {
+      "const": "https://schema.org"
     },
-    "name": {
-      "type": "string",
-      "minLength": 1
+    "@type": {
+      "const": "LocalBusiness"
+    },
+    "additionalType": {
+      "$ref": "../generated-schemaorg-full/properties/additionalType.schema.json",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
+    },
+    "alternateName": {
+      "$ref": "../generated-schemaorg-full/properties/alternateName.schema.json",
+      "description": "An alias for the item."
     },
     "description": {
-      "type": "string"
+      "$ref": "../generated-schemaorg-full/properties/description.schema.json",
+      "description": "A description of the item."
     },
-    "url": {
-      "type": "string",
-      "minLength": 1
+    "disambiguatingDescription": {
+      "$ref": "../generated-schemaorg-full/properties/disambiguatingDescription.schema.json",
+      "description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."
     },
-    "logo": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1
-        },
-        {
-          "$ref": "#/$defs/image"
-        }
-      ]
+    "identifier": {
+      "$ref": "../generated-schemaorg-full/properties/identifier.schema.json",
+      "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        "
+    },
+    "image": {
+      "$ref": "../generated-schemaorg-full/properties/image.schema.json",
+      "description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
+    },
+    "mainEntityOfPage": {
+      "$ref": "../generated-schemaorg-full/properties/mainEntityOfPage.schema.json",
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
+    },
+    "name": {
+      "$ref": "../generated-schemaorg-full/properties/name.schema.json",
+      "description": "The name of the item."
+    },
+    "owner": {
+      "$ref": "../generated-schemaorg-full/properties/owner.schema.json",
+      "description": "A person or organization who owns this Thing."
+    },
+    "potentialAction": {
+      "$ref": "../generated-schemaorg-full/properties/potentialAction.schema.json",
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
     },
     "sameAs": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "$ref": "../generated-schemaorg-full/properties/sameAs.schema.json",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."
+    },
+    "subjectOf": {
+      "$ref": "../generated-schemaorg-full/properties/subjectOf.schema.json",
+      "description": "A CreativeWork or Event about this Thing."
+    },
+    "url": {
+      "$ref": "../generated-schemaorg-full/properties/url.schema.json",
+      "description": "URL of the item."
+    },
+    "acceptedPaymentMethod": {
+      "$ref": "../generated-schemaorg-full/properties/acceptedPaymentMethod.schema.json",
+      "description": "The payment method(s) that are accepted in general by an organization, or for some specific demand or offer."
+    },
+    "actionableFeedbackPolicy": {
+      "$ref": "../generated-schemaorg-full/properties/actionableFeedbackPolicy.schema.json",
+      "description": "For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication."
     },
     "address": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1
-        },
-        {
-          "$ref": "#/$defs/thingRef"
-        }
-      ]
+      "$ref": "../generated-schemaorg-full/properties/address.schema.json",
+      "description": "Physical address of the item."
+    },
+    "agentInteractionStatistic": {
+      "$ref": "../generated-schemaorg-full/properties/agentInteractionStatistic.schema.json",
+      "description": "The number of completed interactions for this entity, in a particular role (the 'agent'), in a particular action (indicated in the statistic), and in a particular context (i.e. interactionService)."
+    },
+    "aggregateRating": {
+      "$ref": "../generated-schemaorg-full/properties/aggregateRating.schema.json",
+      "description": "The overall rating, based on a collection of reviews or ratings, of the item."
+    },
+    "alumni": {
+      "$ref": "../generated-schemaorg-full/properties/alumni.schema.json",
+      "description": "Alumni of an organization."
+    },
+    "areaServed": {
+      "$ref": "../generated-schemaorg-full/properties/areaServed.schema.json",
+      "description": "The geographic area where a service or offered item is provided."
+    },
+    "award": {
+      "$ref": "../generated-schemaorg-full/properties/award.schema.json",
+      "description": "An award won by or for this item."
+    },
+    "awards": {
+      "$ref": "../generated-schemaorg-full/properties/awards.schema.json",
+      "description": "Awards won by or for this item."
+    },
+    "brand": {
+      "$ref": "../generated-schemaorg-full/properties/brand.schema.json",
+      "description": "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person."
+    },
+    "companyRegistration": {
+      "$ref": "../generated-schemaorg-full/properties/companyRegistration.schema.json",
+      "description": "The official registration information of a business including the organization that issued it such as Company House or Chamber of Commerce in form of a Certification."
+    },
+    "contactPoint": {
+      "$ref": "../generated-schemaorg-full/properties/contactPoint.schema.json",
+      "description": "A contact point for a person or organization."
+    },
+    "contactPoints": {
+      "$ref": "../generated-schemaorg-full/properties/contactPoints.schema.json",
+      "description": "A contact point for a person or organization."
+    },
+    "correctionsPolicy": {
+      "$ref": "../generated-schemaorg-full/properties/correctionsPolicy.schema.json",
+      "description": "For an [[Organization]] (e.g. [[NewsMediaOrganization]]), a statement describing (in news media, the newsroom’s) disclosure and correction policy for errors."
+    },
+    "department": {
+      "$ref": "../generated-schemaorg-full/properties/department.schema.json",
+      "description": "A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe."
+    },
+    "dissolutionDate": {
+      "$ref": "../generated-schemaorg-full/properties/dissolutionDate.schema.json",
+      "description": "The date that this organization was dissolved."
+    },
+    "diversityPolicy": {
+      "$ref": "../generated-schemaorg-full/properties/diversityPolicy.schema.json",
+      "description": "Statement on diversity policy by an [[Organization]] e.g. a [[NewsMediaOrganization]]. For a [[NewsMediaOrganization]], a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data."
+    },
+    "diversityStaffingReport": {
+      "$ref": "../generated-schemaorg-full/properties/diversityStaffingReport.schema.json",
+      "description": "For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a report on staffing diversity issues. In a news context this might be for example ASNE or RTDNA (US) reports, or self-reported."
+    },
+    "duns": {
+      "$ref": "../generated-schemaorg-full/properties/duns.schema.json",
+      "description": "The Dun & Bradstreet DUNS number for identifying an organization or business person."
+    },
+    "email": {
+      "$ref": "../generated-schemaorg-full/properties/email.schema.json",
+      "description": "Email address."
+    },
+    "employee": {
+      "$ref": "../generated-schemaorg-full/properties/employee.schema.json",
+      "description": "Someone working for this organization."
+    },
+    "employees": {
+      "$ref": "../generated-schemaorg-full/properties/employees.schema.json",
+      "description": "People working for this organization."
+    },
+    "ethicsPolicy": {
+      "$ref": "../generated-schemaorg-full/properties/ethicsPolicy.schema.json",
+      "description": "Statement about ethics policy, e.g. of a [[NewsMediaOrganization]] regarding journalistic and publishing practices, or of a [[Restaurant]], a page describing food source policies. In the case of a [[NewsMediaOrganization]], an ethicsPolicy is typically a statement describing the personal, organizational, and corporate standards of behavior expected by the organization."
+    },
+    "event": {
+      "$ref": "../generated-schemaorg-full/properties/event.schema.json",
+      "description": "Upcoming or past event associated with this place, organization, or action."
+    },
+    "events": {
+      "$ref": "../generated-schemaorg-full/properties/events.schema.json",
+      "description": "Upcoming or past events associated with this place or organization."
+    },
+    "faxNumber": {
+      "$ref": "../generated-schemaorg-full/properties/faxNumber.schema.json",
+      "description": "The fax number."
+    },
+    "founder": {
+      "$ref": "../generated-schemaorg-full/properties/founder.schema.json",
+      "description": "A person or organization who founded this organization."
+    },
+    "founders": {
+      "$ref": "../generated-schemaorg-full/properties/founders.schema.json",
+      "description": "A person who founded this organization."
+    },
+    "foundingDate": {
+      "$ref": "../generated-schemaorg-full/properties/foundingDate.schema.json",
+      "description": "The date that this organization was founded."
+    },
+    "foundingLocation": {
+      "$ref": "../generated-schemaorg-full/properties/foundingLocation.schema.json",
+      "description": "The place where the Organization was founded."
+    },
+    "funder": {
+      "$ref": "../generated-schemaorg-full/properties/funder.schema.json",
+      "description": "A person or organization that supports (sponsors) something through some kind of financial contribution."
+    },
+    "funding": {
+      "$ref": "../generated-schemaorg-full/properties/funding.schema.json",
+      "description": "A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]]."
+    },
+    "globalLocationNumber": {
+      "$ref": "../generated-schemaorg-full/properties/globalLocationNumber.schema.json",
+      "description": "The [Global Location Number](http://www.gs1.org/gln) (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations."
+    },
+    "hasCertification": {
+      "$ref": "../generated-schemaorg-full/properties/hasCertification.schema.json",
+      "description": "Certification information about a product, organization, service, place, or person."
+    },
+    "hasCredential": {
+      "$ref": "../generated-schemaorg-full/properties/hasCredential.schema.json",
+      "description": "A credential awarded to the Person or Organization."
+    },
+    "hasGS1DigitalLink": {
+      "$ref": "../generated-schemaorg-full/properties/hasGS1DigitalLink.schema.json",
+      "description": "The <a href=\"https://www.gs1.org/standards/gs1-digital-link\">GS1 digital link</a> associated with the object. This URL should conform to the particular requirements of digital links. The link should only contain the Application Identifiers (AIs) that are relevant for the entity being annotated, for instance a [[Product]] or an [[Organization]], and for the correct granularity. In particular, for products:<ul><li>A Digital Link that contains a serial number (AI <code>21</code>) should only be present on instances of [[IndividualProduct]]</li><li>A Digital Link that contains a lot number (AI <code>10</code>) should be annotated as [[SomeProducts]] if only products from that lot are sold, or [[IndividualProduct]] if there is only a specific product.</li><li>A Digital Link that contains a global model number (AI <code>8013</code>) should be attached to a [[Product]] or a [[ProductModel]].</li></ul> Other item types should be adapted similarly."
+    },
+    "hasMemberProgram": {
+      "$ref": "../generated-schemaorg-full/properties/hasMemberProgram.schema.json",
+      "description": "MemberProgram offered by an Organization, for example an eCommerce merchant or an airline."
+    },
+    "hasMerchantReturnPolicy": {
+      "$ref": "../generated-schemaorg-full/properties/hasMerchantReturnPolicy.schema.json",
+      "description": "Specifies a MerchantReturnPolicy that may be applicable."
+    },
+    "hasOfferCatalog": {
+      "$ref": "../generated-schemaorg-full/properties/hasOfferCatalog.schema.json",
+      "description": "Indicates an OfferCatalog listing for this Organization, Person, or Service."
+    },
+    "hasPOS": {
+      "$ref": "../generated-schemaorg-full/properties/hasPOS.schema.json",
+      "description": "Points-of-Sales operated by the organization or person."
+    },
+    "hasShippingService": {
+      "$ref": "../generated-schemaorg-full/properties/hasShippingService.schema.json",
+      "description": "Specification of a shipping service offered by the organization."
+    },
+    "interactionStatistic": {
+      "$ref": "../generated-schemaorg-full/properties/interactionStatistic.schema.json",
+      "description": "The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used."
+    },
+    "isicV4": {
+      "$ref": "../generated-schemaorg-full/properties/isicV4.schema.json",
+      "description": "The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place."
+    },
+    "iso6523Code": {
+      "$ref": "../generated-schemaorg-full/properties/iso6523Code.schema.json",
+      "description": "An organization identifier as defined in [ISO 6523(-1)](https://en.wikipedia.org/wiki/ISO/IEC_6523). The identifier should be in the `XXXX:YYYYYY:ZZZ` or `XXXX:YYYYYY`format. Where `XXXX` is a 4 digit _ICD_ (International Code Designator), `YYYYYY` is an _OID_ (Organization Identifier) with all formatting characters (dots, dashes, spaces) removed with a maximal length of 35 characters, and `ZZZ` is an optional OPI (Organization Part Identifier) with a maximum length of 35 characters. The various components (ICD, OID, OPI) are joined with a colon character (ASCII `0x3a`). Note that many existing organization identifiers defined as attributes like [leiCode](https://schema.org/leiCode) (`0199`), [duns](https://schema.org/duns) (`0060`) or [GLN](https://schema.org/globalLocationNumber) (`0088`) can be expressed using ISO-6523. If possible, ISO-6523 codes should be preferred to populating [vatID](https://schema.org/vatID) or [taxID](https://schema.org/taxID), as ISO identifiers are less ambiguous."
+    },
+    "keywords": {
+      "$ref": "../generated-schemaorg-full/properties/keywords.schema.json",
+      "description": "Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property."
+    },
+    "knowsAbout": {
+      "$ref": "../generated-schemaorg-full/properties/knowsAbout.schema.json",
+      "description": "Of a [[Person]], and less typically of an [[Organization]], to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or relate this to educational content, events, objectives or [[JobPosting]] descriptions."
+    },
+    "knowsLanguage": {
+      "$ref": "../generated-schemaorg-full/properties/knowsLanguage.schema.json",
+      "description": "Of a [[Person]], and less typically of an [[Organization]], to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47)."
+    },
+    "legalAddress": {
+      "$ref": "../generated-schemaorg-full/properties/legalAddress.schema.json",
+      "description": "The legal address of an organization which acts as the officially registered address used for legal and tax purposes. The legal address can be different from the place of operations of a business and other addresses can be part of an organization."
+    },
+    "legalName": {
+      "$ref": "../generated-schemaorg-full/properties/legalName.schema.json",
+      "description": "The official name of the organization, e.g. the registered company name."
+    },
+    "legalRepresentative": {
+      "$ref": "../generated-schemaorg-full/properties/legalRepresentative.schema.json",
+      "description": "One or multiple persons who represent this organization legally such as CEO or sole administrator."
+    },
+    "leiCode": {
+      "$ref": "../generated-schemaorg-full/properties/leiCode.schema.json",
+      "description": "An organization identifier that uniquely identifies a legal entity as defined in ISO 17442."
+    },
+    "location": {
+      "$ref": "../generated-schemaorg-full/properties/location.schema.json",
+      "description": "The location of, for example, where an event is happening, where an organization is located, or where an action takes place."
+    },
+    "logo": {
+      "$ref": "../generated-schemaorg-full/properties/logo.schema.json",
+      "description": "An associated logo."
+    },
+    "makesOffer": {
+      "$ref": "../generated-schemaorg-full/properties/makesOffer.schema.json",
+      "description": "A pointer to products or services offered by the organization or person."
+    },
+    "member": {
+      "$ref": "../generated-schemaorg-full/properties/member.schema.json",
+      "description": "A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals."
+    },
+    "memberOf": {
+      "$ref": "../generated-schemaorg-full/properties/memberOf.schema.json",
+      "description": "An Organization (or ProgramMembership) to which this Person or Organization belongs."
+    },
+    "members": {
+      "$ref": "../generated-schemaorg-full/properties/members.schema.json",
+      "description": "A member of this organization."
+    },
+    "naics": {
+      "$ref": "../generated-schemaorg-full/properties/naics.schema.json",
+      "description": "The North American Industry Classification System (NAICS) code for a particular organization or business person."
+    },
+    "nonprofitStatus": {
+      "$ref": "../generated-schemaorg-full/properties/nonprofitStatus.schema.json",
+      "description": "nonprofitStatus indicates the legal status of a non-profit organization in its primary place of business."
+    },
+    "numberOfEmployees": {
+      "$ref": "../generated-schemaorg-full/properties/numberOfEmployees.schema.json",
+      "description": "The number of employees in an organization, e.g. business."
+    },
+    "ownershipFundingInfo": {
+      "$ref": "../generated-schemaorg-full/properties/ownershipFundingInfo.schema.json",
+      "description": "For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a description of organizational ownership structure; funding and grants. In a news/media setting, this is with particular reference to editorial independence.   Note that the [[funder]] is also available and can be used to make basic funder information machine-readable."
+    },
+    "owns": {
+      "$ref": "../generated-schemaorg-full/properties/owns.schema.json",
+      "description": "Things owned by the organization or person."
+    },
+    "parentOrganization": {
+      "$ref": "../generated-schemaorg-full/properties/parentOrganization.schema.json",
+      "description": "The larger organization that this organization is a [[subOrganization]] of, if any."
+    },
+    "publishingPrinciples": {
+      "$ref": "../generated-schemaorg-full/properties/publishingPrinciples.schema.json",
+      "description": "The publishingPrinciples property indicates (typically via [[URL]]) a document describing the editorial principles of an [[Organization]] (or individual, e.g. a [[Person]] writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a [[CreativeWork]] (e.g. [[NewsArticle]]) the principles are those of the party primarily responsible for the creation of the [[CreativeWork]].\n\nWhile such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a [[funder]]) can be expressed using schema.org terminology.\n"
+    },
+    "review": {
+      "$ref": "../generated-schemaorg-full/properties/review.schema.json",
+      "description": "A review of the item."
+    },
+    "reviews": {
+      "$ref": "../generated-schemaorg-full/properties/reviews.schema.json",
+      "description": "Review of the item."
+    },
+    "seeks": {
+      "$ref": "../generated-schemaorg-full/properties/seeks.schema.json",
+      "description": "A pointer to products or services sought by the organization or person (demand)."
+    },
+    "serviceArea": {
+      "$ref": "../generated-schemaorg-full/properties/serviceArea.schema.json",
+      "description": "The geographic area where the service is provided."
+    },
+    "skills": {
+      "$ref": "../generated-schemaorg-full/properties/skills.schema.json",
+      "description": "A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is either claimed by a person, an organization or desired or required to fulfill a role or to work in an occupation."
+    },
+    "slogan": {
+      "$ref": "../generated-schemaorg-full/properties/slogan.schema.json",
+      "description": "A slogan or motto associated with the item."
+    },
+    "sponsor": {
+      "$ref": "../generated-schemaorg-full/properties/sponsor.schema.json",
+      "description": "A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event."
+    },
+    "subOrganization": {
+      "$ref": "../generated-schemaorg-full/properties/subOrganization.schema.json",
+      "description": "A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property."
+    },
+    "taxID": {
+      "$ref": "../generated-schemaorg-full/properties/taxID.schema.json",
+      "description": "The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain."
     },
     "telephone": {
-      "type": "string"
+      "$ref": "../generated-schemaorg-full/properties/telephone.schema.json",
+      "description": "The telephone number."
     },
-    "priceRange": {
-      "type": "string"
+    "unnamedSourcesPolicy": {
+      "$ref": "../generated-schemaorg-full/properties/unnamedSourcesPolicy.schema.json",
+      "description": "For an [[Organization]] (typically a [[NewsMediaOrganization]]), a statement about policy on use of unnamed sources and the decision process required."
+    },
+    "vatID": {
+      "$ref": "../generated-schemaorg-full/properties/vatID.schema.json",
+      "description": "The value-added Tax ID of the organization or person with national prefix (for example IT123456789). Can also be described as [[iso6523Code]] with proper prefix."
+    },
+    "additionalProperty": {
+      "$ref": "../generated-schemaorg-full/properties/additionalProperty.schema.json",
+      "description": "A property-value pair representing an additional characteristic of the entity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\\n\\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. https://schema.org/width, https://schema.org/color, https://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.\n"
+    },
+    "amenityFeature": {
+      "$ref": "../generated-schemaorg-full/properties/amenityFeature.schema.json",
+      "description": "An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic property does not make a statement about whether the feature is included in an offer for the main accommodation or available at extra costs."
+    },
+    "branchCode": {
+      "$ref": "../generated-schemaorg-full/properties/branchCode.schema.json",
+      "description": "A short textual code (also called \"store code\") that uniquely identifies a place of business. The code is typically assigned by the parentOrganization and used in structured URLs.\\n\\nFor example, in the URL http://www.starbucks.co.uk/store-locator/etc/detail/3047 the code \"3047\" is a branchCode for a particular branch.\n      "
+    },
+    "containedIn": {
+      "$ref": "../generated-schemaorg-full/properties/containedIn.schema.json",
+      "description": "The basic containment relation between a place and one that contains it."
+    },
+    "containedInPlace": {
+      "$ref": "../generated-schemaorg-full/properties/containedInPlace.schema.json",
+      "description": "The basic containment relation between a place and one that contains it."
+    },
+    "containsPlace": {
+      "$ref": "../generated-schemaorg-full/properties/containsPlace.schema.json",
+      "description": "The basic containment relation between a place and another that it contains."
+    },
+    "geo": {
+      "$ref": "../generated-schemaorg-full/properties/geo.schema.json",
+      "description": "The geo coordinates of the place."
+    },
+    "geoContains": {
+      "$ref": "../generated-schemaorg-full/properties/geoContains.schema.json",
+      "description": "Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. \"a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a\". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM)."
+    },
+    "geoCoveredBy": {
+      "$ref": "../generated-schemaorg-full/properties/geoCoveredBy.schema.json",
+      "description": "Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM)."
+    },
+    "geoCovers": {
+      "$ref": "../generated-schemaorg-full/properties/geoCovers.schema.json",
+      "description": "Represents a relationship between two geometries (or the places they represent), relating a covering geometry to a covered geometry. \"Every point of b is a point of (the interior or boundary of) a\". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM)."
+    },
+    "geoCrosses": {
+      "$ref": "../generated-schemaorg-full/properties/geoCrosses.schema.json",
+      "description": "Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it: \"a crosses b: they have some but not all interior points in common, and the dimension of the intersection is less than that of at least one of them\". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM)."
+    },
+    "geoDisjoint": {
+      "$ref": "../generated-schemaorg-full/properties/geoDisjoint.schema.json",
+      "description": "Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint: \"they have no point in common. They form a set of disconnected geometries.\" (A symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).)"
+    },
+    "geoEquals": {
+      "$ref": "../generated-schemaorg-full/properties/geoEquals.schema.json",
+      "description": "Represents spatial relations in which two geometries (or the places they represent) are topologically equal, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM). \"Two geometries are topologically equal if their interiors intersect and no part of the interior or boundary of one geometry intersects the exterior of the other\" (a symmetric relationship)."
+    },
+    "geoIntersects": {
+      "$ref": "../generated-schemaorg-full/properties/geoIntersects.schema.json",
+      "description": "Represents spatial relations in which two geometries (or the places they represent) have at least one point in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM)."
+    },
+    "geoOverlaps": {
+      "$ref": "../generated-schemaorg-full/properties/geoOverlaps.schema.json",
+      "description": "Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM)."
+    },
+    "geoTouches": {
+      "$ref": "../generated-schemaorg-full/properties/geoTouches.schema.json",
+      "description": "Represents spatial relations in which two geometries (or the places they represent) touch: \"they have at least one boundary point in common, but no interior points.\" (A symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).)"
+    },
+    "geoWithin": {
+      "$ref": "../generated-schemaorg-full/properties/geoWithin.schema.json",
+      "description": "Represents a relationship between two geometries (or the places they represent), relating a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM)."
+    },
+    "hasDriveThroughService": {
+      "$ref": "../generated-schemaorg-full/properties/hasDriveThroughService.schema.json",
+      "description": "Indicates whether some facility (e.g. [[FoodEstablishment]], [[CovidTestingFacility]]) offers a service that can be used by driving through in a car. In the case of [[CovidTestingFacility]] such facilities could potentially help with social distancing from other potentially-infected users."
+    },
+    "hasMap": {
+      "$ref": "../generated-schemaorg-full/properties/hasMap.schema.json",
+      "description": "A URL to a map of the place."
+    },
+    "isAccessibleForFree": {
+      "$ref": "../generated-schemaorg-full/properties/isAccessibleForFree.schema.json",
+      "description": "A flag to signal that the item, event, or place is accessible for free."
+    },
+    "latitude": {
+      "$ref": "../generated-schemaorg-full/properties/latitude.schema.json",
+      "description": "The latitude of a location. For example ```37.42242``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System))."
+    },
+    "longitude": {
+      "$ref": "../generated-schemaorg-full/properties/longitude.schema.json",
+      "description": "The longitude of a location. For example ```-122.08585``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System))."
+    },
+    "map": {
+      "$ref": "../generated-schemaorg-full/properties/map.schema.json",
+      "description": "A URL to a map of the place."
+    },
+    "maps": {
+      "$ref": "../generated-schemaorg-full/properties/maps.schema.json",
+      "description": "A URL to a map of the place."
+    },
+    "maximumAttendeeCapacity": {
+      "$ref": "../generated-schemaorg-full/properties/maximumAttendeeCapacity.schema.json",
+      "description": "The total number of individuals that may attend an event or venue."
+    },
+    "openingHoursSpecification": {
+      "$ref": "../generated-schemaorg-full/properties/openingHoursSpecification.schema.json",
+      "description": "The opening hours of a certain place."
+    },
+    "photo": {
+      "$ref": "../generated-schemaorg-full/properties/photo.schema.json",
+      "description": "A photograph of this place."
+    },
+    "photos": {
+      "$ref": "../generated-schemaorg-full/properties/photos.schema.json",
+      "description": "Photographs of this place."
+    },
+    "publicAccess": {
+      "$ref": "../generated-schemaorg-full/properties/publicAccess.schema.json",
+      "description": "A flag to signal that the [[Place]] is open to public visitors.  If this property is omitted there is no assumed default boolean value."
+    },
+    "smokingAllowed": {
+      "$ref": "../generated-schemaorg-full/properties/smokingAllowed.schema.json",
+      "description": "Indicates whether it is allowed to smoke in the place, e.g. in the restaurant, hotel or hotel room."
+    },
+    "specialOpeningHoursSpecification": {
+      "$ref": "../generated-schemaorg-full/properties/specialOpeningHoursSpecification.schema.json",
+      "description": "The special opening hours of a certain place.\\n\\nUse this to explicitly override general opening hours brought in scope by [[openingHoursSpecification]] or [[openingHours]].\n      "
+    },
+    "tourBookingPage": {
+      "$ref": "../generated-schemaorg-full/properties/tourBookingPage.schema.json",
+      "description": "A page providing information on how to book a tour of some [[Place]], such as an [[Accommodation]] or [[ApartmentComplex]] in a real estate setting, as well as other kinds of tours as appropriate."
+    },
+    "branchOf": {
+      "$ref": "../generated-schemaorg-full/properties/branchOf.schema.json",
+      "description": "The larger organization that this local business is a branch of, if any. Not to be confused with (anatomical) [[branch]]."
+    },
+    "currenciesAccepted": {
+      "$ref": "../generated-schemaorg-full/properties/currenciesAccepted.schema.json",
+      "description": "The currency accepted.\\n\\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. \"USD\"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. \"BTC\"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. \"Ithaca HOUR\"."
+    },
+    "floorLevel": {
+      "$ref": "../generated-schemaorg-full/properties/floorLevel.schema.json",
+      "description": "The floor level for an [[Accommodation]] in a multi-storey building. Since counting\n  systems [vary internationally](https://en.wikipedia.org/wiki/Storey#Consecutive_number_floor_designations), the local system should be used where possible."
     },
     "openingHours": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1
-        },
-        {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "type": "string",
-            "minLength": 1
-          }
-        }
-      ]
+      "$ref": "../generated-schemaorg-full/properties/openingHours.schema.json",
+      "description": "The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.\\n\\n* Days are specified using the following two-letter combinations: ```Mo```, ```Tu```, ```We```, ```Th```, ```Fr```, ```Sa```, ```Su```.\\n* Times are specified using 24:00 format. For example, 3pm is specified as ```15:00```, 10am as ```10:00```. \\n* Here is an example: <code>&lt;time itemprop=\"openingHours\" datetime=&quot;Tu,Th 16:00-20:00&quot;&gt;Tuesdays and Thursdays 4-8pm&lt;/time&gt;</code>.\\n* If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>."
     },
-    "image": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1
-        },
-        {
-          "$ref": "#/$defs/image"
-        }
-      ]
+    "paymentAccepted": {
+      "$ref": "../generated-schemaorg-full/properties/paymentAccepted.schema.json",
+      "description": "Cash, Credit Card, Cryptocurrency, Local Exchange Tradings System, etc."
+    },
+    "priceRange": {
+      "$ref": "../generated-schemaorg-full/properties/priceRange.schema.json",
+      "description": "The price range of the business, for example ```$$$```."
     }
   },
-  "$defs": {
-    "image": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "image",
-      "title": "Structured Data Image",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "src": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        },
-        "width": {
-          "type": "number"
-        },
-        "height": {
-          "type": "number"
-        },
-        "caption": {
-          "type": "string"
-        },
-        "alt": {
-          "type": "string"
-        }
-      }
-    },
-    "thingRef": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "thingRef",
-      "title": "Structured Data Thing Reference",
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      }
-    }
-  }
+  "required": [
+    "@type"
+  ],
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
 }

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:seller",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "seller",
+  "x-schemaorg-cardinality": "open-world"
+}

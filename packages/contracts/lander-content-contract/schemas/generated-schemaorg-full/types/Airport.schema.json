@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Airport",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CivicStructure.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Airport"
+        },
+        "iataCode": {
+          "$ref": "../properties/iataCode.schema.json",
+          "description": "IATA identifier for an airline or airport."
+        },
+        "icaoCode": {
+          "$ref": "../properties/icaoCode.schema.json",
+          "description": "ICAO identifier for an airport."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An airport.",
+  "title": "Airport"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:inChIKey",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "InChIKey is a hashed version of the full InChI (using the SHA-256 algorithm).",
+  "title": "inChIKey",
+  "x-schemaorg-cardinality": "open-world"
+}

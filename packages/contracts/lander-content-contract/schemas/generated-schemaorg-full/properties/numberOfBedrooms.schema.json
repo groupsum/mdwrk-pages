@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:numberOfBedrooms",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]] or [[FloorPlan]].",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "numberOfBedrooms",
+  "x-schemaorg-cardinality": "open-world"
+}

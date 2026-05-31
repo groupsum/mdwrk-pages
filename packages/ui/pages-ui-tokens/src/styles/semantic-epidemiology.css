@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-epidemiology-padding: 1rem;
+  --mdp-semantic-epidemiology-gap: 0.75rem;
+  --mdp-semantic-epidemiology-radius: 1rem;
+  --mdp-semantic-epidemiology-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-epidemiology-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-epidemiology-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--epidemiology {
+  padding: var(--mdp-semantic-epidemiology-padding);
+  gap: var(--mdp-semantic-epidemiology-gap);
+  border-radius: var(--mdp-semantic-epidemiology-radius);
+  background: var(--mdp-semantic-epidemiology-surface);
+  border: 1px solid var(--mdp-semantic-epidemiology-border);
+  box-shadow: var(--mdp-semantic-epidemiology-shadow);
+}
+
+.lander-semantic--epidemiology .lander-semantic__header,
+.lander-semantic--epidemiology .lander-semantic__body,
+.lander-semantic--epidemiology .lander-semantic__footer,
+.lander-semantic--epidemiology .lander-semantic__actions {
+  gap: var(--mdp-semantic-epidemiology-gap);
+}
+
+.lander-semantic--epidemiology .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--epidemiology .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--epidemiology .lander-semantic__subtitle,
+.lander-semantic--epidemiology .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--epidemiology .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-epidemiology-gap) * 0.8);
+}
+
+.lander-semantic--epidemiology .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--epidemiology .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

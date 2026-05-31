@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:customerRemorseReturnFees",
+  "$ref": "../enumerations/ReturnFeesEnumeration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type of return fees if the product is returned due to customer remorse.",
+  "title": "customerRemorseReturnFees",
+  "x-schemaorg-cardinality": "open-world"
+}

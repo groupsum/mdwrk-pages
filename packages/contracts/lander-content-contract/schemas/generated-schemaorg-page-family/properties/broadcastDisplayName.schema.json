@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:broadcastDisplayName",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The name displayed in the channel guide. For many US affiliates, it is the network name.",
+  "title": "broadcastDisplayName",
+  "x-schemaorg-cardinality": "open-world"
+}

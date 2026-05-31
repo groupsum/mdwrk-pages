@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:includedInHealthInsurancePlan",
+  "$ref": "../types/HealthInsurancePlan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The insurance plans that cover this drug.",
+  "title": "includedInHealthInsurancePlan",
+  "x-schemaorg-cardinality": "open-world"
+}

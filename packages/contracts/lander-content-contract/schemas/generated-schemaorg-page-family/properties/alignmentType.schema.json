@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:alignmentType",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A category of alignment between the learning resource and the framework node. Recommended values include: 'requires', 'textComplexity', 'readingLevel', and 'educationalSubject'.",
+  "title": "alignmentType",
+  "x-schemaorg-cardinality": "open-world"
+}

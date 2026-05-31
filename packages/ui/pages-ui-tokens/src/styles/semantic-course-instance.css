@@ -22,6 +22,10 @@
 .lander-semantic--course-instance .lander-semantic__meta dd { margin: 0.2rem 0 0; font-weight: 600; }
 .lander-semantic--course-instance .lander-semantic__body,
 .lander-semantic--course-instance .lander-semantic__actions { display: grid; gap: var(--mdwrk-space-3); }
+.lander-semantic--course-instance .lander-semantic__session-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 0.8rem; }
+.lander-semantic--course-instance .lander-semantic__session-fact-card { display: grid; gap: 0.35rem; padding: 0.95rem 1rem; border-radius: 1rem; background: rgba(255,255,255,0.76); border: 1px solid color-mix(in srgb, var(--mdp-semantic-course-instance-border) 60%, white 40%); }
+.lander-semantic--course-instance .lander-semantic__section-kicker { width: fit-content; padding: 0.18rem 0.48rem; border-radius: 999px; background: rgba(28, 156, 99, 0.12); color: var(--mdp-semantic-course-instance-accent); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
+.lander-semantic--course-instance .lander-semantic__session-body { padding: 1rem 1.05rem; border-radius: 1rem; background: rgba(255,255,255,0.58); border: 1px solid color-mix(in srgb, var(--mdp-semantic-course-instance-border) 42%, white 58%); }
 .lander-semantic--course-instance .lander-semantic__image { width: 100%; max-width: 100%; border-radius: 1rem; object-fit: cover; }
 .lander-semantic--course-instance .lander-semantic__body > *,
 .lander-semantic--course-instance .lander-semantic__actions > *,

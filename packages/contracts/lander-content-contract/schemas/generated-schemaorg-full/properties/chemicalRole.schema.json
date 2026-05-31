@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:chemicalRole",
+  "$ref": "../types/DefinedTerm.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A role played by the BioChemEntity within a chemical context.",
+  "title": "chemicalRole",
+  "x-schemaorg-cardinality": "open-world"
+}

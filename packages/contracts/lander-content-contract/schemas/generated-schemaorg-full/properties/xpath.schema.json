@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:xpath",
+  "$ref": "../types/XPathType.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An XPath, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter case, multiple matches within a page can constitute a single conceptual \"Web page element\".",
+  "title": "xpath",
+  "x-schemaorg-cardinality": "open-world"
+}

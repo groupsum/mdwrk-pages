@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-time-padding: 1rem;
+  --mdp-semantic-time-gap: 0.75rem;
+  --mdp-semantic-time-radius: 1rem;
+  --mdp-semantic-time-surface: linear-gradient(180deg, rgba(172, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-time-border: rgba(172, 112, 255, 0.22);
+  --mdp-semantic-time-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--time {
+  padding: var(--mdp-semantic-time-padding);
+  gap: var(--mdp-semantic-time-gap);
+  border-radius: var(--mdp-semantic-time-radius);
+  background: var(--mdp-semantic-time-surface);
+  border: 1px solid var(--mdp-semantic-time-border);
+  box-shadow: var(--mdp-semantic-time-shadow);
+}
+
+.lander-semantic--time .lander-semantic__header,
+.lander-semantic--time .lander-semantic__body,
+.lander-semantic--time .lander-semantic__footer,
+.lander-semantic--time .lander-semantic__actions {
+  gap: var(--mdp-semantic-time-gap);
+}
+
+.lander-semantic--time .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--time .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--time .lander-semantic__subtitle,
+.lander-semantic--time .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--time .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-time-gap) * 0.8);
+}
+
+.lander-semantic--time .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--time .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

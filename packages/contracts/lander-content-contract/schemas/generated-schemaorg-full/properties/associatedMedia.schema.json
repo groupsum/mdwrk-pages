@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:associatedMedia",
+  "$ref": "../types/MediaObject.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A media object that encodes this CreativeWork. This property is a synonym for encoding.",
+  "title": "associatedMedia",
+  "x-schemaorg-cardinality": "open-world"
+}

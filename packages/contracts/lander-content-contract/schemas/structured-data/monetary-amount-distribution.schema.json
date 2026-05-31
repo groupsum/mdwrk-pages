@@ -1,27 +1,100 @@
 {
+  "$id": "urn:groupsum:schemaorg:class:MonetaryAmountDistribution",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.mdwrk.com/structured-data/monetary-amount-distribution.schema.json",
-  "title": "Structured Data MonetaryAmountDistribution Input",
+  "title": "MonetaryAmountDistribution",
+  "description": "A statistical distribution of monetary amounts.",
   "type": "object",
-  "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": "string"
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "MonetaryAmountDistribution"
+    },
+    "additionalType": {
+      "$ref": "../generated-schemaorg-full/properties/additionalType.schema.json",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
+    },
+    "alternateName": {
+      "$ref": "../generated-schemaorg-full/properties/alternateName.schema.json",
+      "description": "An alias for the item."
+    },
+    "description": {
+      "$ref": "../generated-schemaorg-full/properties/description.schema.json",
+      "description": "A description of the item."
+    },
+    "disambiguatingDescription": {
+      "$ref": "../generated-schemaorg-full/properties/disambiguatingDescription.schema.json",
+      "description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."
+    },
+    "identifier": {
+      "$ref": "../generated-schemaorg-full/properties/identifier.schema.json",
+      "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        "
+    },
+    "image": {
+      "$ref": "../generated-schemaorg-full/properties/image.schema.json",
+      "description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
+    },
+    "mainEntityOfPage": {
+      "$ref": "../generated-schemaorg-full/properties/mainEntityOfPage.schema.json",
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
     },
     "name": {
-      "type": "string"
+      "$ref": "../generated-schemaorg-full/properties/name.schema.json",
+      "description": "The name of the item."
+    },
+    "owner": {
+      "$ref": "../generated-schemaorg-full/properties/owner.schema.json",
+      "description": "A person or organization who owns this Thing."
+    },
+    "potentialAction": {
+      "$ref": "../generated-schemaorg-full/properties/potentialAction.schema.json",
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
+    },
+    "sameAs": {
+      "$ref": "../generated-schemaorg-full/properties/sameAs.schema.json",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."
+    },
+    "subjectOf": {
+      "$ref": "../generated-schemaorg-full/properties/subjectOf.schema.json",
+      "description": "A CreativeWork or Event about this Thing."
+    },
+    "url": {
+      "$ref": "../generated-schemaorg-full/properties/url.schema.json",
+      "description": "URL of the item."
+    },
+    "duration": {
+      "$ref": "../generated-schemaorg-full/properties/duration.schema.json",
+      "description": "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601)."
+    },
+    "median": {
+      "$ref": "../generated-schemaorg-full/properties/median.schema.json",
+      "description": "The median value."
+    },
+    "percentile10": {
+      "$ref": "../generated-schemaorg-full/properties/percentile10.schema.json",
+      "description": "The 10th percentile value."
+    },
+    "percentile25": {
+      "$ref": "../generated-schemaorg-full/properties/percentile25.schema.json",
+      "description": "The 25th percentile value."
+    },
+    "percentile75": {
+      "$ref": "../generated-schemaorg-full/properties/percentile75.schema.json",
+      "description": "The 75th percentile value."
+    },
+    "percentile90": {
+      "$ref": "../generated-schemaorg-full/properties/percentile90.schema.json",
+      "description": "The 90th percentile value."
     },
     "currency": {
-      "type": "string"
-    },
-    "minValue": {
-      "type": "number"
-    },
-    "maxValue": {
-      "type": "number"
-    },
-    "unitText": {
-      "type": "string"
+      "$ref": "../generated-schemaorg-full/properties/currency.schema.json",
+      "description": "The currency in which the monetary amount is expressed.\\n\\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. \"USD\"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. \"BTC\"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. \"Ithaca HOUR\"."
     }
-  }
+  },
+  "required": [
+    "@type"
+  ],
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
 }

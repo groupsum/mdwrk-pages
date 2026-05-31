@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:orderNumber",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The identifier of the transaction.",
+  "title": "orderNumber",
+  "x-schemaorg-cardinality": "open-world"
+}

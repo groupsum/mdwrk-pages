@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:bloodSupply",
+  "$ref": "../types/Vessel.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The blood vessel that carries blood from the heart to the muscle.",
+  "title": "bloodSupply",
+  "x-schemaorg-cardinality": "open-world"
+}

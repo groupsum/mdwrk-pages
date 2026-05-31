@@ -18,7 +18,7 @@ export async function importSplitRenderers() {
   const structuredDataDist = path.join(
     repoRoot,
     "packages",
-    "shared",
+    "contracts",
     "structured-data",
     "dist",
     "index.js",
@@ -26,7 +26,7 @@ export async function importSplitRenderers() {
   const structuredDataReactDist = path.join(
     repoRoot,
     "packages",
-    "lander",
+    "machine",
     "lander-react-structured-data",
     "dist",
     "index.js",
@@ -34,19 +34,28 @@ export async function importSplitRenderers() {
   const structuredDataReactSmoke = path.join(
     repoRoot,
     "packages",
-    "lander",
+    "machine",
     "lander-react-structured-data",
     "dist",
     `index.${suffix}.smoke.mjs`,
   );
-  const landerReactDist = path.join(repoRoot, "packages", "lander", "lander-react", "dist", "index.js");
+  const landerReactDist = path.join(repoRoot, "packages", "ui", "lander-react", "dist", "index.js");
   const landerReactSmoke = path.join(
     repoRoot,
     "packages",
-    "lander",
+    "ui",
     "lander-react",
     "dist",
     `index.${suffix}.smoke.mjs`,
+  );
+  const semanticDistRoot = path.join(repoRoot, "packages", "ui", "lander-react", "dist", "semantic");
+  const semanticSmokeRoot = path.join(
+    repoRoot,
+    "packages",
+    "ui",
+    "lander-react",
+    "dist",
+    `semantic.${suffix}.smoke`,
   );
 
   rewriteModule(
@@ -56,9 +65,22 @@ export async function importSplitRenderers() {
   );
   rewriteModule(
     landerReactDist,
-    [['"@mdwrk/lander-react-structured-data"', `"file:///${structuredDataReactSmoke.replace(/\\/g, "/")}"`]],
+    [
+      ['"@mdwrk/lander-react-structured-data"', `"file:///${structuredDataReactSmoke.replace(/\\/g, "/")}"`],
+      ['"./semantic/', `"./semantic.${suffix}.smoke/`],
+    ],
     landerReactSmoke,
   );
+
+  fs.mkdirSync(semanticSmokeRoot, { recursive: true });
+  for (const fileName of fs.readdirSync(semanticDistRoot)) {
+    if (!fileName.endsWith(".js")) continue;
+    rewriteModule(
+      path.join(semanticDistRoot, fileName),
+      [['"@mdwrk/lander-react-structured-data"', `"file:///${structuredDataReactSmoke.replace(/\\/g, "/")}"`]],
+      path.join(semanticSmokeRoot, fileName),
+    );
+  }
 
   try {
     const landerReact = await import(`file:///${landerReactSmoke.replace(/\\/g, "/")}?t=${Date.now()}`);
@@ -69,5 +91,6 @@ export async function importSplitRenderers() {
   } finally {
     fs.rmSync(landerReactSmoke, { force: true });
     fs.rmSync(structuredDataReactSmoke, { force: true });
+    fs.rmSync(semanticSmokeRoot, { recursive: true, force: true });
   }
 }

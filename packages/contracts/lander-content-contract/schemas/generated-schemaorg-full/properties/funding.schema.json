@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:funding",
+  "$ref": "../types/Grant.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].",
+  "title": "funding",
+  "x-schemaorg-cardinality": "open-world"
+}

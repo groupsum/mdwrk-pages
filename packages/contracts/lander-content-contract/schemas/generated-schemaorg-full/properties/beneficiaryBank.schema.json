@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:beneficiaryBank",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A bank or bank\u2019s branch, financial institution or international financial institution operating the beneficiary\u2019s bank account or releasing funds for the beneficiary.",
+  "oneOf": [
+    {
+      "$ref": "../types/BankOrCreditUnion.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "beneficiaryBank",
+  "x-schemaorg-cardinality": "open-world"
+}

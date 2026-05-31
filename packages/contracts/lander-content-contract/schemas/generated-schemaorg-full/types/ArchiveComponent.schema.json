@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ArchiveComponent",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ArchiveComponent"
+        },
+        "holdingArchive": {
+          "$ref": "../properties/holdingArchive.schema.json",
+          "description": "[[ArchiveOrganization]] that holds, keeps or maintains the [[ArchiveComponent]]."
+        },
+        "itemLocation": {
+          "$ref": "../properties/itemLocation.schema.json",
+          "description": "Current location of the item."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An intangible type to be applied to any archive content, carrying with it a set of properties required to describe archival items and collections.",
+  "title": "ArchiveComponent"
+}

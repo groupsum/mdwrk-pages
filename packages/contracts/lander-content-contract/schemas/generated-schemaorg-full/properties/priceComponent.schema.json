@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:priceComponent",
+  "$ref": "../types/PriceSpecification.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "This property links to all [[UnitPriceSpecification]] nodes that apply in parallel for the [[CompoundPriceSpecification]] node.",
+  "title": "priceComponent",
+  "x-schemaorg-cardinality": "open-world"
+}

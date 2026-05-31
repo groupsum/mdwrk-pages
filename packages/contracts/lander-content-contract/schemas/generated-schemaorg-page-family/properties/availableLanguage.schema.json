@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:availableLanguage",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]].",
+  "oneOf": [
+    {
+      "$ref": "../types/Language.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "availableLanguage",
+  "x-schemaorg-cardinality": "open-world"
+}

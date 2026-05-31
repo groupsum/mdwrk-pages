@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:dependencies",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Prerequisites needed to fulfill steps in article.",
+  "title": "dependencies",
+  "x-schemaorg-cardinality": "open-world"
+}

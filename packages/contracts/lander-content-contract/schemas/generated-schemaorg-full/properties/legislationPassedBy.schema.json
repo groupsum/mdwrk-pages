@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:legislationPassedBy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The person or organization that originally passed or made the law: typically parliament (for primary legislation) or government (for secondary legislation). This indicates the \"legal author\" of the law, as opposed to its physical author.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "legislationPassedBy",
+  "x-schemaorg-cardinality": "open-world"
+}

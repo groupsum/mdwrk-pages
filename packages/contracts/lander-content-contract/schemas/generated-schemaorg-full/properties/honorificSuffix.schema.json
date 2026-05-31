@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:honorificSuffix",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An honorific suffix following a Person's name such as M.D./PhD/MSCSW.",
+  "title": "honorificSuffix",
+  "x-schemaorg-cardinality": "open-world"
+}

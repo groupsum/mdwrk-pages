@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:dateReceived",
+  "$ref": "../datatypes/DateTime.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The date/time the message was received if a single recipient exists.",
+  "title": "dateReceived",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:transFatContent",
+  "$ref": "../types/Mass.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of grams of trans fat.",
+  "title": "transFatContent",
+  "x-schemaorg-cardinality": "open-world"
+}

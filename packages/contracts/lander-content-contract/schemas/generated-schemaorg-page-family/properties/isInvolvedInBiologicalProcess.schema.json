@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:isInvolvedInBiologicalProcess",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Biological process this BioChemEntity is involved in; please use PropertyValue if you want to include any evidence.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../types/PropertyValue.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "isInvolvedInBiologicalProcess",
+  "x-schemaorg-cardinality": "open-world"
+}

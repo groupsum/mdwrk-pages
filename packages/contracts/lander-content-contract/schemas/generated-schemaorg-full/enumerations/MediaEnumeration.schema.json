@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:MediaEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "MediaEnumeration enumerations are lists of codes, labels etc. useful for describing media objects. They may be reflections of externally developed lists, or created at schema.org, or a combination.",
+  "enum": [],
+  "title": "MediaEnumeration",
+  "type": "string"
+}

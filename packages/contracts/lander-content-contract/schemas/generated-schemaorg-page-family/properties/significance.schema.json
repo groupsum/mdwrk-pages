@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:significance",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The significance associated with the superficial anatomy; as an example, how characteristics of the superficial anatomy can suggest underlying medical conditions or courses of treatment.",
+  "title": "significance",
+  "x-schemaorg-cardinality": "open-world"
+}

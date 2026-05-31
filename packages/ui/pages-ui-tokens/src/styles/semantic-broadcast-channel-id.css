@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-broadcast-channel-id-padding: 1rem;
+  --mdp-semantic-broadcast-channel-id-gap: 0.75rem;
+  --mdp-semantic-broadcast-channel-id-radius: 1rem;
+  --mdp-semantic-broadcast-channel-id-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-broadcast-channel-id-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-broadcast-channel-id-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--broadcast-channel-id {
+  padding: var(--mdp-semantic-broadcast-channel-id-padding);
+  gap: var(--mdp-semantic-broadcast-channel-id-gap);
+  border-radius: var(--mdp-semantic-broadcast-channel-id-radius);
+  background: var(--mdp-semantic-broadcast-channel-id-surface);
+  border: 1px solid var(--mdp-semantic-broadcast-channel-id-border);
+  box-shadow: var(--mdp-semantic-broadcast-channel-id-shadow);
+}
+
+.lander-semantic--broadcast-channel-id .lander-semantic__header,
+.lander-semantic--broadcast-channel-id .lander-semantic__body,
+.lander-semantic--broadcast-channel-id .lander-semantic__footer,
+.lander-semantic--broadcast-channel-id .lander-semantic__actions {
+  gap: var(--mdp-semantic-broadcast-channel-id-gap);
+}
+
+.lander-semantic--broadcast-channel-id .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--broadcast-channel-id .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--broadcast-channel-id .lander-semantic__subtitle,
+.lander-semantic--broadcast-channel-id .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--broadcast-channel-id .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-broadcast-channel-id-gap) * 0.8);
+}
+
+.lander-semantic--broadcast-channel-id .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--broadcast-channel-id .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

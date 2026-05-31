@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:afterMedia",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A media object representing the circumstances after performing this direction.",
+  "oneOf": [
+    {
+      "$ref": "../types/MediaObject.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "afterMedia",
+  "x-schemaorg-cardinality": "open-world"
+}

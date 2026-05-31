@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:healthcareReportingData",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates data describing a hospital, e.g. a CDC [[CDCPMDRecord]] or as some kind of [[Dataset]].",
+  "oneOf": [
+    {
+      "$ref": "../types/CDCPMDRecord.schema.json"
+    },
+    {
+      "$ref": "../types/Dataset.schema.json"
+    }
+  ],
+  "title": "healthcareReportingData",
+  "x-schemaorg-cardinality": "open-world"
+}

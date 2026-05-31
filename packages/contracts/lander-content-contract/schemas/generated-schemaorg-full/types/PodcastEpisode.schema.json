@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:PodcastEpisode",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Episode.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "PodcastEpisode"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A single episode of a podcast series.",
+  "title": "PodcastEpisode"
+}

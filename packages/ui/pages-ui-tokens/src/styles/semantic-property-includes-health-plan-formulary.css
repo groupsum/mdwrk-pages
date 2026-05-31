@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-property-includes-health-plan-formulary-padding: 1rem;
+  --mdp-semantic-property-includes-health-plan-formulary-gap: 0.75rem;
+  --mdp-semantic-property-includes-health-plan-formulary-radius: 1rem;
+  --mdp-semantic-property-includes-health-plan-formulary-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-property-includes-health-plan-formulary-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-property-includes-health-plan-formulary-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--property-includes-health-plan-formulary {
+  padding: var(--mdp-semantic-property-includes-health-plan-formulary-padding);
+  gap: var(--mdp-semantic-property-includes-health-plan-formulary-gap);
+  border-radius: var(--mdp-semantic-property-includes-health-plan-formulary-radius);
+  background: var(--mdp-semantic-property-includes-health-plan-formulary-surface);
+  border: 1px solid var(--mdp-semantic-property-includes-health-plan-formulary-border);
+  box-shadow: var(--mdp-semantic-property-includes-health-plan-formulary-shadow);
+}
+
+.lander-semantic--property-includes-health-plan-formulary .lander-semantic__header,
+.lander-semantic--property-includes-health-plan-formulary .lander-semantic__body,
+.lander-semantic--property-includes-health-plan-formulary .lander-semantic__footer,
+.lander-semantic--property-includes-health-plan-formulary .lander-semantic__actions {
+  gap: var(--mdp-semantic-property-includes-health-plan-formulary-gap);
+}
+
+.lander-semantic--property-includes-health-plan-formulary .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--property-includes-health-plan-formulary .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--property-includes-health-plan-formulary .lander-semantic__subtitle,
+.lander-semantic--property-includes-health-plan-formulary .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--property-includes-health-plan-formulary .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-property-includes-health-plan-formulary-gap) * 0.8);
+}
+
+.lander-semantic--property-includes-health-plan-formulary .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--property-includes-health-plan-formulary .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

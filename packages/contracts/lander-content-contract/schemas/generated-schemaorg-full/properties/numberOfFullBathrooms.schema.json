@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:numberOfFullBathrooms",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Number of full bathrooms - The total number of full and \u00be bathrooms in an [[Accommodation]]. This corresponds to the [BathroomsFull field in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsFull+Field).",
+  "title": "numberOfFullBathrooms",
+  "x-schemaorg-cardinality": "open-world"
+}

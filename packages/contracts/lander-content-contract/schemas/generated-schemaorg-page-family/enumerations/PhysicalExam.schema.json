@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:PhysicalExam",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A type of physical examination of a patient performed by a physician. ",
+  "enum": [],
+  "title": "PhysicalExam",
+  "type": "string"
+}

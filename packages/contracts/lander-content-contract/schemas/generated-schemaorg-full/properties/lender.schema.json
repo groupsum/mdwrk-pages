@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:lender",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of participant. The person that lends the object being borrowed.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "lender",
+  "x-schemaorg-cardinality": "open-world"
+}

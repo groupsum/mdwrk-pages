@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:attendees",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A person attending the event.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "attendees",
+  "x-schemaorg-cardinality": "open-world"
+}

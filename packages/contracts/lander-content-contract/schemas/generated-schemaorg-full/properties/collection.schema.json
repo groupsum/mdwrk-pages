@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:collection",
+  "$ref": "../types/Thing.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of object. The collection target of the action.",
+  "title": "collection",
+  "x-schemaorg-cardinality": "open-world"
+}

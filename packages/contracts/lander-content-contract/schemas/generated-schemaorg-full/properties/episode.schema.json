@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:episode",
+  "$ref": "../types/Episode.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An episode of a TV, radio or game media within a series or season.",
+  "title": "episode",
+  "x-schemaorg-cardinality": "open-world"
+}

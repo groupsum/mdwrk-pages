@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:sourcedFrom",
+  "$ref": "../types/BrainStructure.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The neurological pathway that originates the neurons.",
+  "title": "sourcedFrom",
+  "x-schemaorg-cardinality": "open-world"
+}

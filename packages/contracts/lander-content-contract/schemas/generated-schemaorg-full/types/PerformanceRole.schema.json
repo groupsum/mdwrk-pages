@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:PerformanceRole",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Role.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "PerformanceRole"
+        },
+        "characterName": {
+          "$ref": "../properties/characterName.schema.json",
+          "description": "The name of a character played in some acting or performing role, i.e. in a PerformanceRole."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A PerformanceRole is a Role that some entity places with regard to a theatrical performance, e.g. in a Movie, TVSeries etc.",
+  "title": "PerformanceRole"
+}

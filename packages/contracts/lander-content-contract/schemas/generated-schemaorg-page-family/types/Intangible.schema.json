@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Intangible",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Thing.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Intangible"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc.",
+  "title": "Intangible"
+}

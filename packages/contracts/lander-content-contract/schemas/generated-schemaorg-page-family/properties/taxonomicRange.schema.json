@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:taxonomicRange",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The taxonomic grouping of the organism that expresses, encodes, or in some way related to the BioChemEntity.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../types/Taxon.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "taxonomicRange",
+  "x-schemaorg-cardinality": "open-world"
+}

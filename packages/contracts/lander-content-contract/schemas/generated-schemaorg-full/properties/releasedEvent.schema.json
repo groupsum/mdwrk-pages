@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:releasedEvent",
+  "$ref": "../types/PublicationEvent.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The place and time the release was issued, expressed as a PublicationEvent.",
+  "title": "releasedEvent",
+  "x-schemaorg-cardinality": "open-world"
+}

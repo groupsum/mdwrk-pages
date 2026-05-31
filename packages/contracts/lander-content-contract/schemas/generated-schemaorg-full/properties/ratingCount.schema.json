@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:ratingCount",
+  "$ref": "../types/Integer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The count of total number of ratings.",
+  "title": "ratingCount",
+  "x-schemaorg-cardinality": "open-world"
+}

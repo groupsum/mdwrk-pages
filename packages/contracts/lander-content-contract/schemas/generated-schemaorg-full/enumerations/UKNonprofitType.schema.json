@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:UKNonprofitType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "UKNonprofitType: Non-profit organization type originating from the United Kingdom.",
+  "enum": [],
+  "title": "UKNonprofitType",
+  "type": "string"
+}

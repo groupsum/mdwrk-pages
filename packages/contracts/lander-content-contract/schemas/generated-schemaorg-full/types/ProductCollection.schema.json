@@ -1,0 +1,34 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ProductCollection",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Collection.schema.json"
+    },
+    {
+      "$ref": "Product.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ProductCollection"
+        },
+        "includesObject": {
+          "$ref": "../properties/includesObject.schema.json",
+          "description": "This links to a node or nodes indicating the exact quantity of the products included in  an [[Offer]] or [[ProductCollection]]."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A set of products (either [[ProductGroup]]s or specific variants) that are listed together e.g. in an [[Offer]].",
+  "title": "ProductCollection"
+}

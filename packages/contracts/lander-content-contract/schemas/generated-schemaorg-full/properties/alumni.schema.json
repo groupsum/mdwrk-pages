@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:alumni",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Alumni of an organization.",
+  "title": "alumni",
+  "x-schemaorg-cardinality": "open-world"
+}

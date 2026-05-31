@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:measurementMethod",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A subproperty of [[measurementTechnique]] that can be used for specifying specific methods, in particular via [[MeasurementMethodEnum]].",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../enumerations/MeasurementMethodEnum.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "measurementMethod",
+  "x-schemaorg-cardinality": "open-world"
+}

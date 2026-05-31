@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:applicationCategory",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Type of software application, e.g. 'Game, Multimedia'.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "applicationCategory",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:feesAndCommissionsSpecification",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Description of fees, commissions, and other terms applied either to a class of financial product, or by a financial service organization.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "feesAndCommissionsSpecification",
+  "x-schemaorg-cardinality": "open-world"
+}

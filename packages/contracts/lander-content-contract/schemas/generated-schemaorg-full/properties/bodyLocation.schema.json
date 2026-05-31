@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:bodyLocation",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Location in the body of the anatomical structure.",
+  "title": "bodyLocation",
+  "x-schemaorg-cardinality": "open-world"
+}

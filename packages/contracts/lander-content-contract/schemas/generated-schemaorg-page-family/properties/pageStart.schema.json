@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:pageStart",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The page on which the work starts; for example \"135\" or \"xiii\".",
+  "oneOf": [
+    {
+      "$ref": "../types/Integer.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "pageStart",
+  "x-schemaorg-cardinality": "open-world"
+}

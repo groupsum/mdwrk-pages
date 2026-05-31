@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:sensoryRequirement",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A description of any sensory requirements and levels necessary to function on the job, including hearing and vision. Defined terms such as those in O*net may be used, but note that there is no way to specify the level of ability as well as its nature when using a defined term.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "sensoryRequirement",
+  "x-schemaorg-cardinality": "open-world"
+}

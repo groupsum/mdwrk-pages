@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:orderValue",
+  "$ref": "../types/MonetaryAmount.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Minimum and maximum order value for which these shipping conditions are valid.",
+  "title": "orderValue",
+  "x-schemaorg-cardinality": "open-world"
+}

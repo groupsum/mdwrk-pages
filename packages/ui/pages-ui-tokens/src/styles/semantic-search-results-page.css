@@ -1,0 +1,60 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-search-results-page-padding: 1.7rem;
+  --mdp-semantic-search-results-page-gap: 1rem;
+  --mdp-semantic-search-results-page-radius: 1.4rem;
+  --mdp-semantic-search-results-page-surface: linear-gradient(180deg, color-mix(in srgb, var(--lander-panel) 95%, #edf7f8 5%), color-mix(in srgb, var(--lander-panel) 88%, #d3ecef 12%));
+  --mdp-semantic-search-results-page-border: color-mix(in srgb, var(--lander-border) 70%, #4d99a5 30%);
+  --mdp-semantic-search-results-page-shadow: var(--mdwrk-shadow-strong);
+}
+
+.lander-semantic--search-results-page {
+  display: grid;
+  gap: var(--mdp-semantic-search-results-page-gap);
+  padding: var(--mdp-semantic-search-results-page-padding);
+  border: 1px solid var(--mdp-semantic-search-results-page-border);
+  border-radius: var(--mdp-semantic-search-results-page-radius);
+  background: var(--mdp-semantic-search-results-page-surface);
+  box-shadow: var(--mdp-semantic-search-results-page-shadow);
+}
+
+.lander-semantic--search-results-page .lander-semantic__header,
+.lander-semantic--search-results-page .lander-semantic__body,
+.lander-semantic--search-results-page .lander-semantic__actions,
+.lander-semantic--search-results-page .lander-semantic__footer,
+.lander-semantic--search-results-page .lander-semantic__meta {
+  display: grid;
+  gap: var(--mdwrk-space-3);
+}
+
+.lander-semantic--search-results-page .lander-semantic__eyebrow,
+.lander-semantic--search-results-page .lander-semantic__title,
+.lander-semantic--search-results-page .lander-semantic__subtitle,
+.lander-semantic--search-results-page .lander-semantic__description,
+.lander-semantic--search-results-page .lander-semantic__image {
+  margin: 0;
+}
+
+.lander-semantic--search-results-page .lander-semantic__search-query {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  padding: 1rem 1.05rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.lander-semantic--search-results-page .lander-semantic__results-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.lander-semantic--search-results-page .lander-semantic__result-card {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem 1.05rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.84);
+}

@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-album-release-type-padding: 1rem;
+  --mdp-semantic-album-release-type-gap: 0.75rem;
+  --mdp-semantic-album-release-type-radius: 1rem;
+  --mdp-semantic-album-release-type-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-album-release-type-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-album-release-type-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--album-release-type {
+  padding: var(--mdp-semantic-album-release-type-padding);
+  gap: var(--mdp-semantic-album-release-type-gap);
+  border-radius: var(--mdp-semantic-album-release-type-radius);
+  background: var(--mdp-semantic-album-release-type-surface);
+  border: 1px solid var(--mdp-semantic-album-release-type-border);
+  box-shadow: var(--mdp-semantic-album-release-type-shadow);
+}
+
+.lander-semantic--album-release-type .lander-semantic__header,
+.lander-semantic--album-release-type .lander-semantic__body,
+.lander-semantic--album-release-type .lander-semantic__footer,
+.lander-semantic--album-release-type .lander-semantic__actions {
+  gap: var(--mdp-semantic-album-release-type-gap);
+}
+
+.lander-semantic--album-release-type .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--album-release-type .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--album-release-type .lander-semantic__subtitle,
+.lander-semantic--album-release-type .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--album-release-type .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-album-release-type-gap) * 0.8);
+}
+
+.lander-semantic--album-release-type .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--album-release-type .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

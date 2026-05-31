@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:isTierOf",
+  "$ref": "../types/MemberProgram.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The member program this tier is a part of.",
+  "title": "isTierOf",
+  "x-schemaorg-cardinality": "open-world"
+}

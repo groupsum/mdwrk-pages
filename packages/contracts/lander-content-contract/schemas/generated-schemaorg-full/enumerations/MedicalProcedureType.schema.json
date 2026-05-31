@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:MedicalProcedureType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An enumeration that describes different types of medical procedures.",
+  "enum": [],
+  "title": "MedicalProcedureType",
+  "type": "string"
+}

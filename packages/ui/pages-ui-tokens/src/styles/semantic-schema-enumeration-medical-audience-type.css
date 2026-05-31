@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-schema-enumeration-medical-audience-type-padding: 1rem;
+  --mdp-semantic-schema-enumeration-medical-audience-type-gap: 0.75rem;
+  --mdp-semantic-schema-enumeration-medical-audience-type-radius: 1rem;
+  --mdp-semantic-schema-enumeration-medical-audience-type-surface: linear-gradient(180deg, rgba(28, 98, 46, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-schema-enumeration-medical-audience-type-border: rgba(28, 98, 46, 0.22);
+  --mdp-semantic-schema-enumeration-medical-audience-type-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--schema-enumeration-medical-audience-type {
+  padding: var(--mdp-semantic-schema-enumeration-medical-audience-type-padding);
+  gap: var(--mdp-semantic-schema-enumeration-medical-audience-type-gap);
+  border-radius: var(--mdp-semantic-schema-enumeration-medical-audience-type-radius);
+  background: var(--mdp-semantic-schema-enumeration-medical-audience-type-surface);
+  border: 1px solid var(--mdp-semantic-schema-enumeration-medical-audience-type-border);
+  box-shadow: var(--mdp-semantic-schema-enumeration-medical-audience-type-shadow);
+}
+
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__header,
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__body,
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__footer,
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__actions {
+  gap: var(--mdp-semantic-schema-enumeration-medical-audience-type-gap);
+}
+
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__header,
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__eyebrow,
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__title,
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__subtitle,
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__description,
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__meta,
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__image,
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__body,
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__actions,
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__subtitle,
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-schema-enumeration-medical-audience-type-gap) * 0.8);
+}
+
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-schema-enumeration-medical-audience-type-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--schema-enumeration-medical-audience-type .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:processorRequirements",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Processor architecture required to run the application (e.g. IA64).",
+  "title": "processorRequirements",
+  "x-schemaorg-cardinality": "open-world"
+}

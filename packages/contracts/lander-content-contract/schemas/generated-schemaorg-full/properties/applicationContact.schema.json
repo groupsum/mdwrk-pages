@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:applicationContact",
+  "$ref": "../types/ContactPoint.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Contact details for further information relevant to this job posting.",
+  "title": "applicationContact",
+  "x-schemaorg-cardinality": "open-world"
+}

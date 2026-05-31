@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:typicalCreditsPerTerm",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of credits or units a full-time student would be expected to take in 1 term however 'term' is defined by the institution.",
+  "oneOf": [
+    {
+      "$ref": "../types/Integer.schema.json"
+    },
+    {
+      "$ref": "../types/StructuredValue.schema.json"
+    }
+  ],
+  "title": "typicalCreditsPerTerm",
+  "x-schemaorg-cardinality": "open-world"
+}

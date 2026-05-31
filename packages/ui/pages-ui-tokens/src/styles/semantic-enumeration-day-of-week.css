@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-enumeration-day-of-week-padding: 1rem;
+  --mdp-semantic-enumeration-day-of-week-gap: 0.75rem;
+  --mdp-semantic-enumeration-day-of-week-radius: 1rem;
+  --mdp-semantic-enumeration-day-of-week-surface: linear-gradient(180deg, rgba(28, 98, 46, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-enumeration-day-of-week-border: rgba(28, 98, 46, 0.22);
+  --mdp-semantic-enumeration-day-of-week-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--enumeration-day-of-week {
+  padding: var(--mdp-semantic-enumeration-day-of-week-padding);
+  gap: var(--mdp-semantic-enumeration-day-of-week-gap);
+  border-radius: var(--mdp-semantic-enumeration-day-of-week-radius);
+  background: var(--mdp-semantic-enumeration-day-of-week-surface);
+  border: 1px solid var(--mdp-semantic-enumeration-day-of-week-border);
+  box-shadow: var(--mdp-semantic-enumeration-day-of-week-shadow);
+}
+
+.lander-semantic--enumeration-day-of-week .lander-semantic__header,
+.lander-semantic--enumeration-day-of-week .lander-semantic__body,
+.lander-semantic--enumeration-day-of-week .lander-semantic__footer,
+.lander-semantic--enumeration-day-of-week .lander-semantic__actions {
+  gap: var(--mdp-semantic-enumeration-day-of-week-gap);
+}
+
+.lander-semantic--enumeration-day-of-week .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--enumeration-day-of-week .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--enumeration-day-of-week .lander-semantic__subtitle,
+.lander-semantic--enumeration-day-of-week .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--enumeration-day-of-week .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-enumeration-day-of-week-gap) * 0.8);
+}
+
+.lander-semantic--enumeration-day-of-week .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--enumeration-day-of-week .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

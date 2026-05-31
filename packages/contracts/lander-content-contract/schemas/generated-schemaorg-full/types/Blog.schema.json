@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Blog",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Blog"
+        },
+        "blogPost": {
+          "$ref": "../properties/blogPost.schema.json",
+          "description": "A posting that is part of this blog."
+        },
+        "blogPosts": {
+          "$ref": "../properties/blogPosts.schema.json",
+          "description": "Indicates a post that is part of a [[Blog]]. Note that historically, what we term a \"Blog\" was once known as a \"weblog\", and that what we term a \"BlogPosting\" is now often colloquially referred to as a \"blog\"."
+        },
+        "issn": {
+          "$ref": "../properties/issn.schema.json",
+          "description": "The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A [blog](https://en.wikipedia.org/wiki/Blog), sometimes known as a \"weblog\". Note that the individual posts ([[BlogPosting]]s) in a [[Blog]] are often colloquially referred to by the same term.",
+  "title": "Blog"
+}

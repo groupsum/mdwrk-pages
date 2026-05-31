@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:includesHealthPlanFormulary",
+  "$ref": "../types/HealthPlanFormulary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Formularies covered by this plan.",
+  "title": "includesHealthPlanFormulary",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:courseCode",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The identifier for the [[Course]] used by the course [[provider]] (e.g. CS101 or 6.001).",
+  "title": "courseCode",
+  "x-schemaorg-cardinality": "open-world"
+}

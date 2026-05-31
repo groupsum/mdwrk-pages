@@ -7,7 +7,7 @@ This repo owns page/content contracts, static-site compilation, SEO and AI-disco
 ## Package Families
 
 - `packages/lander` contains the current package family. These packages should be renamed to `@mdwrk/pages-*` over a compatibility window.
-- `packages/shared/structured-data` contains structured-data builders used by Pages rendering and discovery output.
+- `packages/contracts/structured-data` contains structured-data builders used by Pages rendering and discovery output.
 - `packages/content/page-template-demo-content-pack` contains reusable demo content for page-template examples.
 - `examples/page-template-demo` validates downstream package consumption.
 

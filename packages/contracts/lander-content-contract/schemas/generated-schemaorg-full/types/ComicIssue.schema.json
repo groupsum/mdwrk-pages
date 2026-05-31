@@ -1,0 +1,51 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ComicIssue",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "PublicationIssue.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ComicIssue"
+        },
+        "artist": {
+          "$ref": "../properties/artist.schema.json",
+          "description": "The primary artist for a work\n    \tin a medium other than pencils or digital line art--for example, if the\n    \tprimary artwork is done in watercolors or digital paints."
+        },
+        "colorist": {
+          "$ref": "../properties/colorist.schema.json",
+          "description": "The individual who adds color to inked drawings."
+        },
+        "inker": {
+          "$ref": "../properties/inker.schema.json",
+          "description": "The individual who traces over the pencil drawings in ink after pencils are complete."
+        },
+        "letterer": {
+          "$ref": "../properties/letterer.schema.json",
+          "description": "The individual who adds lettering, including speech balloons and sound effects, to artwork."
+        },
+        "penciler": {
+          "$ref": "../properties/penciler.schema.json",
+          "description": "The individual who draws the primary narrative artwork."
+        },
+        "variantCover": {
+          "$ref": "../properties/variantCover.schema.json",
+          "description": "A description of the variant cover\n    \tfor the issue, if the issue is a variant printing. For example, \"Bryan Hitch\n    \tVariant Cover\" or \"2nd Printing Variant\"."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Individual comic issues are serially published as\n    \tpart of a larger series. For the sake of consistency, even one-shot issues\n    \tbelong to a series comprised of a single issue. All comic issues can be\n    \tuniquely identified by: the combination of the name and volume number of the\n    \tseries to which the issue belongs; the issue number; and the variant\n    \tdescription of the issue (if any).",
+  "title": "ComicIssue"
+}

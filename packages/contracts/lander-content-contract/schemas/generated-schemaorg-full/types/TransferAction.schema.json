@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:TransferAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Action.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "TransferAction"
+        },
+        "fromLocation": {
+          "$ref": "../properties/fromLocation.schema.json",
+          "description": "A sub property of location. The original location of the object or the agent before the action."
+        },
+        "toLocation": {
+          "$ref": "../properties/toLocation.schema.json",
+          "description": "A sub property of location. The final location of the object or the agent after the action."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The act of transferring/moving (abstract or concrete) animate or inanimate objects from one place to another.",
+  "title": "TransferAction"
+}

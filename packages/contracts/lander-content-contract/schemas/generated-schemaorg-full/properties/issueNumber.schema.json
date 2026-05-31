@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:issueNumber",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Identifies the issue of publication; for example, \"iii\" or \"2\".",
+  "oneOf": [
+    {
+      "$ref": "../types/Integer.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "issueNumber",
+  "x-schemaorg-cardinality": "open-world"
+}

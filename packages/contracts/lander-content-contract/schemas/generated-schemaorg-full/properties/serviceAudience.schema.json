@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:serviceAudience",
+  "$ref": "../types/Audience.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The audience eligible for this service.",
+  "title": "serviceAudience",
+  "x-schemaorg-cardinality": "open-world"
+}

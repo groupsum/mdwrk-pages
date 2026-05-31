@@ -1,0 +1,63 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:HowTo",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "HowTo"
+        },
+        "estimatedCost": {
+          "$ref": "../properties/estimatedCost.schema.json",
+          "description": "The estimated cost of the supply or supplies consumed when performing instructions."
+        },
+        "performTime": {
+          "$ref": "../properties/performTime.schema.json",
+          "description": "The length of time it takes to perform instructions or a direction (not including time to prepare the supplies), in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601)."
+        },
+        "prepTime": {
+          "$ref": "../properties/prepTime.schema.json",
+          "description": "The length of time it takes to prepare the items to be used in instructions or a direction, in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601)."
+        },
+        "step": {
+          "$ref": "../properties/step.schema.json",
+          "description": "A single step item (as HowToStep, text, document, video, etc.) or a HowToSection."
+        },
+        "steps": {
+          "$ref": "../properties/steps.schema.json",
+          "description": "A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally misnamed 'steps'; 'step' is preferred)."
+        },
+        "supply": {
+          "$ref": "../properties/supply.schema.json",
+          "description": "A sub-property of instrument. A supply consumed when performing instructions or a direction."
+        },
+        "tool": {
+          "$ref": "../properties/tool.schema.json",
+          "description": "A sub property of instrument. An object used (but not consumed) when performing instructions or a direction."
+        },
+        "totalTime": {
+          "$ref": "../properties/totalTime.schema.json",
+          "description": "The total time required to perform instructions or a direction (including time to prepare the supplies), in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601)."
+        },
+        "yield": {
+          "$ref": "../properties/yield.schema.json",
+          "description": "The quantity that results by performing instructions. For example, a paper airplane, 10 personalized candles."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Instructions that explain how to achieve a result by performing a sequence of steps.",
+  "title": "HowTo"
+}

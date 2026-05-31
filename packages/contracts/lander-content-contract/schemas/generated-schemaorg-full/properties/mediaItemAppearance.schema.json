@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:mediaItemAppearance",
+  "$ref": "../types/MediaObject.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "In the context of a [[MediaReview]], indicates specific media item(s) that are grouped using a [[MediaReviewItem]].",
+  "title": "mediaItemAppearance",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:partOfEpisode",
+  "$ref": "../types/Episode.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The episode to which this clip belongs.",
+  "title": "partOfEpisode",
+  "x-schemaorg-cardinality": "open-world"
+}

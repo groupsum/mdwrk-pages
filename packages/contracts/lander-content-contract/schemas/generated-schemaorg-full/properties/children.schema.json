@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:children",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A child of the person.",
+  "title": "children",
+  "x-schemaorg-cardinality": "open-world"
+}

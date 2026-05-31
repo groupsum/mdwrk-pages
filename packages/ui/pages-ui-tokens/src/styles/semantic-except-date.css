@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-except-date-padding: 1rem;
+  --mdp-semantic-except-date-gap: 0.75rem;
+  --mdp-semantic-except-date-radius: 1rem;
+  --mdp-semantic-except-date-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-except-date-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-except-date-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--except-date {
+  padding: var(--mdp-semantic-except-date-padding);
+  gap: var(--mdp-semantic-except-date-gap);
+  border-radius: var(--mdp-semantic-except-date-radius);
+  background: var(--mdp-semantic-except-date-surface);
+  border: 1px solid var(--mdp-semantic-except-date-border);
+  box-shadow: var(--mdp-semantic-except-date-shadow);
+}
+
+.lander-semantic--except-date .lander-semantic__header,
+.lander-semantic--except-date .lander-semantic__body,
+.lander-semantic--except-date .lander-semantic__footer,
+.lander-semantic--except-date .lander-semantic__actions {
+  gap: var(--mdp-semantic-except-date-gap);
+}
+
+.lander-semantic--except-date .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--except-date .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--except-date .lander-semantic__subtitle,
+.lander-semantic--except-date .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--except-date .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-except-date-gap) * 0.8);
+}
+
+.lander-semantic--except-date .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--except-date .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

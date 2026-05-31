@@ -6,3 +6,4 @@ export * from "./types.js";
 export * from "./core.js";
 export * from "./builders-primary.js";
 export * from "./builders-secondary.js";
+export * from "./generated-page-family.js";

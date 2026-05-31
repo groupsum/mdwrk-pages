@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:unece:sellerAssignedId",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "title": "unece:sellerAssignedId",
+  "type": [
+    "string",
+    "number",
+    "boolean",
+    "object",
+    "array",
+    "null"
+  ],
+  "x-schemaorg-cardinality": "open-world"
+}

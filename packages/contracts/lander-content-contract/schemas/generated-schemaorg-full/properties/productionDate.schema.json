@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:productionDate",
+  "$ref": "../datatypes/Date.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The date of production of the item, e.g. vehicle.",
+  "title": "productionDate",
+  "x-schemaorg-cardinality": "open-world"
+}

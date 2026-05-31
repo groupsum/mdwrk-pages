@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:checkoutPageURLTemplate",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A URL template (RFC 6570) for a checkout page for an offer. This approach allows merchants to specify a URL for online checkout of the offered product, by interpolating parameters such as the logged in user ID, product ID, quantity, discount code etc. Parameter naming and standardization are not specified here.",
+  "title": "checkoutPageURLTemplate",
+  "x-schemaorg-cardinality": "open-world"
+}

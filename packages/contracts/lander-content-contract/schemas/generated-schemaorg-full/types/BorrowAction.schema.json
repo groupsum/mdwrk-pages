@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:BorrowAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "TransferAction.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "BorrowAction"
+        },
+        "lender": {
+          "$ref": "../properties/lender.schema.json",
+          "description": "A sub property of participant. The person that lends the object being borrowed."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The act of obtaining an object under an agreement to return it at a later date. Reciprocal of LendAction.\\n\\nRelated actions:\\n\\n* [[LendAction]]: Reciprocal of BorrowAction.",
+  "title": "BorrowAction"
+}

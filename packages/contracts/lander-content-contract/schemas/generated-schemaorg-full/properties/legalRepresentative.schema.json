@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:legalRepresentative",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "One or multiple persons who represent this organization legally such as CEO or sole administrator.",
+  "title": "legalRepresentative",
+  "x-schemaorg-cardinality": "open-world"
+}

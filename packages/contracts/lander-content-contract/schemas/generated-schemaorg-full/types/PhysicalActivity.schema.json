@@ -1,0 +1,43 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:PhysicalActivity",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "LifestyleModification.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "PhysicalActivity"
+        },
+        "associatedAnatomy": {
+          "$ref": "../properties/associatedAnatomy.schema.json",
+          "description": "The anatomy of the underlying organ system or structures associated with this entity."
+        },
+        "category": {
+          "$ref": "../properties/category.schema.json",
+          "description": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy."
+        },
+        "epidemiology": {
+          "$ref": "../properties/epidemiology.schema.json",
+          "description": "The characteristics of associated patients, such as age, gender, race etc."
+        },
+        "pathophysiology": {
+          "$ref": "../properties/pathophysiology.schema.json",
+          "description": "Changes in the normal mechanical, physical, and biochemical functions that are associated with this activity or condition."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Any bodily activity that enhances or maintains physical fitness and overall health and wellness. Includes activity that is part of daily living and routine, structured exercise, and exercise prescribed as part of a medical treatment or recovery plan.",
+  "title": "PhysicalActivity"
+}

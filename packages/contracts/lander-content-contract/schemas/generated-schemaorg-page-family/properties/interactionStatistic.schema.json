@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:interactionStatistic",
+  "$ref": "../types/InteractionCounter.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used.",
+  "title": "interactionStatistic",
+  "x-schemaorg-cardinality": "open-world"
+}

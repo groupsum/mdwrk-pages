@@ -1,0 +1,43 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:DeliveryChargeSpecification",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "PriceSpecification.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "DeliveryChargeSpecification"
+        },
+        "appliesToDeliveryMethod": {
+          "$ref": "../properties/appliesToDeliveryMethod.schema.json",
+          "description": "The delivery method(s) to which the delivery charge or payment charge specification applies."
+        },
+        "areaServed": {
+          "$ref": "../properties/areaServed.schema.json",
+          "description": "The geographic area where a service or offered item is provided."
+        },
+        "eligibleRegion": {
+          "$ref": "../properties/eligibleRegion.schema.json",
+          "description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\\n\\nSee also [[ineligibleRegion]].\n    "
+        },
+        "ineligibleRegion": {
+          "$ref": "../properties/ineligibleRegion.schema.json",
+          "description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\\n\\nSee also [[eligibleRegion]].\n      "
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The price for the delivery of an offer using a particular delivery method.",
+  "title": "DeliveryChargeSpecification"
+}

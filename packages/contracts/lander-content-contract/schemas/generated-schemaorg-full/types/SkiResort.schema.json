@@ -1,0 +1,30 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:SkiResort",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Resort.schema.json"
+    },
+    {
+      "$ref": "SportsActivityLocation.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "SkiResort"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A ski resort.",
+  "title": "SkiResort"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:floorLimit",
+  "$ref": "../types/MonetaryAmount.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A floor limit is the amount of money above which credit card transactions must be authorized.",
+  "title": "floorLimit",
+  "x-schemaorg-cardinality": "open-world"
+}

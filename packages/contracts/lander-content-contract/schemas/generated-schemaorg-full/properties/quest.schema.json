@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:quest",
+  "$ref": "../types/Thing.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The task that a player-controlled character, or group of characters may complete in order to gain a reward.",
+  "title": "quest",
+  "x-schemaorg-cardinality": "open-world"
+}

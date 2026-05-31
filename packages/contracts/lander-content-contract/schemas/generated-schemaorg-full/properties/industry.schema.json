@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:industry",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The industry associated with the job position.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "industry",
+  "x-schemaorg-cardinality": "open-world"
+}

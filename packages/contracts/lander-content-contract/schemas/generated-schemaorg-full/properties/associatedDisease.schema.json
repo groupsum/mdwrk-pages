@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:associatedDisease",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Disease associated to this BioChemEntity. Such disease can be a MedicalCondition or a URL. If you want to add an evidence supporting the association, please use PropertyValue.",
+  "oneOf": [
+    {
+      "$ref": "../types/MedicalCondition.schema.json"
+    },
+    {
+      "$ref": "../types/PropertyValue.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "associatedDisease",
+  "x-schemaorg-cardinality": "open-world"
+}

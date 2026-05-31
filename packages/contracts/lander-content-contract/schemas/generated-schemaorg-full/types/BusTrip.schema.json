@@ -1,0 +1,43 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:BusTrip",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Trip.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "BusTrip"
+        },
+        "arrivalBusStop": {
+          "$ref": "../properties/arrivalBusStop.schema.json",
+          "description": "The stop or station from which the bus arrives."
+        },
+        "busName": {
+          "$ref": "../properties/busName.schema.json",
+          "description": "The name of the bus (e.g. Bolt Express)."
+        },
+        "busNumber": {
+          "$ref": "../properties/busNumber.schema.json",
+          "description": "The unique identifier for the bus."
+        },
+        "departureBusStop": {
+          "$ref": "../properties/departureBusStop.schema.json",
+          "description": "The stop or station from which the bus departs."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A trip on a commercial bus line.",
+  "title": "BusTrip"
+}

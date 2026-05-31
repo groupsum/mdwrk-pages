@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:inSupportOf",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Qualification, candidature, degree, application that Thesis supports.",
+  "title": "inSupportOf",
+  "x-schemaorg-cardinality": "open-world"
+}

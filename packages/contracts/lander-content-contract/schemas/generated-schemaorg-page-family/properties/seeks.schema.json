@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:seeks",
+  "$ref": "../types/Demand.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A pointer to products or services sought by the organization or person (demand).",
+  "title": "seeks",
+  "x-schemaorg-cardinality": "open-world"
+}

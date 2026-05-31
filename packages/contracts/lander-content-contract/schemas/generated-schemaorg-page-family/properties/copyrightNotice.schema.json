@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:copyrightNotice",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Text of a notice appropriate for describing the copyright aspects of this Creative Work, ideally indicating the owner of the copyright for the Work.",
+  "title": "copyrightNotice",
+  "x-schemaorg-cardinality": "open-world"
+}

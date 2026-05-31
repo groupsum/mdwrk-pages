@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:numberOfCredits",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of credits or units awarded by a Course or required to complete an EducationalOccupationalProgram.",
+  "oneOf": [
+    {
+      "$ref": "../types/Integer.schema.json"
+    },
+    {
+      "$ref": "../types/StructuredValue.schema.json"
+    }
+  ],
+  "title": "numberOfCredits",
+  "x-schemaorg-cardinality": "open-world"
+}

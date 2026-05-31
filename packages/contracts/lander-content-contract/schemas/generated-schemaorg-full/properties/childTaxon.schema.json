@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:childTaxon",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Closest child taxa of the taxon in question.",
+  "oneOf": [
+    {
+      "$ref": "../types/Taxon.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "childTaxon",
+  "x-schemaorg-cardinality": "open-world"
+}

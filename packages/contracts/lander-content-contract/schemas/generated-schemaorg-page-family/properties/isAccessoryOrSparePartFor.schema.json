@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:isAccessoryOrSparePartFor",
+  "$ref": "../types/Product.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A pointer to another product (or multiple products) for which this product is an accessory or spare part.",
+  "title": "isAccessoryOrSparePartFor",
+  "x-schemaorg-cardinality": "open-world"
+}

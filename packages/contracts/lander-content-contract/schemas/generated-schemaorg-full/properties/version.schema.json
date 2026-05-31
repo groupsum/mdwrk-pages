@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:version",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The version of the CreativeWork embodied by a specified resource.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "version",
+  "x-schemaorg-cardinality": "open-world"
+}

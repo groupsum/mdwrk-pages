@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:subReservation",
+  "$ref": "../types/Reservation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The individual reservations included in the package. Typically a repeated property.",
+  "title": "subReservation",
+  "x-schemaorg-cardinality": "open-world"
+}

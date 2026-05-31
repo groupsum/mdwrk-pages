@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:departureBusStop",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The stop or station from which the bus departs.",
+  "oneOf": [
+    {
+      "$ref": "../types/BusStation.schema.json"
+    },
+    {
+      "$ref": "../types/BusStop.schema.json"
+    }
+  ],
+  "title": "departureBusStop",
+  "x-schemaorg-cardinality": "open-world"
+}

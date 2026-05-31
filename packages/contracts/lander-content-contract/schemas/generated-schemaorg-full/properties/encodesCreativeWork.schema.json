@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:encodesCreativeWork",
+  "$ref": "../types/CreativeWork.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The CreativeWork encoded by this media object.",
+  "title": "encodesCreativeWork",
+  "x-schemaorg-cardinality": "open-world"
+}

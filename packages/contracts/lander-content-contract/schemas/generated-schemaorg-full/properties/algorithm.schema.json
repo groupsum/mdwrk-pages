@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:algorithm",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The algorithm or rules to follow to compute the score.",
+  "title": "algorithm",
+  "x-schemaorg-cardinality": "open-world"
+}

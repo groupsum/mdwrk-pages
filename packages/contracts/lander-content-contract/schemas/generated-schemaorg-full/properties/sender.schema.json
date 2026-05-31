@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:sender",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of participant. The participant who is at the sending end of the action.",
+  "oneOf": [
+    {
+      "$ref": "../types/Audience.schema.json"
+    },
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "sender",
+  "x-schemaorg-cardinality": "open-world"
+}

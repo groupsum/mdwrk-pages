@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:DDxElement",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalIntangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "DDxElement"
+        },
+        "diagnosis": {
+          "$ref": "../properties/diagnosis.schema.json",
+          "description": "One or more alternative conditions considered in the differential diagnosis process as output of a diagnosis process."
+        },
+        "distinguishingSign": {
+          "$ref": "../properties/distinguishingSign.schema.json",
+          "description": "One of a set of signs and symptoms that can be used to distinguish this diagnosis from others in the differential diagnosis."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An alternative, closely-related condition typically considered later in the differential diagnosis process along with the signs that are used to distinguish it.",
+  "title": "DDxElement"
+}

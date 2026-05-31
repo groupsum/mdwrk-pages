@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:byMonth",
+  "$ref": "../types/Integer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Defines the month(s) of the year on which a recurring [[Event]] takes place. Specified as an [[Integer]] between 1-12. January is 1.",
+  "title": "byMonth",
+  "x-schemaorg-cardinality": "open-world"
+}

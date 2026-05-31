@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalTrial",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalStudy.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MedicalTrial"
+        },
+        "trialDesign": {
+          "$ref": "../properties/trialDesign.schema.json",
+          "description": "Specifics about the trial design (enumerated)."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A medical trial is a type of medical study that uses a scientific process to compare the safety and efficacy of medical therapies or medical procedures. In general, medical trials are controlled and subjects are allocated at random to the different treatment and/or control groups.",
+  "title": "MedicalTrial"
+}

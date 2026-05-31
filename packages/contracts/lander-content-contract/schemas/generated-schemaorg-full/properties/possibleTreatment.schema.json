@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:possibleTreatment",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A possible treatment to address this condition, sign or symptom.",
+  "oneOf": [
+    {
+      "$ref": "../types/Drug.schema.json"
+    },
+    {
+      "$ref": "../types/DrugClass.schema.json"
+    },
+    {
+      "$ref": "../types/LifestyleModification.schema.json"
+    },
+    {
+      "$ref": "../types/MedicalTherapy.schema.json"
+    }
+  ],
+  "title": "possibleTreatment",
+  "x-schemaorg-cardinality": "open-world"
+}

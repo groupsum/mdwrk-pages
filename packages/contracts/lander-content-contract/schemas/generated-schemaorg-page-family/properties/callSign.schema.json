@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:callSign",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A [callsign](https://en.wikipedia.org/wiki/Call_sign), as used in broadcasting and radio communications to identify people, radio and TV stations, or vehicles.",
+  "title": "callSign",
+  "x-schemaorg-cardinality": "open-world"
+}

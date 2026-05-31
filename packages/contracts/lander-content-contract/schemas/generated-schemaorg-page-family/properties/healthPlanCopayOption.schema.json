@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:healthPlanCopayOption",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Whether the copay is before or after deductible, etc. TODO: Is this a closed set?",
+  "title": "healthPlanCopayOption",
+  "x-schemaorg-cardinality": "open-world"
+}

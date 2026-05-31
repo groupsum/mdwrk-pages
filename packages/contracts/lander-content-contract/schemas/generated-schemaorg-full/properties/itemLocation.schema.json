@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:itemLocation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Current location of the item.",
+  "oneOf": [
+    {
+      "$ref": "../types/Place.schema.json"
+    },
+    {
+      "$ref": "../types/PostalAddress.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "itemLocation",
+  "x-schemaorg-cardinality": "open-world"
+}

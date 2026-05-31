@@ -1,0 +1,20 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:fibo-be-nfp-nfp:NonGovernmentalOrganization",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "fibo-be-nfp-nfp:NonGovernmentalOrganization"
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "title": "fibo-be-nfp-nfp:NonGovernmentalOrganization",
+  "type": "object",
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

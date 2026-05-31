@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:accommodationCategory",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Category of an [[Accommodation]], following real estate conventions, e.g. RESO (see [PropertySubType](https://ddwiki.reso.org/display/DDW17/PropertySubType+Field), and [PropertyType](https://ddwiki.reso.org/display/DDW17/PropertyType+Field) fields  for suggested values).",
+  "title": "accommodationCategory",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:featureList",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Features or modules provided by this application (and possibly required by other applications).",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "featureList",
+  "x-schemaorg-cardinality": "open-world"
+}

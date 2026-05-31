@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:workTranslation",
+  "$ref": "../types/CreativeWork.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A work that is a translation of the content of this work. E.g. \u897f\u904a\u8a18 has an English workTranslation \u201cJourney to the West\u201d, a German workTranslation \u201cMonkeys Pilgerfahrt\u201d and a Vietnamese  translation T\u00e2y du k\u00fd b\u00ecnh kh\u1ea3o.",
+  "title": "workTranslation",
+  "x-schemaorg-cardinality": "open-world"
+}

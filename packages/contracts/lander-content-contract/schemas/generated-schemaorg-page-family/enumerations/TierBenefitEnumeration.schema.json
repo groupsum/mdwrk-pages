@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:TierBenefitEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An enumeration of possible benefits as part of a loyalty (members) program.",
+  "enum": [],
+  "title": "TierBenefitEnumeration",
+  "type": "string"
+}

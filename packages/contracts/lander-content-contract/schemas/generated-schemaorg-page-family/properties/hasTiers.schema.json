@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasTiers",
+  "$ref": "../types/MemberProgramTier.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The tiers of a member program.",
+  "title": "hasTiers",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:timeOfDay",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The time of day the program normally runs. For example, \"evenings\".",
+  "title": "timeOfDay",
+  "x-schemaorg-cardinality": "open-world"
+}

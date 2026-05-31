@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:positiveNotes",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Provides positive considerations regarding something, for example product highlights or (alongside [[negativeNotes]]) pro/con lists for reviews.\n\nIn the case of a [[Review]], the property describes the [[itemReviewed]] from the perspective of the review; in the case of a [[Product]], the product itself is being described.\n\nThe property values can be expressed either as unstructured text (repeated as necessary), or if ordered, as a list (in which case the most positive is at the beginning of the list).",
+  "oneOf": [
+    {
+      "$ref": "../types/ItemList.schema.json"
+    },
+    {
+      "$ref": "../types/ListItem.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/WebContent.schema.json"
+    }
+  ],
+  "title": "positiveNotes",
+  "x-schemaorg-cardinality": "open-world"
+}

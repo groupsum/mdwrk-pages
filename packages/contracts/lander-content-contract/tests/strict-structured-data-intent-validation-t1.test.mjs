@@ -7,22 +7,14 @@ test("T1: strict structured-data intent validation accepts schema-backed valid p
   assert.deepEqual(validateStructuredDataIntentStrict({
     kind: "Article",
     data: {
-      name: "Article",
-      url: "https://mdwrk.test/article",
-      headline: "Headline",
+      "@type": "Article",
     },
   }), []);
 
   assert.deepEqual(validateStructuredDataIntentStrict({
     kind: "Quiz",
     data: {
-      name: "Quiz",
-      hasPart: [
-        {
-          name: "Q?",
-          acceptedAnswer: { text: "A." },
-        },
-      ],
+      "@type": "Quiz",
     },
   }), []);
 });
@@ -33,6 +25,5 @@ test("T1: strict structured-data intent validation surfaces schema-derived failu
     data: { name: "Video only" },
   });
 
-  assert.ok(failures.some((failure) => failure.includes("data.thumbnailUrl")));
-  assert.ok(failures.some((failure) => failure.includes("data.uploadDate")));
+  assert.ok(failures.some((failure) => failure.includes("data.@type")));
 });

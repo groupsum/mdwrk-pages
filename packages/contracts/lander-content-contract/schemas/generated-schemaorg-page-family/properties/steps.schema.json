@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:steps",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally misnamed 'steps'; 'step' is preferred).",
+  "oneOf": [
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../types/ItemList.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "steps",
+  "x-schemaorg-cardinality": "open-world"
+}

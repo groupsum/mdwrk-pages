@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:characterName",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The name of a character played in some acting or performing role, i.e. in a PerformanceRole.",
+  "title": "characterName",
+  "x-schemaorg-cardinality": "open-world"
+}

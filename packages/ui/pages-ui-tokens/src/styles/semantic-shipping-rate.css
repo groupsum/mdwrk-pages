@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-shipping-rate-padding: 1rem;
+  --mdp-semantic-shipping-rate-gap: 0.75rem;
+  --mdp-semantic-shipping-rate-radius: 1rem;
+  --mdp-semantic-shipping-rate-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-shipping-rate-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-shipping-rate-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--shipping-rate {
+  padding: var(--mdp-semantic-shipping-rate-padding);
+  gap: var(--mdp-semantic-shipping-rate-gap);
+  border-radius: var(--mdp-semantic-shipping-rate-radius);
+  background: var(--mdp-semantic-shipping-rate-surface);
+  border: 1px solid var(--mdp-semantic-shipping-rate-border);
+  box-shadow: var(--mdp-semantic-shipping-rate-shadow);
+}
+
+.lander-semantic--shipping-rate .lander-semantic__header,
+.lander-semantic--shipping-rate .lander-semantic__body,
+.lander-semantic--shipping-rate .lander-semantic__footer,
+.lander-semantic--shipping-rate .lander-semantic__actions {
+  gap: var(--mdp-semantic-shipping-rate-gap);
+}
+
+.lander-semantic--shipping-rate .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--shipping-rate .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--shipping-rate .lander-semantic__subtitle,
+.lander-semantic--shipping-rate .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--shipping-rate .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-shipping-rate-gap) * 0.8);
+}
+
+.lander-semantic--shipping-rate .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--shipping-rate .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

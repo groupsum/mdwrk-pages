@@ -3,7 +3,7 @@
 **Portable site and page content types**
 
 <p align="center">
-  <a href="https://github.com/groupsum/mdwrk-pages/blob/master/packages/lander/lander-content-contract/README.md"><img alt="Hits" src="https://visitor-badge.laobi.icu/badge?page_id=groupsum.mdwrk_pages.packages_lander_lander_content_contract_README&amp;left_text=hits" /></a>
+  <a href="https://github.com/groupsum/mdwrk-pages/blob/master/packages/contracts/lander-content-contract/README.md"><img alt="Hits" src="https://visitor-badge.laobi.icu/badge?page_id=groupsum.mdwrk_pages.packages_contracts_lander_content_contract_README&amp;left_text=hits" /></a>
   <a href="https://www.npmjs.com/package/@mdwrk/lander-content-contract"><img alt="Downloads" src="https://img.shields.io/npm/dm/%40mdwrk%2Flander-content-contract?label=downloads" /></a>
   <a href="../../../package.json"><img alt="Node" src="https://img.shields.io/badge/node-20.x%20%7C%2021.x%20%7C%2022.x-339933?logo=node.js&amp;logoColor=white" /></a>
   <a href="../../../LICENSE"><img alt="License: Apache-2.0" src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" /></a>
@@ -49,6 +49,16 @@ const site: LanderSite = {
   pages: [],
 };
 ```
+
+## Structured Data Contract Rule
+- Governed structured-data schemas are generated from the vendored Schema.org generator package and are the single hard validation surface.
+- Inputs may include authoring helpers, but emitted JSON-LD must either map those helpers to real Schema.org properties or drop them entirely.
+- Unsupported repo-local helpers are not allowed to leak into JSON-LD output. Current enforced examples include:
+  - `SearchResultsPage.query`
+  - `SolveMathAction.mathExpressionInput`
+  - `MemberProgram.provider`
+- Package-local proof rail:
+  - `npm run test:schema-conformance -w @mdwrk/lander-content-contract`
 
 ## Related
 - [Packages index](../../README.md) - family and package navigation

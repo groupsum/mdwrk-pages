@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:globalLocationNumber",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The [Global Location Number](http://www.gs1.org/gln) (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.",
+  "title": "globalLocationNumber",
+  "x-schemaorg-cardinality": "open-world"
+}

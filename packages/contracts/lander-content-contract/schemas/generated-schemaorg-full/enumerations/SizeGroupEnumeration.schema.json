@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:SizeGroupEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerates common size groups for various product categories.",
+  "enum": [],
+  "title": "SizeGroupEnumeration",
+  "type": "string"
+}

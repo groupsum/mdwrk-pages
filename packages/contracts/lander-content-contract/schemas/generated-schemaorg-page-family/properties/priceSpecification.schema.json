@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:priceSpecification",
+  "$ref": "../types/PriceSpecification.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "One or more detailed price specifications, indicating the unit price and delivery or payment charges.",
+  "title": "priceSpecification",
+  "x-schemaorg-cardinality": "open-world"
+}

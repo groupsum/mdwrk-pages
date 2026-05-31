@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:suggestedMinAge",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Minimum recommended age in years for the audience or user.",
+  "title": "suggestedMinAge",
+  "x-schemaorg-cardinality": "open-world"
+}

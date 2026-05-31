@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:repeatFrequency",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Defines the frequency at which [[Event]]s will occur according to a schedule [[Schedule]]. The intervals between\n      events should be defined as a [[Duration]] of time.",
+  "oneOf": [
+    {
+      "$ref": "../types/Duration.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "repeatFrequency",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:RadioSeason",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWorkSeason.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "RadioSeason"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Season dedicated to radio broadcast and associated online delivery.",
+  "title": "RadioSeason"
+}

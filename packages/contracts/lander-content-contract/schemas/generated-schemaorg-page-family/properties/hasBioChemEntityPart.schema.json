@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasBioChemEntityPart",
+  "$ref": "../types/BioChemEntity.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates a BioChemEntity that (in some sense) has this BioChemEntity as a part. ",
+  "title": "hasBioChemEntityPart",
+  "x-schemaorg-cardinality": "open-world"
+}

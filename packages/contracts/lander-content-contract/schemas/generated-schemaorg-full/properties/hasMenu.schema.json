@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasMenu",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Either the actual menu as a structured representation, as text, or a URL of the menu.",
+  "oneOf": [
+    {
+      "$ref": "../types/Menu.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "hasMenu",
+  "x-schemaorg-cardinality": "open-world"
+}

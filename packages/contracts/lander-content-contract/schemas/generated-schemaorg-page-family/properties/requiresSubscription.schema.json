@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:requiresSubscription",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates if use of the media require a subscription  (either paid or free). Allowed values are ```true``` or ```false``` (note that an earlier version had 'yes', 'no').",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Boolean.schema.json"
+    },
+    {
+      "$ref": "../types/MediaSubscription.schema.json"
+    }
+  ],
+  "title": "requiresSubscription",
+  "x-schemaorg-cardinality": "open-world"
+}

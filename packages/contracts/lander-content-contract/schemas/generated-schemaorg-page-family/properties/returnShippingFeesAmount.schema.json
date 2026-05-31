@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:returnShippingFeesAmount",
+  "$ref": "../types/MonetaryAmount.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Amount of shipping costs for product returns (for any reason). Applicable when property [[returnFees]] equals [[ReturnShippingFees]].",
+  "title": "returnShippingFeesAmount",
+  "x-schemaorg-cardinality": "open-world"
+}

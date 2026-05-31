@@ -22,8 +22,7 @@ import { LANDER_REACT_VERSION } from "./version.js";
 
 export { LANDER_REACT_VERSION };
 export const LANDER_REACT_STRUCTURED_DATA_REEXPORTS_DEPRECATED = true;
-export { Article, Course, Product, Quiz } from "./semantic/index.js";
-export type { ArticleProps, CourseProps, ProductProps, QuizProps } from "./semantic/index.js";
+export * from "./semantic/index.js";
 
 const warnedStructuredDataCompatExports = new Set<string>();
 
@@ -59,9 +58,37 @@ function deprecatedStructuredDataFunction<TArgs extends unknown[], TResult>(
 }
 
 export const JsonLd = deprecatedStructuredDataComponent("JsonLd", structuredDataReact.JsonLd);
+export const ActionStructuredData = deprecatedStructuredDataComponent(
+  "ActionStructuredData",
+  structuredDataReact.ActionStructuredData,
+);
+export const AdministrativeAreaStructuredData = deprecatedStructuredDataComponent(
+  "AdministrativeAreaStructuredData",
+  structuredDataReact.AdministrativeAreaStructuredData,
+);
+export const AboutPageStructuredData = deprecatedStructuredDataComponent(
+  "AboutPageStructuredData",
+  structuredDataReact.AboutPageStructuredData,
+);
+export const AggregateOfferStructuredData = deprecatedStructuredDataComponent(
+  "AggregateOfferStructuredData",
+  structuredDataReact.AggregateOfferStructuredData,
+);
 export const WebPageStructuredData = deprecatedStructuredDataComponent(
   "WebPageStructuredData",
   structuredDataReact.WebPageStructuredData,
+);
+export const CheckoutPageStructuredData = deprecatedStructuredDataComponent(
+  "CheckoutPageStructuredData",
+  structuredDataReact.CheckoutPageStructuredData,
+);
+export const CollectionPageStructuredData = deprecatedStructuredDataComponent(
+  "CollectionPageStructuredData",
+  structuredDataReact.CollectionPageStructuredData,
+);
+export const ContactPageStructuredData = deprecatedStructuredDataComponent(
+  "ContactPageStructuredData",
+  structuredDataReact.ContactPageStructuredData,
 );
 export const WebSiteStructuredData = deprecatedStructuredDataComponent(
   "WebSiteStructuredData",
@@ -111,6 +138,10 @@ export const ItemListStructuredData = deprecatedStructuredDataComponent(
   "ItemListStructuredData",
   structuredDataReact.ItemListStructuredData,
 );
+export const ItemPageStructuredData = deprecatedStructuredDataComponent(
+  "ItemPageStructuredData",
+  structuredDataReact.ItemPageStructuredData,
+);
 export const SoftwareSourceCodeStructuredData = deprecatedStructuredDataComponent(
   "SoftwareSourceCodeStructuredData",
   structuredDataReact.SoftwareSourceCodeStructuredData,
@@ -135,6 +166,10 @@ export const ImageObjectStructuredData = deprecatedStructuredDataComponent(
   "ImageObjectStructuredData",
   structuredDataReact.ImageObjectStructuredData,
 );
+export const IntegerStructuredData = deprecatedStructuredDataComponent(
+  "IntegerStructuredData",
+  structuredDataReact.IntegerStructuredData,
+);
 export const ProfilePageStructuredData = deprecatedStructuredDataComponent(
   "ProfilePageStructuredData",
   structuredDataReact.ProfilePageStructuredData,
@@ -147,6 +182,50 @@ export const AggregateRatingStructuredData = deprecatedStructuredDataComponent(
   "AggregateRatingStructuredData",
   structuredDataReact.AggregateRatingStructuredData,
 );
+export const AlignmentObjectStructuredData = deprecatedStructuredDataComponent(
+  "AlignmentObjectStructuredData",
+  structuredDataReact.AlignmentObjectStructuredData,
+);
+export const AudienceStructuredData = deprecatedStructuredDataComponent(
+  "AudienceStructuredData",
+  structuredDataReact.AudienceStructuredData,
+);
+export const AudioObjectStructuredData = deprecatedStructuredDataComponent(
+  "AudioObjectStructuredData",
+  structuredDataReact.AudioObjectStructuredData,
+);
+export const BrandStructuredData = deprecatedStructuredDataComponent(
+  "BrandStructuredData",
+  structuredDataReact.BrandStructuredData,
+);
+export const CategoryCodeStructuredData = deprecatedStructuredDataComponent(
+  "CategoryCodeStructuredData",
+  structuredDataReact.CategoryCodeStructuredData,
+);
+export const CategoryCodeSetStructuredData = deprecatedStructuredDataComponent(
+  "CategoryCodeSetStructuredData",
+  structuredDataReact.CategoryCodeSetStructuredData,
+);
+export const ClassStructuredData = deprecatedStructuredDataComponent(
+  "ClassStructuredData",
+  structuredDataReact.ClassStructuredData,
+);
+export const CertificationStructuredData = deprecatedStructuredDataComponent(
+  "CertificationStructuredData",
+  structuredDataReact.CertificationStructuredData,
+);
+export const ClaimStructuredData = deprecatedStructuredDataComponent(
+  "ClaimStructuredData",
+  structuredDataReact.ClaimStructuredData,
+);
+export const CommentStructuredData = deprecatedStructuredDataComponent(
+  "CommentStructuredData",
+  structuredDataReact.CommentStructuredData,
+);
+export const ContactPointStructuredData = deprecatedStructuredDataComponent(
+  "ContactPointStructuredData",
+  structuredDataReact.ContactPointStructuredData,
+);
 export const CourseStructuredData = deprecatedStructuredDataComponent(
   "CourseStructuredData",
   structuredDataReact.CourseStructuredData,
@@ -155,9 +234,77 @@ export const CourseInstanceStructuredData = deprecatedStructuredDataComponent(
   "CourseInstanceStructuredData",
   structuredDataReact.CourseInstanceStructuredData,
 );
+export const CorrectionCommentStructuredData = deprecatedStructuredDataComponent(
+  "CorrectionCommentStructuredData",
+  structuredDataReact.CorrectionCommentStructuredData,
+);
+export const CountryStructuredData = deprecatedStructuredDataComponent(
+  "CountryStructuredData",
+  structuredDataReact.CountryStructuredData,
+);
+export const CreativeWorkStructuredData = deprecatedStructuredDataComponent(
+  "CreativeWorkStructuredData",
+  structuredDataReact.CreativeWorkStructuredData,
+);
+export const CreativeWorkSeasonStructuredData = deprecatedStructuredDataComponent(
+  "CreativeWorkSeasonStructuredData",
+  structuredDataReact.CreativeWorkSeasonStructuredData,
+);
+export const CreativeWorkSeriesStructuredData = deprecatedStructuredDataComponent(
+  "CreativeWorkSeriesStructuredData",
+  structuredDataReact.CreativeWorkSeriesStructuredData,
+);
+export const CredentialStructuredData = deprecatedStructuredDataComponent(
+  "CredentialStructuredData",
+  structuredDataReact.CredentialStructuredData,
+);
+export const DataCatalogStructuredData = deprecatedStructuredDataComponent(
+  "DataCatalogStructuredData",
+  structuredDataReact.DataCatalogStructuredData,
+);
+export const DataDownloadStructuredData = deprecatedStructuredDataComponent(
+  "DataDownloadStructuredData",
+  structuredDataReact.DataDownloadStructuredData,
+);
+export const DataFeedStructuredData = deprecatedStructuredDataComponent(
+  "DataFeedStructuredData",
+  structuredDataReact.DataFeedStructuredData,
+);
+export const DataFeedItemStructuredData = deprecatedStructuredDataComponent(
+  "DataFeedItemStructuredData",
+  structuredDataReact.DataFeedItemStructuredData,
+);
 export const DiscussionForumPostingStructuredData = deprecatedStructuredDataComponent(
   "DiscussionForumPostingStructuredData",
   structuredDataReact.DiscussionForumPostingStructuredData,
+);
+export const DefinedRegionStructuredData = deprecatedStructuredDataComponent(
+  "DefinedRegionStructuredData",
+  structuredDataReact.DefinedRegionStructuredData,
+);
+export const DefinedTermStructuredData = deprecatedStructuredDataComponent(
+  "DefinedTermStructuredData",
+  structuredDataReact.DefinedTermStructuredData,
+);
+export const DefinedTermSetStructuredData = deprecatedStructuredDataComponent(
+  "DefinedTermSetStructuredData",
+  structuredDataReact.DefinedTermSetStructuredData,
+);
+export const DeliveryChargeSpecificationStructuredData = deprecatedStructuredDataComponent(
+  "DeliveryChargeSpecificationStructuredData",
+  structuredDataReact.DeliveryChargeSpecificationStructuredData,
+);
+export const DemandStructuredData = deprecatedStructuredDataComponent(
+  "DemandStructuredData",
+  structuredDataReact.DemandStructuredData,
+);
+export const DurationStructuredData = deprecatedStructuredDataComponent(
+  "DurationStructuredData",
+  structuredDataReact.DurationStructuredData,
+);
+export const EnumerationStructuredData = deprecatedStructuredDataComponent(
+  "EnumerationStructuredData",
+  structuredDataReact.EnumerationStructuredData,
 );
 export const BookStructuredData = deprecatedStructuredDataComponent(
   "BookStructuredData",
@@ -166,6 +313,10 @@ export const BookStructuredData = deprecatedStructuredDataComponent(
 export const ReadActionStructuredData = deprecatedStructuredDataComponent(
   "ReadActionStructuredData",
   structuredDataReact.ReadActionStructuredData,
+);
+export const RealEstateListingStructuredData = deprecatedStructuredDataComponent(
+  "RealEstateListingStructuredData",
+  structuredDataReact.RealEstateListingStructuredData,
 );
 export const ClaimReviewStructuredData = deprecatedStructuredDataComponent(
   "ClaimReviewStructuredData",
@@ -182,6 +333,10 @@ export const MonetaryAmountDistributionStructuredData = deprecatedStructuredData
 export const JobPostingStructuredData = deprecatedStructuredDataComponent(
   "JobPostingStructuredData",
   structuredDataReact.JobPostingStructuredData,
+);
+export const LanguageStructuredData = deprecatedStructuredDataComponent(
+  "LanguageStructuredData",
+  structuredDataReact.LanguageStructuredData,
 );
 export const LocalBusinessStructuredData = deprecatedStructuredDataComponent(
   "LocalBusinessStructuredData",
@@ -203,6 +358,14 @@ export const OfferShippingDetailsStructuredData = deprecatedStructuredDataCompon
   "OfferShippingDetailsStructuredData",
   structuredDataReact.OfferShippingDetailsStructuredData,
 );
+export const PropertyStructuredData = deprecatedStructuredDataComponent(
+  "PropertyStructuredData",
+  structuredDataReact.PropertyStructuredData,
+);
+export const PropertyValueStructuredData = deprecatedStructuredDataComponent(
+  "PropertyValueStructuredData",
+  structuredDataReact.PropertyValueStructuredData,
+);
 export const MovieStructuredData = deprecatedStructuredDataComponent(
   "MovieStructuredData",
   structuredDataReact.MovieStructuredData,
@@ -215,6 +378,10 @@ export const RecipeStructuredData = deprecatedStructuredDataComponent(
   "RecipeStructuredData",
   structuredDataReact.RecipeStructuredData,
 );
+export const SearchResultsPageStructuredData = deprecatedStructuredDataComponent(
+  "SearchResultsPageStructuredData",
+  structuredDataReact.SearchResultsPageStructuredData,
+);
 export const SpeakableSpecificationStructuredData = deprecatedStructuredDataComponent(
   "SpeakableSpecificationStructuredData",
   structuredDataReact.SpeakableSpecificationStructuredData,
@@ -226,6 +393,14 @@ export const VacationRentalStructuredData = deprecatedStructuredDataComponent(
 export const VehicleStructuredData = deprecatedStructuredDataComponent(
   "VehicleStructuredData",
   structuredDataReact.VehicleStructuredData,
+);
+export const VideoGalleryStructuredData = deprecatedStructuredDataComponent(
+  "VideoGalleryStructuredData",
+  structuredDataReact.VideoGalleryStructuredData,
+);
+export const UrlStructuredData = deprecatedStructuredDataComponent(
+  "UrlStructuredData",
+  structuredDataReact.UrlStructuredData,
 );
 export const buildLanderJsonLdGraph = deprecatedStructuredDataFunction(
   "buildLanderJsonLdGraph",
@@ -255,13 +430,13 @@ export const SUPPORTED_LANDER_STRUCTURED_DATA_INTENT_KINDS = new Proxy(
   },
 );
 
-export interface BreadcrumbListItem {
+export interface VisibleBreadcrumbListItem {
   label: string;
   href?: string;
 }
 
-export interface BreadcrumbListProps {
-  items: BreadcrumbListItem[];
+export interface VisibleBreadcrumbListProps {
+  items: VisibleBreadcrumbListItem[];
   className?: string;
   label?: string;
   listClassName?: string;
@@ -270,7 +445,7 @@ export interface BreadcrumbListProps {
   currentClassName?: string;
 }
 
-export interface FaqPageProps {
+export interface VisibleFaqPageProps {
   items: FaqItem[];
   heading?: string;
   headingId?: string;
@@ -431,7 +606,7 @@ export function MarkdownSectionView({ section }: { section: MarkdownSection }) {
   );
 }
 
-export function FaqPage({
+export function VisibleFaqPage({
   items,
   heading = "Frequently Asked Questions",
   headingId = "faq-heading",
@@ -443,7 +618,7 @@ export function FaqPage({
   answerContainerClassName,
   answerClassName,
   collapsible = false,
-}: FaqPageProps) {
+}: VisibleFaqPageProps) {
   if (!items.length) return null;
   return (
     <section className={className} aria-labelledby={headingId}>
@@ -470,7 +645,7 @@ export function FaqPage({
 }
 
 export function FaqBlock({ items }: { items: FaqItem[] }) {
-  return <FaqPage items={items} />;
+  return <VisibleFaqPage items={items} />;
 }
 
 export function ComparisonMatrix({ section }: { section: ComparisonSection }) {
@@ -794,7 +969,7 @@ export function SectionRenderer({ section }: { section: SectionSpec }) {
   }
 }
 
-export function BreadcrumbList({
+export function VisibleBreadcrumbList({
   items,
   className,
   label = "Breadcrumb",
@@ -802,7 +977,7 @@ export function BreadcrumbList({
   itemClassName,
   linkClassName,
   currentClassName,
-}: BreadcrumbListProps) {
+}: VisibleBreadcrumbListProps) {
   if (!items.length) return null;
   return (
     <nav aria-label={label} className={cx("lander-breadcrumbs", className)}>
@@ -830,7 +1005,7 @@ export function BreadcrumbList({
 }
 
 export function Breadcrumbs({ page }: { page: CompiledPage }) {
-  return <BreadcrumbList items={page.breadcrumbs} />;
+  return <VisibleBreadcrumbList items={page.breadcrumbs} />;
 }
 
 export function PageShell({ children }: { children: React.ReactNode }) {

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:functionalClass",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The degree of mobility the joint allows.",
+  "oneOf": [
+    {
+      "$ref": "../types/MedicalEntity.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "functionalClass",
+  "x-schemaorg-cardinality": "open-world"
+}

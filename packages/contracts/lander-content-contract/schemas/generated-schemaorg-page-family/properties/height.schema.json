@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:height",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The height of the item.",
+  "oneOf": [
+    {
+      "$ref": "../types/Distance.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "height",
+  "x-schemaorg-cardinality": "open-world"
+}

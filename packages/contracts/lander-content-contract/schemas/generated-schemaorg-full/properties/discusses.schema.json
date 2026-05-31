@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:discusses",
+  "$ref": "../types/CreativeWork.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Specifies the CreativeWork associated with the UserComment.",
+  "title": "discusses",
+  "x-schemaorg-cardinality": "open-world"
+}

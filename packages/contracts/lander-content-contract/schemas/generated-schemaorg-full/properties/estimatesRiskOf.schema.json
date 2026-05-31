@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:estimatesRiskOf",
+  "$ref": "../types/MedicalEntity.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The condition, complication, or symptom whose risk is being estimated.",
+  "title": "estimatesRiskOf",
+  "x-schemaorg-cardinality": "open-world"
+}

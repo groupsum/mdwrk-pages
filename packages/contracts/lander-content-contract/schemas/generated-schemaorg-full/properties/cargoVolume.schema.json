@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:cargoVolume",
+  "$ref": "../types/QuantitativeValue.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.\\n\\nTypical unit code(s): LTR for liters, FTQ for cubic foot/feet\\n\\nNote: You can use [[minValue]] and [[maxValue]] to indicate ranges.",
+  "title": "cargoVolume",
+  "x-schemaorg-cardinality": "open-world"
+}

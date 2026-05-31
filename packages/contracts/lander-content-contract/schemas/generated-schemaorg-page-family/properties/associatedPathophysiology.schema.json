@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:associatedPathophysiology",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "If applicable, a description of the pathophysiology associated with the anatomical system, including potential abnormal changes in the mechanical, physical, and biochemical functions of the system.",
+  "title": "associatedPathophysiology",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:courseMode",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The medium or means of delivery of the course instance or the mode of study, either as a text label (e.g. \"online\", \"onsite\" or \"blended\"; \"synchronous\" or \"asynchronous\"; \"full-time\" or \"part-time\") or as a URL reference to a term from a controlled vocabulary (e.g. https://ceds.ed.gov/element/001311#Asynchronous).",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "courseMode",
+  "x-schemaorg-cardinality": "open-world"
+}

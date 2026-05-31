@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:deliveryStatus",
+  "$ref": "../types/DeliveryEvent.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "New entry added as the package passes through each leg of its journey (from shipment to final delivery).",
+  "title": "deliveryStatus",
+  "x-schemaorg-cardinality": "open-world"
+}

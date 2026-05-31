@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:recognizedBy",
+  "$ref": "../types/Organization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An organization that acknowledges the validity, value or utility of a credential. Note: recognition may include a process of quality assurance or accreditation.",
+  "title": "recognizedBy",
+  "x-schemaorg-cardinality": "open-world"
+}

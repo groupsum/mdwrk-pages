@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:seatSection",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The section location of the reserved seat (e.g. Orchestra).",
+  "title": "seatSection",
+  "x-schemaorg-cardinality": "open-world"
+}

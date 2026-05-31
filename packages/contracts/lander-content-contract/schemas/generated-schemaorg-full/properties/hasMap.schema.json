@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasMap",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A URL to a map of the place.",
+  "oneOf": [
+    {
+      "$ref": "../types/Map.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "hasMap",
+  "x-schemaorg-cardinality": "open-world"
+}

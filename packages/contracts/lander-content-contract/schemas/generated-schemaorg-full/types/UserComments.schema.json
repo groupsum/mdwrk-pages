@@ -1,0 +1,47 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:UserComments",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "UserInteraction.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "UserComments"
+        },
+        "commentText": {
+          "$ref": "../properties/commentText.schema.json",
+          "description": "The text of the UserComment."
+        },
+        "commentTime": {
+          "$ref": "../properties/commentTime.schema.json",
+          "description": "The time at which the UserComment was made."
+        },
+        "creator": {
+          "$ref": "../properties/creator.schema.json",
+          "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork."
+        },
+        "discusses": {
+          "$ref": "../properties/discusses.schema.json",
+          "description": "Specifies the CreativeWork associated with the UserComment."
+        },
+        "replyToUrl": {
+          "$ref": "../properties/replyToUrl.schema.json",
+          "description": "The URL at which a reply may be posted to the specified UserComment."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].",
+  "title": "UserComments"
+}

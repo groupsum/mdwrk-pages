@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:numberOfLoanPayments",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of payments contractually required at origination to repay the loan. For monthly paying loans this is the number of months from the contractual first payment date to the maturity date.",
+  "title": "numberOfLoanPayments",
+  "x-schemaorg-cardinality": "open-world"
+}

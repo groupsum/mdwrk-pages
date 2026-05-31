@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:softwareAddOn",
+  "$ref": "../types/SoftwareApplication.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Additional content for a software application.",
+  "title": "softwareAddOn",
+  "x-schemaorg-cardinality": "open-world"
+}

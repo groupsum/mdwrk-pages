@@ -1,0 +1,34 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MovieTheater",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CivicStructure.schema.json"
+    },
+    {
+      "$ref": "EntertainmentBusiness.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MovieTheater"
+        },
+        "screenCount": {
+          "$ref": "../properties/screenCount.schema.json",
+          "description": "The number of screens in the movie theater."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A movie theater.",
+  "title": "MovieTheater"
+}

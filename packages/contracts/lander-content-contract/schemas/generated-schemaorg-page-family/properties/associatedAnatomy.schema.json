@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:associatedAnatomy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The anatomy of the underlying organ system or structures associated with this entity.",
+  "oneOf": [
+    {
+      "$ref": "../types/AnatomicalStructure.schema.json"
+    },
+    {
+      "$ref": "../types/AnatomicalSystem.schema.json"
+    },
+    {
+      "$ref": "../types/SuperficialAnatomy.schema.json"
+    }
+  ],
+  "title": "associatedAnatomy",
+  "x-schemaorg-cardinality": "open-world"
+}

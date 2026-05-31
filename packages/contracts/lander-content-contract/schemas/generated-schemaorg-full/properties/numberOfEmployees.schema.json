@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:numberOfEmployees",
+  "$ref": "../types/QuantitativeValue.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of employees in an organization, e.g. business.",
+  "title": "numberOfEmployees",
+  "x-schemaorg-cardinality": "open-world"
+}

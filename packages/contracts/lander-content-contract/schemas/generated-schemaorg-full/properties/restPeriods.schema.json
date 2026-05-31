@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:restPeriods",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "How often one should break from the activity.",
+  "oneOf": [
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "restPeriods",
+  "x-schemaorg-cardinality": "open-world"
+}

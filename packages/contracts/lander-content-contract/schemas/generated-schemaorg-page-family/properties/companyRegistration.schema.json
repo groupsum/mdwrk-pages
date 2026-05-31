@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:companyRegistration",
+  "$ref": "../types/Certification.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The official registration information of a business including the organization that issued it such as Company House or Chamber of Commerce in form of a Certification.",
+  "title": "companyRegistration",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:TouristAttraction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Place.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "TouristAttraction"
+        },
+        "availableLanguage": {
+          "$ref": "../properties/availableLanguage.schema.json",
+          "description": "A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]]."
+        },
+        "touristType": {
+          "$ref": "../properties/touristType.schema.json",
+          "description": "Attraction suitable for type(s) of tourist. E.g. children, visitors from a particular country, etc. "
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A tourist attraction.  In principle any Thing can be a [[TouristAttraction]], from a [[Mountain]] and [[LandmarksOrHistoricalBuildings]] to a [[LocalBusiness]].  This Type can be used on its own to describe a general [[TouristAttraction]], or be used as an [[additionalType]] to add tourist attraction properties to any other type.  (See examples below)",
+  "title": "TouristAttraction"
+}

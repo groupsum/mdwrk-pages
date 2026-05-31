@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:broadcastServiceTier",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type of service required to have access to the channel (e.g. Standard or Premium).",
+  "title": "broadcastServiceTier",
+  "x-schemaorg-cardinality": "open-world"
+}

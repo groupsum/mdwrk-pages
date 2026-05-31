@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:loanRepaymentForm",
+  "$ref": "../types/RepaymentSpecification.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A form of paying back money previously borrowed from a lender. Repayment usually takes the form of periodic payments that normally include part principal plus interest in each payment.",
+  "title": "loanRepaymentForm",
+  "x-schemaorg-cardinality": "open-world"
+}

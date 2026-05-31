@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalRiskFactor",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalEntity.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MedicalRiskFactor"
+        },
+        "increasesRiskOf": {
+          "$ref": "../properties/increasesRiskOf.schema.json",
+          "description": "The condition, complication, etc. influenced by this factor."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A risk factor is anything that increases a person's likelihood of developing or contracting a disease, medical condition, or complication.",
+  "title": "MedicalRiskFactor"
+}

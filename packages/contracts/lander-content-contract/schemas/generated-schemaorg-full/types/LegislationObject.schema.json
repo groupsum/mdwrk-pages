@@ -1,0 +1,34 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:LegislationObject",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Legislation.schema.json"
+    },
+    {
+      "$ref": "MediaObject.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "LegislationObject"
+        },
+        "legislationLegalValue": {
+          "$ref": "../properties/legislationLegalValue.schema.json",
+          "description": "The legal value of this legislation file. The same legislation can be written in multiple files with different legal values. Typically a digitally signed PDF have a \"stronger\" legal value than the HTML file of the same act."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A specific object or file containing a Legislation. Note that the same Legislation can be published in multiple files. For example, a digitally signed PDF, a plain PDF and an HTML version.",
+  "title": "LegislationObject"
+}

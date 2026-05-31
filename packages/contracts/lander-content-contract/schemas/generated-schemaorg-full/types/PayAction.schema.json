@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:PayAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "TradeAction.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "PayAction"
+        },
+        "recipient": {
+          "$ref": "../properties/recipient.schema.json",
+          "description": "A sub property of participant. The participant who is at the receiving end of the action."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An agent pays a price to a participant.",
+  "title": "PayAction"
+}

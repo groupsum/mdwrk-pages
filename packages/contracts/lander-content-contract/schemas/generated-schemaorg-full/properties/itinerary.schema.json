@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:itinerary",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Destination(s) ( [[Place]] ) that make up a trip. For a trip where destination order is important use [[ItemList]] to specify that order (see examples).",
+  "oneOf": [
+    {
+      "$ref": "../types/ItemList.schema.json"
+    },
+    {
+      "$ref": "../types/Place.schema.json"
+    }
+  ],
+  "title": "itinerary",
+  "x-schemaorg-cardinality": "open-world"
+}

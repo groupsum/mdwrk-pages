@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:isRelatedTo",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A pointer to another, somehow related product (or multiple products).",
+  "oneOf": [
+    {
+      "$ref": "../types/Product.schema.json"
+    },
+    {
+      "$ref": "../types/Service.schema.json"
+    }
+  ],
+  "title": "isRelatedTo",
+  "x-schemaorg-cardinality": "open-world"
+}

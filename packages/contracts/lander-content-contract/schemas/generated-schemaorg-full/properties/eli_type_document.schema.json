@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:eli:type_document",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "",
+  "title": "eli:type_document",
+  "type": [
+    "string",
+    "number",
+    "boolean",
+    "object",
+    "array",
+    "null"
+  ],
+  "x-schemaorg-cardinality": "open-world"
+}

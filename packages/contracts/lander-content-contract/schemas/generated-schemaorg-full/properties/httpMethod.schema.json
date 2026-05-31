@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:httpMethod",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An HTTP method that specifies the appropriate HTTP method for a request to an HTTP EntryPoint. Values are capitalized strings as used in HTTP.",
+  "title": "httpMethod",
+  "x-schemaorg-cardinality": "open-world"
+}

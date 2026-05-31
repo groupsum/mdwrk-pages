@@ -1,0 +1,55 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:PostalAddress",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "ContactPoint.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "PostalAddress"
+        },
+        "addressCountry": {
+          "$ref": "../properties/addressCountry.schema.json",
+          "description": "The country. Recommended to be in 2-letter [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1) format, for example \"US\". For backward compatibility, a 3-letter [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code such as \"SGP\" or a full country name such as \"Singapore\" can also be used."
+        },
+        "addressLocality": {
+          "$ref": "../properties/addressLocality.schema.json",
+          "description": "The locality in which the street address is, and which is in the region. For example, Mountain View."
+        },
+        "addressRegion": {
+          "$ref": "../properties/addressRegion.schema.json",
+          "description": "The region in which the locality is, and which is in the country. For example, California or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country) such as the Province in Italy or Region in Germany."
+        },
+        "extendedAddress": {
+          "$ref": "../properties/extendedAddress.schema.json",
+          "description": "An address extension such as an apartment number, C/O or alternative name."
+        },
+        "postOfficeBoxNumber": {
+          "$ref": "../properties/postOfficeBoxNumber.schema.json",
+          "description": "The post office box number for PO box addresses."
+        },
+        "postalCode": {
+          "$ref": "../properties/postalCode.schema.json",
+          "description": "The postal code. For example, 94043."
+        },
+        "streetAddress": {
+          "$ref": "../properties/streetAddress.schema.json",
+          "description": "The street address. For example, 1600 Amphitheatre Pkwy."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The mailing address.",
+  "title": "PostalAddress"
+}

@@ -1,0 +1,67 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:WebPage",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "WebPage"
+        },
+        "breadcrumb": {
+          "$ref": "../properties/breadcrumb.schema.json",
+          "description": "A set of links that can help a user understand and navigate a website hierarchy."
+        },
+        "lastReviewed": {
+          "$ref": "../properties/lastReviewed.schema.json",
+          "description": "Date on which the content on this web page was last reviewed for accuracy and/or completeness."
+        },
+        "mainContentOfPage": {
+          "$ref": "../properties/mainContentOfPage.schema.json",
+          "description": "Indicates if this web page element is the main subject of the page."
+        },
+        "primaryImageOfPage": {
+          "$ref": "../properties/primaryImageOfPage.schema.json",
+          "description": "Indicates the main image on the page."
+        },
+        "relatedLink": {
+          "$ref": "../properties/relatedLink.schema.json",
+          "description": "A link related to this web page, for example to other related web pages."
+        },
+        "reviewedBy": {
+          "$ref": "../properties/reviewedBy.schema.json",
+          "description": "People or organizations that have reviewed the content on this web page for accuracy and/or completeness."
+        },
+        "significantLink": {
+          "$ref": "../properties/significantLink.schema.json",
+          "description": "One of the more significant URLs on the page. Typically, these are the non-navigation links that are clicked on the most."
+        },
+        "significantLinks": {
+          "$ref": "../properties/significantLinks.schema.json",
+          "description": "The most significant URLs on the page. Typically, these are the non-navigation links that are clicked on the most."
+        },
+        "speakable": {
+          "$ref": "../properties/speakable.schema.json",
+          "description": "Indicates sections of a Web page that are particularly 'speakable' in the sense of being highlighted as being especially appropriate for text-to-speech conversion. Other sections of a page may also be usefully spoken in particular circumstances; the 'speakable' property serves to indicate the parts most likely to be generally useful for speech.\n\nThe *speakable* property can be repeated an arbitrary number of times, with three kinds of possible 'content-locator' values:\n\n1.) *id-value* URL references - uses *id-value* of an element in the page being annotated. The simplest use of *speakable* has (potentially relative) URL values, referencing identified sections of the document concerned.\n\n2.) CSS Selectors - addresses content in the annotated page, e.g. via class attribute. Use the [[cssSelector]] property.\n\n3.)  XPaths - addresses content via XPaths (assuming an XML view of the content). Use the [[xpath]] property.\n\n\nFor more sophisticated markup of speakable sections beyond simple ID references, either CSS selectors or XPath expressions to pick out document section(s) as speakable. For this\nwe define a supporting type, [[SpeakableSpecification]]  which is defined to be a possible value of the *speakable* property.\n         "
+        },
+        "specialty": {
+          "$ref": "../properties/specialty.schema.json",
+          "description": "One of the domain specialities to which this web page's content applies."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A web page. Every web page is implicitly assumed to be declared to be of type WebPage, so the various properties about that webpage, such as <code>breadcrumb</code> may be used. We recommend explicit declaration if these properties are specified, but if they are found outside of an itemscope, they will be assumed to be about the page.",
+  "title": "WebPage"
+}

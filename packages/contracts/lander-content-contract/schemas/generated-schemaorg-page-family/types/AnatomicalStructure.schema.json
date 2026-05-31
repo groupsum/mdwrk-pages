@@ -1,0 +1,59 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:AnatomicalStructure",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalEntity.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "AnatomicalStructure"
+        },
+        "associatedPathophysiology": {
+          "$ref": "../properties/associatedPathophysiology.schema.json",
+          "description": "If applicable, a description of the pathophysiology associated with the anatomical system, including potential abnormal changes in the mechanical, physical, and biochemical functions of the system."
+        },
+        "bodyLocation": {
+          "$ref": "../properties/bodyLocation.schema.json",
+          "description": "Location in the body of the anatomical structure."
+        },
+        "connectedTo": {
+          "$ref": "../properties/connectedTo.schema.json",
+          "description": "Other anatomical structures to which this structure is connected."
+        },
+        "diagram": {
+          "$ref": "../properties/diagram.schema.json",
+          "description": "An image containing a diagram that illustrates the structure and/or its component substructures and/or connections with other structures."
+        },
+        "partOfSystem": {
+          "$ref": "../properties/partOfSystem.schema.json",
+          "description": "The anatomical or organ system that this structure is part of."
+        },
+        "relatedCondition": {
+          "$ref": "../properties/relatedCondition.schema.json",
+          "description": "A medical condition associated with this anatomy."
+        },
+        "relatedTherapy": {
+          "$ref": "../properties/relatedTherapy.schema.json",
+          "description": "A medical therapy related to this anatomy."
+        },
+        "subStructure": {
+          "$ref": "../properties/subStructure.schema.json",
+          "description": "Component (sub-)structure(s) that comprise this anatomical structure."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Any part of the human body, typically a component of an anatomical system. Organs, tissues, and cells are all anatomical structures.",
+  "title": "AnatomicalStructure"
+}

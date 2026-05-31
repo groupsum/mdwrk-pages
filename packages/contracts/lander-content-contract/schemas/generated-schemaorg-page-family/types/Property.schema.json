@@ -1,0 +1,43 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Property",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Property"
+        },
+        "domainIncludes": {
+          "$ref": "../properties/domainIncludes.schema.json",
+          "description": "Relates a property to a class that is (one of) the type(s) the property is expected to be used on."
+        },
+        "inverseOf": {
+          "$ref": "../properties/inverseOf.schema.json",
+          "description": "Relates a property to a property that is its inverse. Inverse properties relate the same pairs of items to each other, but in reversed direction. For example, the 'alumni' and 'alumniOf' properties are inverseOf each other. Some properties don't have explicit inverses; in these situations RDFa and JSON-LD syntax for reverse properties can be used."
+        },
+        "rangeIncludes": {
+          "$ref": "../properties/rangeIncludes.schema.json",
+          "description": "Relates a property to a class that constitutes (one of) the expected type(s) for values of the property."
+        },
+        "supersededBy": {
+          "$ref": "../properties/supersededBy.schema.json",
+          "description": "Relates a term (i.e. a property, class or enumeration) to one that supersedes it."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.",
+  "title": "Property"
+}

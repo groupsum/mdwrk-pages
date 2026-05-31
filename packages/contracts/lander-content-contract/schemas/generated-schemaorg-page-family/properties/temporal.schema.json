@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:temporal",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The \"temporal\" property can be used in cases where more specific properties\n(e.g. [[temporalCoverage]], [[dateCreated]], [[dateModified]], [[datePublished]]) are not known to be appropriate.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "temporal",
+  "x-schemaorg-cardinality": "open-world"
+}

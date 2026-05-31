@@ -4,7 +4,7 @@ import test from "node:test";
 import { validateStructuredDataIntentStrict } from "../dist/index.js";
 
 test("T2: strict structured-data intent validation is deterministic and non-mutating for schema-backed kinds", () => {
-  const payload = Object.freeze({ name: "Video only" });
+  const payload = Object.freeze({ "@type": "VideoObject", name: "Video only" });
   const before = JSON.stringify(payload);
 
   const first = validateStructuredDataIntentStrict({ kind: "VideoObject", data: payload });
@@ -18,7 +18,7 @@ test("T2: strict structured-data intent validation degrades gracefully when no d
   assert.deepEqual(validateStructuredDataIntentStrict({ kind: "Article" }), []);
   assert.ok(
     validateStructuredDataIntentStrict({ kind: "Dataset", data: { keywords: "schema" } }).some((failure) =>
-      failure.includes("data.keywords"),
+      failure.includes("data.@type"),
     ),
   );
 });

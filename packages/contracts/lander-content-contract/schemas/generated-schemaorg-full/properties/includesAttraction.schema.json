@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:includesAttraction",
+  "$ref": "../types/TouristAttraction.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Attraction located at destination.",
+  "title": "includesAttraction",
+  "x-schemaorg-cardinality": "open-world"
+}

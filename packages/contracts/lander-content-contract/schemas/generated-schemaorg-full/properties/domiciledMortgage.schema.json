@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:domiciledMortgage",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Whether borrower is a resident of the jurisdiction where the property is located.",
+  "title": "domiciledMortgage",
+  "x-schemaorg-cardinality": "open-world"
+}

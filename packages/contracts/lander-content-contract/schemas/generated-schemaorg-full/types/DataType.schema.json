@@ -1,0 +1,20 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:DataType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The basic data types such as Integers, Strings, etc.",
+  "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "DataType"
+    }
+  },
+  "required": [
+    "@type"
+  ],
+  "title": "DataType",
+  "type": "object",
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
+}

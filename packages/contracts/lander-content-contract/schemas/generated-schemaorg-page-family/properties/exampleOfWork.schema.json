@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:exampleOfWork",
+  "$ref": "../types/CreativeWork.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A creative work that this work is an example/instance/realization/derivation of.",
+  "title": "exampleOfWork",
+  "x-schemaorg-cardinality": "open-world"
+}

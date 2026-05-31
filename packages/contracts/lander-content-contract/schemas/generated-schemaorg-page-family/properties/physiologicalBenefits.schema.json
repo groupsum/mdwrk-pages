@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:physiologicalBenefits",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Specific physiologic benefits associated to the plan.",
+  "title": "physiologicalBenefits",
+  "x-schemaorg-cardinality": "open-world"
+}

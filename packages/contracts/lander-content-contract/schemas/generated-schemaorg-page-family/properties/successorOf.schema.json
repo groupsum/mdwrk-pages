@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:successorOf",
+  "$ref": "../types/ProductModel.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A pointer from a newer variant of a product  to its previous, often discontinued predecessor.",
+  "title": "successorOf",
+  "x-schemaorg-cardinality": "open-world"
+}

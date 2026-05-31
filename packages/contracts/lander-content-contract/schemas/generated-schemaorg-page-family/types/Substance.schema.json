@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Substance",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalEntity.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Substance"
+        },
+        "activeIngredient": {
+          "$ref": "../properties/activeIngredient.schema.json",
+          "description": "An active ingredient, typically chemical compounds and/or biologic substances."
+        },
+        "maximumIntake": {
+          "$ref": "../properties/maximumIntake.schema.json",
+          "description": "Recommended intake of this supplement for a given population as defined by a specific recommending authority."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical.",
+  "title": "Substance"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:pickupLocation",
+  "$ref": "../types/Place.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Where a taxi will pick up a passenger or a rental car can be picked up.",
+  "title": "pickupLocation",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:legalAddress",
+  "$ref": "../types/PostalAddress.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The legal address of an organization which acts as the officially registered address used for legal and tax purposes. The legal address can be different from the place of operations of a business and other addresses can be part of an organization.",
+  "title": "legalAddress",
+  "x-schemaorg-cardinality": "open-world"
+}

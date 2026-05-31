@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:DigitalDocumentPermissionType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A type of permission which can be granted for accessing a digital document.",
+  "enum": [],
+  "title": "DigitalDocumentPermissionType",
+  "type": "string"
+}

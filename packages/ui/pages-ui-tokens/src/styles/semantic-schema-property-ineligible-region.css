@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-schema-property-ineligible-region-padding: 1rem;
+  --mdp-semantic-schema-property-ineligible-region-gap: 0.75rem;
+  --mdp-semantic-schema-property-ineligible-region-radius: 1rem;
+  --mdp-semantic-schema-property-ineligible-region-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-schema-property-ineligible-region-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-schema-property-ineligible-region-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--schema-property-ineligible-region {
+  padding: var(--mdp-semantic-schema-property-ineligible-region-padding);
+  gap: var(--mdp-semantic-schema-property-ineligible-region-gap);
+  border-radius: var(--mdp-semantic-schema-property-ineligible-region-radius);
+  background: var(--mdp-semantic-schema-property-ineligible-region-surface);
+  border: 1px solid var(--mdp-semantic-schema-property-ineligible-region-border);
+  box-shadow: var(--mdp-semantic-schema-property-ineligible-region-shadow);
+}
+
+.lander-semantic--schema-property-ineligible-region .lander-semantic__header,
+.lander-semantic--schema-property-ineligible-region .lander-semantic__body,
+.lander-semantic--schema-property-ineligible-region .lander-semantic__footer,
+.lander-semantic--schema-property-ineligible-region .lander-semantic__actions {
+  gap: var(--mdp-semantic-schema-property-ineligible-region-gap);
+}
+
+.lander-semantic--schema-property-ineligible-region .lander-semantic__header,
+.lander-semantic--schema-property-ineligible-region .lander-semantic__eyebrow,
+.lander-semantic--schema-property-ineligible-region .lander-semantic__title,
+.lander-semantic--schema-property-ineligible-region .lander-semantic__subtitle,
+.lander-semantic--schema-property-ineligible-region .lander-semantic__description,
+.lander-semantic--schema-property-ineligible-region .lander-semantic__meta,
+.lander-semantic--schema-property-ineligible-region .lander-semantic__image,
+.lander-semantic--schema-property-ineligible-region .lander-semantic__body,
+.lander-semantic--schema-property-ineligible-region .lander-semantic__actions,
+.lander-semantic--schema-property-ineligible-region .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--schema-property-ineligible-region .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--schema-property-ineligible-region .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--schema-property-ineligible-region .lander-semantic__subtitle,
+.lander-semantic--schema-property-ineligible-region .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--schema-property-ineligible-region .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-schema-property-ineligible-region-gap) * 0.8);
+}
+
+.lander-semantic--schema-property-ineligible-region .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-schema-property-ineligible-region-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--schema-property-ineligible-region .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--schema-property-ineligible-region .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--schema-property-ineligible-region .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

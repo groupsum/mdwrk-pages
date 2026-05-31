@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:inCodeSet",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A [[CategoryCodeSet]] that contains this category code.",
+  "oneOf": [
+    {
+      "$ref": "../types/CategoryCodeSet.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "inCodeSet",
+  "x-schemaorg-cardinality": "open-world"
+}

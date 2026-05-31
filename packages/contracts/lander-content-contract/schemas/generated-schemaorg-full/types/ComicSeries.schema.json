@@ -1,0 +1,27 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ComicSeries",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Periodical.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ComicSeries"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A sequential publication of comic stories under a\n    \tunifying title, for example \"The Amazing Spider-Man\" or \"Groo the\n    \tWanderer\".",
+  "title": "ComicSeries"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:numChildren",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of children staying in the unit.",
+  "oneOf": [
+    {
+      "$ref": "../types/Integer.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "numChildren",
+  "x-schemaorg-cardinality": "open-world"
+}

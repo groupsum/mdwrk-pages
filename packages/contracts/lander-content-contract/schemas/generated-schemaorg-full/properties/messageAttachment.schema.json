@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:messageAttachment",
+  "$ref": "../types/CreativeWork.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A CreativeWork attached to the message.",
+  "title": "messageAttachment",
+  "x-schemaorg-cardinality": "open-world"
+}

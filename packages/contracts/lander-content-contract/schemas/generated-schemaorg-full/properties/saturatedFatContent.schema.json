@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:saturatedFatContent",
+  "$ref": "../types/Mass.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of grams of saturated fat.",
+  "title": "saturatedFatContent",
+  "x-schemaorg-cardinality": "open-world"
+}

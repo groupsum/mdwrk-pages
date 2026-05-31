@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:specialty",
+  "$ref": "../enumerations/Specialty.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "One of the domain specialities to which this web page's content applies.",
+  "title": "specialty",
+  "x-schemaorg-cardinality": "open-world"
+}

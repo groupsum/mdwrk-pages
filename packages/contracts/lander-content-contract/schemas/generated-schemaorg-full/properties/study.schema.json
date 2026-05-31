@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:study",
+  "$ref": "../types/MedicalStudy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A medical study or trial related to this entity.",
+  "title": "study",
+  "x-schemaorg-cardinality": "open-world"
+}

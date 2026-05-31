@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:reviewBody",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The actual body of the review.",
+  "title": "reviewBody",
+  "x-schemaorg-cardinality": "open-world"
+}

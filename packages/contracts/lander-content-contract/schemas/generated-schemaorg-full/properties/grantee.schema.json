@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:grantee",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The person, organization, contact point, or audience that has been granted this permission.",
+  "oneOf": [
+    {
+      "$ref": "../types/Audience.schema.json"
+    },
+    {
+      "$ref": "../types/ContactPoint.schema.json"
+    },
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "grantee",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -173,6 +173,37 @@ function DemoApp() {
         };
       });
     },
+    updateQuantity(lineId: string, quantity: number) {
+      setCheckoutResult(null);
+      setCart((current) => {
+        if (quantity <= 0) {
+          const nextLines = current.lines.filter((line) => line.id !== lineId);
+          return {
+            lines: nextLines,
+            itemCount: nextLines.reduce((sum, line) => sum + line.quantity, 0),
+            totals: cartTotals(nextLines),
+          };
+        }
+
+        const nextLines = current.lines.map((line) => {
+          if (line.id !== lineId) return line;
+          return {
+            ...line,
+            quantity,
+            lineTotal: {
+              ...line.lineTotal,
+              amount: lineTotal(line.unitPrice.amount, quantity),
+            },
+          };
+        });
+
+        return {
+          lines: nextLines,
+          itemCount: nextLines.reduce((sum, line) => sum + line.quantity, 0),
+          totals: cartTotals(nextLines),
+        };
+      });
+    },
     clearCart() {
       setCheckoutResult(null);
       setCart({

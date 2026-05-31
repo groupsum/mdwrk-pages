@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:deliveryAddress",
+  "$ref": "../types/PostalAddress.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Destination address.",
+  "title": "deliveryAddress",
+  "x-schemaorg-cardinality": "open-world"
+}

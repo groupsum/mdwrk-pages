@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:albumRelease",
+  "$ref": "../types/MusicRelease.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A release of this album.",
+  "title": "albumRelease",
+  "x-schemaorg-cardinality": "open-world"
+}

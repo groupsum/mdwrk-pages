@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:applicableCountry",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A country where a particular merchant return policy applies to, for example the two-letter ISO 3166-1 alpha-2 country code.",
+  "oneOf": [
+    {
+      "$ref": "../types/Country.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "applicableCountry",
+  "x-schemaorg-cardinality": "open-world"
+}

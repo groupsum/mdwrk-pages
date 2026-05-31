@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:acrissCode",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The ACRISS Car Classification Code is a code used by many car rental companies, for classifying vehicles. ACRISS stands for Association of Car Rental Industry Systems and Standards.",
+  "title": "acrissCode",
+  "x-schemaorg-cardinality": "open-world"
+}

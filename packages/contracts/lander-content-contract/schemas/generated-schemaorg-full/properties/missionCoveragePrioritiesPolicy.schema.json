@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:missionCoveragePrioritiesPolicy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "For a [[NewsMediaOrganization]], a statement on coverage priorities, including any public agenda or stance on issues.",
+  "oneOf": [
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "missionCoveragePrioritiesPolicy",
+  "x-schemaorg-cardinality": "open-world"
+}

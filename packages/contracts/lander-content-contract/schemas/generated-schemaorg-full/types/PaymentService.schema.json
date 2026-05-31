@@ -1,0 +1,30 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:PaymentService",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "FinancialProduct.schema.json"
+    },
+    {
+      "$ref": "PaymentMethod.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "PaymentService"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A Service to transfer funds from a person or organization to a beneficiary person or organization.",
+  "title": "PaymentService"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:vehicleSpecialUsage",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school, or as a taxi. The legislation in many countries requires this information to be revealed when offering a car for sale.",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/CarUsageType.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "vehicleSpecialUsage",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:BuyAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "TradeAction.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "BuyAction"
+        },
+        "seller": {
+          "$ref": "../properties/seller.schema.json",
+          "description": "An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider."
+        },
+        "vendor": {
+          "$ref": "../properties/vendor.schema.json",
+          "description": "'vendor' is an earlier term for 'seller'."
+        },
+        "warrantyPromise": {
+          "$ref": "../properties/warrantyPromise.schema.json",
+          "description": "The warranty promise(s) included in the offer."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The act of giving money to a seller in exchange for goods or services rendered. An agent buys an object, product, or service from a seller for a price. Reciprocal of SellAction.",
+  "title": "BuyAction"
+}

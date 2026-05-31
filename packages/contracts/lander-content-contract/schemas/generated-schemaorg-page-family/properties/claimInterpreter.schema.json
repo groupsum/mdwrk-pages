@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:claimInterpreter",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "For a [[Claim]] interpreted from [[MediaObject]] content, the [[interpretedAsClaim]] property can be used to indicate a claim contained, implied or refined from the content of a [[MediaObject]].",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "claimInterpreter",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:ItemListOrderType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerated for values for itemListOrder for indicating how an ordered ItemList is organized.",
+  "enum": [],
+  "title": "ItemListOrderType",
+  "type": "string"
+}

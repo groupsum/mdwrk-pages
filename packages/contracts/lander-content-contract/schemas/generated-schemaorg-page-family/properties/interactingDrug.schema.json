@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:interactingDrug",
+  "$ref": "../types/Drug.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Another drug that is known to interact with this drug in a way that impacts the effect of this drug or causes a risk to the patient. Note: disease interactions are typically captured as contraindications.",
+  "title": "interactingDrug",
+  "x-schemaorg-cardinality": "open-world"
+}

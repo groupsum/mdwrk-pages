@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:downPayment",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "a type of payment made in cash during the onset of the purchase of an expensive good/service. The payment typically represents only a percentage of the full purchase price.",
+  "oneOf": [
+    {
+      "$ref": "../types/MonetaryAmount.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    }
+  ],
+  "title": "downPayment",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:isLiveBroadcast",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "True if the broadcast is of a live event.",
+  "title": "isLiveBroadcast",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:nextItem",
+  "$ref": "../types/ListItem.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A link to the ListItem that follows the current one.",
+  "title": "nextItem",
+  "x-schemaorg-cardinality": "open-world"
+}

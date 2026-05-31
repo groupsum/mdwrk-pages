@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:passengerPriorityStatus",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The priority status assigned to a passenger for security or boarding (e.g. FastTrack or Priority).",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/QualitativeValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "passengerPriorityStatus",
+  "x-schemaorg-cardinality": "open-world"
+}

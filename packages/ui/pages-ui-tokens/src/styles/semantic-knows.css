@@ -1,0 +1,52 @@
+:root {
+  --mdp-semantic-knows-padding: 1rem;
+  --mdp-semantic-knows-gap: 0.75rem;
+  --mdp-semantic-knows-radius: 1rem;
+  --mdp-semantic-knows-surface: linear-gradient(180deg, rgba(206, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-knows-border: rgba(206, 112, 255, 0.22);
+  --mdp-semantic-knows-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--knows {
+  padding: var(--mdp-semantic-knows-padding);
+  gap: var(--mdp-semantic-knows-gap);
+  border-radius: var(--mdp-semantic-knows-radius);
+  background: var(--mdp-semantic-knows-surface);
+  border: 1px solid var(--mdp-semantic-knows-border);
+  box-shadow: var(--mdp-semantic-knows-shadow);
+}
+
+.lander-semantic--knows .lander-semantic__header,
+.lander-semantic--knows .lander-semantic__body,
+.lander-semantic--knows .lander-semantic__footer,
+.lander-semantic--knows .lander-semantic__actions {
+  gap: var(--mdp-semantic-knows-gap);
+}
+
+.lander-semantic--knows .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--knows .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--knows .lander-semantic__subtitle,
+.lander-semantic--knows .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--knows .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-knows-gap) * 0.8);
+}
+
+.lander-semantic--knows .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--knows .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

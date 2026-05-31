@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-music-release-padding: 1rem;
+  --mdp-semantic-music-release-gap: 0.75rem;
+  --mdp-semantic-music-release-radius: 1rem;
+  --mdp-semantic-music-release-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-music-release-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-music-release-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--music-release {
+  padding: var(--mdp-semantic-music-release-padding);
+  gap: var(--mdp-semantic-music-release-gap);
+  border-radius: var(--mdp-semantic-music-release-radius);
+  background: var(--mdp-semantic-music-release-surface);
+  border: 1px solid var(--mdp-semantic-music-release-border);
+  box-shadow: var(--mdp-semantic-music-release-shadow);
+}
+
+.lander-semantic--music-release .lander-semantic__header,
+.lander-semantic--music-release .lander-semantic__body,
+.lander-semantic--music-release .lander-semantic__footer,
+.lander-semantic--music-release .lander-semantic__actions {
+  gap: var(--mdp-semantic-music-release-gap);
+}
+
+.lander-semantic--music-release .lander-semantic__header,
+.lander-semantic--music-release .lander-semantic__eyebrow,
+.lander-semantic--music-release .lander-semantic__title,
+.lander-semantic--music-release .lander-semantic__subtitle,
+.lander-semantic--music-release .lander-semantic__description,
+.lander-semantic--music-release .lander-semantic__meta,
+.lander-semantic--music-release .lander-semantic__image,
+.lander-semantic--music-release .lander-semantic__body,
+.lander-semantic--music-release .lander-semantic__actions,
+.lander-semantic--music-release .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--music-release .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--music-release .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--music-release .lander-semantic__subtitle,
+.lander-semantic--music-release .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--music-release .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-music-release-gap) * 0.8);
+}
+
+.lander-semantic--music-release .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-music-release-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--music-release .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--music-release .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--music-release .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:archiveHeld",
+  "$ref": "../types/ArchiveComponent.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Collection, [fonds](https://en.wikipedia.org/wiki/Fonds), or item held, kept or maintained by an [[ArchiveOrganization]].",
+  "title": "archiveHeld",
+  "x-schemaorg-cardinality": "open-world"
+}

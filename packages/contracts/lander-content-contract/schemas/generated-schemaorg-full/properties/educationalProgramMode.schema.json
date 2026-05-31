@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:educationalProgramMode",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Similar to courseMode, the medium or means of delivery of the program as a whole. The value may either be a text label (e.g. \"online\", \"onsite\" or \"blended\"; \"synchronous\" or \"asynchronous\"; \"full-time\" or \"part-time\") or a URL reference to a term from a controlled vocabulary (e.g. https://ceds.ed.gov/element/001311#Asynchronous ).",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "educationalProgramMode",
+  "x-schemaorg-cardinality": "open-world"
+}

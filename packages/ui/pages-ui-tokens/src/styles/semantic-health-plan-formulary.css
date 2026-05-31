@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-health-plan-formulary-padding: 1rem;
+  --mdp-semantic-health-plan-formulary-gap: 0.75rem;
+  --mdp-semantic-health-plan-formulary-radius: 1rem;
+  --mdp-semantic-health-plan-formulary-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-health-plan-formulary-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-health-plan-formulary-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--health-plan-formulary {
+  padding: var(--mdp-semantic-health-plan-formulary-padding);
+  gap: var(--mdp-semantic-health-plan-formulary-gap);
+  border-radius: var(--mdp-semantic-health-plan-formulary-radius);
+  background: var(--mdp-semantic-health-plan-formulary-surface);
+  border: 1px solid var(--mdp-semantic-health-plan-formulary-border);
+  box-shadow: var(--mdp-semantic-health-plan-formulary-shadow);
+}
+
+.lander-semantic--health-plan-formulary .lander-semantic__header,
+.lander-semantic--health-plan-formulary .lander-semantic__body,
+.lander-semantic--health-plan-formulary .lander-semantic__footer,
+.lander-semantic--health-plan-formulary .lander-semantic__actions {
+  gap: var(--mdp-semantic-health-plan-formulary-gap);
+}
+
+.lander-semantic--health-plan-formulary .lander-semantic__header,
+.lander-semantic--health-plan-formulary .lander-semantic__eyebrow,
+.lander-semantic--health-plan-formulary .lander-semantic__title,
+.lander-semantic--health-plan-formulary .lander-semantic__subtitle,
+.lander-semantic--health-plan-formulary .lander-semantic__description,
+.lander-semantic--health-plan-formulary .lander-semantic__meta,
+.lander-semantic--health-plan-formulary .lander-semantic__image,
+.lander-semantic--health-plan-formulary .lander-semantic__body,
+.lander-semantic--health-plan-formulary .lander-semantic__actions,
+.lander-semantic--health-plan-formulary .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--health-plan-formulary .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--health-plan-formulary .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--health-plan-formulary .lander-semantic__subtitle,
+.lander-semantic--health-plan-formulary .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--health-plan-formulary .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-health-plan-formulary-gap) * 0.8);
+}
+
+.lander-semantic--health-plan-formulary .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-health-plan-formulary-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--health-plan-formulary .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--health-plan-formulary .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--health-plan-formulary .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

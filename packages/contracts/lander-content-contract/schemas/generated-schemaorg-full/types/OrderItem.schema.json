@@ -1,0 +1,47 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:OrderItem",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "StructuredValue.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "OrderItem"
+        },
+        "orderDelivery": {
+          "$ref": "../properties/orderDelivery.schema.json",
+          "description": "The delivery of the parcel related to this order or order item."
+        },
+        "orderItemNumber": {
+          "$ref": "../properties/orderItemNumber.schema.json",
+          "description": "The identifier of the order item."
+        },
+        "orderItemStatus": {
+          "$ref": "../properties/orderItemStatus.schema.json",
+          "description": "The current status of the order item."
+        },
+        "orderQuantity": {
+          "$ref": "../properties/orderQuantity.schema.json",
+          "description": "The number of the item ordered. If the property is not set, assume the quantity is one."
+        },
+        "orderedItem": {
+          "$ref": "../properties/orderedItem.schema.json",
+          "description": "The item ordered."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An order item is a line of an order. It includes the quantity and shipping details of a bought offer.",
+  "title": "OrderItem"
+}

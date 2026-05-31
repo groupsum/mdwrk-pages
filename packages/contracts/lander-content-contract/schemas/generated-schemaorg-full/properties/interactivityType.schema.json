@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:interactivityType",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The predominant mode of learning supported by the learning resource. Acceptable values are 'active', 'expositive', or 'mixed'.",
+  "title": "interactivityType",
+  "x-schemaorg-cardinality": "open-world"
+}

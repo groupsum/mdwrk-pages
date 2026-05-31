@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:byArtist",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The artist that performed this album or recording.",
+  "oneOf": [
+    {
+      "$ref": "../types/MusicGroup.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "byArtist",
+  "x-schemaorg-cardinality": "open-world"
+}

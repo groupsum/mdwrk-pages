@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:SendAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "TransferAction.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "SendAction"
+        },
+        "deliveryMethod": {
+          "$ref": "../properties/deliveryMethod.schema.json",
+          "description": "A sub property of instrument. The method of delivery."
+        },
+        "recipient": {
+          "$ref": "../properties/recipient.schema.json",
+          "description": "A sub property of participant. The participant who is at the receiving end of the action."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The act of physically/electronically dispatching an object for transfer from an origin to a destination. Related actions:\\n\\n* [[ReceiveAction]]: The reciprocal of SendAction.\\n* [[GiveAction]]: Unlike GiveAction, SendAction does not imply the transfer of ownership (e.g. I can send you my laptop, but I'm not necessarily giving it to you).",
+  "title": "SendAction"
+}

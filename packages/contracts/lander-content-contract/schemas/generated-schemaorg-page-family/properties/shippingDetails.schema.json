@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:shippingDetails",
+  "$ref": "../types/OfferShippingDetails.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates information about the shipping policies and options associated with an [[Offer]].",
+  "title": "shippingDetails",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:borrower",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of participant. The person that borrows the object being lent.",
+  "title": "borrower",
+  "x-schemaorg-cardinality": "open-world"
+}

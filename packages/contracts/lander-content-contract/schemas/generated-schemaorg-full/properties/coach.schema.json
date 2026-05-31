@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:coach",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A person that acts in a coaching role for a sports team.",
+  "title": "coach",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:mainEntityOfPage",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.",
+  "oneOf": [
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "mainEntityOfPage",
+  "x-schemaorg-cardinality": "open-world"
+}

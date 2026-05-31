@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:shippingOrigin",
+  "$ref": "../types/DefinedRegion.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the origin of a shipment, i.e. where it should be coming from.",
+  "title": "shippingOrigin",
+  "x-schemaorg-cardinality": "open-world"
+}

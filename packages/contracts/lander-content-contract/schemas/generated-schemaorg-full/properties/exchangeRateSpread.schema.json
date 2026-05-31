@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:exchangeRateSpread",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The difference between the price at which a broker or other intermediary buys and sells foreign currency.",
+  "oneOf": [
+    {
+      "$ref": "../types/MonetaryAmount.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    }
+  ],
+  "title": "exchangeRateSpread",
+  "x-schemaorg-cardinality": "open-world"
+}

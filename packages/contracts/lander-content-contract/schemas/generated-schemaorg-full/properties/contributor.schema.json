@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:contributor",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A secondary contributor to the CreativeWork or Event.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "contributor",
+  "x-schemaorg-cardinality": "open-world"
+}

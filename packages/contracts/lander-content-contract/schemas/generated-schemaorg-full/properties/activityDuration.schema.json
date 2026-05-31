@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:activityDuration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Length of time to engage in the activity.",
+  "oneOf": [
+    {
+      "$ref": "../types/Duration.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "activityDuration",
+  "x-schemaorg-cardinality": "open-world"
+}

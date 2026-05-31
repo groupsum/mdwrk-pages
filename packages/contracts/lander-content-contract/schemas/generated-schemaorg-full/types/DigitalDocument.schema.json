@@ -1,0 +1,34 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:DigitalDocument",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "$ref": "fibo-fnd-arr-doc_Document.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "DigitalDocument"
+        },
+        "hasDigitalDocumentPermission": {
+          "$ref": "../properties/hasDigitalDocumentPermission.schema.json",
+          "description": "A permission related to the access to this document (e.g. permission to read or write an electronic document). For a public document, specify a grantee with an Audience with audienceType equal to \"public\"."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An electronic file or document.",
+  "title": "DigitalDocument"
+}

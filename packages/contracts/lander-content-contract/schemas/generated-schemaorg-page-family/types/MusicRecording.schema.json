@@ -1,0 +1,51 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MusicRecording",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MusicRecording"
+        },
+        "byArtist": {
+          "$ref": "../properties/byArtist.schema.json",
+          "description": "The artist that performed this album or recording."
+        },
+        "duration": {
+          "$ref": "../properties/duration.schema.json",
+          "description": "The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601)."
+        },
+        "inAlbum": {
+          "$ref": "../properties/inAlbum.schema.json",
+          "description": "The album to which this recording belongs."
+        },
+        "inPlaylist": {
+          "$ref": "../properties/inPlaylist.schema.json",
+          "description": "The playlist to which this recording belongs."
+        },
+        "isrcCode": {
+          "$ref": "../properties/isrcCode.schema.json",
+          "description": "The International Standard Recording Code for the recording."
+        },
+        "recordingOf": {
+          "$ref": "../properties/recordingOf.schema.json",
+          "description": "The composition this track is a recording of."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A music recording (track), usually a single song.",
+  "title": "MusicRecording"
+}

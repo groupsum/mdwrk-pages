@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:MedicalStudyStatus",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The status of a medical study. Enumerated type.",
+  "enum": [],
+  "title": "MedicalStudyStatus",
+  "type": "string"
+}

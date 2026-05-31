@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:editor",
+  "$ref": "../types/Person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Specifies the Person who edited the CreativeWork.",
+  "title": "editor",
+  "x-schemaorg-cardinality": "open-world"
+}

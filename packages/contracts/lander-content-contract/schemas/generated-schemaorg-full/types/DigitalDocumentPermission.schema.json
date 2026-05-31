@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:DigitalDocumentPermission",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "DigitalDocumentPermission"
+        },
+        "grantee": {
+          "$ref": "../properties/grantee.schema.json",
+          "description": "The person, organization, contact point, or audience that has been granted this permission."
+        },
+        "permissionType": {
+          "$ref": "../properties/permissionType.schema.json",
+          "description": "The type of permission granted the person, organization, or audience."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A permission for a particular person or group to access a particular file.",
+  "title": "DigitalDocumentPermission"
+}

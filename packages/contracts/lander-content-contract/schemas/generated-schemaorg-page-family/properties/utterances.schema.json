@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:utterances",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Text of an utterances (spoken words, lyrics etc.) that occurs at a certain section of a media object, represented as a [[HyperTocEntry]].",
+  "title": "utterances",
+  "x-schemaorg-cardinality": "open-world"
+}

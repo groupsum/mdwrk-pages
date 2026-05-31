@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:data",
+  "$ref": "../types/Thing.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Data associated with the event, like for instance a log message.",
+  "title": "data",
+  "x-schemaorg-cardinality": "open-world"
+}

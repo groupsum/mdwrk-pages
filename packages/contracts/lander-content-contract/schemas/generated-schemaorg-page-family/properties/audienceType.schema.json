@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:audienceType",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The target group associated with a given audience (e.g. veterans, car owners, musicians, etc.).",
+  "title": "audienceType",
+  "x-schemaorg-cardinality": "open-world"
+}

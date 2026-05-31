@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:rangeIncludes",
+  "$ref": "../types/Class.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Relates a property to a class that constitutes (one of) the expected type(s) for values of the property.",
+  "title": "rangeIncludes",
+  "x-schemaorg-cardinality": "open-world"
+}

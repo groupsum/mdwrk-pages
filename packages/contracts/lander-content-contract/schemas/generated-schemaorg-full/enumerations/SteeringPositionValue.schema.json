@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:SteeringPositionValue",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A value indicating a steering position.",
+  "enum": [],
+  "title": "SteeringPositionValue",
+  "type": "string"
+}

@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:knowsAbout",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Of a [[Person]], and less typically of an [[Organization]], to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or relate this to educational content, events, objectives or [[JobPosting]] descriptions.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/Thing.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "knowsAbout",
+  "x-schemaorg-cardinality": "open-world"
+}

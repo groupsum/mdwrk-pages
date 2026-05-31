@@ -1,0 +1,47 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Muscle",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "AnatomicalStructure.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Muscle"
+        },
+        "antagonist": {
+          "$ref": "../properties/antagonist.schema.json",
+          "description": "The muscle whose action counteracts the specified muscle."
+        },
+        "bloodSupply": {
+          "$ref": "../properties/bloodSupply.schema.json",
+          "description": "The blood vessel that carries blood from the heart to the muscle."
+        },
+        "insertion": {
+          "$ref": "../properties/insertion.schema.json",
+          "description": "The place of attachment of a muscle, or what the muscle moves."
+        },
+        "muscleAction": {
+          "$ref": "../properties/muscleAction.schema.json",
+          "description": "The movement the muscle generates."
+        },
+        "nerve": {
+          "$ref": "../properties/nerve.schema.json",
+          "description": "The underlying innervation associated with the muscle."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A muscle is an anatomical structure consisting of a contractile form of tissue that animals use to effect movement.",
+  "title": "Muscle"
+}

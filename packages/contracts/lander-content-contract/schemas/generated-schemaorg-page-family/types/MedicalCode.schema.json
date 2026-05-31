@@ -1,0 +1,38 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalCode",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CategoryCode.schema.json"
+    },
+    {
+      "$ref": "MedicalIntangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MedicalCode"
+        },
+        "codeValue": {
+          "$ref": "../properties/codeValue.schema.json",
+          "description": "A short textual code that uniquely identifies the value."
+        },
+        "codingSystem": {
+          "$ref": "../properties/codingSystem.schema.json",
+          "description": "The coding system, e.g. 'ICD-10'."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A code for a medical entity.",
+  "title": "MedicalCode"
+}

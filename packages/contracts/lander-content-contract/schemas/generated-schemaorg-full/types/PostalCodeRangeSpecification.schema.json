@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:PostalCodeRangeSpecification",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "StructuredValue.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "PostalCodeRangeSpecification"
+        },
+        "postalCodeBegin": {
+          "$ref": "../properties/postalCodeBegin.schema.json",
+          "description": "First postal code in a range (included)."
+        },
+        "postalCodeEnd": {
+          "$ref": "../properties/postalCodeEnd.schema.json",
+          "description": "Last postal code in the range (included). Needs to be after [[postalCodeBegin]]."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "Indicates a range of postal codes, usually defined as the set of valid codes between [[postalCodeBegin]] and [[postalCodeEnd]], inclusively.",
+  "title": "PostalCodeRangeSpecification"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:percentile10",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The 10th percentile value.",
+  "title": "percentile10",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:width",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The width of the item.",
+  "oneOf": [
+    {
+      "$ref": "../types/Distance.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "width",
+  "x-schemaorg-cardinality": "open-world"
+}

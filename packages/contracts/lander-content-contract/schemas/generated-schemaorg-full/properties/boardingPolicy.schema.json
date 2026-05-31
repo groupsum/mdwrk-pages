@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:boardingPolicy",
+  "$ref": "../enumerations/BoardingPolicyType.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The type of boarding policy used by the airline (e.g. zone-based or group-based).",
+  "title": "boardingPolicy",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:step",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A single step item (as HowToStep, text, document, video, etc.) or a HowToSection.",
+  "oneOf": [
+    {
+      "$ref": "../types/CreativeWork.schema.json"
+    },
+    {
+      "$ref": "../types/HowToSection.schema.json"
+    },
+    {
+      "$ref": "../types/HowToStep.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "step",
+  "x-schemaorg-cardinality": "open-world"
+}

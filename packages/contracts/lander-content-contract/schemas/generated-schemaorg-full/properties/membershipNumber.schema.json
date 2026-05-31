@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:membershipNumber",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A unique identifier for the membership.",
+  "title": "membershipNumber",
+  "x-schemaorg-cardinality": "open-world"
+}

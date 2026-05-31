@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:scheduledTime",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The time the object is scheduled to.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    }
+  ],
+  "title": "scheduledTime",
+  "x-schemaorg-cardinality": "open-world"
+}

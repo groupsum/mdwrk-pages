@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:checkoutTime",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The latest someone may check out of a lodging establishment.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/DateTime.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Time.schema.json"
+    }
+  ],
+  "title": "checkoutTime",
+  "x-schemaorg-cardinality": "open-world"
+}

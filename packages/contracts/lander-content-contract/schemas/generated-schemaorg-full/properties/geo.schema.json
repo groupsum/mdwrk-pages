@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:geo",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The geo coordinates of the place.",
+  "oneOf": [
+    {
+      "$ref": "../types/GeoCoordinates.schema.json"
+    },
+    {
+      "$ref": "../types/GeoShape.schema.json"
+    }
+  ],
+  "title": "geo",
+  "x-schemaorg-cardinality": "open-world"
+}

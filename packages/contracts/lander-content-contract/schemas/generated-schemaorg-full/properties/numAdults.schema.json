@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:numAdults",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of adults staying in the unit.",
+  "oneOf": [
+    {
+      "$ref": "../types/Integer.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "numAdults",
+  "x-schemaorg-cardinality": "open-world"
+}

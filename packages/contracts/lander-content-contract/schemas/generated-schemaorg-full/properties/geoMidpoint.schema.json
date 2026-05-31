@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:geoMidpoint",
+  "$ref": "../types/GeoCoordinates.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the GeoCoordinates at the centre of a GeoShape, e.g. GeoCircle.",
+  "title": "geoMidpoint",
+  "x-schemaorg-cardinality": "open-world"
+}

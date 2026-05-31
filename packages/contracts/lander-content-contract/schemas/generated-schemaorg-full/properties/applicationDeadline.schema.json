@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:applicationDeadline",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The date on which the program stops collecting applications for the next enrollment cycle. Flexible application deadlines (for example, a program with rolling admissions) can be described in a textual string, rather than as a DateTime.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Date.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "applicationDeadline",
+  "x-schemaorg-cardinality": "open-world"
+}

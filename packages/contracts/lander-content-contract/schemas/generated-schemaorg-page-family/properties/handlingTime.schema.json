@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:handlingTime",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup.\n\nIn the context of [[ShippingDeliveryTime]], Typical properties: minValue, maxValue, unitCode (d for DAY).  This is by common convention assumed to mean business days (if a unitCode is used, coded as \"d\"), i.e. only counting days when the business normally operates.\n\nIn the context of [[ShippingService]], use the [[ServicePeriod]] format, that contains the same information in a structured form, with cut-off time, business days and duration.",
+  "oneOf": [
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    },
+    {
+      "$ref": "../types/ServicePeriod.schema.json"
+    }
+  ],
+  "title": "handlingTime",
+  "x-schemaorg-cardinality": "open-world"
+}

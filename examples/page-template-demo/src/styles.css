@@ -805,6 +805,90 @@ a {
   color: #42534a;
 }
 
+.demo-semantic-showcase {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border-top: 1px solid rgba(23, 32, 27, 0.12);
+  background: rgba(247, 245, 239, 0.68);
+}
+
+.demo-semantic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.demo-semantic-card {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid rgba(23, 32, 27, 0.12);
+  border-radius: 0.6rem;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 1rem 2.2rem rgba(23, 32, 27, 0.07);
+}
+
+.demo-semantic-card .lander-semantic__header {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 0.85rem;
+}
+
+.demo-semantic-card .lander-semantic__eyebrow {
+  margin: 0;
+  color: #2f735f;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.demo-semantic-card .lander-semantic__title {
+  margin: 0;
+  color: #17201b;
+  font-size: 1.35rem;
+  line-height: 1.05;
+}
+
+.demo-semantic-card .lander-semantic__subtitle,
+.demo-semantic-card .lander-semantic__description,
+.demo-semantic-card .lander-semantic__meta,
+.demo-semantic-card .lander-semantic__body p,
+.demo-semantic-card .lander-semantic__footer {
+  margin: 0;
+  color: #42534a;
+}
+
+.demo-semantic-card .lander-semantic__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+}
+
+.demo-semantic-card .lander-semantic__image {
+  width: 100%;
+  margin-bottom: 0.85rem;
+  border-radius: 0.45rem;
+  object-fit: cover;
+}
+
+.demo-semantic-card .lander-semantic__body {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.demo-semantic-card .lander-semantic__body ul,
+.demo-semantic-card .lander-semantic__body ol {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #42534a;
+}
+
+.demo-semantic-card .lander-semantic__actions {
+  margin: 0.9rem 0 0;
+}
+
 @media (max-width: 860px) {
   .demo-header,
   .demo-main {
@@ -829,7 +913,8 @@ a {
   .demo-node-grid,
   .demo-split__grid,
   .demo-markdown-flow__grid,
-  .demo-schema__contract-grid {
+  .demo-schema__contract-grid,
+  .demo-semantic-grid {
     grid-template-columns: 1fr;
   }
 }

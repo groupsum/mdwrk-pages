@@ -7,12 +7,18 @@ type ItemListStructuredDataInput = React.ComponentProps<typeof structuredDataRea
 type BookStructuredDataInput = React.ComponentProps<typeof structuredDataReact.BookStructuredData>["data"];
 type RecipeStructuredDataInput = React.ComponentProps<typeof structuredDataReact.RecipeStructuredData>["data"];
 type SoftwareApplicationStructuredDataInput = React.ComponentProps<typeof structuredDataReact.SoftwareApplicationStructuredData>["data"];
+type RuntimePlatformStructuredDataInput = React.ComponentProps<typeof structuredDataReact.RuntimePlatformStructuredData>["data"];
+type OperatingSystemStructuredDataInput = React.ComponentProps<typeof structuredDataReact.OperatingSystemStructuredData>["data"];
 type SoftwareSourceCodeStructuredDataInput = React.ComponentProps<typeof structuredDataReact.SoftwareSourceCodeStructuredData>["data"];
 type VacationRentalStructuredDataInput = React.ComponentProps<typeof structuredDataReact.VacationRentalStructuredData>["data"];
 type VehicleStructuredDataInput = React.ComponentProps<typeof structuredDataReact.VehicleStructuredData>["data"];
 type JobPostingStructuredDataInput = React.ComponentProps<typeof structuredDataReact.JobPostingStructuredData>["data"];
 type ReadActionTarget = React.ComponentProps<typeof structuredDataReact.ReadActionStructuredData>["target"];
 type EventStructuredDataInput = React.ComponentProps<typeof structuredDataReact.EventStructuredData>["data"];
+type MenuItemStructuredDataInput = React.ComponentProps<typeof structuredDataReact.MenuItemStructuredData>["data"];
+type MenuSectionStructuredDataInput = React.ComponentProps<typeof structuredDataReact.MenuSectionStructuredData>["data"];
+type ProductModelStructuredDataInput = React.ComponentProps<typeof structuredDataReact.ProductModelStructuredData>["data"];
+type TaxonStructuredDataInput = React.ComponentProps<typeof structuredDataReact.TaxonStructuredData>["data"];
 
 export interface DatasetProps {
   name: string;
@@ -81,6 +87,14 @@ export interface SoftwareApplicationProps {
 }
 
 export interface WebApplicationProps extends SoftwareApplicationProps {}
+
+export type RuntimePlatformProps = Omit<SoftwareApplicationProps, "structuredDataOverrides"> & {
+  structuredDataOverrides?: Partial<RuntimePlatformStructuredDataInput>;
+};
+
+export type OperatingSystemProps = Omit<SoftwareApplicationProps, "structuredDataOverrides"> & {
+  structuredDataOverrides?: Partial<OperatingSystemStructuredDataInput>;
+};
 
 export interface SoftwareSourceCodeProps {
   name: string;
@@ -161,6 +175,55 @@ export interface EventProps {
   className?: string;
   emitStructuredData?: boolean;
   structuredDataOverrides?: Partial<EventStructuredDataInput>;
+}
+
+export interface MenuItemProps {
+  name: string;
+  description?: string;
+  offers?: Array<{ name: string; price?: string; priceCurrency?: string }>;
+  nutrition?: string;
+  suitableForDiet?: string[];
+  body?: React.ReactNode;
+  viewModel?: { eyebrow?: string; footer?: React.ReactNode };
+  className?: string;
+  emitStructuredData?: boolean;
+  structuredDataOverrides?: Partial<MenuItemStructuredDataInput>;
+}
+
+export interface MenuSectionProps {
+  name: string;
+  description?: string;
+  items?: Array<{ name: string; summary?: string }>;
+  body?: React.ReactNode;
+  viewModel?: { eyebrow?: string; footer?: React.ReactNode };
+  className?: string;
+  emitStructuredData?: boolean;
+  structuredDataOverrides?: Partial<MenuSectionStructuredDataInput>;
+}
+
+export interface ProductModelProps {
+  name: string;
+  description?: string;
+  brand?: { name: string };
+  model?: string;
+  isVariantOf?: string;
+  body?: React.ReactNode;
+  viewModel?: { eyebrow?: string; footer?: React.ReactNode };
+  className?: string;
+  emitStructuredData?: boolean;
+  structuredDataOverrides?: Partial<ProductModelStructuredDataInput>;
+}
+
+export interface TaxonProps {
+  name: string;
+  description?: string;
+  parentTaxon?: string;
+  taxonRank?: string;
+  body?: React.ReactNode;
+  viewModel?: { eyebrow?: string; footer?: React.ReactNode };
+  className?: string;
+  emitStructuredData?: boolean;
+  structuredDataOverrides?: Partial<TaxonStructuredDataInput>;
 }
 
 export function Dataset(props: DatasetProps) {
@@ -404,6 +467,50 @@ export function SoftwareApplication(props: SoftwareApplicationProps) {
         <structuredDataReact.SoftwareApplicationStructuredData data={structuredData} />
       </SemanticStructuredDataGate>
       {softwareAppShell("software-application", props)}
+    </>
+  );
+}
+
+export function RuntimePlatform(props: RuntimePlatformProps) {
+  const base: RuntimePlatformStructuredDataInput = {
+    name: props.name,
+    description: props.description,
+    applicationCategory: props.applicationCategory,
+    operatingSystem: props.operatingSystem,
+    softwareVersion: props.softwareVersion,
+  };
+  const structuredData = { ...base, ...(props.structuredDataOverrides ?? {}) };
+  return (
+    <>
+      <SemanticStructuredDataGate emitStructuredData={props.emitStructuredData}>
+        <structuredDataReact.RuntimePlatformStructuredData data={structuredData} />
+      </SemanticStructuredDataGate>
+      {softwareAppShell("runtime-platform", {
+        ...props,
+        viewModel: { ...props.viewModel, eyebrow: props.viewModel?.eyebrow ?? "Runtime platform" },
+      })}
+    </>
+  );
+}
+
+export function OperatingSystem(props: OperatingSystemProps) {
+  const base: OperatingSystemStructuredDataInput = {
+    name: props.name,
+    description: props.description,
+    applicationCategory: props.applicationCategory,
+    operatingSystem: props.operatingSystem,
+    softwareVersion: props.softwareVersion,
+  };
+  const structuredData = { ...base, ...(props.structuredDataOverrides ?? {}) };
+  return (
+    <>
+      <SemanticStructuredDataGate emitStructuredData={props.emitStructuredData}>
+        <structuredDataReact.OperatingSystemStructuredData data={structuredData} />
+      </SemanticStructuredDataGate>
+      {softwareAppShell("operating-system", {
+        ...props,
+        viewModel: { ...props.viewModel, eyebrow: props.viewModel?.eyebrow ?? "Operating system" },
+      })}
     </>
   );
 }
@@ -670,6 +777,124 @@ export function Event(props: EventProps) {
             {props.body}
           </>
         }
+        footer={props.viewModel?.footer}
+        className={props.className}
+      />
+    </>
+  );
+}
+
+export function MenuItem(props: MenuItemProps) {
+  const suitableForDiet = props.suitableForDiet?.map((item) =>
+    /^https?:\/\//u.test(item) ? item : `https://schema.org/${item.endsWith("Diet") ? item : `${item}Diet`}`,
+  );
+  const base: MenuItemStructuredDataInput = {
+    name: props.name,
+    description: props.description,
+    offers: props.offers?.map((item) => ({ "@type": "Offer", name: item.name, price: item.price, priceCurrency: item.priceCurrency })),
+    nutrition: props.nutrition ? { "@type": "NutritionInformation", name: props.nutrition } : undefined,
+    suitableForDiet,
+  };
+  const structuredData = { ...base, ...(props.structuredDataOverrides ?? {}) };
+  return (
+    <>
+      <SemanticStructuredDataGate emitStructuredData={props.emitStructuredData}>
+        <structuredDataReact.MenuItemStructuredData data={structuredData} />
+      </SemanticStructuredDataGate>
+      <SemanticShell
+        kind="menu-item"
+        title={props.name}
+        eyebrow={props.viewModel?.eyebrow ?? "Menu item"}
+        description={props.description}
+        meta={props.nutrition ? [{ label: "Nutrition", value: props.nutrition }] : undefined}
+        body={<>{props.offers?.length ? <ul className="lander-semantic__item-list-grid">{props.offers.map((item) => <li key={item.name} className="lander-semantic__item-card">{item.name}{item.price ? ` ${item.priceCurrency ? `${item.priceCurrency} ` : ""}${item.price}` : ""}</li>)}</ul> : null}{props.suitableForDiet?.length ? <div className="lander-semantic__keyword-cloud">{props.suitableForDiet.map((item) => <span key={item} className="lander-semantic__keyword-chip">{item}</span>)}</div> : null}{props.body}</>}
+        footer={props.viewModel?.footer}
+        className={props.className}
+      />
+    </>
+  );
+}
+
+export function MenuSection(props: MenuSectionProps) {
+  const base: MenuSectionStructuredDataInput = {
+    name: props.name,
+    description: props.description,
+    hasMenuItem: props.items?.map((item) => ({ "@type": "MenuItem", name: item.name })),
+  };
+  const structuredData = { ...base, ...(props.structuredDataOverrides ?? {}) };
+  return (
+    <>
+      <SemanticStructuredDataGate emitStructuredData={props.emitStructuredData}>
+        <structuredDataReact.MenuSectionStructuredData data={structuredData} />
+      </SemanticStructuredDataGate>
+      <SemanticShell
+        kind="menu-section"
+        title={props.name}
+        eyebrow={props.viewModel?.eyebrow ?? "Menu section"}
+        description={props.description}
+        body={<>{props.items?.length ? <ul className="lander-semantic__item-list-grid">{props.items.map((item) => <li key={item.name} className="lander-semantic__item-card"><strong>{item.name}</strong>{item.summary ? <p>{item.summary}</p> : null}</li>)}</ul> : null}{props.body}</>}
+        footer={props.viewModel?.footer}
+        className={props.className}
+      />
+    </>
+  );
+}
+
+export function ProductModel(props: ProductModelProps) {
+  const base: ProductModelStructuredDataInput = {
+    name: props.name,
+    description: props.description,
+    brand: props.brand ? { "@type": "Brand", name: props.brand.name } : undefined,
+    model: props.model,
+    isVariantOf: props.isVariantOf ? { "@type": "ProductGroup", name: props.isVariantOf } : undefined,
+  };
+  const structuredData = { ...base, ...(props.structuredDataOverrides ?? {}) };
+  return (
+    <>
+      <SemanticStructuredDataGate emitStructuredData={props.emitStructuredData}>
+        <structuredDataReact.ProductModelStructuredData data={structuredData} />
+      </SemanticStructuredDataGate>
+      <SemanticShell
+        kind="product-model"
+        title={props.name}
+        eyebrow={props.viewModel?.eyebrow ?? "Product model"}
+        description={props.description}
+        meta={[
+          props.brand?.name ? { label: "Brand", value: props.brand.name } : null,
+          props.model ? { label: "Model", value: props.model } : null,
+          props.isVariantOf ? { label: "Variant of", value: props.isVariantOf } : null,
+        ].filter(Boolean) as Array<{ label: string; value: React.ReactNode }>}
+        body={props.body}
+        footer={props.viewModel?.footer}
+        className={props.className}
+      />
+    </>
+  );
+}
+
+export function Taxon(props: TaxonProps) {
+  const base: TaxonStructuredDataInput = {
+    name: props.name,
+    description: props.description,
+    parentTaxon: props.parentTaxon ? { "@type": "Taxon", name: props.parentTaxon } : undefined,
+    taxonRank: props.taxonRank,
+  };
+  const structuredData = { ...base, ...(props.structuredDataOverrides ?? {}) };
+  return (
+    <>
+      <SemanticStructuredDataGate emitStructuredData={props.emitStructuredData}>
+        <structuredDataReact.TaxonStructuredData data={structuredData} />
+      </SemanticStructuredDataGate>
+      <SemanticShell
+        kind="taxon"
+        title={props.name}
+        eyebrow={props.viewModel?.eyebrow ?? "Taxon"}
+        description={props.description}
+        meta={[
+          props.parentTaxon ? { label: "Parent", value: props.parentTaxon } : null,
+          props.taxonRank ? { label: "Rank", value: props.taxonRank } : null,
+        ].filter(Boolean) as Array<{ label: string; value: React.ReactNode }>}
+        body={props.body}
         footer={props.viewModel?.footer}
         className={props.className}
       />

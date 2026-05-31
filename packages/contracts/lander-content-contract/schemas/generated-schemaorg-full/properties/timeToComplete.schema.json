@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:timeToComplete",
+  "$ref": "../types/Duration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The expected length of time to complete the program if attending full-time.",
+  "title": "timeToComplete",
+  "x-schemaorg-cardinality": "open-world"
+}

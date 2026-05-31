@@ -1,0 +1,59 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-checkout-page-padding: 1.7rem;
+  --mdp-semantic-checkout-page-gap: 1rem;
+  --mdp-semantic-checkout-page-radius: 1.4rem;
+  --mdp-semantic-checkout-page-surface: linear-gradient(180deg, color-mix(in srgb, var(--lander-panel) 95%, #e9f4ea 5%), color-mix(in srgb, var(--lander-panel) 88%, #cfe8d3 12%));
+  --mdp-semantic-checkout-page-border: color-mix(in srgb, var(--lander-border) 70%, #4f8f62 30%);
+  --mdp-semantic-checkout-page-shadow: var(--mdwrk-shadow-strong);
+}
+
+.lander-semantic--checkout-page {
+  display: grid;
+  gap: var(--mdp-semantic-checkout-page-gap);
+  padding: var(--mdp-semantic-checkout-page-padding);
+  border: 1px solid var(--mdp-semantic-checkout-page-border);
+  border-radius: var(--mdp-semantic-checkout-page-radius);
+  background: var(--mdp-semantic-checkout-page-surface);
+  box-shadow: var(--mdp-semantic-checkout-page-shadow);
+}
+
+.lander-semantic--checkout-page .lander-semantic__header,
+.lander-semantic--checkout-page .lander-semantic__body,
+.lander-semantic--checkout-page .lander-semantic__actions,
+.lander-semantic--checkout-page .lander-semantic__footer,
+.lander-semantic--checkout-page .lander-semantic__meta {
+  display: grid;
+  gap: var(--mdwrk-space-3);
+}
+
+.lander-semantic--checkout-page .lander-semantic__eyebrow,
+.lander-semantic--checkout-page .lander-semantic__title,
+.lander-semantic--checkout-page .lander-semantic__subtitle,
+.lander-semantic--checkout-page .lander-semantic__description,
+.lander-semantic--checkout-page .lander-semantic__image {
+  margin: 0;
+}
+
+.lander-semantic--checkout-page .lander-semantic__checkout-summary {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--lander-heading-fg);
+}
+
+.lander-semantic--checkout-page .lander-semantic__checkout-offer-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.lander-semantic--checkout-page .lander-semantic__checkout-offer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.05rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.84);
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:availableChannel",
+  "$ref": "../types/ServiceChannel.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A means of accessing the service (e.g. a phone bank, a web site, a location, etc.).",
+  "title": "availableChannel",
+  "x-schemaorg-cardinality": "open-world"
+}

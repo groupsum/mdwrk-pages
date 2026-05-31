@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:nonprofitStatus",
+  "$ref": "../enumerations/NonprofitType.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "nonprofitStatus indicates the legal status of a non-profit organization in its primary place of business.",
+  "title": "nonprofitStatus",
+  "x-schemaorg-cardinality": "open-world"
+}

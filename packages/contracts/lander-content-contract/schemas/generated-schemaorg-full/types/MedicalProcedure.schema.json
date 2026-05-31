@@ -1,0 +1,51 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalProcedure",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "MedicalEntity.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MedicalProcedure"
+        },
+        "bodyLocation": {
+          "$ref": "../properties/bodyLocation.schema.json",
+          "description": "Location in the body of the anatomical structure."
+        },
+        "followup": {
+          "$ref": "../properties/followup.schema.json",
+          "description": "Typical or recommended followup care after the procedure is performed."
+        },
+        "howPerformed": {
+          "$ref": "../properties/howPerformed.schema.json",
+          "description": "How the procedure is performed."
+        },
+        "preparation": {
+          "$ref": "../properties/preparation.schema.json",
+          "description": "Typical preparation that a patient must undergo before having the procedure performed."
+        },
+        "procedureType": {
+          "$ref": "../properties/procedureType.schema.json",
+          "description": "The type of procedure, for example Surgical, Noninvasive, or Percutaneous."
+        },
+        "status": {
+          "$ref": "../properties/status.schema.json",
+          "description": "The status of the study (enumerated)."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A process of care used in either a diagnostic, therapeutic, preventive or palliative capacity that relies on invasive (surgical), non-invasive, or other techniques.",
+  "title": "MedicalProcedure"
+}

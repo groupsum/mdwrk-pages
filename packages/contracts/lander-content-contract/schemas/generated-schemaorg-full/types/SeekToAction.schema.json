@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:SeekToAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Action.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "SeekToAction"
+        },
+        "startOffset": {
+          "$ref": "../properties/startOffset.schema.json",
+          "description": "The start time of the clip expressed as the number of seconds from the beginning of the work."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "This is the [[Action]] of navigating to a specific [[startOffset]] timestamp within a [[VideoObject]], typically represented with a URL template structure.",
+  "title": "SeekToAction"
+}

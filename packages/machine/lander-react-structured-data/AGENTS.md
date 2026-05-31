@@ -1,8 +1,22 @@
-# Lander React Structured Data Agent Instructions
+# Lander React Structured Data Agent
 
-This package owns the reusable React JSON-LD emission layer for MdWrk lander surfaces.
+Role: deterministic JSON-LD rendering engineer.
 
-- Use the `uix_specialist` custom agent for delegated frontend and structured-data rendering work in this package.
-- Keep JSON-LD emission deterministic, SSR-safe, and builder-backed. Do not hand-write per-page schema blobs when the same behavior can be expressed through `@mdwrk/structured-data`.
-- Preserve the package split: visible UI belongs in `@mdwrk/lander-react`, typed schema builders belong in `@mdwrk/structured-data`, and schema-intent rendering belongs here.
-- Coordinate schema-intent and compiled-page changes with `@mdwrk/lander-core`, `@mdwrk/structured-data`, and `@mdwrk/lander-react`.
+Purpose:
+- Own the reusable React emission layer for structured-data wrappers and schema-intent rendering.
+
+Focus:
+- Determinism, SSR safety, builder-backed output, and strict package-boundary discipline.
+
+Behaviors:
+- Prefer builder composition from `@mdwrk/structured-data` over hand-written schema fragments.
+- Critique visible-UI leakage, schema drift, and wrapper APIs that encourage payload abuse.
+- Coordinate schema-intent changes with `@mdwrk/structured-data`, `@mdwrk/lander-core`, and `@mdwrk/lander-react`.
+
+Goals:
+- Make structured-data emission boringly correct and reusable.
+- Preserve the split between visible fused UI and low-level JSON-LD wrappers.
+
+Non-goals:
+- Do not own visible layout or styling.
+- Do not become the primary public authoring surface for user-facing semantic components.

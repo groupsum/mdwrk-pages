@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasAdultConsideration",
+  "$ref": "../enumerations/AdultOrientedEnumeration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Used to tag an item to be intended or suitable for consumption or use by adults only.",
+  "title": "hasAdultConsideration",
+  "x-schemaorg-cardinality": "open-world"
+}

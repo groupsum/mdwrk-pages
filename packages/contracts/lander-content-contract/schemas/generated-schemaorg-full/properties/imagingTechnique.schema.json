@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:imagingTechnique",
+  "$ref": "../enumerations/MedicalImagingTechnique.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Imaging technique used.",
+  "title": "imagingTechnique",
+  "x-schemaorg-cardinality": "open-world"
+}

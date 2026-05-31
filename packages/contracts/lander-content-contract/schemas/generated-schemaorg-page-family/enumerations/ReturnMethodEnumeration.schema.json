@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:ReturnMethodEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerates several types of product return methods.",
+  "enum": [],
+  "title": "ReturnMethodEnumeration",
+  "type": "string"
+}

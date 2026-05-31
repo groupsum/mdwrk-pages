@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:dietFeatures",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Nutritional information specific to the dietary plan. May include dietary recommendations on what foods to avoid, what foods to consume, and specific alterations/deviations from the USDA or other regulatory body's approved dietary guidelines.",
+  "title": "dietFeatures",
+  "x-schemaorg-cardinality": "open-world"
+}

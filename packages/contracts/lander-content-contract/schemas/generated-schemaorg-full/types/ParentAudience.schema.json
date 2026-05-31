@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ParentAudience",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "PeopleAudience.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ParentAudience"
+        },
+        "childMaxAge": {
+          "$ref": "../properties/childMaxAge.schema.json",
+          "description": "Maximal age of the child."
+        },
+        "childMinAge": {
+          "$ref": "../properties/childMinAge.schema.json",
+          "description": "Minimal age of the child."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A set of characteristics describing parents, who can be interested in viewing some content.",
+  "title": "ParentAudience"
+}

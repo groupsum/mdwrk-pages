@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:relatedAnatomy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Anatomical systems or structures that relate to the superficial anatomy.",
+  "oneOf": [
+    {
+      "$ref": "../types/AnatomicalStructure.schema.json"
+    },
+    {
+      "$ref": "../types/AnatomicalSystem.schema.json"
+    }
+  ],
+  "title": "relatedAnatomy",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:commentCount",
+  "$ref": "../types/Integer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The number of comments this CreativeWork (e.g. Article, Question or Answer) has received. This is most applicable to works published in Web sites with commenting system; additional comments may exist elsewhere.",
+  "title": "commentCount",
+  "x-schemaorg-cardinality": "open-world"
+}

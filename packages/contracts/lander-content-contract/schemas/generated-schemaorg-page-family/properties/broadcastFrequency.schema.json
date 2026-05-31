@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:broadcastFrequency",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The frequency used for over-the-air broadcasts. Numeric values or simple ranges, e.g. 87-99. In addition a shortcut idiom is supported for frequencies of AM and FM radio channels, e.g. \"87 FM\".",
+  "oneOf": [
+    {
+      "$ref": "../types/BroadcastFrequencySpecification.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "broadcastFrequency",
+  "x-schemaorg-cardinality": "open-world"
+}

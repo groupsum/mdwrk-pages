@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:result",
+  "$ref": "../types/Thing.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The result produced in the action. E.g. John wrote *a book*.",
+  "title": "result",
+  "x-schemaorg-cardinality": "open-world"
+}

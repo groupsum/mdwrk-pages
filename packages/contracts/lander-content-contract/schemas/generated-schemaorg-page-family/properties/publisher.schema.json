@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:publisher",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The publisher of the article in question.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "publisher",
+  "x-schemaorg-cardinality": "open-world"
+}

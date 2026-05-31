@@ -1,0 +1,67 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Recipe",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "HowTo.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Recipe"
+        },
+        "cookTime": {
+          "$ref": "../properties/cookTime.schema.json",
+          "description": "The time it takes to actually cook the dish, in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601)."
+        },
+        "cookingMethod": {
+          "$ref": "../properties/cookingMethod.schema.json",
+          "description": "The method of cooking, such as Frying, Steaming, ..."
+        },
+        "ingredients": {
+          "$ref": "../properties/ingredients.schema.json",
+          "description": "A single ingredient used in the recipe, e.g. sugar, flour or garlic."
+        },
+        "nutrition": {
+          "$ref": "../properties/nutrition.schema.json",
+          "description": "Nutrition information about the recipe or menu item."
+        },
+        "recipeCategory": {
+          "$ref": "../properties/recipeCategory.schema.json",
+          "description": "The category of the recipe\u2014for example, appetizer, entree, etc."
+        },
+        "recipeCuisine": {
+          "$ref": "../properties/recipeCuisine.schema.json",
+          "description": "The cuisine of the recipe (for example, French or Ethiopian)."
+        },
+        "recipeIngredient": {
+          "$ref": "../properties/recipeIngredient.schema.json",
+          "description": "An ingredient or ordered list of ingredients and potentially quantities used in the recipe, e.g. 1 cup of sugar, flour or garlic.  The ingredients can be represented as free text or more structured values."
+        },
+        "recipeInstructions": {
+          "$ref": "../properties/recipeInstructions.schema.json",
+          "description": "A step in making the recipe, in the form of a single item (document, video, etc.) or an ordered list with HowToStep and/or HowToSection items."
+        },
+        "recipeYield": {
+          "$ref": "../properties/recipeYield.schema.json",
+          "description": "The quantity produced by the recipe (for example, number of people served, number of servings, etc)."
+        },
+        "suitableForDiet": {
+          "$ref": "../properties/suitableForDiet.schema.json",
+          "description": "Indicates a dietary restriction or guideline for which this recipe or menu item is suitable, e.g. diabetic, halal etc."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A recipe. For dietary restrictions covered by the recipe, a few common restrictions are enumerated via [[suitableForDiet]]. The [[keywords]] property can also be used to add more detail.",
+  "title": "Recipe"
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:medicalAudience",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Medical audience for page.",
+  "oneOf": [
+    {
+      "$ref": "../types/MedicalAudience.schema.json"
+    },
+    {
+      "$ref": "../enumerations/MedicalAudienceType.schema.json"
+    }
+  ],
+  "title": "medicalAudience",
+  "x-schemaorg-cardinality": "open-world"
+}

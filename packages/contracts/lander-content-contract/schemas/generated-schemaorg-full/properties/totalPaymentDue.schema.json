@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:totalPaymentDue",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The total amount due.",
+  "oneOf": [
+    {
+      "$ref": "../types/MonetaryAmount.schema.json"
+    },
+    {
+      "$ref": "../types/PriceSpecification.schema.json"
+    }
+  ],
+  "title": "totalPaymentDue",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:BedType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A type of bed. This is used for indicating the bed or beds available in an accommodation.",
+  "enum": [],
+  "title": "BedType",
+  "type": "string"
+}

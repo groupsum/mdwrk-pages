@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:monthlyMinimumRepaymentAmount",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The minimum payment is the lowest amount of money that one is required to pay on a credit card statement each month.",
+  "oneOf": [
+    {
+      "$ref": "../types/MonetaryAmount.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    }
+  ],
+  "title": "monthlyMinimumRepaymentAmount",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:processingTime",
+  "$ref": "../types/Duration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Estimated processing time for the service using this channel.",
+  "title": "processingTime",
+  "x-schemaorg-cardinality": "open-world"
+}

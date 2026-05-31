@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:activityFrequency",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "How often one should engage in the activity.",
+  "oneOf": [
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "activityFrequency",
+  "x-schemaorg-cardinality": "open-world"
+}

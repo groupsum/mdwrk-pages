@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:permitAudience",
+  "$ref": "../types/Audience.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The target audience for this permit.",
+  "title": "permitAudience",
+  "x-schemaorg-cardinality": "open-world"
+}

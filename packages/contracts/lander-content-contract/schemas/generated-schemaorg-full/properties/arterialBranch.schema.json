@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:arterialBranch",
+  "$ref": "../types/AnatomicalStructure.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The branches that comprise the arterial structure.",
+  "title": "arterialBranch",
+  "x-schemaorg-cardinality": "open-world"
+}

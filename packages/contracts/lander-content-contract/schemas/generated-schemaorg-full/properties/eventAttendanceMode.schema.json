@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:eventAttendanceMode",
+  "$ref": "../enumerations/EventAttendanceModeEnumeration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The eventAttendanceMode of an event indicates whether it occurs online, offline, or a mix.",
+  "title": "eventAttendanceMode",
+  "x-schemaorg-cardinality": "open-world"
+}

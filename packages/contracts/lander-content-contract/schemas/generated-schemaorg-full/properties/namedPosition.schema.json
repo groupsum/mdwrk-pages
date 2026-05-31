@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:namedPosition",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A position played, performed or filled by a person or organization, as part of an organization. For example, an athlete in a SportsTeam might play in the position named 'Quarterback'.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "namedPosition",
+  "x-schemaorg-cardinality": "open-world"
+}

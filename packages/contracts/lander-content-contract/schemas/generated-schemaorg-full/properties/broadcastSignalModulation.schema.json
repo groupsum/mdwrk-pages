@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:broadcastSignalModulation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The modulation (e.g. FM, AM, etc) used by a particular broadcast service.",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/QualitativeValue.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "broadcastSignalModulation",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:pathophysiology",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Changes in the normal mechanical, physical, and biochemical functions that are associated with this activity or condition.",
+  "title": "pathophysiology",
+  "x-schemaorg-cardinality": "open-world"
+}

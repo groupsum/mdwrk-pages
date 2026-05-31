@@ -1,0 +1,18 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:genre",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Genre of the creative work, broadcast channel or group.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "genre",
+  "x-schemaorg-cardinality": "open-world"
+}

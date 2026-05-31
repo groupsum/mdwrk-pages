@@ -1,0 +1,21 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:errorCode",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Application or platform dependant error code.",
+  "oneOf": [
+    {
+      "$ref": "../types/DefinedTerm.schema.json"
+    },
+    {
+      "$ref": "../types/Integer.schema.json"
+    },
+    {
+      "$ref": "../enumerations/StatusEnumeration.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "errorCode",
+  "x-schemaorg-cardinality": "open-world"
+}

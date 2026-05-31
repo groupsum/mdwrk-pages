@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:termCode",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A code that identifies this [[DefinedTerm]] within a [[DefinedTermSet]].",
+  "title": "termCode",
+  "x-schemaorg-cardinality": "open-world"
+}

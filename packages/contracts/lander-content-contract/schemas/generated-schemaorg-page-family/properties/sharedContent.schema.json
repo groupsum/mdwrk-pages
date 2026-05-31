@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:sharedContent",
+  "$ref": "../types/CreativeWork.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A CreativeWork such as an image, video, or audio clip shared as part of this posting.",
+  "title": "sharedContent",
+  "x-schemaorg-cardinality": "open-world"
+}

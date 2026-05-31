@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:shippingDestination",
+  "$ref": "../types/DefinedRegion.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "indicates (possibly multiple) shipping destinations. These can be defined in several ways, e.g. postalCode ranges.",
+  "title": "shippingDestination",
+  "x-schemaorg-cardinality": "open-world"
+}

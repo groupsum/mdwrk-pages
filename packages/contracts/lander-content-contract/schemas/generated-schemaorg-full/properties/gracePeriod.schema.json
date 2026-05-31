@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:gracePeriod",
+  "$ref": "../types/Duration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The period of time after any due date that the borrower has to fulfil its obligations before a default (failure to pay) is deemed to have occurred.",
+  "title": "gracePeriod",
+  "x-schemaorg-cardinality": "open-world"
+}

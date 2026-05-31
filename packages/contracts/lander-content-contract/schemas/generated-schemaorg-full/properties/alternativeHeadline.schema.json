@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:alternativeHeadline",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A secondary title of the CreativeWork.",
+  "title": "alternativeHeadline",
+  "x-schemaorg-cardinality": "open-world"
+}

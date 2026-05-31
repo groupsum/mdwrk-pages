@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:valueAddedTaxIncluded",
+  "$ref": "../datatypes/Boolean.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Specifies whether the applicable value-added tax (VAT) is included in the price specification or not.",
+  "title": "valueAddedTaxIncluded",
+  "x-schemaorg-cardinality": "open-world"
+}

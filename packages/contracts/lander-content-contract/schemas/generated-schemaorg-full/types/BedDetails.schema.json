@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:BedDetails",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "BedDetails"
+        },
+        "numberOfBeds": {
+          "$ref": "../properties/numberOfBeds.schema.json",
+          "description": "The quantity of the given bed type available in the HotelRoom, Suite, House, or Apartment."
+        },
+        "typeOfBed": {
+          "$ref": "../properties/typeOfBed.schema.json",
+          "description": "The type of bed to which the BedDetail refers, i.e. the type of bed available in the quantity indicated by quantity."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "An entity holding detailed information about the available bed types, e.g. the quantity of twin beds for a hotel room. For the single case of just one bed of a certain type, you can use bed directly with a text. See also [[BedType]] (under development).",
+  "title": "BedDetails"
+}

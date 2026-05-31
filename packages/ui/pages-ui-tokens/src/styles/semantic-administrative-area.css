@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-administrative-area-padding: 1rem;
+  --mdp-semantic-administrative-area-gap: 0.75rem;
+  --mdp-semantic-administrative-area-radius: 1rem;
+  --mdp-semantic-administrative-area-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-administrative-area-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-administrative-area-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--administrative-area {
+  padding: var(--mdp-semantic-administrative-area-padding);
+  gap: var(--mdp-semantic-administrative-area-gap);
+  border-radius: var(--mdp-semantic-administrative-area-radius);
+  background: var(--mdp-semantic-administrative-area-surface);
+  border: 1px solid var(--mdp-semantic-administrative-area-border);
+  box-shadow: var(--mdp-semantic-administrative-area-shadow);
+}
+
+.lander-semantic--administrative-area .lander-semantic__header,
+.lander-semantic--administrative-area .lander-semantic__body,
+.lander-semantic--administrative-area .lander-semantic__footer,
+.lander-semantic--administrative-area .lander-semantic__actions {
+  gap: var(--mdp-semantic-administrative-area-gap);
+}
+
+.lander-semantic--administrative-area .lander-semantic__header,
+.lander-semantic--administrative-area .lander-semantic__eyebrow,
+.lander-semantic--administrative-area .lander-semantic__title,
+.lander-semantic--administrative-area .lander-semantic__subtitle,
+.lander-semantic--administrative-area .lander-semantic__description,
+.lander-semantic--administrative-area .lander-semantic__meta,
+.lander-semantic--administrative-area .lander-semantic__image,
+.lander-semantic--administrative-area .lander-semantic__body,
+.lander-semantic--administrative-area .lander-semantic__actions,
+.lander-semantic--administrative-area .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--administrative-area .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--administrative-area .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--administrative-area .lander-semantic__subtitle,
+.lander-semantic--administrative-area .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--administrative-area .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-administrative-area-gap) * 0.8);
+}
+
+.lander-semantic--administrative-area .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-administrative-area-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--administrative-area .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--administrative-area .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--administrative-area .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

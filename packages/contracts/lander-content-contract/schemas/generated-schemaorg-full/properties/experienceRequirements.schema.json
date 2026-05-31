@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:experienceRequirements",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Description of skills and experience needed for the position or Occupation.",
+  "oneOf": [
+    {
+      "$ref": "../types/OccupationalExperienceRequirements.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "experienceRequirements",
+  "x-schemaorg-cardinality": "open-world"
+}

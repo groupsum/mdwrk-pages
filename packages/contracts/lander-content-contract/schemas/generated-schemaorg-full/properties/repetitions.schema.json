@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:repetitions",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Number of times one should repeat the activity.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Number.schema.json"
+    },
+    {
+      "$ref": "../types/QuantitativeValue.schema.json"
+    }
+  ],
+  "title": "repetitions",
+  "x-schemaorg-cardinality": "open-world"
+}

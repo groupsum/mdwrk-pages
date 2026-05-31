@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasTierBenefit",
+  "$ref": "../enumerations/TierBenefitEnumeration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A member benefit for a particular tier of a loyalty program.",
+  "title": "hasTierBenefit",
+  "x-schemaorg-cardinality": "open-world"
+}

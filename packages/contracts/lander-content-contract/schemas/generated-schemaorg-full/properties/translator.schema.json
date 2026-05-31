@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:translator",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market, or that translates during some event.",
+  "oneOf": [
+    {
+      "$ref": "../types/Organization.schema.json"
+    },
+    {
+      "$ref": "../types/Person.schema.json"
+    }
+  ],
+  "title": "translator",
+  "x-schemaorg-cardinality": "open-world"
+}

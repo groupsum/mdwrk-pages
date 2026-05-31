@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:artworkSurface",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The supporting materials for the artwork, e.g. Canvas, Paper, Wood, Board, etc.",
+  "oneOf": [
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    },
+    {
+      "$ref": "../types/URL.schema.json"
+    }
+  ],
+  "title": "artworkSurface",
+  "x-schemaorg-cardinality": "open-world"
+}

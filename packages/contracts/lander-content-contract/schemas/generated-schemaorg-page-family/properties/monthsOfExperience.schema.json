@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:monthsOfExperience",
+  "$ref": "../datatypes/Number.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates the minimal number of months of experience required for a position.",
+  "title": "monthsOfExperience",
+  "x-schemaorg-cardinality": "open-world"
+}

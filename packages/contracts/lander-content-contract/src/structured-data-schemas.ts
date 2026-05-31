@@ -1,17 +1,10 @@
+import {
+  GENERATED_STRUCTURED_DATA_SCHEMA_ASSETS,
+  GENERATED_STRUCTURED_DATA_SCHEMA_REGISTRY,
+} from "./generated-structured-data-schemas.js";
+
 export interface StructuredDataSchemaDefinition {
-  $schema: string;
-  $id: string;
-  title: string;
-  type: "object";
-  additionalProperties?: boolean;
-  required?: string[];
-  properties?: Record<string, StructuredDataSchemaProperty>;
-  $defs?: Record<string, StructuredDataSchemaDefinition>;
-  items?: StructuredDataSchemaProperty;
-  minItems?: number;
-  minLength?: number;
-  enum?: string[];
-  anyOf?: StructuredDataSchemaProperty[];
+  [key: string]: unknown;
 }
 
 export interface StructuredDataSchemaRegistryEntry {
@@ -27,1037 +20,44 @@ export interface StructuredDataValidationIssue {
   message: string;
 }
 
-type StructuredDataSchemaProperty =
-  | StructuredDataSchemaDefinition
-  | {
-      type?: "string" | "number" | "object" | "array" | "boolean";
-      additionalProperties?: boolean;
-      required?: string[];
-      properties?: Record<string, StructuredDataSchemaProperty>;
-      items?: StructuredDataSchemaProperty;
-      minItems?: number;
-      minLength?: number;
-      enum?: string[];
-      anyOf?: StructuredDataSchemaProperty[];
-      $ref?: string;
-    };
-
-const JSON_SCHEMA = "https://json-schema.org/draft/2020-12/schema";
-const schemaId = (fileName: string): string => `https://schemas.mdwrk.com/structured-data/${fileName}.schema.json`;
-
-const stringRef = { type: "string", minLength: 1 } satisfies StructuredDataSchemaProperty;
-
-const thingBaseProperties = {
-  id: { type: "string" } satisfies StructuredDataSchemaProperty,
-  name: { type: "string", minLength: 1 } satisfies StructuredDataSchemaProperty,
-  description: { type: "string" } satisfies StructuredDataSchemaProperty,
-  url: stringRef,
+type RuntimeSchema = Record<string, any>;
+type RuntimeRegistryEntry = {
+  type: string;
+  schemaId: string;
+  assetPath: string;
+  schema: RuntimeSchema;
 };
 
-const thingRefDefinition: StructuredDataSchemaDefinition = {
-  $schema: JSON_SCHEMA,
-  $id: "thingRef",
-  title: "Structured Data Thing Reference",
-  type: "object",
-  additionalProperties: true,
-  properties: {
-    "@id": { type: "string" },
-    "@type": { type: "string" },
-    id: { type: "string" },
-    name: { type: "string" },
-    url: { type: "string" },
-  },
-};
+const registry = GENERATED_STRUCTURED_DATA_SCHEMA_REGISTRY as unknown as readonly RuntimeRegistryEntry[];
+const assetMap = GENERATED_STRUCTURED_DATA_SCHEMA_ASSETS as unknown as Record<string, RuntimeSchema>;
 
-const imageDefinition: StructuredDataSchemaDefinition = {
-  $schema: JSON_SCHEMA,
-  $id: "image",
-  title: "Structured Data Image",
-  type: "object",
-  additionalProperties: false,
-  properties: {
-    src: { type: "string" },
-    url: { type: "string" },
-    width: { type: "number" },
-    height: { type: "number" },
-    caption: { type: "string" },
-    alt: { type: "string" },
-  },
-};
-
-const answerDefinition: StructuredDataSchemaDefinition = {
-  $schema: JSON_SCHEMA,
-  $id: "answer",
-  title: "Structured Data Answer",
-  type: "object",
-  additionalProperties: false,
-  required: ["text"],
-  properties: {
-    id: { type: "string" },
-    text: { type: "string", minLength: 1 },
-    url: { type: "string" },
-    upvoteCount: { type: "number" },
-    dateCreated: { type: "string" },
-    author: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-  },
-};
-
-const questionDefinition: StructuredDataSchemaDefinition = {
-  $schema: JSON_SCHEMA,
-  $id: "question",
-  title: "Structured Data Question",
-  type: "object",
-  additionalProperties: false,
-  required: ["name"],
-  properties: {
-    ...thingBaseProperties,
-    text: { type: "string" },
-    acceptedAnswer: { $ref: "#/$defs/answer" },
-    suggestedAnswer: { type: "array", items: { $ref: "#/$defs/answer" } },
-    answerCount: { type: "number" },
-    eduQuestionType: { type: "string" },
-  },
-};
-
-const clipDefinition: StructuredDataSchemaDefinition = {
-  $schema: JSON_SCHEMA,
-  $id: "clip",
-  title: "Structured Data Clip",
-  type: "object",
-  additionalProperties: false,
-  required: ["name"],
-  properties: {
-    ...thingBaseProperties,
-    startOffset: { type: "number" },
-    endOffset: { type: "number" },
-  },
-};
-
-const broadcastEventDefinition: StructuredDataSchemaDefinition = {
-  $schema: JSON_SCHEMA,
-  $id: "broadcastEvent",
-  title: "Structured Data Broadcast Event",
-  type: "object",
-  additionalProperties: false,
-  properties: {
-    ...thingBaseProperties,
-    startDate: { type: "string" },
-    endDate: { type: "string" },
-    isLiveBroadcast: { type: "boolean" },
-  },
-};
-
-const howToStepDefinition: StructuredDataSchemaDefinition = {
-  $schema: JSON_SCHEMA,
-  $id: "howToStep",
-  title: "HowTo Step",
-  type: "object",
-  additionalProperties: false,
-  required: ["name", "text"],
-  properties: {
-    name: { type: "string", minLength: 1 },
-    text: { type: "string", minLength: 1 },
-    url: { type: "string" },
-    image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-  },
-};
-
-const breadcrumbItemDefinition: StructuredDataSchemaDefinition = {
-  $schema: JSON_SCHEMA,
-  $id: "breadcrumbItem",
-  title: "Breadcrumb Item",
-  type: "object",
-  additionalProperties: false,
-  required: ["label", "href"],
-  properties: {
-    label: { type: "string", minLength: 1 },
-    href: stringRef,
-  },
-};
-
-const itemListEntryDefinition: StructuredDataSchemaDefinition = {
-  $schema: JSON_SCHEMA,
-  $id: "itemListEntry",
-  title: "ItemList Entry",
-  type: "object",
-  additionalProperties: false,
-  required: ["name"],
-  properties: {
-    name: { type: "string", minLength: 1 },
-    url: { type: "string" },
-    item: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-  },
-};
-
-const offerLikeDefinition: StructuredDataSchemaDefinition = {
-  $schema: JSON_SCHEMA,
-  $id: "offerLike",
-  title: "Offer-like node",
-  type: "object",
-  additionalProperties: true,
-  properties: {
-    "@id": { type: "string" },
-    "@type": { type: "string" },
-    price: { anyOf: [{ type: "number" }, stringRef] },
-    priceCurrency: { type: "string" },
-    availability: { type: "string" },
-    url: { type: "string" },
-    seller: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-  },
-};
-
-const aggregateRatingLikeDefinition: StructuredDataSchemaDefinition = {
-  $schema: JSON_SCHEMA,
-  $id: "aggregateRatingLike",
-  title: "AggregateRating-like node",
-  type: "object",
-  additionalProperties: true,
-  properties: {
-    "@id": { type: "string" },
-    "@type": { type: "string" },
-    ratingValue: { anyOf: [{ type: "number" }, stringRef] },
-    reviewCount: { type: "number" },
-    ratingCount: { type: "number" },
-    bestRating: { anyOf: [{ type: "number" }, stringRef] },
-    worstRating: { anyOf: [{ type: "number" }, stringRef] },
-  },
-};
-
-const reviewLikeDefinition: StructuredDataSchemaDefinition = {
-  $schema: JSON_SCHEMA,
-  $id: "reviewLike",
-  title: "Review-like node",
-  type: "object",
-  additionalProperties: true,
-  properties: {
-    "@id": { type: "string" },
-    "@type": { type: "string" },
-    name: { type: "string" },
-    itemReviewed: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-    author: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-    reviewBody: { type: "string" },
-    reviewRating: { $ref: "#/$defs/aggregateRatingLike" },
-  },
-};
-
-const courseInstanceLikeDefinition: StructuredDataSchemaDefinition = {
-  $schema: JSON_SCHEMA,
-  $id: "courseInstanceLike",
-  title: "CourseInstance-like node",
-  type: "object",
-  additionalProperties: true,
-  properties: {
-    "@id": { type: "string" },
-    "@type": { type: "string" },
-    id: { type: "string" },
-    name: { type: "string" },
-    description: { type: "string" },
-    url: { type: "string" },
-    courseMode: { type: "string" },
-    startDate: { type: "string" },
-    endDate: { type: "string" },
-    location: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-    instructor: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-  },
-};
-
-const learningResourceDefinition: StructuredDataSchemaDefinition = {
-  $schema: JSON_SCHEMA,
-  $id: "learningResource",
-  title: "Structured Data LearningResource",
-  type: "object",
-  additionalProperties: false,
-  required: ["name"],
-  properties: {
-    "@context": { type: "string" },
-    "@type": { type: "string" },
-    ...thingBaseProperties,
-    learningResourceType: { type: "string" },
-    educationalLevel: { type: "string" },
-    teaches: {
-      anyOf: [
-        { type: "string", minLength: 1 },
-        { type: "array", minItems: 1, items: { type: "string", minLength: 1 } },
-      ],
-    },
-  },
-};
-
-const solveMathActionDefinition: StructuredDataSchemaDefinition = {
-  $schema: JSON_SCHEMA,
-  $id: "solveMathAction",
-  title: "Structured Data SolveMathAction",
-  type: "object",
-  additionalProperties: false,
-  required: ["target"],
-  properties: {
-    "@context": { type: "string" },
-    "@type": { type: "string" },
-    id: { type: "string" },
-    target: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-    "mathExpression-input": { type: "string" },
-    mathExpressionInput: { type: "string" },
-    eduQuestionType: {
-      anyOf: [
-        { type: "string", minLength: 1 },
-        { type: "array", minItems: 1, items: { type: "string", minLength: 1 } },
-      ],
-    },
-  },
-};
-
-const sharedDefs = {
-  answer: answerDefinition,
-  question: questionDefinition,
-  image: imageDefinition,
-  thingRef: thingRefDefinition,
-  clip: clipDefinition,
-  broadcastEvent: broadcastEventDefinition,
-  howToStep: howToStepDefinition,
-  breadcrumbItem: breadcrumbItemDefinition,
-  itemListEntry: itemListEntryDefinition,
-  offerLike: offerLikeDefinition,
-  aggregateRatingLike: aggregateRatingLikeDefinition,
-  reviewLike: reviewLikeDefinition,
-  courseInstanceLike: courseInstanceLikeDefinition,
-  learningResource: learningResourceDefinition,
-  solveMathAction: solveMathActionDefinition,
-};
-
-function defs(...keys: Array<keyof typeof sharedDefs>): Record<string, StructuredDataSchemaDefinition> {
-  return keys.reduce<Record<string, StructuredDataSchemaDefinition>>((acc, key) => {
-    acc[key] = sharedDefs[key];
-    return acc;
-  }, {});
-}
-
-function withSharedDefs(
-  schema: Omit<StructuredDataSchemaDefinition, "$schema" | "$id" | "title">,
-  definitionKeys: Array<keyof typeof sharedDefs> = [],
-): Omit<StructuredDataSchemaDefinition, "$schema" | "$id" | "title"> {
-  return {
-    ...schema,
-    $defs: {
-      ...(schema.$defs ?? {}),
-      ...defs(...definitionKeys),
-    },
-  };
-}
-
-function entry(
-  type: string,
-  fileName: string,
-  title: string,
-  schema: Omit<StructuredDataSchemaDefinition, "$schema" | "$id" | "title">,
-): StructuredDataSchemaRegistryEntry {
-  return {
-    type,
-    schemaId: schemaId(fileName),
-    assetPath: `./schemas/structured-data/${fileName}.schema.json`,
-    schema: {
-      $schema: JSON_SCHEMA,
-      $id: schemaId(fileName),
-      title,
-      ...schema,
-    },
-  };
-}
-
-function deepFreeze<T>(value: T): T {
+function deepFreeze(value) {
   if (value && typeof value === "object" && !Object.isFrozen(value)) {
     Object.freeze(value);
-    for (const nested of Object.values(value as Record<string, unknown>)) {
-      deepFreeze(nested);
-    }
+    for (const nested of Object.values(value)) deepFreeze(nested);
   }
   return value;
 }
 
-export const STRUCTURED_DATA_SCHEMA_REGISTRY = deepFreeze([
-  entry("AggregateRating", "aggregate-rating", "Structured Data AggregateRating Input", {
-    type: "object",
-    additionalProperties: false,
-    required: ["ratingValue"],
-    properties: {
-      ratingValue: { anyOf: [{ type: "number" }, stringRef] },
-      reviewCount: { type: "number" },
-      ratingCount: { type: "number" },
-      bestRating: { anyOf: [{ type: "number" }, stringRef] },
-      worstRating: { anyOf: [{ type: "number" }, stringRef] },
-    },
-  }),
-  entry("Answer", "answer", "Structured Data Answer Input", withSharedDefs(answerDefinition, ["thingRef"])),
-  entry("Article", "article", "Structured Data Article Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      headline: { type: "string" },
-      author: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      publisher: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      datePublished: { type: "string" },
-      dateModified: { type: "string" },
-      mainEntityOfPage: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "image"])),
-  entry("BlogPosting", "blog-posting", "Structured Data BlogPosting Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      headline: { type: "string" },
-      author: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      publisher: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      datePublished: { type: "string" },
-      dateModified: { type: "string" },
-      mainEntityOfPage: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "image"])),
-  entry("Book", "book", "Structured Data Book Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      author: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      isbn: { type: "string" },
-      readAction: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "image"])),
-  entry("BroadcastEvent", "broadcast-event", "Structured Data BroadcastEvent Input", broadcastEventDefinition),
-  entry("BreadcrumbList", "breadcrumb-list", "Structured Data BreadcrumbList Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["items"],
-    properties: {
-      id: { type: "string" },
-      items: { type: "array", minItems: 1, items: { $ref: "#/$defs/breadcrumbItem" } },
-    },
-  }, ["breadcrumbItem"])),
-  entry("ClaimReview", "claim-review", "Structured Data ClaimReview Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name", "claimReviewed"],
-    properties: {
-      ...thingBaseProperties,
-      claimReviewed: { type: "string", minLength: 1 },
-      itemReviewed: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      author: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      reviewRating: { $ref: "#/$defs/aggregateRatingLike" },
-      datePublished: { type: "string" },
-    },
-  }, ["thingRef", "aggregateRatingLike"])),
-  entry("Clip", "clip", "Structured Data Clip Input", clipDefinition),
-  entry("Course", "course", "Structured Data Course Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      provider: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      courseCode: { type: "string" },
-      coursePrerequisites: {
-        anyOf: [
-          { type: "string", minLength: 1 },
-          { type: "array", minItems: 1, items: { type: "string", minLength: 1 } },
-        ],
-      },
-      hasCourseInstance: {
-        anyOf: [
-          { $ref: "#/$defs/courseInstanceLike" },
-          { type: "array", minItems: 1, items: { $ref: "#/$defs/courseInstanceLike" } },
-        ],
-      },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "courseInstanceLike", "image"])),
-  entry("CourseInstance", "course-instance", "Structured Data CourseInstance Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      courseMode: { type: "string" },
-      startDate: { type: "string" },
-      endDate: { type: "string" },
-      location: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      instructor: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-    },
-  }, ["thingRef"])),
-  entry("Dataset", "dataset", "Structured Data Dataset Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      creator: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      distribution: {
-        anyOf: [
-          { $ref: "#/$defs/thingRef" },
-          { type: "array", minItems: 1, items: { $ref: "#/$defs/thingRef" } },
-        ],
-      },
-      keywords: { type: "array", items: { type: "string", minLength: 1 } },
-      datePublished: { type: "string" },
-      dateModified: { type: "string" },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "image"])),
-  entry("DiscussionForumPosting", "discussion-forum-posting", "Structured Data DiscussionForumPosting Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      headline: { type: "string" },
-      author: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      datePublished: { type: "string" },
-      dateModified: { type: "string" },
-      articleBody: { type: "string" },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "image"])),
-  entry("EmployerAggregateRating", "employer-aggregate-rating", "Structured Data EmployerAggregateRating Input", {
-    type: "object",
-    additionalProperties: false,
-    required: ["ratingValue"],
-    properties: {
-      ratingValue: { anyOf: [{ type: "number" }, stringRef] },
-      reviewCount: { type: "number" },
-      ratingCount: { type: "number" },
-      bestRating: { anyOf: [{ type: "number" }, stringRef] },
-      worstRating: { anyOf: [{ type: "number" }, stringRef] },
-    },
-  }),
-  entry("Event", "event", "Structured Data Event Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name", "startDate"],
-    properties: {
-      ...thingBaseProperties,
-      startDate: { type: "string", minLength: 1 },
-      endDate: { type: "string" },
-      eventStatus: { type: "string" },
-      eventAttendanceMode: { type: "string" },
-      location: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      organizer: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "image"])),
-  entry("FAQPage", "faq-page", "Structured Data FAQPage Input", {
-    type: "object",
-    additionalProperties: false,
-    required: ["items"],
-    properties: {
-      id: { type: "string" },
-      items: {
-        type: "array",
-        minItems: 1,
-        items: {
-          type: "object",
-          additionalProperties: false,
-          required: ["question", "answer"],
-          properties: {
-            question: { type: "string", minLength: 1 },
-            answer: { type: "string", minLength: 1 },
-          },
-        },
-      },
-    },
-  }),
-  entry("HowTo", "how-to", "Structured Data HowTo Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name", "steps"],
-    properties: {
-      ...thingBaseProperties,
-      steps: { type: "array", minItems: 1, items: { $ref: "#/$defs/howToStep" } },
-      totalTime: { type: "string" },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["howToStep", "image"])),
-  entry("ImageObject", "image-object", "Structured Data ImageObject Input", {
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      contentUrl: { type: "string" },
-      width: { type: "number" },
-      height: { type: "number" },
-      caption: { type: "string" },
-    },
-  }),
-  entry("ItemList", "item-list", "Structured Data ItemList Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name", "items"],
-    properties: {
-      id: { type: "string" },
-      name: { type: "string", minLength: 1 },
-      items: { type: "array", minItems: 1, items: { $ref: "#/$defs/itemListEntry" } },
-    },
-  }, ["itemListEntry", "thingRef"])),
-  entry("JobPosting", "job-posting", "Structured Data JobPosting Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["title", "datePosted", "hiringOrganization"],
-    properties: {
-      ...thingBaseProperties,
-      title: { type: "string", minLength: 1 },
-      datePosted: { type: "string", minLength: 1 },
-      validThrough: { type: "string" },
-      employmentType: {
-        anyOf: [
-          { type: "string", minLength: 1 },
-          { type: "array", minItems: 1, items: { type: "string", minLength: 1 } },
-        ],
-      },
-      hiringOrganization: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      jobLocation: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      baseSalary: { $ref: "#/$defs/offerLike" },
-    },
-  }, ["thingRef", "offerLike"])),
-  entry("LearningResource", "learning-resource", "Structured Data LearningResource Input", learningResourceDefinition),
-  entry("LocalBusiness", "local-business", "Structured Data LocalBusiness Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      logo: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-      sameAs: { type: "array", items: { type: "string" } },
-      address: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      telephone: { type: "string" },
-      priceRange: { type: "string" },
-      openingHours: {
-        anyOf: [
-          { type: "string", minLength: 1 },
-          { type: "array", minItems: 1, items: { type: "string", minLength: 1 } },
-        ],
-      },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["image", "thingRef"])),
-  entry("MathSolver", "math-solver", "Structured Data MathSolver Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      mathExpression: { type: "string" },
-      learningResourceType: { type: "string" },
-      potentialAction: {
-        anyOf: [
-          { $ref: "#/$defs/solveMathAction" },
-          { type: "array", minItems: 1, items: { $ref: "#/$defs/solveMathAction" } },
-        ],
-      },
-      learningResource: {
-        anyOf: [
-          { $ref: "#/$defs/learningResource" },
-          { type: "array", minItems: 1, items: { $ref: "#/$defs/learningResource" } },
-        ],
-      },
-      subjectOf: {
-        anyOf: [
-          { $ref: "#/$defs/learningResource" },
-          { type: "array", minItems: 1, items: { $ref: "#/$defs/learningResource" } },
-        ],
-      },
-    },
-  }, ["solveMathAction", "learningResource", "thingRef"])),
-  entry("MemberProgram", "member-program", "Structured Data MemberProgram Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      provider: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-    },
-  }, ["thingRef"])),
-  entry("MerchantReturnPolicy", "merchant-return-policy", "Structured Data MerchantReturnPolicy Input", {
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      merchantReturnDays: { type: "number" },
-      returnPolicyCategory: { type: "string" },
-    },
-  }),
-  entry("MonetaryAmountDistribution", "monetary-amount-distribution", "Structured Data MonetaryAmountDistribution Input", {
-    type: "object",
-    additionalProperties: false,
-    properties: {
-      id: { type: "string" },
-      name: { type: "string" },
-      currency: { type: "string" },
-      minValue: { type: "number" },
-      maxValue: { type: "number" },
-      unitText: { type: "string" },
-    },
-  }),
-  entry("Movie", "movie", "Structured Data Movie Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      director: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      actor: {
-        anyOf: [
-          stringRef,
-          { $ref: "#/$defs/thingRef" },
-          { type: "array", minItems: 1, items: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] } },
-        ],
-      },
-      datePublished: { type: "string" },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "image"])),
-  entry("NewsArticle", "news-article", "Structured Data NewsArticle Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      headline: { type: "string" },
-      author: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      publisher: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      datePublished: { type: "string" },
-      dateModified: { type: "string" },
-      mainEntityOfPage: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "image"])),
-  entry("OfferShippingDetails", "offer-shipping-details", "Structured Data OfferShippingDetails Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      shippingDestination: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      shippingRate: { $ref: "#/$defs/offerLike" },
-    },
-  }, ["thingRef", "offerLike"])),
-  entry("Organization", "organization", "Structured Data Organization Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      logo: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-      sameAs: { type: "array", items: { type: "string", minLength: 1 } },
-    },
-  }, ["image"])),
-  entry("Product", "product", "Structured Data Product Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      brand: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      sku: { type: "string" },
-      category: { type: "string" },
-      offers: { $ref: "#/$defs/offerLike" },
-      aggregateRating: { $ref: "#/$defs/aggregateRatingLike" },
-      review: {
-        anyOf: [
-          { $ref: "#/$defs/reviewLike" },
-          { type: "array", minItems: 1, items: { $ref: "#/$defs/reviewLike" } },
-        ],
-      },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "offerLike", "aggregateRatingLike", "reviewLike", "image"])),
-  entry("ProductGroup", "product-group", "Structured Data ProductGroup Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      brand: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      sku: { type: "string" },
-      category: { type: "string" },
-      offers: { $ref: "#/$defs/offerLike" },
-      aggregateRating: { $ref: "#/$defs/aggregateRatingLike" },
-      review: {
-        anyOf: [
-          { $ref: "#/$defs/reviewLike" },
-          { type: "array", minItems: 1, items: { $ref: "#/$defs/reviewLike" } },
-        ],
-      },
-      hasVariant: {
-        anyOf: [
-          { $ref: "#/$defs/thingRef" },
-          { type: "array", minItems: 1, items: { $ref: "#/$defs/thingRef" } },
-        ],
-      },
-      variesBy: {
-        anyOf: [
-          { type: "string", minLength: 1 },
-          { type: "array", minItems: 1, items: { type: "string", minLength: 1 } },
-        ],
-      },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "offerLike", "aggregateRatingLike", "reviewLike", "image"])),
-  entry("ProfilePage", "profile-page", "Structured Data ProfilePage Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name", "mainEntity"],
-    properties: {
-      ...thingBaseProperties,
-      mainEntity: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "image"])),
-  entry("ReadAction", "read-action", "Structured Data ReadAction Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["target"],
-    properties: {
-      target: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-    },
-  }, ["thingRef"])),
-  entry("QAPage", "qa-page", "Structured Data QAPage Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["question"],
-    properties: {
-      id: { type: "string" },
-      question: { type: "string", minLength: 1 },
-      answer: { type: "string", minLength: 1 },
-      acceptedAnswer: { $ref: "#/$defs/answer" },
-      suggestedAnswer: { type: "array", items: { $ref: "#/$defs/answer" } },
-      answerCount: { type: "number" },
-      eduQuestionType: { type: "string" },
-      url: { type: "string" },
-    },
-  }, ["answer", "thingRef"])),
-  entry("Question", "question", "Structured Data Question Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: questionDefinition.properties,
-  }, ["answer", "thingRef"])),
-  entry("Quiz", "quiz", "Structured Data Quiz Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name", "hasPart"],
-    properties: {
-      ...thingBaseProperties,
-      educationalLevel: { type: "string" },
-      assesses: {
-        anyOf: [
-          { type: "string", minLength: 1 },
-          { type: "array", minItems: 1, items: { type: "string", minLength: 1 } },
-        ],
-      },
-      learningResourceType: { type: "string" },
-      hasPart: { type: "array", minItems: 1, items: { $ref: "#/$defs/question" } },
-    },
-  }, ["answer", "question", "thingRef"])),
-  entry("Recipe", "recipe", "Structured Data Recipe Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name", "recipeIngredient", "recipeInstructions"],
-    properties: {
-      ...thingBaseProperties,
-      recipeIngredient: { type: "array", minItems: 1, items: { type: "string", minLength: 1 } },
-      recipeInstructions: {
-        anyOf: [
-          { type: "string", minLength: 1 },
-          { type: "array", minItems: 1, items: { $ref: "#/$defs/howToStep" } },
-        ],
-      },
-      author: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      datePublished: { type: "string" },
-      prepTime: { type: "string" },
-      cookTime: { type: "string" },
-      totalTime: { type: "string" },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["howToStep", "thingRef", "image"])),
-  entry("Review", "review", "Structured Data Review Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name", "itemReviewed"],
-    properties: {
-      ...thingBaseProperties,
-      itemReviewed: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      reviewRating: { $ref: "#/$defs/aggregateRatingLike" },
-      author: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      reviewBody: { type: "string" },
-    },
-  }, ["thingRef", "aggregateRatingLike"])),
-  entry("SoftwareApplication", "software-application", "Structured Data SoftwareApplication Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      applicationCategory: { type: "string" },
-      operatingSystem: { type: "string" },
-      offers: { $ref: "#/$defs/offerLike" },
-      softwareVersion: { type: "string" },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["offerLike", "image"])),
-  entry("SoftwareSourceCode", "software-source-code", "Structured Data SoftwareSourceCode Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      codeRepository: { type: "string" },
-      programmingLanguage: {
-        anyOf: [
-          { type: "string", minLength: 1 },
-          { type: "array", minItems: 1, items: { type: "string", minLength: 1 } },
-        ],
-      },
-      runtimePlatform: { type: "string" },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["image"])),
-  entry("SpeakableSpecification", "speakable-specification", "Structured Data SpeakableSpecification Input", {
-    type: "object",
-    additionalProperties: false,
-    properties: {
-      cssSelector: { type: "array", items: { type: "string", minLength: 1 } },
-      xpath: { type: "array", items: { type: "string", minLength: 1 } },
-    },
-  }),
-  entry("TechArticle", "tech-article", "Structured Data TechArticle Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      headline: { type: "string" },
-      author: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      publisher: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      datePublished: { type: "string" },
-      dateModified: { type: "string" },
-      mainEntityOfPage: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "image"])),
-  entry("SolveMathAction", "solve-math-action", "Structured Data SolveMathAction Input", withSharedDefs(
-    solveMathActionDefinition,
-    ["thingRef"],
-  )),
-  entry("VacationRental", "vacation-rental", "Structured Data VacationRental Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      address: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      containsPlace: {
-        anyOf: [
-          { $ref: "#/$defs/thingRef" },
-          { type: "array", minItems: 1, items: { $ref: "#/$defs/thingRef" } },
-        ],
-      },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "image"])),
-  entry("Vehicle", "vehicle", "Structured Data Vehicle Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      brand: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      offers: { $ref: "#/$defs/offerLike" },
-      vehicleIdentificationNumber: { type: "string" },
-      vehicleModelDate: { type: "string" },
-      mileageFromOdometer: { $ref: "#/$defs/thingRef" },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "offerLike", "image"])),
-  entry("VideoObject", "video-object", "Structured Data VideoObject Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name", "thumbnailUrl", "uploadDate"],
-    properties: {
-      ...thingBaseProperties,
-      thumbnailUrl: {
-        anyOf: [
-          stringRef,
-          { type: "array", minItems: 1, items: stringRef },
-        ],
-      },
-      uploadDate: { type: "string", minLength: 1 },
-      duration: { type: "string" },
-      embedUrl: { type: "string" },
-      contentUrl: { type: "string" },
-      clip: { type: "array", items: { $ref: "#/$defs/clip" } },
-      publication: {
-        anyOf: [
-          { $ref: "#/$defs/broadcastEvent" },
-          { type: "array", minItems: 1, items: { $ref: "#/$defs/broadcastEvent" } },
-        ],
-      },
-    },
-  }, ["clip", "broadcastEvent"])),
-  entry("WebApplication", "web-application", "Structured Data WebApplication Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      applicationCategory: { type: "string" },
-      operatingSystem: { type: "string" },
-      offers: { $ref: "#/$defs/offerLike" },
-      softwareVersion: { type: "string" },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["offerLike", "image"])),
-  entry("WebPage", "web-page", "Structured Data WebPage Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      primaryType: { type: "string" },
-      mainEntity: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      breadcrumb: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      isPartOf: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      datePublished: { type: "string" },
-      dateModified: { type: "string" },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "image"])),
-  entry("WebSite", "web-site", "Structured Data WebSite Input", withSharedDefs({
-    type: "object",
-    additionalProperties: false,
-    required: ["name"],
-    properties: {
-      ...thingBaseProperties,
-      publisher: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      potentialAction: { anyOf: [stringRef, { $ref: "#/$defs/thingRef" }] },
-      image: { anyOf: [stringRef, { $ref: "#/$defs/image" }] },
-    },
-  }, ["thingRef", "image"])),
-] as const satisfies readonly StructuredDataSchemaRegistryEntry[]);
+export const STRUCTURED_DATA_SCHEMA_REGISTRY = deepFreeze(registry);
 
-const STRUCTURED_DATA_SCHEMA_BY_TYPE = new Map<string, StructuredDataSchemaRegistryEntry>(
+const STRUCTURED_DATA_SCHEMA_BY_TYPE = new Map(
   STRUCTURED_DATA_SCHEMA_REGISTRY.map((entry) => [entry.type, entry]),
 );
 
-const STRUCTURED_DATA_SCHEMA_BY_SCHEMA_ID = new Map<string, StructuredDataSchemaRegistryEntry>(
+const STRUCTURED_DATA_SCHEMA_BY_SCHEMA_ID = new Map(
   STRUCTURED_DATA_SCHEMA_REGISTRY.map((entry) => [entry.schemaId, entry]),
 );
+
+const TYPE_SCHEMA_BY_NAME = new Map<string, { assetPath: string; schema: RuntimeSchema }>();
+for (const [assetPath, schema] of Object.entries(assetMap)) {
+  if (!/(^|\/)types\/[^/]+\.schema\.json$/i.test(assetPath)) continue;
+  if (!schema || typeof schema !== "object" || Array.isArray(schema)) continue;
+  const match = assetPath.match(/(^|\/)types\/([^/]+)\.schema\.json$/i);
+  const typeName = match?.[2];
+  if (!typeName) continue;
+  TYPE_SCHEMA_BY_NAME.set(typeName, { assetPath, schema: schema as RuntimeSchema });
+}
 
 function joinPath(basePath: string, next: string): string {
   return basePath ? `${basePath}.${next}` : next;
@@ -1067,112 +67,434 @@ function issue(keyword: string, path: string, message: string): StructuredDataVa
   return { keyword, path, message };
 }
 
+function referencedTypeNames(assetPath: string, schema: RuntimeSchema): string[] {
+  const refs = [];
+  for (const branch of schema.allOf ?? []) {
+    const ref = branch && typeof branch === "object" && !Array.isArray(branch) ? (branch as RuntimeSchema).$ref : undefined;
+    if (typeof ref !== "string") continue;
+    const resolved = assetPathFromSchemaRef(assetPath, ref);
+    const match = resolved?.match(/(^|\/)types\/([^/]+)\.schema\.json$/i);
+    if (match?.[2]) refs.push(match[2]);
+  }
+  return refs;
+}
+
+function isSubtypeOf(childType: string, parentType: string, seen = new Set<string>()): boolean {
+  if (childType === parentType) return true;
+  if (seen.has(childType)) return false;
+  seen.add(childType);
+  const entry = TYPE_SCHEMA_BY_NAME.get(childType);
+  if (!entry) return false;
+  const parents = referencedTypeNames(entry.assetPath, entry.schema);
+  return parents.some((candidate) => isSubtypeOf(candidate, parentType, seen));
+}
+
 function asRecord(value: unknown): Record<string, unknown> | undefined {
   return value && typeof value === "object" && !Array.isArray(value) ? (value as Record<string, unknown>) : undefined;
 }
 
-function resolveRef(root: StructuredDataSchemaDefinition, ref: string): StructuredDataSchemaProperty | undefined {
-  if (!ref.startsWith("#/$defs/")) return undefined;
-  return root.$defs?.[ref.slice("#/$defs/".length)];
+function assetPathFromSchemaRef(currentAssetPath: string, ref: string): string | undefined {
+  if (ref.startsWith("#")) return currentAssetPath;
+  const currentDir = currentAssetPath.replaceAll("\\", "/").split("/").slice(0, -1).join("/");
+  const normalized = currentDir
+    ? currentDir.split("/").concat(ref.split("/")).join("/")
+    : ref;
+  const resolved = normalized
+    .split("/")
+    .reduce<string[]>((parts, part) => {
+      if (!part || part === ".") return parts;
+      if (part === "..") {
+        parts.pop();
+        return parts;
+      }
+      parts.push(part);
+      return parts;
+    }, [])
+    .join("/");
+  return resolved || undefined;
+}
+
+function isGeneratedTypeAssetPath(assetPath: string): boolean {
+  return /(^|\/)generated-schemaorg-full\/types\/[^/]+\.schema\.json$/i.test(assetPath);
+}
+
+function schemaAtPointer(schema: RuntimeSchema, ref: string): unknown {
+  if (!ref.startsWith("#/")) return undefined;
+  const pointer = ref.slice(2).split("/").map((segment) => segment.replace(/~1/g, "/").replace(/~0/g, "~"));
+  let current: unknown = schema;
+  for (const segment of pointer) {
+    if (!current || typeof current !== "object" || !(segment in (current as Record<string, unknown>))) return undefined;
+    current = (current as Record<string, unknown>)[segment];
+  }
+  return current;
+}
+
+const NORMALIZED_GENERATED_TYPE_SCHEMA_CACHE = new Map<string, RuntimeSchema>();
+
+function flattenGeneratedTypeSchema(assetPath: string, schema: RuntimeSchema, seen = new Set<string>()): RuntimeSchema {
+  if (NORMALIZED_GENERATED_TYPE_SCHEMA_CACHE.has(assetPath)) return NORMALIZED_GENERATED_TYPE_SCHEMA_CACHE.get(assetPath) as RuntimeSchema;
+  if (seen.has(assetPath)) return schema;
+  seen.add(assetPath);
+
+  if (Array.isArray(schema.allOf) && schema.allOf.length) {
+    const primitiveRefBranch = schema.allOf.find((branch) => {
+      if (!branch || typeof branch !== "object" || Array.isArray(branch) || typeof (branch as RuntimeSchema).$ref !== "string") return false;
+      const resolvedAssetPath = assetPathFromSchemaRef(assetPath, (branch as RuntimeSchema).$ref as string);
+      const resolvedSchema = resolvedAssetPath ? assetMap[resolvedAssetPath] : undefined;
+      return Boolean(
+        resolvedSchema
+          && typeof resolvedSchema === "object"
+          && !Array.isArray(resolvedSchema)
+          && typeof (resolvedSchema as RuntimeSchema).type === "string"
+          && ["string", "number", "boolean"].includes((resolvedSchema as RuntimeSchema).type),
+      );
+    }) as RuntimeSchema | undefined;
+    const objectWrapperBranch = schema.allOf.find((branch) =>
+      branch
+        && typeof branch === "object"
+        && !Array.isArray(branch)
+        && (branch as RuntimeSchema).type === "object"
+        && typeof (branch as RuntimeSchema).properties?.["@type"]?.const === "string",
+    );
+    if (primitiveRefBranch && objectWrapperBranch) {
+      const resolvedAssetPath = assetPathFromSchemaRef(assetPath, primitiveRefBranch.$ref as string);
+      const resolvedSchema = resolvedAssetPath ? assetMap[resolvedAssetPath] : undefined;
+      if (resolvedSchema && typeof resolvedSchema === "object" && !Array.isArray(resolvedSchema)) {
+        const normalizedPrimitive = {
+          ...(resolvedSchema as RuntimeSchema),
+          $id: schema.$id,
+          $schema: schema.$schema,
+          title: schema.title,
+          description: schema.description,
+        };
+        NORMALIZED_GENERATED_TYPE_SCHEMA_CACHE.set(assetPath, normalizedPrimitive);
+        return normalizedPrimitive;
+      }
+    }
+  }
+
+  const mergedProperties: Record<string, unknown> = {};
+  const required = new Set<string>();
+
+  for (const branch of schema.allOf ?? []) {
+    if (!branch || typeof branch !== "object" || Array.isArray(branch)) continue;
+    const branchSchema = branch as RuntimeSchema;
+    if (typeof branchSchema.$ref === "string") {
+      const resolvedAssetPath = assetPathFromSchemaRef(assetPath, branchSchema.$ref);
+      const resolvedSchema = resolvedAssetPath ? assetMap[resolvedAssetPath] : undefined;
+      if (resolvedAssetPath && resolvedSchema && typeof resolvedSchema === "object" && !Array.isArray(resolvedSchema)) {
+        const normalizedParent = isGeneratedTypeAssetPath(resolvedAssetPath)
+          ? flattenGeneratedTypeSchema(resolvedAssetPath, resolvedSchema as RuntimeSchema, seen)
+          : (resolvedSchema as RuntimeSchema);
+        Object.assign(mergedProperties, normalizedParent.properties ?? {});
+        for (const entry of normalizedParent.required ?? []) {
+          if (entry !== "@type") required.add(entry);
+        }
+      }
+      continue;
+    }
+
+    Object.assign(mergedProperties, branchSchema.properties ?? {});
+    for (const entry of branchSchema.required ?? []) {
+      if (entry !== "@type") required.add(entry);
+    }
+  }
+
+  Object.assign(mergedProperties, schema.properties ?? {});
+  for (const entry of schema.required ?? []) required.add(entry);
+
+  const normalized = {
+    ...schema,
+    allOf: undefined,
+    type: "object",
+    properties: mergedProperties,
+    required: Array.from(required),
+    unevaluatedProperties: false,
+  };
+
+  NORMALIZED_GENERATED_TYPE_SCHEMA_CACHE.set(assetPath, normalized);
+  return normalized;
+}
+
+function resolveSchemaRef(currentAssetPath: string, currentSchema: RuntimeSchema, ref: string) {
+  if (ref.startsWith("#")) {
+    return { assetPath: currentAssetPath, schema: schemaAtPointer(currentSchema, ref) };
+  }
+  const targetAssetPath = assetPathFromSchemaRef(currentAssetPath, ref);
+  if (!targetAssetPath) return { assetPath: currentAssetPath, schema: undefined };
+  const targetSchema = assetMap[targetAssetPath];
+  if (targetSchema && typeof targetSchema === "object" && !Array.isArray(targetSchema) && isGeneratedTypeAssetPath(targetAssetPath)) {
+    return {
+      assetPath: targetAssetPath,
+      schema: flattenGeneratedTypeSchema(targetAssetPath, targetSchema as RuntimeSchema),
+    };
+  }
+  return { assetPath: targetAssetPath, schema: targetSchema };
+}
+
+function schemaMatchesType(expected: string | string[] | undefined, value: unknown): boolean {
+  const expectedTypes = Array.isArray(expected) ? expected : expected ? [expected] : [];
+  if (!expectedTypes.length) return true;
+  return expectedTypes.some((type) => {
+    if (type === "null") return value === null;
+    if (type === "array") return Array.isArray(value);
+    if (type === "object") return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+    return typeof value === type;
+  });
+}
+
+function stripSchemaMeta(schema: RuntimeSchema): RuntimeSchema {
+  const {
+    $id,
+    $schema,
+    title,
+    description,
+    "x-schemaorg-cardinality": schemaOrgCardinality,
+    ...rest
+  } = schema;
+  void $id;
+  void $schema;
+  void title;
+  void description;
+  void schemaOrgCardinality;
+  return rest;
+}
+
+function asSingleValueSchema(schema: RuntimeSchema): RuntimeSchema {
+  if (schema.$ref) return schema;
+  const next = { ...schema };
+  delete next["x-schemaorg-cardinality"];
+  return next;
+}
+
+function isPrimitiveDatatypeWrapper(schema: RuntimeSchema): boolean {
+  if (!Array.isArray(schema.allOf) || schema.allOf.length < 2) return false;
+  const primitiveBranch = schema.allOf.find((branch) =>
+    branch && typeof branch === "object" && !Array.isArray(branch) && typeof (branch as RuntimeSchema).type === "string"
+      && ["string", "number", "boolean"].includes((branch as RuntimeSchema).type),
+  );
+  const objectTypeBranch = schema.allOf.find((branch) =>
+    branch
+      && typeof branch === "object"
+      && !Array.isArray(branch)
+      && (branch as RuntimeSchema).type === "object"
+      && typeof (branch as RuntimeSchema).properties?.["@type"]?.const === "string",
+  );
+  return Boolean(primitiveBranch && objectTypeBranch);
+}
+
+function primitiveBranches(schema: RuntimeSchema): RuntimeSchema[] {
+  return (schema.allOf ?? []).filter((branch) =>
+    branch && typeof branch === "object" && !Array.isArray(branch) && typeof (branch as RuntimeSchema).type === "string"
+      && ["string", "number", "boolean"].includes((branch as RuntimeSchema).type),
+  ) as RuntimeSchema[];
+}
+
+function isSchemaOrgTypedWrapperFailure(entry: StructuredDataValidationIssue, path: string): boolean {
+  return (
+    (entry.keyword === "type" && entry.path === path && entry.message === "Expected object.")
+    || (entry.keyword === "required" && entry.path === `${path}.@type`)
+    || (entry.keyword === "const" && entry.path === `${path}.@type`)
+  );
+}
+
+function collectAllowedPropertyNames(assetPath: string, schema: RuntimeSchema, seen = new Set<string>()): Set<string> {
+  const key = `${assetPath}::${schema.$id ?? schema.title ?? "schema"}`;
+  if (seen.has(key)) return new Set(Object.keys(schema.properties ?? {}));
+  seen.add(key);
+
+  const propertyNames = new Set(Object.keys(schema.properties ?? {}));
+  for (const branch of schema.allOf ?? []) {
+    if (branch && typeof branch === "object" && typeof branch.$ref === "string") {
+      const resolved = resolveSchemaRef(assetPath, schema, branch.$ref);
+      if (resolved.schema && typeof resolved.schema === "object" && !Array.isArray(resolved.schema)) {
+        for (const prop of collectAllowedPropertyNames(
+          resolved.assetPath,
+          resolved.schema as RuntimeSchema,
+          seen,
+        )) {
+          propertyNames.add(prop);
+        }
+      }
+    } else if (branch && typeof branch === "object" && !Array.isArray(branch)) {
+      for (const prop of collectAllowedPropertyNames(assetPath, branch as RuntimeSchema, seen)) {
+        propertyNames.add(prop);
+      }
+    }
+  }
+  return propertyNames;
 }
 
 function validateAgainstSchema(
-  root: StructuredDataSchemaDefinition,
-  schema: StructuredDataSchemaProperty,
+  currentAssetPath: string,
+  rootSchema: RuntimeSchema,
+  schema: RuntimeSchema,
   value: unknown,
   path: string,
 ): StructuredDataValidationIssue[] {
   const issues: StructuredDataValidationIssue[] = [];
-  if ("$ref" in schema && schema.$ref) {
-    const resolved = resolveRef(root, schema.$ref);
-    if (!resolved) return [issue("ref", path, `Schema reference ${schema.$ref} could not be resolved.`)];
-    return validateAgainstSchema(root, resolved, value, path);
+
+  if (schema["x-schemaorg-cardinality"] === "open-world" && Array.isArray(value)) {
+    const itemSchema = asSingleValueSchema(schema);
+    return value.flatMap((item, index) =>
+      validateAgainstSchema(currentAssetPath, rootSchema, itemSchema, item, `${path}[${index}]`),
+    );
   }
 
-  if ("anyOf" in schema && schema.anyOf?.length) {
-    const branchResults = schema.anyOf.map((branch) => validateAgainstSchema(root, branch, value, path));
-    if (branchResults.some((result) => result.length === 0)) return [];
-    return [issue("anyOf", path, "Value did not satisfy any allowed schema shape.")];
+  if (typeof schema.$ref === "string") {
+    const resolved = resolveSchemaRef(currentAssetPath, rootSchema, schema.$ref);
+    if (!resolved.schema || typeof resolved.schema !== "object" || Array.isArray(resolved.schema)) {
+      return [issue("ref", path, `Schema reference ${schema.$ref} could not be resolved.`)];
+    }
+    return validateAgainstSchema(resolved.assetPath, resolved.schema as RuntimeSchema, resolved.schema as RuntimeSchema, value, path);
   }
 
-  if (schema.type === "string") {
-    if (typeof value !== "string") return [issue("type", path, "Expected string.")];
-    if (schema.minLength !== undefined && value.length < schema.minLength) {
+  if (isPrimitiveDatatypeWrapper(schema) && (typeof value === "string" || typeof value === "number" || typeof value === "boolean")) {
+    for (const branch of primitiveBranches(schema)) {
+      issues.push(...validateAgainstSchema(currentAssetPath, rootSchema, stripSchemaMeta(branch), value, path));
+    }
+    return issues;
+  }
+
+  if (Array.isArray(schema.allOf) && schema.allOf.length) {
+    const branchResults = schema.allOf.map((branch) =>
+      validateAgainstSchema(currentAssetPath, rootSchema, branch as RuntimeSchema, value, path),
+    );
+    if (
+      (typeof value !== "object" || value === null || Array.isArray(value))
+      && branchResults.some((result) => result.length === 0)
+      && branchResults.every((result) => result.length === 0 || result.every((entry) => isSchemaOrgTypedWrapperFailure(entry, path)))
+    ) {
+      return issues;
+    }
+    for (const result of branchResults) {
+      issues.push(...result);
+    }
+  }
+
+  if (Array.isArray(schema.oneOf) && schema.oneOf.length) {
+    const branchResults = schema.oneOf.map((branch) =>
+      validateAgainstSchema(currentAssetPath, rootSchema, branch as RuntimeSchema, value, path),
+    );
+    if (!branchResults.some((result) => result.length === 0)) {
+      return [issue("oneOf", path, "Value did not satisfy any allowed schema shape.")];
+    }
+    return issues;
+  }
+
+  if ("const" in schema && schema.const !== value) {
+    issues.push(issue("const", path, `Expected constant value ${JSON.stringify(schema.const)}.`));
+    return issues;
+  }
+
+  if (Array.isArray(schema.enum) && schema.enum.length > 0 && !schema.enum.includes(value as never)) {
+    issues.push(issue("enum", path, `Expected one of: ${schema.enum.join(", ")}.`));
+    return issues;
+  }
+
+  if (!schemaMatchesType(schema.type as string | string[] | undefined, value)) {
+    if (schema.type !== undefined) {
+      issues.push(issue("type", path, `Expected ${Array.isArray(schema.type) ? schema.type.join(" | ") : schema.type}.`));
+      return issues;
+    }
+  }
+
+  const schemaType = schema.type as string | string[] | undefined;
+
+  if (schemaType === "string") {
+    if (typeof value === "string" && typeof schema.minLength === "number" && value.length < schema.minLength) {
       issues.push(issue("minLength", path, `Expected at least ${schema.minLength} characters.`));
     }
-    if (schema.enum && !schema.enum.includes(value)) {
-      issues.push(issue("enum", path, `Expected one of: ${schema.enum.join(", ")}.`));
-    }
     return issues;
   }
 
-  if (schema.type === "number") {
-    if (typeof value !== "number" || Number.isNaN(value)) return [issue("type", path, "Expected number.")];
-    return issues;
-  }
+  if (schemaType === "number" || schemaType === "boolean" || value === null) return issues;
 
-  if (schema.type === "boolean") {
-    if (typeof value !== "boolean") return [issue("type", path, "Expected boolean.")];
-    return issues;
-  }
-
-  if (schema.type === "array") {
-    if (!Array.isArray(value)) return [issue("type", path, "Expected array.")];
-    if (schema.minItems !== undefined && value.length < schema.minItems) {
+  if (schemaType === "array") {
+    if (!Array.isArray(value)) return issues;
+    if (typeof schema.minItems === "number" && value.length < schema.minItems) {
       issues.push(issue("minItems", path, `Expected at least ${schema.minItems} items.`));
     }
-    if (schema.items) {
+    if (schema.items && typeof schema.items === "object") {
       value.forEach((item, index) => {
-        issues.push(...validateAgainstSchema(root, schema.items!, item, `${path}[${index}]`));
+        issues.push(...validateAgainstSchema(currentAssetPath, rootSchema, schema.items as RuntimeSchema, item, `${path}[${index}]`));
       });
     }
     return issues;
   }
 
-  if (schema.type === "object") {
-    const record = asRecord(value);
-    if (!record) return [issue("type", path, "Expected object.")];
-    for (const requiredKey of schema.required ?? []) {
-      if (!(requiredKey in record)) {
-        issues.push(issue("required", joinPath(path, requiredKey), "Required property is missing."));
-      }
+  const record = asRecord(value);
+  if (!record) return issues;
+
+  const expectedType = typeof schema.properties?.["@type"]?.const === "string"
+    ? schema.properties["@type"].const
+    : undefined;
+  const actualType = typeof record["@type"] === "string" ? record["@type"] : undefined;
+  const allowsSubtype = Boolean(
+    expectedType
+      && actualType
+      && actualType !== expectedType
+      && isSubtypeOf(actualType, expectedType),
+  );
+
+  for (const requiredKey of schema.required ?? []) {
+    if (!(requiredKey in record)) issues.push(issue("required", joinPath(path, requiredKey), "Required property is missing."));
+  }
+
+  for (const [key, propertySchema] of Object.entries(schema.properties ?? {})) {
+    if (!(key in record)) continue;
+    if (allowsSubtype && key === "@type") continue;
+    if (propertySchema && typeof propertySchema === "object") {
+      issues.push(...validateAgainstSchema(currentAssetPath, rootSchema, propertySchema as RuntimeSchema, record[key], joinPath(path, key)));
     }
-    const propertyKeys = new Set(Object.keys(schema.properties ?? {}));
-    if (schema.additionalProperties === false) {
-      for (const key of Object.keys(record)) {
-        if (!propertyKeys.has(key)) {
-          issues.push(issue("additionalProperties", joinPath(path, key), "Unexpected property."));
-        }
-      }
+  }
+
+  if (!allowsSubtype && (schema.unevaluatedProperties === false || schema.additionalProperties === false)) {
+    const allowedKeys = collectAllowedPropertyNames(currentAssetPath, schema);
+    for (const key of Object.keys(record)) {
+      if (!allowedKeys.has(key)) issues.push(issue("unevaluatedProperties", joinPath(path, key), "Unexpected property."));
     }
-    for (const [key, propertySchema] of Object.entries(schema.properties ?? {})) {
-      if (!(key in record)) continue;
-      issues.push(...validateAgainstSchema(root, propertySchema, record[key], joinPath(path, key)));
-    }
-    return issues;
   }
 
   return issues;
 }
 
 export function listStructuredDataSchemas(): readonly StructuredDataSchemaRegistryEntry[] {
-  return STRUCTURED_DATA_SCHEMA_REGISTRY;
+  return STRUCTURED_DATA_SCHEMA_REGISTRY as unknown as readonly StructuredDataSchemaRegistryEntry[];
 }
 
 export function getStructuredDataSchemaByType(type: string): StructuredDataSchemaRegistryEntry | undefined {
-  return STRUCTURED_DATA_SCHEMA_BY_TYPE.get(type);
+  return STRUCTURED_DATA_SCHEMA_BY_TYPE.get(type) as unknown as StructuredDataSchemaRegistryEntry | undefined;
 }
 
 export function getStructuredDataSchemaBySchemaId(schemaIdValue: string): StructuredDataSchemaRegistryEntry | undefined {
-  return STRUCTURED_DATA_SCHEMA_BY_SCHEMA_ID.get(schemaIdValue);
+  return STRUCTURED_DATA_SCHEMA_BY_SCHEMA_ID.get(schemaIdValue) as unknown as StructuredDataSchemaRegistryEntry | undefined;
+}
+
+export function getStructuredDataSchemaAssetMap(): Readonly<Record<string, unknown>> {
+  return assetMap;
 }
 
 export function validateStructuredDataByType(type: string, value: unknown): StructuredDataValidationIssue[] {
   const entry = getStructuredDataSchemaByType(type);
-  return entry ? validateAgainstSchema(entry.schema, entry.schema, value, "data") : [];
+  if (!entry) return [];
+  return validateAgainstSchema(
+    entry.assetPath.replace(/^\.\//, "").replace(/^schemas\//, ""),
+    entry.schema as unknown as RuntimeSchema,
+    entry.schema as unknown as RuntimeSchema,
+    value,
+    "data",
+  );
 }
 
 export function validateStructuredDataBySchemaId(schemaIdValue: string, value: unknown): StructuredDataValidationIssue[] {
   const entry = getStructuredDataSchemaBySchemaId(schemaIdValue);
-  return entry ? validateAgainstSchema(entry.schema, entry.schema, value, "data") : [];
+  if (!entry) return [];
+  return validateAgainstSchema(
+    entry.assetPath.replace(/^\.\//, "").replace(/^schemas\//, ""),
+    entry.schema as unknown as RuntimeSchema,
+    entry.schema as unknown as RuntimeSchema,
+    value,
+    "data",
+  );
 }

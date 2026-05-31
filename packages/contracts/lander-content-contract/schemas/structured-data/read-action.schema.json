@@ -1,49 +1,132 @@
 {
+  "$id": "urn:groupsum:schemaorg:class:ReadAction",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.mdwrk.com/structured-data/read-action.schema.json",
-  "title": "Structured Data ReadAction Input",
+  "title": "ReadAction",
+  "description": "The act of consuming written content.",
   "type": "object",
-  "additionalProperties": false,
-  "required": [
-    "target"
-  ],
   "properties": {
+    "@context": {
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "const": "ReadAction"
+    },
+    "additionalType": {
+      "$ref": "../generated-schemaorg-full/properties/additionalType.schema.json",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"https://schema.org/docs/styleguide.html\">style guide</a>."
+    },
+    "alternateName": {
+      "$ref": "../generated-schemaorg-full/properties/alternateName.schema.json",
+      "description": "An alias for the item."
+    },
+    "description": {
+      "$ref": "../generated-schemaorg-full/properties/description.schema.json",
+      "description": "A description of the item."
+    },
+    "disambiguatingDescription": {
+      "$ref": "../generated-schemaorg-full/properties/disambiguatingDescription.schema.json",
+      "description": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."
+    },
+    "identifier": {
+      "$ref": "../generated-schemaorg-full/properties/identifier.schema.json",
+      "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        "
+    },
+    "image": {
+      "$ref": "../generated-schemaorg-full/properties/image.schema.json",
+      "description": "An image of the item. This can be a [[URL]] or a fully described [[ImageObject]]."
+    },
+    "mainEntityOfPage": {
+      "$ref": "../generated-schemaorg-full/properties/mainEntityOfPage.schema.json",
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details."
+    },
+    "name": {
+      "$ref": "../generated-schemaorg-full/properties/name.schema.json",
+      "description": "The name of the item."
+    },
+    "owner": {
+      "$ref": "../generated-schemaorg-full/properties/owner.schema.json",
+      "description": "A person or organization who owns this Thing."
+    },
+    "potentialAction": {
+      "$ref": "../generated-schemaorg-full/properties/potentialAction.schema.json",
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."
+    },
+    "sameAs": {
+      "$ref": "../generated-schemaorg-full/properties/sameAs.schema.json",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."
+    },
+    "subjectOf": {
+      "$ref": "../generated-schemaorg-full/properties/subjectOf.schema.json",
+      "description": "A CreativeWork or Event about this Thing."
+    },
+    "url": {
+      "$ref": "../generated-schemaorg-full/properties/url.schema.json",
+      "description": "URL of the item."
+    },
+    "actionProcess": {
+      "$ref": "../generated-schemaorg-full/properties/actionProcess.schema.json",
+      "description": "Description of the process by which the action was performed."
+    },
+    "actionStatus": {
+      "$ref": "../generated-schemaorg-full/properties/actionStatus.schema.json",
+      "description": "Indicates the current disposition of the Action."
+    },
+    "agent": {
+      "$ref": "../generated-schemaorg-full/properties/agent.schema.json",
+      "description": "The direct performer or driver of the action (animate or inanimate). E.g. *John* wrote a book."
+    },
+    "endTime": {
+      "$ref": "../generated-schemaorg-full/properties/endTime.schema.json",
+      "description": "The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. E.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\\n\\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions."
+    },
+    "error": {
+      "$ref": "../generated-schemaorg-full/properties/error.schema.json",
+      "description": "For failed actions, more information on the cause of the failure. Consider using the Error type."
+    },
+    "instrument": {
+      "$ref": "../generated-schemaorg-full/properties/instrument.schema.json",
+      "description": "The object that helped the agent perform the action. E.g. John wrote a book with *a pen*."
+    },
+    "location": {
+      "$ref": "../generated-schemaorg-full/properties/location.schema.json",
+      "description": "The location of, for example, where an event is happening, where an organization is located, or where an action takes place."
+    },
+    "object": {
+      "$ref": "../generated-schemaorg-full/properties/object.schema.json",
+      "description": "The object upon which the action is carried out, whose state is kept intact or changed. Also known as the semantic roles patient, affected or undergoer (which change their state) or theme (which doesn't). E.g. John read *a book*."
+    },
+    "participant": {
+      "$ref": "../generated-schemaorg-full/properties/participant.schema.json",
+      "description": "Other co-agents that participated in the action indirectly. E.g. John wrote a book with *Steve*."
+    },
+    "provider": {
+      "$ref": "../generated-schemaorg-full/properties/provider.schema.json",
+      "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
+    },
+    "result": {
+      "$ref": "../generated-schemaorg-full/properties/result.schema.json",
+      "description": "The result produced in the action. E.g. John wrote *a book*."
+    },
+    "startTime": {
+      "$ref": "../generated-schemaorg-full/properties/startTime.schema.json",
+      "description": "The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. E.g. John wrote a book from *January* to December. For media, including audio and video, it's the time offset of the start of a clip within a larger file.\\n\\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions."
+    },
     "target": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1
-        },
-        {
-          "$ref": "#/$defs/thingRef"
-        }
-      ]
+      "$ref": "../generated-schemaorg-full/properties/target.schema.json",
+      "description": "Indicates a target EntryPoint, or url, for an Action."
+    },
+    "actionAccessibilityRequirement": {
+      "$ref": "../generated-schemaorg-full/properties/actionAccessibilityRequirement.schema.json",
+      "description": "A set of requirements that must be fulfilled in order to perform an Action. If more than one value is specified, fulfilling one set of requirements will allow the Action to be performed."
+    },
+    "expectsAcceptanceOf": {
+      "$ref": "../generated-schemaorg-full/properties/expectsAcceptanceOf.schema.json",
+      "description": "An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it."
     }
   },
-  "$defs": {
-    "thingRef": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "thingRef",
-      "title": "Structured Data Thing Reference",
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      }
-    }
-  }
+  "required": [
+    "@type"
+  ],
+  "unevaluatedProperties": false,
+  "x-schemaorg-cardinality": "open-world"
 }

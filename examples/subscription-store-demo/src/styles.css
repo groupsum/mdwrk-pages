@@ -200,6 +200,28 @@ code {
   padding-left: 1rem;
 }
 
+.demo-cart-lines li {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 0.85rem;
+}
+
+.demo-cart-lines li > div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.demo-cart-lines button {
+  appearance: none;
+  border: 1px solid rgba(23, 32, 27, 0.12);
+  border-radius: 999px;
+  background: #f5f8fb;
+  padding: 0.35rem 0.7rem;
+  font: inherit;
+  cursor: pointer;
+}
+
 .demo-button {
   appearance: none;
   border: 0;
@@ -225,7 +247,7 @@ code {
 }
 
 .demo-code-block {
-  overflow-x: auto;
+  overflow-x: hidden;
   margin: 0;
   padding: 1rem;
   border-radius: 0.75rem;
@@ -233,6 +255,13 @@ code {
   color: #ecf2f7;
   font-size: 0.82rem;
   line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.demo-code-block code {
+  white-space: inherit;
 }
 
 .demo-result {

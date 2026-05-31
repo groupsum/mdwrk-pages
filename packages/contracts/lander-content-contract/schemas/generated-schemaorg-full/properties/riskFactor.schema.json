@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:riskFactor",
+  "$ref": "../types/MedicalRiskFactor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A modifiable or non-modifiable factor that increases the risk of a patient contracting this condition, e.g. age,  coexisting condition.",
+  "title": "riskFactor",
+  "x-schemaorg-cardinality": "open-world"
+}

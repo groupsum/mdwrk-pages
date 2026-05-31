@@ -1,0 +1,31 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MedicalScholarlyArticle",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "ScholarlyArticle.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MedicalScholarlyArticle"
+        },
+        "publicationType": {
+          "$ref": "../properties/publicationType.schema.json",
+          "description": "The type of the medical article, taken from the US NLM MeSH publication type catalog. See also [MeSH documentation](http://www.nlm.nih.gov/mesh/pubtypes.html)."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A scholarly article in the medical domain.",
+  "title": "MedicalScholarlyArticle"
+}

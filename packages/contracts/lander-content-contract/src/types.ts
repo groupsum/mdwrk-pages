@@ -1,4 +1,5 @@
 import { getStructuredDataSchemaByType, validateStructuredDataByType } from "./structured-data-schemas.js";
+import { GENERATED_SCHEMAORG_PAGE_FAMILY_KIND_NAMES } from "./generated-schemaorg-page-family-metadata.js";
 
 export type PageKind =
   | "home"
@@ -29,6 +30,7 @@ export type SectionKind =
   | "assessment";
 
 export interface AssetRef {
+  [key: string]: unknown;
   src: string;
   alt?: string;
   width?: number;
@@ -99,57 +101,7 @@ export interface PageSeoSpec {
   image?: AssetRef;
 }
 
-export type StructuredDataIntentKind =
-  | "AggregateRating"
-  | "Answer"
-  | "Article"
-  | "BlogPosting"
-  | "Book"
-  | "BroadcastEvent"
-  | "BreadcrumbList"
-  | "ClaimReview"
-  | "Clip"
-  | "Course"
-  | "CourseInstance"
-  | "Dataset"
-  | "DiscussionForumPosting"
-  | "EmployerAggregateRating"
-  | "Event"
-  | "FAQPage"
-  | "HowTo"
-  | "ImageObject"
-  | "ItemList"
-  | "JobPosting"
-  | "LearningResource"
-  | "LocalBusiness"
-  | "MathSolver"
-  | "MemberProgram"
-  | "MerchantReturnPolicy"
-  | "MonetaryAmountDistribution"
-  | "Movie"
-  | "NewsArticle"
-  | "OfferShippingDetails"
-  | "Organization"
-  | "Product"
-  | "ProductGroup"
-  | "ProfilePage"
-  | "QAPage"
-  | "Question"
-  | "Quiz"
-  | "ReadAction"
-  | "Recipe"
-  | "Review"
-  | "SolveMathAction"
-  | "SoftwareApplication"
-  | "SoftwareSourceCode"
-  | "SpeakableSpecification"
-  | "TechArticle"
-  | "VacationRental"
-  | "Vehicle"
-  | "VideoObject"
-  | "WebApplication"
-  | "WebPage"
-  | "WebSite";
+export type StructuredDataIntentKind = typeof GENERATED_SCHEMAORG_PAGE_FAMILY_KIND_NAMES[number];
 
 export type ComponentIntentKind =
   | SectionKind
@@ -168,13 +120,13 @@ export interface ComponentIntentSpec {
 export interface StructuredDataIntentSpec {
   id?: string;
   kind: StructuredDataIntentKind;
-  data?: Record<string, unknown>;
+  data?: unknown;
 }
 
 export interface SchemaSpec {
   id?: string;
   kind: StructuredDataIntentKind;
-  data?: Record<string, unknown>;
+  data?: unknown;
 }
 
 export interface FaqItem {
@@ -410,58 +362,9 @@ export interface LanderSite {
   ai?: AiDiscoverySpec;
 }
 
-export const STRUCTURED_DATA_INTENT_KINDS = Object.freeze([
-  "AggregateRating",
-  "Answer",
-  "Article",
-  "BlogPosting",
-  "Book",
-  "BroadcastEvent",
-  "BreadcrumbList",
-  "ClaimReview",
-  "Clip",
-  "Course",
-  "CourseInstance",
-  "Dataset",
-  "DiscussionForumPosting",
-  "EmployerAggregateRating",
-  "Event",
-  "FAQPage",
-  "HowTo",
-  "ImageObject",
-  "ItemList",
-  "JobPosting",
-  "LearningResource",
-  "LocalBusiness",
-  "MathSolver",
-  "MemberProgram",
-  "MerchantReturnPolicy",
-  "MonetaryAmountDistribution",
-  "Movie",
-  "NewsArticle",
-  "OfferShippingDetails",
-  "Organization",
-  "Product",
-  "ProductGroup",
-  "ProfilePage",
-  "QAPage",
-  "Question",
-  "Quiz",
-  "ReadAction",
-  "Recipe",
-  "Review",
-  "SolveMathAction",
-  "SoftwareApplication",
-  "SoftwareSourceCode",
-  "SpeakableSpecification",
-  "TechArticle",
-  "VacationRental",
-  "Vehicle",
-  "VideoObject",
-  "WebApplication",
-  "WebPage",
-  "WebSite",
-] as const satisfies readonly StructuredDataIntentKind[]);
+export const STRUCTURED_DATA_INTENT_KINDS = Object.freeze(
+  [...GENERATED_SCHEMAORG_PAGE_FAMILY_KIND_NAMES] as StructuredDataIntentKind[],
+);
 
 export const COMPONENT_INTENT_KINDS = Object.freeze([
   "hero",
@@ -499,7 +402,6 @@ export function validateStructuredDataIntent(intent: StructuredDataIntentSpec): 
   const failures: string[] = [];
   if (intent.id !== undefined && !String(intent.id).trim()) failures.push("structured-data intent id must be non-empty when provided");
   if (!isStructuredDataIntentKind(intent.kind)) failures.push(`unsupported structured-data intent kind: ${String(intent.kind)}`);
-  if (intent.data !== undefined && !isRecord(intent.data)) failures.push("structured-data intent data must be an object when provided");
   return failures;
 }
 

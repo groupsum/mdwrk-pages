@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasShippingService",
+  "$ref": "../types/ShippingService.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Specification of a shipping service offered by the organization.",
+  "title": "hasShippingService",
+  "x-schemaorg-cardinality": "open-world"
+}

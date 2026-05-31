@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:recipe",
+  "$ref": "../types/Recipe.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of instrument. The recipe/instructions used to perform the action.",
+  "title": "recipe",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:tocEntry",
+  "$ref": "../types/HyperTocEntry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Indicates a [[HyperTocEntry]] in a [[HyperToc]].",
+  "title": "tocEntry",
+  "x-schemaorg-cardinality": "open-world"
+}

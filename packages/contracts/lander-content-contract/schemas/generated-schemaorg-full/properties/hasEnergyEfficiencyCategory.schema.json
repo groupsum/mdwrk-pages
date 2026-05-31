@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:hasEnergyEfficiencyCategory",
+  "$ref": "../enumerations/EnergyEfficiencyEnumeration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Defines the energy efficiency Category (which could be either a rating out of range of values or a yes/no certification) for a product according to an international energy efficiency standard.",
+  "title": "hasEnergyEfficiencyCategory",
+  "x-schemaorg-cardinality": "open-world"
+}

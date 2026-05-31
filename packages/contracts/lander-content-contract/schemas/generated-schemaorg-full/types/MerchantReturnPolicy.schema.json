@@ -1,0 +1,115 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:MerchantReturnPolicy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "MerchantReturnPolicy"
+        },
+        "additionalProperty": {
+          "$ref": "../properties/additionalProperty.schema.json",
+          "description": "A property-value pair representing an additional characteristic of the entity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\\n\\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. https://schema.org/width, https://schema.org/color, https://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.\n"
+        },
+        "applicableCountry": {
+          "$ref": "../properties/applicableCountry.schema.json",
+          "description": "A country where a particular merchant return policy applies to, for example the two-letter ISO 3166-1 alpha-2 country code."
+        },
+        "customerRemorseReturnFees": {
+          "$ref": "../properties/customerRemorseReturnFees.schema.json",
+          "description": "The type of return fees if the product is returned due to customer remorse."
+        },
+        "customerRemorseReturnLabelSource": {
+          "$ref": "../properties/customerRemorseReturnLabelSource.schema.json",
+          "description": "The method (from an enumeration) by which the customer obtains a return shipping label for a product returned due to customer remorse."
+        },
+        "customerRemorseReturnShippingFeesAmount": {
+          "$ref": "../properties/customerRemorseReturnShippingFeesAmount.schema.json",
+          "description": "The amount of shipping costs if a product is returned due to customer remorse. Applicable when property [[customerRemorseReturnFees]] equals [[ReturnShippingFees]]."
+        },
+        "inStoreReturnsOffered": {
+          "$ref": "../properties/inStoreReturnsOffered.schema.json",
+          "description": "Are in-store returns offered? (For more advanced return methods use the [[returnMethod]] property.)"
+        },
+        "itemCondition": {
+          "$ref": "../properties/itemCondition.schema.json",
+          "description": "A predefined value from OfferItemCondition specifying the condition of the product or service, or the products or services included in the offer. Also used for product return policies to specify the condition of products accepted for returns."
+        },
+        "itemDefectReturnFees": {
+          "$ref": "../properties/itemDefectReturnFees.schema.json",
+          "description": "The type of return fees for returns of defect products."
+        },
+        "itemDefectReturnLabelSource": {
+          "$ref": "../properties/itemDefectReturnLabelSource.schema.json",
+          "description": "The method (from an enumeration) by which the customer obtains a return shipping label for a defect product."
+        },
+        "itemDefectReturnShippingFeesAmount": {
+          "$ref": "../properties/itemDefectReturnShippingFeesAmount.schema.json",
+          "description": "Amount of shipping costs for defect product returns. Applicable when property [[itemDefectReturnFees]] equals [[ReturnShippingFees]]."
+        },
+        "merchantReturnDays": {
+          "$ref": "../properties/merchantReturnDays.schema.json",
+          "description": "Specifies either a fixed return date or the number of days (from the delivery date) that a product can be returned. Used when the [[returnPolicyCategory]] property is specified as [[MerchantReturnFiniteReturnWindow]]."
+        },
+        "merchantReturnLink": {
+          "$ref": "../properties/merchantReturnLink.schema.json",
+          "description": "Specifies a Web page or service by URL, for product returns."
+        },
+        "refundType": {
+          "$ref": "../properties/refundType.schema.json",
+          "description": "A refund type, from an enumerated list."
+        },
+        "restockingFee": {
+          "$ref": "../properties/restockingFee.schema.json",
+          "description": "Use [[MonetaryAmount]] to specify a fixed restocking fee for product returns, or use [[Number]] to specify a percentage of the product price paid by the customer."
+        },
+        "returnFees": {
+          "$ref": "../properties/returnFees.schema.json",
+          "description": "The type of return fees for purchased products (for any return reason)."
+        },
+        "returnLabelSource": {
+          "$ref": "../properties/returnLabelSource.schema.json",
+          "description": "The method (from an enumeration) by which the customer obtains a return shipping label for a product returned for any reason."
+        },
+        "returnMethod": {
+          "$ref": "../properties/returnMethod.schema.json",
+          "description": "The type of return method offered, specified from an enumeration."
+        },
+        "returnPolicyCategory": {
+          "$ref": "../properties/returnPolicyCategory.schema.json",
+          "description": "Specifies an applicable return policy (from an enumeration)."
+        },
+        "returnPolicyCountry": {
+          "$ref": "../properties/returnPolicyCountry.schema.json",
+          "description": "The country where the product has to be sent to for returns, for example \"Ireland\" using the [[name]] property of [[Country]]. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1). Note that this can be different from the country where the product was originally shipped from or sent to."
+        },
+        "returnPolicySeasonalOverride": {
+          "$ref": "../properties/returnPolicySeasonalOverride.schema.json",
+          "description": "Seasonal override of a return policy."
+        },
+        "returnShippingFeesAmount": {
+          "$ref": "../properties/returnShippingFeesAmount.schema.json",
+          "description": "Amount of shipping costs for product returns (for any reason). Applicable when property [[returnFees]] equals [[ReturnShippingFees]]."
+        },
+        "validForMemberTier": {
+          "$ref": "../properties/validForMemberTier.schema.json",
+          "description": "The membership program tier(s) an Offer (or a PriceSpecification, OfferShippingDetails, or MerchantReturnPolicy under an Offer) is valid for."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A MerchantReturnPolicy provides information about product return policies associated with an [[Organization]], [[Product]], or [[Offer]].",
+  "title": "MerchantReturnPolicy"
+}

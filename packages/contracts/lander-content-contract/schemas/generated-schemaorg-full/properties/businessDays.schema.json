@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:businessDays",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Days of the week when the merchant typically operates, indicated via opening hours markup.",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/DayOfWeek.schema.json"
+    },
+    {
+      "$ref": "../types/OpeningHoursSpecification.schema.json"
+    }
+  ],
+  "title": "businessDays",
+  "x-schemaorg-cardinality": "open-world"
+}

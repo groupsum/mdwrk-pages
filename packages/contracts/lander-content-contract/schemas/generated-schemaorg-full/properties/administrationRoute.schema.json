@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:administrationRoute",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A route by which this drug may be administered, e.g. 'oral'.",
+  "title": "administrationRoute",
+  "x-schemaorg-cardinality": "open-world"
+}

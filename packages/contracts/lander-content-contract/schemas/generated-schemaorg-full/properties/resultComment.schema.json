@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:resultComment",
+  "$ref": "../types/Comment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A sub property of result. The Comment created or sent as a result of this action.",
+  "title": "resultComment",
+  "x-schemaorg-cardinality": "open-world"
+}

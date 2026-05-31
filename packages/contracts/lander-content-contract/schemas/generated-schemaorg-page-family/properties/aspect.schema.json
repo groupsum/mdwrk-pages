@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:aspect",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "An aspect of medical practice that is considered on the page, such as 'diagnosis', 'treatment', 'causes', 'prognosis', 'etiology', 'epidemiology', etc.",
+  "title": "aspect",
+  "x-schemaorg-cardinality": "open-world"
+}

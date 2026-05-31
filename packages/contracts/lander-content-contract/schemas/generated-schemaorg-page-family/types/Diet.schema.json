@@ -1,0 +1,50 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:Diet",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "CreativeWork.schema.json"
+    },
+    {
+      "$ref": "LifestyleModification.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "Diet"
+        },
+        "dietFeatures": {
+          "$ref": "../properties/dietFeatures.schema.json",
+          "description": "Nutritional information specific to the dietary plan. May include dietary recommendations on what foods to avoid, what foods to consume, and specific alterations/deviations from the USDA or other regulatory body's approved dietary guidelines."
+        },
+        "endorsers": {
+          "$ref": "../properties/endorsers.schema.json",
+          "description": "People or organizations that endorse the plan."
+        },
+        "expertConsiderations": {
+          "$ref": "../properties/expertConsiderations.schema.json",
+          "description": "Medical expert advice related to the plan."
+        },
+        "physiologicalBenefits": {
+          "$ref": "../properties/physiologicalBenefits.schema.json",
+          "description": "Specific physiologic benefits associated to the plan."
+        },
+        "risks": {
+          "$ref": "../properties/risks.schema.json",
+          "description": "Specific physiologic risks associated to the diet plan."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A strategy of regulating the intake of food to achieve or maintain a specific health-related goal.",
+  "title": "Diet"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:contentReferenceTime",
+  "$ref": "../datatypes/DateTime.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The specific time described by a creative work, for works (e.g. articles, video objects etc.) that emphasise a particular moment within an Event.",
+  "title": "contentReferenceTime",
+  "x-schemaorg-cardinality": "open-world"
+}

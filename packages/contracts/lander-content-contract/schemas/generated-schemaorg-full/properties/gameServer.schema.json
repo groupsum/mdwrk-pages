@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:gameServer",
+  "$ref": "../types/GameServer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The server on which  it is possible to play the game.",
+  "title": "gameServer",
+  "x-schemaorg-cardinality": "open-world"
+}

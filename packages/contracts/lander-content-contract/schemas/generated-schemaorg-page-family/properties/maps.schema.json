@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:maps",
+  "$ref": "../types/URL.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A URL to a map of the place.",
+  "title": "maps",
+  "x-schemaorg-cardinality": "open-world"
+}

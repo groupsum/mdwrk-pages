@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ConsumeAction",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Action.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ConsumeAction"
+        },
+        "actionAccessibilityRequirement": {
+          "$ref": "../properties/actionAccessibilityRequirement.schema.json",
+          "description": "A set of requirements that must be fulfilled in order to perform an Action. If more than one value is specified, fulfilling one set of requirements will allow the Action to be performed."
+        },
+        "expectsAcceptanceOf": {
+          "$ref": "../properties/expectsAcceptanceOf.schema.json",
+          "description": "An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The act of ingesting information/resources/food.",
+  "title": "ConsumeAction"
+}

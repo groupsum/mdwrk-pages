@@ -1,0 +1,75 @@
+:root {
+  --mdp-semantic-offer-catalog-padding: 1rem;
+  --mdp-semantic-offer-catalog-gap: 0.75rem;
+  --mdp-semantic-offer-catalog-radius: 1rem;
+  --mdp-semantic-offer-catalog-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
+  --mdp-semantic-offer-catalog-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-offer-catalog-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic--offer-catalog {
+  padding: var(--mdp-semantic-offer-catalog-padding);
+  gap: var(--mdp-semantic-offer-catalog-gap);
+  border-radius: var(--mdp-semantic-offer-catalog-radius);
+  background: var(--mdp-semantic-offer-catalog-surface);
+  border: 1px solid var(--mdp-semantic-offer-catalog-border);
+  box-shadow: var(--mdp-semantic-offer-catalog-shadow);
+}
+
+.lander-semantic--offer-catalog .lander-semantic__header,
+.lander-semantic--offer-catalog .lander-semantic__body,
+.lander-semantic--offer-catalog .lander-semantic__footer,
+.lander-semantic--offer-catalog .lander-semantic__actions {
+  gap: var(--mdp-semantic-offer-catalog-gap);
+}
+
+.lander-semantic--offer-catalog .lander-semantic__header,
+.lander-semantic--offer-catalog .lander-semantic__eyebrow,
+.lander-semantic--offer-catalog .lander-semantic__title,
+.lander-semantic--offer-catalog .lander-semantic__subtitle,
+.lander-semantic--offer-catalog .lander-semantic__description,
+.lander-semantic--offer-catalog .lander-semantic__meta,
+.lander-semantic--offer-catalog .lander-semantic__image,
+.lander-semantic--offer-catalog .lander-semantic__body,
+.lander-semantic--offer-catalog .lander-semantic__actions,
+.lander-semantic--offer-catalog .lander-semantic__footer {
+  align-self: stretch;
+}
+
+.lander-semantic--offer-catalog .lander-semantic__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lander-semantic--offer-catalog .lander-semantic__title {
+  margin: 0;
+}
+
+.lander-semantic--offer-catalog .lander-semantic__subtitle,
+.lander-semantic--offer-catalog .lander-semantic__description {
+  margin: 0;
+}
+
+.lander-semantic--offer-catalog .lander-semantic__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: calc(var(--mdp-semantic-offer-catalog-gap) * 0.8);
+}
+
+.lander-semantic--offer-catalog .lander-semantic__image {
+  border-radius: calc(var(--mdp-semantic-offer-catalog-radius) * 0.75);
+  overflow: clip;
+}
+
+.lander-semantic--offer-catalog .lander-semantic__body {
+  display: grid;
+}
+
+.lander-semantic--offer-catalog .lander-semantic__actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lander-semantic--offer-catalog .lander-semantic__footer {
+  color: rgba(15, 23, 42, 0.72);
+}

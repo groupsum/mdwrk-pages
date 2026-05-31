@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:assemblyVersion",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Associated product/technology version. E.g., .NET Framework 4.5.",
+  "title": "assemblyVersion",
+  "x-schemaorg-cardinality": "open-world"
+}

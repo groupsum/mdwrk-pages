@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:NLNonprofitType",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "NLNonprofitType: Non-profit organization type originating from the Netherlands.",
+  "enum": [],
+  "title": "NLNonprofitType",
+  "type": "string"
+}

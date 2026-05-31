@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:servicePostalAddress",
+  "$ref": "../types/PostalAddress.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The address for accessing the service by mail.",
+  "title": "servicePostalAddress",
+  "x-schemaorg-cardinality": "open-world"
+}

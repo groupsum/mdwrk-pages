@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:subtitleLanguage",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).",
+  "oneOf": [
+    {
+      "$ref": "../types/Language.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "subtitleLanguage",
+  "x-schemaorg-cardinality": "open-world"
+}

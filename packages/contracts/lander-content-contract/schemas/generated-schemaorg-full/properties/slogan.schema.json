@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:slogan",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A slogan or motto associated with the item.",
+  "title": "slogan",
+  "x-schemaorg-cardinality": "open-world"
+}

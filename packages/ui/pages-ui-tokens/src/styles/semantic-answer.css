@@ -23,4 +23,5 @@
 .lander-semantic--answer .lander-semantic__image { width: 100%; max-width: 100%; border-radius: 1rem; object-fit: cover; }
 .lander-semantic--answer .lander-semantic__body,
 .lander-semantic--answer .lander-semantic__actions { display: grid; gap: var(--mdwrk-space-3); }
+.lander-semantic--answer .lander-semantic__answer-kicker { width: fit-content; padding: 0.2rem 0.5rem; border-radius: 999px; background: rgba(196, 107, 22, 0.12); color: var(--mdp-semantic-answer-accent); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
 .lander-semantic--answer .lander-semantic__answer-prose { display: grid; gap: 0.7rem; padding-left: 1rem; border-left: 0.25rem solid color-mix(in srgb, var(--mdp-semantic-answer-accent) 35%, transparent); }

@@ -1,0 +1,39 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:BusinessAudience",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Audience.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "BusinessAudience"
+        },
+        "numberOfEmployees": {
+          "$ref": "../properties/numberOfEmployees.schema.json",
+          "description": "The number of employees in an organization, e.g. business."
+        },
+        "yearlyRevenue": {
+          "$ref": "../properties/yearlyRevenue.schema.json",
+          "description": "The size of the business in annual revenue."
+        },
+        "yearsInOperation": {
+          "$ref": "../properties/yearsInOperation.schema.json",
+          "description": "The age of the business."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A set of characteristics belonging to businesses, e.g. who compose an item's target audience.",
+  "title": "BusinessAudience"
+}

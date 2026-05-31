@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:vehicleIdentificationNumber",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The Vehicle Identification Number (VIN) is a unique serial number used by the automotive industry to identify individual motor vehicles.",
+  "title": "vehicleIdentificationNumber",
+  "x-schemaorg-cardinality": "open-world"
+}

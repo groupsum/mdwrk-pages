@@ -1,0 +1,35 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:PaymentChargeSpecification",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "PriceSpecification.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "PaymentChargeSpecification"
+        },
+        "appliesToDeliveryMethod": {
+          "$ref": "../properties/appliesToDeliveryMethod.schema.json",
+          "description": "The delivery method(s) to which the delivery charge or payment charge specification applies."
+        },
+        "appliesToPaymentMethod": {
+          "$ref": "../properties/appliesToPaymentMethod.schema.json",
+          "description": "The payment method(s) to which the payment charge specification applies."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "The costs of settling the payment using a particular payment method.",
+  "title": "PaymentChargeSpecification"
+}

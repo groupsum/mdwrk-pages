@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:error",
+  "$ref": "../types/Thing.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "For failed actions, more information on the cause of the failure. Consider using the Error type.",
+  "title": "error",
+  "x-schemaorg-cardinality": "open-world"
+}

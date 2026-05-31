@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:diseasePreventionInfo",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Information about disease prevention.",
+  "oneOf": [
+    {
+      "$ref": "../types/URL.schema.json"
+    },
+    {
+      "$ref": "../types/WebContent.schema.json"
+    }
+  ],
+  "title": "diseasePreventionInfo",
+  "x-schemaorg-cardinality": "open-world"
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:arrivalBoatTerminal",
+  "$ref": "../types/BoatTerminal.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The terminal or port from which the boat arrives.",
+  "title": "arrivalBoatTerminal",
+  "x-schemaorg-cardinality": "open-world"
+}

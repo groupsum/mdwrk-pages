@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:enumeration:WearableMeasurementTypeEnumeration",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enumerates common types of measurement for wearables products.",
+  "enum": [],
+  "title": "WearableMeasurementTypeEnumeration",
+  "type": "string"
+}

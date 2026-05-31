@@ -1,0 +1,55 @@
+{
+  "$id": "urn:groupsum:schemaorg:class:ActionAccessSpecification",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "Intangible.schema.json"
+    },
+    {
+      "properties": {
+        "@context": {
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "const": "ActionAccessSpecification"
+        },
+        "availabilityEnds": {
+          "$ref": "../properties/availabilityEnds.schema.json",
+          "description": "The end of the availability of the product or service included in the offer."
+        },
+        "availabilityStarts": {
+          "$ref": "../properties/availabilityStarts.schema.json",
+          "description": "The beginning of the availability of the product or service included in the offer."
+        },
+        "category": {
+          "$ref": "../properties/category.schema.json",
+          "description": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy."
+        },
+        "eligibleRegion": {
+          "$ref": "../properties/eligibleRegion.schema.json",
+          "description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\\n\\nSee also [[ineligibleRegion]].\n    "
+        },
+        "expectsAcceptanceOf": {
+          "$ref": "../properties/expectsAcceptanceOf.schema.json",
+          "description": "An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it."
+        },
+        "ineligibleRegion": {
+          "$ref": "../properties/ineligibleRegion.schema.json",
+          "description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\\n\\nSee also [[eligibleRegion]].\n      "
+        },
+        "requiresSubscription": {
+          "$ref": "../properties/requiresSubscription.schema.json",
+          "description": "Indicates if use of the media require a subscription  (either paid or free). Allowed values are ```true``` or ```false``` (note that an earlier version had 'yes', 'no')."
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false,
+      "x-schemaorg-cardinality": "open-world"
+    }
+  ],
+  "description": "A set of requirements that must be fulfilled in order to perform an Action.",
+  "title": "ActionAccessSpecification"
+}

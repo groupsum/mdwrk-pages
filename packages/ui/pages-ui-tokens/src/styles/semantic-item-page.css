@@ -1,0 +1,53 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdp-semantic-item-page-padding: 1.7rem;
+  --mdp-semantic-item-page-gap: 1rem;
+  --mdp-semantic-item-page-radius: 1.4rem;
+  --mdp-semantic-item-page-surface: linear-gradient(180deg, color-mix(in srgb, var(--lander-panel) 95%, #f6f0ff 5%), color-mix(in srgb, var(--lander-panel) 88%, #e6d8ff 12%));
+  --mdp-semantic-item-page-border: color-mix(in srgb, var(--lander-border) 70%, #8d63cb 30%);
+  --mdp-semantic-item-page-shadow: var(--mdwrk-shadow-strong);
+}
+
+.lander-semantic--item-page {
+  display: grid;
+  gap: var(--mdp-semantic-item-page-gap);
+  padding: var(--mdp-semantic-item-page-padding);
+  border: 1px solid var(--mdp-semantic-item-page-border);
+  border-radius: var(--mdp-semantic-item-page-radius);
+  background: var(--mdp-semantic-item-page-surface);
+  box-shadow: var(--mdp-semantic-item-page-shadow);
+}
+
+.lander-semantic--item-page .lander-semantic__header,
+.lander-semantic--item-page .lander-semantic__body,
+.lander-semantic--item-page .lander-semantic__actions,
+.lander-semantic--item-page .lander-semantic__footer,
+.lander-semantic--item-page .lander-semantic__meta {
+  display: grid;
+  gap: var(--mdwrk-space-3);
+}
+
+.lander-semantic--item-page .lander-semantic__eyebrow,
+.lander-semantic--item-page .lander-semantic__title,
+.lander-semantic--item-page .lander-semantic__subtitle,
+.lander-semantic--item-page .lander-semantic__description,
+.lander-semantic--item-page .lander-semantic__image {
+  margin: 0;
+}
+
+.lander-semantic--item-page .lander-semantic__page-fact-card {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem 1.05rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.lander-semantic--item-page .lander-semantic__page-fact-label {
+  color: #7a53b7;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}

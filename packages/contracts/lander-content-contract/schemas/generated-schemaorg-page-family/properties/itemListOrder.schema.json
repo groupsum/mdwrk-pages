@@ -1,0 +1,15 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:itemListOrder",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Type of ordering (e.g. Ascending, Descending, Unordered).",
+  "oneOf": [
+    {
+      "$ref": "../enumerations/ItemListOrderType.schema.json"
+    },
+    {
+      "$ref": "../datatypes/Text.schema.json"
+    }
+  ],
+  "title": "itemListOrder",
+  "x-schemaorg-cardinality": "open-world"
+}

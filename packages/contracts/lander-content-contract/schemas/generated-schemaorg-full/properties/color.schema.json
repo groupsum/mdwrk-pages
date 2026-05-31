@@ -1,0 +1,8 @@
+{
+  "$id": "urn:groupsum:schemaorg:property:color",
+  "$ref": "../datatypes/Text.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The color of the product.",
+  "title": "color",
+  "x-schemaorg-cardinality": "open-world"
+}
