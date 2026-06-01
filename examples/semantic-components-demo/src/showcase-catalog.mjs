@@ -476,8 +476,7 @@ function structuredFieldValueForGeneratedArtifact(artifact, props) {
 
   if (artifact.kind === "type" || artifact.kind === "property") {
     const fields = Object.fromEntries(fieldEntries);
-    if (artifact.kind === "type" && fields["@type"] === undefined) fields["@type"] = artifact.name;
-    return fields;
+    return { ...fields, "@type": artifact.name };
   }
 
   return { "@type": artifact.name, value: props?.value };

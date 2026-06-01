@@ -162,6 +162,17 @@ function StructuredFieldsPanel({ value }) {
   );
 }
 
+function composeComponentProps(props, structuredFields) {
+  if (!structuredFields) return props;
+  const structuredPanel = createElement(StructuredFieldsPanel, { value: structuredFields });
+  return {
+    ...props,
+    body: props?.body
+      ? createElement(React.Fragment, null, props.body, structuredPanel)
+      : structuredPanel,
+  };
+}
+
 function parseStateFromLocation() {
   if (typeof window === "undefined") return DEFAULT_STATE;
   const params = new URLSearchParams(window.location.search);
@@ -204,6 +215,7 @@ function writeStateToLocation(state) {
 function DemoCard({ name, exportName, description, props, structuredFields, tone = "type" }) {
   const Component = componentMap[exportName];
   if (!Component) return null;
+  const componentProps = composeComponentProps(props, structuredFields);
 
   return createElement(
     "article",
@@ -217,8 +229,7 @@ function DemoCard({ name, exportName, description, props, structuredFields, tone
       createElement("code", null, name),
       createElement("p", null, description),
     ),
-    createElement(Component, { ...props, className: "semantic-demo__card" }),
-    structuredFields ? createElement(StructuredFieldsPanel, { value: structuredFields }) : null,
+    createElement(Component, { ...componentProps, className: "semantic-demo__card" }),
   );
 }
 

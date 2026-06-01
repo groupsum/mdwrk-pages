@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import {
   buildGeneratedArtifactView,
   buildGovernedCoreGroups,
+  generatedArtifactEntries,
   highlightsView,
   qaViewLinks,
   showcaseModes,
@@ -50,4 +51,25 @@ test("T0: semantic components demo is a mode-driven explorer over the full gener
   assert.ok(!tokenStyles.includes("semantic-about-page.css"));
   assert.ok(!readme.includes("all `58`"));
   assert.ok(readme.includes("full generated surface"));
+});
+
+test("T0: every generated artifact exposes structured fields for the fused component surface", () => {
+  const byKind = new Map([
+    ["type", 0],
+    ["property", 0],
+    ["enumeration", 0],
+    ["datatype", 0],
+  ]);
+
+  for (const entry of generatedArtifactEntries) {
+    assert.ok(entry.structuredFields && typeof entry.structuredFields === "object", `${entry.name} must expose structured fields`);
+    assert.ok(Object.keys(entry.structuredFields).length > 0, `${entry.name} must expose at least one structured field`);
+    assert.equal(entry.structuredFields["@type"], entry.name, `${entry.name} structured fields must include @type`);
+    byKind.set(entry.artifactKind, (byKind.get(entry.artifactKind) ?? 0) + 1);
+  }
+
+  assert.equal(byKind.get("type"), showcaseStats.types);
+  assert.equal(byKind.get("property"), showcaseStats.properties);
+  assert.equal(byKind.get("enumeration"), showcaseStats.enumerations);
+  assert.equal(byKind.get("datatype"), showcaseStats.datatypes);
 });

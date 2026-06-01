@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { buildGeneratedArtifactView, highlightsView } from "../src/showcase-catalog.mjs";
+import { buildGeneratedArtifactView, generatedArtifactEntries, highlightsView } from "../src/showcase-catalog.mjs";
 import { importShowcaseComponent } from "./load-showcase-component.mjs";
 
 const { SemanticShowcase } = await importShowcaseComponent();
@@ -70,6 +70,42 @@ test("T1: generated type mode exposes structured fields for governed first-class
     "target Description",
   ]) {
     assert.ok(markup.includes(field), `expected generated surface markup to include ${field}`);
+  }
+});
+
+test("T1: every generated artifact kind renders JSON-LD and structured fields through the fused component card", () => {
+  const expectedTotals = new Map(
+    ["type", "property", "enumeration", "datatype"].map((kind) => [
+      kind,
+      generatedArtifactEntries.filter((entry) => entry.artifactKind === kind).length,
+    ]),
+  );
+
+  for (const kind of ["type", "property", "enumeration", "datatype"]) {
+    let renderedEntries = 0;
+    let renderedStructuredPanels = 0;
+    let renderedJsonLdScripts = 0;
+    const pageSize = 96;
+    const firstView = buildGeneratedArtifactView({ kind, pageSize });
+
+    for (let page = 1; page <= firstView.totalPages; page += 1) {
+      const view = buildGeneratedArtifactView({ kind, page, pageSize });
+      const markup = renderToStaticMarkup(
+        React.createElement(SemanticShowcase, { initialState: { mode: "generated-surface", kind, page, pageSize } }),
+      );
+      renderedEntries += view.entries.length;
+      renderedStructuredPanels += (markup.match(/semantic-demo__structured-panel/g) ?? []).length;
+      renderedJsonLdScripts += (markup.match(/application\/ld\+json/g) ?? []).length;
+
+      for (const entry of view.entries) {
+        const cardId = `artifact-${entry.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
+        assert.ok(markup.includes(cardId), `expected rendered card for ${entry.name}`);
+      }
+    }
+
+    assert.equal(renderedEntries, expectedTotals.get(kind), `expected to page through every ${kind} artifact`);
+    assert.equal(renderedStructuredPanels, expectedTotals.get(kind), `expected every ${kind} artifact to render structured fields`);
+    assert.ok(renderedJsonLdScripts >= expectedTotals.get(kind), `expected every ${kind} artifact to emit JSON-LD`);
   }
 });
 
