@@ -10,6 +10,18 @@
   --mdp-semantic-qa-page-accent: #2f7ef7;
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-qa-page-padding: 1.6rem;
+  --mdp-semantic-qa-page-gap: 1rem;
+  --mdp-semantic-qa-page-radius: 1.45rem;
+  --mdp-semantic-qa-page-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-qa-page-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-qa-page-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-qa-page-accent: #2f7ef7;
+}
+
 .lander-semantic--qa-page { display: grid; gap: var(--mdp-semantic-qa-page-gap); padding: var(--mdp-semantic-qa-page-padding); border: 1px solid var(--mdp-semantic-qa-page-border); border-radius: var(--mdp-semantic-qa-page-radius); background: var(--mdp-semantic-qa-page-surface); box-shadow: var(--mdp-semantic-qa-page-shadow); color: var(--lander-fg); }
 .lander-semantic--qa-page .lander-semantic__header { display: grid; gap: 0.8rem; }
 .lander-semantic--qa-page .lander-semantic__eyebrow { width: fit-content; margin: 0; padding: 0.25rem 0.65rem; border-radius: 999px; background: color-mix(in srgb, var(--mdp-semantic-qa-page-accent) 14%, white 86%); color: var(--mdp-semantic-qa-page-accent); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }

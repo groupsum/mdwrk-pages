@@ -7,6 +7,17 @@
   --mdp-semantic-renegotiable-loan-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-renegotiable-loan-padding: 1rem;
+  --mdp-semantic-renegotiable-loan-gap: 0.75rem;
+  --mdp-semantic-renegotiable-loan-radius: 1rem;
+  --mdp-semantic-renegotiable-loan-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-renegotiable-loan-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-renegotiable-loan-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--renegotiable-loan {
   padding: var(--mdp-semantic-renegotiable-loan-padding);
   gap: var(--mdp-semantic-renegotiable-loan-gap);

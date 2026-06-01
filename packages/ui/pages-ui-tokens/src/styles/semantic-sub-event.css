@@ -7,6 +7,17 @@
   --mdp-semantic-sub-event-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-sub-event-padding: 1rem;
+  --mdp-semantic-sub-event-gap: 0.75rem;
+  --mdp-semantic-sub-event-radius: 1rem;
+  --mdp-semantic-sub-event-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-sub-event-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-sub-event-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--sub-event {
   padding: var(--mdp-semantic-sub-event-padding);
   gap: var(--mdp-semantic-sub-event-gap);

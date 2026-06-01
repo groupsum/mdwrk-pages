@@ -16,6 +16,8 @@ function readCssFile(filename) {
   return readFileSync(resolve("src/styles", filename), "utf8");
 }
 
+const rootCss = readCssFile("root.css");
+
 function getSelectorBlocks(cssText) {
   return cssText
     .split("{")
@@ -79,5 +81,20 @@ test("T2: fused semantic CSS token ownership remains outside lander-theme", () =
       false,
       `lander-theme should not own fused semantic token family ${ownPrefix}`,
     );
+  }
+});
+
+test("T2: root token contract provides light and dark defaults for shared fonts and surfaces", () => {
+  assert.ok(rootCss.includes('--mdwrk-font-ui: "Atkinson Hyperlegible"'), "root.css should default UI typography to Atkinson Hyperlegible");
+  assert.ok(rootCss.includes('[data-lander-theme="lander-light"]'), "root.css should define light theme defaults");
+  assert.ok(rootCss.includes('[data-lander-theme="lander-dark"]'), "root.css should define dark theme defaults");
+  for (const tokenName of [
+    "--mdwrk-color-bg",
+    "--mdwrk-color-bg-panel",
+    "--mdwrk-color-text",
+    "--mdwrk-color-border",
+    "--mdwrk-color-accent",
+  ]) {
+    assert.ok(rootCss.includes(tokenName), `root.css should define ${tokenName}`);
   }
 });

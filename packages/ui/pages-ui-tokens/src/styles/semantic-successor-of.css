@@ -7,6 +7,17 @@
   --mdp-semantic-successor-of-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-successor-of-padding: 1rem;
+  --mdp-semantic-successor-of-gap: 0.75rem;
+  --mdp-semantic-successor-of-radius: 1rem;
+  --mdp-semantic-successor-of-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-successor-of-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-successor-of-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--successor-of {
   padding: var(--mdp-semantic-successor-of-padding);
   gap: var(--mdp-semantic-successor-of-gap);

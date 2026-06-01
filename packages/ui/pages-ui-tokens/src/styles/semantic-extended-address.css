@@ -7,6 +7,17 @@
   --mdp-semantic-extended-address-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-extended-address-padding: 1rem;
+  --mdp-semantic-extended-address-gap: 0.75rem;
+  --mdp-semantic-extended-address-radius: 1rem;
+  --mdp-semantic-extended-address-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-extended-address-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-extended-address-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--extended-address {
   padding: var(--mdp-semantic-extended-address-padding);
   gap: var(--mdp-semantic-extended-address-gap);

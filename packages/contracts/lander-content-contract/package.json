@@ -23,7 +23,8 @@
   ],
   "description": "Portable content contract types for product landing sites.",
   "scripts": {
-    "build": "node ./scripts/generate-schemaorg-vocabulary.mjs && node ./scripts/generate-structured-data-schemas.mjs && tsc -p tsconfig.json && node ./scripts/copy-schemas.mjs",
+    "generate:schemaorg": "node ./scripts/generate-schemaorg-vocabulary.mjs && node ./scripts/generate-structured-data-schemas.mjs",
+    "build": "tsc -p tsconfig.json && node ./scripts/copy-schemas.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "npm run typecheck",
     "test:schema-conformance": "npm run build && node --test tests/structured-data-schema-registry-t0.test.mjs tests/structured-data-schema-registry-t1.test.mjs tests/structured-data-schema-registry-t2.test.mjs tests/strict-structured-data-intent-validation-t0.test.mjs tests/strict-structured-data-intent-validation-t1.test.mjs tests/strict-structured-data-intent-validation-t2.test.mjs tests/google-active-type-schema-hardening-t0.test.mjs tests/google-active-type-schema-hardening-t1.test.mjs tests/google-active-type-schema-hardening-t2.test.mjs",

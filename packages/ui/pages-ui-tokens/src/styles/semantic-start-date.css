@@ -7,6 +7,17 @@
   --mdp-semantic-start-date-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-start-date-padding: 1rem;
+  --mdp-semantic-start-date-gap: 0.75rem;
+  --mdp-semantic-start-date-radius: 1rem;
+  --mdp-semantic-start-date-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-start-date-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-start-date-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--start-date {
   padding: var(--mdp-semantic-start-date-padding);
   gap: var(--mdp-semantic-start-date-gap);

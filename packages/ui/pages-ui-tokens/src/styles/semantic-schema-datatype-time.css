@@ -1,10 +1,23 @@
-:root {
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
   --mdp-semantic-schema-datatype-time-padding: 1rem;
   --mdp-semantic-schema-datatype-time-gap: 0.75rem;
   --mdp-semantic-schema-datatype-time-radius: 1rem;
-  --mdp-semantic-schema-datatype-time-surface: linear-gradient(180deg, rgba(172, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
-  --mdp-semantic-schema-datatype-time-border: rgba(172, 112, 255, 0.22);
+  --mdp-semantic-schema-datatype-time-surface: linear-gradient(180deg, rgba(47, 143, 110, 0.12), var(--mdwrk-color-bg-panel-strong));
+  --mdp-semantic-schema-datatype-time-border: rgba(47, 143, 110, 0.24);
   --mdp-semantic-schema-datatype-time-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-schema-datatype-time-padding: 1rem;
+  --mdp-semantic-schema-datatype-time-gap: 0.75rem;
+  --mdp-semantic-schema-datatype-time-radius: 1rem;
+  --mdp-semantic-schema-datatype-time-surface: linear-gradient(180deg, rgba(47, 143, 110, 0.18), var(--mdwrk-color-bg-panel-strong));
+  --mdp-semantic-schema-datatype-time-border: rgba(47, 143, 110, 0.32);
+  --mdp-semantic-schema-datatype-time-shadow: 0 24px 54px rgba(0, 0, 0, 0.34);
 }
 
 .lander-semantic--schema-datatype-time {
@@ -71,5 +84,5 @@
 }
 
 .lander-semantic--schema-datatype-time .lander-semantic__footer {
-  color: rgba(15, 23, 42, 0.72);
+  color: var(--mdwrk-color-text-muted);
 }

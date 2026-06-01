@@ -7,6 +7,17 @@
   --mdp-semantic-related-structure-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-related-structure-padding: 1rem;
+  --mdp-semantic-related-structure-gap: 0.75rem;
+  --mdp-semantic-related-structure-radius: 1rem;
+  --mdp-semantic-related-structure-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-related-structure-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-related-structure-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--related-structure {
   padding: var(--mdp-semantic-related-structure-padding);
   gap: var(--mdp-semantic-related-structure-gap);

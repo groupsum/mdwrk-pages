@@ -7,6 +7,17 @@
   --mdp-semantic-property-start-offset-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-start-offset-padding: 1rem;
+  --mdp-semantic-property-start-offset-gap: 0.75rem;
+  --mdp-semantic-property-start-offset-radius: 1rem;
+  --mdp-semantic-property-start-offset-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-start-offset-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-start-offset-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-start-offset {
   padding: var(--mdp-semantic-property-start-offset-padding);
   gap: var(--mdp-semantic-property-start-offset-gap);

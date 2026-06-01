@@ -7,6 +7,17 @@
   --mdp-semantic-release-date-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-release-date-padding: 1rem;
+  --mdp-semantic-release-date-gap: 0.75rem;
+  --mdp-semantic-release-date-radius: 1rem;
+  --mdp-semantic-release-date-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-release-date-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-release-date-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--release-date {
   padding: var(--mdp-semantic-release-date-padding);
   gap: var(--mdp-semantic-release-date-gap);

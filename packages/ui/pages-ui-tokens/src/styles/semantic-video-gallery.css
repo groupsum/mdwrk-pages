@@ -9,6 +9,17 @@
   --mdp-semantic-video-gallery-shadow: var(--mdwrk-shadow-strong);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-video-gallery-padding: 1.7rem;
+  --mdp-semantic-video-gallery-gap: 1rem;
+  --mdp-semantic-video-gallery-radius: 1.4rem;
+  --mdp-semantic-video-gallery-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-video-gallery-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-video-gallery-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--video-gallery {
   display: grid;
   gap: var(--mdp-semantic-video-gallery-gap);

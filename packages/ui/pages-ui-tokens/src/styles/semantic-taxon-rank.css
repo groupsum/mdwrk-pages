@@ -7,6 +7,17 @@
   --mdp-semantic-taxon-rank-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-taxon-rank-padding: 1rem;
+  --mdp-semantic-taxon-rank-gap: 0.75rem;
+  --mdp-semantic-taxon-rank-radius: 1rem;
+  --mdp-semantic-taxon-rank-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-taxon-rank-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-taxon-rank-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--taxon-rank {
   padding: var(--mdp-semantic-taxon-rank-padding);
   gap: var(--mdp-semantic-taxon-rank-gap);

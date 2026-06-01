@@ -7,6 +7,17 @@
   --mdp-semantic-property-review-aspect-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-review-aspect-padding: 1rem;
+  --mdp-semantic-property-review-aspect-gap: 0.75rem;
+  --mdp-semantic-property-review-aspect-radius: 1rem;
+  --mdp-semantic-property-review-aspect-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-review-aspect-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-review-aspect-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-review-aspect {
   padding: var(--mdp-semantic-property-review-aspect-padding);
   gap: var(--mdp-semantic-property-review-aspect-gap);

@@ -280,14 +280,27 @@ function chunk(items, size) {
 }
 
 function baselineCss(meta) {
-  const hue = meta.kind === "datatype" ? "172" : meta.kind === "enumeration" ? "28" : meta.kind === "property" ? "206" : "212";
-  return `:root {
+  const hue = meta.kind === "datatype" ? "47, 143, 110" : meta.kind === "enumeration" ? "213, 121, 31" : meta.kind === "property" ? "63, 140, 255" : "52, 113, 232";
+  return `:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
   --mdp-semantic-${meta.slug}-padding: 1rem;
   --mdp-semantic-${meta.slug}-gap: 0.75rem;
   --mdp-semantic-${meta.slug}-radius: 1rem;
-  --mdp-semantic-${meta.slug}-surface: linear-gradient(180deg, rgba(${hue}, ${meta.kind === "enumeration" ? "98, 46" : "112, 255"}, 0.08), rgba(255, 255, 255, 0.96));
-  --mdp-semantic-${meta.slug}-border: rgba(${hue}, ${meta.kind === "enumeration" ? "98, 46" : "112, 255"}, 0.22);
+  --mdp-semantic-${meta.slug}-surface: linear-gradient(180deg, rgba(${hue}, 0.12), var(--mdwrk-color-bg-panel-strong));
+  --mdp-semantic-${meta.slug}-border: rgba(${hue}, 0.24);
   --mdp-semantic-${meta.slug}-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-${meta.slug}-padding: 1rem;
+  --mdp-semantic-${meta.slug}-gap: 0.75rem;
+  --mdp-semantic-${meta.slug}-radius: 1rem;
+  --mdp-semantic-${meta.slug}-surface: linear-gradient(180deg, rgba(${hue}, 0.18), var(--mdwrk-color-bg-panel-strong));
+  --mdp-semantic-${meta.slug}-border: rgba(${hue}, 0.32);
+  --mdp-semantic-${meta.slug}-shadow: 0 24px 54px rgba(0, 0, 0, 0.34);
 }
 
 ${meta.shellSelector} {
@@ -354,7 +367,7 @@ ${meta.shellSelector} .lander-semantic__actions {
 }
 
 ${meta.shellSelector} .lander-semantic__footer {
-  color: rgba(15, 23, 42, 0.72);
+  color: var(--mdwrk-color-text-muted);
 }
 `;
 }

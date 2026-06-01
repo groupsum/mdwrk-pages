@@ -10,6 +10,18 @@
   --mdp-semantic-product-accent: #c47b07;
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-product-padding: 1.7rem;
+  --mdp-semantic-product-gap: 1.2rem;
+  --mdp-semantic-product-radius: 1.55rem;
+  --mdp-semantic-product-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-product-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-product-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-product-accent: #c47b07;
+}
+
 .lander-semantic--product {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(14rem, 1fr);

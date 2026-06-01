@@ -7,6 +7,17 @@
   --mdp-semantic-property-company-registration-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-company-registration-padding: 1rem;
+  --mdp-semantic-property-company-registration-gap: 0.75rem;
+  --mdp-semantic-property-company-registration-radius: 1rem;
+  --mdp-semantic-property-company-registration-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-company-registration-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-company-registration-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-company-registration {
   padding: var(--mdp-semantic-property-company-registration-padding);
   gap: var(--mdp-semantic-property-company-registration-gap);

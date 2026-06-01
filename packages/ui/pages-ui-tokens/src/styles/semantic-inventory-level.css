@@ -7,6 +7,17 @@
   --mdp-semantic-inventory-level-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-inventory-level-padding: 1rem;
+  --mdp-semantic-inventory-level-gap: 0.75rem;
+  --mdp-semantic-inventory-level-radius: 1rem;
+  --mdp-semantic-inventory-level-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-inventory-level-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-inventory-level-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--inventory-level {
   padding: var(--mdp-semantic-inventory-level-padding);
   gap: var(--mdp-semantic-inventory-level-gap);

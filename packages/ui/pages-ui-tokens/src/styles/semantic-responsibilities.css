@@ -7,6 +7,17 @@
   --mdp-semantic-responsibilities-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-responsibilities-padding: 1rem;
+  --mdp-semantic-responsibilities-gap: 0.75rem;
+  --mdp-semantic-responsibilities-radius: 1rem;
+  --mdp-semantic-responsibilities-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-responsibilities-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-responsibilities-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--responsibilities {
   padding: var(--mdp-semantic-responsibilities-padding);
   gap: var(--mdp-semantic-responsibilities-gap);

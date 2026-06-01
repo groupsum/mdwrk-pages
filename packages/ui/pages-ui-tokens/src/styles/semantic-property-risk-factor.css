@@ -7,6 +7,17 @@
   --mdp-semantic-property-risk-factor-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-risk-factor-padding: 1rem;
+  --mdp-semantic-property-risk-factor-gap: 0.75rem;
+  --mdp-semantic-property-risk-factor-radius: 1rem;
+  --mdp-semantic-property-risk-factor-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-risk-factor-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-risk-factor-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-risk-factor {
   padding: var(--mdp-semantic-property-risk-factor-padding);
   gap: var(--mdp-semantic-property-risk-factor-gap);

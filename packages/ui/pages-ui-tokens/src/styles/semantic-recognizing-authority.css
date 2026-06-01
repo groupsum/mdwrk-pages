@@ -7,6 +7,17 @@
   --mdp-semantic-recognizing-authority-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-recognizing-authority-padding: 1rem;
+  --mdp-semantic-recognizing-authority-gap: 0.75rem;
+  --mdp-semantic-recognizing-authority-radius: 1rem;
+  --mdp-semantic-recognizing-authority-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-recognizing-authority-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-recognizing-authority-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--recognizing-authority {
   padding: var(--mdp-semantic-recognizing-authority-padding);
   gap: var(--mdp-semantic-recognizing-authority-gap);

@@ -7,6 +7,17 @@
   --mdp-semantic-property-restocking-fee-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-restocking-fee-padding: 1rem;
+  --mdp-semantic-property-restocking-fee-gap: 0.75rem;
+  --mdp-semantic-property-restocking-fee-radius: 1rem;
+  --mdp-semantic-property-restocking-fee-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-restocking-fee-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-restocking-fee-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-restocking-fee {
   padding: var(--mdp-semantic-property-restocking-fee-padding);
   gap: var(--mdp-semantic-property-restocking-fee-gap);

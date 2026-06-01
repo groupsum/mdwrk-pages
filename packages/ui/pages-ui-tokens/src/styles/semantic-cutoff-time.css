@@ -7,6 +7,17 @@
   --mdp-semantic-cutoff-time-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-cutoff-time-padding: 1rem;
+  --mdp-semantic-cutoff-time-gap: 0.75rem;
+  --mdp-semantic-cutoff-time-radius: 1rem;
+  --mdp-semantic-cutoff-time-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-cutoff-time-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-cutoff-time-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--cutoff-time {
   padding: var(--mdp-semantic-cutoff-time-padding);
   gap: var(--mdp-semantic-cutoff-time-gap);

@@ -7,6 +7,17 @@
   --mdp-semantic-property-order-value-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-order-value-padding: 1rem;
+  --mdp-semantic-property-order-value-gap: 0.75rem;
+  --mdp-semantic-property-order-value-radius: 1rem;
+  --mdp-semantic-property-order-value-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-order-value-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-order-value-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-order-value {
   padding: var(--mdp-semantic-property-order-value-padding);
   gap: var(--mdp-semantic-property-order-value-gap);

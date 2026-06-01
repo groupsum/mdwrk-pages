@@ -10,6 +10,18 @@
   --mdp-semantic-broadcast-event-accent: #d73d3d;
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-broadcast-event-padding: 1.45rem;
+  --mdp-semantic-broadcast-event-gap: 0.95rem;
+  --mdp-semantic-broadcast-event-radius: 1.4rem;
+  --mdp-semantic-broadcast-event-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-broadcast-event-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-broadcast-event-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-broadcast-event-accent: #d73d3d;
+}
+
 .lander-semantic--broadcast-event { display: grid; gap: var(--mdp-semantic-broadcast-event-gap); padding: var(--mdp-semantic-broadcast-event-padding); border: 1px solid var(--mdp-semantic-broadcast-event-border); border-radius: var(--mdp-semantic-broadcast-event-radius); background: var(--mdp-semantic-broadcast-event-surface); box-shadow: var(--mdp-semantic-broadcast-event-shadow); color: var(--lander-fg); }
 .lander-semantic--broadcast-event .lander-semantic__header { display: grid; gap: 0.7rem; }
 .lander-semantic--broadcast-event .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-broadcast-event-accent); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }

@@ -9,6 +9,17 @@
   --mdp-semantic-web-application-shadow: var(--mdwrk-shadow-strong);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-web-application-padding: 1.6rem;
+  --mdp-semantic-web-application-gap: 1rem;
+  --mdp-semantic-web-application-radius: 1.45rem;
+  --mdp-semantic-web-application-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-web-application-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-web-application-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--web-application { display:grid; gap:var(--mdp-semantic-web-application-gap); padding:var(--mdp-semantic-web-application-padding); border:1px solid var(--mdp-semantic-web-application-border); border-radius:var(--mdp-semantic-web-application-radius); background:var(--mdp-semantic-web-application-surface); box-shadow:var(--mdp-semantic-web-application-shadow); color:var(--lander-fg); }
 .lander-semantic--web-application .lander-semantic__header,
 .lander-semantic--web-application .lander-semantic__body,

@@ -9,6 +9,17 @@
   --mdp-semantic-vehicle-shadow: var(--mdwrk-shadow-strong);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-vehicle-padding: 1.6rem;
+  --mdp-semantic-vehicle-gap: 1rem;
+  --mdp-semantic-vehicle-radius: 1.45rem;
+  --mdp-semantic-vehicle-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-vehicle-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-vehicle-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--vehicle { display:grid; gap:var(--mdp-semantic-vehicle-gap); padding:var(--mdp-semantic-vehicle-padding); border:1px solid var(--mdp-semantic-vehicle-border); border-radius:var(--mdp-semantic-vehicle-radius); background:var(--mdp-semantic-vehicle-surface); box-shadow:var(--mdp-semantic-vehicle-shadow); color:var(--lander-fg); }
 .lander-semantic--vehicle .lander-semantic__header,
 .lander-semantic--vehicle .lander-semantic__body,

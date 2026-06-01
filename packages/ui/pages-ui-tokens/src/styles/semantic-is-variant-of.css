@@ -7,6 +7,17 @@
   --mdp-semantic-is-variant-of-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-is-variant-of-padding: 1rem;
+  --mdp-semantic-is-variant-of-gap: 0.75rem;
+  --mdp-semantic-is-variant-of-radius: 1rem;
+  --mdp-semantic-is-variant-of-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-is-variant-of-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-is-variant-of-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--is-variant-of {
   padding: var(--mdp-semantic-is-variant-of-padding);
   gap: var(--mdp-semantic-is-variant-of-gap);

@@ -7,6 +7,17 @@
   --mdp-semantic-part-of-system-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-part-of-system-padding: 1rem;
+  --mdp-semantic-part-of-system-gap: 0.75rem;
+  --mdp-semantic-part-of-system-radius: 1rem;
+  --mdp-semantic-part-of-system-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-part-of-system-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-part-of-system-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--part-of-system {
   padding: var(--mdp-semantic-part-of-system-padding);
   gap: var(--mdp-semantic-part-of-system-gap);

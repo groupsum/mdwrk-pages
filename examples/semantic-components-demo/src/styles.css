@@ -1,11 +1,71 @@
 :root {
   color-scheme: light;
-  font-family: "Avenir Next", "Segoe UI", sans-serif;
-  background:
+  font-family: var(--mdwrk-font-ui);
+  --semantic-demo-page-bg:
     radial-gradient(circle at top left, rgba(255, 210, 132, 0.18), transparent 28rem),
     radial-gradient(circle at top right, rgba(89, 145, 242, 0.16), transparent 34rem),
     linear-gradient(180deg, #f5efe3 0%, #eef4ee 48%, #edf1f8 100%);
-  color: #17201b;
+  --semantic-demo-panel-bg:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(245, 251, 247, 0.82)),
+    radial-gradient(circle at top right, rgba(69, 156, 128, 0.14), transparent 18rem);
+  --semantic-demo-panel-soft: var(--mdwrk-color-bg-panel);
+  --semantic-demo-panel-strong: var(--mdwrk-color-bg-panel-strong);
+  --semantic-demo-panel-muted: rgba(255, 255, 255, 0.58);
+  --semantic-demo-panel-entry: rgba(255, 255, 255, 0.56);
+  --semantic-demo-text: var(--mdwrk-color-text);
+  --semantic-demo-text-muted: var(--mdwrk-color-text-muted);
+  --semantic-demo-text-subtle: var(--mdwrk-color-text-subtle);
+  --semantic-demo-border: var(--mdwrk-color-border);
+  --semantic-demo-border-strong: var(--mdwrk-color-border-strong);
+  --semantic-demo-accent: #2f735f;
+  --semantic-demo-accent-strong: #184e40;
+  --semantic-demo-accent-soft: rgba(47, 115, 95, 0.12);
+  --semantic-demo-property-accent: #1b4d8b;
+  --semantic-demo-property-soft: rgba(63, 140, 255, 0.12);
+  --semantic-demo-enumeration-accent: #7d430a;
+  --semantic-demo-enumeration-soft: rgba(213, 121, 31, 0.12);
+  --semantic-demo-datatype-accent: #165b46;
+  --semantic-demo-datatype-soft: rgba(47, 143, 110, 0.12);
+  --semantic-demo-hero-bar: linear-gradient(90deg, #d5791f, #3f8cff, #2f8f6e);
+  --semantic-demo-shadow: 0 1.8rem 4rem rgba(23, 32, 27, 0.08);
+  --semantic-demo-shadow-soft: 0 1.2rem 3rem rgba(23, 32, 27, 0.06);
+  background:
+    var(--semantic-demo-page-bg);
+  color: var(--semantic-demo-text);
+}
+
+:root[data-lander-theme="lander-dark"],
+[data-lander-theme="lander-dark"],
+.dark {
+  color-scheme: dark;
+  --semantic-demo-page-bg:
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.16), transparent 24rem),
+    radial-gradient(circle at top right, rgba(96, 165, 250, 0.18), transparent 30rem),
+    linear-gradient(180deg, #081018 0%, #0c1620 48%, #101c28 100%);
+  --semantic-demo-panel-bg:
+    linear-gradient(135deg, rgba(10, 18, 28, 0.96), rgba(15, 28, 40, 0.9)),
+    radial-gradient(circle at top right, rgba(93, 217, 176, 0.12), transparent 18rem);
+  --semantic-demo-panel-soft: rgba(13, 20, 30, 0.86);
+  --semantic-demo-panel-strong: rgba(16, 24, 36, 0.96);
+  --semantic-demo-panel-muted: rgba(16, 24, 36, 0.72);
+  --semantic-demo-panel-entry: rgba(18, 27, 38, 0.78);
+  --semantic-demo-text: var(--mdwrk-color-text);
+  --semantic-demo-text-muted: var(--mdwrk-color-text-muted);
+  --semantic-demo-text-subtle: var(--mdwrk-color-text-subtle);
+  --semantic-demo-border: var(--mdwrk-color-border);
+  --semantic-demo-border-strong: var(--mdwrk-color-border-strong);
+  --semantic-demo-accent: #7dd3b0;
+  --semantic-demo-accent-strong: #b4f5d7;
+  --semantic-demo-accent-soft: rgba(125, 211, 176, 0.16);
+  --semantic-demo-property-accent: #7ec0ff;
+  --semantic-demo-property-soft: rgba(96, 165, 250, 0.16);
+  --semantic-demo-enumeration-accent: #f6ba73;
+  --semantic-demo-enumeration-soft: rgba(245, 158, 11, 0.16);
+  --semantic-demo-datatype-accent: #8fe7bf;
+  --semantic-demo-datatype-soft: rgba(93, 217, 176, 0.16);
+  --semantic-demo-hero-bar: linear-gradient(90deg, #f59e0b, #60a5fa, #5dd9b0);
+  --semantic-demo-shadow: 0 1.8rem 4rem rgba(0, 0, 0, 0.28);
+  --semantic-demo-shadow-soft: 0 1.2rem 3rem rgba(0, 0, 0, 0.24);
 }
 
 * {
@@ -15,10 +75,13 @@
 body {
   margin: 0;
   min-height: 100vh;
+  font-family: var(--mdwrk-font-ui);
+  background: var(--semantic-demo-page-bg);
+  color: var(--semantic-demo-text);
 }
 
 code {
-  font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  font-family: var(--mdwrk-font-mono);
 }
 
 #root {
@@ -29,6 +92,7 @@ code {
   width: min(1760px, calc(100% - 2rem));
   margin: 0 auto;
   padding: 1.25rem 0 4rem;
+  color: var(--semantic-demo-text);
 }
 
 .semantic-demo__hero {
@@ -36,12 +100,10 @@ code {
   display: grid;
   gap: 1.2rem;
   padding: 1.75rem;
-  border: 1px solid rgba(23, 32, 27, 0.12);
+  border: 1px solid var(--semantic-demo-border);
   border-radius: 1.75rem;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(245, 251, 247, 0.82)),
-    radial-gradient(circle at top right, rgba(69, 156, 128, 0.14), transparent 18rem);
-  box-shadow: 0 1.8rem 4rem rgba(23, 32, 27, 0.08);
+  background: var(--semantic-demo-panel-bg);
+  box-shadow: var(--semantic-demo-shadow);
   overflow: hidden;
 }
 
@@ -50,7 +112,7 @@ code {
   position: absolute;
   inset: auto 0 0;
   height: 0.45rem;
-  background: linear-gradient(90deg, #d5791f, #3f8cff, #2f8f6e);
+  background: var(--semantic-demo-hero-bar);
 }
 
 .semantic-demo__hero-copy {
@@ -61,6 +123,7 @@ code {
 .semantic-demo__hero h1,
 .semantic-demo__family-header h2 {
   margin: 0;
+  color: inherit;
 }
 
 .semantic-demo__hero h1 {
@@ -73,7 +136,7 @@ code {
 .semantic-demo__lede {
   max-width: 72rem;
   margin: 0;
-  color: #42534a;
+  color: var(--semantic-demo-text-muted);
   line-height: 1.6;
   font-size: 1.02rem;
 }
@@ -88,8 +151,8 @@ code {
 .semantic-demo__summary div {
   padding: 1rem 1.05rem;
   border-radius: 1.1rem;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(23, 32, 27, 0.08);
+  background: var(--semantic-demo-panel-soft);
+  border: 1px solid var(--semantic-demo-border);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
@@ -98,13 +161,14 @@ code {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #567564;
+  color: var(--semantic-demo-text-subtle);
 }
 
 .semantic-demo__summary dd {
   margin: 0.35rem 0 0;
   font-size: 1.25rem;
   font-weight: 800;
+  color: inherit;
 }
 
 .semantic-demo__mode-switcher,
@@ -124,9 +188,9 @@ code {
   min-height: 2.7rem;
   padding: 0.72rem 1rem;
   border-radius: 999px;
-  border: 1px solid rgba(23, 32, 27, 0.12);
-  background: rgba(255, 255, 255, 0.85);
-  color: #17201b;
+  border: 1px solid var(--semantic-demo-border);
+  background: var(--semantic-demo-panel-strong);
+  color: var(--semantic-demo-text);
   font: inherit;
   font-weight: 700;
   text-decoration: none;
@@ -138,13 +202,13 @@ code {
 .semantic-demo__pager button:hover:not(:disabled),
 .semantic-demo__qa-link-grid a:hover {
   transform: translateY(-1px);
-  border-color: rgba(23, 32, 27, 0.22);
+  border-color: var(--semantic-demo-border-strong);
 }
 
 .semantic-demo__mode-switcher .is-active {
-  background: #17201b;
-  color: #f7faf7;
-  border-color: #17201b;
+  background: var(--semantic-demo-text);
+  color: var(--mdwrk-color-text-inverse);
+  border-color: var(--semantic-demo-text);
 }
 
 .semantic-demo__pager button:disabled {
@@ -170,7 +234,7 @@ code {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #567564;
+  color: var(--semantic-demo-text-subtle);
 }
 
 .semantic-demo__control {
@@ -179,12 +243,12 @@ code {
   align-items: center;
   min-height: 3.35rem;
   border-radius: 1.1rem;
-  border: 1px solid rgba(23, 32, 27, 0.12);
+  border: 1px solid var(--semantic-demo-border);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 251, 247, 0.82));
+    linear-gradient(180deg, var(--semantic-demo-panel-strong), var(--semantic-demo-panel-soft));
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 0.45rem 1.2rem rgba(23, 32, 27, 0.06);
+    0 0.45rem 1.2rem rgba(15, 23, 42, 0.08);
   transition:
     border-color 140ms ease,
     box-shadow 140ms ease,
@@ -192,14 +256,14 @@ code {
 }
 
 .semantic-demo__control:hover {
-  border-color: rgba(23, 32, 27, 0.2);
+  border-color: var(--semantic-demo-border-strong);
 }
 
 .semantic-demo__control:focus-within {
-  border-color: rgba(47, 115, 95, 0.42);
+  border-color: var(--semantic-demo-accent);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.92),
-    0 0 0 0.22rem rgba(63, 140, 255, 0.12),
+    0 0 0 0.22rem var(--mdwrk-color-focus),
     0 0.65rem 1.5rem rgba(23, 32, 27, 0.08);
 }
 
@@ -211,7 +275,7 @@ code {
   padding: 0.9rem 1rem;
   border: 0;
   background: transparent;
-  color: #17201b;
+  color: var(--semantic-demo-text);
   font: inherit;
   outline: 0;
 }
@@ -235,7 +299,7 @@ code {
   justify-content: center;
   width: 1.1rem;
   height: 1.1rem;
-  color: #2f735f;
+  color: var(--semantic-demo-accent);
   flex: 0 0 auto;
 }
 
@@ -245,7 +309,7 @@ code {
 }
 
 .semantic-demo__field input::placeholder {
-  color: #7a8f84;
+  color: var(--semantic-demo-text-subtle);
 }
 
 .semantic-demo__field input[type="search"]::-webkit-search-decoration,
@@ -273,7 +337,7 @@ code {
   align-items: center;
   justify-content: center;
   width: 3.1rem;
-  color: #466458;
+  color: var(--semantic-demo-text-subtle);
   pointer-events: none;
 }
 
@@ -289,7 +353,7 @@ code {
   bottom: 0.7rem;
   right: 3.1rem;
   width: 1px;
-  background: rgba(23, 32, 27, 0.08);
+  background: var(--semantic-demo-border);
 }
 
 .semantic-demo__qa-links {
@@ -297,8 +361,8 @@ code {
   gap: 0.7rem;
   padding: 1rem 1.05rem;
   border-radius: 1.2rem;
-  background: rgba(255, 255, 255, 0.58);
-  border: 1px solid rgba(23, 32, 27, 0.08);
+  background: var(--semantic-demo-panel-muted);
+  border: 1px solid var(--semantic-demo-border);
 }
 
 .semantic-demo__families {
@@ -312,10 +376,10 @@ code {
   display: grid;
   gap: 1.1rem;
   padding: 1.35rem;
-  border: 1px solid rgba(23, 32, 27, 0.12);
+  border: 1px solid var(--semantic-demo-border);
   border-radius: 1.5rem;
-  background: rgba(255, 255, 255, 0.76);
-  box-shadow: 0 1.2rem 3rem rgba(23, 32, 27, 0.06);
+  background: var(--semantic-demo-panel-soft);
+  box-shadow: var(--semantic-demo-shadow-soft);
   overflow: hidden;
 }
 
@@ -324,7 +388,7 @@ code {
   position: absolute;
   inset: 0 auto 0 0;
   width: 0.55rem;
-  background: linear-gradient(180deg, rgba(47, 115, 95, 0.32), transparent);
+  background: linear-gradient(180deg, var(--semantic-demo-accent-soft), transparent);
 }
 
 .semantic-demo__family-header {
@@ -341,7 +405,7 @@ code {
 .semantic-demo__generated-status p,
 .semantic-demo__entry-meta p {
   margin: 0;
-  color: #42534a;
+  color: var(--semantic-demo-text-muted);
   line-height: 1.55;
 }
 
@@ -352,7 +416,7 @@ code {
 
 .semantic-demo__kicker {
   margin: 0;
-  color: #2f735f;
+  color: var(--semantic-demo-accent);
   font-size: 0.78rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -367,8 +431,8 @@ code {
   gap: 0.8rem;
   padding: 0.85rem 1rem;
   border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.58);
-  border: 1px solid rgba(23, 32, 27, 0.08);
+  background: var(--semantic-demo-panel-muted);
+  border: 1px solid var(--semantic-demo-border);
 }
 
 .semantic-demo__grid {
@@ -397,16 +461,16 @@ code {
   min-width: 0;
   padding: 1rem;
   border-radius: 1.25rem;
-  background: rgba(255, 255, 255, 0.56);
-  border: 1px solid rgba(23, 32, 27, 0.08);
+  background: var(--semantic-demo-panel-entry);
+  border: 1px solid var(--semantic-demo-border);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
 }
 
 .semantic-demo__entry--tone-property {
   padding: 0.85rem;
   background:
-    linear-gradient(180deg, rgba(240, 248, 255, 0.86), rgba(255, 255, 255, 0.92));
-  border-color: rgba(63, 140, 255, 0.14);
+    linear-gradient(180deg, rgba(63, 140, 255, 0.12), var(--semantic-demo-panel-strong));
+  border-color: rgba(63, 140, 255, 0.24);
 }
 
 .semantic-demo__entry--tone-property,
@@ -464,14 +528,14 @@ code {
 
 .semantic-demo__entry--tone-enumeration {
   background:
-    linear-gradient(180deg, rgba(255, 246, 233, 0.92), rgba(255, 255, 255, 0.92));
-  border-color: rgba(213, 121, 31, 0.16);
+    linear-gradient(180deg, rgba(213, 121, 31, 0.12), var(--semantic-demo-panel-strong));
+  border-color: rgba(213, 121, 31, 0.24);
 }
 
 .semantic-demo__entry--tone-datatype {
   background:
-    linear-gradient(180deg, rgba(236, 255, 249, 0.92), rgba(255, 255, 255, 0.92));
-  border-color: rgba(47, 143, 110, 0.16);
+    linear-gradient(180deg, rgba(47, 143, 110, 0.12), var(--semantic-demo-panel-strong));
+  border-color: rgba(47, 143, 110, 0.24);
 }
 
 .semantic-demo__entry-meta {
@@ -484,25 +548,25 @@ code {
   width: fit-content;
   padding: 0.24rem 0.58rem;
   border-radius: 999px;
-  background: rgba(47, 115, 95, 0.12);
-  color: #184e40;
+  background: var(--semantic-demo-accent-soft);
+  color: var(--semantic-demo-accent-strong);
   font-size: 0.78rem;
   font-weight: 700;
 }
 
 .semantic-demo__entry--tone-property .semantic-demo__entry-meta code {
-  background: rgba(63, 140, 255, 0.12);
-  color: #1b4d8b;
+  background: var(--semantic-demo-property-soft);
+  color: var(--semantic-demo-property-accent);
 }
 
 .semantic-demo__entry--tone-enumeration .semantic-demo__entry-meta code {
-  background: rgba(213, 121, 31, 0.12);
-  color: #7d430a;
+  background: var(--semantic-demo-enumeration-soft);
+  color: var(--semantic-demo-enumeration-accent);
 }
 
 .semantic-demo__entry--tone-datatype .semantic-demo__entry-meta code {
-  background: rgba(47, 143, 110, 0.12);
-  color: #165b46;
+  background: var(--semantic-demo-datatype-soft);
+  color: var(--semantic-demo-datatype-accent);
 }
 
 .semantic-demo__entry-meta p {
@@ -513,6 +577,104 @@ code {
   min-width: 0;
 }
 
+.semantic-demo__structured-panel {
+  display: grid;
+  gap: 0.9rem;
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--semantic-demo-border);
+  border-radius: 0.9rem;
+  background: var(--semantic-demo-panel-strong);
+}
+
+.semantic-demo__structured-header {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.semantic-demo__structured-header span {
+  color: var(--semantic-demo-text-subtle);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.semantic-demo__structured-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.semantic-demo__structured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.semantic-demo__structured-grid--depth-1,
+.semantic-demo__structured-grid--depth-2 {
+  grid-template-columns: 1fr;
+}
+
+.semantic-demo__structured-field,
+.semantic-demo__structured-nested {
+  display: grid;
+  gap: 0.34rem;
+  min-width: 0;
+  padding: 0.72rem;
+  border: 1px solid var(--semantic-demo-border);
+  border-radius: 0.7rem;
+  background: var(--semantic-demo-panel);
+}
+
+.semantic-demo__structured-stack {
+  display: grid;
+  gap: 0.54rem;
+  min-width: 0;
+}
+
+.semantic-demo__field-label {
+  color: var(--semantic-demo-text-subtle);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.semantic-demo__field-value {
+  min-width: 0;
+  color: var(--semantic-demo-text);
+  overflow-wrap: anywhere;
+}
+
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic__title,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic__subtitle,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic__description,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic__body,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic__footer,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic__meta,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic__meta dd,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic__field-inline,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic__field-chip,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic__field-card,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic li,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic p,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic h1,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic h2,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic h3,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic h4 {
+  color: var(--semantic-demo-text);
+}
+
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic__eyebrow,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic__field-label,
+.semantic-demo[data-lander-theme="lander-dark"] .lander-semantic__meta dt {
+  color: var(--semantic-demo-text-subtle);
+}
+
 .semantic-demo__card .lander-semantic__title code,
 .semantic-demo__card .lander-semantic__description code,
 .semantic-demo__card .lander-semantic__body code,
@@ -521,16 +683,16 @@ code {
 }
 
 .semantic-demo__family--article-family::before {
-  background: linear-gradient(180deg, rgba(187, 92, 48, 0.45), transparent);
+  background: linear-gradient(180deg, rgba(187, 92, 48, 0.3), transparent);
 }
 
 .semantic-demo__family--education-family {
   padding: 1.6rem;
   background:
     radial-gradient(circle at top right, rgba(50, 110, 210, 0.12), transparent 18rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(243, 249, 255, 0.84));
-  border-color: rgba(33, 93, 191, 0.18);
-  box-shadow: 0 1.6rem 3.2rem rgba(37, 80, 161, 0.1);
+    linear-gradient(180deg, var(--semantic-demo-panel-strong), rgba(214, 232, 255, 0.28));
+  border-color: rgba(33, 93, 191, 0.22);
+  box-shadow: 0 1.6rem 3.2rem rgba(37, 80, 161, 0.12);
 }
 
 .semantic-demo__family--education-family::before {
@@ -593,17 +755,17 @@ code {
 
 .semantic-demo__family--generated-property::before,
 .semantic-demo__family--property::before {
-  background: linear-gradient(180deg, rgba(63, 140, 255, 0.42), transparent);
+  background: linear-gradient(180deg, rgba(63, 140, 255, 0.3), transparent);
 }
 
 .semantic-demo__family--generated-enumeration::before,
 .semantic-demo__family--enumeration::before {
-  background: linear-gradient(180deg, rgba(213, 121, 31, 0.4), transparent);
+  background: linear-gradient(180deg, rgba(213, 121, 31, 0.3), transparent);
 }
 
 .semantic-demo__family--generated-datatype::before,
 .semantic-demo__family--datatype::before {
-  background: linear-gradient(180deg, rgba(47, 143, 110, 0.44), transparent);
+  background: linear-gradient(180deg, rgba(47, 143, 110, 0.3), transparent);
 }
 
 @media (max-width: 1380px) {

@@ -10,6 +10,18 @@
   --mdp-semantic-math-solver-accent: #7dd3fc;
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-math-solver-padding: 1.6rem;
+  --mdp-semantic-math-solver-gap: 1rem;
+  --mdp-semantic-math-solver-radius: 1.45rem;
+  --mdp-semantic-math-solver-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-math-solver-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-math-solver-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-math-solver-accent: #7dd3fc;
+}
+
 .lander-semantic--math-solver { display: grid; gap: var(--mdp-semantic-math-solver-gap); padding: var(--mdp-semantic-math-solver-padding); border: 1px solid var(--mdp-semantic-math-solver-border); border-radius: var(--mdp-semantic-math-solver-radius); background: var(--mdp-semantic-math-solver-surface); box-shadow: var(--mdp-semantic-math-solver-shadow); color: #e8f4ff; }
 .lander-semantic--math-solver .lander-semantic__header { display: grid; gap: 0.8rem; }
 .lander-semantic--math-solver .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-math-solver-accent); font-family: var(--mdwrk-font-mono); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }

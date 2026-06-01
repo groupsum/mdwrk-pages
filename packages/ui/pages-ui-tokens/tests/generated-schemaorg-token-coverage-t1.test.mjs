@@ -15,3 +15,11 @@ test("T1: generated semantic token exports and bundle imports are complete for t
     assert.ok(generatedBundleCss.includes(`@import "./${fixture.cssFilename}";`), `generated token bundle should import ${fixture.cssFilename}`);
   }
 });
+
+test("T1: generated semantic token CSS files define both light and dark theme defaults", () => {
+  for (const fixture of semanticTokenFixtures) {
+    const cssText = readFileSync(resolve("src/styles", fixture.cssFilename), "utf8");
+    assert.ok(cssText.includes('[data-lander-theme="lander-light"]'), `${fixture.cssFilename} should define light theme defaults`);
+    assert.ok(cssText.includes('[data-lander-theme="lander-dark"]'), `${fixture.cssFilename} should define dark theme defaults`);
+  }
+});

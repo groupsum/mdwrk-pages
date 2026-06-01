@@ -10,6 +10,18 @@
   --mdp-semantic-learning-resource-accent: #1f8f5f;
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-learning-resource-padding: 1.5rem;
+  --mdp-semantic-learning-resource-gap: 1rem;
+  --mdp-semantic-learning-resource-radius: 1.45rem;
+  --mdp-semantic-learning-resource-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-learning-resource-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-learning-resource-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-learning-resource-accent: #1f8f5f;
+}
+
 .lander-semantic--learning-resource { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(12rem, 0.9fr); grid-template-areas: "header image" "body image" "footer footer"; gap: var(--mdp-semantic-learning-resource-gap); padding: var(--mdp-semantic-learning-resource-padding); border: 1px solid var(--mdp-semantic-learning-resource-border); border-radius: var(--mdp-semantic-learning-resource-radius); background: var(--mdp-semantic-learning-resource-surface); box-shadow: var(--mdp-semantic-learning-resource-shadow); color: var(--lander-fg); }
 .lander-semantic--learning-resource .lander-semantic__header { grid-area: header; display: grid; gap: 0.7rem; }
 .lander-semantic--learning-resource .lander-semantic__body { grid-area: body; display: grid; gap: 0.8rem; }

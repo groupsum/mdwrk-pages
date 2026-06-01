@@ -24,9 +24,15 @@ const DEFAULT_STATE = {
   family: "all",
   kind: "type",
   surface: "all",
+  theme: "lander-light",
   page: 1,
   pageSize: 24,
 };
+
+const themeOptions = [
+  { value: "lander-light", label: "Light" },
+  { value: "lander-dark", label: "Dark" },
+];
 
 function SearchField({ value, onChange, placeholder }) {
   return createElement(
@@ -82,6 +88,80 @@ function SelectField({ label, value, onChange, options }) {
   );
 }
 
+function isPresentValue(value) {
+  if (value === undefined || value === null) return false;
+  if (typeof value === "string") return value.trim().length > 0;
+  if (Array.isArray(value)) return value.some((entry) => isPresentValue(entry));
+  if (typeof value === "object") return Object.values(value).some((entry) => isPresentValue(entry));
+  return true;
+}
+
+function fieldLabel(value) {
+  if (value.startsWith("@")) return value;
+  return value.replace(/([a-z0-9])([A-Z])/g, "$1 $2");
+}
+
+function primitiveField(value) {
+  return createElement("span", { className: "semantic-demo__field-value" }, String(value));
+}
+
+function renderStructuredFieldValue(value, depth = 0) {
+  if (!isPresentValue(value)) return null;
+  if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") return primitiveField(value);
+  if (Array.isArray(value)) {
+    return createElement(
+      "div",
+      { className: "semantic-demo__structured-stack" },
+      ...value
+        .filter((entry) => isPresentValue(entry))
+        .map((entry, index) =>
+          createElement(
+            "section",
+            { className: "semantic-demo__structured-nested", key: index },
+            createElement("span", { className: "semantic-demo__field-label" }, `Item ${index + 1}`),
+            renderStructuredFieldValue(entry, depth + 1),
+          ),
+        ),
+    );
+  }
+  if (typeof value === "object") {
+    return renderStructuredFields(value, depth + 1);
+  }
+  return primitiveField(value);
+}
+
+function renderStructuredFields(value, depth = 0) {
+  const entries = Object.entries(value ?? {}).filter(([, entry]) => isPresentValue(entry));
+  if (!entries.length) return null;
+  return createElement(
+    "div",
+    { className: `semantic-demo__structured-grid semantic-demo__structured-grid--depth-${Math.min(depth, 2)}` },
+    ...entries.map(([key, entry]) =>
+      createElement(
+        "section",
+        { className: "semantic-demo__structured-field", key },
+        createElement("span", { className: "semantic-demo__field-label" }, fieldLabel(key)),
+        renderStructuredFieldValue(entry, depth + 1),
+      ),
+    ),
+  );
+}
+
+function StructuredFieldsPanel({ value }) {
+  if (!isPresentValue(value)) return null;
+  return createElement(
+    "section",
+    { className: "semantic-demo__structured-panel" },
+    createElement(
+      "header",
+      { className: "semantic-demo__structured-header" },
+      createElement("span", null, "Object"),
+      createElement("h3", null, "Structured fields"),
+    ),
+    renderStructuredFields(value),
+  );
+}
+
 function parseStateFromLocation() {
   if (typeof window === "undefined") return DEFAULT_STATE;
   const params = new URLSearchParams(window.location.search);
@@ -89,6 +169,7 @@ function parseStateFromLocation() {
   const family = params.get("family") ?? DEFAULT_STATE.family;
   const kind = params.get("kind") ?? DEFAULT_STATE.kind;
   const surface = params.get("surface") ?? DEFAULT_STATE.surface;
+  const theme = params.get("theme") ?? DEFAULT_STATE.theme;
   const search = params.get("q") ?? DEFAULT_STATE.search;
   const page = Number.parseInt(params.get("page") ?? `${DEFAULT_STATE.page}`, 10);
   const pageSize = Number.parseInt(params.get("size") ?? `${DEFAULT_STATE.pageSize}`, 10);
@@ -98,6 +179,7 @@ function parseStateFromLocation() {
     family,
     kind: generatedArtifactKindOptions.some((entry) => entry.value === kind) ? kind : DEFAULT_STATE.kind,
     surface: surfaceFocusOptions.some((entry) => entry.value === surface) ? surface : DEFAULT_STATE.surface,
+    theme: themeOptions.some((entry) => entry.value === theme) ? theme : DEFAULT_STATE.theme,
     search,
     page: Number.isFinite(page) && page > 0 ? page : DEFAULT_STATE.page,
     pageSize: generatedPageSizeOptions.includes(pageSize) ? pageSize : DEFAULT_STATE.pageSize,
@@ -112,13 +194,14 @@ function writeStateToLocation(state) {
   if (state.family !== DEFAULT_STATE.family) params.set("family", state.family);
   if (state.kind !== DEFAULT_STATE.kind) params.set("kind", state.kind);
   if (state.surface !== DEFAULT_STATE.surface) params.set("surface", state.surface);
+  if (state.theme !== DEFAULT_STATE.theme) params.set("theme", state.theme);
   if (state.page !== DEFAULT_STATE.page) params.set("page", `${state.page}`);
   if (state.pageSize !== DEFAULT_STATE.pageSize) params.set("size", `${state.pageSize}`);
   const nextUrl = params.toString() ? `?${params}` : window.location.pathname;
   window.history.replaceState(null, "", nextUrl);
 }
 
-function DemoCard({ name, exportName, description, props, tone = "type" }) {
+function DemoCard({ name, exportName, description, props, structuredFields, tone = "type" }) {
   const Component = componentMap[exportName];
   if (!Component) return null;
 
@@ -135,6 +218,7 @@ function DemoCard({ name, exportName, description, props, tone = "type" }) {
       createElement("p", null, description),
     ),
     createElement(Component, { ...props, className: "semantic-demo__card" }),
+    structuredFields ? createElement(StructuredFieldsPanel, { value: structuredFields }) : null,
   );
 }
 
@@ -212,7 +296,10 @@ export function SemanticShowcase({ initialState } = {}) {
 
   return createElement(
     "div",
-    { className: `semantic-demo semantic-demo--mode-${slugify(state.mode)}` },
+    {
+      className: `semantic-demo semantic-demo--mode-${slugify(state.mode)} semantic-demo--theme-${slugify(state.theme)}`,
+      "data-lander-theme": state.theme,
+    },
     createElement(
       "header",
       { className: "semantic-demo__hero" },
@@ -256,6 +343,12 @@ export function SemanticShowcase({ initialState } = {}) {
           value: state.search,
           onChange: (event) => patchState({ search: event.target.value }),
           placeholder: "Search names, families, and descriptions",
+        }),
+        createElement(SelectField, {
+          label: "Theme",
+          value: state.theme,
+          onChange: (event) => patchState({ theme: event.target.value }),
+          options: themeOptions,
         }),
         state.mode === "governed-core"
           ? createElement(SelectField, {

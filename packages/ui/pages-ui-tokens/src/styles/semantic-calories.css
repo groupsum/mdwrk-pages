@@ -7,6 +7,17 @@
   --mdp-semantic-calories-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-calories-padding: 1rem;
+  --mdp-semantic-calories-gap: 0.75rem;
+  --mdp-semantic-calories-radius: 1rem;
+  --mdp-semantic-calories-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-calories-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-calories-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--calories {
   padding: var(--mdp-semantic-calories-padding);
   gap: var(--mdp-semantic-calories-gap);

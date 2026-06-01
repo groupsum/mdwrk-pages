@@ -9,6 +9,17 @@
   --mdp-semantic-software-source-code-shadow: var(--mdwrk-shadow-strong);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-software-source-code-padding: 1.6rem;
+  --mdp-semantic-software-source-code-gap: 1rem;
+  --mdp-semantic-software-source-code-radius: 1.45rem;
+  --mdp-semantic-software-source-code-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-software-source-code-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-software-source-code-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--software-source-code { display:grid; gap:var(--mdp-semantic-software-source-code-gap); padding:var(--mdp-semantic-software-source-code-padding); border:1px solid var(--mdp-semantic-software-source-code-border); border-radius:var(--mdp-semantic-software-source-code-radius); background:var(--mdp-semantic-software-source-code-surface); box-shadow:var(--mdp-semantic-software-source-code-shadow); color:#e6edf7; }
 .lander-semantic--software-source-code .lander-semantic__header,
 .lander-semantic--software-source-code .lander-semantic__body,

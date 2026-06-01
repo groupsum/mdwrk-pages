@@ -10,6 +10,18 @@
   --mdp-semantic-movie-accent: #fbbf24;
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-movie-padding: 1.65rem;
+  --mdp-semantic-movie-gap: 1rem;
+  --mdp-semantic-movie-radius: 1.5rem;
+  --mdp-semantic-movie-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-movie-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-movie-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-movie-accent: #fbbf24;
+}
+
 .lander-semantic--movie { display: grid; gap: var(--mdp-semantic-movie-gap); padding: var(--mdp-semantic-movie-padding); border: 1px solid var(--mdp-semantic-movie-border); border-radius: var(--mdp-semantic-movie-radius); background: var(--mdp-semantic-movie-surface); box-shadow: var(--mdp-semantic-movie-shadow); color: #f5f5f5; }
 .lander-semantic--movie .lander-semantic__header { display: grid; gap: 0.8rem; }
 .lander-semantic--movie .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-movie-accent); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }

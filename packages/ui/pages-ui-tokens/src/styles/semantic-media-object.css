@@ -1,10 +1,23 @@
-:root {
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
   --mdp-semantic-media-object-padding: 1rem;
   --mdp-semantic-media-object-gap: 0.75rem;
   --mdp-semantic-media-object-radius: 1rem;
-  --mdp-semantic-media-object-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
-  --mdp-semantic-media-object-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-media-object-surface: linear-gradient(180deg, rgba(52, 113, 232, 0.12), var(--mdwrk-color-bg-panel-strong));
+  --mdp-semantic-media-object-border: rgba(52, 113, 232, 0.24);
   --mdp-semantic-media-object-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-media-object-padding: 1rem;
+  --mdp-semantic-media-object-gap: 0.75rem;
+  --mdp-semantic-media-object-radius: 1rem;
+  --mdp-semantic-media-object-surface: linear-gradient(180deg, rgba(52, 113, 232, 0.18), var(--mdwrk-color-bg-panel-strong));
+  --mdp-semantic-media-object-border: rgba(52, 113, 232, 0.32);
+  --mdp-semantic-media-object-shadow: 0 24px 54px rgba(0, 0, 0, 0.34);
 }
 
 .lander-semantic--media-object {
@@ -71,5 +84,5 @@
 }
 
 .lander-semantic--media-object .lander-semantic__footer {
-  color: rgba(15, 23, 42, 0.72);
+  color: var(--mdwrk-color-text-muted);
 }

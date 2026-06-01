@@ -7,6 +7,17 @@
   --mdp-semantic-property-number-of-loan-payments-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-number-of-loan-payments-padding: 1rem;
+  --mdp-semantic-property-number-of-loan-payments-gap: 0.75rem;
+  --mdp-semantic-property-number-of-loan-payments-radius: 1rem;
+  --mdp-semantic-property-number-of-loan-payments-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-number-of-loan-payments-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-number-of-loan-payments-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-number-of-loan-payments {
   padding: var(--mdp-semantic-property-number-of-loan-payments-padding);
   gap: var(--mdp-semantic-property-number-of-loan-payments-gap);

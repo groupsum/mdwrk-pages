@@ -9,6 +9,17 @@
   --mdp-semantic-contact-page-shadow: var(--mdwrk-shadow-strong);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-contact-page-padding: 1.7rem;
+  --mdp-semantic-contact-page-gap: 1rem;
+  --mdp-semantic-contact-page-radius: 1.4rem;
+  --mdp-semantic-contact-page-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-contact-page-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-contact-page-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--contact-page {
   display: grid;
   gap: var(--mdp-semantic-contact-page-gap);

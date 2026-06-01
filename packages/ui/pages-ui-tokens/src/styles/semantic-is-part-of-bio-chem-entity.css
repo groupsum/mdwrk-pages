@@ -7,6 +7,17 @@
   --mdp-semantic-is-part-of-bio-chem-entity-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-is-part-of-bio-chem-entity-padding: 1rem;
+  --mdp-semantic-is-part-of-bio-chem-entity-gap: 0.75rem;
+  --mdp-semantic-is-part-of-bio-chem-entity-radius: 1rem;
+  --mdp-semantic-is-part-of-bio-chem-entity-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-is-part-of-bio-chem-entity-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-is-part-of-bio-chem-entity-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--is-part-of-bio-chem-entity {
   padding: var(--mdp-semantic-is-part-of-bio-chem-entity-padding);
   gap: var(--mdp-semantic-is-part-of-bio-chem-entity-gap);

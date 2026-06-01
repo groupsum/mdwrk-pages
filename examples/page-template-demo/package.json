@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "npm run build -w @mdwrk/lander-page-templates && npm run build -w @mdwrk/lander-react-structured-data && npm run build -w @mdwrk/lander-react && npm run build -w @mdwrk/page-template-demo-content-pack && tsc --noEmit && vite build",
+    "build": "tsc --noEmit && vite build",
     "test": "npm run build && node --test tests/consumer-cutover-t0.test.mjs tests/consumer-cutover-t1.test.mjs tests/consumer-cutover-t2.test.mjs tests/showcase-split-t0.test.mjs tests/showcase-split-t1.test.mjs tests/showcase-split-t2.test.mjs tests/vite-delivery-t1.test.mjs",
-    "typecheck": "npm run build -w @mdwrk/lander-page-templates && npm run build -w @mdwrk/lander-react-structured-data && npm run build -w @mdwrk/lander-react && npm run build -w @mdwrk/page-template-demo-content-pack && tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "lint": "npm run typecheck"
   },
   "dependencies": {

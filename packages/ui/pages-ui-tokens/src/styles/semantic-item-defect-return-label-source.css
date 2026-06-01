@@ -7,6 +7,17 @@
   --mdp-semantic-item-defect-return-label-source-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-item-defect-return-label-source-padding: 1rem;
+  --mdp-semantic-item-defect-return-label-source-gap: 0.75rem;
+  --mdp-semantic-item-defect-return-label-source-radius: 1rem;
+  --mdp-semantic-item-defect-return-label-source-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-item-defect-return-label-source-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-item-defect-return-label-source-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--item-defect-return-label-source {
   padding: var(--mdp-semantic-item-defect-return-label-source-padding);
   gap: var(--mdp-semantic-item-defect-return-label-source-gap);

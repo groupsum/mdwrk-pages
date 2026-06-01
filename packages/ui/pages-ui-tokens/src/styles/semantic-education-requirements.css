@@ -7,6 +7,17 @@
   --mdp-semantic-education-requirements-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-education-requirements-padding: 1rem;
+  --mdp-semantic-education-requirements-gap: 0.75rem;
+  --mdp-semantic-education-requirements-radius: 1rem;
+  --mdp-semantic-education-requirements-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-education-requirements-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-education-requirements-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--education-requirements {
   padding: var(--mdp-semantic-education-requirements-padding);
   gap: var(--mdp-semantic-education-requirements-gap);

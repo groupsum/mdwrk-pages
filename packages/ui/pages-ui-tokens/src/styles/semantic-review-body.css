@@ -7,6 +7,17 @@
   --mdp-semantic-review-body-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-review-body-padding: 1rem;
+  --mdp-semantic-review-body-gap: 0.75rem;
+  --mdp-semantic-review-body-radius: 1rem;
+  --mdp-semantic-review-body-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-review-body-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-review-body-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--review-body {
   padding: var(--mdp-semantic-review-body-padding);
   gap: var(--mdp-semantic-review-body-gap);

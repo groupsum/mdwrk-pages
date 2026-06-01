@@ -9,6 +9,17 @@
   --mdp-semantic-about-page-shadow: var(--mdwrk-shadow-strong);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-about-page-padding: 1.7rem;
+  --mdp-semantic-about-page-gap: 1rem;
+  --mdp-semantic-about-page-radius: 1.4rem;
+  --mdp-semantic-about-page-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-about-page-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-about-page-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--about-page {
   display: grid;
   gap: var(--mdp-semantic-about-page-gap);

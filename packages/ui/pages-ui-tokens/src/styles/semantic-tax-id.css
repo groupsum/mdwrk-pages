@@ -7,6 +7,17 @@
   --mdp-semantic-tax-id-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-tax-id-padding: 1rem;
+  --mdp-semantic-tax-id-gap: 0.75rem;
+  --mdp-semantic-tax-id-radius: 1rem;
+  --mdp-semantic-tax-id-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-tax-id-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-tax-id-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--tax-id {
   padding: var(--mdp-semantic-tax-id-padding);
   gap: var(--mdp-semantic-tax-id-gap);

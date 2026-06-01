@@ -7,6 +7,17 @@
   --mdp-semantic-processor-requirements-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-processor-requirements-padding: 1rem;
+  --mdp-semantic-processor-requirements-gap: 0.75rem;
+  --mdp-semantic-processor-requirements-radius: 1rem;
+  --mdp-semantic-processor-requirements-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-processor-requirements-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-processor-requirements-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--processor-requirements {
   padding: var(--mdp-semantic-processor-requirements-padding);
   gap: var(--mdp-semantic-processor-requirements-gap);

@@ -9,6 +9,17 @@
   --mdp-semantic-read-action-shadow: var(--mdwrk-shadow-strong);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-read-action-padding: 1.55rem;
+  --mdp-semantic-read-action-gap: 1rem;
+  --mdp-semantic-read-action-radius: 1.35rem;
+  --mdp-semantic-read-action-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-read-action-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-read-action-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--read-action { display:grid; gap:var(--mdp-semantic-read-action-gap); padding:var(--mdp-semantic-read-action-padding); border:1px solid var(--mdp-semantic-read-action-border); border-radius:var(--mdp-semantic-read-action-radius); background:var(--mdp-semantic-read-action-surface); box-shadow:var(--mdp-semantic-read-action-shadow); color:var(--lander-fg); }
 .lander-semantic--read-action .lander-semantic__header,
 .lander-semantic--read-action .lander-semantic__body,

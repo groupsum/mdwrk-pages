@@ -7,6 +7,17 @@
   --mdp-semantic-property-temporal-coverage-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-temporal-coverage-padding: 1rem;
+  --mdp-semantic-property-temporal-coverage-gap: 0.75rem;
+  --mdp-semantic-property-temporal-coverage-radius: 1rem;
+  --mdp-semantic-property-temporal-coverage-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-temporal-coverage-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-temporal-coverage-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-temporal-coverage {
   padding: var(--mdp-semantic-property-temporal-coverage-padding);
   gap: var(--mdp-semantic-property-temporal-coverage-gap);

@@ -1,10 +1,23 @@
-:root {
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
   --mdp-semantic-mass-padding: 1rem;
   --mdp-semantic-mass-gap: 0.75rem;
   --mdp-semantic-mass-radius: 1rem;
-  --mdp-semantic-mass-surface: linear-gradient(180deg, rgba(212, 112, 255, 0.08), rgba(255, 255, 255, 0.96));
-  --mdp-semantic-mass-border: rgba(212, 112, 255, 0.22);
+  --mdp-semantic-mass-surface: linear-gradient(180deg, rgba(52, 113, 232, 0.12), var(--mdwrk-color-bg-panel-strong));
+  --mdp-semantic-mass-border: rgba(52, 113, 232, 0.24);
   --mdp-semantic-mass-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+}
+
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-mass-padding: 1rem;
+  --mdp-semantic-mass-gap: 0.75rem;
+  --mdp-semantic-mass-radius: 1rem;
+  --mdp-semantic-mass-surface: linear-gradient(180deg, rgba(52, 113, 232, 0.18), var(--mdwrk-color-bg-panel-strong));
+  --mdp-semantic-mass-border: rgba(52, 113, 232, 0.32);
+  --mdp-semantic-mass-shadow: 0 24px 54px rgba(0, 0, 0, 0.34);
 }
 
 .lander-semantic--mass {
@@ -71,5 +84,5 @@
 }
 
 .lander-semantic--mass .lander-semantic__footer {
-  color: rgba(15, 23, 42, 0.72);
+  color: var(--mdwrk-color-text-muted);
 }

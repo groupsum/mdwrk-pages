@@ -7,6 +7,17 @@
   --mdp-semantic-property-lyricist-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-lyricist-padding: 1rem;
+  --mdp-semantic-property-lyricist-gap: 0.75rem;
+  --mdp-semantic-property-lyricist-radius: 1rem;
+  --mdp-semantic-property-lyricist-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-lyricist-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-lyricist-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-lyricist {
   padding: var(--mdp-semantic-property-lyricist-padding);
   gap: var(--mdp-semantic-property-lyricist-gap);

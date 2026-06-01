@@ -7,6 +7,17 @@
   --mdp-semantic-property-number-of-employees-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-number-of-employees-padding: 1rem;
+  --mdp-semantic-property-number-of-employees-gap: 0.75rem;
+  --mdp-semantic-property-number-of-employees-radius: 1rem;
+  --mdp-semantic-property-number-of-employees-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-number-of-employees-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-number-of-employees-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-number-of-employees {
   padding: var(--mdp-semantic-property-number-of-employees-padding);
   gap: var(--mdp-semantic-property-number-of-employees-gap);

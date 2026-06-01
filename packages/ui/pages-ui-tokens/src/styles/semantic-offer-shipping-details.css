@@ -10,6 +10,18 @@
   --mdp-semantic-offer-shipping-details-accent: #0c8aa5;
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-offer-shipping-details-padding: 1.35rem;
+  --mdp-semantic-offer-shipping-details-gap: 0.9rem;
+  --mdp-semantic-offer-shipping-details-radius: 1.3rem;
+  --mdp-semantic-offer-shipping-details-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-offer-shipping-details-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-offer-shipping-details-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-offer-shipping-details-accent: #0c8aa5;
+}
+
 .lander-semantic--offer-shipping-details { display: grid; gap: var(--mdp-semantic-offer-shipping-details-gap); padding: var(--mdp-semantic-offer-shipping-details-padding); border: 1px solid var(--mdp-semantic-offer-shipping-details-border); border-radius: var(--mdp-semantic-offer-shipping-details-radius); background: var(--mdp-semantic-offer-shipping-details-surface); box-shadow: var(--mdp-semantic-offer-shipping-details-shadow); color: var(--lander-fg); }
 .lander-semantic--offer-shipping-details .lander-semantic__header { display: grid; gap: 0.6rem; }
 .lander-semantic--offer-shipping-details .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-offer-shipping-details-accent); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }

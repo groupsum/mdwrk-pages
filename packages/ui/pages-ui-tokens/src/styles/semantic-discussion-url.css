@@ -7,6 +7,17 @@
   --mdp-semantic-discussion-url-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-discussion-url-padding: 1rem;
+  --mdp-semantic-discussion-url-gap: 0.75rem;
+  --mdp-semantic-discussion-url-radius: 1rem;
+  --mdp-semantic-discussion-url-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-discussion-url-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-discussion-url-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--discussion-url {
   padding: var(--mdp-semantic-discussion-url-padding);
   gap: var(--mdp-semantic-discussion-url-gap);

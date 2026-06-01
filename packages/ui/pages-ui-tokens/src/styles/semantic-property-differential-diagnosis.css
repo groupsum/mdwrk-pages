@@ -7,6 +7,17 @@
   --mdp-semantic-property-differential-diagnosis-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-differential-diagnosis-padding: 1rem;
+  --mdp-semantic-property-differential-diagnosis-gap: 0.75rem;
+  --mdp-semantic-property-differential-diagnosis-radius: 1rem;
+  --mdp-semantic-property-differential-diagnosis-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-differential-diagnosis-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-differential-diagnosis-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-differential-diagnosis {
   padding: var(--mdp-semantic-property-differential-diagnosis-padding);
   gap: var(--mdp-semantic-property-differential-diagnosis-gap);

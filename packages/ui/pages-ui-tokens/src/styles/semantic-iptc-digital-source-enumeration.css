@@ -7,6 +7,17 @@
   --mdp-semantic-iptc-digital-source-enumeration-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-iptc-digital-source-enumeration-padding: 1rem;
+  --mdp-semantic-iptc-digital-source-enumeration-gap: 0.75rem;
+  --mdp-semantic-iptc-digital-source-enumeration-radius: 1rem;
+  --mdp-semantic-iptc-digital-source-enumeration-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-iptc-digital-source-enumeration-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-iptc-digital-source-enumeration-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--iptc-digital-source-enumeration {
   padding: var(--mdp-semantic-iptc-digital-source-enumeration-padding);
   gap: var(--mdp-semantic-iptc-digital-source-enumeration-gap);

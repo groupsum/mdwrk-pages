@@ -10,6 +10,18 @@
   --mdp-semantic-video-object-accent: #7dd3fc;
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-video-object-padding: 1.7rem;
+  --mdp-semantic-video-object-gap: 1.15rem;
+  --mdp-semantic-video-object-radius: 1.55rem;
+  --mdp-semantic-video-object-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-video-object-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-video-object-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-video-object-accent: #7dd3fc;
+}
+
 .lander-semantic--video-object {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(14rem, 1fr);

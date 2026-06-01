@@ -7,6 +7,17 @@
   --mdp-semantic-includes-health-plan-network-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-includes-health-plan-network-padding: 1rem;
+  --mdp-semantic-includes-health-plan-network-gap: 0.75rem;
+  --mdp-semantic-includes-health-plan-network-radius: 1rem;
+  --mdp-semantic-includes-health-plan-network-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-includes-health-plan-network-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-includes-health-plan-network-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--includes-health-plan-network {
   padding: var(--mdp-semantic-includes-health-plan-network-padding);
   gap: var(--mdp-semantic-includes-health-plan-network-gap);

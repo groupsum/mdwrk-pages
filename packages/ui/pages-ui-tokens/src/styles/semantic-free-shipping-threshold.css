@@ -7,6 +7,17 @@
   --mdp-semantic-free-shipping-threshold-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-free-shipping-threshold-padding: 1rem;
+  --mdp-semantic-free-shipping-threshold-gap: 0.75rem;
+  --mdp-semantic-free-shipping-threshold-radius: 1rem;
+  --mdp-semantic-free-shipping-threshold-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-free-shipping-threshold-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-free-shipping-threshold-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--free-shipping-threshold {
   padding: var(--mdp-semantic-free-shipping-threshold-padding);
   gap: var(--mdp-semantic-free-shipping-threshold-gap);

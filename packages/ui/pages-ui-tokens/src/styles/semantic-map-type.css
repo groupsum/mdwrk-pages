@@ -7,6 +7,17 @@
   --mdp-semantic-map-type-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-map-type-padding: 1rem;
+  --mdp-semantic-map-type-gap: 0.75rem;
+  --mdp-semantic-map-type-radius: 1rem;
+  --mdp-semantic-map-type-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-map-type-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-map-type-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--map-type {
   padding: var(--mdp-semantic-map-type-padding);
   gap: var(--mdp-semantic-map-type-gap);

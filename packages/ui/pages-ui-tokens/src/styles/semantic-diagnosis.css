@@ -7,6 +7,17 @@
   --mdp-semantic-diagnosis-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-diagnosis-padding: 1rem;
+  --mdp-semantic-diagnosis-gap: 0.75rem;
+  --mdp-semantic-diagnosis-radius: 1rem;
+  --mdp-semantic-diagnosis-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-diagnosis-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-diagnosis-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--diagnosis {
   padding: var(--mdp-semantic-diagnosis-padding);
   gap: var(--mdp-semantic-diagnosis-gap);

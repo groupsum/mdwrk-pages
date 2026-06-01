@@ -9,6 +9,17 @@
   --mdp-semantic-tech-article-shadow: 0 1.5rem 3.2rem rgba(6, 19, 29, 0.3);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-tech-article-padding: clamp(1.2rem, 2vw, 1.9rem);
+  --mdp-semantic-tech-article-gap: 1rem;
+  --mdp-semantic-tech-article-radius: 1.4rem;
+  --mdp-semantic-tech-article-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-tech-article-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-tech-article-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--tech-article {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(14rem, 0.85fr);

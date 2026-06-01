@@ -7,6 +7,17 @@
   --mdp-semantic-review-aspect-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-review-aspect-padding: 1rem;
+  --mdp-semantic-review-aspect-gap: 0.75rem;
+  --mdp-semantic-review-aspect-radius: 1rem;
+  --mdp-semantic-review-aspect-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-review-aspect-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-review-aspect-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--review-aspect {
   padding: var(--mdp-semantic-review-aspect-padding);
   gap: var(--mdp-semantic-review-aspect-gap);

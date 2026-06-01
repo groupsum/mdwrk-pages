@@ -10,6 +10,18 @@
   --mdp-semantic-product-group-accent: #5854eb;
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-product-group-padding: 1.6rem;
+  --mdp-semantic-product-group-gap: 1rem;
+  --mdp-semantic-product-group-radius: 1.45rem;
+  --mdp-semantic-product-group-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-product-group-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-product-group-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-product-group-accent: #5854eb;
+}
+
 .lander-semantic--product-group { display: grid; gap: var(--mdp-semantic-product-group-gap); padding: var(--mdp-semantic-product-group-padding); border: 1px solid var(--mdp-semantic-product-group-border); border-radius: var(--mdp-semantic-product-group-radius); background: var(--mdp-semantic-product-group-surface); box-shadow: var(--mdp-semantic-product-group-shadow); color: var(--lander-fg); }
 .lander-semantic--product-group .lander-semantic__header { display: grid; gap: 0.8rem; }
 .lander-semantic--product-group .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-product-group-accent); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }

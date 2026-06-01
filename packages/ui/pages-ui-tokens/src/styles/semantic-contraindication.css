@@ -7,6 +7,17 @@
   --mdp-semantic-contraindication-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-contraindication-padding: 1rem;
+  --mdp-semantic-contraindication-gap: 0.75rem;
+  --mdp-semantic-contraindication-radius: 1rem;
+  --mdp-semantic-contraindication-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-contraindication-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-contraindication-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--contraindication {
   padding: var(--mdp-semantic-contraindication-padding);
   gap: var(--mdp-semantic-contraindication-gap);

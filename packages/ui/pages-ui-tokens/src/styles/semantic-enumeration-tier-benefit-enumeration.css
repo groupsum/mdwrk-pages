@@ -7,6 +7,17 @@
   --mdp-semantic-enumeration-tier-benefit-enumeration-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-enumeration-tier-benefit-enumeration-padding: 1rem;
+  --mdp-semantic-enumeration-tier-benefit-enumeration-gap: 0.75rem;
+  --mdp-semantic-enumeration-tier-benefit-enumeration-radius: 1rem;
+  --mdp-semantic-enumeration-tier-benefit-enumeration-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-enumeration-tier-benefit-enumeration-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-enumeration-tier-benefit-enumeration-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--enumeration-tier-benefit-enumeration {
   padding: var(--mdp-semantic-enumeration-tier-benefit-enumeration-padding);
   gap: var(--mdp-semantic-enumeration-tier-benefit-enumeration-gap);

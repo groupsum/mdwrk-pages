@@ -7,6 +7,17 @@
   --mdp-semantic-property-price-specification-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-price-specification-padding: 1rem;
+  --mdp-semantic-property-price-specification-gap: 0.75rem;
+  --mdp-semantic-property-price-specification-radius: 1rem;
+  --mdp-semantic-property-price-specification-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-price-specification-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-price-specification-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-price-specification {
   padding: var(--mdp-semantic-property-price-specification-padding);
   gap: var(--mdp-semantic-property-price-specification-gap);

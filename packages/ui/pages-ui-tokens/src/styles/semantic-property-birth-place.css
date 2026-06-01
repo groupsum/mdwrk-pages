@@ -7,6 +7,17 @@
   --mdp-semantic-property-birth-place-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-birth-place-padding: 1rem;
+  --mdp-semantic-property-birth-place-gap: 0.75rem;
+  --mdp-semantic-property-birth-place-radius: 1rem;
+  --mdp-semantic-property-birth-place-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-birth-place-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-birth-place-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-birth-place {
   padding: var(--mdp-semantic-property-birth-place-padding);
   gap: var(--mdp-semantic-property-birth-place-gap);

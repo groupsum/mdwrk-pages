@@ -10,6 +10,18 @@
   --mdp-semantic-quiz-accent: #d97706;
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-quiz-padding: 1.6rem;
+  --mdp-semantic-quiz-gap: 1.15rem;
+  --mdp-semantic-quiz-radius: 1.5rem;
+  --mdp-semantic-quiz-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-quiz-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-quiz-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-quiz-accent: #d97706;
+}
+
 .lander-semantic--quiz { display: grid; gap: var(--mdp-semantic-quiz-gap); padding: var(--mdp-semantic-quiz-padding); border: 1px solid var(--mdp-semantic-quiz-border); border-radius: var(--mdp-semantic-quiz-radius); background: var(--mdp-semantic-quiz-surface); box-shadow: var(--mdp-semantic-quiz-shadow); color: var(--lander-fg); }
 .lander-semantic--quiz .lander-semantic__header { display: grid; gap: 0.8rem; }
 .lander-semantic--quiz .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-quiz-accent); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }

@@ -11,6 +11,19 @@
   --mdp-semantic-course-module-surface: rgba(255, 255, 255, 0.76);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-course-padding: 1.75rem;
+  --mdp-semantic-course-gap: 1.25rem;
+  --mdp-semantic-course-radius: 1.5rem;
+  --mdp-semantic-course-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-course-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-course-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-course-accent: #1677d4;
+  --mdp-semantic-course-module-surface: var(--mdwrk-color-bg-panel-strong);
+}
+
 .lander-semantic--course {
   position: relative;
   display: grid;

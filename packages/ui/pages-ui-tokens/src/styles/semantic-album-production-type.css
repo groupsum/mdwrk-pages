@@ -7,6 +7,17 @@
   --mdp-semantic-album-production-type-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-album-production-type-padding: 1rem;
+  --mdp-semantic-album-production-type-gap: 0.75rem;
+  --mdp-semantic-album-production-type-radius: 1rem;
+  --mdp-semantic-album-production-type-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-album-production-type-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-album-production-type-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--album-production-type {
   padding: var(--mdp-semantic-album-production-type-padding);
   gap: var(--mdp-semantic-album-production-type-gap);

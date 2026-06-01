@@ -7,6 +7,17 @@
   --mdp-semantic-property-geo-crosses-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-geo-crosses-padding: 1rem;
+  --mdp-semantic-property-geo-crosses-gap: 0.75rem;
+  --mdp-semantic-property-geo-crosses-radius: 1rem;
+  --mdp-semantic-property-geo-crosses-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-geo-crosses-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-geo-crosses-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-geo-crosses {
   padding: var(--mdp-semantic-property-geo-crosses-padding);
   gap: var(--mdp-semantic-property-geo-crosses-gap);

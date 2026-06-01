@@ -7,6 +7,17 @@
   --mdp-semantic-recourse-loan-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-recourse-loan-padding: 1rem;
+  --mdp-semantic-recourse-loan-gap: 0.75rem;
+  --mdp-semantic-recourse-loan-radius: 1rem;
+  --mdp-semantic-recourse-loan-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-recourse-loan-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-recourse-loan-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--recourse-loan {
   padding: var(--mdp-semantic-recourse-loan-padding);
   gap: var(--mdp-semantic-recourse-loan-gap);

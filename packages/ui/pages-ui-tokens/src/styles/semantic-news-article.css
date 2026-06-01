@@ -9,6 +9,17 @@
   --mdp-semantic-news-article-shadow: 0 1.5rem 3rem rgba(61, 72, 79, 0.14);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-news-article-padding: clamp(1.2rem, 2vw, 1.8rem);
+  --mdp-semantic-news-article-gap: 1rem;
+  --mdp-semantic-news-article-radius: 1.4rem;
+  --mdp-semantic-news-article-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-news-article-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-news-article-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--news-article {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

@@ -9,6 +9,17 @@
   --mdp-semantic-blog-posting-shadow: 0 1.4rem 3rem rgba(86, 67, 31, 0.12);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-blog-posting-padding: clamp(1.25rem, 2vw, 1.85rem);
+  --mdp-semantic-blog-posting-gap: 1rem;
+  --mdp-semantic-blog-posting-radius: 1.4rem;
+  --mdp-semantic-blog-posting-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-blog-posting-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-blog-posting-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--blog-posting {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

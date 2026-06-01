@@ -18,6 +18,7 @@ const packageJson = JSON.parse(readFileSync(path.join(demoRoot, "package.json"),
 const mainSource = readFileSync(path.join(demoRoot, "src", "main.tsx"), "utf8");
 const showcaseSource = readFileSync(path.join(demoRoot, "src", "showcase-component.mjs"), "utf8");
 const tokenStyles = readFileSync(path.join(demoRoot, "src", "token-styles.css"), "utf8");
+const stylesCss = readFileSync(path.join(demoRoot, "src", "styles.css"), "utf8");
 const readme = readFileSync(path.join(demoRoot, "README.md"), "utf8");
 
 test("T0: semantic components demo is a mode-driven explorer over the full generated surface", () => {
@@ -37,12 +38,15 @@ test("T0: semantic components demo is a mode-driven explorer over the full gener
   assert.ok(highlightsView.groups.length >= 6);
   assert.ok(buildGovernedCoreGroups().length >= 10);
   assert.ok(buildGeneratedArtifactView({ kind: "type" }).total >= 200);
-  assert.equal(buildGeneratedArtifactView({ kind: "type", surface: "page-or-listing" }).total, buildGeneratedArtifactView({ kind: "type" }).total);
+  assert.ok(buildGeneratedArtifactView({ kind: "type", surface: "page-or-listing" }).total < buildGeneratedArtifactView({ kind: "type" }).total);
   assert.ok(buildGeneratedArtifactView({ kind: "property" }).total >= 900);
+  assert.ok(buildGeneratedArtifactView({ kind: "property" }).entries.length > 0);
   assert.ok(buildGeneratedArtifactView({ kind: "enumeration" }).total >= 50);
   assert.ok(buildGeneratedArtifactView({ kind: "datatype" }).total >= 7);
   assert.equal(qaViewLinks.length, 7);
   assert.ok(tokenStyles.includes("generated-semantic-surface.css"));
+  assert.ok(tokenStyles.includes("root.css"));
+  assert.ok(stylesCss.includes("Atkinson Hyperlegible") || stylesCss.includes("var(--mdwrk-font-ui)"));
   assert.ok(!tokenStyles.includes("semantic-about-page.css"));
   assert.ok(!readme.includes("all `58`"));
   assert.ok(readme.includes("full generated surface"));

@@ -7,6 +7,17 @@
   --mdp-semantic-music-release-format-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-music-release-format-padding: 1rem;
+  --mdp-semantic-music-release-format-gap: 0.75rem;
+  --mdp-semantic-music-release-format-radius: 1rem;
+  --mdp-semantic-music-release-format-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-music-release-format-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-music-release-format-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--music-release-format {
   padding: var(--mdp-semantic-music-release-format-padding);
   gap: var(--mdp-semantic-music-release-format-gap);

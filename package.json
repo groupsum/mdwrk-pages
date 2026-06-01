@@ -17,8 +17,8 @@
     "pnpm": ">=10"
   },
   "scripts": {
-    "generate:schemaorg-fused-surface": "node packages/contracts/lander-content-contract/scripts/generate-structured-data-schemas.mjs && node tools/generate-schemaorg-fused-surface.mjs",
-    "build": "npm run generate:schemaorg-fused-surface && npm run build:packages && npm run build:examples",
+    "generate:schemaorg-fused-surface": "npm run generate:schemaorg -w @mdwrk/lander-content-contract && node tools/generate-schemaorg-fused-surface.mjs",
+    "build": "npm run build:packages && npm run build:examples",
     "build:packages": "npm run build -w @mdwrk/lander-content-contract && npm run build -w @mdwrk/lander-commerce-contract && npm run build -w @mdwrk/lander-core && npm run build -w @mdwrk/structured-data && npm run build -w @mdwrk/lander-seo && npm run build -w @mdwrk/pages-ui-tokens && npm run build -w @mdwrk/lander-theme && npm run build -w @mdwrk/lander-markdown-content-adapter && npm run build -w @mdwrk/lander-page-templates && npm run build -w @mdwrk/lander-page-template-presets && npm run build -w @mdwrk/lander-react-structured-data && npm run build -w @mdwrk/lander-react && npm run build -w @mdwrk/lander-react-commerce && npm run build -w @mdwrk/page-template-demo-content-pack && npm run build -w @mdwrk/subscription-store-content-pack",
     "build:examples": "npm run build -w @mdwrk/example-page-template-demo && npm run build -w @mdwrk/example-learning-path-demo && npm run build -w @mdwrk/example-subscription-store-demo && npm run build -w @mdwrk/example-semantic-components-demo",
     "typecheck": "npm run typecheck:packages && npm run typecheck:examples",

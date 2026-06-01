@@ -7,6 +7,17 @@
   --mdp-semantic-property-software-version-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-software-version-padding: 1rem;
+  --mdp-semantic-property-software-version-gap: 0.75rem;
+  --mdp-semantic-property-software-version-radius: 1rem;
+  --mdp-semantic-property-software-version-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-software-version-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-software-version-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-software-version {
   padding: var(--mdp-semantic-property-software-version-padding);
   gap: var(--mdp-semantic-property-software-version-gap);

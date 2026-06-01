@@ -7,6 +7,17 @@
   --mdp-semantic-print-column-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-print-column-padding: 1rem;
+  --mdp-semantic-print-column-gap: 0.75rem;
+  --mdp-semantic-print-column-radius: 1rem;
+  --mdp-semantic-print-column-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-print-column-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-print-column-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--print-column {
   padding: var(--mdp-semantic-print-column-padding);
   gap: var(--mdp-semantic-print-column-gap);

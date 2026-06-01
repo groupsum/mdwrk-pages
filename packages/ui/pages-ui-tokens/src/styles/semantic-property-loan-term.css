@@ -7,6 +7,17 @@
   --mdp-semantic-property-loan-term-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-loan-term-padding: 1rem;
+  --mdp-semantic-property-loan-term-gap: 0.75rem;
+  --mdp-semantic-property-loan-term-radius: 1rem;
+  --mdp-semantic-property-loan-term-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-loan-term-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-loan-term-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-loan-term {
   padding: var(--mdp-semantic-property-loan-term-padding);
   gap: var(--mdp-semantic-property-loan-term-gap);

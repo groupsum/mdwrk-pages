@@ -9,6 +9,17 @@
   --mdp-semantic-search-results-page-shadow: var(--mdwrk-shadow-strong);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-search-results-page-padding: 1.7rem;
+  --mdp-semantic-search-results-page-gap: 1rem;
+  --mdp-semantic-search-results-page-radius: 1.4rem;
+  --mdp-semantic-search-results-page-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-search-results-page-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-search-results-page-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--search-results-page {
   display: grid;
   gap: var(--mdp-semantic-search-results-page-gap);

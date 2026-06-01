@@ -10,6 +10,18 @@
   --mdp-semantic-merchant-return-policy-accent: #d63d3d;
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-merchant-return-policy-padding: 1.35rem;
+  --mdp-semantic-merchant-return-policy-gap: 0.9rem;
+  --mdp-semantic-merchant-return-policy-radius: 1.3rem;
+  --mdp-semantic-merchant-return-policy-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-merchant-return-policy-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-merchant-return-policy-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-merchant-return-policy-accent: #d63d3d;
+}
+
 .lander-semantic--merchant-return-policy { display: grid; gap: var(--mdp-semantic-merchant-return-policy-gap); padding: var(--mdp-semantic-merchant-return-policy-padding); border: 1px solid var(--mdp-semantic-merchant-return-policy-border); border-radius: var(--mdp-semantic-merchant-return-policy-radius); background: var(--mdp-semantic-merchant-return-policy-surface); box-shadow: var(--mdp-semantic-merchant-return-policy-shadow); color: var(--lander-fg); }
 .lander-semantic--merchant-return-policy .lander-semantic__header { display: grid; gap: 0.6rem; }
 .lander-semantic--merchant-return-policy .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-merchant-return-policy-accent); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }

@@ -7,6 +7,17 @@
   --mdp-semantic-service-postal-address-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-service-postal-address-padding: 1rem;
+  --mdp-semantic-service-postal-address-gap: 0.75rem;
+  --mdp-semantic-service-postal-address-radius: 1rem;
+  --mdp-semantic-service-postal-address-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-service-postal-address-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-service-postal-address-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--service-postal-address {
   padding: var(--mdp-semantic-service-postal-address-padding);
   gap: var(--mdp-semantic-service-postal-address-gap);

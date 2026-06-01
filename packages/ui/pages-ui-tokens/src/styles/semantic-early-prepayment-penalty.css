@@ -7,6 +7,17 @@
   --mdp-semantic-early-prepayment-penalty-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-early-prepayment-penalty-padding: 1rem;
+  --mdp-semantic-early-prepayment-penalty-gap: 0.75rem;
+  --mdp-semantic-early-prepayment-penalty-radius: 1rem;
+  --mdp-semantic-early-prepayment-penalty-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-early-prepayment-penalty-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-early-prepayment-penalty-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--early-prepayment-penalty {
   padding: var(--mdp-semantic-early-prepayment-penalty-padding);
   gap: var(--mdp-semantic-early-prepayment-penalty-gap);

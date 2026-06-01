@@ -7,6 +7,17 @@
   --mdp-semantic-shipping-rate-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-shipping-rate-padding: 1rem;
+  --mdp-semantic-shipping-rate-gap: 0.75rem;
+  --mdp-semantic-shipping-rate-radius: 1rem;
+  --mdp-semantic-shipping-rate-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-shipping-rate-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-shipping-rate-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--shipping-rate {
   padding: var(--mdp-semantic-shipping-rate-padding);
   gap: var(--mdp-semantic-shipping-rate-gap);

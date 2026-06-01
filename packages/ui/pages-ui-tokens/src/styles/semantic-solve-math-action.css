@@ -10,6 +10,18 @@
   --mdp-semantic-solve-math-action-accent: #2563eb;
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-solve-math-action-padding: 1.25rem;
+  --mdp-semantic-solve-math-action-gap: 0.85rem;
+  --mdp-semantic-solve-math-action-radius: 1.2rem;
+  --mdp-semantic-solve-math-action-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-solve-math-action-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-solve-math-action-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-solve-math-action-accent: #2563eb;
+}
+
 .lander-semantic--solve-math-action { display: grid; gap: var(--mdp-semantic-solve-math-action-gap); padding: var(--mdp-semantic-solve-math-action-padding); border: 1px solid var(--mdp-semantic-solve-math-action-border); border-radius: var(--mdp-semantic-solve-math-action-radius); background: var(--mdp-semantic-solve-math-action-surface); box-shadow: var(--mdp-semantic-solve-math-action-shadow); color: var(--lander-fg); }
 .lander-semantic--solve-math-action .lander-semantic__header { display: grid; gap: 0.55rem; }
 .lander-semantic--solve-math-action .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-solve-math-action-accent); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }

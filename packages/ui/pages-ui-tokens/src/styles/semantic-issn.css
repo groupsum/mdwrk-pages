@@ -7,6 +7,17 @@
   --mdp-semantic-issn-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-issn-padding: 1rem;
+  --mdp-semantic-issn-gap: 0.75rem;
+  --mdp-semantic-issn-radius: 1rem;
+  --mdp-semantic-issn-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-issn-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-issn-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--issn {
   padding: var(--mdp-semantic-issn-padding);
   gap: var(--mdp-semantic-issn-gap);

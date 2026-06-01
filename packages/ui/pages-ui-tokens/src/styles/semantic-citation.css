@@ -7,6 +7,17 @@
   --mdp-semantic-citation-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-citation-padding: 1rem;
+  --mdp-semantic-citation-gap: 0.75rem;
+  --mdp-semantic-citation-radius: 1rem;
+  --mdp-semantic-citation-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-citation-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-citation-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--citation {
   padding: var(--mdp-semantic-citation-padding);
   gap: var(--mdp-semantic-citation-gap);

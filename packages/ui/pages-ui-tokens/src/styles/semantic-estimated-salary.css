@@ -7,6 +7,17 @@
   --mdp-semantic-estimated-salary-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-estimated-salary-padding: 1rem;
+  --mdp-semantic-estimated-salary-gap: 0.75rem;
+  --mdp-semantic-estimated-salary-radius: 1rem;
+  --mdp-semantic-estimated-salary-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-estimated-salary-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-estimated-salary-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--estimated-salary {
   padding: var(--mdp-semantic-estimated-salary-padding);
   gap: var(--mdp-semantic-estimated-salary-gap);

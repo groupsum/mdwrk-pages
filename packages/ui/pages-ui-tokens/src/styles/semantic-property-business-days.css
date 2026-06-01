@@ -7,6 +7,17 @@
   --mdp-semantic-property-business-days-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-business-days-padding: 1rem;
+  --mdp-semantic-property-business-days-gap: 0.75rem;
+  --mdp-semantic-property-business-days-radius: 1rem;
+  --mdp-semantic-property-business-days-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-business-days-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-business-days-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-business-days {
   padding: var(--mdp-semantic-property-business-days-padding);
   gap: var(--mdp-semantic-property-business-days-gap);

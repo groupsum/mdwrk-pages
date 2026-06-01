@@ -7,6 +7,17 @@
   --mdp-semantic-high-price-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-high-price-padding: 1rem;
+  --mdp-semantic-high-price-gap: 0.75rem;
+  --mdp-semantic-high-price-radius: 1rem;
+  --mdp-semantic-high-price-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-high-price-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-high-price-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--high-price {
   padding: var(--mdp-semantic-high-price-padding);
   gap: var(--mdp-semantic-high-price-gap);

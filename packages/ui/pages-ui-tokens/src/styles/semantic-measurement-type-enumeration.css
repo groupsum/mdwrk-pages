@@ -7,6 +7,17 @@
   --mdp-semantic-measurement-type-enumeration-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-measurement-type-enumeration-padding: 1rem;
+  --mdp-semantic-measurement-type-enumeration-gap: 0.75rem;
+  --mdp-semantic-measurement-type-enumeration-radius: 1rem;
+  --mdp-semantic-measurement-type-enumeration-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-measurement-type-enumeration-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-measurement-type-enumeration-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--measurement-type-enumeration {
   padding: var(--mdp-semantic-measurement-type-enumeration-padding);
   gap: var(--mdp-semantic-measurement-type-enumeration-gap);

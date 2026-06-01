@@ -9,6 +9,17 @@
   --mdp-semantic-software-application-shadow: var(--mdwrk-shadow-strong);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-software-application-padding: 1.6rem;
+  --mdp-semantic-software-application-gap: 1rem;
+  --mdp-semantic-software-application-radius: 1.45rem;
+  --mdp-semantic-software-application-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-software-application-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-software-application-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--software-application { display:grid; gap:var(--mdp-semantic-software-application-gap); padding:var(--mdp-semantic-software-application-padding); border:1px solid var(--mdp-semantic-software-application-border); border-radius:var(--mdp-semantic-software-application-radius); background:var(--mdp-semantic-software-application-surface); box-shadow:var(--mdp-semantic-software-application-shadow); color:var(--lander-fg); }
 .lander-semantic--software-application .lander-semantic__header,
 .lander-semantic--software-application .lander-semantic__body,

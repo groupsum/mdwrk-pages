@@ -7,6 +7,17 @@
   --mdp-semantic-property-credit-text-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-credit-text-padding: 1rem;
+  --mdp-semantic-property-credit-text-gap: 0.75rem;
+  --mdp-semantic-property-credit-text-radius: 1rem;
+  --mdp-semantic-property-credit-text-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-credit-text-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-credit-text-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-credit-text {
   padding: var(--mdp-semantic-property-credit-text-padding);
   gap: var(--mdp-semantic-property-credit-text-gap);

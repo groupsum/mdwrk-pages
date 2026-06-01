@@ -7,6 +7,17 @@
   --mdp-semantic-part-of-season-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-part-of-season-padding: 1rem;
+  --mdp-semantic-part-of-season-gap: 0.75rem;
+  --mdp-semantic-part-of-season-radius: 1rem;
+  --mdp-semantic-part-of-season-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-part-of-season-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-part-of-season-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--part-of-season {
   padding: var(--mdp-semantic-part-of-season-padding);
   gap: var(--mdp-semantic-part-of-season-gap);

@@ -10,6 +10,18 @@
   --mdp-semantic-answer-accent: #c46b16;
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-answer-padding: 1.25rem;
+  --mdp-semantic-answer-gap: 0.85rem;
+  --mdp-semantic-answer-radius: 1.2rem;
+  --mdp-semantic-answer-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-answer-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-answer-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-answer-accent: #c46b16;
+}
+
 .lander-semantic--answer { display: grid; gap: var(--mdp-semantic-answer-gap); padding: var(--mdp-semantic-answer-padding); border: 1px solid var(--mdp-semantic-answer-border); border-radius: var(--mdp-semantic-answer-radius); background: var(--mdp-semantic-answer-surface); box-shadow: var(--mdp-semantic-answer-shadow); color: var(--lander-fg); }
 .lander-semantic--answer .lander-semantic__header { display: grid; gap: 0.55rem; }
 .lander-semantic--answer .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-answer-accent); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }

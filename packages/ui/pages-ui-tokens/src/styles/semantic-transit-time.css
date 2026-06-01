@@ -7,6 +7,17 @@
   --mdp-semantic-transit-time-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-transit-time-padding: 1rem;
+  --mdp-semantic-transit-time-gap: 0.75rem;
+  --mdp-semantic-transit-time-radius: 1rem;
+  --mdp-semantic-transit-time-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-transit-time-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-transit-time-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--transit-time {
   padding: var(--mdp-semantic-transit-time-padding);
   gap: var(--mdp-semantic-transit-time-gap);

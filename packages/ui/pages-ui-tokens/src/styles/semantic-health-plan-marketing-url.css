@@ -7,6 +7,17 @@
   --mdp-semantic-health-plan-marketing-url-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-health-plan-marketing-url-padding: 1rem;
+  --mdp-semantic-health-plan-marketing-url-gap: 0.75rem;
+  --mdp-semantic-health-plan-marketing-url-radius: 1rem;
+  --mdp-semantic-health-plan-marketing-url-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-health-plan-marketing-url-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-health-plan-marketing-url-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--health-plan-marketing-url {
   padding: var(--mdp-semantic-health-plan-marketing-url-padding);
   gap: var(--mdp-semantic-health-plan-marketing-url-gap);

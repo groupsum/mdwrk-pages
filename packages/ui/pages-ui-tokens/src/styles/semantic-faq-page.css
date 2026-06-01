@@ -10,6 +10,18 @@
   --mdp-semantic-faq-page-accent: #008b8b;
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-faq-page-padding: 1.6rem;
+  --mdp-semantic-faq-page-gap: 1rem;
+  --mdp-semantic-faq-page-radius: 1.5rem;
+  --mdp-semantic-faq-page-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-faq-page-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-faq-page-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-faq-page-accent: #008b8b;
+}
+
 .lander-semantic--faq-page { display: grid; gap: var(--mdp-semantic-faq-page-gap); padding: var(--mdp-semantic-faq-page-padding); border: 1px solid var(--mdp-semantic-faq-page-border); border-radius: var(--mdp-semantic-faq-page-radius); background: var(--mdp-semantic-faq-page-surface); box-shadow: var(--mdp-semantic-faq-page-shadow); color: var(--lander-fg); }
 .lander-semantic--faq-page .lander-semantic__header { display: grid; gap: 0.8rem; }
 .lander-semantic--faq-page .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-faq-page-accent); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }

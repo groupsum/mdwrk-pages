@@ -463,6 +463,26 @@ function propsForGeneratedArtifact(artifact) {
   };
 }
 
+function structuredFieldValueForGeneratedArtifact(artifact, props) {
+  const fieldEntries = Object.entries(props ?? {}).filter(([key]) => ![
+    "body",
+    "className",
+    "description",
+    "emitStructuredData",
+    "examples",
+    "structuredDataOverrides",
+    "viewModel",
+  ].includes(key));
+
+  if (artifact.kind === "type" || artifact.kind === "property") {
+    const fields = Object.fromEntries(fieldEntries);
+    if (artifact.kind === "type" && fields["@type"] === undefined) fields["@type"] = artifact.name;
+    return fields;
+  }
+
+  return { "@type": artifact.name, value: props?.value };
+}
+
 function coreEntryFromFixture(fixture) {
   const family = familyByName.get(fixture.name) ?? "Unassigned family";
   return {
@@ -524,6 +544,7 @@ export function buildGovernedCoreGroups({ family = "all", search = "", surface =
 
 const generatedArtifactEntries = GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS.map((artifact) => {
   const fixture = artifact.kind === "type" ? fixtureByName.get(artifact.name) : null;
+  const props = fixture ? fixture.props : propsForGeneratedArtifact(artifact);
   return {
     artifactKind: artifact.kind,
     name: artifact.name,
@@ -534,7 +555,8 @@ const generatedArtifactEntries = GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS.map((
     familySlug: familySlugByName.get(artifact.name) ?? slugify(`${artifact.kind} artifacts`),
     surfaceFocus: surfaceFocusForName(artifact.name),
     description: curatedDescriptionsByName[artifact.name] ?? generatedDescriptionForArtifact(artifact),
-    props: fixture ? fixture.props : propsForGeneratedArtifact(artifact),
+    props,
+    structuredFields: structuredFieldValueForGeneratedArtifact(artifact, props),
     visible: fixture?.visible ?? [artifact.name],
   };
 });
@@ -543,6 +565,7 @@ export function buildGeneratedArtifactView({ kind = "type", search = "", page = 
   const normalizedSearch = search.trim().toLowerCase();
   const filtered = generatedArtifactEntries.filter((entry) => {
     if (entry.artifactKind !== kind) return false;
+    if (kind === "type" && !matchesSurfaceFocus(entry, surface)) return false;
     if (!normalizedSearch) return true;
     return [
       entry.name,
@@ -554,9 +577,6 @@ export function buildGeneratedArtifactView({ kind = "type", search = "", page = 
   const prioritized = [...filtered];
   if (kind === "type" && surface !== "all") {
     prioritized.sort((left, right) => {
-      const leftSurfaceMatch = matchesSurfaceFocus(left, surface) ? 1 : 0;
-      const rightSurfaceMatch = matchesSurfaceFocus(right, surface) ? 1 : 0;
-      if (leftSurfaceMatch !== rightSurfaceMatch) return rightSurfaceMatch - leftSurfaceMatch;
       const leftFoundation = foundationalGeneratedTypeNames.has(left.name) ? 1 : 0;
       const rightFoundation = foundationalGeneratedTypeNames.has(right.name) ? 1 : 0;
       if (leftFoundation !== rightFoundation) return rightFoundation - leftFoundation;

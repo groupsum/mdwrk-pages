@@ -1,8 +1,25 @@
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: local("Atkinson Hyperlegible"), local("AtkinsonHyperlegible-Regular");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: local("Atkinson Hyperlegible Bold"), local("AtkinsonHyperlegible-Bold");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root,
 :root[data-lander-theme="lander-light"],
 [data-lander-theme="lander-light"] {
-  --mdwrk-font-ui: "Inter", "Segoe UI", Arial, sans-serif;
-  --mdwrk-font-head: "Inter", "Segoe UI", Arial, sans-serif;
+  color-scheme: light;
+  --mdwrk-font-ui: "Atkinson Hyperlegible", "Segoe UI", Arial, sans-serif;
+  --mdwrk-font-head: "Atkinson Hyperlegible", "Segoe UI", Arial, sans-serif;
   --mdwrk-font-mono: "JetBrains Mono", "IBM Plex Mono", Consolas, monospace;
   --mdwrk-radius-sm: 0.5rem;
   --mdwrk-radius-md: 0.75rem;
@@ -11,13 +28,49 @@
   --mdwrk-space-3: 0.75rem;
   --mdwrk-space-4: 1rem;
   --mdwrk-space-6: 1.5rem;
+  --mdwrk-color-bg: #f3efe4;
+  --mdwrk-color-bg-elevated: rgba(255, 255, 255, 0.88);
+  --mdwrk-color-bg-panel: rgba(255, 255, 255, 0.78);
+  --mdwrk-color-bg-panel-strong: rgba(255, 255, 255, 0.94);
+  --mdwrk-color-bg-soft: rgba(246, 249, 247, 0.92);
+  --mdwrk-color-bg-muted: rgba(237, 243, 240, 0.88);
+  --mdwrk-color-bg-code: rgba(15, 23, 42, 0.04);
+  --mdwrk-color-text: #17201b;
+  --mdwrk-color-text-muted: #44554c;
+  --mdwrk-color-text-subtle: #607268;
+  --mdwrk-color-text-inverse: #f7faf7;
+  --mdwrk-color-border: rgba(23, 32, 27, 0.12);
+  --mdwrk-color-border-strong: rgba(23, 32, 27, 0.2);
+  --mdwrk-color-accent: #256e5b;
+  --mdwrk-color-accent-soft: rgba(37, 110, 91, 0.14);
+  --mdwrk-color-accent-strong: #1b4f43;
+  --mdwrk-color-focus: rgba(63, 140, 255, 0.2);
   --mdwrk-shadow-soft: 0 12px 32px rgba(15, 23, 42, 0.12);
   --mdwrk-shadow-strong: 0 18px 50px rgba(15, 23, 42, 0.18);
 }
 
+:root[data-lander-theme="lander-dark"],
 [data-lander-theme="lander-dark"],
 [data-lander-theme="dark"],
 .dark {
+  color-scheme: dark;
+  --mdwrk-color-bg: #091019;
+  --mdwrk-color-bg-elevated: rgba(13, 20, 30, 0.92);
+  --mdwrk-color-bg-panel: rgba(12, 19, 28, 0.86);
+  --mdwrk-color-bg-panel-strong: rgba(16, 24, 36, 0.96);
+  --mdwrk-color-bg-soft: rgba(14, 23, 33, 0.94);
+  --mdwrk-color-bg-muted: rgba(20, 32, 44, 0.88);
+  --mdwrk-color-bg-code: rgba(148, 163, 184, 0.12);
+  --mdwrk-color-text: #ecf5ef;
+  --mdwrk-color-text-muted: #c5d6cb;
+  --mdwrk-color-text-subtle: #92aa9c;
+  --mdwrk-color-text-inverse: #091019;
+  --mdwrk-color-border: rgba(202, 219, 210, 0.16);
+  --mdwrk-color-border-strong: rgba(202, 219, 210, 0.28);
+  --mdwrk-color-accent: #7dd3b0;
+  --mdwrk-color-accent-soft: rgba(125, 211, 176, 0.16);
+  --mdwrk-color-accent-strong: #a2f0cb;
+  --mdwrk-color-focus: rgba(96, 165, 250, 0.28);
   --mdwrk-shadow-soft: 0 12px 32px rgba(0, 0, 0, 0.28);
   --mdwrk-shadow-strong: 0 18px 50px rgba(0, 0, 0, 0.34);
 }
@@ -44,12 +97,12 @@
   min-width: 0;
   padding: var(--mdwrk-space-3);
   border-radius: var(--mdwrk-radius-md);
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: var(--mdwrk-color-bg-panel);
+  border: 1px solid var(--mdwrk-color-border);
 }
 
 .lander-semantic__field-card--nested {
-  background: rgba(248, 250, 252, 0.92);
+  background: var(--mdwrk-color-bg-soft);
 }
 
 .lander-semantic__field-label {
@@ -61,7 +114,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.6);
+  color: var(--mdwrk-color-text-subtle);
 }
 
 .lander-semantic__field-inline {
@@ -90,8 +143,8 @@
   max-width: 100%;
   padding: 0.4rem 0.7rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: var(--mdwrk-color-bg-elevated);
+  border: 1px solid var(--mdwrk-color-border);
   overflow-wrap: anywhere;
   word-break: break-word;
 }

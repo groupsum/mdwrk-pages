@@ -7,6 +7,17 @@
   --mdp-semantic-rating-explanation-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-rating-explanation-padding: 1rem;
+  --mdp-semantic-rating-explanation-gap: 0.75rem;
+  --mdp-semantic-rating-explanation-radius: 1rem;
+  --mdp-semantic-rating-explanation-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-rating-explanation-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-rating-explanation-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--rating-explanation {
   padding: var(--mdp-semantic-rating-explanation-padding);
   gap: var(--mdp-semantic-rating-explanation-gap);

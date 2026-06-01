@@ -7,6 +7,17 @@
   --mdp-semantic-property-stage-as-number-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-property-stage-as-number-padding: 1rem;
+  --mdp-semantic-property-stage-as-number-gap: 0.75rem;
+  --mdp-semantic-property-stage-as-number-radius: 1rem;
+  --mdp-semantic-property-stage-as-number-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-property-stage-as-number-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-property-stage-as-number-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--property-stage-as-number {
   padding: var(--mdp-semantic-property-stage-as-number-padding);
   gap: var(--mdp-semantic-property-stage-as-number-gap);

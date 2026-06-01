@@ -7,6 +7,17 @@
   --mdp-semantic-music-composition-form-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-music-composition-form-padding: 1rem;
+  --mdp-semantic-music-composition-form-gap: 0.75rem;
+  --mdp-semantic-music-composition-form-radius: 1rem;
+  --mdp-semantic-music-composition-form-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-music-composition-form-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-music-composition-form-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--music-composition-form {
   padding: var(--mdp-semantic-music-composition-form-padding);
   gap: var(--mdp-semantic-music-composition-form-gap);

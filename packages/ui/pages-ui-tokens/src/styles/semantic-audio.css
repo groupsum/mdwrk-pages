@@ -7,6 +7,17 @@
   --mdp-semantic-audio-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-audio-padding: 1rem;
+  --mdp-semantic-audio-gap: 0.75rem;
+  --mdp-semantic-audio-radius: 1rem;
+  --mdp-semantic-audio-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-audio-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-audio-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--audio {
   padding: var(--mdp-semantic-audio-padding);
   gap: var(--mdp-semantic-audio-gap);

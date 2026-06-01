@@ -7,6 +7,17 @@
   --mdp-semantic-event-attendance-mode-enumeration-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-event-attendance-mode-enumeration-padding: 1rem;
+  --mdp-semantic-event-attendance-mode-enumeration-gap: 0.75rem;
+  --mdp-semantic-event-attendance-mode-enumeration-radius: 1rem;
+  --mdp-semantic-event-attendance-mode-enumeration-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-event-attendance-mode-enumeration-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-event-attendance-mode-enumeration-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--event-attendance-mode-enumeration {
   padding: var(--mdp-semantic-event-attendance-mode-enumeration-padding);
   gap: var(--mdp-semantic-event-attendance-mode-enumeration-gap);

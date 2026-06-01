@@ -10,6 +10,18 @@
   --mdp-semantic-clip-accent: #2563eb;
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-clip-padding: 1.35rem;
+  --mdp-semantic-clip-gap: 0.9rem;
+  --mdp-semantic-clip-radius: 1.3rem;
+  --mdp-semantic-clip-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-clip-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-clip-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-clip-accent: #2563eb;
+}
+
 .lander-semantic--clip { display: grid; gap: var(--mdp-semantic-clip-gap); padding: var(--mdp-semantic-clip-padding); border: 1px solid var(--mdp-semantic-clip-border); border-radius: var(--mdp-semantic-clip-radius); background: var(--mdp-semantic-clip-surface); box-shadow: var(--mdp-semantic-clip-shadow); color: var(--lander-fg); }
 .lander-semantic--clip .lander-semantic__header { display: grid; gap: 0.65rem; }
 .lander-semantic--clip .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-clip-accent); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }

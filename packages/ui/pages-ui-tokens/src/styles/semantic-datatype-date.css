@@ -7,6 +7,17 @@
   --mdp-semantic-datatype-date-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-datatype-date-padding: 1rem;
+  --mdp-semantic-datatype-date-gap: 0.75rem;
+  --mdp-semantic-datatype-date-radius: 1rem;
+  --mdp-semantic-datatype-date-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-datatype-date-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-datatype-date-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--datatype-date {
   padding: var(--mdp-semantic-datatype-date-padding);
   gap: var(--mdp-semantic-datatype-date-gap);

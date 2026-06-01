@@ -7,6 +7,17 @@
   --mdp-semantic-publisher-imprint-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-publisher-imprint-padding: 1rem;
+  --mdp-semantic-publisher-imprint-gap: 0.75rem;
+  --mdp-semantic-publisher-imprint-radius: 1rem;
+  --mdp-semantic-publisher-imprint-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-publisher-imprint-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-publisher-imprint-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--publisher-imprint {
   padding: var(--mdp-semantic-publisher-imprint-padding);
   gap: var(--mdp-semantic-publisher-imprint-gap);

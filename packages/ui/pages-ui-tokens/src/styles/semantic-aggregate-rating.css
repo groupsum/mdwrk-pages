@@ -10,6 +10,18 @@
   --mdp-semantic-aggregate-rating-accent: #c08b00;
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-aggregate-rating-padding: 1.35rem;
+  --mdp-semantic-aggregate-rating-gap: 0.9rem;
+  --mdp-semantic-aggregate-rating-radius: 1.3rem;
+  --mdp-semantic-aggregate-rating-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-aggregate-rating-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-aggregate-rating-shadow: var(--mdwrk-shadow-strong);
+  --mdp-semantic-aggregate-rating-accent: #c08b00;
+}
+
 .lander-semantic--aggregate-rating { display: grid; gap: var(--mdp-semantic-aggregate-rating-gap); padding: var(--mdp-semantic-aggregate-rating-padding); border: 1px solid var(--mdp-semantic-aggregate-rating-border); border-radius: var(--mdp-semantic-aggregate-rating-radius); background: var(--mdp-semantic-aggregate-rating-surface); box-shadow: var(--mdp-semantic-aggregate-rating-shadow); color: var(--lander-fg); }
 .lander-semantic--aggregate-rating .lander-semantic__header { display: grid; gap: 0.55rem; }
 .lander-semantic--aggregate-rating .lander-semantic__eyebrow { width: fit-content; margin: 0; color: var(--mdp-semantic-aggregate-rating-accent); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }

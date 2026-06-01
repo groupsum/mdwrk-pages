@@ -7,6 +7,17 @@
   --mdp-semantic-catalog-number-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-catalog-number-padding: 1rem;
+  --mdp-semantic-catalog-number-gap: 0.75rem;
+  --mdp-semantic-catalog-number-radius: 1rem;
+  --mdp-semantic-catalog-number-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-catalog-number-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-catalog-number-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--catalog-number {
   padding: var(--mdp-semantic-catalog-number-padding);
   gap: var(--mdp-semantic-catalog-number-gap);

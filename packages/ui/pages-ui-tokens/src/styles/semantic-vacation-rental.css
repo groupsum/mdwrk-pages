@@ -9,6 +9,17 @@
   --mdp-semantic-vacation-rental-shadow: var(--mdwrk-shadow-strong);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-vacation-rental-padding: 1.6rem;
+  --mdp-semantic-vacation-rental-gap: 1rem;
+  --mdp-semantic-vacation-rental-radius: 1.45rem;
+  --mdp-semantic-vacation-rental-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-vacation-rental-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-vacation-rental-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--vacation-rental { display:grid; gap:var(--mdp-semantic-vacation-rental-gap); padding:var(--mdp-semantic-vacation-rental-padding); border:1px solid var(--mdp-semantic-vacation-rental-border); border-radius:var(--mdp-semantic-vacation-rental-radius); background:var(--mdp-semantic-vacation-rental-surface); box-shadow:var(--mdp-semantic-vacation-rental-shadow); color:var(--lander-fg); }
 .lander-semantic--vacation-rental .lander-semantic__header,
 .lander-semantic--vacation-rental .lander-semantic__body,

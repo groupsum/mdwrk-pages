@@ -7,6 +7,17 @@
   --mdp-semantic-government-benefits-type-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
 }
 
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdp-semantic-government-benefits-type-padding: 1rem;
+  --mdp-semantic-government-benefits-type-gap: 0.75rem;
+  --mdp-semantic-government-benefits-type-radius: 1rem;
+  --mdp-semantic-government-benefits-type-surface: var(--mdwrk-color-bg-panel-strong);
+  --mdp-semantic-government-benefits-type-border: var(--mdwrk-color-border-strong);
+  --mdp-semantic-government-benefits-type-shadow: var(--mdwrk-shadow-strong);
+}
+
 .lander-semantic--government-benefits-type {
   padding: var(--mdp-semantic-government-benefits-type-padding);
   gap: var(--mdp-semantic-government-benefits-type-gap);

@@ -16,12 +16,14 @@ test("T1: highlights mode lands on curated high-signal surfaces instead of the f
 
 test("T1: governed core mode exposes authored runtime families with filtering controls", () => {
   const markup = renderToStaticMarkup(
-    React.createElement(SemanticShowcase, { initialState: { mode: "governed-core", family: "Education family", surface: "page" } }),
+    React.createElement(SemanticShowcase, { initialState: { mode: "governed-core", family: "Education family", surface: "page", theme: "lander-dark" } }),
   );
   assert.ok(markup.includes("Governed Core"));
   assert.ok(markup.includes("Education family"));
   assert.ok(markup.includes("Family"));
   assert.ok(markup.includes("Surface focus"));
+  assert.ok(markup.includes("Theme"));
+  assert.ok(markup.includes('data-lander-theme="lander-dark"'));
 });
 
 test("T1: generated surface mode renders each artifact kind through the explorer controls", () => {
@@ -42,7 +44,41 @@ test("T1: generated type mode supports pages and listings filtering", () => {
     React.createElement(SemanticShowcase, { initialState: { mode: "generated-surface", kind: "type", pageSize: 12, surface: "page-or-listing" } }),
   );
   assert.ok(markup.includes("Surface focus"));
-  assert.equal(view.total, buildGeneratedArtifactView({ kind: "type", pageSize: 12 }).total);
+  assert.ok(view.total < buildGeneratedArtifactView({ kind: "type", pageSize: 12 }).total);
   assert.ok(markup.includes(view.entries[0].name));
-  assert.ok(view.entries.some((entry) => entry.surfaceFocus === "page" || entry.surfaceFocus === "page-or-listing"));
+  assert.ok(view.entries.every((entry) => entry.surfaceFocus === "page" || entry.surfaceFocus === "listing" || entry.surfaceFocus === "page-or-listing"));
+});
+
+test("T1: generated type mode exposes structured fields for governed first-class types", () => {
+  const markup = renderToStaticMarkup(
+    React.createElement(SemanticShowcase, { initialState: { mode: "generated-surface", kind: "type", pageSize: 12 } }),
+  );
+
+  for (const field of [
+    "Structured fields",
+    "@type",
+    "Answer",
+    "text",
+    "upvote Count",
+    "AggregateOffer",
+    "low Price",
+    "high Price",
+    "price Currency",
+    "AlignmentObject",
+    "alignment Type",
+    "target Name",
+    "target Description",
+  ]) {
+    assert.ok(markup.includes(field), `expected generated surface markup to include ${field}`);
+  }
+});
+
+test("T1: generated property mode renders concrete property cards instead of an empty result pane", () => {
+  const view = buildGeneratedArtifactView({ kind: "property", pageSize: 12 });
+  const markup = renderToStaticMarkup(
+    React.createElement(SemanticShowcase, { initialState: { mode: "generated-surface", kind: "property", pageSize: 12 } }),
+  );
+  assert.ok(view.entries.length > 0);
+  assert.ok(markup.includes("935 matching artifacts"));
+  assert.ok(markup.includes(view.entries[0].name));
 });
