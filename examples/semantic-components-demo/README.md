@@ -1,13 +1,16 @@
 # Semantic Components Demo
 
-Demo app for the full fused semantic surface in `@mdwrk/lander-react`.
+Demo app for the fused semantic surface in `@mdwrk/lander-react`.
 
-The app showcases:
-- all `58` first-class structured-data-named exports
-- visible semantic rendering through `@mdwrk/lander-react`
-- built-in JSON-LD emission for every showcased component
-- family-grouped examples for article, education, commerce, media, identity, page, and catalog surfaces
-- per-type semantic CSS token files from `@mdwrk/pages-ui-tokens`
+The app now has three modes and exposes the full generated surface without collapsing everything into one giant page:
+- `Highlights`
+  - curated, high-signal examples across the authored runtime families
+- `Governed Core`
+  - the current first-class authored semantic runtime grouped by family
+- `Generated Surface`
+  - the full generated artifact explorer for `types`, `properties`, `enumerations`, and `datatypes`
+
+The demo derives its counts and generated-surface coverage from the same generated metadata used by the repo truth matrices. It no longer assumes a fixed `58`-export snapshot.
 
 ## Run locally
 
@@ -17,6 +20,14 @@ npm run dev -w @mdwrk/example-semantic-components-demo
 ```
 
 Open `http://localhost:5173/` unless Vite selects a different local port.
+
+Useful QA states:
+- `?mode=highlights`
+- `?mode=governed-core`
+- `?mode=generated-surface&kind=type`
+- `?mode=generated-surface&kind=property`
+- `?mode=generated-surface&kind=enumeration`
+- `?mode=generated-surface&kind=datatype`
 
 ## Build the container
 

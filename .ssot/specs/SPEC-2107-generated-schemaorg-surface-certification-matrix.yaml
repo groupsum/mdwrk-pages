@@ -1,0 +1,51 @@
+schema_version: "0.7.0"
+kind: "spec"
+id: "spc:2107"
+number: 2107
+slug: "generated-schemaorg-surface-certification-matrix"
+title: "Generated Schema.org Surface Certification Matrix"
+status: "draft"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "This SPEC defines the certification matrix for the promoted generated Schema.org surface across contract, wrapper, fused rendering, token coverage, and demo discoverability layers."
+supersedes: []
+superseded_by: []
+status_notes:
+  -
+    status: "draft"
+    note: "Created the generated-surface certification matrix contract across contract, wrapper, fused, token, and demo layers."
+    at: "2026-06-01T09:09:31Z"
+references: []
+body: |-
+  # SPEC-2107: Generated Schema.org surface certification matrix
+  
+  ## Scope
+  
+  This SPEC defines the certification matrix for the promoted generated Schema.org surface across contract, wrapper, fused rendering, token coverage, and demo discoverability layers.
+  
+  ## Requirements
+  
+  1. The certification matrix shall track promoted generated `types`, `properties`, `enumerations`, and `datatypes`.
+  2. For each promoted generated artifact family, the matrix shall record:
+     - schema-backed contract coverage
+     - wrapper coverage
+     - fused visible coverage
+     - className coverage
+     - dedicated token coverage
+     - demo discoverability coverage
+  3. Matrix artifacts shall be derived from code and generated inventories rather than maintained by hand.
+  4. CI shall fail when matrix artifacts drift from repo truth.
+  5. CI shall fail when a promoted generated artifact lacks required coverage in any certified layer.
+  
+  ## Acceptance
+  
+  Linked features and tests shall prove that the certification matrix is deterministic, code-derived, and fail-closed.
+spec_kind: "governance"
+adr_ids:
+  - "adr:1059"
+  - "adr:1062"
+  - "adr:1079"
+  - "adr:1084"
+  - "adr:1085"
+  - "adr:1086"

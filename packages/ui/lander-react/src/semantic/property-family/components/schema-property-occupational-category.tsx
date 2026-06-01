@@ -1,0 +1,23 @@
+import React from "react";
+import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
+import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+
+export interface SchemaPropertyOccupationalCategoryProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+
+export function SchemaPropertyOccupationalCategory({ value, description = "A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\\n\nNote: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyOccupationalCategoryProps) {
+  return renderGeneratedPropertyCard({
+    StructuredDataComponent: structuredDataReact.OccupationalCategoryPropertyStructuredData,
+    defaultEyebrow: "Property",
+    kind: "schema-property-occupational-category",
+    shellClassName: "lander-semantic--schema-property-occupational-category",
+    title: "occupationalCategory",
+    value,
+    description,
+    examples,
+    body,
+    className,
+    emitStructuredData,
+    structuredDataOverrides,
+    viewModel,
+  });
+}

@@ -9,6 +9,7 @@ const tokenPackageRoot = path.join(repoRoot, "packages", "ui", "pages-ui-tokens"
 const tokenStylesRoot = path.join(tokenPackageRoot, "src", "styles");
 const tokenGeneratedPath = path.join(tokenPackageRoot, "src", "generated-semantic-tokens.ts");
 const tokenFixturePath = path.join(tokenPackageRoot, "tests", "semantic-token-fixtures.mjs");
+const tokenBundlePath = path.join(tokenStylesRoot, "generated-semantic-surface.css");
 
 const structuredDataRoot = path.join(repoRoot, "packages", "contracts", "structured-data", "src");
 const structuredDataGeneratedPath = path.join(structuredDataRoot, "generated-page-family.ts");
@@ -18,14 +19,20 @@ const structuredDataReactGeneratedPath = path.join(structuredDataReactRoot, "gen
 
 const landerReactSemanticRoot = path.join(repoRoot, "packages", "ui", "lander-react", "src", "semantic");
 const generatedTypeFamilyPath = path.join(landerReactSemanticRoot, "generated-type-family.tsx");
+const generatedTypeFamilyDir = path.join(landerReactSemanticRoot, "generated-type-family");
 const datatypeFamilyPath = path.join(landerReactSemanticRoot, "datatype-family.tsx");
+const datatypeFamilyDir = path.join(landerReactSemanticRoot, "datatype-family");
 const enumerationFamilyPath = path.join(landerReactSemanticRoot, "enumeration-family.tsx");
+const enumerationFamilyDir = path.join(landerReactSemanticRoot, "enumeration-family");
 const propertyFamilyPath = path.join(landerReactSemanticRoot, "property-family.tsx");
+const propertyFamilyDir = path.join(landerReactSemanticRoot, "property-family");
 
 const docsRoot = path.join(repoRoot, "docs");
 const structuredMatrixPath = path.join(docsRoot, "structured-data-semantic-component-matrix.md");
 const structuredPresenceCsvPath = path.join(docsRoot, "structured-data-presence.csv");
 const generatedPresenceCsvPath = path.join(docsRoot, "generated-schemaorg-page-family-presence.csv");
+const semanticDemoRoot = path.join(repoRoot, "examples", "semantic-components-demo", "src");
+const semanticDemoFamilyMapPath = path.join(semanticDemoRoot, "generated-governed-family-map.mjs");
 
 const SPECIAL_SLUGS = new Map([
   ["FAQPage", "faq-page"],
@@ -118,6 +125,57 @@ function governedTypeNames() {
   return sortNames([...match[1].matchAll(/"([^"]+)"/g)].map((entry) => entry[1]));
 }
 
+function governedFamilyEntries() {
+  const semanticRoot = path.join(repoRoot, "packages", "ui", "lander-react", "src", "semantic");
+  const familyLabelByFile = new Map([
+    ["supporting-family", "Supporting family"],
+    ["infrastructure-family", "Infrastructure family"],
+    ["reference-family", "Reference family"],
+    ["medical-family", "Medical family"],
+    ["taxonomy-family", "Taxonomy family"],
+    ["data-family", "Data family"],
+    ["service-family", "Service family"],
+    ["article-family", "Article family"],
+    ["education-family", "Education family"],
+    ["commerce-family", "Commerce family"],
+    ["media-family", "Media family"],
+    ["identity-family", "Identity family"],
+    ["page-family", "Page family"],
+    ["catalog-family", "Catalog family"],
+  ]);
+
+  const familyEntries = [];
+  for (const [fileKey, family] of familyLabelByFile.entries()) {
+    const topLevelPath = path.join(semanticRoot, `${fileKey}.tsx`);
+    const topLevelSource = fs.readFileSync(topLevelPath, "utf8");
+    const folderMatch = topLevelSource.match(/export\s+\*\s+from\s+"\.\/([^/]+)\/index\.js";/);
+    const names = new Set();
+
+    if (folderMatch) {
+      const folderPath = path.join(semanticRoot, folderMatch[1]);
+      for (const entry of fs.readdirSync(folderPath)) {
+        if (!/\.(ts|tsx)$/.test(entry) || entry === "index.ts" || entry === "shared.tsx") continue;
+        const source = fs.readFileSync(path.join(folderPath, entry), "utf8");
+        for (const match of source.matchAll(/^export function (\w+)/gm)) {
+          names.add(match[1]);
+        }
+      }
+    } else {
+      for (const match of topLevelSource.matchAll(/^export function (\w+)/gm)) {
+        names.add(match[1]);
+      }
+    }
+
+    for (const name of names) {
+      if (!name.endsWith("Props")) {
+        familyEntries.push({ name, family, familySlug: toSlug(family) });
+      }
+    }
+  }
+
+  return familyEntries;
+}
+
 function toSlug(value) {
   const special = SPECIAL_SLUGS.get(value);
   if (special) return special;
@@ -160,7 +218,7 @@ function artifactMeta(kind, name) {
         ? `schema-enumeration-${baseSlug}`
         : `schema-datatype-${baseSlug}`;
   const pascalName = toPascalCase(name);
-  const visibleExportName = kind === "property" ? `Property${pascalName}` : pascalName;
+  const visibleExportName = kind === "property" ? `SchemaProperty${pascalName}` : pascalName;
   const tokenKindSegment =
     kind === "type" ? "" : kind === "property" ? "SchemaProperty" : kind === "enumeration" ? "SchemaEnumeration" : "SchemaDatatype";
   const tokenConstKindSegment =
@@ -204,7 +262,21 @@ function artifactDescription(meta) {
 
 function writeFile(filePath, contents) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  if (fs.existsSync(filePath) && fs.readFileSync(filePath, "utf8") === contents) return;
   fs.writeFileSync(filePath, contents, "utf8");
+}
+
+function resetDir(dirPath) {
+  fs.rmSync(dirPath, { recursive: true, force: true });
+  fs.mkdirSync(dirPath, { recursive: true });
+}
+
+function chunk(items, size) {
+  const chunks = [];
+  for (let index = 0; index < items.length; index += size) {
+    chunks.push(items.slice(index, index + size));
+  }
+  return chunks;
 }
 
 function baselineCss(meta) {
@@ -413,24 +485,73 @@ ${[...generatedOnlyTypes, ...datatypes, ...enumerations, ...properties].map((met
 `;
 writeFile(structuredDataReactGeneratedPath, structuredDataReactSource);
 
-function semanticFamilySource(kind, metas) {
-  const typedValue = kind === "datatype"
-    ? "boolean | number | string"
-    : kind === "enumeration"
-      ? "string"
-      : "Record<string, unknown>";
-  const title = kind === "type"
-    ? "Type"
-    : kind === "datatype"
-      ? "Datatype"
-      : kind === "enumeration"
-        ? "Enumeration"
-        : "Property";
-  const componentNameFor = (meta) => meta.visibleExportName;
-  const wrapperNameFor = (meta) => meta.wrapperExportName;
+function semanticFamilyDirFor(kind) {
+  if (kind === "type") return generatedTypeFamilyDir;
+  if (kind === "datatype") return datatypeFamilyDir;
+  if (kind === "enumeration") return enumerationFamilyDir;
+  return propertyFamilyDir;
+}
+
+function semanticFamilyPathFor(kind) {
+  if (kind === "type") return generatedTypeFamilyPath;
+  if (kind === "datatype") return datatypeFamilyPath;
+  if (kind === "enumeration") return enumerationFamilyPath;
+  return propertyFamilyPath;
+}
+
+function semanticFamilyTitle(kind) {
+  if (kind === "type") return "Type";
+  if (kind === "datatype") return "Datatype";
+  if (kind === "enumeration") return "Enumeration";
+  return "Property";
+}
+
+function semanticFamilyValueType(kind, meta) {
+  if (kind === "datatype") return datatypeTypeFor.get(meta.name) ?? "unknown";
+  if (kind === "enumeration") return "string";
+  return "Record<string, unknown>";
+}
+
+function semanticFamilyBaseValueType(kind) {
+  if (kind === "datatype") return "boolean | number | string";
+  if (kind === "enumeration") return "string";
+  return "Record<string, unknown>";
+}
+
+function semanticFamilySharedSource(kind) {
+  const title = semanticFamilyTitle(kind);
+  const generatedPropsSource =
+    kind === "type"
+      ? `export interface Generated${title}UiProps<T = ${semanticFamilyBaseValueType(kind)}> {
+  value?: T;
+  description?: string;
+  examples?: T[];
+  body?: React.ReactNode;
+  className?: string;
+  emitStructuredData?: boolean;
+  structuredDataOverrides?: Partial<T>;
+  viewModel?: Generated${title}ViewModel;
+}
+
+export type Generated${title}Props<T = ${semanticFamilyBaseValueType(kind)}> = Generated${title}UiProps<T> & T;`
+      : `export interface Generated${title}Props<T = ${semanticFamilyBaseValueType(kind)}> {
+  value: T;
+  description?: string;
+  examples?: T[];
+  body?: React.ReactNode;
+  className?: string;
+  emitStructuredData?: boolean;
+  structuredDataOverrides?: Partial<T>;
+  viewModel?: Generated${title}ViewModel;
+}`;
   return `import React from "react";
-import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { SemanticShell, SemanticStructuredDataGate, joinClassNames, renderJsonPreview } from "./shared.js";
+import {
+  SemanticShell,
+  SemanticStructuredDataGate,
+  ${kind === "type" || kind === "property" ? "isRecord,\n  mergeRecordLike,\n  " : ""}joinClassNames,
+  renderJsonPreview,
+  renderStructuredSection,
+} from "../shared.js";
 
 export interface Generated${title}ViewModel {
   eyebrow?: React.ReactNode;
@@ -438,62 +559,196 @@ export interface Generated${title}ViewModel {
   subtitle?: React.ReactNode;
 }
 
-export interface Generated${title}Props<T = ${typedValue}> {
+${generatedPropsSource}
+
+interface RenderGenerated${title}CardProps<T> {
+  StructuredDataComponent: React.ComponentType<{ data: unknown }>;
+  defaultEyebrow: string;
+  kind: string;
+  shellClassName: string;
+  title: string;
   value: T;
   description?: string;
   examples?: T[];
   body?: React.ReactNode;
   className?: string;
   emitStructuredData?: boolean;
-  structuredDataOverrides?: T;
+  structuredDataOverrides?: Partial<T>;
   viewModel?: Generated${title}ViewModel;
 }
 
-${metas.map((meta) => `export interface ${componentNameFor(meta)}Props extends Generated${title}Props<${kind === "datatype" ? (datatypeTypeFor.get(meta.name) ?? "unknown") : kind === "enumeration" ? "string" : "Record<string, unknown>"}> {}
-export function ${componentNameFor(meta)}({
+export function renderGenerated${title}Card<T>({
+  StructuredDataComponent,
+  defaultEyebrow,
+  kind,
+  shellClassName,
+  title,
   value,
-  description = ${JSON.stringify(artifactDescription(meta))},
+  description,
   examples,
   body,
   className,
   emitStructuredData = true,
   structuredDataOverrides,
   viewModel,
-}: ${componentNameFor(meta)}Props) {
+}: RenderGenerated${title}CardProps<T>) {
+  const effectiveValue = ${kind === "type" || kind === "property"
+    ? `isRecord(value) && isRecord(structuredDataOverrides)
+    ? mergeRecordLike(value, structuredDataOverrides)
+    : ((structuredDataOverrides ?? value) as T);`
+    : `((structuredDataOverrides ?? value) as T);`}
+
   return (
     <>
       <SemanticStructuredDataGate emitStructuredData={emitStructuredData}>
-        <structuredDataReact.${wrapperNameFor(meta)} data={(structuredDataOverrides ?? value) as never} />
+        <StructuredDataComponent data={effectiveValue as never} />
       </SemanticStructuredDataGate>
       <SemanticShell
-        kind=${JSON.stringify(meta.slug)}
-        title=${JSON.stringify(meta.name)}
-        eyebrow={viewModel?.eyebrow ?? ${JSON.stringify(title)}}
+        kind={kind}
+        title={title}
+        eyebrow={viewModel?.eyebrow ?? defaultEyebrow}
         subtitle={viewModel?.subtitle}
         description={description}
-        className={joinClassNames(${JSON.stringify(meta.shellSelector.slice(1))}, className)}
-        meta={[
-          { label: "Value", value: renderJsonPreview(value) },
-          ...(examples?.length ? [{ label: "Examples", value: renderJsonPreview(examples) }] : []),
-        ]}
-        body={body}
+        className={joinClassNames(shellClassName, className)}
+        meta=${kind === "type" || kind === "property"
+          ? `{isRecord(effectiveValue) ? undefined : [{ label: "Value", value: renderJsonPreview(effectiveValue) }]}`
+          : `{[{ label: "Value", value: renderJsonPreview(effectiveValue) }]}`}
+        body={
+          <>
+            {renderStructuredSection(effectiveValue${kind === "type" || kind === "property" ? "" : ', "Value"'})}
+            {examples?.length ? renderStructuredSection(examples, "Examples") : null}
+            {body}
+          </>
+        }
         footer={viewModel?.footer}
       />
     </>
   );
-}`).join("\n\n")}
-
-${kind === "property" ? `export const SCHEMAORG_PROPERTY_COMPONENTS = Object.freeze({
-${metas.map((meta) => `  ${JSON.stringify(meta.name)}: ${componentNameFor(meta)},`).join("\n")}
-});
-` : ""}
+}
 `;
 }
 
-writeFile(generatedTypeFamilyPath, semanticFamilySource("type", generatedOnlyTypes));
-writeFile(datatypeFamilyPath, semanticFamilySource("datatype", datatypes));
-writeFile(enumerationFamilyPath, semanticFamilySource("enumeration", enumerations));
-writeFile(propertyFamilyPath, semanticFamilySource("property", properties));
+function semanticFamilyComponentSource(kind, meta) {
+  const title = semanticFamilyTitle(kind);
+  const structuredDataTypeImport = kind === "type"
+    ? `import type { ${meta.inputTypeName} } from "@mdwrk/structured-data";\n`
+    : "";
+  const sharedImports =
+    kind === "type"
+      ? `Generated${title}UiProps, renderGenerated${title}Card`
+      : `Generated${title}Props, renderGenerated${title}Card`;
+  const propsInterface =
+    kind === "type"
+      ? `export interface ${meta.visibleExportName}Props extends ${meta.inputTypeName}, Generated${title}UiProps<${meta.inputTypeName}> {}`
+      : `export interface ${meta.visibleExportName}Props extends Generated${title}Props<${semanticFamilyValueType(kind, meta)}> {}`;
+  const typeComponentValueLines =
+    kind === "type"
+      ? `  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
+`
+      : "";
+  const typeDestructure =
+    kind === "type"
+      ? `{ value: legacyValue, description = ${JSON.stringify(artifactDescription(meta))}, examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }`
+      : `{ value, description = ${JSON.stringify(artifactDescription(meta))}, examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }`;
+  return `import React from "react";
+import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
+${structuredDataTypeImport}import { ${sharedImports} } from "../shared.js";
+
+${propsInterface}
+
+export function ${meta.visibleExportName}(${typeDestructure}: ${meta.visibleExportName}Props) {
+${typeComponentValueLines}  return renderGenerated${title}Card({
+    StructuredDataComponent: structuredDataReact.${meta.wrapperExportName},
+    defaultEyebrow: ${JSON.stringify(title)},
+    kind: ${JSON.stringify(meta.slug)},
+    shellClassName: ${JSON.stringify(meta.shellSelector.slice(1))},
+    title: ${JSON.stringify(meta.name)},
+    value,
+    description,
+    examples,
+    body,
+    className,
+    emitStructuredData,
+    structuredDataOverrides,
+    viewModel,
+  });
+}
+`;
+}
+
+function writeGeneratedSemanticFamily(kind, metas) {
+  const dirPath = semanticFamilyDirFor(kind);
+  const componentsDir = path.join(dirPath, "components");
+  resetDir(dirPath);
+  fs.mkdirSync(componentsDir, { recursive: true });
+  writeFile(path.join(dirPath, "shared.tsx"), semanticFamilySharedSource(kind));
+
+  for (const meta of metas) {
+    writeFile(path.join(componentsDir, `${meta.slug}.tsx`), semanticFamilyComponentSource(kind, meta));
+  }
+
+  const exportChunks = chunk(metas, 75);
+  exportChunks.forEach((entries, index) => {
+    writeFile(
+      path.join(dirPath, `exports-${String(index + 1).padStart(3, "0")}.ts`),
+      entries
+        .map((meta) => `export { ${meta.visibleExportName} } from "./components/${meta.slug}.js";
+export type { ${meta.visibleExportName}Props } from "./components/${meta.slug}.js";`)
+        .join("\n"),
+    );
+  });
+
+  if (kind === "property") {
+    exportChunks.forEach((entries, index) => {
+      writeFile(
+        path.join(dirPath, `property-map-${String(index + 1).padStart(3, "0")}.ts`),
+        `import { ${entries.map((meta) => meta.visibleExportName).join(", ")} } from "./exports-${String(index + 1).padStart(3, "0")}.js";
+
+export const SCHEMAORG_PROPERTY_COMPONENTS_${String(index + 1).padStart(3, "0")} = Object.freeze({
+${entries.map((meta) => `  ${JSON.stringify(meta.name)}: ${meta.visibleExportName},`).join("\n")}
+});
+`,
+      );
+    });
+  }
+
+  const indexLines = [
+    ...exportChunks.map((_, index) => `export * from "./exports-${String(index + 1).padStart(3, "0")}.js";`),
+  ];
+  if (kind === "property") {
+    indexLines.push(
+      ...exportChunks.map((_, index) => `import { SCHEMAORG_PROPERTY_COMPONENTS_${String(index + 1).padStart(3, "0")} } from "./property-map-${String(index + 1).padStart(3, "0")}.js";`),
+      "",
+      "export const SCHEMAORG_PROPERTY_COMPONENTS = Object.freeze({",
+      ...exportChunks.map((_, index) => `  ...SCHEMAORG_PROPERTY_COMPONENTS_${String(index + 1).padStart(3, "0")},`),
+      "});",
+    );
+  }
+  writeFile(path.join(dirPath, "index.ts"), indexLines.join("\n"));
+  writeFile(semanticFamilyPathFor(kind), `export * from "./${path.basename(dirPath)}/index.js";`);
+}
+
+writeGeneratedSemanticFamily("type", generatedOnlyTypes);
+writeGeneratedSemanticFamily("datatype", datatypes);
+writeGeneratedSemanticFamily("enumeration", enumerations);
+writeGeneratedSemanticFamily("property", properties);
+
+writeFile(
+  tokenBundlePath,
+  `${artifacts.map((meta) => `@import "./${meta.cssFileName}";`).join("\n")}\n`,
+);
+
+const governedFamilies = governedFamilyEntries();
+writeFile(
+  semanticDemoFamilyMapPath,
+  `export const governedFamilyEntries = ${JSON.stringify(governedFamilies, null, 2)};\n`,
+);
 
 // Docs + CSVs.
 const presenceRows = artifacts.map((meta) => ({

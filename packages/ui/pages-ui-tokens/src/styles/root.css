@@ -21,3 +21,84 @@
   --mdwrk-shadow-soft: 0 12px 32px rgba(0, 0, 0, 0.28);
   --mdwrk-shadow-strong: 0 18px 50px rgba(0, 0, 0, 0.34);
 }
+
+.lander-semantic__structured-section {
+  display: grid;
+  gap: var(--mdwrk-space-4);
+}
+
+.lander-semantic__field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--mdwrk-space-3);
+  min-width: 0;
+}
+
+.lander-semantic__field-grid--nested {
+  grid-template-columns: 1fr;
+}
+
+.lander-semantic__field-card {
+  display: grid;
+  gap: var(--mdwrk-space-2);
+  min-width: 0;
+  padding: var(--mdwrk-space-3);
+  border-radius: var(--mdwrk-radius-md);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.lander-semantic__field-card--nested {
+  background: rgba(248, 250, 252, 0.92);
+}
+
+.lander-semantic__field-label {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-width: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.6);
+}
+
+.lander-semantic__field-inline {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.lander-semantic__field-stack {
+  display: grid;
+  gap: var(--mdwrk-space-3);
+  min-width: 0;
+}
+
+.lander-semantic__field-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mdwrk-space-2);
+  min-width: 0;
+}
+
+.lander-semantic__field-chip {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.lander-semantic__field-card code,
+.lander-semantic__field-chip code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}

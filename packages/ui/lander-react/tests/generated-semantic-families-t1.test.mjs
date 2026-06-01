@@ -143,6 +143,19 @@ function dataForGeneratedArtifact(artifact) {
   throw new Error(`Unable to derive generated family fixture for ${kind}`);
 }
 
+function propsForGeneratedArtifact(artifact, value) {
+  if (
+    artifact.kind === "type" &&
+    value &&
+    typeof value === "object" &&
+    !Array.isArray(value)
+  ) {
+    return value;
+  }
+
+  return { value };
+}
+
 test("T1: generated fused semantic families render visible markup, accept className, and emit conformant JSON-LD", async () => {
   assert.ok(generatedFamilyArtifacts.length > 0, "expected generated family artifacts beyond the governed core");
   const renderableByKind = new Map(["type", "datatype", "enumeration", "property"].map((kind) => [kind, 0]));
@@ -160,7 +173,7 @@ test("T1: generated fused semantic families render visible markup, accept classN
     assert.equal(typeof Component, "function", `missing generated semantic export ${artifact.visibleExportName}`);
     const markup = renderToStaticMarkup(
       React.createElement(Component, {
-        value,
+        ...propsForGeneratedArtifact(artifact, value),
         className: "generated-probe",
       }),
     );

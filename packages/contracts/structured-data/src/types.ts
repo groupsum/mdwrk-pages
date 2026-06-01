@@ -1191,13 +1191,15 @@ export interface BreadcrumbListInput extends StructuredDataExtensible {
   items: StructuredDataBreadcrumbItem[];
 }
 
-export interface FaqPageInput extends StructuredDataExtensible {
+export interface FaqPageInput extends Omit<WebPageInput, "name"> {
   id?: string;
+  name?: string;
   items: StructuredDataFaqItem[];
 }
 
-export interface QaPageInput extends StructuredDataExtensible {
+export interface QaPageInput extends Omit<WebPageInput, "name"> {
   id?: string;
+  name?: string;
   question: string;
   answer?: string;
   acceptedAnswer?: AnswerInput;

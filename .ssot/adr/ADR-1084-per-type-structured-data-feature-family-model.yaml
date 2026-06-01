@@ -1,72 +1,35 @@
-schema_version: "0.6.0"
+schema_version: "0.7.0"
 kind: "adr"
 id: "adr:1084"
 number: 1084
 slug: "per-type-structured-data-feature-family-model"
-title: "Per-Type Structured Data Feature Family Model"
+title: "Generated Structured Data Artifact Family Model"
 status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "Each governed structured-data type in mdwrk-pages shall be modeled as a feature family with one umbrella feature and four standard leaf features."
+summary: "The MdWrk structured-data family model shall be artifact-kind based rather than type-only. The governed family model now includes generated `types`, `properties`, `enumerations`, and `datatypes`, each with explicit expectations for schema ownership, wrapper ownership, fused rendering, className support, token coverage, and certification tests."
 supersedes: []
 superseded_by: []
-status_notes: []
+status_notes:
+  -
+    status: "draft"
+    note: "Reframed the family model from per-type only to generated artifact kinds."
+    at: "2026-06-01T09:09:25Z"
 references: []
 body: |-
-  # ADR-1084: Per-Type Structured Data Feature Family Model
+  # ADR-1084: Generated Structured Data Artifact Family Model
   
   ## Decision
   
-  Each governed structured-data type in mdwrk-pages shall be modeled as a feature family with one umbrella feature and four standard leaf features.
-  
-  For a structured-data type `X`, the canonical feature family shall be:
-  
-  1. `feat:structured-data.<x>`
-  2. `feat:structured-data.<x>.json-schema`
-  3. `feat:structured-data.<x>.fused`
-  4. `feat:structured-data.<x>.fused-classnames`
-  5. `feat:structured-data.<x>.fused-classname-css-tokens`
-  
-  Feature ids shall derive from Schema.org type names using lower-kebab-case normalization. Examples:
-  
-  - `Article` -> `article`
-  - `QAPage` -> `qa-page`
-  - `NewsArticle` -> `news-article`
-  - `SolveMathAction` -> `solve-math-action`
-  
-  The umbrella feature shall identify the governed semantic surface for that structured-data type, but it shall not imply that all four leaf features are implemented.
-  
-  Leaf semantics shall be:
-  
-  - `json-schema`: per-type JSON Schema contract exists in `@mdwrk/lander-content-contract`
-  - `fused`: prop-native visible semantic component exists in `@mdwrk/lander-react` and emits JSON-LD internally
-  - `fused-classnames`: the fused component exposes a stable `className`-driven styling surface
-  - `fused-classname-css-tokens`: dedicated per-component CSS token files exist in `@mdwrk/pages-ui-tokens`
-  
-  Dependency expectations shall be:
-  
-  1. `fused-classnames` depends on `fused`
-  2. `fused-classname-css-tokens` depends on `fused-classnames`
-  3. `json-schema` remains independently targetable because some types may be schema-backed without becoming fused visible components
+  The MdWrk structured-data family model shall be artifact-kind based rather than type-only. The governed family model now includes generated `types`, `properties`, `enumerations`, and `datatypes`, each with explicit expectations for schema ownership, wrapper ownership, fused rendering, className support, token coverage, and certification tests.
   
   ## Rationale
   
-  The current mdwrk-pages surface spans multiple maturity dimensions:
-  
-  - schema-backed contracts
-  - low-level JSON-LD React emitters
-  - prop-native fused visible components
-  - className styling surfaces
-  - pages-scoped token CSS
-  
-  Treating each structured-data type as one flat feature loses those distinctions and makes partial delivery ambiguous. The feature-family model preserves one semantic umbrella per type while allowing governance, implementation, proof, and rollout decisions to track each maturity dimension explicitly.
-  
-  This model also matches the current frontier state where some types already have JSON Schema and JSON-LD emitters, while only a smaller subset has fused visible components and tokenized styling.
+  The earlier per-type framing matched a smaller structured-data frontier. The current generator-backed surface includes artifact kinds that are not types but still need runtime, visibility, styling, and certification treatment. Continuing to model the surface as type-only causes discoverability gaps and incomplete coverage obligations.
   
   ## Consequences
   
-  1. Feature planning shall distinguish schema coverage from fused semantic UI coverage.
-  2. A type may remain low-level and schema-backed without being promoted to a fused visible semantic component.
-  3. Proof chains, tests, and adoption evidence can target the exact maturity leaf being claimed.
-  4. The structured-data support matrix can map directly to governed feature rows instead of remaining an informal document.
+  1. Feature and test inventories shall be grouped by generated artifact kind as needed.
+  2. Generated properties, enumerations, and datatypes are first-class governed surfaces.
+  3. Counts and matrices shall be derived by artifact kind rather than inferred from type-only inventories.

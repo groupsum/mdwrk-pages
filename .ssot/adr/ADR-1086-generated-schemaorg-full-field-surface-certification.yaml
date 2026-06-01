@@ -1,0 +1,37 @@
+schema_version: "0.7.0"
+kind: "adr"
+id: "adr:1086"
+number: 1086
+slug: "generated-schemaorg-full-field-surface-certification"
+title: "Generated Schema.org Full-Field Surface Certification"
+status: "draft"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "MdWrk shall certify promoted generated Schema.org surfaces against full-field support. For every promoted generated artifact, the contract layer, wrapper layer, fused visible layer, token layer, and demo discoverability layer shall prove support for all present schema-valid fields unless an explicit fail-closed exception is governed and tested."
+supersedes: []
+superseded_by: []
+status_notes:
+  -
+    status: "draft"
+    note: "Created to govern full-field certification for promoted generated Schema.org surfaces."
+    at: "2026-06-01T09:09:27Z"
+references: []
+body: |-
+  # ADR-1086: Generated Schema.org full-field surface certification
+  
+  ## Decision
+  
+  MdWrk shall certify promoted generated Schema.org surfaces against full-field support. For every promoted generated artifact, the contract layer, wrapper layer, fused visible layer, token layer, and demo discoverability layer shall prove support for all present schema-valid fields unless an explicit fail-closed exception is governed and tested.
+  
+  Certification is family-aware and applies across generated `types`, `properties`, `enumerations`, and `datatypes`.
+  
+  ## Rationale
+  
+  Generated surfaces can appear complete while still dropping most fields, hiding artifacts behind filters, or only supporting placeholder payloads. A dedicated certification ADR is required to turn field completeness into a governed assurance obligation rather than an informal aspiration.
+  
+  ## Consequences
+  
+  1. Full-field support becomes a certifiable requirement, not a best-effort enhancement.
+  2. SSOT features and tests shall track generated-surface completeness by artifact kind.
+  3. CI and matrix artifacts shall fail closed when promoted generated artifacts lose field support, token ownership, or discoverability.

@@ -709,11 +709,16 @@ export function breadcrumbListSchema(input: BreadcrumbListInput): JsonLd {
 
 export function faqPageSchema(input: FaqPageInput): JsonLd {
   if (!input.items.length) throw new Error("FAQPage requires at least one question");
-  const extra = additionalProps(input, ["id", "items"]);
+  const { items, ...pageInput } = input;
+  const base = webPageSchema({
+    ...pageInput,
+    name: input.name ?? "Frequently Asked Questions",
+  });
+  const { ["@type"]: _pageType, ...pageProps } = base;
   return node("FAQPage", {
-    ...extra,
-    "@id": input.id,
-    mainEntity: input.items.map((item) =>
+    ...pageProps,
+    "@id": input.id ?? base["@id"],
+    mainEntity: items.map((item) =>
       questionNode({
         name: requireText(item.question, "FAQ question"),
         acceptedAnswer: { text: requireText(item.answer, "FAQ answer") },
@@ -2578,18 +2583,30 @@ export function questionNode(input: QuestionInput): JsonLd {
 }
 
 export function qaPageSchema(input: QaPageInput): JsonLd {
-  const extra = additionalProps(input, ["id", "question", "answer", "acceptedAnswer", "suggestedAnswer", "answerCount", "eduQuestionType", "url"]);
-  const acceptedAnswer = input.acceptedAnswer ?? (input.answer ? { text: input.answer } : undefined);
-  return node("QAPage", {
-    ...extra,
-    "@id": input.id,
+  const { question, answer, acceptedAnswer: explicitAcceptedAnswer, suggestedAnswer, answerCount, eduQuestionType, ...pageInput } = input;
+  const acceptedAnswer = explicitAcceptedAnswer ?? (answer ? { text: answer } : undefined);
+  const mainEntity = questionNode({
+    name: requireText(question, "QAPage question"),
+    acceptedAnswer,
+    suggestedAnswer,
+    answerCount,
+    eduQuestionType,
     url: input.url,
+  });
+  const base = webPageSchema({
+    ...pageInput,
+    name: input.name ?? input.question,
+  });
+  const { ["@type"]: _pageType, ...pageProps } = base;
+  return node("QAPage", {
+    ...pageProps,
+    "@id": input.id ?? base["@id"],
     mainEntity: questionNode({
-      name: requireText(input.question, "QAPage question"),
+      name: requireText(question, "QAPage question"),
       acceptedAnswer,
-      suggestedAnswer: input.suggestedAnswer,
-      answerCount: input.answerCount,
-      eduQuestionType: input.eduQuestionType,
+      suggestedAnswer,
+      answerCount,
+      eduQuestionType,
       url: input.url,
     }),
   });

@@ -1,4 +1,4 @@
-schema_version: "0.6.0"
+schema_version: "0.7.0"
 kind: "adr"
 id: "adr:1062"
 number: 1062
@@ -8,7 +8,7 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "For every governed Schema.org JSON-LD type that MdWrk supports on the public lander, `@mdwrk/structured-data` shall own the typed builder layer, `@mdwrk/lander-react-structured-data` shall own the reusable React JSON-LD surface, and `@mdwrk/lander-react` shall stay focused on visible UI."
+summary: "Portable structured-data ownership in MdWrk shall cover the full promoted generated artifact surface. The ownership boundary includes generator-backed reusable surfaces for `types`, `properties`, `enumerations`, and `datatypes`, together with their visible fused components, structured-data wrappers, and supporting certification tests."
 supersedes: []
 superseded_by: []
 status_notes:
@@ -18,36 +18,24 @@ status_notes:
     status: "draft"
   -
     status: "draft"
-    note: "Made breadcrumb ownership explicit: structured-data owns BreadcrumbList builders and lander-react owns breadcrumb UI."
-    at: "2026-05-21T04:35:52Z"
-  -
-    status: "draft"
-    note: "Split structured-data React wrappers out of lander-react into a dedicated lander-react-structured-data package boundary."
-    at: "2026-05-23T00:00:00Z"
+    note: "Expanded reusable ownership beyond curated type components to the full promoted generated artifact surface."
+    at: "2026-06-01T09:09:23Z"
 references: []
 body: |-
   # ADR-1062: Portable Structured Data Reusable Component Ownership Boundary
   
   ## Decision
   
-  For every governed Schema.org JSON-LD type that MdWrk supports on the public lander, `@mdwrk/structured-data` shall own the typed builder layer, `@mdwrk/lander-react-structured-data` shall own the reusable React JSON-LD component or composition surface, and `@mdwrk/lander-react` shall remain the visible UI renderer.
+  Portable structured-data ownership in MdWrk shall cover the full promoted generated artifact surface. The ownership boundary includes generator-backed reusable surfaces for `types`, `properties`, `enumerations`, and `datatypes`, together with their visible fused components, structured-data wrappers, and supporting certification tests.
   
-  `@mdwrk/structured-data` shall remain the typed builder and graph-primitive layer. `@mdwrk/lander-react-structured-data` shall own the reusable React JSON-LD component or composition layer that corresponds to supported structured-data types and shall consume `@mdwrk/structured-data` builders instead of duplicating schema serialization logic. `@mdwrk/lander-react` shall own visible lander UI such as breadcrumbs and FAQ presentation, but it shall not remain the long-term home for JSON-LD React wrappers. `apps/mdwrkcom` and downstream landers shall import and use those reusable lander-owned surfaces rather than defining app-local structured-data ownership.
-  
-  Breadcrumbs are explicit. `BreadcrumbList` schema ownership belongs to `@mdwrk/structured-data`. Visible breadcrumb navigation ownership belongs to `@mdwrk/lander-react`. Breadcrumb JSON-LD React emission belongs to `@mdwrk/lander-react-structured-data`. `@mdwrk/lander-core` may expose route hierarchy semantics that those layers consume, but it shall not own the breadcrumb UI or schema layer directly.
-  
-  When a supported type has a visible or materially represented UI surface, the visible presentation remains in `@mdwrk/lander-react` while the JSON-LD React wrapper remains in `@mdwrk/lander-react-structured-data`. When a supported type is non-visual or primarily compositional, `@mdwrk/lander-react-structured-data` shall own the canonical reusable composition helper that adopting apps consume.
+  The reusable ownership model is no longer limited to a hand-curated list of high-value type components.
   
   ## Rationale
   
-  The repository already distinguishes between a portable builder layer in `@mdwrk/structured-data`, a portable lander React layer in `@mdwrk/lander-react`, and product-specific adoption in `apps/mdwrkcom`. Without an explicit ownership boundary, new structured-data support can drift into app-local implementations that duplicate JSX, styling policy, and semantic behavior, which weakens package reuse and makes supported-type rollout harder to audit.
-  
-  The user-facing requirement is stronger than "emit JSON-LD." Each supported type must also have a governed reusable surface that can be adopted consistently at the lander layer and then imported into mdwrkcom. That package split matches the existing public lander architecture and keeps structured-data support aligned with reusable package boundaries.
+  The repository now exposes a generated fused semantic explorer and generated schema-backed runtime surfaces. A reusable-component boundary that only governs selected types leaves the majority of generated artifacts without a clear owner for field completeness, className parity, token coverage, or certification.
   
   ## Consequences
   
-  1. New structured-data type support is not complete until builder support exists in `@mdwrk/structured-data` and reusable component or composition support exists in `@mdwrk/lander-react-structured-data`.
-  2. `apps/mdwrkcom` shall adopt governed lander-owned structured-data components and shall not become the long-term ownership location for supported structured-data component implementations.
-  3. Component class naming, token policy, and lander UIX policy apply to visible lander UI surfaces in `@mdwrk/lander-react`, while JSON-LD React wrappers in `@mdwrk/lander-react-structured-data` remain style-light and builder-driven.
-  4. Feature, test, claim, and evidence rows for structured-data rollout shall track builder support, JSON-LD React wrapper support, visible UI support where applicable, and mdwrkcom adoption separately.
-  5. Future products that consume the portable lander packages can inherit the same structured-data component surfaces without inheriting MdWrk-specific prose or app-local implementations.
+  1. Generated reusable surfaces shall have one owner path across contract, wrapper, fused rendering, and token layers.
+  2. Unsupported or partial-field generated artifacts must be recorded honestly in SSOT rather than silently omitted.
+  3. Ownership claims for structured-data reusable components now extend beyond page-like authored types.

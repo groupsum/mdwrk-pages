@@ -16,6 +16,27 @@ const structuredDataReactDist = path.join(repoRoot, 'packages', 'machine', 'land
 const structuredDataReactSmoke = path.join(repoRoot, 'packages', 'machine', 'lander-react-structured-data', 'dist', 'index.smoke.mjs');
 const structuredDataDist = path.join(repoRoot, 'packages', 'contracts', 'structured-data', 'dist', 'index.js').replace(/\\/g, '/');
 
+function copySemanticTree(srcRoot, destRoot, structuredDataReactSmokePath) {
+  fs.mkdirSync(destRoot, { recursive: true });
+  for (const entry of fs.readdirSync(srcRoot, { withFileTypes: true })) {
+    const srcPath = path.join(srcRoot, entry.name);
+    const destPath = path.join(destRoot, entry.name);
+    if (entry.isDirectory()) {
+      copySemanticTree(srcPath, destPath, structuredDataReactSmokePath);
+      continue;
+    }
+    if (!entry.name.endsWith('.js')) continue;
+    fs.mkdirSync(path.dirname(destPath), { recursive: true });
+    fs.writeFileSync(
+      destPath,
+      fs.readFileSync(srcPath, 'utf8').replace(
+        '"@mdwrk/lander-react-structured-data"',
+        `"file:///${structuredDataReactSmokePath.replace(/\\/g, '/')}"`,
+      ),
+    );
+  }
+}
+
 fs.writeFileSync(
   structuredDataReactSmoke,
   fs.readFileSync(structuredDataReactDist, 'utf8').replace('"@mdwrk/structured-data"', `"file:///${structuredDataDist}"`),
@@ -29,17 +50,7 @@ fs.writeFileSync(
   ).replaceAll('"./semantic/', '"./semantic.smoke/'),
 );
 
-fs.mkdirSync(semanticSmokeRoot, { recursive: true });
-for (const fileName of fs.readdirSync(semanticDistRoot)) {
-  if (!fileName.endsWith('.js')) continue;
-  fs.writeFileSync(
-    path.join(semanticSmokeRoot, fileName),
-    fs.readFileSync(path.join(semanticDistRoot, fileName), 'utf8').replace(
-      '"@mdwrk/lander-react-structured-data"',
-      `"file:///${structuredDataReactSmoke.replace(/\\/g, '/')}"`,
-    ),
-  );
-}
+copySemanticTree(semanticDistRoot, semanticSmokeRoot, structuredDataReactSmoke);
 
 const {
   Article,

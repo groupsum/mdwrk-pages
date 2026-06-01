@@ -144,6 +144,7 @@ test("T0: media-family fused components expose distinct layout hooks for runtime
 
 test("T0: identity-family fused components expose distinct layout hooks for profiles, network chips, hours cards, page facts, breadcrumb trails, and selector blocks", async () => {
   const mod = await importLanderReactDist();
+  const aboutMarkup = renderToStaticMarkup(React.createElement(mod.AboutPage, { name: "About MDWRK", headline: "Prompt systems that ship", about: "Prompt delivery systems", mainEntity: "https://mdwrk.test/#org", breadcrumb: [{ label: "Home", href: "/" }, { label: "About" }], speakable: { cssSelector: [".hero"], xpath: ["//main/h1"] }, publisher: { name: "MDWRK Media" }, significantLinks: ["https://mdwrk.test/company"], keywords: ["prompt systems"], accessibilityFeature: ["highContrastDisplay"] }));
   const profileMarkup = renderToStaticMarkup(React.createElement(mod.ProfilePage, { name: "MDWRK", mainEntity: "Chris", description: "Builder profile" }));
   const organizationMarkup = renderToStaticMarkup(React.createElement(mod.Organization, { name: "MDWRK", sameAs: ["https://example.com/x"] }));
   const businessMarkup = renderToStaticMarkup(React.createElement(mod.LocalBusiness, { name: "MDWRK Studio", address: "Austin", openingHours: ["Mon-Fri 9-5"] }));
@@ -153,6 +154,13 @@ test("T0: identity-family fused components expose distinct layout hooks for prof
   const breadcrumbMarkup = renderToStaticMarkup(React.createElement(mod.BreadcrumbList, { items: [{ label: "Home", href: "/" }, { label: "Guide" }] }));
   const speakableMarkup = renderToStaticMarkup(React.createElement(mod.SpeakableSpecification, { cssSelector: [".hero"], xpath: ["//main/h1"] }));
 
+  assert.ok(aboutMarkup.includes("lander-semantic__page-band"));
+  assert.ok(aboutMarkup.includes("lander-semantic__page-facts"));
+  assert.ok(aboutMarkup.includes("lander-semantic__publisher-band"));
+  assert.ok(aboutMarkup.includes("lander-semantic__breadcrumb-trail"));
+  assert.ok(aboutMarkup.includes("lander-semantic__selector-grid"));
+  assert.ok(aboutMarkup.includes("lander-semantic__about-section"));
+  assert.ok(aboutMarkup.includes("lander-semantic__chip-list"));
   assert.ok(profileMarkup.includes("lander-semantic__profile-summary"));
   assert.ok(organizationMarkup.includes("lander-semantic__network-list"));
   assert.ok(businessMarkup.includes("lander-semantic__hours-card"));

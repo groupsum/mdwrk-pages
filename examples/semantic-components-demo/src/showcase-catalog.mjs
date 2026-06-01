@@ -1,77 +1,71 @@
-import React from "react";
+import { GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS, GENERATED_SCHEMAORG_PAGE_FAMILY_COUNTS } from "../../../packages/contracts/lander-content-contract/dist/generated-schemaorg-page-family-metadata.js";
+import { semanticFixtures } from "../../../packages/ui/lander-react/tests/semantic-fixtures.mjs";
+import { governedFamilyEntries } from "./generated-governed-family-map.mjs";
 
-const familyByName = {
-  AboutPage: "Page family",
-  AggregateRating: "Commerce family",
-  Answer: "Education family",
-  Article: "Article family",
-  BlogPosting: "Article family",
-  Book: "Catalog family",
-  BroadcastEvent: "Media family",
-  BreadcrumbList: "Identity family",
-  CheckoutPage: "Page family",
-  ClaimReview: "Article family",
-  Clip: "Media family",
-  CollectionPage: "Page family",
-  ContactPage: "Page family",
-  Course: "Education family",
-  CourseInstance: "Education family",
-  Dataset: "Catalog family",
-  DiscussionForumPosting: "Article family",
-  EmployerAggregateRating: "Commerce family",
-  Event: "Catalog family",
-  FAQPage: "Education family",
-  HowTo: "Education family",
-  ImageObject: "Media family",
-  ItemList: "Catalog family",
-  ItemPage: "Page family",
-  JobPosting: "Catalog family",
-  LearningResource: "Education family",
-  LocalBusiness: "Identity family",
-  MathSolver: "Education family",
-  MemberProgram: "Identity family",
-  MerchantReturnPolicy: "Commerce family",
-  MonetaryAmountDistribution: "Commerce family",
-  Movie: "Media family",
-  NewsArticle: "Article family",
-  OfferShippingDetails: "Commerce family",
-  Organization: "Identity family",
-  Product: "Commerce family",
-  ProductGroup: "Commerce family",
-  ProfilePage: "Identity family",
-  QAPage: "Education family",
-  Question: "Education family",
-  Quiz: "Education family",
-  ReadAction: "Catalog family",
-  RealEstateListing: "Page family",
-  Recipe: "Catalog family",
-  Review: "Commerce family",
-  SearchResultsPage: "Page family",
-  SolveMathAction: "Education family",
-  SoftwareApplication: "Catalog family",
-  SoftwareSourceCode: "Catalog family",
-  SpeakableSpecification: "Identity family",
-  TechArticle: "Article family",
-  VacationRental: "Catalog family",
-  Vehicle: "Catalog family",
-  VideoGallery: "Page family",
-  VideoObject: "Media family",
-  WebApplication: "Catalog family",
-  WebPage: "Identity family",
-  WebSite: "Identity family",
+const slugify = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+const curatedDescriptionsByName = {
+  AboutPage: "About-page variant with entity framing.",
+  AggregateRating: "Aggregate rating summary block.",
+  Answer: "Answer block with lightweight attribution.",
+  Article: "Primary editorial story shell.",
+  BlogPosting: "Blog variant with the article visual pattern.",
+  Book: "Book catalog entity.",
+  BroadcastEvent: "Live broadcast event surface.",
+  BreadcrumbList: "Breadcrumb navigation surface.",
+  CheckoutPage: "Checkout-focused page shell.",
+  ClaimReview: "Fact-check style editorial surface.",
+  Clip: "Time-bounded video clip summary.",
+  CollectionPage: "Collection page with curated entries.",
+  ContactPage: "Contact page with direct channels.",
+  Course: "Course overview with modules.",
+  CourseInstance: "Scheduled offering of a course.",
+  Dataset: "Dataset entity shell.",
+  DiscussionForumPosting: "Discussion post shell with article-body semantics.",
+  EmployerAggregateRating: "Employer reputation summary.",
+  Event: "General event shell.",
+  FAQPage: "FAQ landing surface.",
+  HowTo: "Step-by-step procedural guide.",
+  ImageObject: "Image asset shell.",
+  ItemList: "Curated item list surface.",
+  ItemPage: "Single-entity page shell.",
+  JobPosting: "Job listing shell.",
+  LearningResource: "General learning asset shell.",
+  LocalBusiness: "Local business entity surface.",
+  MathSolver: "Math assistance surface.",
+  MemberProgram: "Membership program summary.",
+  MerchantReturnPolicy: "Return-policy terms surface.",
+  MonetaryAmountDistribution: "Compensation or price-range distribution.",
+  Movie: "Movie-style media entity.",
+  NewsArticle: "News-focused article wrapper.",
+  OfferShippingDetails: "Shipping details summary.",
+  Organization: "Organization identity shell.",
+  Product: "Primary product offer shell.",
+  ProductGroup: "Grouped product variants.",
+  ProfilePage: "Person or entity profile page.",
+  QAPage: "Question-and-answer landing surface.",
+  Question: "Single question block with accepted answer.",
+  Quiz: "Assessment shell with question cards.",
+  ReadAction: "Read action surface.",
+  RealEstateListing: "Real-estate listing page shell.",
+  Recipe: "Recipe-style checklist shell.",
+  Review: "Review surface for an item.",
+  SearchResultsPage: "Search results page with query context.",
+  SolveMathAction: "Action wrapper for math solving.",
+  SoftwareApplication: "Software application landing shell.",
+  SoftwareSourceCode: "Source-code catalog entry.",
+  SpeakableSpecification: "Speakable content selector surface.",
+  TechArticle: "Technical article specialization.",
+  VacationRental: "Rental listing shell.",
+  Vehicle: "Vehicle inventory surface.",
+  VideoGallery: "Gallery shell for multiple videos.",
+  VideoObject: "Video preview shell.",
+  WebApplication: "Browser-oriented app shell.",
+  WebPage: "Generic web page shell.",
+  WebSite: "Site-level identity surface.",
 };
 
-export const showcaseFamilyDescriptions = {
-  "Article family": "Editorial, publishing, discussion, and fact-check surfaces.",
-  "Education family": "Courses, Q&A, quizzes, learning assets, and how-to flows.",
-  "Commerce family": "Product, review, shipping, pricing, and return-policy semantics.",
-  "Media family": "Video, clips, broadcasts, images, and movie-style media shells.",
-  "Identity family": "Profiles, organizations, local entities, breadcrumbs, and site identity.",
-  "Catalog family": "Datasets, recipes, software, rentals, vehicles, job posts, and action surfaces.",
-  "Page family": "Specialized web-page variants for about, contact, listings, search, and galleries.",
-};
-
-export const showcaseFamilyOrder = [
+const highlightFamilyOrder = [
   "Article family",
   "Education family",
   "Commerce family",
@@ -81,72 +75,400 @@ export const showcaseFamilyOrder = [
   "Page family",
 ];
 
-export const showcaseEntries = [
-  { name: "AboutPage", description: "About-page variant with entity framing.", props: { name: "About MDWRK", description: "Company overview.", about: "Prompt delivery systems", mainEntity: "https://mdwrk.test/#org" }, visible: ["About MDWRK", "Prompt delivery systems"] },
-  { name: "AggregateRating", description: "Aggregate rating summary block.", props: { ratingValue: 4.8, reviewCount: 12, ratingCount: 14, body: "Ratings body" }, visible: ["Rating value: 4.8", "12"] },
-  { name: "Answer", description: "Answer block with lightweight attribution.", props: { text: "Prompt drift is behavior change over time.", author: { name: "MDWRK" }, upvoteCount: 3 }, visible: ["Prompt drift is behavior change over time.", "MDWRK"] },
-  { name: "Article", description: "Primary editorial story shell.", props: { title: "Prompt Delivery Studio", description: "Ship prompt systems.", body: React.createElement("p", null, "Article body") }, visible: ["Prompt Delivery Studio", "Ship prompt systems."] },
-  { name: "BlogPosting", description: "Blog variant with the article visual pattern.", props: { title: "Prompt Notebook", description: "Blog description.", body: React.createElement("p", null, "Blog body") }, visible: ["Prompt Notebook", "Blog description."] },
-  { name: "Book", description: "Book catalog entity.", props: { name: "Prompt Reliability", author: { name: "MDWRK" }, isbn: "978-1-23456-789-0" }, visible: ["Prompt Reliability", "MDWRK"] },
-  { name: "BroadcastEvent", description: "Live broadcast event surface.", props: { name: "Prompt Ops Live", startDate: "2026-06-01", isLiveBroadcast: true }, visible: ["Prompt Ops Live", "2026-06-01"] },
-  { name: "BreadcrumbList", description: "Breadcrumb navigation surface.", props: { items: [{ label: "Home", href: "/" }, { label: "Docs", href: "/docs/" }, { label: "API" }] }, visible: ["Home", "Docs", "API"] },
-  { name: "CheckoutPage", description: "Checkout-focused page shell.", props: { name: "Checkout", description: "Finish your purchase.", about: "Secure payment flow", offers: [{ name: "Prompt Studio Pro", price: "USD 49", href: "https://mdwrk.test/buy" }] }, visible: ["Checkout", "Prompt Studio Pro"] },
-  { name: "ClaimReview", description: "Fact-check style editorial surface.", props: { title: "Fact Check: Prompt Drift", claimReviewed: "Prompt drift is impossible.", description: "Claim review description." }, visible: ["Fact Check: Prompt Drift", "Prompt drift is impossible."] },
-  { name: "Clip", description: "Time-bounded video clip summary.", props: { name: "Latency section", startOffset: 10, endOffset: 30 }, visible: ["Latency section", "10"] },
-  { name: "CollectionPage", description: "Collection page with curated entries.", props: { name: "Prompt patterns", description: "Curated pattern collection.", items: [{ name: "Release checklists", summary: "Operational references." }] }, visible: ["Prompt patterns", "Release checklists"] },
-  { name: "ContactPage", description: "Contact page with direct channels.", props: { name: "Contact MDWRK", description: "Reach the team.", contactPoints: [{ label: "Email", value: "hello@mdwrk.test", href: "mailto:hello@mdwrk.test" }] }, visible: ["Contact MDWRK", "hello@mdwrk.test"] },
-  { name: "Course", description: "Course overview with modules.", props: { name: "Prompt Delivery 101", description: "Ship prompts.", provider: { name: "MDWRK" }, modules: [{ title: "Module A", summary: "Foundations." }] }, visible: ["Prompt Delivery 101", "Module A"] },
-  { name: "CourseInstance", description: "Scheduled offering of a course.", props: { name: "Prompt Delivery 101 - July", courseMode: "Remote", startDate: "2026-07-01" }, visible: ["Prompt Delivery 101 - July", "Remote"] },
-  { name: "Dataset", description: "Dataset entity shell.", props: { name: "Prompt Eval Benchmarks", creator: "MDWRK", keywords: ["prompt", "eval"] }, visible: ["Prompt Eval Benchmarks", "MDWRK"] },
-  { name: "DiscussionForumPosting", description: "Discussion post shell with article-body semantics.", props: { title: "How should we measure drift?", articleBody: "Use baseline checks." }, visible: ["How should we measure drift?", "Use baseline checks."] },
-  { name: "EmployerAggregateRating", description: "Employer reputation summary.", props: { ratingValue: 4.4, reviewCount: 7, employerName: "MDWRK" }, visible: ["MDWRK", "4.4"] },
-  { name: "Event", description: "General event shell.", props: { name: "Prompt Summit", startDate: "2026-08-01", location: "Chicago" }, visible: ["Prompt Summit", "Chicago"] },
-  { name: "FAQPage", description: "FAQ landing surface.", props: { items: [{ question: "What is prompt drift?", answer: "Behavior change over time." }] }, visible: ["Frequently Asked Questions", "What is prompt drift?"] },
-  { name: "HowTo", description: "Step-by-step procedural guide.", props: { name: "Ship a prompt release", steps: [{ name: "Baseline", text: "Capture current behavior." }] }, visible: ["Ship a prompt release", "Baseline"] },
-  { name: "ImageObject", description: "Image asset shell.", props: { name: "Prompt dashboard", contentUrl: "https://mdwrk.test/image.png", width: 1200, height: 630 }, visible: ["Prompt dashboard", "1200"] },
-  { name: "ItemPage", description: "Single-entity page shell.", props: { name: "Prompt Studio package", description: "Package detail page.", mainEntity: "pkg:@mdwrk/lander-react" }, visible: ["Prompt Studio package", "pkg:@mdwrk/lander-react"] },
-  { name: "ItemList", description: "Curated item list surface.", props: { name: "Prompt links", items: [{ name: "Docs", url: "/docs/" }, { name: "Pricing" }] }, visible: ["Prompt links", "Docs"] },
-  { name: "JobPosting", description: "Job listing shell.", props: { name: "AI Reliability Team", title: "Prompt Operations Engineer", datePosted: "2026-05-27", hiringOrganization: "MDWRK" }, visible: ["Prompt Operations Engineer", "MDWRK"] },
-  { name: "LearningResource", description: "General learning asset shell.", props: { name: "Prompt release guide", learningResourceType: "Guide", teaches: ["Prompt validation"] }, visible: ["Prompt release guide", "Guide"] },
-  { name: "LocalBusiness", description: "Local business entity surface.", props: { name: "MDWRK Chicago", address: "Chicago, IL", telephone: "+1-312-555-0100" }, visible: ["MDWRK Chicago", "Chicago, IL"] },
-  { name: "MathSolver", description: "Math assistance surface.", props: { name: "Algebra helper", mathExpression: "2x+4=10" }, visible: ["Algebra helper", "2x+4=10"] },
-  { name: "MemberProgram", description: "Membership program summary.", props: { name: "Prompt Pro", provider: "MDWRK" }, visible: ["Prompt Pro", "MDWRK"] },
-  { name: "MerchantReturnPolicy", description: "Return-policy terms surface.", props: { name: "Return policy", merchantReturnDays: 30, returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow" }, visible: ["Return policy", "30"] },
-  { name: "MonetaryAmountDistribution", description: "Compensation or price-range distribution.", props: { name: "Salary band", currency: "USD", median: 120000 }, visible: ["Salary band", "USD"] },
-  { name: "Movie", description: "Movie-style media entity.", props: { name: "Prompt City", director: { name: "MDWRK" } }, visible: ["Prompt City", "MDWRK"] },
-  { name: "NewsArticle", description: "News-focused article wrapper.", props: { title: "Prompt Ops Breaking News", description: "Latest release notes.", body: React.createElement("p", null, "News body") }, visible: ["Prompt Ops Breaking News", "Latest release notes."] },
-  { name: "OfferShippingDetails", description: "Shipping details summary.", props: { name: "Shipping details", shippingDestination: "US", shippingRate: "Free" }, visible: ["Shipping details", "US"] },
-  { name: "Organization", description: "Organization identity shell.", props: { name: "MDWRK", sameAs: ["https://github.com/groupsum/mdwrk-pages"] }, visible: ["MDWRK", "https://github.com/groupsum/mdwrk-pages"] },
-  { name: "Product", description: "Primary product offer shell.", props: { name: "Prompt Delivery Studio", description: "Operational prompt delivery.", price: 49, priceCurrency: "USD" }, visible: ["Prompt Delivery Studio", "USD 49"] },
-  { name: "ProductGroup", description: "Grouped product variants.", props: { name: "Prompt Delivery Studio", variesBy: ["Region"], hasVariant: [{ name: "US" }, { name: "EU" }] }, visible: ["Prompt Delivery Studio", "US"] },
-  { name: "ProfilePage", description: "Person or entity profile page.", props: { name: "Jacob Stewart", mainEntity: "https://mdwrk.test/authors/jacob" }, visible: ["Jacob Stewart", "https://mdwrk.test/authors/jacob"] },
-  { name: "QAPage", description: "Question-and-answer landing surface.", props: { question: "What is prompt drift?", answer: "Behavior change over time.", answerCount: 2 }, visible: ["What is prompt drift?", "Behavior change over time."] },
-  { name: "Question", description: "Single question block with accepted answer.", props: { name: "What is prompt drift?", acceptedAnswer: { text: "Behavior change over time." }, answerCount: 1 }, visible: ["What is prompt drift?", "Behavior change over time."] },
-  { name: "Quiz", description: "Assessment shell with question cards.", props: { name: "Prompt QA", description: "Review core concepts.", questions: [{ prompt: "What is latency?", answer: "Elapsed time." }] }, visible: ["Prompt QA", "What is latency?"] },
-  { name: "ReadAction", description: "Read action surface.", props: { target: "https://mdwrk.test/docs" }, visible: ["https://mdwrk.test/docs"] },
-  { name: "RealEstateListing", description: "Real-estate listing page shell.", props: { name: "Prompt loft", description: "Workspace-forward rental.", location: "Chicago, IL", offers: [{ name: "Lease option", price: "USD 3200/mo" }] }, visible: ["Prompt loft", "USD 3200/mo"] },
-  { name: "Recipe", description: "Recipe-style checklist shell.", props: { name: "Prompt review checklist", recipeIngredient: ["Baseline", "Eval"], recipeInstructions: "Review each release." }, visible: ["Prompt review checklist", "Baseline"] },
-  { name: "Review", description: "Review surface for an item.", props: { name: "Launch review", itemReviewed: "Prompt Delivery Studio", reviewBody: "Great release." }, visible: ["Launch review", "Prompt Delivery Studio"] },
-  { name: "SearchResultsPage", description: "Search results page with query context.", props: { name: "Search results", description: "Query matches.", query: "prompt delivery", results: [{ name: "Prompt Studio", summary: "Product page." }] }, visible: ["Search results", "prompt delivery"] },
-  { name: "SolveMathAction", description: "Action wrapper for math solving.", props: { target: "https://mdwrk.test/math", mathExpressionInput: "x+2=4" }, visible: ["https://mdwrk.test/math", "x+2=4"] },
-  { name: "SoftwareApplication", description: "Software application landing shell.", props: { name: "Prompt Studio", applicationCategory: "ProductivityApplication", operatingSystem: "Web" }, visible: ["Prompt Studio", "ProductivityApplication"] },
-  { name: "SoftwareSourceCode", description: "Source-code catalog entry.", props: { name: "Prompt CLI", codeRepository: "https://github.com/groupsum/mdwrk-pages", programmingLanguage: "TypeScript" }, visible: ["Prompt CLI", "TypeScript"] },
-  { name: "SpeakableSpecification", description: "Speakable content selector surface.", props: { cssSelector: [".hero", ".summary"] }, visible: [".hero", ".summary"] },
-  { name: "TechArticle", description: "Technical article specialization.", props: { title: "Prompt SDK internals", description: "Implementation notes.", body: React.createElement("p", null, "Tech body") }, visible: ["Prompt SDK internals", "Implementation notes."] },
-  { name: "VacationRental", description: "Rental listing shell.", props: { name: "Prompt Cabin", address: "Remote", containsPlace: [{ name: "Workspace" }] }, visible: ["Prompt Cabin", "Remote"] },
-  { name: "Vehicle", description: "Vehicle inventory surface.", props: { name: "Prompt Van", brand: { name: "MDWRK Motors" }, vehicleIdentificationNumber: "VIN123" }, visible: ["Prompt Van", "VIN123"] },
-  { name: "VideoGallery", description: "Gallery shell for multiple videos.", props: { name: "Prompt video gallery", description: "All release walk-throughs.", videos: [{ name: "Prompt demo", uploadDate: "2026-05-27" }] }, visible: ["Prompt video gallery", "Prompt demo"] },
-  { name: "VideoObject", description: "Video preview shell.", props: { name: "Prompt demo", thumbnailUrl: "https://mdwrk.test/thumb.png", uploadDate: "2026-05-27" }, visible: ["Prompt demo", "2026-05-27"] },
-  { name: "WebApplication", description: "Browser-oriented app shell.", props: { name: "Prompt Web", applicationCategory: "BusinessApplication", operatingSystem: "Browser" }, visible: ["Prompt Web", "BusinessApplication"] },
-  { name: "WebPage", description: "Generic web page shell.", props: { name: "Prompt docs", description: "Documentation page." }, visible: ["Prompt docs", "Documentation page."] },
-  { name: "WebSite", description: "Site-level identity surface.", props: { name: "MDWRK Docs", publisher: "MDWRK" }, visible: ["MDWRK Docs", "MDWRK"] }
-].map((entry) => ({
-  ...entry,
-  family: familyByName[entry.name],
+const highlightFamilyDescriptions = {
+  "Article family": "Editorial, publishing, discussion, and fact-check surfaces.",
+  "Education family": "Courses, Q&A, quizzes, learning assets, and how-to flows.",
+  "Commerce family": "Product, review, shipping, pricing, and return-policy semantics.",
+  "Media family": "Video, clips, broadcasts, images, and movie-style media shells.",
+  "Identity family": "Profiles, organizations, local entities, breadcrumbs, and site identity.",
+  "Catalog family": "Datasets, recipes, software, rentals, vehicles, job posts, and action surfaces.",
+  "Page family": "Specialized page variants for about, contact, listings, search, and galleries.",
+};
+
+const highlightNames = new Set([
+  "Article",
+  "NewsArticle",
+  "Course",
+  "Quiz",
+  "QAPage",
+  "HowTo",
+  "Product",
+  "Review",
+  "AggregateRating",
+  "VideoObject",
+  "BroadcastEvent",
+  "Movie",
+  "Organization",
+  "ProfilePage",
+  "WebSite",
+  "Dataset",
+  "SoftwareApplication",
+  "JobPosting",
+  "AboutPage",
+  "SearchResultsPage",
+  "RealEstateListing",
+]);
+
+const artifactKindOrder = ["type", "property", "enumeration", "datatype"];
+const artifactKindDescriptions = {
+  type: "Class-like semantic entities, including authored runtime types and generated pass-through types.",
+  property: "Schema.org property reference surfaces with compact payload previews.",
+  enumeration: "Enumerated vocabularies rendered as labeled reference cards.",
+  datatype: "Primitive semantic value surfaces for direct value-bearing payloads.",
+};
+
+const familyByName = new Map(governedFamilyEntries.map((entry) => [entry.name, entry.family]));
+const familySlugByName = new Map(governedFamilyEntries.map((entry) => [entry.name, entry.familySlug]));
+const fixtureByName = new Map(semanticFixtures.map((fixture) => [fixture.name, fixture]));
+const metadataByName = new Map(GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS.map((artifact) => [artifact.name, artifact]));
+
+const listingNamePattern = /(Listing|Rental|JobPosting)/;
+const pageNamePattern = /(Page|Gallery|WebSite)$/;
+
+function surfaceFocusForName(name) {
+  const isListing = listingNamePattern.test(name);
+  const isPage = pageNamePattern.test(name);
+  if (isPage && isListing) return "page-or-listing";
+  if (isPage) return "page";
+  if (isListing) return "listing";
+  return "all";
+}
+
+function matchesSurfaceFocus(entry, surface = "all") {
+  if (surface === "all") return true;
+  if (surface === "page") return entry.surfaceFocus === "page" || entry.surfaceFocus === "page-or-listing";
+  if (surface === "listing") return entry.surfaceFocus === "listing" || entry.surfaceFocus === "page-or-listing";
+  if (surface === "page-or-listing") return entry.surfaceFocus !== "all";
+  return true;
+}
+
+function defaultTypeValueForArtifact(artifact) {
+  const slug = artifact.slug ?? slugify(artifact.name);
+  const label = artifact.name;
+  const base = {
+    "@type": artifact.name,
+    name: `${label} sample`,
+    description: `${label} generated demo sample.`,
+    url: `https://mdwrk.test/schema/${slug}`,
+    identifier: `urn:mdwrk:schema:${slug}`,
+    image: [`https://mdwrk.test/assets/${slug}.png`],
+    mainEntityOfPage: `https://mdwrk.test/schema/${slug}`,
+    sameAs: [`https://example.test/schema/${slug}`],
+    subjectOf: [{ "@type": "CreativeWork", name: `${label} reference`, url: `https://mdwrk.test/schema/${slug}/reference` }],
+    owner: { "@type": "Organization", name: "MDWRK" },
+    potentialAction: { "@type": "ReadAction", target: `https://mdwrk.test/schema/${slug}` },
+  };
+
+  switch (artifact.name) {
+    case "Thing":
+      return {
+        ...base,
+        additionalType: "https://schema.org/Thing",
+      };
+    case "CreativeWork":
+      return {
+        ...base,
+        text: "Visible creative work body.",
+        author: { "@type": "Person", name: "MDWRK Editorial" },
+        publisher: { "@type": "Organization", name: "MDWRK Media" },
+        datePublished: "2026-05-31",
+      };
+    case "BreadcrumbList":
+      return {
+        ...base,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, item: { "@type": "Thing", name: "Home", url: "https://mdwrk.test/" } },
+          { "@type": "ListItem", position: 2, item: { "@type": "Thing", name: "Docs", url: "https://mdwrk.test/docs" } },
+        ],
+      };
+    case "ListItem":
+      return {
+        ...base,
+        position: 1,
+        item: { "@type": "Thing", name: "Prompt Studio", url: "https://mdwrk.test/prompt-studio" },
+      };
+    case "Offer":
+      return {
+        ...base,
+        price: "49.00",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        seller: { "@type": "Organization", name: "MDWRK" },
+        itemOffered: { "@type": "Thing", name: "Prompt Studio Pro" },
+      };
+    case "Place":
+      return {
+        ...base,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "1 Main Street",
+          addressLocality: "Chicago",
+          addressRegion: "IL",
+          postalCode: "60601",
+          addressCountry: "US",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 41.8781,
+          longitude: -87.6298,
+        },
+      };
+    case "MonetaryAmount":
+      return {
+        ...base,
+        currency: "USD",
+        value: 49,
+      };
+    case "Action":
+      return {
+        ...base,
+        agent: { "@type": "Person", name: "Operator" },
+        object: { "@type": "Thing", name: "Release checklist" },
+        target: `https://mdwrk.test/schema/${slug}/run`,
+        result: { "@type": "Thing", name: "Completed review" },
+      };
+    case "ReadAction":
+      return {
+        ...base,
+        agent: { "@type": "Person", name: "Operator" },
+        object: { "@type": "CreativeWork", name: "Runbook" },
+        target: `https://mdwrk.test/schema/${slug}/read`,
+      };
+    default:
+      return base;
+  }
+}
+
+function defaultValueForArtifact(artifact) {
+  if (artifact.kind === "datatype") {
+    switch (artifact.name) {
+      case "Boolean":
+        return true;
+      case "Number":
+        return 42;
+      case "Quantity":
+        return "42 units";
+      case "Date":
+        return "2026-05-31";
+      case "DateTime":
+        return "2026-05-31T12:00:00Z";
+      case "Time":
+        return "12:00:00Z";
+      default:
+        return `${artifact.name} sample`;
+    }
+  }
+
+  if (artifact.kind === "enumeration") {
+    return artifact.name;
+  }
+
+  if (artifact.kind === "property") {
+    return { name: `${artifact.name} sample`, value: artifact.name };
+  }
+
+  return defaultTypeValueForArtifact(artifact);
+}
+
+function defaultExamplesForArtifact(artifact) {
+  if (artifact.kind === "property") return [{ name: `${artifact.name} example`, value: "Example value" }];
+  if (artifact.kind === "enumeration") return [`${artifact.name} option`, `${artifact.name} fallback`];
+  if (artifact.kind === "datatype") return [defaultValueForArtifact(artifact)];
+  return [{ "@type": artifact.name, name: `${artifact.name} example` }];
+}
+
+function generatedDescriptionForArtifact(artifact) {
+  if (artifact.kind === "property") return "Generated Schema.org property surface with a compact payload preview.";
+  if (artifact.kind === "enumeration") return "Generated enumeration surface for a controlled vocabulary value.";
+  if (artifact.kind === "datatype") return "Generated datatype surface for direct primitive semantic values.";
+  return "Generated Schema.org type surface beyond the governed authored runtime catalog.";
+}
+
+function propsForGeneratedArtifact(artifact) {
+  const description = generatedDescriptionForArtifact(artifact);
+  const examples = defaultExamplesForArtifact(artifact);
+
+  if (artifact.kind === "type") {
+    const value = defaultValueForArtifact(artifact);
+    return value && typeof value === "object" && !Array.isArray(value)
+      ? {
+          ...value,
+          examples,
+          description,
+        }
+      : {
+          value,
+          examples,
+          description,
+        };
+  }
+
+  return {
+    value: defaultValueForArtifact(artifact),
+    examples,
+    description,
+  };
+}
+
+function coreEntryFromFixture(fixture) {
+  const family = familyByName.get(fixture.name) ?? "Unassigned family";
+  return {
+    name: fixture.name,
+    exportName: fixture.name,
+    family,
+    familySlug: familySlugByName.get(fixture.name) ?? slugify(family),
+    kind: "type",
+    slug: slugify(fixture.name),
+    surfaceFocus: surfaceFocusForName(fixture.name),
+    description: curatedDescriptionsByName[fixture.name] ?? "Governed first-class semantic component.",
+    props: fixture.props,
+    visible: fixture.visible,
+  };
+}
+
+const governedCoreEntries = semanticFixtures.map(coreEntryFromFixture);
+
+const highlightsEntriesByFamily = highlightFamilyOrder.map((family) => ({
+  family,
+  familySlug: slugify(family),
+  description: highlightFamilyDescriptions[family],
+  entries: governedCoreEntries.filter((entry) => entry.family === family && highlightNames.has(entry.name)),
+})).filter((group) => group.entries.length > 0);
+
+function groupEntriesByFamily(entries) {
+  const grouped = new Map();
+  for (const entry of entries) {
+    const family = entry.family;
+    if (!grouped.has(family)) {
+      grouped.set(family, {
+        family,
+        familySlug: entry.familySlug,
+        description: `${family} surfaces from the governed authored runtime.`,
+        entries: [],
+      });
+    }
+    grouped.get(family).entries.push(entry);
+  }
+  return [...grouped.values()];
+}
+
+export function buildGovernedCoreGroups({ family = "all", search = "", surface = "all" } = {}) {
+  const normalizedSearch = search.trim().toLowerCase();
+  const filtered = governedCoreEntries.filter((entry) => {
+    if (family !== "all" && entry.family !== family) return false;
+    if (!matchesSurfaceFocus(entry, surface)) return false;
+    if (!normalizedSearch) return true;
+    return [
+      entry.name,
+      entry.description,
+      entry.family,
+      ...(entry.visible ?? []),
+    ].join(" ").toLowerCase().includes(normalizedSearch);
+  });
+
+  return groupEntriesByFamily(filtered);
+}
+
+const generatedArtifactEntries = GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS.map((artifact) => {
+  const fixture = artifact.kind === "type" ? fixtureByName.get(artifact.name) : null;
+  return {
+    artifactKind: artifact.kind,
+    name: artifact.name,
+    exportName: artifact.visibleExportName,
+    slug: artifact.slug,
+    shellSelector: artifact.shellSelector,
+    family: familyByName.get(artifact.name) ?? `${artifact.kind[0].toUpperCase()}${artifact.kind.slice(1)} artifacts`,
+    familySlug: familySlugByName.get(artifact.name) ?? slugify(`${artifact.kind} artifacts`),
+    surfaceFocus: surfaceFocusForName(artifact.name),
+    description: curatedDescriptionsByName[artifact.name] ?? generatedDescriptionForArtifact(artifact),
+    props: fixture ? fixture.props : propsForGeneratedArtifact(artifact),
+    visible: fixture?.visible ?? [artifact.name],
+  };
+});
+
+export function buildGeneratedArtifactView({ kind = "type", search = "", page = 1, pageSize = 24, surface = "all" } = {}) {
+  const normalizedSearch = search.trim().toLowerCase();
+  const filtered = generatedArtifactEntries.filter((entry) => {
+    if (entry.artifactKind !== kind) return false;
+    if (kind !== "type" && !matchesSurfaceFocus(entry, surface)) return false;
+    if (!normalizedSearch) return true;
+    return [
+      entry.name,
+      entry.description,
+      entry.family,
+      entry.artifactKind,
+    ].join(" ").toLowerCase().includes(normalizedSearch);
+  });
+
+  const safePageSize = Math.max(6, pageSize);
+  const total = filtered.length;
+  const totalPages = Math.max(1, Math.ceil(total / safePageSize));
+  const currentPage = Math.min(Math.max(1, page), totalPages);
+  const start = (currentPage - 1) * safePageSize;
+  const entries = filtered.slice(start, start + safePageSize);
+
+  return {
+    kind,
+    title: `${kind[0].toUpperCase()}${kind.slice(1)} artifacts`,
+    description: artifactKindDescriptions[kind],
+    entries,
+    total,
+    currentPage,
+    pageSize: safePageSize,
+    totalPages,
+  };
+}
+
+export const showcaseModes = [
+  { value: "highlights", label: "Highlights" },
+  { value: "governed-core", label: "Governed Core" },
+  { value: "generated-surface", label: "Generated Surface" },
+];
+
+export const governedFamilyOptions = [
+  { value: "all", label: "All families" },
+  ...groupEntriesByFamily(governedCoreEntries).map((group) => ({ value: group.family, label: group.family })),
+];
+
+export const generatedArtifactKindOptions = artifactKindOrder.map((kind) => ({
+  value: kind,
+  label: `${kind[0].toUpperCase()}${kind.slice(1)}`,
 }));
 
-export const showcaseEntriesByFamily = showcaseFamilyOrder.map((family) => ({
-  family,
-  description: showcaseFamilyDescriptions[family],
-  entries: showcaseEntries.filter((entry) => entry.family === family),
-}));
+export const surfaceFocusOptions = [
+  { value: "all", label: "All types" },
+  { value: "page", label: "Pages" },
+  { value: "listing", label: "Listings" },
+  { value: "page-or-listing", label: "Pages + listings" },
+];
+
+export const generatedPageSizeOptions = [12, 24, 48, 96];
+
+export const showcaseStats = {
+  totalArtifacts: GENERATED_SCHEMAORG_PAGE_FAMILY_COUNTS.total,
+  types: GENERATED_SCHEMAORG_PAGE_FAMILY_COUNTS.types,
+  properties: GENERATED_SCHEMAORG_PAGE_FAMILY_COUNTS.properties,
+  enumerations: GENERATED_SCHEMAORG_PAGE_FAMILY_COUNTS.enumerations,
+  datatypes: GENERATED_SCHEMAORG_PAGE_FAMILY_COUNTS.datatypes,
+  governedCore: governedCoreEntries.length,
+  governedFamilies: governedFamilyOptions.length - 1,
+};
+
+export const qaViewLinks = [
+  { label: "Highlights", href: "?mode=highlights" },
+  { label: "Governed Core", href: "?mode=governed-core" },
+  { label: "Generated Types", href: "?mode=generated-surface&kind=type" },
+  { label: "Pages + Listings", href: "?mode=generated-surface&kind=type&surface=page-or-listing" },
+  { label: "Generated Properties", href: "?mode=generated-surface&kind=property" },
+  { label: "Generated Enumerations", href: "?mode=generated-surface&kind=enumeration" },
+  { label: "Generated Datatypes", href: "?mode=generated-surface&kind=datatype" },
+];
+
+export const showcaseHeroCopy = "The semantic-components demo now acts as both a curated highlight reel and a full generated-surface explorer for the fused JSON-LD-emitting runtime.";
+
+export const highlightsView = {
+  familyCount: highlightsEntriesByFamily.length,
+  groups: highlightsEntriesByFamily,
+};
+
+export { generatedArtifactEntries, governedCoreEntries, highlightFamilyOrder };

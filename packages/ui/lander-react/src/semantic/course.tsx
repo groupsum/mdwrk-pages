@@ -125,10 +125,26 @@ export function Course({
         {body ? <div className="lander-semantic__body">{body}</div> : null}
         {modules?.length ? (
           <section className="lander-semantic__body lander-semantic__body--modules">
-            <h2>Modules</h2>
-            <ol>
+            <div className="lander-semantic__section-header">
+              <span className="lander-semantic__section-kicker">Curriculum</span>
+              <h2>Modules</h2>
+            </div>
+            <div className="lander-semantic__course-stat-grid">
+              <div className="lander-semantic__course-stat">
+                <span className="lander-semantic__section-kicker">Modules</span>
+                <strong>{modules.length}</strong>
+              </div>
+              {viewModel?.outcomes?.length ? (
+                <div className="lander-semantic__course-stat">
+                  <span className="lander-semantic__section-kicker">Outcomes</span>
+                  <strong>{viewModel.outcomes.length}</strong>
+                </div>
+              ) : null}
+            </div>
+            <ol className="lander-semantic__module-list">
               {modules.map((module, index) => (
-                <li key={`${module.title}-${index}`}>
+                <li key={`${module.title}-${index}`} className="lander-semantic__module-card">
+                  <span className="lander-semantic__module-index">Module {index + 1}</span>
                   <strong>{module.title}</strong>
                   {module.summary ? <p>{module.summary}</p> : null}
                 </li>
@@ -139,9 +155,9 @@ export function Course({
         {viewModel?.outcomes?.length ? (
           <section className="lander-semantic__body lander-semantic__body--outcomes">
             <h2>Outcomes</h2>
-            <ul>
+            <ul className="lander-semantic__outcomes-list">
               {viewModel.outcomes.map((outcome, index) => (
-                <li key={`${outcome}-${index}`}>{outcome}</li>
+                <li key={`${outcome}-${index}`} className="lander-semantic__outcome-chip">{outcome}</li>
               ))}
             </ul>
           </section>

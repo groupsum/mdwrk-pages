@@ -1,0 +1,409 @@
+import React, { startTransition, useDeferredValue, useEffect, useState } from "react";
+import * as landerReact from "@mdwrk/lander-react";
+import {
+  buildGeneratedArtifactView,
+  buildGovernedCoreGroups,
+  generatedArtifactKindOptions,
+  generatedPageSizeOptions,
+  governedFamilyOptions,
+  surfaceFocusOptions,
+  highlightsView,
+  qaViewLinks,
+  showcaseHeroCopy,
+  showcaseModes,
+  showcaseStats,
+} from "./showcase-catalog.mjs";
+
+const componentMap = landerReact;
+const createElement = React.createElement;
+const slugify = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+const DEFAULT_STATE = {
+  mode: "highlights",
+  search: "",
+  family: "all",
+  kind: "type",
+  surface: "all",
+  page: 1,
+  pageSize: 24,
+};
+
+function SearchField({ value, onChange, placeholder }) {
+  return createElement(
+    "label",
+    { className: "semantic-demo__field semantic-demo__field--search" },
+    createElement("span", null, "Search"),
+    createElement(
+      "div",
+      { className: "semantic-demo__control semantic-demo__control--search" },
+      createElement(
+        "span",
+        { className: "semantic-demo__control-icon", "aria-hidden": "true" },
+        createElement(
+          "svg",
+          { viewBox: "0 0 20 20", role: "presentation", focusable: "false" },
+          createElement("circle", { cx: "8.5", cy: "8.5", r: "5.5", fill: "none", stroke: "currentColor", strokeWidth: "1.8" }),
+          createElement("path", { d: "M12.75 12.75L17 17", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round" }),
+        ),
+      ),
+      createElement("input", {
+        type: "search",
+        value,
+        onChange,
+        placeholder,
+      }),
+    ),
+  );
+}
+
+function SelectField({ label, value, onChange, options }) {
+  return createElement(
+    "label",
+    { className: "semantic-demo__field semantic-demo__field--select" },
+    createElement("span", null, label),
+    createElement(
+      "div",
+      { className: "semantic-demo__control semantic-demo__control--select" },
+      createElement(
+        "select",
+        { value, onChange },
+        ...options.map((option) => createElement("option", { key: option.value, value: option.value }, option.label)),
+      ),
+      createElement(
+        "span",
+        { className: "semantic-demo__control-caret", "aria-hidden": "true" },
+        createElement(
+          "svg",
+          { viewBox: "0 0 12 8", role: "presentation", focusable: "false" },
+          createElement("path", { d: "M1 1.5L6 6.5L11 1.5", fill: "none", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }),
+        ),
+      ),
+    ),
+  );
+}
+
+function parseStateFromLocation() {
+  if (typeof window === "undefined") return DEFAULT_STATE;
+  const params = new URLSearchParams(window.location.search);
+  const mode = params.get("mode") ?? DEFAULT_STATE.mode;
+  const family = params.get("family") ?? DEFAULT_STATE.family;
+  const kind = params.get("kind") ?? DEFAULT_STATE.kind;
+  const surface = params.get("surface") ?? DEFAULT_STATE.surface;
+  const search = params.get("q") ?? DEFAULT_STATE.search;
+  const page = Number.parseInt(params.get("page") ?? `${DEFAULT_STATE.page}`, 10);
+  const pageSize = Number.parseInt(params.get("size") ?? `${DEFAULT_STATE.pageSize}`, 10);
+
+  return {
+    mode: showcaseModes.some((entry) => entry.value === mode) ? mode : DEFAULT_STATE.mode,
+    family,
+    kind: generatedArtifactKindOptions.some((entry) => entry.value === kind) ? kind : DEFAULT_STATE.kind,
+    surface: surfaceFocusOptions.some((entry) => entry.value === surface) ? surface : DEFAULT_STATE.surface,
+    search,
+    page: Number.isFinite(page) && page > 0 ? page : DEFAULT_STATE.page,
+    pageSize: generatedPageSizeOptions.includes(pageSize) ? pageSize : DEFAULT_STATE.pageSize,
+  };
+}
+
+function writeStateToLocation(state) {
+  if (typeof window === "undefined") return;
+  const params = new URLSearchParams();
+  if (state.mode !== DEFAULT_STATE.mode) params.set("mode", state.mode);
+  if (state.search) params.set("q", state.search);
+  if (state.family !== DEFAULT_STATE.family) params.set("family", state.family);
+  if (state.kind !== DEFAULT_STATE.kind) params.set("kind", state.kind);
+  if (state.surface !== DEFAULT_STATE.surface) params.set("surface", state.surface);
+  if (state.page !== DEFAULT_STATE.page) params.set("page", `${state.page}`);
+  if (state.pageSize !== DEFAULT_STATE.pageSize) params.set("size", `${state.pageSize}`);
+  const nextUrl = params.toString() ? `?${params}` : window.location.pathname;
+  window.history.replaceState(null, "", nextUrl);
+}
+
+function DemoCard({ name, exportName, description, props, tone = "type" }) {
+  const Component = componentMap[exportName];
+  if (!Component) return null;
+
+  return createElement(
+    "article",
+    {
+      className: `semantic-demo__entry semantic-demo__entry--${slugify(name)} semantic-demo__entry--tone-${slugify(tone)}`,
+      id: `artifact-${slugify(name)}`,
+    },
+    createElement(
+      "div",
+      { className: "semantic-demo__entry-meta" },
+      createElement("code", null, name),
+      createElement("p", null, description),
+    ),
+    createElement(Component, { ...props, className: "semantic-demo__card" }),
+  );
+}
+
+function SectionGroup({ title, description, entries, tone }) {
+  return createElement(
+    "section",
+    {
+      className: `semantic-demo__family semantic-demo__family--${slugify(title)}`,
+      id: slugify(title),
+    },
+    createElement(
+      "header",
+      { className: "semantic-demo__family-header" },
+      createElement(
+        "div",
+        null,
+        createElement("p", { className: "semantic-demo__kicker" }, title),
+        createElement("h2", null, `${entries.length} rendered examples`),
+      ),
+      createElement("p", null, description),
+    ),
+    createElement(
+      "div",
+      { className: `semantic-demo__grid semantic-demo__grid--${slugify(tone ?? title)}` },
+      ...entries.map((entry) =>
+        createElement(DemoCard, {
+          key: `${title}-${entry.name}`,
+          ...entry,
+          tone: tone ?? title,
+        }),
+      ),
+    ),
+  );
+}
+
+export function SemanticShowcase({ initialState } = {}) {
+  const [state, setState] = useState(() => ({
+    ...DEFAULT_STATE,
+    ...parseStateFromLocation(),
+    ...initialState,
+  }));
+  const deferredSearch = useDeferredValue(state.search);
+
+  useEffect(() => {
+    if (initialState || typeof window === "undefined") return;
+    const sync = () => {
+      startTransition(() => setState((current) => ({ ...current, ...parseStateFromLocation() })));
+    };
+    window.addEventListener("popstate", sync);
+    return () => window.removeEventListener("popstate", sync);
+  }, [initialState]);
+
+  const patchState = (patch) => {
+    const nextState = { ...state, ...patch };
+    if (patch.mode && patch.mode !== state.mode) {
+      nextState.page = 1;
+      nextState.search = patch.mode === "highlights" ? "" : nextState.search;
+      if (patch.mode !== "generated-surface") nextState.kind = DEFAULT_STATE.kind;
+      if (patch.mode !== "governed-core") nextState.family = DEFAULT_STATE.family;
+      if (patch.mode === "highlights") nextState.surface = DEFAULT_STATE.surface;
+    }
+    if ("kind" in patch || "family" in patch || "surface" in patch || "search" in patch || "pageSize" in patch) nextState.page = 1;
+    startTransition(() => setState(nextState));
+    if (!initialState) writeStateToLocation(nextState);
+  };
+
+  const governedCoreGroups = buildGovernedCoreGroups({ family: state.family, search: deferredSearch, surface: state.surface });
+  const generatedView = buildGeneratedArtifactView({
+    kind: state.kind,
+    search: deferredSearch,
+    page: state.page,
+    pageSize: state.pageSize,
+    surface: state.surface,
+  });
+
+  return createElement(
+    "div",
+    { className: `semantic-demo semantic-demo--mode-${slugify(state.mode)}` },
+    createElement(
+      "header",
+      { className: "semantic-demo__hero" },
+      createElement(
+        "div",
+        { className: "semantic-demo__hero-copy" },
+        createElement("p", { className: "semantic-demo__kicker" }, "MdWrk Pages"),
+        createElement("h1", null, "Full fused semantic surface explorer"),
+        createElement("p", { className: "semantic-demo__lede" }, showcaseHeroCopy),
+      ),
+      createElement(
+        "dl",
+        { className: "semantic-demo__summary" },
+        createElement("div", null, createElement("dt", null, "Total artifacts"), createElement("dd", null, showcaseStats.totalArtifacts)),
+        createElement("div", null, createElement("dt", null, "Types"), createElement("dd", null, showcaseStats.types)),
+        createElement("div", null, createElement("dt", null, "Properties"), createElement("dd", null, showcaseStats.properties)),
+        createElement("div", null, createElement("dt", null, "Enumerations"), createElement("dd", null, showcaseStats.enumerations)),
+        createElement("div", null, createElement("dt", null, "Datatypes"), createElement("dd", null, showcaseStats.datatypes)),
+        createElement("div", null, createElement("dt", null, "Governed core"), createElement("dd", null, showcaseStats.governedCore)),
+      ),
+      createElement(
+        "nav",
+        { className: "semantic-demo__mode-switcher", "aria-label": "Showcase mode" },
+        ...showcaseModes.map((mode) =>
+          createElement(
+            "button",
+            {
+              className: mode.value === state.mode ? "is-active" : "",
+              key: mode.value,
+              type: "button",
+              onClick: () => patchState({ mode: mode.value }),
+            },
+            mode.label,
+          ),
+        ),
+      ),
+      createElement(
+        "div",
+        { className: "semantic-demo__toolbar" },
+        createElement(SearchField, {
+          value: state.search,
+          onChange: (event) => patchState({ search: event.target.value }),
+          placeholder: "Search names, families, and descriptions",
+        }),
+        state.mode === "governed-core"
+          ? createElement(SelectField, {
+              label: "Family",
+              value: state.family,
+              onChange: (event) => patchState({ family: event.target.value }),
+              options: governedFamilyOptions,
+            })
+          : null,
+        state.mode === "governed-core"
+          ? createElement(SelectField, {
+              label: "Surface focus",
+              value: state.surface,
+              onChange: (event) => patchState({ surface: event.target.value }),
+              options: surfaceFocusOptions,
+            })
+          : null,
+        state.mode === "generated-surface"
+          ? createElement(
+              React.Fragment,
+              null,
+              createElement(SelectField, {
+                label: "Artifact kind",
+                value: state.kind,
+                onChange: (event) =>
+                  patchState({
+                    kind: event.target.value,
+                    surface: event.target.value === "type" ? state.surface : DEFAULT_STATE.surface,
+                  }),
+                options: generatedArtifactKindOptions,
+              }),
+              state.kind === "type"
+                ? createElement(SelectField, {
+                    label: "Surface focus",
+                    value: state.surface,
+                    onChange: (event) => patchState({ surface: event.target.value }),
+                    options: surfaceFocusOptions,
+                  })
+                : null,
+              createElement(SelectField, {
+                label: "Batch size",
+                value: state.pageSize,
+                onChange: (event) => patchState({ pageSize: Number.parseInt(event.target.value, 10) }),
+                options: generatedPageSizeOptions.map((size) => ({ value: `${size}`, label: `${size}` })),
+              }),
+            )
+          : null,
+      ),
+      createElement(
+        "section",
+        { className: "semantic-demo__qa-links", "aria-label": "QA views" },
+        createElement("p", { className: "semantic-demo__kicker" }, "QA Views"),
+        createElement(
+          "div",
+          { className: "semantic-demo__qa-link-grid" },
+          ...qaViewLinks.map((link) => createElement("a", { href: link.href, key: link.href }, link.label)),
+        ),
+      ),
+    ),
+    createElement(
+      "main",
+      { className: "semantic-demo__families" },
+      ...(state.mode === "highlights"
+        ? highlightsView.groups.map((group) =>
+            createElement(SectionGroup, {
+              key: group.family,
+              title: group.family,
+              description: group.description,
+              entries: group.entries,
+            }),
+          )
+        : []),
+      ...(state.mode === "governed-core"
+        ? governedCoreGroups.map((group) =>
+            createElement(SectionGroup, {
+              key: group.family,
+              title: group.family,
+              description: group.description,
+              entries: group.entries,
+            }),
+          )
+        : []),
+      ...(state.mode === "generated-surface"
+        ? [
+            createElement(
+              "section",
+              {
+                className: `semantic-demo__family semantic-demo__family--${generatedView.kind}`,
+                id: `generated-${generatedView.kind}`,
+                key: `generated-${generatedView.kind}`,
+              },
+              createElement(
+                "header",
+                { className: "semantic-demo__family-header semantic-demo__family-header--generated" },
+                createElement(
+                  "div",
+                  null,
+                  createElement("p", { className: "semantic-demo__kicker" }, generatedView.title),
+                  createElement("h2", null, `${generatedView.total} matching artifacts`),
+                ),
+                createElement("p", null, generatedView.description),
+              ),
+              createElement(
+                "div",
+                { className: "semantic-demo__generated-status" },
+                createElement("p", null, `Showing ${generatedView.entries.length} of ${generatedView.total} artifacts`),
+                createElement(
+                  "div",
+                  { className: "semantic-demo__pager" },
+                  createElement(
+                    "button",
+                    {
+                      type: "button",
+                      onClick: () => patchState({ page: Math.max(1, state.page - 1) }),
+                      disabled: generatedView.currentPage <= 1,
+                    },
+                    "Previous",
+                  ),
+                  createElement("span", null, `Page ${generatedView.currentPage} of ${generatedView.totalPages}`),
+                  createElement(
+                    "button",
+                    {
+                      type: "button",
+                      onClick: () => patchState({ page: Math.min(generatedView.totalPages, state.page + 1) }),
+                      disabled: generatedView.currentPage >= generatedView.totalPages,
+                    },
+                    "Next",
+                  ),
+                ),
+              ),
+              createElement(
+                "div",
+                {
+                  className: `semantic-demo__grid semantic-demo__grid--generated semantic-demo__grid--generated-${generatedView.kind}`,
+                },
+                ...generatedView.entries.map((entry) =>
+                  createElement(DemoCard, {
+                    key: `${generatedView.kind}-${entry.name}`,
+                    ...entry,
+                    tone: generatedView.kind,
+                  }),
+                ),
+              ),
+            ),
+          ]
+        : []),
+    ),
+  );
+}
+
+export { DEFAULT_STATE };

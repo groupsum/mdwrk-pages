@@ -1,4 +1,4 @@
-schema_version: "0.6.0"
+schema_version: "0.7.0"
 kind: "adr"
 id: "adr:1085"
 number: 1085
@@ -8,35 +8,30 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "MdWrk Pages-specific CSS tokens for fused semantic components shall be owned by `@mdwrk/pages-ui-tokens`, not by `@mdwrk/lander-theme`."
+summary: "`@mdwrk/pages-ui-tokens` shall own dedicated token coverage for every fused semantic artifact on the promoted generated surface. This ownership includes generated `types`, `properties`, `enumerations`, and `datatypes`, not only the earlier bespoke authored subset."
 supersedes: []
 superseded_by: []
-status_notes: []
+status_notes:
+  -
+    status: "draft"
+    note: "Expanded token ownership to every fused generated semantic artifact."
+    at: "2026-06-01T09:09:26Z"
 references: []
 body: |-
   # ADR-1085: Pages UI Token Ownership for Fused Semantic Components
   
   ## Decision
   
-  MdWrk Pages-specific CSS tokens for fused semantic components shall be owned by `@mdwrk/pages-ui-tokens`, not by `@mdwrk/lander-theme`.
+  `@mdwrk/pages-ui-tokens` shall own dedicated token coverage for every fused semantic artifact on the promoted generated surface. This ownership includes generated `types`, `properties`, `enumerations`, and `datatypes`, not only the earlier bespoke authored subset.
   
-  `@mdwrk/lander-theme` may compose token CSS exported by `@mdwrk/pages-ui-tokens`, but it shall not own the canonical source files for fused semantic component token bands.
-  
-  For each fused semantic component promoted into the frontier set, token ownership shall include:
-  
-  1. one dedicated CSS file per component in `@mdwrk/pages-ui-tokens`
-  2. stable selector and variable naming aligned to the componentâ€™s `className` contract
-  3. additive Pages-scoped token names that do not claim ownership of upstream shared token surfaces
+  Generated baseline token files are acceptable, but missing token ownership for a fused artifact is not.
   
   ## Rationale
   
-  `@mdwrk/lander-theme` is a theme-composition surface. It should not become the ownership location for every Pages-specific semantic-component token band. Doing so would blur the boundary between shared theme composition and Pages-owned token assets.
-  
-  The repo now has a distinct semantic frontier with fused visible + JSON-LD components such as `Article`, `Product`, `Course`, and `Quiz`. Those components need stable tokenized styling, but the token source should remain repo-local, package-local, and clearly separate from the theme-composition package.
+  The repo now publishes a fused semantic explorer across generated artifacts. ClassName support without token ownership leaves those surfaces visually under-governed and makes matrix claims inaccurate.
   
   ## Consequences
   
-  1. Pages semantic token CSS shall live in `@mdwrk/pages-ui-tokens`.
-  2. `@mdwrk/lander-theme` shall import and compose those token files rather than duplicating them.
-  3. Fused className token rollout becomes independently governable from generic theme output.
-  4. Future token-package work shall avoid naming collisions with core mdwrk token packages.
+  1. Every fused generated artifact shall have dedicated token ownership.
+  2. Token coverage shall be enforced by matrix generation and CI gates.
+  3. Existing bespoke token surfaces remain valid, but uncovered generated artifacts require generated baseline token files.

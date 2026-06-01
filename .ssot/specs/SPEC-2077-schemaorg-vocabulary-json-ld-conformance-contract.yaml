@@ -1,4 +1,4 @@
-schema_version: "0.2.0"
+schema_version: "0.7.0"
 kind: "spec"
 id: "spc:2077"
 number: 2077
@@ -8,55 +8,42 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "This SPEC governs external Schema.org vocabulary authority and JSON-LD conformance for MdWrk public lander structured data. It refines the page-family graph rules in SPEC-2072 without replacing them."
+summary: "This SPEC governs external Schema.org vocabulary authority and JSON-LD conformance for promoted generated MdWrk structured-data artifacts across `types`, `properties`, `enumerations`, and `datatypes`."
 supersedes: []
 superseded_by: []
 status_notes:
   -
-    status: "draft"
+    at: "2026-05-07T13:08:12Z"
     note: "Drafted to make Schema.org vocabulary and JSON-LD conformance requirements explicit."
-    at: "2026-05-07T13:08:11Z"
+    status: "draft"
+  -
+    status: "draft"
+    note: "Expanded conformance from curated type selection into generated full-field artifact coverage."
+    at: "2026-06-01T09:09:28Z"
 references: []
 body: |-
   # SPEC-2077: Schema.org Vocabulary and JSON-LD Conformance Contract
   
   ## Scope
   
-  This SPEC governs external Schema.org vocabulary authority and JSON-LD conformance for MdWrk public lander structured data. It refines the page-family graph rules in SPEC-2072 without replacing them.
+  This SPEC governs external Schema.org vocabulary authority and JSON-LD conformance for promoted generated MdWrk structured-data artifacts across `types`, `properties`, `enumerations`, and `datatypes`.
   
   ## Requirements
   
-  1. The lander shall treat Schema.org as the authoritative vocabulary for public structured data types, properties, and enumerated values.
-  2. The current external vocabulary baseline shall track the latest stable Schema.org release unless a release-specific exception is recorded in the SSOT.
-  3. JSON-LD shall remain the canonical MdWrk public lander serialization for Schema.org structured data.
-  4. Every JSON-LD document emitted by the static compiler shall use `@context: https://schema.org`.
-  5. Page-level JSON-LD shall use an `@graph` array with stable canonical `@id` values derived from mdwrk.com URLs.
-  6. `@id` fragments shall identify durable page entities such as `#webpage`, `#primary`, `#faq`, `#breadcrumbs`, `#organization`, `#website`, `#software`, or explicitly governed equivalents.
-  7. Supported types shall be selected by semantics, not by keyword similarity. The selected type must match the visible page content, authored metadata, or stable product identity.
-  8. Schema.org `pending` terms shall not be emitted unless the term, risk, and fallback behavior are explicitly added to this SPEC or a child SPEC.
-  9. Schema.org `meta` section terms such as `Class`, `Property`, `domainIncludes`, and `rangeIncludes` shall not be emitted for normal MdWrk public pages.
-  10. Unsupported Schema.org types shall not be introduced by page-level code. New types require SPEC-2072 and this SPEC to be updated first.
-  11. Existing supported types include the graph family already governed by SPEC-2072: `WebPage`, `WebSite`, `Organization`, `SoftwareApplication`, `Article`, `TechArticle`, `BlogPosting`, `FAQPage`, `BreadcrumbList`, and `SoftwareSourceCode`.
-  12. Inline Microdata and RDFa remain compatible external syntaxes but are not the canonical MdWrk static lander structured-data output.
-  13. JSON-LD shall not claim hidden-only FAQ, Q&A, how-to, product, package, search, or action data. Structured data must be visible or materially represented on the generated page.
-  14. The aggregate `jsonld-graph.json` projection shall contain only supported, page-derived nodes and shall not become a broader site inventory.
-  15. Validation shall fail when JSON-LD is invalid JSON, lacks the Schema.org context, omits the canonical `WebPage` node, references unsupported types, includes pending/meta terms without authorization, or diverges from page-level HTML JSON-LD.
+  1. Schema.org is the authoritative vocabulary for promoted generated artifacts.
+  2. The generated Schema.org schema registry is the authoritative field inventory for promoted generated artifacts.
+  3. Every promoted generated artifact shall preserve every present schema-valid field unless an explicit fail-closed exception is governed by SSOT.
+  4. JSON-LD remains the canonical emitted serialization for promoted structured-data artifacts.
+  5. Unsupported Schema.org terms shall not be promoted silently; promotion requires SSOT scope and certification coverage.
+  6. Pending or meta terms remain out of bounds unless explicitly governed.
+  7. Conformance tests shall verify field completeness, not only artifact presence.
   
   ## Acceptance
   
-  Feature and test rows covering Schema.org vocabulary support, JSON-LD graph generation, supported type gating, pending/meta term exclusion, page/entity identifiers, aggregate graph export, and structured-data validation must link to this SPEC.
-  
-  ## References
-  
-  - ADR-1057
-  - ADR-1059
-  - SPEC-2072
-  - https://schema.org/docs/releases.html
-  - https://schema.org/docs/datamodel.html
-  - https://schema.org/docs/developers.html
-  - https://schema.org/docs/pending.home.html
-  - https://schema.org/docs/meta.home.html
+  Feature and test rows linked to this SPEC shall prove generator-backed field completeness for promoted artifact families, not only curated type selection.
 spec_kind: "normative"
 adr_ids:
   - "adr:1057"
   - "adr:1059"
+  - "adr:1084"
+  - "adr:1086"

@@ -16,6 +16,14 @@ function read(filePath) {
   return fs.readFileSync(filePath, "utf8");
 }
 
+function collectDts(fileOrDirPath) {
+  const stat = fs.statSync(fileOrDirPath);
+  if (stat.isFile()) return [fileOrDirPath];
+  return fs.readdirSync(fileOrDirPath, { withFileTypes: true }).flatMap((entry) =>
+    collectDts(path.join(fileOrDirPath, entry.name)),
+  );
+}
+
 function extractShellClass(markup) {
   const match = markup.match(/<(?:article|section|nav|aside|div) class="([^"]*lander-semantic[^"]*)"/u);
   assert.ok(match, "expected semantic shell class");
@@ -25,7 +33,13 @@ function extractShellClass(markup) {
 test("T0: fused semantic component declarations expose className on the public API for all governed core kinds", () => {
   for (const fileName of fs.readdirSync(semanticDir)) {
     if (!fileName.endsWith(".d.ts") || fileName === "index.d.ts") continue;
-    const dts = read(path.join(semanticDir, fileName));
+    const familyBaseName = fileName.replace(/\.d\.ts$/, "");
+    const filePath = path.join(semanticDir, fileName);
+    const dirPath = path.join(semanticDir, familyBaseName);
+    const dts = [
+      read(filePath),
+      ...(fs.existsSync(dirPath) ? collectDts(dirPath).filter((entry) => entry.endsWith(".d.ts")).map(read) : []),
+    ].join("\n");
     assert.match(dts, /className\?: string;/, `${fileName} should expose className`);
   }
 });

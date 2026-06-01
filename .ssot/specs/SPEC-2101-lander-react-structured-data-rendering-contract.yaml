@@ -1,4 +1,4 @@
-schema_version: "0.6.0"
+schema_version: "0.7.0"
 kind: "spec"
 id: "spc:2101"
 number: 2101
@@ -8,7 +8,7 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "This SPEC defines the responsibilities of `@mdwrk/lander-react-structured-data` as the reusable React JSON-LD rendering layer over `@mdwrk/structured-data` builders and compiled lander schema intent, and the corresponding visible semantic authoring boundary in `@mdwrk/lander-react`."
+summary: "This SPEC governs the visible and wrapper rendering contract for generated structured-data artifacts in `@mdwrk/lander-react-structured-data` and `@mdwrk/lander-react`."
 supersedes: []
 superseded_by: []
 status_notes:
@@ -16,37 +16,30 @@ status_notes:
     at: "2026-05-23T00:00:00Z"
     note: "Created to govern the new lander-react-structured-data package boundary and migration contract."
     status: "draft"
+  -
+    status: "draft"
+    note: "Expanded rendering contract to full-field generated surfaces and token-backed fused coverage."
+    at: "2026-06-01T09:09:29Z"
 references: []
 body: |-
   # SPEC-2101: Lander React Structured Data Rendering Contract
   
   ## Scope
   
-  This SPEC defines the responsibilities of `@mdwrk/lander-react-structured-data` as the reusable React JSON-LD rendering layer over `@mdwrk/structured-data` builders and compiled lander schema intent, and the corresponding visible semantic authoring boundary in `@mdwrk/lander-react`.
+  This SPEC governs the visible and wrapper rendering contract for generated structured-data artifacts in `@mdwrk/lander-react-structured-data` and `@mdwrk/lander-react`.
   
   ## Requirements
   
-  1. `@mdwrk/lander-react-structured-data` shall own React wrappers that emit JSON-LD for supported structured-data types.
-  2. `@mdwrk/lander-react-structured-data` shall own the structured-data intent registry that maps compiled schema intent kinds to the corresponding React wrapper.
-  3. `@mdwrk/lander-react-structured-data` shall consume `@mdwrk/structured-data` typed builders and shall not duplicate schema serialization logic.
-  4. `@mdwrk/lander-react-structured-data` shall accept portable compiled schema-intent data from `@mdwrk/lander-core` and shall not require mdwrkcom-only app objects.
-  5. `@mdwrk/lander-react` shall remain focused on visible rendering and shall not be the long-term ownership location for low-level JSON-LD React wrappers.
-  6. `@mdwrk/lander-react` may temporarily provide deprecated compatibility re-exports during migration, but those re-exports shall point at `@mdwrk/lander-react-structured-data`.
-  7. Breadcrumb JSON-LD emission shall be rendered by `@mdwrk/lander-react-structured-data`, while visible breadcrumb UI shall remain in `@mdwrk/lander-react`.
-  8. `@mdwrk/lander-react-structured-data` shall remain non-app-specific and shall not depend on `apps/mdwrkcom`.
-  9. New supported structured-data types shall add builder coverage in `@mdwrk/structured-data`, wrapper coverage in `@mdwrk/lander-react-structured-data`, and adoption or explicit non-adoption in downstream landers.
-  10. Tests shall prove export parity, deterministic JSON-LD emission, registry coverage for supported types, and compatibility of compiled schema intent with the new package.
-  11. The demo and showcase surfaces shall be able to illustrate the split between visible rendering and structured-data rendering without app-local glue.
-  12. `@mdwrk/lander-react` may own prop-native visible semantic components for selected content types when those components derive JSON-LD internally and compose the low-level wrapper package rather than duplicating wrapper ownership.
-  13. Fused semantic components shall use semantic props as the primary authoring surface and shall not expose raw `structuredData` payloads or theme-token payloads as their primary public contract.
-  14. When a fused semantic component supports structured-data escape hatches, those escape hatches shall be narrow and shall not permit removal of required derived semantic fields.
-  15. Structured-data rollout governance shall distinguish low-level JSON-LD wrapper support from fused visible semantic component support.
-  16. Per-type feature families shall treat `fused` as a separate maturity leaf from `json-schema`, `fused-classnames`, and `fused-classname-css-tokens`.
-  17. Downstream demos that consume workspace packages shall function as governed consumer-delivery proofs for both build-time and dev-server package resolution behavior.
+  1. Generated `types`, `properties`, `enumerations`, and `datatypes` shall expose concrete wrapper and fused rendering surfaces when promoted.
+  2. Generated surfaces shall accept direct top-level schema-backed fields rather than forcing an opaque nested payload wrapper as the only authored path.
+  3. Visible fused surfaces shall render all present fields recursively in a deterministic way unless a governed fail-closed exception applies.
+  4. All fused generated surfaces shall support `className`.
+  5. Fused token ownership shall exist for every promoted generated artifact.
+  6. Demo and fixture surfaces shall expose representative generated artifacts from each artifact kind.
   
   ## Acceptance
   
-  Passing evidence shall include builder-backed JSON-LD wrapper tests, structured-data intent registry tests, compatibility checks for any transitional lander-react re-exports, semantic component tests for fused visible authoring surfaces, and demo/package smoke coverage showing that downstream landers can consume the split package boundary without workspace-resolution failures.
+  Linked tests shall prove wrapper completeness, fused rendering completeness, className coverage, and token coverage for promoted generated artifacts.
 spec_kind: "normative"
 adr_ids:
   - "adr:1057"
@@ -56,3 +49,4 @@ adr_ids:
   - "adr:1079"
   - "adr:1084"
   - "adr:1085"
+  - "adr:1086"

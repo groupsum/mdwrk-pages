@@ -6,6 +6,39 @@ const testRoot = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(testRoot, "..", "..", "..", "..");
 const distRoot = path.resolve(testRoot, "..", "dist");
 
+function copySemanticTree(srcRoot, destRoot, structuredDataReactSmoke) {
+  fs.mkdirSync(destRoot, { recursive: true });
+  for (const entry of fs.readdirSync(srcRoot, { withFileTypes: true })) {
+    const srcPath = path.join(srcRoot, entry.name);
+    const destPath = path.join(destRoot, entry.name);
+    if (entry.isDirectory()) {
+      copySemanticTree(srcPath, destPath, structuredDataReactSmoke);
+      continue;
+    }
+    if (!entry.name.endsWith(".js")) continue;
+    fs.mkdirSync(path.dirname(destPath), { recursive: true });
+    fs.writeFileSync(
+      destPath,
+      fs.readFileSync(srcPath, "utf8").replace(
+        '"@mdwrk/lander-react-structured-data"',
+        `"file:///${structuredDataReactSmoke.replace(/\\/g, "/")}"`,
+      ),
+    );
+  }
+}
+
+function rmTree(targetPath) {
+  for (let attempt = 0; attempt < 5; attempt += 1) {
+    try {
+      fs.rmSync(targetPath, { recursive: true, force: true, maxRetries: 5, retryDelay: 50 });
+      return;
+    } catch (error) {
+      if (attempt === 4) throw error;
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 50);
+    }
+  }
+}
+
 export async function importLanderReactDist() {
   const distIndex = path.join(distRoot, "index.js");
   const suffix = `${process.pid}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -53,23 +86,13 @@ export async function importLanderReactDist() {
     ).replaceAll('"./semantic/', `"./semantic.${suffix}.smoke/`),
   );
 
-  fs.mkdirSync(semanticSmokeRoot, { recursive: true });
-  for (const fileName of fs.readdirSync(semanticDistRoot)) {
-    if (!fileName.endsWith(".js")) continue;
-    fs.writeFileSync(
-      path.join(semanticSmokeRoot, fileName),
-      fs.readFileSync(path.join(semanticDistRoot, fileName), "utf8").replace(
-        '"@mdwrk/lander-react-structured-data"',
-        `"file:///${structuredDataReactSmoke.replace(/\\/g, "/")}"`,
-      ),
-    );
-  }
+  copySemanticTree(semanticDistRoot, semanticSmokeRoot, structuredDataReactSmoke);
 
   try {
     return await import(`file:///${smokeIndex.replace(/\\/g, "/")}?t=${Date.now()}`);
   } finally {
     fs.rmSync(smokeIndex, { force: true });
     fs.rmSync(structuredDataReactSmoke, { force: true });
-    fs.rmSync(semanticSmokeRoot, { recursive: true, force: true });
+    rmTree(semanticSmokeRoot);
   }
 }

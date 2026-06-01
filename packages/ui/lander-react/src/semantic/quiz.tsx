@@ -80,6 +80,7 @@ export function Quiz({
     structuredDataOverrides,
   });
   const accordionMode = viewModel?.revealMode === "accordion";
+  const questionCount = questions.length;
 
   return (
     <>
@@ -93,21 +94,32 @@ export function Quiz({
           {viewModel?.intro ? <div className="lander-semantic__body">{viewModel.intro}</div> : null}
           {body ? <div className="lander-semantic__body">{body}</div> : null}
         </header>
-        <div className="lander-page__assessment-grid">
+        <section className="lander-semantic__assessment-brief">
+          <div className="lander-semantic__assessment-stat">
+            <span className="lander-semantic__section-kicker">Questions</span>
+            <strong>{questionCount}</strong>
+          </div>
+          <div className="lander-semantic__assessment-stat">
+            <span className="lander-semantic__section-kicker">Mode</span>
+            <strong>{accordionMode ? "Self-check reveal" : "Inline review"}</strong>
+          </div>
+        </section>
+        <div className="lander-page__assessment-grid lander-semantic__quiz-grid">
           {questions.map((question, index) => {
             const isRevealed = Boolean(revealed[index]);
             return (
-              <article className="lander-page__card lander-page__flashcard" key={`${question.prompt}-${index}`}>
-                <span className="lander-page__card-link-label">Q{index + 1}</span>
+              <article className="lander-page__card lander-page__flashcard lander-semantic__quiz-card" key={`${question.prompt}-${index}`}>
+                <span className="lander-page__card-link-label lander-semantic__quiz-kicker">Q{index + 1}</span>
                 <h2>{question.prompt}</h2>
                 {question.alternatives?.length ? (
-                  <ul>
+                  <ul className="lander-semantic__quiz-alternatives">
                     {question.alternatives.map((alternative, alternativeIndex) => (
-                      <li key={`${alternative}-${alternativeIndex}`}>{alternative}</li>
+                      <li className="lander-semantic__quiz-option" key={`${alternative}-${alternativeIndex}`}>{alternative}</li>
                     ))}
                   </ul>
                 ) : null}
-                <div className="lander-page__flashcard-answer">
+                <div className="lander-page__flashcard-answer lander-semantic__quiz-response">
+                  <span className="lander-semantic__quiz-response-label">{isRevealed || !accordionMode ? "Answer" : "Hidden"}</span>
                   {isRevealed || !accordionMode ? (
                     <p className="lander-page__flashcard-answer-text">{question.answer}</p>
                   ) : (

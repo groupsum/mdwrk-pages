@@ -3784,7 +3784,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAbout",
+    "name": "SchemaPropertyAbout",
     "slug": "schema-property-about",
     "cssExportPath": "./styles/semantic-schema-property-about.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-about.css",
@@ -3795,7 +3795,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAbstract",
+    "name": "SchemaPropertyAbstract",
     "slug": "schema-property-abstract",
     "cssExportPath": "./styles/semantic-schema-property-abstract.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-abstract.css",
@@ -3806,7 +3806,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAcceptedPaymentMethod",
+    "name": "SchemaPropertyAcceptedPaymentMethod",
     "slug": "schema-property-accepted-payment-method",
     "cssExportPath": "./styles/semantic-schema-property-accepted-payment-method.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-accepted-payment-method.css",
@@ -3817,7 +3817,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAccessibilityAPI",
+    "name": "SchemaPropertyAccessibilityAPI",
     "slug": "schema-property-accessibility-api",
     "cssExportPath": "./styles/semantic-schema-property-accessibility-api.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-accessibility-api.css",
@@ -3828,7 +3828,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAccessibilityControl",
+    "name": "SchemaPropertyAccessibilityControl",
     "slug": "schema-property-accessibility-control",
     "cssExportPath": "./styles/semantic-schema-property-accessibility-control.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-accessibility-control.css",
@@ -3839,7 +3839,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAccessibilityFeature",
+    "name": "SchemaPropertyAccessibilityFeature",
     "slug": "schema-property-accessibility-feature",
     "cssExportPath": "./styles/semantic-schema-property-accessibility-feature.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-accessibility-feature.css",
@@ -3850,7 +3850,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAccessibilityHazard",
+    "name": "SchemaPropertyAccessibilityHazard",
     "slug": "schema-property-accessibility-hazard",
     "cssExportPath": "./styles/semantic-schema-property-accessibility-hazard.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-accessibility-hazard.css",
@@ -3861,7 +3861,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAccessibilitySummary",
+    "name": "SchemaPropertyAccessibilitySummary",
     "slug": "schema-property-accessibility-summary",
     "cssExportPath": "./styles/semantic-schema-property-accessibility-summary.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-accessibility-summary.css",
@@ -3872,7 +3872,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAccessMode",
+    "name": "SchemaPropertyAccessMode",
     "slug": "schema-property-access-mode",
     "cssExportPath": "./styles/semantic-schema-property-access-mode.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-access-mode.css",
@@ -3883,7 +3883,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAccessModeSufficient",
+    "name": "SchemaPropertyAccessModeSufficient",
     "slug": "schema-property-access-mode-sufficient",
     "cssExportPath": "./styles/semantic-schema-property-access-mode-sufficient.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-access-mode-sufficient.css",
@@ -3894,7 +3894,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAccountablePerson",
+    "name": "SchemaPropertyAccountablePerson",
     "slug": "schema-property-accountable-person",
     "cssExportPath": "./styles/semantic-schema-property-accountable-person.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-accountable-person.css",
@@ -3905,7 +3905,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAcquireLicensePage",
+    "name": "SchemaPropertyAcquireLicensePage",
     "slug": "schema-property-acquire-license-page",
     "cssExportPath": "./styles/semantic-schema-property-acquire-license-page.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-acquire-license-page.css",
@@ -3916,7 +3916,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyActionableFeedbackPolicy",
+    "name": "SchemaPropertyActionableFeedbackPolicy",
     "slug": "schema-property-actionable-feedback-policy",
     "cssExportPath": "./styles/semantic-schema-property-actionable-feedback-policy.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-actionable-feedback-policy.css",
@@ -3927,7 +3927,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyActionApplication",
+    "name": "SchemaPropertyActionApplication",
     "slug": "schema-property-action-application",
     "cssExportPath": "./styles/semantic-schema-property-action-application.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-action-application.css",
@@ -3938,7 +3938,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyActionPlatform",
+    "name": "SchemaPropertyActionPlatform",
     "slug": "schema-property-action-platform",
     "cssExportPath": "./styles/semantic-schema-property-action-platform.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-action-platform.css",
@@ -3949,7 +3949,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyActionProcess",
+    "name": "SchemaPropertyActionProcess",
     "slug": "schema-property-action-process",
     "cssExportPath": "./styles/semantic-schema-property-action-process.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-action-process.css",
@@ -3960,7 +3960,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyActionStatus",
+    "name": "SchemaPropertyActionStatus",
     "slug": "schema-property-action-status",
     "cssExportPath": "./styles/semantic-schema-property-action-status.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-action-status.css",
@@ -3971,7 +3971,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyActiveIngredient",
+    "name": "SchemaPropertyActiveIngredient",
     "slug": "schema-property-active-ingredient",
     "cssExportPath": "./styles/semantic-schema-property-active-ingredient.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-active-ingredient.css",
@@ -3982,7 +3982,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyActor",
+    "name": "SchemaPropertyActor",
     "slug": "schema-property-actor",
     "cssExportPath": "./styles/semantic-schema-property-actor.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-actor.css",
@@ -3993,7 +3993,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyActors",
+    "name": "SchemaPropertyActors",
     "slug": "schema-property-actors",
     "cssExportPath": "./styles/semantic-schema-property-actors.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-actors.css",
@@ -4004,7 +4004,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAdditionalName",
+    "name": "SchemaPropertyAdditionalName",
     "slug": "schema-property-additional-name",
     "cssExportPath": "./styles/semantic-schema-property-additional-name.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-additional-name.css",
@@ -4015,7 +4015,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAdditionalProperty",
+    "name": "SchemaPropertyAdditionalProperty",
     "slug": "schema-property-additional-property",
     "cssExportPath": "./styles/semantic-schema-property-additional-property.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-additional-property.css",
@@ -4026,7 +4026,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAdditionalType",
+    "name": "SchemaPropertyAdditionalType",
     "slug": "schema-property-additional-type",
     "cssExportPath": "./styles/semantic-schema-property-additional-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-additional-type.css",
@@ -4037,7 +4037,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAddOn",
+    "name": "SchemaPropertyAddOn",
     "slug": "schema-property-add-on",
     "cssExportPath": "./styles/semantic-schema-property-add-on.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-add-on.css",
@@ -4048,7 +4048,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAddress",
+    "name": "SchemaPropertyAddress",
     "slug": "schema-property-address",
     "cssExportPath": "./styles/semantic-schema-property-address.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-address.css",
@@ -4059,7 +4059,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAddressCountry",
+    "name": "SchemaPropertyAddressCountry",
     "slug": "schema-property-address-country",
     "cssExportPath": "./styles/semantic-schema-property-address-country.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-address-country.css",
@@ -4070,7 +4070,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAddressLocality",
+    "name": "SchemaPropertyAddressLocality",
     "slug": "schema-property-address-locality",
     "cssExportPath": "./styles/semantic-schema-property-address-locality.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-address-locality.css",
@@ -4081,7 +4081,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAddressRegion",
+    "name": "SchemaPropertyAddressRegion",
     "slug": "schema-property-address-region",
     "cssExportPath": "./styles/semantic-schema-property-address-region.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-address-region.css",
@@ -4092,7 +4092,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAdministrationRoute",
+    "name": "SchemaPropertyAdministrationRoute",
     "slug": "schema-property-administration-route",
     "cssExportPath": "./styles/semantic-schema-property-administration-route.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-administration-route.css",
@@ -4103,7 +4103,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAdvanceBookingRequirement",
+    "name": "SchemaPropertyAdvanceBookingRequirement",
     "slug": "schema-property-advance-booking-requirement",
     "cssExportPath": "./styles/semantic-schema-property-advance-booking-requirement.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-advance-booking-requirement.css",
@@ -4114,7 +4114,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAdverseOutcome",
+    "name": "SchemaPropertyAdverseOutcome",
     "slug": "schema-property-adverse-outcome",
     "cssExportPath": "./styles/semantic-schema-property-adverse-outcome.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-adverse-outcome.css",
@@ -4125,7 +4125,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAffectedBy",
+    "name": "SchemaPropertyAffectedBy",
     "slug": "schema-property-affected-by",
     "cssExportPath": "./styles/semantic-schema-property-affected-by.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-affected-by.css",
@@ -4136,7 +4136,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAffiliation",
+    "name": "SchemaPropertyAffiliation",
     "slug": "schema-property-affiliation",
     "cssExportPath": "./styles/semantic-schema-property-affiliation.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-affiliation.css",
@@ -4147,7 +4147,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAgent",
+    "name": "SchemaPropertyAgent",
     "slug": "schema-property-agent",
     "cssExportPath": "./styles/semantic-schema-property-agent.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-agent.css",
@@ -4158,7 +4158,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAgentInteractionStatistic",
+    "name": "SchemaPropertyAgentInteractionStatistic",
     "slug": "schema-property-agent-interaction-statistic",
     "cssExportPath": "./styles/semantic-schema-property-agent-interaction-statistic.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-agent-interaction-statistic.css",
@@ -4169,7 +4169,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAggregateElement",
+    "name": "SchemaPropertyAggregateElement",
     "slug": "schema-property-aggregate-element",
     "cssExportPath": "./styles/semantic-schema-property-aggregate-element.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-aggregate-element.css",
@@ -4180,7 +4180,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAggregateRating",
+    "name": "SchemaPropertyAggregateRating",
     "slug": "schema-property-aggregate-rating",
     "cssExportPath": "./styles/semantic-schema-property-aggregate-rating.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-aggregate-rating.css",
@@ -4191,7 +4191,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAlbum",
+    "name": "SchemaPropertyAlbum",
     "slug": "schema-property-album",
     "cssExportPath": "./styles/semantic-schema-property-album.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-album.css",
@@ -4202,7 +4202,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAlbumProductionType",
+    "name": "SchemaPropertyAlbumProductionType",
     "slug": "schema-property-album-production-type",
     "cssExportPath": "./styles/semantic-schema-property-album-production-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-album-production-type.css",
@@ -4213,7 +4213,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAlbumRelease",
+    "name": "SchemaPropertyAlbumRelease",
     "slug": "schema-property-album-release",
     "cssExportPath": "./styles/semantic-schema-property-album-release.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-album-release.css",
@@ -4224,7 +4224,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAlbumReleaseType",
+    "name": "SchemaPropertyAlbumReleaseType",
     "slug": "schema-property-album-release-type",
     "cssExportPath": "./styles/semantic-schema-property-album-release-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-album-release-type.css",
@@ -4235,7 +4235,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAlbums",
+    "name": "SchemaPropertyAlbums",
     "slug": "schema-property-albums",
     "cssExportPath": "./styles/semantic-schema-property-albums.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-albums.css",
@@ -4246,7 +4246,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAlcoholWarning",
+    "name": "SchemaPropertyAlcoholWarning",
     "slug": "schema-property-alcohol-warning",
     "cssExportPath": "./styles/semantic-schema-property-alcohol-warning.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-alcohol-warning.css",
@@ -4257,7 +4257,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAlignmentType",
+    "name": "SchemaPropertyAlignmentType",
     "slug": "schema-property-alignment-type",
     "cssExportPath": "./styles/semantic-schema-property-alignment-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-alignment-type.css",
@@ -4268,7 +4268,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAlternateName",
+    "name": "SchemaPropertyAlternateName",
     "slug": "schema-property-alternate-name",
     "cssExportPath": "./styles/semantic-schema-property-alternate-name.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-alternate-name.css",
@@ -4279,7 +4279,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAlternativeHeadline",
+    "name": "SchemaPropertyAlternativeHeadline",
     "slug": "schema-property-alternative-headline",
     "cssExportPath": "./styles/semantic-schema-property-alternative-headline.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-alternative-headline.css",
@@ -4290,7 +4290,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAlternativeOf",
+    "name": "SchemaPropertyAlternativeOf",
     "slug": "schema-property-alternative-of",
     "cssExportPath": "./styles/semantic-schema-property-alternative-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-alternative-of.css",
@@ -4301,7 +4301,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAlumni",
+    "name": "SchemaPropertyAlumni",
     "slug": "schema-property-alumni",
     "cssExportPath": "./styles/semantic-schema-property-alumni.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-alumni.css",
@@ -4312,7 +4312,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAlumniOf",
+    "name": "SchemaPropertyAlumniOf",
     "slug": "schema-property-alumni-of",
     "cssExportPath": "./styles/semantic-schema-property-alumni-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-alumni-of.css",
@@ -4323,7 +4323,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAmenityFeature",
+    "name": "SchemaPropertyAmenityFeature",
     "slug": "schema-property-amenity-feature",
     "cssExportPath": "./styles/semantic-schema-property-amenity-feature.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-amenity-feature.css",
@@ -4334,7 +4334,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAmount",
+    "name": "SchemaPropertyAmount",
     "slug": "schema-property-amount",
     "cssExportPath": "./styles/semantic-schema-property-amount.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-amount.css",
@@ -4345,7 +4345,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAmountOfThisGood",
+    "name": "SchemaPropertyAmountOfThisGood",
     "slug": "schema-property-amount-of-this-good",
     "cssExportPath": "./styles/semantic-schema-property-amount-of-this-good.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-amount-of-this-good.css",
@@ -4356,7 +4356,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAnnualPercentageRate",
+    "name": "SchemaPropertyAnnualPercentageRate",
     "slug": "schema-property-annual-percentage-rate",
     "cssExportPath": "./styles/semantic-schema-property-annual-percentage-rate.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-annual-percentage-rate.css",
@@ -4367,7 +4367,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAppearance",
+    "name": "SchemaPropertyAppearance",
     "slug": "schema-property-appearance",
     "cssExportPath": "./styles/semantic-schema-property-appearance.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-appearance.css",
@@ -4378,7 +4378,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyApplicableCountry",
+    "name": "SchemaPropertyApplicableCountry",
     "slug": "schema-property-applicable-country",
     "cssExportPath": "./styles/semantic-schema-property-applicable-country.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-applicable-country.css",
@@ -4389,7 +4389,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyApplicableLocation",
+    "name": "SchemaPropertyApplicableLocation",
     "slug": "schema-property-applicable-location",
     "cssExportPath": "./styles/semantic-schema-property-applicable-location.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-applicable-location.css",
@@ -4400,7 +4400,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyApplication",
+    "name": "SchemaPropertyApplication",
     "slug": "schema-property-application",
     "cssExportPath": "./styles/semantic-schema-property-application.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-application.css",
@@ -4411,7 +4411,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyApplicationCategory",
+    "name": "SchemaPropertyApplicationCategory",
     "slug": "schema-property-application-category",
     "cssExportPath": "./styles/semantic-schema-property-application-category.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-application-category.css",
@@ -4422,7 +4422,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyApplicationSubCategory",
+    "name": "SchemaPropertyApplicationSubCategory",
     "slug": "schema-property-application-sub-category",
     "cssExportPath": "./styles/semantic-schema-property-application-sub-category.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-application-sub-category.css",
@@ -4433,7 +4433,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyApplicationSuite",
+    "name": "SchemaPropertyApplicationSuite",
     "slug": "schema-property-application-suite",
     "cssExportPath": "./styles/semantic-schema-property-application-suite.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-application-suite.css",
@@ -4444,7 +4444,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAppliesToDeliveryMethod",
+    "name": "SchemaPropertyAppliesToDeliveryMethod",
     "slug": "schema-property-applies-to-delivery-method",
     "cssExportPath": "./styles/semantic-schema-property-applies-to-delivery-method.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-applies-to-delivery-method.css",
@@ -4455,7 +4455,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyArchivedAt",
+    "name": "SchemaPropertyArchivedAt",
     "slug": "schema-property-archived-at",
     "cssExportPath": "./styles/semantic-schema-property-archived-at.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-archived-at.css",
@@ -4466,7 +4466,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyArea",
+    "name": "SchemaPropertyArea",
     "slug": "schema-property-area",
     "cssExportPath": "./styles/semantic-schema-property-area.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-area.css",
@@ -4477,7 +4477,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAreaServed",
+    "name": "SchemaPropertyAreaServed",
     "slug": "schema-property-area-served",
     "cssExportPath": "./styles/semantic-schema-property-area-served.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-area-served.css",
@@ -4488,7 +4488,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyArrivalTime",
+    "name": "SchemaPropertyArrivalTime",
     "slug": "schema-property-arrival-time",
     "cssExportPath": "./styles/semantic-schema-property-arrival-time.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-arrival-time.css",
@@ -4499,7 +4499,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyArticleBody",
+    "name": "SchemaPropertyArticleBody",
     "slug": "schema-property-article-body",
     "cssExportPath": "./styles/semantic-schema-property-article-body.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-article-body.css",
@@ -4510,7 +4510,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyArticleSection",
+    "name": "SchemaPropertyArticleSection",
     "slug": "schema-property-article-section",
     "cssExportPath": "./styles/semantic-schema-property-article-section.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-article-section.css",
@@ -4521,7 +4521,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAsin",
+    "name": "SchemaPropertyAsin",
     "slug": "schema-property-asin",
     "cssExportPath": "./styles/semantic-schema-property-asin.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-asin.css",
@@ -4532,7 +4532,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAspect",
+    "name": "SchemaPropertyAspect",
     "slug": "schema-property-aspect",
     "cssExportPath": "./styles/semantic-schema-property-aspect.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-aspect.css",
@@ -4543,7 +4543,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAssesses",
+    "name": "SchemaPropertyAssesses",
     "slug": "schema-property-assesses",
     "cssExportPath": "./styles/semantic-schema-property-assesses.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-assesses.css",
@@ -4554,7 +4554,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAssociatedAnatomy",
+    "name": "SchemaPropertyAssociatedAnatomy",
     "slug": "schema-property-associated-anatomy",
     "cssExportPath": "./styles/semantic-schema-property-associated-anatomy.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-associated-anatomy.css",
@@ -4565,7 +4565,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAssociatedArticle",
+    "name": "SchemaPropertyAssociatedArticle",
     "slug": "schema-property-associated-article",
     "cssExportPath": "./styles/semantic-schema-property-associated-article.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-associated-article.css",
@@ -4576,7 +4576,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAssociatedClaimReview",
+    "name": "SchemaPropertyAssociatedClaimReview",
     "slug": "schema-property-associated-claim-review",
     "cssExportPath": "./styles/semantic-schema-property-associated-claim-review.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-associated-claim-review.css",
@@ -4587,7 +4587,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAssociatedDisease",
+    "name": "SchemaPropertyAssociatedDisease",
     "slug": "schema-property-associated-disease",
     "cssExportPath": "./styles/semantic-schema-property-associated-disease.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-associated-disease.css",
@@ -4598,7 +4598,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAssociatedMedia",
+    "name": "SchemaPropertyAssociatedMedia",
     "slug": "schema-property-associated-media",
     "cssExportPath": "./styles/semantic-schema-property-associated-media.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-associated-media.css",
@@ -4609,7 +4609,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAssociatedMediaReview",
+    "name": "SchemaPropertyAssociatedMediaReview",
     "slug": "schema-property-associated-media-review",
     "cssExportPath": "./styles/semantic-schema-property-associated-media-review.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-associated-media-review.css",
@@ -4620,7 +4620,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAssociatedPathophysiology",
+    "name": "SchemaPropertyAssociatedPathophysiology",
     "slug": "schema-property-associated-pathophysiology",
     "cssExportPath": "./styles/semantic-schema-property-associated-pathophysiology.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-associated-pathophysiology.css",
@@ -4631,7 +4631,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAssociatedReview",
+    "name": "SchemaPropertyAssociatedReview",
     "slug": "schema-property-associated-review",
     "cssExportPath": "./styles/semantic-schema-property-associated-review.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-associated-review.css",
@@ -4642,7 +4642,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAttendee",
+    "name": "SchemaPropertyAttendee",
     "slug": "schema-property-attendee",
     "cssExportPath": "./styles/semantic-schema-property-attendee.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-attendee.css",
@@ -4653,7 +4653,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAttendees",
+    "name": "SchemaPropertyAttendees",
     "slug": "schema-property-attendees",
     "cssExportPath": "./styles/semantic-schema-property-attendees.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-attendees.css",
@@ -4664,7 +4664,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAudience",
+    "name": "SchemaPropertyAudience",
     "slug": "schema-property-audience",
     "cssExportPath": "./styles/semantic-schema-property-audience.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-audience.css",
@@ -4675,7 +4675,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAudienceType",
+    "name": "SchemaPropertyAudienceType",
     "slug": "schema-property-audience-type",
     "cssExportPath": "./styles/semantic-schema-property-audience-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-audience-type.css",
@@ -4686,7 +4686,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAudio",
+    "name": "SchemaPropertyAudio",
     "slug": "schema-property-audio",
     "cssExportPath": "./styles/semantic-schema-property-audio.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-audio.css",
@@ -4697,7 +4697,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAuditDate",
+    "name": "SchemaPropertyAuditDate",
     "slug": "schema-property-audit-date",
     "cssExportPath": "./styles/semantic-schema-property-audit-date.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-audit-date.css",
@@ -4708,7 +4708,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAuthenticator",
+    "name": "SchemaPropertyAuthenticator",
     "slug": "schema-property-authenticator",
     "cssExportPath": "./styles/semantic-schema-property-authenticator.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-authenticator.css",
@@ -4719,7 +4719,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAuthor",
+    "name": "SchemaPropertyAuthor",
     "slug": "schema-property-author",
     "cssExportPath": "./styles/semantic-schema-property-author.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-author.css",
@@ -4730,7 +4730,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAvailability",
+    "name": "SchemaPropertyAvailability",
     "slug": "schema-property-availability",
     "cssExportPath": "./styles/semantic-schema-property-availability.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-availability.css",
@@ -4741,7 +4741,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAvailabilityEnds",
+    "name": "SchemaPropertyAvailabilityEnds",
     "slug": "schema-property-availability-ends",
     "cssExportPath": "./styles/semantic-schema-property-availability-ends.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-availability-ends.css",
@@ -4752,7 +4752,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAvailabilityStarts",
+    "name": "SchemaPropertyAvailabilityStarts",
     "slug": "schema-property-availability-starts",
     "cssExportPath": "./styles/semantic-schema-property-availability-starts.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-availability-starts.css",
@@ -4763,7 +4763,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAvailableAtOrFrom",
+    "name": "SchemaPropertyAvailableAtOrFrom",
     "slug": "schema-property-available-at-or-from",
     "cssExportPath": "./styles/semantic-schema-property-available-at-or-from.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-available-at-or-from.css",
@@ -4774,7 +4774,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAvailableChannel",
+    "name": "SchemaPropertyAvailableChannel",
     "slug": "schema-property-available-channel",
     "cssExportPath": "./styles/semantic-schema-property-available-channel.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-available-channel.css",
@@ -4785,7 +4785,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAvailableDeliveryMethod",
+    "name": "SchemaPropertyAvailableDeliveryMethod",
     "slug": "schema-property-available-delivery-method",
     "cssExportPath": "./styles/semantic-schema-property-available-delivery-method.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-available-delivery-method.css",
@@ -4796,7 +4796,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAvailableIn",
+    "name": "SchemaPropertyAvailableIn",
     "slug": "schema-property-available-in",
     "cssExportPath": "./styles/semantic-schema-property-available-in.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-available-in.css",
@@ -4807,7 +4807,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAvailableLanguage",
+    "name": "SchemaPropertyAvailableLanguage",
     "slug": "schema-property-available-language",
     "cssExportPath": "./styles/semantic-schema-property-available-language.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-available-language.css",
@@ -4818,7 +4818,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAvailableOnDevice",
+    "name": "SchemaPropertyAvailableOnDevice",
     "slug": "schema-property-available-on-device",
     "cssExportPath": "./styles/semantic-schema-property-available-on-device.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-available-on-device.css",
@@ -4829,7 +4829,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAvailableStrength",
+    "name": "SchemaPropertyAvailableStrength",
     "slug": "schema-property-available-strength",
     "cssExportPath": "./styles/semantic-schema-property-available-strength.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-available-strength.css",
@@ -4840,7 +4840,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAward",
+    "name": "SchemaPropertyAward",
     "slug": "schema-property-award",
     "cssExportPath": "./styles/semantic-schema-property-award.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-award.css",
@@ -4851,7 +4851,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyAwards",
+    "name": "SchemaPropertyAwards",
     "slug": "schema-property-awards",
     "cssExportPath": "./styles/semantic-schema-property-awards.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-awards.css",
@@ -4862,7 +4862,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBackstory",
+    "name": "SchemaPropertyBackstory",
     "slug": "schema-property-backstory",
     "cssExportPath": "./styles/semantic-schema-property-backstory.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-backstory.css",
@@ -4873,7 +4873,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBenefitsSummaryUrl",
+    "name": "SchemaPropertyBenefitsSummaryUrl",
     "slug": "schema-property-benefits-summary-url",
     "cssExportPath": "./styles/semantic-schema-property-benefits-summary-url.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-benefits-summary-url.css",
@@ -4884,7 +4884,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBestRating",
+    "name": "SchemaPropertyBestRating",
     "slug": "schema-property-best-rating",
     "cssExportPath": "./styles/semantic-schema-property-best-rating.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-best-rating.css",
@@ -4895,7 +4895,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBillingDuration",
+    "name": "SchemaPropertyBillingDuration",
     "slug": "schema-property-billing-duration",
     "cssExportPath": "./styles/semantic-schema-property-billing-duration.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-billing-duration.css",
@@ -4906,7 +4906,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBillingIncrement",
+    "name": "SchemaPropertyBillingIncrement",
     "slug": "schema-property-billing-increment",
     "cssExportPath": "./styles/semantic-schema-property-billing-increment.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-billing-increment.css",
@@ -4917,7 +4917,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBillingStart",
+    "name": "SchemaPropertyBillingStart",
     "slug": "schema-property-billing-start",
     "cssExportPath": "./styles/semantic-schema-property-billing-start.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-billing-start.css",
@@ -4928,7 +4928,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBioChemInteraction",
+    "name": "SchemaPropertyBioChemInteraction",
     "slug": "schema-property-bio-chem-interaction",
     "cssExportPath": "./styles/semantic-schema-property-bio-chem-interaction.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-bio-chem-interaction.css",
@@ -4939,7 +4939,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBioChemSimilarity",
+    "name": "SchemaPropertyBioChemSimilarity",
     "slug": "schema-property-bio-chem-similarity",
     "cssExportPath": "./styles/semantic-schema-property-bio-chem-similarity.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-bio-chem-similarity.css",
@@ -4950,7 +4950,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBiologicalRole",
+    "name": "SchemaPropertyBiologicalRole",
     "slug": "schema-property-biological-role",
     "cssExportPath": "./styles/semantic-schema-property-biological-role.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-biological-role.css",
@@ -4961,7 +4961,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBirthDate",
+    "name": "SchemaPropertyBirthDate",
     "slug": "schema-property-birth-date",
     "cssExportPath": "./styles/semantic-schema-property-birth-date.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-birth-date.css",
@@ -4972,7 +4972,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBirthPlace",
+    "name": "SchemaPropertyBirthPlace",
     "slug": "schema-property-birth-place",
     "cssExportPath": "./styles/semantic-schema-property-birth-place.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-birth-place.css",
@@ -4983,7 +4983,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBitrate",
+    "name": "SchemaPropertyBitrate",
     "slug": "schema-property-bitrate",
     "cssExportPath": "./styles/semantic-schema-property-bitrate.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-bitrate.css",
@@ -4994,7 +4994,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBodyLocation",
+    "name": "SchemaPropertyBodyLocation",
     "slug": "schema-property-body-location",
     "cssExportPath": "./styles/semantic-schema-property-body-location.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-body-location.css",
@@ -5005,7 +5005,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBox",
+    "name": "SchemaPropertyBox",
     "slug": "schema-property-box",
     "cssExportPath": "./styles/semantic-schema-property-box.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-box.css",
@@ -5016,7 +5016,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBranchCode",
+    "name": "SchemaPropertyBranchCode",
     "slug": "schema-property-branch-code",
     "cssExportPath": "./styles/semantic-schema-property-branch-code.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-branch-code.css",
@@ -5027,7 +5027,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBrand",
+    "name": "SchemaPropertyBrand",
     "slug": "schema-property-brand",
     "cssExportPath": "./styles/semantic-schema-property-brand.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-brand.css",
@@ -5038,7 +5038,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBreadcrumb",
+    "name": "SchemaPropertyBreadcrumb",
     "slug": "schema-property-breadcrumb",
     "cssExportPath": "./styles/semantic-schema-property-breadcrumb.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-breadcrumb.css",
@@ -5049,7 +5049,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBreastfeedingWarning",
+    "name": "SchemaPropertyBreastfeedingWarning",
     "slug": "schema-property-breastfeeding-warning",
     "cssExportPath": "./styles/semantic-schema-property-breastfeeding-warning.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-breastfeeding-warning.css",
@@ -5060,7 +5060,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBroadcastAffiliateOf",
+    "name": "SchemaPropertyBroadcastAffiliateOf",
     "slug": "schema-property-broadcast-affiliate-of",
     "cssExportPath": "./styles/semantic-schema-property-broadcast-affiliate-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-broadcast-affiliate-of.css",
@@ -5071,7 +5071,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBroadcastChannelId",
+    "name": "SchemaPropertyBroadcastChannelId",
     "slug": "schema-property-broadcast-channel-id",
     "cssExportPath": "./styles/semantic-schema-property-broadcast-channel-id.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-broadcast-channel-id.css",
@@ -5082,7 +5082,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBroadcastDisplayName",
+    "name": "SchemaPropertyBroadcastDisplayName",
     "slug": "schema-property-broadcast-display-name",
     "cssExportPath": "./styles/semantic-schema-property-broadcast-display-name.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-broadcast-display-name.css",
@@ -5093,7 +5093,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBroadcaster",
+    "name": "SchemaPropertyBroadcaster",
     "slug": "schema-property-broadcaster",
     "cssExportPath": "./styles/semantic-schema-property-broadcaster.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-broadcaster.css",
@@ -5104,7 +5104,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBroadcastFrequency",
+    "name": "SchemaPropertyBroadcastFrequency",
     "slug": "schema-property-broadcast-frequency",
     "cssExportPath": "./styles/semantic-schema-property-broadcast-frequency.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-broadcast-frequency.css",
@@ -5115,7 +5115,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBroadcastFrequencyValue",
+    "name": "SchemaPropertyBroadcastFrequencyValue",
     "slug": "schema-property-broadcast-frequency-value",
     "cssExportPath": "./styles/semantic-schema-property-broadcast-frequency-value.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-broadcast-frequency-value.css",
@@ -5126,7 +5126,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBroadcastServiceTier",
+    "name": "SchemaPropertyBroadcastServiceTier",
     "slug": "schema-property-broadcast-service-tier",
     "cssExportPath": "./styles/semantic-schema-property-broadcast-service-tier.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-broadcast-service-tier.css",
@@ -5137,7 +5137,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBroadcastSignalModulation",
+    "name": "SchemaPropertyBroadcastSignalModulation",
     "slug": "schema-property-broadcast-signal-modulation",
     "cssExportPath": "./styles/semantic-schema-property-broadcast-signal-modulation.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-broadcast-signal-modulation.css",
@@ -5148,7 +5148,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBroadcastSubChannel",
+    "name": "SchemaPropertyBroadcastSubChannel",
     "slug": "schema-property-broadcast-sub-channel",
     "cssExportPath": "./styles/semantic-schema-property-broadcast-sub-channel.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-broadcast-sub-channel.css",
@@ -5159,7 +5159,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBroadcastTimezone",
+    "name": "SchemaPropertyBroadcastTimezone",
     "slug": "schema-property-broadcast-timezone",
     "cssExportPath": "./styles/semantic-schema-property-broadcast-timezone.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-broadcast-timezone.css",
@@ -5170,7 +5170,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBroker",
+    "name": "SchemaPropertyBroker",
     "slug": "schema-property-broker",
     "cssExportPath": "./styles/semantic-schema-property-broker.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-broker.css",
@@ -5181,7 +5181,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBusinessDays",
+    "name": "SchemaPropertyBusinessDays",
     "slug": "schema-property-business-days",
     "cssExportPath": "./styles/semantic-schema-property-business-days.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-business-days.css",
@@ -5192,7 +5192,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyBusinessFunction",
+    "name": "SchemaPropertyBusinessFunction",
     "slug": "schema-property-business-function",
     "cssExportPath": "./styles/semantic-schema-property-business-function.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-business-function.css",
@@ -5203,7 +5203,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyByArtist",
+    "name": "SchemaPropertyByArtist",
     "slug": "schema-property-by-artist",
     "cssExportPath": "./styles/semantic-schema-property-by-artist.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-by-artist.css",
@@ -5214,7 +5214,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyByDay",
+    "name": "SchemaPropertyByDay",
     "slug": "schema-property-by-day",
     "cssExportPath": "./styles/semantic-schema-property-by-day.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-by-day.css",
@@ -5225,7 +5225,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyByMonth",
+    "name": "SchemaPropertyByMonth",
     "slug": "schema-property-by-month",
     "cssExportPath": "./styles/semantic-schema-property-by-month.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-by-month.css",
@@ -5236,7 +5236,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyByMonthDay",
+    "name": "SchemaPropertyByMonthDay",
     "slug": "schema-property-by-month-day",
     "cssExportPath": "./styles/semantic-schema-property-by-month-day.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-by-month-day.css",
@@ -5247,7 +5247,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyByMonthWeek",
+    "name": "SchemaPropertyByMonthWeek",
     "slug": "schema-property-by-month-week",
     "cssExportPath": "./styles/semantic-schema-property-by-month-week.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-by-month-week.css",
@@ -5258,7 +5258,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCallSign",
+    "name": "SchemaPropertyCallSign",
     "slug": "schema-property-call-sign",
     "cssExportPath": "./styles/semantic-schema-property-call-sign.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-call-sign.css",
@@ -5269,7 +5269,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCalories",
+    "name": "SchemaPropertyCalories",
     "slug": "schema-property-calories",
     "cssExportPath": "./styles/semantic-schema-property-calories.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-calories.css",
@@ -5280,7 +5280,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCaption",
+    "name": "SchemaPropertyCaption",
     "slug": "schema-property-caption",
     "cssExportPath": "./styles/semantic-schema-property-caption.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-caption.css",
@@ -5291,7 +5291,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCarbohydrateContent",
+    "name": "SchemaPropertyCarbohydrateContent",
     "slug": "schema-property-carbohydrate-content",
     "cssExportPath": "./styles/semantic-schema-property-carbohydrate-content.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-carbohydrate-content.css",
@@ -5302,7 +5302,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCashBack",
+    "name": "SchemaPropertyCashBack",
     "slug": "schema-property-cash-back",
     "cssExportPath": "./styles/semantic-schema-property-cash-back.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-cash-back.css",
@@ -5313,7 +5313,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCatalog",
+    "name": "SchemaPropertyCatalog",
     "slug": "schema-property-catalog",
     "cssExportPath": "./styles/semantic-schema-property-catalog.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-catalog.css",
@@ -5324,7 +5324,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCatalogNumber",
+    "name": "SchemaPropertyCatalogNumber",
     "slug": "schema-property-catalog-number",
     "cssExportPath": "./styles/semantic-schema-property-catalog-number.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-catalog-number.css",
@@ -5335,7 +5335,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCategory",
+    "name": "SchemaPropertyCategory",
     "slug": "schema-property-category",
     "cssExportPath": "./styles/semantic-schema-property-category.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-category.css",
@@ -5346,7 +5346,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCause",
+    "name": "SchemaPropertyCause",
     "slug": "schema-property-cause",
     "cssExportPath": "./styles/semantic-schema-property-cause.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-cause.css",
@@ -5357,7 +5357,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCauseOf",
+    "name": "SchemaPropertyCauseOf",
     "slug": "schema-property-cause-of",
     "cssExportPath": "./styles/semantic-schema-property-cause-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-cause-of.css",
@@ -5368,7 +5368,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCertificationIdentification",
+    "name": "SchemaPropertyCertificationIdentification",
     "slug": "schema-property-certification-identification",
     "cssExportPath": "./styles/semantic-schema-property-certification-identification.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-certification-identification.css",
@@ -5379,7 +5379,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCertificationRating",
+    "name": "SchemaPropertyCertificationRating",
     "slug": "schema-property-certification-rating",
     "cssExportPath": "./styles/semantic-schema-property-certification-rating.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-certification-rating.css",
@@ -5390,7 +5390,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCertificationStatus",
+    "name": "SchemaPropertyCertificationStatus",
     "slug": "schema-property-certification-status",
     "cssExportPath": "./styles/semantic-schema-property-certification-status.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-certification-status.css",
@@ -5401,7 +5401,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCharacter",
+    "name": "SchemaPropertyCharacter",
     "slug": "schema-property-character",
     "cssExportPath": "./styles/semantic-schema-property-character.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-character.css",
@@ -5412,7 +5412,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCheckoutPageURLTemplate",
+    "name": "SchemaPropertyCheckoutPageURLTemplate",
     "slug": "schema-property-checkout-page-url-template",
     "cssExportPath": "./styles/semantic-schema-property-checkout-page-url-template.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-checkout-page-url-template.css",
@@ -5423,7 +5423,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyChildren",
+    "name": "SchemaPropertyChildren",
     "slug": "schema-property-children",
     "cssExportPath": "./styles/semantic-schema-property-children.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-children.css",
@@ -5434,7 +5434,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyChildTaxon",
+    "name": "SchemaPropertyChildTaxon",
     "slug": "schema-property-child-taxon",
     "cssExportPath": "./styles/semantic-schema-property-child-taxon.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-child-taxon.css",
@@ -5445,7 +5445,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCholesterolContent",
+    "name": "SchemaPropertyCholesterolContent",
     "slug": "schema-property-cholesterol-content",
     "cssExportPath": "./styles/semantic-schema-property-cholesterol-content.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-cholesterol-content.css",
@@ -5456,7 +5456,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCircle",
+    "name": "SchemaPropertyCircle",
     "slug": "schema-property-circle",
     "cssExportPath": "./styles/semantic-schema-property-circle.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-circle.css",
@@ -5467,7 +5467,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCitation",
+    "name": "SchemaPropertyCitation",
     "slug": "schema-property-citation",
     "cssExportPath": "./styles/semantic-schema-property-citation.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-citation.css",
@@ -5478,7 +5478,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyClaimInterpreter",
+    "name": "SchemaPropertyClaimInterpreter",
     "slug": "schema-property-claim-interpreter",
     "cssExportPath": "./styles/semantic-schema-property-claim-interpreter.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-claim-interpreter.css",
@@ -5489,7 +5489,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyClincalPharmacology",
+    "name": "SchemaPropertyClincalPharmacology",
     "slug": "schema-property-clincal-pharmacology",
     "cssExportPath": "./styles/semantic-schema-property-clincal-pharmacology.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-clincal-pharmacology.css",
@@ -5500,7 +5500,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyClinicalPharmacology",
+    "name": "SchemaPropertyClinicalPharmacology",
     "slug": "schema-property-clinical-pharmacology",
     "cssExportPath": "./styles/semantic-schema-property-clinical-pharmacology.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-clinical-pharmacology.css",
@@ -5511,7 +5511,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyClipNumber",
+    "name": "SchemaPropertyClipNumber",
     "slug": "schema-property-clip-number",
     "cssExportPath": "./styles/semantic-schema-property-clip-number.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-clip-number.css",
@@ -5522,7 +5522,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCloses",
+    "name": "SchemaPropertyCloses",
     "slug": "schema-property-closes",
     "cssExportPath": "./styles/semantic-schema-property-closes.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-closes.css",
@@ -5533,7 +5533,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCode",
+    "name": "SchemaPropertyCode",
     "slug": "schema-property-code",
     "cssExportPath": "./styles/semantic-schema-property-code.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-code.css",
@@ -5544,7 +5544,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCodeValue",
+    "name": "SchemaPropertyCodeValue",
     "slug": "schema-property-code-value",
     "cssExportPath": "./styles/semantic-schema-property-code-value.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-code-value.css",
@@ -5555,7 +5555,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCodingSystem",
+    "name": "SchemaPropertyCodingSystem",
     "slug": "schema-property-coding-system",
     "cssExportPath": "./styles/semantic-schema-property-coding-system.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-coding-system.css",
@@ -5566,7 +5566,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyColleague",
+    "name": "SchemaPropertyColleague",
     "slug": "schema-property-colleague",
     "cssExportPath": "./styles/semantic-schema-property-colleague.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-colleague.css",
@@ -5577,7 +5577,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyColleagues",
+    "name": "SchemaPropertyColleagues",
     "slug": "schema-property-colleagues",
     "cssExportPath": "./styles/semantic-schema-property-colleagues.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-colleagues.css",
@@ -5588,7 +5588,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyColor",
+    "name": "SchemaPropertyColor",
     "slug": "schema-property-color",
     "cssExportPath": "./styles/semantic-schema-property-color.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-color.css",
@@ -5599,7 +5599,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyColorSwatch",
+    "name": "SchemaPropertyColorSwatch",
     "slug": "schema-property-color-swatch",
     "cssExportPath": "./styles/semantic-schema-property-color-swatch.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-color-swatch.css",
@@ -5610,7 +5610,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyComment",
+    "name": "SchemaPropertyComment",
     "slug": "schema-property-comment",
     "cssExportPath": "./styles/semantic-schema-property-comment.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-comment.css",
@@ -5621,7 +5621,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCommentCount",
+    "name": "SchemaPropertyCommentCount",
     "slug": "schema-property-comment-count",
     "cssExportPath": "./styles/semantic-schema-property-comment-count.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-comment-count.css",
@@ -5632,7 +5632,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCompanyRegistration",
+    "name": "SchemaPropertyCompanyRegistration",
     "slug": "schema-property-company-registration",
     "cssExportPath": "./styles/semantic-schema-property-company-registration.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-company-registration.css",
@@ -5643,7 +5643,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCompetencyRequired",
+    "name": "SchemaPropertyCompetencyRequired",
     "slug": "schema-property-competency-required",
     "cssExportPath": "./styles/semantic-schema-property-competency-required.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-competency-required.css",
@@ -5654,7 +5654,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyComposer",
+    "name": "SchemaPropertyComposer",
     "slug": "schema-property-composer",
     "cssExportPath": "./styles/semantic-schema-property-composer.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-composer.css",
@@ -5665,7 +5665,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyComprisedOf",
+    "name": "SchemaPropertyComprisedOf",
     "slug": "schema-property-comprised-of",
     "cssExportPath": "./styles/semantic-schema-property-comprised-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-comprised-of.css",
@@ -5676,7 +5676,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyConditionsOfAccess",
+    "name": "SchemaPropertyConditionsOfAccess",
     "slug": "schema-property-conditions-of-access",
     "cssExportPath": "./styles/semantic-schema-property-conditions-of-access.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-conditions-of-access.css",
@@ -5687,7 +5687,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyConnectedTo",
+    "name": "SchemaPropertyConnectedTo",
     "slug": "schema-property-connected-to",
     "cssExportPath": "./styles/semantic-schema-property-connected-to.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-connected-to.css",
@@ -5698,7 +5698,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyConstraintProperty",
+    "name": "SchemaPropertyConstraintProperty",
     "slug": "schema-property-constraint-property",
     "cssExportPath": "./styles/semantic-schema-property-constraint-property.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-constraint-property.css",
@@ -5709,7 +5709,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyContactlessPayment",
+    "name": "SchemaPropertyContactlessPayment",
     "slug": "schema-property-contactless-payment",
     "cssExportPath": "./styles/semantic-schema-property-contactless-payment.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-contactless-payment.css",
@@ -5720,7 +5720,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyContactOption",
+    "name": "SchemaPropertyContactOption",
     "slug": "schema-property-contact-option",
     "cssExportPath": "./styles/semantic-schema-property-contact-option.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-contact-option.css",
@@ -5731,7 +5731,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyContactPoint",
+    "name": "SchemaPropertyContactPoint",
     "slug": "schema-property-contact-point",
     "cssExportPath": "./styles/semantic-schema-property-contact-point.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-contact-point.css",
@@ -5742,7 +5742,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyContactPoints",
+    "name": "SchemaPropertyContactPoints",
     "slug": "schema-property-contact-points",
     "cssExportPath": "./styles/semantic-schema-property-contact-points.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-contact-points.css",
@@ -5753,7 +5753,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyContactType",
+    "name": "SchemaPropertyContactType",
     "slug": "schema-property-contact-type",
     "cssExportPath": "./styles/semantic-schema-property-contact-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-contact-type.css",
@@ -5764,7 +5764,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyContainedIn",
+    "name": "SchemaPropertyContainedIn",
     "slug": "schema-property-contained-in",
     "cssExportPath": "./styles/semantic-schema-property-contained-in.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-contained-in.css",
@@ -5775,7 +5775,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyContainedInPlace",
+    "name": "SchemaPropertyContainedInPlace",
     "slug": "schema-property-contained-in-place",
     "cssExportPath": "./styles/semantic-schema-property-contained-in-place.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-contained-in-place.css",
@@ -5786,7 +5786,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyContainsPlace",
+    "name": "SchemaPropertyContainsPlace",
     "slug": "schema-property-contains-place",
     "cssExportPath": "./styles/semantic-schema-property-contains-place.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-contains-place.css",
@@ -5797,7 +5797,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyContentLocation",
+    "name": "SchemaPropertyContentLocation",
     "slug": "schema-property-content-location",
     "cssExportPath": "./styles/semantic-schema-property-content-location.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-content-location.css",
@@ -5808,7 +5808,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyContentRating",
+    "name": "SchemaPropertyContentRating",
     "slug": "schema-property-content-rating",
     "cssExportPath": "./styles/semantic-schema-property-content-rating.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-content-rating.css",
@@ -5819,7 +5819,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyContentReferenceTime",
+    "name": "SchemaPropertyContentReferenceTime",
     "slug": "schema-property-content-reference-time",
     "cssExportPath": "./styles/semantic-schema-property-content-reference-time.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-content-reference-time.css",
@@ -5830,7 +5830,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyContentSize",
+    "name": "SchemaPropertyContentSize",
     "slug": "schema-property-content-size",
     "cssExportPath": "./styles/semantic-schema-property-content-size.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-content-size.css",
@@ -5841,7 +5841,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyContentType",
+    "name": "SchemaPropertyContentType",
     "slug": "schema-property-content-type",
     "cssExportPath": "./styles/semantic-schema-property-content-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-content-type.css",
@@ -5852,7 +5852,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyContentUrl",
+    "name": "SchemaPropertyContentUrl",
     "slug": "schema-property-content-url",
     "cssExportPath": "./styles/semantic-schema-property-content-url.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-content-url.css",
@@ -5863,7 +5863,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyContraindication",
+    "name": "SchemaPropertyContraindication",
     "slug": "schema-property-contraindication",
     "cssExportPath": "./styles/semantic-schema-property-contraindication.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-contraindication.css",
@@ -5874,7 +5874,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyContributor",
+    "name": "SchemaPropertyContributor",
     "slug": "schema-property-contributor",
     "cssExportPath": "./styles/semantic-schema-property-contributor.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-contributor.css",
@@ -5885,7 +5885,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCopyrightHolder",
+    "name": "SchemaPropertyCopyrightHolder",
     "slug": "schema-property-copyright-holder",
     "cssExportPath": "./styles/semantic-schema-property-copyright-holder.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-copyright-holder.css",
@@ -5896,7 +5896,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCopyrightNotice",
+    "name": "SchemaPropertyCopyrightNotice",
     "slug": "schema-property-copyright-notice",
     "cssExportPath": "./styles/semantic-schema-property-copyright-notice.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-copyright-notice.css",
@@ -5907,7 +5907,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCopyrightYear",
+    "name": "SchemaPropertyCopyrightYear",
     "slug": "schema-property-copyright-year",
     "cssExportPath": "./styles/semantic-schema-property-copyright-year.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-copyright-year.css",
@@ -5918,7 +5918,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCorrection",
+    "name": "SchemaPropertyCorrection",
     "slug": "schema-property-correction",
     "cssExportPath": "./styles/semantic-schema-property-correction.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-correction.css",
@@ -5929,7 +5929,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCorrectionsPolicy",
+    "name": "SchemaPropertyCorrectionsPolicy",
     "slug": "schema-property-corrections-policy",
     "cssExportPath": "./styles/semantic-schema-property-corrections-policy.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-corrections-policy.css",
@@ -5940,7 +5940,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCountriesNotSupported",
+    "name": "SchemaPropertyCountriesNotSupported",
     "slug": "schema-property-countries-not-supported",
     "cssExportPath": "./styles/semantic-schema-property-countries-not-supported.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-countries-not-supported.css",
@@ -5951,7 +5951,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCountriesSupported",
+    "name": "SchemaPropertyCountriesSupported",
     "slug": "schema-property-countries-supported",
     "cssExportPath": "./styles/semantic-schema-property-countries-supported.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-countries-supported.css",
@@ -5962,7 +5962,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCountryOfAssembly",
+    "name": "SchemaPropertyCountryOfAssembly",
     "slug": "schema-property-country-of-assembly",
     "cssExportPath": "./styles/semantic-schema-property-country-of-assembly.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-country-of-assembly.css",
@@ -5973,7 +5973,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCountryOfLastProcessing",
+    "name": "SchemaPropertyCountryOfLastProcessing",
     "slug": "schema-property-country-of-last-processing",
     "cssExportPath": "./styles/semantic-schema-property-country-of-last-processing.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-country-of-last-processing.css",
@@ -5984,7 +5984,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCountryOfOrigin",
+    "name": "SchemaPropertyCountryOfOrigin",
     "slug": "schema-property-country-of-origin",
     "cssExportPath": "./styles/semantic-schema-property-country-of-origin.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-country-of-origin.css",
@@ -5995,7 +5995,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCreativeWorkStatus",
+    "name": "SchemaPropertyCreativeWorkStatus",
     "slug": "schema-property-creative-work-status",
     "cssExportPath": "./styles/semantic-schema-property-creative-work-status.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-creative-work-status.css",
@@ -6006,7 +6006,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCreator",
+    "name": "SchemaPropertyCreator",
     "slug": "schema-property-creator",
     "cssExportPath": "./styles/semantic-schema-property-creator.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-creator.css",
@@ -6017,7 +6017,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCredentialCategory",
+    "name": "SchemaPropertyCredentialCategory",
     "slug": "schema-property-credential-category",
     "cssExportPath": "./styles/semantic-schema-property-credential-category.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-credential-category.css",
@@ -6028,7 +6028,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCreditedTo",
+    "name": "SchemaPropertyCreditedTo",
     "slug": "schema-property-credited-to",
     "cssExportPath": "./styles/semantic-schema-property-credited-to.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-credited-to.css",
@@ -6039,7 +6039,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCreditText",
+    "name": "SchemaPropertyCreditText",
     "slug": "schema-property-credit-text",
     "cssExportPath": "./styles/semantic-schema-property-credit-text.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-credit-text.css",
@@ -6050,7 +6050,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCssSelector",
+    "name": "SchemaPropertyCssSelector",
     "slug": "schema-property-css-selector",
     "cssExportPath": "./styles/semantic-schema-property-css-selector.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-css-selector.css",
@@ -6061,7 +6061,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCurrency",
+    "name": "SchemaPropertyCurrency",
     "slug": "schema-property-currency",
     "cssExportPath": "./styles/semantic-schema-property-currency.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-currency.css",
@@ -6072,7 +6072,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCustomerRemorseReturnFees",
+    "name": "SchemaPropertyCustomerRemorseReturnFees",
     "slug": "schema-property-customer-remorse-return-fees",
     "cssExportPath": "./styles/semantic-schema-property-customer-remorse-return-fees.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-customer-remorse-return-fees.css",
@@ -6083,7 +6083,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCustomerRemorseReturnLabelSource",
+    "name": "SchemaPropertyCustomerRemorseReturnLabelSource",
     "slug": "schema-property-customer-remorse-return-label-source",
     "cssExportPath": "./styles/semantic-schema-property-customer-remorse-return-label-source.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-customer-remorse-return-label-source.css",
@@ -6094,7 +6094,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCustomerRemorseReturnShippingFeesAmount",
+    "name": "SchemaPropertyCustomerRemorseReturnShippingFeesAmount",
     "slug": "schema-property-customer-remorse-return-shipping-fees-amount",
     "cssExportPath": "./styles/semantic-schema-property-customer-remorse-return-shipping-fees-amount.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-customer-remorse-return-shipping-fees-amount.css",
@@ -6105,7 +6105,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyCutoffTime",
+    "name": "SchemaPropertyCutoffTime",
     "slug": "schema-property-cutoff-time",
     "cssExportPath": "./styles/semantic-schema-property-cutoff-time.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-cutoff-time.css",
@@ -6116,7 +6116,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDataFeedElement",
+    "name": "SchemaPropertyDataFeedElement",
     "slug": "schema-property-data-feed-element",
     "cssExportPath": "./styles/semantic-schema-property-data-feed-element.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-data-feed-element.css",
@@ -6127,7 +6127,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDataset",
+    "name": "SchemaPropertyDataset",
     "slug": "schema-property-dataset",
     "cssExportPath": "./styles/semantic-schema-property-dataset.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-dataset.css",
@@ -6138,7 +6138,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDatasetTimeInterval",
+    "name": "SchemaPropertyDatasetTimeInterval",
     "slug": "schema-property-dataset-time-interval",
     "cssExportPath": "./styles/semantic-schema-property-dataset-time-interval.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-dataset-time-interval.css",
@@ -6149,7 +6149,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDateCreated",
+    "name": "SchemaPropertyDateCreated",
     "slug": "schema-property-date-created",
     "cssExportPath": "./styles/semantic-schema-property-date-created.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-date-created.css",
@@ -6160,7 +6160,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDateDeleted",
+    "name": "SchemaPropertyDateDeleted",
     "slug": "schema-property-date-deleted",
     "cssExportPath": "./styles/semantic-schema-property-date-deleted.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-date-deleted.css",
@@ -6171,7 +6171,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDateline",
+    "name": "SchemaPropertyDateline",
     "slug": "schema-property-dateline",
     "cssExportPath": "./styles/semantic-schema-property-dateline.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-dateline.css",
@@ -6182,7 +6182,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDateModified",
+    "name": "SchemaPropertyDateModified",
     "slug": "schema-property-date-modified",
     "cssExportPath": "./styles/semantic-schema-property-date-modified.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-date-modified.css",
@@ -6193,7 +6193,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDatePosted",
+    "name": "SchemaPropertyDatePosted",
     "slug": "schema-property-date-posted",
     "cssExportPath": "./styles/semantic-schema-property-date-posted.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-date-posted.css",
@@ -6204,7 +6204,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDatePublished",
+    "name": "SchemaPropertyDatePublished",
     "slug": "schema-property-date-published",
     "cssExportPath": "./styles/semantic-schema-property-date-published.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-date-published.css",
@@ -6215,7 +6215,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDayOfWeek",
+    "name": "SchemaPropertyDayOfWeek",
     "slug": "schema-property-day-of-week",
     "cssExportPath": "./styles/semantic-schema-property-day-of-week.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-day-of-week.css",
@@ -6226,7 +6226,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDeathDate",
+    "name": "SchemaPropertyDeathDate",
     "slug": "schema-property-death-date",
     "cssExportPath": "./styles/semantic-schema-property-death-date.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-death-date.css",
@@ -6237,7 +6237,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDeathPlace",
+    "name": "SchemaPropertyDeathPlace",
     "slug": "schema-property-death-place",
     "cssExportPath": "./styles/semantic-schema-property-death-place.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-death-place.css",
@@ -6248,7 +6248,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDeliveryLeadTime",
+    "name": "SchemaPropertyDeliveryLeadTime",
     "slug": "schema-property-delivery-lead-time",
     "cssExportPath": "./styles/semantic-schema-property-delivery-lead-time.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-delivery-lead-time.css",
@@ -6259,7 +6259,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDeliveryTime",
+    "name": "SchemaPropertyDeliveryTime",
     "slug": "schema-property-delivery-time",
     "cssExportPath": "./styles/semantic-schema-property-delivery-time.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-delivery-time.css",
@@ -6270,7 +6270,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDepartment",
+    "name": "SchemaPropertyDepartment",
     "slug": "schema-property-department",
     "cssExportPath": "./styles/semantic-schema-property-department.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-department.css",
@@ -6281,7 +6281,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDepartureTime",
+    "name": "SchemaPropertyDepartureTime",
     "slug": "schema-property-departure-time",
     "cssExportPath": "./styles/semantic-schema-property-departure-time.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-departure-time.css",
@@ -6292,7 +6292,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDepth",
+    "name": "SchemaPropertyDepth",
     "slug": "schema-property-depth",
     "cssExportPath": "./styles/semantic-schema-property-depth.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-depth.css",
@@ -6303,7 +6303,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDescription",
+    "name": "SchemaPropertyDescription",
     "slug": "schema-property-description",
     "cssExportPath": "./styles/semantic-schema-property-description.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-description.css",
@@ -6314,7 +6314,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDevice",
+    "name": "SchemaPropertyDevice",
     "slug": "schema-property-device",
     "cssExportPath": "./styles/semantic-schema-property-device.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-device.css",
@@ -6325,7 +6325,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDiagnosis",
+    "name": "SchemaPropertyDiagnosis",
     "slug": "schema-property-diagnosis",
     "cssExportPath": "./styles/semantic-schema-property-diagnosis.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-diagnosis.css",
@@ -6336,7 +6336,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDiagram",
+    "name": "SchemaPropertyDiagram",
     "slug": "schema-property-diagram",
     "cssExportPath": "./styles/semantic-schema-property-diagram.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-diagram.css",
@@ -6347,7 +6347,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDietFeatures",
+    "name": "SchemaPropertyDietFeatures",
     "slug": "schema-property-diet-features",
     "cssExportPath": "./styles/semantic-schema-property-diet-features.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-diet-features.css",
@@ -6358,7 +6358,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDifferentialDiagnosis",
+    "name": "SchemaPropertyDifferentialDiagnosis",
     "slug": "schema-property-differential-diagnosis",
     "cssExportPath": "./styles/semantic-schema-property-differential-diagnosis.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-differential-diagnosis.css",
@@ -6369,7 +6369,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDigitalSourceType",
+    "name": "SchemaPropertyDigitalSourceType",
     "slug": "schema-property-digital-source-type",
     "cssExportPath": "./styles/semantic-schema-property-digital-source-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-digital-source-type.css",
@@ -6380,7 +6380,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDirector",
+    "name": "SchemaPropertyDirector",
     "slug": "schema-property-director",
     "cssExportPath": "./styles/semantic-schema-property-director.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-director.css",
@@ -6391,7 +6391,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDirectors",
+    "name": "SchemaPropertyDirectors",
     "slug": "schema-property-directors",
     "cssExportPath": "./styles/semantic-schema-property-directors.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-directors.css",
@@ -6402,7 +6402,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDisambiguatingDescription",
+    "name": "SchemaPropertyDisambiguatingDescription",
     "slug": "schema-property-disambiguating-description",
     "cssExportPath": "./styles/semantic-schema-property-disambiguating-description.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-disambiguating-description.css",
@@ -6413,7 +6413,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDiscussionUrl",
+    "name": "SchemaPropertyDiscussionUrl",
     "slug": "schema-property-discussion-url",
     "cssExportPath": "./styles/semantic-schema-property-discussion-url.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-discussion-url.css",
@@ -6424,7 +6424,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDisplayLocation",
+    "name": "SchemaPropertyDisplayLocation",
     "slug": "schema-property-display-location",
     "cssExportPath": "./styles/semantic-schema-property-display-location.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-display-location.css",
@@ -6435,7 +6435,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDissolutionDate",
+    "name": "SchemaPropertyDissolutionDate",
     "slug": "schema-property-dissolution-date",
     "cssExportPath": "./styles/semantic-schema-property-dissolution-date.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-dissolution-date.css",
@@ -6446,7 +6446,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDistinguishingSign",
+    "name": "SchemaPropertyDistinguishingSign",
     "slug": "schema-property-distinguishing-sign",
     "cssExportPath": "./styles/semantic-schema-property-distinguishing-sign.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-distinguishing-sign.css",
@@ -6457,7 +6457,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDistribution",
+    "name": "SchemaPropertyDistribution",
     "slug": "schema-property-distribution",
     "cssExportPath": "./styles/semantic-schema-property-distribution.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-distribution.css",
@@ -6468,7 +6468,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDiversityPolicy",
+    "name": "SchemaPropertyDiversityPolicy",
     "slug": "schema-property-diversity-policy",
     "cssExportPath": "./styles/semantic-schema-property-diversity-policy.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-diversity-policy.css",
@@ -6479,7 +6479,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDiversityStaffingReport",
+    "name": "SchemaPropertyDiversityStaffingReport",
     "slug": "schema-property-diversity-staffing-report",
     "cssExportPath": "./styles/semantic-schema-property-diversity-staffing-report.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-diversity-staffing-report.css",
@@ -6490,7 +6490,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDoesNotShip",
+    "name": "SchemaPropertyDoesNotShip",
     "slug": "schema-property-does-not-ship",
     "cssExportPath": "./styles/semantic-schema-property-does-not-ship.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-does-not-ship.css",
@@ -6501,7 +6501,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDomainIncludes",
+    "name": "SchemaPropertyDomainIncludes",
     "slug": "schema-property-domain-includes",
     "cssExportPath": "./styles/semantic-schema-property-domain-includes.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-domain-includes.css",
@@ -6512,7 +6512,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDoorTime",
+    "name": "SchemaPropertyDoorTime",
     "slug": "schema-property-door-time",
     "cssExportPath": "./styles/semantic-schema-property-door-time.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-door-time.css",
@@ -6523,7 +6523,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDosageForm",
+    "name": "SchemaPropertyDosageForm",
     "slug": "schema-property-dosage-form",
     "cssExportPath": "./styles/semantic-schema-property-dosage-form.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-dosage-form.css",
@@ -6534,7 +6534,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDoseSchedule",
+    "name": "SchemaPropertyDoseSchedule",
     "slug": "schema-property-dose-schedule",
     "cssExportPath": "./styles/semantic-schema-property-dose-schedule.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-dose-schedule.css",
@@ -6545,7 +6545,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDoseUnit",
+    "name": "SchemaPropertyDoseUnit",
     "slug": "schema-property-dose-unit",
     "cssExportPath": "./styles/semantic-schema-property-dose-unit.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-dose-unit.css",
@@ -6556,7 +6556,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDoseValue",
+    "name": "SchemaPropertyDoseValue",
     "slug": "schema-property-dose-value",
     "cssExportPath": "./styles/semantic-schema-property-dose-value.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-dose-value.css",
@@ -6567,7 +6567,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDownloadUrl",
+    "name": "SchemaPropertyDownloadUrl",
     "slug": "schema-property-download-url",
     "cssExportPath": "./styles/semantic-schema-property-download-url.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-download-url.css",
@@ -6578,7 +6578,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDownPayment",
+    "name": "SchemaPropertyDownPayment",
     "slug": "schema-property-down-payment",
     "cssExportPath": "./styles/semantic-schema-property-down-payment.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-down-payment.css",
@@ -6589,7 +6589,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDownvoteCount",
+    "name": "SchemaPropertyDownvoteCount",
     "slug": "schema-property-downvote-count",
     "cssExportPath": "./styles/semantic-schema-property-downvote-count.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-downvote-count.css",
@@ -6600,7 +6600,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDrug",
+    "name": "SchemaPropertyDrug",
     "slug": "schema-property-drug",
     "cssExportPath": "./styles/semantic-schema-property-drug.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-drug.css",
@@ -6611,7 +6611,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDrugClass",
+    "name": "SchemaPropertyDrugClass",
     "slug": "schema-property-drug-class",
     "cssExportPath": "./styles/semantic-schema-property-drug-class.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-drug-class.css",
@@ -6622,7 +6622,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDrugUnit",
+    "name": "SchemaPropertyDrugUnit",
     "slug": "schema-property-drug-unit",
     "cssExportPath": "./styles/semantic-schema-property-drug-unit.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-drug-unit.css",
@@ -6633,7 +6633,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDuns",
+    "name": "SchemaPropertyDuns",
     "slug": "schema-property-duns",
     "cssExportPath": "./styles/semantic-schema-property-duns.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-duns.css",
@@ -6644,7 +6644,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDuplicateTherapy",
+    "name": "SchemaPropertyDuplicateTherapy",
     "slug": "schema-property-duplicate-therapy",
     "cssExportPath": "./styles/semantic-schema-property-duplicate-therapy.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-duplicate-therapy.css",
@@ -6655,7 +6655,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDuration",
+    "name": "SchemaPropertyDuration",
     "slug": "schema-property-duration",
     "cssExportPath": "./styles/semantic-schema-property-duration.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-duration.css",
@@ -6666,7 +6666,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyDurationOfWarranty",
+    "name": "SchemaPropertyDurationOfWarranty",
     "slug": "schema-property-duration-of-warranty",
     "cssExportPath": "./styles/semantic-schema-property-duration-of-warranty.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-duration-of-warranty.css",
@@ -6677,7 +6677,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEarlyPrepaymentPenalty",
+    "name": "SchemaPropertyEarlyPrepaymentPenalty",
     "slug": "schema-property-early-prepayment-penalty",
     "cssExportPath": "./styles/semantic-schema-property-early-prepayment-penalty.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-early-prepayment-penalty.css",
@@ -6688,7 +6688,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEditEIDR",
+    "name": "SchemaPropertyEditEIDR",
     "slug": "schema-property-edit-eidr",
     "cssExportPath": "./styles/semantic-schema-property-edit-eidr.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-edit-eidr.css",
@@ -6699,7 +6699,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEditor",
+    "name": "SchemaPropertyEditor",
     "slug": "schema-property-editor",
     "cssExportPath": "./styles/semantic-schema-property-editor.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-editor.css",
@@ -6710,7 +6710,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEducationalAlignment",
+    "name": "SchemaPropertyEducationalAlignment",
     "slug": "schema-property-educational-alignment",
     "cssExportPath": "./styles/semantic-schema-property-educational-alignment.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-educational-alignment.css",
@@ -6721,7 +6721,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEducationalFramework",
+    "name": "SchemaPropertyEducationalFramework",
     "slug": "schema-property-educational-framework",
     "cssExportPath": "./styles/semantic-schema-property-educational-framework.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-educational-framework.css",
@@ -6732,7 +6732,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEducationalLevel",
+    "name": "SchemaPropertyEducationalLevel",
     "slug": "schema-property-educational-level",
     "cssExportPath": "./styles/semantic-schema-property-educational-level.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-educational-level.css",
@@ -6743,7 +6743,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEducationalUse",
+    "name": "SchemaPropertyEducationalUse",
     "slug": "schema-property-educational-use",
     "cssExportPath": "./styles/semantic-schema-property-educational-use.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-educational-use.css",
@@ -6754,7 +6754,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEducationRequirements",
+    "name": "SchemaPropertyEducationRequirements",
     "slug": "schema-property-education-requirements",
     "cssExportPath": "./styles/semantic-schema-property-education-requirements.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-education-requirements.css",
@@ -6765,7 +6765,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyElevation",
+    "name": "SchemaPropertyElevation",
     "slug": "schema-property-elevation",
     "cssExportPath": "./styles/semantic-schema-property-elevation.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-elevation.css",
@@ -6776,7 +6776,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEligibleCustomerType",
+    "name": "SchemaPropertyEligibleCustomerType",
     "slug": "schema-property-eligible-customer-type",
     "cssExportPath": "./styles/semantic-schema-property-eligible-customer-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-eligible-customer-type.css",
@@ -6787,7 +6787,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEligibleDuration",
+    "name": "SchemaPropertyEligibleDuration",
     "slug": "schema-property-eligible-duration",
     "cssExportPath": "./styles/semantic-schema-property-eligible-duration.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-eligible-duration.css",
@@ -6798,7 +6798,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEligibleQuantity",
+    "name": "SchemaPropertyEligibleQuantity",
     "slug": "schema-property-eligible-quantity",
     "cssExportPath": "./styles/semantic-schema-property-eligible-quantity.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-eligible-quantity.css",
@@ -6809,7 +6809,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEligibleRegion",
+    "name": "SchemaPropertyEligibleRegion",
     "slug": "schema-property-eligible-region",
     "cssExportPath": "./styles/semantic-schema-property-eligible-region.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-eligible-region.css",
@@ -6820,7 +6820,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEligibleTransactionVolume",
+    "name": "SchemaPropertyEligibleTransactionVolume",
     "slug": "schema-property-eligible-transaction-volume",
     "cssExportPath": "./styles/semantic-schema-property-eligible-transaction-volume.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-eligible-transaction-volume.css",
@@ -6831,7 +6831,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEmail",
+    "name": "SchemaPropertyEmail",
     "slug": "schema-property-email",
     "cssExportPath": "./styles/semantic-schema-property-email.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-email.css",
@@ -6842,7 +6842,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEmbeddedTextCaption",
+    "name": "SchemaPropertyEmbeddedTextCaption",
     "slug": "schema-property-embedded-text-caption",
     "cssExportPath": "./styles/semantic-schema-property-embedded-text-caption.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-embedded-text-caption.css",
@@ -6853,7 +6853,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEmbedUrl",
+    "name": "SchemaPropertyEmbedUrl",
     "slug": "schema-property-embed-url",
     "cssExportPath": "./styles/semantic-schema-property-embed-url.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-embed-url.css",
@@ -6864,7 +6864,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEmployee",
+    "name": "SchemaPropertyEmployee",
     "slug": "schema-property-employee",
     "cssExportPath": "./styles/semantic-schema-property-employee.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-employee.css",
@@ -6875,7 +6875,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEmployees",
+    "name": "SchemaPropertyEmployees",
     "slug": "schema-property-employees",
     "cssExportPath": "./styles/semantic-schema-property-employees.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-employees.css",
@@ -6886,7 +6886,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEncodesBioChemEntity",
+    "name": "SchemaPropertyEncodesBioChemEntity",
     "slug": "schema-property-encodes-bio-chem-entity",
     "cssExportPath": "./styles/semantic-schema-property-encodes-bio-chem-entity.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-encodes-bio-chem-entity.css",
@@ -6897,7 +6897,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEncodesCreativeWork",
+    "name": "SchemaPropertyEncodesCreativeWork",
     "slug": "schema-property-encodes-creative-work",
     "cssExportPath": "./styles/semantic-schema-property-encodes-creative-work.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-encodes-creative-work.css",
@@ -6908,7 +6908,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEncoding",
+    "name": "SchemaPropertyEncoding",
     "slug": "schema-property-encoding",
     "cssExportPath": "./styles/semantic-schema-property-encoding.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-encoding.css",
@@ -6919,7 +6919,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEncodingFormat",
+    "name": "SchemaPropertyEncodingFormat",
     "slug": "schema-property-encoding-format",
     "cssExportPath": "./styles/semantic-schema-property-encoding-format.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-encoding-format.css",
@@ -6930,7 +6930,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEncodings",
+    "name": "SchemaPropertyEncodings",
     "slug": "schema-property-encodings",
     "cssExportPath": "./styles/semantic-schema-property-encodings.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-encodings.css",
@@ -6941,7 +6941,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEncodingType",
+    "name": "SchemaPropertyEncodingType",
     "slug": "schema-property-encoding-type",
     "cssExportPath": "./styles/semantic-schema-property-encoding-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-encoding-type.css",
@@ -6952,7 +6952,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEndDate",
+    "name": "SchemaPropertyEndDate",
     "slug": "schema-property-end-date",
     "cssExportPath": "./styles/semantic-schema-property-end-date.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-end-date.css",
@@ -6963,7 +6963,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEndOffset",
+    "name": "SchemaPropertyEndOffset",
     "slug": "schema-property-end-offset",
     "cssExportPath": "./styles/semantic-schema-property-end-offset.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-end-offset.css",
@@ -6974,7 +6974,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEndorsers",
+    "name": "SchemaPropertyEndorsers",
     "slug": "schema-property-endorsers",
     "cssExportPath": "./styles/semantic-schema-property-endorsers.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-endorsers.css",
@@ -6985,7 +6985,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEndTime",
+    "name": "SchemaPropertyEndTime",
     "slug": "schema-property-end-time",
     "cssExportPath": "./styles/semantic-schema-property-end-time.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-end-time.css",
@@ -6996,7 +6996,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEnergyEfficiencyScaleMax",
+    "name": "SchemaPropertyEnergyEfficiencyScaleMax",
     "slug": "schema-property-energy-efficiency-scale-max",
     "cssExportPath": "./styles/semantic-schema-property-energy-efficiency-scale-max.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-energy-efficiency-scale-max.css",
@@ -7007,7 +7007,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEnergyEfficiencyScaleMin",
+    "name": "SchemaPropertyEnergyEfficiencyScaleMin",
     "slug": "schema-property-energy-efficiency-scale-min",
     "cssExportPath": "./styles/semantic-schema-property-energy-efficiency-scale-min.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-energy-efficiency-scale-min.css",
@@ -7018,7 +7018,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEpidemiology",
+    "name": "SchemaPropertyEpidemiology",
     "slug": "schema-property-epidemiology",
     "cssExportPath": "./styles/semantic-schema-property-epidemiology.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-epidemiology.css",
@@ -7029,7 +7029,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEpisode",
+    "name": "SchemaPropertyEpisode",
     "slug": "schema-property-episode",
     "cssExportPath": "./styles/semantic-schema-property-episode.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-episode.css",
@@ -7040,7 +7040,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEpisodeNumber",
+    "name": "SchemaPropertyEpisodeNumber",
     "slug": "schema-property-episode-number",
     "cssExportPath": "./styles/semantic-schema-property-episode-number.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-episode-number.css",
@@ -7051,7 +7051,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEpisodes",
+    "name": "SchemaPropertyEpisodes",
     "slug": "schema-property-episodes",
     "cssExportPath": "./styles/semantic-schema-property-episodes.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-episodes.css",
@@ -7062,7 +7062,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyError",
+    "name": "SchemaPropertyError",
     "slug": "schema-property-error",
     "cssExportPath": "./styles/semantic-schema-property-error.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-error.css",
@@ -7073,7 +7073,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEstimatedCost",
+    "name": "SchemaPropertyEstimatedCost",
     "slug": "schema-property-estimated-cost",
     "cssExportPath": "./styles/semantic-schema-property-estimated-cost.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-estimated-cost.css",
@@ -7084,7 +7084,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEstimatedSalary",
+    "name": "SchemaPropertyEstimatedSalary",
     "slug": "schema-property-estimated-salary",
     "cssExportPath": "./styles/semantic-schema-property-estimated-salary.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-estimated-salary.css",
@@ -7095,7 +7095,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEthicsPolicy",
+    "name": "SchemaPropertyEthicsPolicy",
     "slug": "schema-property-ethics-policy",
     "cssExportPath": "./styles/semantic-schema-property-ethics-policy.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-ethics-policy.css",
@@ -7106,7 +7106,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEvent",
+    "name": "SchemaPropertyEvent",
     "slug": "schema-property-event",
     "cssExportPath": "./styles/semantic-schema-property-event.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-event.css",
@@ -7117,7 +7117,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEventAttendanceMode",
+    "name": "SchemaPropertyEventAttendanceMode",
     "slug": "schema-property-event-attendance-mode",
     "cssExportPath": "./styles/semantic-schema-property-event-attendance-mode.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-event-attendance-mode.css",
@@ -7128,7 +7128,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEvents",
+    "name": "SchemaPropertyEvents",
     "slug": "schema-property-events",
     "cssExportPath": "./styles/semantic-schema-property-events.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-events.css",
@@ -7139,7 +7139,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEventSchedule",
+    "name": "SchemaPropertyEventSchedule",
     "slug": "schema-property-event-schedule",
     "cssExportPath": "./styles/semantic-schema-property-event-schedule.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-event-schedule.css",
@@ -7150,7 +7150,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEventStatus",
+    "name": "SchemaPropertyEventStatus",
     "slug": "schema-property-event-status",
     "cssExportPath": "./styles/semantic-schema-property-event-status.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-event-status.css",
@@ -7161,7 +7161,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEvidenceLevel",
+    "name": "SchemaPropertyEvidenceLevel",
     "slug": "schema-property-evidence-level",
     "cssExportPath": "./styles/semantic-schema-property-evidence-level.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-evidence-level.css",
@@ -7172,7 +7172,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyEvidenceOrigin",
+    "name": "SchemaPropertyEvidenceOrigin",
     "slug": "schema-property-evidence-origin",
     "cssExportPath": "./styles/semantic-schema-property-evidence-origin.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-evidence-origin.css",
@@ -7183,7 +7183,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyExampleOfWork",
+    "name": "SchemaPropertyExampleOfWork",
     "slug": "schema-property-example-of-work",
     "cssExportPath": "./styles/semantic-schema-property-example-of-work.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-example-of-work.css",
@@ -7194,7 +7194,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyExceptDate",
+    "name": "SchemaPropertyExceptDate",
     "slug": "schema-property-except-date",
     "cssExportPath": "./styles/semantic-schema-property-except-date.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-except-date.css",
@@ -7205,7 +7205,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyExifData",
+    "name": "SchemaPropertyExifData",
     "slug": "schema-property-exif-data",
     "cssExportPath": "./styles/semantic-schema-property-exif-data.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-exif-data.css",
@@ -7216,7 +7216,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyExpectedPrognosis",
+    "name": "SchemaPropertyExpectedPrognosis",
     "slug": "schema-property-expected-prognosis",
     "cssExportPath": "./styles/semantic-schema-property-expected-prognosis.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-expected-prognosis.css",
@@ -7227,7 +7227,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyExpectsAcceptanceOf",
+    "name": "SchemaPropertyExpectsAcceptanceOf",
     "slug": "schema-property-expects-acceptance-of",
     "cssExportPath": "./styles/semantic-schema-property-expects-acceptance-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-expects-acceptance-of.css",
@@ -7238,7 +7238,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyExperienceRequirements",
+    "name": "SchemaPropertyExperienceRequirements",
     "slug": "schema-property-experience-requirements",
     "cssExportPath": "./styles/semantic-schema-property-experience-requirements.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-experience-requirements.css",
@@ -7249,7 +7249,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyExpertConsiderations",
+    "name": "SchemaPropertyExpertConsiderations",
     "slug": "schema-property-expert-considerations",
     "cssExportPath": "./styles/semantic-schema-property-expert-considerations.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-expert-considerations.css",
@@ -7260,7 +7260,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyExpires",
+    "name": "SchemaPropertyExpires",
     "slug": "schema-property-expires",
     "cssExportPath": "./styles/semantic-schema-property-expires.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-expires.css",
@@ -7271,7 +7271,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyExpressedIn",
+    "name": "SchemaPropertyExpressedIn",
     "slug": "schema-property-expressed-in",
     "cssExportPath": "./styles/semantic-schema-property-expressed-in.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-expressed-in.css",
@@ -7282,7 +7282,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyExtendedAddress",
+    "name": "SchemaPropertyExtendedAddress",
     "slug": "schema-property-extended-address",
     "cssExportPath": "./styles/semantic-schema-property-extended-address.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-extended-address.css",
@@ -7293,7 +7293,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFamilyName",
+    "name": "SchemaPropertyFamilyName",
     "slug": "schema-property-family-name",
     "cssExportPath": "./styles/semantic-schema-property-family-name.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-family-name.css",
@@ -7304,7 +7304,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFatContent",
+    "name": "SchemaPropertyFatContent",
     "slug": "schema-property-fat-content",
     "cssExportPath": "./styles/semantic-schema-property-fat-content.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-fat-content.css",
@@ -7315,7 +7315,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFaxNumber",
+    "name": "SchemaPropertyFaxNumber",
     "slug": "schema-property-fax-number",
     "cssExportPath": "./styles/semantic-schema-property-fax-number.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-fax-number.css",
@@ -7326,7 +7326,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFeatureList",
+    "name": "SchemaPropertyFeatureList",
     "slug": "schema-property-feature-list",
     "cssExportPath": "./styles/semantic-schema-property-feature-list.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-feature-list.css",
@@ -7337,7 +7337,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFeesAndCommissionsSpecification",
+    "name": "SchemaPropertyFeesAndCommissionsSpecification",
     "slug": "schema-property-fees-and-commissions-specification",
     "cssExportPath": "./styles/semantic-schema-property-fees-and-commissions-specification.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-fees-and-commissions-specification.css",
@@ -7348,7 +7348,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFiberContent",
+    "name": "SchemaPropertyFiberContent",
     "slug": "schema-property-fiber-content",
     "cssExportPath": "./styles/semantic-schema-property-fiber-content.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-fiber-content.css",
@@ -7359,7 +7359,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFileFormat",
+    "name": "SchemaPropertyFileFormat",
     "slug": "schema-property-file-format",
     "cssExportPath": "./styles/semantic-schema-property-file-format.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-file-format.css",
@@ -7370,7 +7370,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFileSize",
+    "name": "SchemaPropertyFileSize",
     "slug": "schema-property-file-size",
     "cssExportPath": "./styles/semantic-schema-property-file-size.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-file-size.css",
@@ -7381,7 +7381,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFirstAppearance",
+    "name": "SchemaPropertyFirstAppearance",
     "slug": "schema-property-first-appearance",
     "cssExportPath": "./styles/semantic-schema-property-first-appearance.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-first-appearance.css",
@@ -7392,7 +7392,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFirstPerformance",
+    "name": "SchemaPropertyFirstPerformance",
     "slug": "schema-property-first-performance",
     "cssExportPath": "./styles/semantic-schema-property-first-performance.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-first-performance.css",
@@ -7403,7 +7403,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFloorLimit",
+    "name": "SchemaPropertyFloorLimit",
     "slug": "schema-property-floor-limit",
     "cssExportPath": "./styles/semantic-schema-property-floor-limit.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-floor-limit.css",
@@ -7414,7 +7414,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFollows",
+    "name": "SchemaPropertyFollows",
     "slug": "schema-property-follows",
     "cssExportPath": "./styles/semantic-schema-property-follows.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-follows.css",
@@ -7425,7 +7425,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFollowup",
+    "name": "SchemaPropertyFollowup",
     "slug": "schema-property-followup",
     "cssExportPath": "./styles/semantic-schema-property-followup.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-followup.css",
@@ -7436,7 +7436,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFoodWarning",
+    "name": "SchemaPropertyFoodWarning",
     "slug": "schema-property-food-warning",
     "cssExportPath": "./styles/semantic-schema-property-food-warning.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-food-warning.css",
@@ -7447,7 +7447,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFounder",
+    "name": "SchemaPropertyFounder",
     "slug": "schema-property-founder",
     "cssExportPath": "./styles/semantic-schema-property-founder.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-founder.css",
@@ -7458,7 +7458,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFounders",
+    "name": "SchemaPropertyFounders",
     "slug": "schema-property-founders",
     "cssExportPath": "./styles/semantic-schema-property-founders.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-founders.css",
@@ -7469,7 +7469,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFoundingDate",
+    "name": "SchemaPropertyFoundingDate",
     "slug": "schema-property-founding-date",
     "cssExportPath": "./styles/semantic-schema-property-founding-date.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-founding-date.css",
@@ -7480,7 +7480,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFoundingLocation",
+    "name": "SchemaPropertyFoundingLocation",
     "slug": "schema-property-founding-location",
     "cssExportPath": "./styles/semantic-schema-property-founding-location.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-founding-location.css",
@@ -7491,7 +7491,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFree",
+    "name": "SchemaPropertyFree",
     "slug": "schema-property-free",
     "cssExportPath": "./styles/semantic-schema-property-free.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-free.css",
@@ -7502,7 +7502,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFreeShippingThreshold",
+    "name": "SchemaPropertyFreeShippingThreshold",
     "slug": "schema-property-free-shipping-threshold",
     "cssExportPath": "./styles/semantic-schema-property-free-shipping-threshold.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-free-shipping-threshold.css",
@@ -7513,7 +7513,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFrequency",
+    "name": "SchemaPropertyFrequency",
     "slug": "schema-property-frequency",
     "cssExportPath": "./styles/semantic-schema-property-frequency.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-frequency.css",
@@ -7524,7 +7524,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFulfillmentType",
+    "name": "SchemaPropertyFulfillmentType",
     "slug": "schema-property-fulfillment-type",
     "cssExportPath": "./styles/semantic-schema-property-fulfillment-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-fulfillment-type.css",
@@ -7535,7 +7535,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFundedItem",
+    "name": "SchemaPropertyFundedItem",
     "slug": "schema-property-funded-item",
     "cssExportPath": "./styles/semantic-schema-property-funded-item.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-funded-item.css",
@@ -7546,7 +7546,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFunder",
+    "name": "SchemaPropertyFunder",
     "slug": "schema-property-funder",
     "cssExportPath": "./styles/semantic-schema-property-funder.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-funder.css",
@@ -7557,7 +7557,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyFunding",
+    "name": "SchemaPropertyFunding",
     "slug": "schema-property-funding",
     "cssExportPath": "./styles/semantic-schema-property-funding.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-funding.css",
@@ -7568,7 +7568,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGender",
+    "name": "SchemaPropertyGender",
     "slug": "schema-property-gender",
     "cssExportPath": "./styles/semantic-schema-property-gender.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-gender.css",
@@ -7579,7 +7579,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGenre",
+    "name": "SchemaPropertyGenre",
     "slug": "schema-property-genre",
     "cssExportPath": "./styles/semantic-schema-property-genre.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-genre.css",
@@ -7590,7 +7590,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGeo",
+    "name": "SchemaPropertyGeo",
     "slug": "schema-property-geo",
     "cssExportPath": "./styles/semantic-schema-property-geo.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-geo.css",
@@ -7601,7 +7601,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGeoContains",
+    "name": "SchemaPropertyGeoContains",
     "slug": "schema-property-geo-contains",
     "cssExportPath": "./styles/semantic-schema-property-geo-contains.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-geo-contains.css",
@@ -7612,7 +7612,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGeoCoveredBy",
+    "name": "SchemaPropertyGeoCoveredBy",
     "slug": "schema-property-geo-covered-by",
     "cssExportPath": "./styles/semantic-schema-property-geo-covered-by.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-geo-covered-by.css",
@@ -7623,7 +7623,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGeoCovers",
+    "name": "SchemaPropertyGeoCovers",
     "slug": "schema-property-geo-covers",
     "cssExportPath": "./styles/semantic-schema-property-geo-covers.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-geo-covers.css",
@@ -7634,7 +7634,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGeoCrosses",
+    "name": "SchemaPropertyGeoCrosses",
     "slug": "schema-property-geo-crosses",
     "cssExportPath": "./styles/semantic-schema-property-geo-crosses.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-geo-crosses.css",
@@ -7645,7 +7645,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGeoDisjoint",
+    "name": "SchemaPropertyGeoDisjoint",
     "slug": "schema-property-geo-disjoint",
     "cssExportPath": "./styles/semantic-schema-property-geo-disjoint.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-geo-disjoint.css",
@@ -7656,7 +7656,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGeoEquals",
+    "name": "SchemaPropertyGeoEquals",
     "slug": "schema-property-geo-equals",
     "cssExportPath": "./styles/semantic-schema-property-geo-equals.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-geo-equals.css",
@@ -7667,7 +7667,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGeographicArea",
+    "name": "SchemaPropertyGeographicArea",
     "slug": "schema-property-geographic-area",
     "cssExportPath": "./styles/semantic-schema-property-geographic-area.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-geographic-area.css",
@@ -7678,7 +7678,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGeoIntersects",
+    "name": "SchemaPropertyGeoIntersects",
     "slug": "schema-property-geo-intersects",
     "cssExportPath": "./styles/semantic-schema-property-geo-intersects.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-geo-intersects.css",
@@ -7689,7 +7689,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGeoOverlaps",
+    "name": "SchemaPropertyGeoOverlaps",
     "slug": "schema-property-geo-overlaps",
     "cssExportPath": "./styles/semantic-schema-property-geo-overlaps.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-geo-overlaps.css",
@@ -7700,7 +7700,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGeoTouches",
+    "name": "SchemaPropertyGeoTouches",
     "slug": "schema-property-geo-touches",
     "cssExportPath": "./styles/semantic-schema-property-geo-touches.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-geo-touches.css",
@@ -7711,7 +7711,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGeoWithin",
+    "name": "SchemaPropertyGeoWithin",
     "slug": "schema-property-geo-within",
     "cssExportPath": "./styles/semantic-schema-property-geo-within.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-geo-within.css",
@@ -7722,7 +7722,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGivenName",
+    "name": "SchemaPropertyGivenName",
     "slug": "schema-property-given-name",
     "cssExportPath": "./styles/semantic-schema-property-given-name.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-given-name.css",
@@ -7733,7 +7733,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGlobalLocationNumber",
+    "name": "SchemaPropertyGlobalLocationNumber",
     "slug": "schema-property-global-location-number",
     "cssExportPath": "./styles/semantic-schema-property-global-location-number.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-global-location-number.css",
@@ -7744,7 +7744,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGracePeriod",
+    "name": "SchemaPropertyGracePeriod",
     "slug": "schema-property-grace-period",
     "cssExportPath": "./styles/semantic-schema-property-grace-period.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-grace-period.css",
@@ -7755,7 +7755,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGtin",
+    "name": "SchemaPropertyGtin",
     "slug": "schema-property-gtin",
     "cssExportPath": "./styles/semantic-schema-property-gtin.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-gtin.css",
@@ -7766,7 +7766,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGtin12",
+    "name": "SchemaPropertyGtin12",
     "slug": "schema-property-gtin12",
     "cssExportPath": "./styles/semantic-schema-property-gtin12.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-gtin12.css",
@@ -7777,7 +7777,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGtin13",
+    "name": "SchemaPropertyGtin13",
     "slug": "schema-property-gtin13",
     "cssExportPath": "./styles/semantic-schema-property-gtin13.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-gtin13.css",
@@ -7788,7 +7788,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGtin14",
+    "name": "SchemaPropertyGtin14",
     "slug": "schema-property-gtin14",
     "cssExportPath": "./styles/semantic-schema-property-gtin14.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-gtin14.css",
@@ -7799,7 +7799,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGtin8",
+    "name": "SchemaPropertyGtin8",
     "slug": "schema-property-gtin8",
     "cssExportPath": "./styles/semantic-schema-property-gtin8.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-gtin8.css",
@@ -7810,7 +7810,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGuideline",
+    "name": "SchemaPropertyGuideline",
     "slug": "schema-property-guideline",
     "cssExportPath": "./styles/semantic-schema-property-guideline.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-guideline.css",
@@ -7821,7 +7821,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGuidelineDate",
+    "name": "SchemaPropertyGuidelineDate",
     "slug": "schema-property-guideline-date",
     "cssExportPath": "./styles/semantic-schema-property-guideline-date.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-guideline-date.css",
@@ -7832,7 +7832,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyGuidelineSubject",
+    "name": "SchemaPropertyGuidelineSubject",
     "slug": "schema-property-guideline-subject",
     "cssExportPath": "./styles/semantic-schema-property-guideline-subject.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-guideline-subject.css",
@@ -7843,7 +7843,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHandlingTime",
+    "name": "SchemaPropertyHandlingTime",
     "slug": "schema-property-handling-time",
     "cssExportPath": "./styles/semantic-schema-property-handling-time.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-handling-time.css",
@@ -7854,7 +7854,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasAdultConsideration",
+    "name": "SchemaPropertyHasAdultConsideration",
     "slug": "schema-property-has-adult-consideration",
     "cssExportPath": "./styles/semantic-schema-property-has-adult-consideration.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-adult-consideration.css",
@@ -7865,7 +7865,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasBioChemEntityPart",
+    "name": "SchemaPropertyHasBioChemEntityPart",
     "slug": "schema-property-has-bio-chem-entity-part",
     "cssExportPath": "./styles/semantic-schema-property-has-bio-chem-entity-part.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-bio-chem-entity-part.css",
@@ -7876,7 +7876,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasBioPolymerSequence",
+    "name": "SchemaPropertyHasBioPolymerSequence",
     "slug": "schema-property-has-bio-polymer-sequence",
     "cssExportPath": "./styles/semantic-schema-property-has-bio-polymer-sequence.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-bio-polymer-sequence.css",
@@ -7887,7 +7887,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasBroadcastChannel",
+    "name": "SchemaPropertyHasBroadcastChannel",
     "slug": "schema-property-has-broadcast-channel",
     "cssExportPath": "./styles/semantic-schema-property-has-broadcast-channel.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-broadcast-channel.css",
@@ -7898,7 +7898,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasCategoryCode",
+    "name": "SchemaPropertyHasCategoryCode",
     "slug": "schema-property-has-category-code",
     "cssExportPath": "./styles/semantic-schema-property-has-category-code.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-category-code.css",
@@ -7909,7 +7909,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasCertification",
+    "name": "SchemaPropertyHasCertification",
     "slug": "schema-property-has-certification",
     "cssExportPath": "./styles/semantic-schema-property-has-certification.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-certification.css",
@@ -7920,7 +7920,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasCredential",
+    "name": "SchemaPropertyHasCredential",
     "slug": "schema-property-has-credential",
     "cssExportPath": "./styles/semantic-schema-property-has-credential.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-credential.css",
@@ -7931,7 +7931,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasDefinedTerm",
+    "name": "SchemaPropertyHasDefinedTerm",
     "slug": "schema-property-has-defined-term",
     "cssExportPath": "./styles/semantic-schema-property-has-defined-term.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-defined-term.css",
@@ -7942,7 +7942,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasDriveThroughService",
+    "name": "SchemaPropertyHasDriveThroughService",
     "slug": "schema-property-has-drive-through-service",
     "cssExportPath": "./styles/semantic-schema-property-has-drive-through-service.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-drive-through-service.css",
@@ -7953,7 +7953,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasEnergyConsumptionDetails",
+    "name": "SchemaPropertyHasEnergyConsumptionDetails",
     "slug": "schema-property-has-energy-consumption-details",
     "cssExportPath": "./styles/semantic-schema-property-has-energy-consumption-details.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-energy-consumption-details.css",
@@ -7964,7 +7964,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasEnergyEfficiencyCategory",
+    "name": "SchemaPropertyHasEnergyEfficiencyCategory",
     "slug": "schema-property-has-energy-efficiency-category",
     "cssExportPath": "./styles/semantic-schema-property-has-energy-efficiency-category.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-energy-efficiency-category.css",
@@ -7975,7 +7975,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasGS1DigitalLink",
+    "name": "SchemaPropertyHasGS1DigitalLink",
     "slug": "schema-property-has-g-s1-digital-link",
     "cssExportPath": "./styles/semantic-schema-property-has-g-s1-digital-link.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-g-s1-digital-link.css",
@@ -7986,7 +7986,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasMap",
+    "name": "SchemaPropertyHasMap",
     "slug": "schema-property-has-map",
     "cssExportPath": "./styles/semantic-schema-property-has-map.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-map.css",
@@ -7997,7 +7997,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasMeasurement",
+    "name": "SchemaPropertyHasMeasurement",
     "slug": "schema-property-has-measurement",
     "cssExportPath": "./styles/semantic-schema-property-has-measurement.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-measurement.css",
@@ -8008,7 +8008,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasMemberProgram",
+    "name": "SchemaPropertyHasMemberProgram",
     "slug": "schema-property-has-member-program",
     "cssExportPath": "./styles/semantic-schema-property-has-member-program.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-member-program.css",
@@ -8019,7 +8019,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasMenuItem",
+    "name": "SchemaPropertyHasMenuItem",
     "slug": "schema-property-has-menu-item",
     "cssExportPath": "./styles/semantic-schema-property-has-menu-item.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-menu-item.css",
@@ -8030,7 +8030,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasMenuSection",
+    "name": "SchemaPropertyHasMenuSection",
     "slug": "schema-property-has-menu-section",
     "cssExportPath": "./styles/semantic-schema-property-has-menu-section.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-menu-section.css",
@@ -8041,7 +8041,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasMerchantReturnPolicy",
+    "name": "SchemaPropertyHasMerchantReturnPolicy",
     "slug": "schema-property-has-merchant-return-policy",
     "cssExportPath": "./styles/semantic-schema-property-has-merchant-return-policy.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-merchant-return-policy.css",
@@ -8052,7 +8052,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasMolecularFunction",
+    "name": "SchemaPropertyHasMolecularFunction",
     "slug": "schema-property-has-molecular-function",
     "cssExportPath": "./styles/semantic-schema-property-has-molecular-function.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-molecular-function.css",
@@ -8063,7 +8063,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasOccupation",
+    "name": "SchemaPropertyHasOccupation",
     "slug": "schema-property-has-occupation",
     "cssExportPath": "./styles/semantic-schema-property-has-occupation.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-occupation.css",
@@ -8074,7 +8074,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasOfferCatalog",
+    "name": "SchemaPropertyHasOfferCatalog",
     "slug": "schema-property-has-offer-catalog",
     "cssExportPath": "./styles/semantic-schema-property-has-offer-catalog.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-offer-catalog.css",
@@ -8085,7 +8085,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasPart",
+    "name": "SchemaPropertyHasPart",
     "slug": "schema-property-has-part",
     "cssExportPath": "./styles/semantic-schema-property-has-part.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-part.css",
@@ -8096,7 +8096,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasParticipationOffer",
+    "name": "SchemaPropertyHasParticipationOffer",
     "slug": "schema-property-has-participation-offer",
     "cssExportPath": "./styles/semantic-schema-property-has-participation-offer.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-participation-offer.css",
@@ -8107,7 +8107,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasPOS",
+    "name": "SchemaPropertyHasPOS",
     "slug": "schema-property-has-pos",
     "cssExportPath": "./styles/semantic-schema-property-has-pos.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-pos.css",
@@ -8118,7 +8118,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasRepresentation",
+    "name": "SchemaPropertyHasRepresentation",
     "slug": "schema-property-has-representation",
     "cssExportPath": "./styles/semantic-schema-property-has-representation.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-representation.css",
@@ -8129,7 +8129,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasShippingService",
+    "name": "SchemaPropertyHasShippingService",
     "slug": "schema-property-has-shipping-service",
     "cssExportPath": "./styles/semantic-schema-property-has-shipping-service.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-shipping-service.css",
@@ -8140,7 +8140,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasSponsorshipOffer",
+    "name": "SchemaPropertyHasSponsorshipOffer",
     "slug": "schema-property-has-sponsorship-offer",
     "cssExportPath": "./styles/semantic-schema-property-has-sponsorship-offer.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-sponsorship-offer.css",
@@ -8151,7 +8151,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasTierBenefit",
+    "name": "SchemaPropertyHasTierBenefit",
     "slug": "schema-property-has-tier-benefit",
     "cssExportPath": "./styles/semantic-schema-property-has-tier-benefit.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-tier-benefit.css",
@@ -8162,7 +8162,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasTierRequirement",
+    "name": "SchemaPropertyHasTierRequirement",
     "slug": "schema-property-has-tier-requirement",
     "cssExportPath": "./styles/semantic-schema-property-has-tier-requirement.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-tier-requirement.css",
@@ -8173,7 +8173,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasTiers",
+    "name": "SchemaPropertyHasTiers",
     "slug": "schema-property-has-tiers",
     "cssExportPath": "./styles/semantic-schema-property-has-tiers.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-tiers.css",
@@ -8184,7 +8184,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHasVariant",
+    "name": "SchemaPropertyHasVariant",
     "slug": "schema-property-has-variant",
     "cssExportPath": "./styles/semantic-schema-property-has-variant.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-has-variant.css",
@@ -8195,7 +8195,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHeadline",
+    "name": "SchemaPropertyHeadline",
     "slug": "schema-property-headline",
     "cssExportPath": "./styles/semantic-schema-property-headline.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-headline.css",
@@ -8206,7 +8206,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHealthCondition",
+    "name": "SchemaPropertyHealthCondition",
     "slug": "schema-property-health-condition",
     "cssExportPath": "./styles/semantic-schema-property-health-condition.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-health-condition.css",
@@ -8217,7 +8217,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHealthPlanCoinsuranceOption",
+    "name": "SchemaPropertyHealthPlanCoinsuranceOption",
     "slug": "schema-property-health-plan-coinsurance-option",
     "cssExportPath": "./styles/semantic-schema-property-health-plan-coinsurance-option.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-health-plan-coinsurance-option.css",
@@ -8228,7 +8228,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHealthPlanCoinsuranceRate",
+    "name": "SchemaPropertyHealthPlanCoinsuranceRate",
     "slug": "schema-property-health-plan-coinsurance-rate",
     "cssExportPath": "./styles/semantic-schema-property-health-plan-coinsurance-rate.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-health-plan-coinsurance-rate.css",
@@ -8239,7 +8239,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHealthPlanCopay",
+    "name": "SchemaPropertyHealthPlanCopay",
     "slug": "schema-property-health-plan-copay",
     "cssExportPath": "./styles/semantic-schema-property-health-plan-copay.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-health-plan-copay.css",
@@ -8250,7 +8250,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHealthPlanCopayOption",
+    "name": "SchemaPropertyHealthPlanCopayOption",
     "slug": "schema-property-health-plan-copay-option",
     "cssExportPath": "./styles/semantic-schema-property-health-plan-copay-option.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-health-plan-copay-option.css",
@@ -8261,7 +8261,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHealthPlanCostSharing",
+    "name": "SchemaPropertyHealthPlanCostSharing",
     "slug": "schema-property-health-plan-cost-sharing",
     "cssExportPath": "./styles/semantic-schema-property-health-plan-cost-sharing.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-health-plan-cost-sharing.css",
@@ -8272,7 +8272,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHealthPlanDrugOption",
+    "name": "SchemaPropertyHealthPlanDrugOption",
     "slug": "schema-property-health-plan-drug-option",
     "cssExportPath": "./styles/semantic-schema-property-health-plan-drug-option.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-health-plan-drug-option.css",
@@ -8283,7 +8283,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHealthPlanDrugTier",
+    "name": "SchemaPropertyHealthPlanDrugTier",
     "slug": "schema-property-health-plan-drug-tier",
     "cssExportPath": "./styles/semantic-schema-property-health-plan-drug-tier.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-health-plan-drug-tier.css",
@@ -8294,7 +8294,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHealthPlanId",
+    "name": "SchemaPropertyHealthPlanId",
     "slug": "schema-property-health-plan-id",
     "cssExportPath": "./styles/semantic-schema-property-health-plan-id.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-health-plan-id.css",
@@ -8305,7 +8305,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHealthPlanMarketingUrl",
+    "name": "SchemaPropertyHealthPlanMarketingUrl",
     "slug": "schema-property-health-plan-marketing-url",
     "cssExportPath": "./styles/semantic-schema-property-health-plan-marketing-url.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-health-plan-marketing-url.css",
@@ -8316,7 +8316,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHealthPlanNetworkId",
+    "name": "SchemaPropertyHealthPlanNetworkId",
     "slug": "schema-property-health-plan-network-id",
     "cssExportPath": "./styles/semantic-schema-property-health-plan-network-id.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-health-plan-network-id.css",
@@ -8327,7 +8327,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHealthPlanNetworkTier",
+    "name": "SchemaPropertyHealthPlanNetworkTier",
     "slug": "schema-property-health-plan-network-tier",
     "cssExportPath": "./styles/semantic-schema-property-health-plan-network-tier.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-health-plan-network-tier.css",
@@ -8338,7 +8338,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHealthPlanPharmacyCategory",
+    "name": "SchemaPropertyHealthPlanPharmacyCategory",
     "slug": "schema-property-health-plan-pharmacy-category",
     "cssExportPath": "./styles/semantic-schema-property-health-plan-pharmacy-category.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-health-plan-pharmacy-category.css",
@@ -8349,7 +8349,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHeight",
+    "name": "SchemaPropertyHeight",
     "slug": "schema-property-height",
     "cssExportPath": "./styles/semantic-schema-property-height.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-height.css",
@@ -8360,7 +8360,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHighPrice",
+    "name": "SchemaPropertyHighPrice",
     "slug": "schema-property-high-price",
     "cssExportPath": "./styles/semantic-schema-property-high-price.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-high-price.css",
@@ -8371,7 +8371,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHomeLocation",
+    "name": "SchemaPropertyHomeLocation",
     "slug": "schema-property-home-location",
     "cssExportPath": "./styles/semantic-schema-property-home-location.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-home-location.css",
@@ -8382,7 +8382,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHonorificPrefix",
+    "name": "SchemaPropertyHonorificPrefix",
     "slug": "schema-property-honorific-prefix",
     "cssExportPath": "./styles/semantic-schema-property-honorific-prefix.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-honorific-prefix.css",
@@ -8393,7 +8393,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHonorificSuffix",
+    "name": "SchemaPropertyHonorificSuffix",
     "slug": "schema-property-honorific-suffix",
     "cssExportPath": "./styles/semantic-schema-property-honorific-suffix.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-honorific-suffix.css",
@@ -8404,7 +8404,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHostingOrganization",
+    "name": "SchemaPropertyHostingOrganization",
     "slug": "schema-property-hosting-organization",
     "cssExportPath": "./styles/semantic-schema-property-hosting-organization.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-hosting-organization.css",
@@ -8415,7 +8415,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHoursAvailable",
+    "name": "SchemaPropertyHoursAvailable",
     "slug": "schema-property-hours-available",
     "cssExportPath": "./styles/semantic-schema-property-hours-available.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-hours-available.css",
@@ -8426,7 +8426,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHowPerformed",
+    "name": "SchemaPropertyHowPerformed",
     "slug": "schema-property-how-performed",
     "cssExportPath": "./styles/semantic-schema-property-how-performed.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-how-performed.css",
@@ -8437,7 +8437,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyHttpMethod",
+    "name": "SchemaPropertyHttpMethod",
     "slug": "schema-property-http-method",
     "cssExportPath": "./styles/semantic-schema-property-http-method.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-http-method.css",
@@ -8448,7 +8448,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIdentifier",
+    "name": "SchemaPropertyIdentifier",
     "slug": "schema-property-identifier",
     "cssExportPath": "./styles/semantic-schema-property-identifier.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-identifier.css",
@@ -8459,7 +8459,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIdentifyingExam",
+    "name": "SchemaPropertyIdentifyingExam",
     "slug": "schema-property-identifying-exam",
     "cssExportPath": "./styles/semantic-schema-property-identifying-exam.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-identifying-exam.css",
@@ -8470,7 +8470,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIdentifyingTest",
+    "name": "SchemaPropertyIdentifyingTest",
     "slug": "schema-property-identifying-test",
     "cssExportPath": "./styles/semantic-schema-property-identifying-test.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-identifying-test.css",
@@ -8481,7 +8481,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyImage",
+    "name": "SchemaPropertyImage",
     "slug": "schema-property-image",
     "cssExportPath": "./styles/semantic-schema-property-image.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-image.css",
@@ -8492,7 +8492,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInAlbum",
+    "name": "SchemaPropertyInAlbum",
     "slug": "schema-property-in-album",
     "cssExportPath": "./styles/semantic-schema-property-in-album.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-in-album.css",
@@ -8503,7 +8503,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInBroadcastLineup",
+    "name": "SchemaPropertyInBroadcastLineup",
     "slug": "schema-property-in-broadcast-lineup",
     "cssExportPath": "./styles/semantic-schema-property-in-broadcast-lineup.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-in-broadcast-lineup.css",
@@ -8514,7 +8514,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIncludedComposition",
+    "name": "SchemaPropertyIncludedComposition",
     "slug": "schema-property-included-composition",
     "cssExportPath": "./styles/semantic-schema-property-included-composition.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-included-composition.css",
@@ -8525,7 +8525,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIncludedDataCatalog",
+    "name": "SchemaPropertyIncludedDataCatalog",
     "slug": "schema-property-included-data-catalog",
     "cssExportPath": "./styles/semantic-schema-property-included-data-catalog.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-included-data-catalog.css",
@@ -8536,7 +8536,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIncludedInDataCatalog",
+    "name": "SchemaPropertyIncludedInDataCatalog",
     "slug": "schema-property-included-in-data-catalog",
     "cssExportPath": "./styles/semantic-schema-property-included-in-data-catalog.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-included-in-data-catalog.css",
@@ -8547,7 +8547,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIncludedInHealthInsurancePlan",
+    "name": "SchemaPropertyIncludedInHealthInsurancePlan",
     "slug": "schema-property-included-in-health-insurance-plan",
     "cssExportPath": "./styles/semantic-schema-property-included-in-health-insurance-plan.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-included-in-health-insurance-plan.css",
@@ -8558,7 +8558,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIncludesHealthPlanFormulary",
+    "name": "SchemaPropertyIncludesHealthPlanFormulary",
     "slug": "schema-property-includes-health-plan-formulary",
     "cssExportPath": "./styles/semantic-schema-property-includes-health-plan-formulary.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-includes-health-plan-formulary.css",
@@ -8569,7 +8569,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIncludesHealthPlanNetwork",
+    "name": "SchemaPropertyIncludesHealthPlanNetwork",
     "slug": "schema-property-includes-health-plan-network",
     "cssExportPath": "./styles/semantic-schema-property-includes-health-plan-network.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-includes-health-plan-network.css",
@@ -8580,7 +8580,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIncludesObject",
+    "name": "SchemaPropertyIncludesObject",
     "slug": "schema-property-includes-object",
     "cssExportPath": "./styles/semantic-schema-property-includes-object.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-includes-object.css",
@@ -8591,7 +8591,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInCodeSet",
+    "name": "SchemaPropertyInCodeSet",
     "slug": "schema-property-in-code-set",
     "cssExportPath": "./styles/semantic-schema-property-in-code-set.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-in-code-set.css",
@@ -8602,7 +8602,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIncreasesRiskOf",
+    "name": "SchemaPropertyIncreasesRiskOf",
     "slug": "schema-property-increases-risk-of",
     "cssExportPath": "./styles/semantic-schema-property-increases-risk-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-increases-risk-of.css",
@@ -8613,7 +8613,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInDefinedTermSet",
+    "name": "SchemaPropertyInDefinedTermSet",
     "slug": "schema-property-in-defined-term-set",
     "cssExportPath": "./styles/semantic-schema-property-in-defined-term-set.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-in-defined-term-set.css",
@@ -8624,7 +8624,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIneligibleRegion",
+    "name": "SchemaPropertyIneligibleRegion",
     "slug": "schema-property-ineligible-region",
     "cssExportPath": "./styles/semantic-schema-property-ineligible-region.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-ineligible-region.css",
@@ -8635,7 +8635,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInLanguage",
+    "name": "SchemaPropertyInLanguage",
     "slug": "schema-property-in-language",
     "cssExportPath": "./styles/semantic-schema-property-in-language.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-in-language.css",
@@ -8646,7 +8646,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInPlaylist",
+    "name": "SchemaPropertyInPlaylist",
     "slug": "schema-property-in-playlist",
     "cssExportPath": "./styles/semantic-schema-property-in-playlist.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-in-playlist.css",
@@ -8657,7 +8657,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInProductGroupWithID",
+    "name": "SchemaPropertyInProductGroupWithID",
     "slug": "schema-property-in-product-group-with-id",
     "cssExportPath": "./styles/semantic-schema-property-in-product-group-with-id.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-in-product-group-with-id.css",
@@ -8668,7 +8668,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInstallUrl",
+    "name": "SchemaPropertyInstallUrl",
     "slug": "schema-property-install-url",
     "cssExportPath": "./styles/semantic-schema-property-install-url.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-install-url.css",
@@ -8679,7 +8679,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInStoreReturnsOffered",
+    "name": "SchemaPropertyInStoreReturnsOffered",
     "slug": "schema-property-in-store-returns-offered",
     "cssExportPath": "./styles/semantic-schema-property-in-store-returns-offered.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-in-store-returns-offered.css",
@@ -8690,7 +8690,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInstrument",
+    "name": "SchemaPropertyInstrument",
     "slug": "schema-property-instrument",
     "cssExportPath": "./styles/semantic-schema-property-instrument.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-instrument.css",
@@ -8701,7 +8701,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInteractingDrug",
+    "name": "SchemaPropertyInteractingDrug",
     "slug": "schema-property-interacting-drug",
     "cssExportPath": "./styles/semantic-schema-property-interacting-drug.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-interacting-drug.css",
@@ -8712,7 +8712,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInteractionService",
+    "name": "SchemaPropertyInteractionService",
     "slug": "schema-property-interaction-service",
     "cssExportPath": "./styles/semantic-schema-property-interaction-service.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-interaction-service.css",
@@ -8723,7 +8723,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInteractionStatistic",
+    "name": "SchemaPropertyInteractionStatistic",
     "slug": "schema-property-interaction-statistic",
     "cssExportPath": "./styles/semantic-schema-property-interaction-statistic.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-interaction-statistic.css",
@@ -8734,7 +8734,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInteractionType",
+    "name": "SchemaPropertyInteractionType",
     "slug": "schema-property-interaction-type",
     "cssExportPath": "./styles/semantic-schema-property-interaction-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-interaction-type.css",
@@ -8745,7 +8745,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInteractivityType",
+    "name": "SchemaPropertyInteractivityType",
     "slug": "schema-property-interactivity-type",
     "cssExportPath": "./styles/semantic-schema-property-interactivity-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-interactivity-type.css",
@@ -8756,7 +8756,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInterestRate",
+    "name": "SchemaPropertyInterestRate",
     "slug": "schema-property-interest-rate",
     "cssExportPath": "./styles/semantic-schema-property-interest-rate.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-interest-rate.css",
@@ -8767,7 +8767,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInterpretedAsClaim",
+    "name": "SchemaPropertyInterpretedAsClaim",
     "slug": "schema-property-interpreted-as-claim",
     "cssExportPath": "./styles/semantic-schema-property-interpreted-as-claim.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-interpreted-as-claim.css",
@@ -8778,7 +8778,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInventoryLevel",
+    "name": "SchemaPropertyInventoryLevel",
     "slug": "schema-property-inventory-level",
     "cssExportPath": "./styles/semantic-schema-property-inventory-level.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-inventory-level.css",
@@ -8789,7 +8789,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyInverseOf",
+    "name": "SchemaPropertyInverseOf",
     "slug": "schema-property-inverse-of",
     "cssExportPath": "./styles/semantic-schema-property-inverse-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-inverse-of.css",
@@ -8800,7 +8800,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsAccessibleForFree",
+    "name": "SchemaPropertyIsAccessibleForFree",
     "slug": "schema-property-is-accessible-for-free",
     "cssExportPath": "./styles/semantic-schema-property-is-accessible-for-free.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-accessible-for-free.css",
@@ -8811,7 +8811,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsAccessoryOrSparePartFor",
+    "name": "SchemaPropertyIsAccessoryOrSparePartFor",
     "slug": "schema-property-is-accessory-or-spare-part-for",
     "cssExportPath": "./styles/semantic-schema-property-is-accessory-or-spare-part-for.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-accessory-or-spare-part-for.css",
@@ -8822,7 +8822,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsAvailableGenerically",
+    "name": "SchemaPropertyIsAvailableGenerically",
     "slug": "schema-property-is-available-generically",
     "cssExportPath": "./styles/semantic-schema-property-is-available-generically.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-available-generically.css",
@@ -8833,7 +8833,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsBasedOn",
+    "name": "SchemaPropertyIsBasedOn",
     "slug": "schema-property-is-based-on",
     "cssExportPath": "./styles/semantic-schema-property-is-based-on.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-based-on.css",
@@ -8844,7 +8844,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsBasedOnUrl",
+    "name": "SchemaPropertyIsBasedOnUrl",
     "slug": "schema-property-is-based-on-url",
     "cssExportPath": "./styles/semantic-schema-property-is-based-on-url.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-based-on-url.css",
@@ -8855,7 +8855,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsConsumableFor",
+    "name": "SchemaPropertyIsConsumableFor",
     "slug": "schema-property-is-consumable-for",
     "cssExportPath": "./styles/semantic-schema-property-is-consumable-for.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-consumable-for.css",
@@ -8866,7 +8866,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsEncodedByBioChemEntity",
+    "name": "SchemaPropertyIsEncodedByBioChemEntity",
     "slug": "schema-property-is-encoded-by-bio-chem-entity",
     "cssExportPath": "./styles/semantic-schema-property-is-encoded-by-bio-chem-entity.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-encoded-by-bio-chem-entity.css",
@@ -8877,7 +8877,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsFamilyFriendly",
+    "name": "SchemaPropertyIsFamilyFriendly",
     "slug": "schema-property-is-family-friendly",
     "cssExportPath": "./styles/semantic-schema-property-is-family-friendly.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-family-friendly.css",
@@ -8888,7 +8888,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsicV4",
+    "name": "SchemaPropertyIsicV4",
     "slug": "schema-property-isic-v4",
     "cssExportPath": "./styles/semantic-schema-property-isic-v4.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-isic-v4.css",
@@ -8899,7 +8899,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsInvolvedInBiologicalProcess",
+    "name": "SchemaPropertyIsInvolvedInBiologicalProcess",
     "slug": "schema-property-is-involved-in-biological-process",
     "cssExportPath": "./styles/semantic-schema-property-is-involved-in-biological-process.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-involved-in-biological-process.css",
@@ -8910,7 +8910,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsLocatedInSubcellularLocation",
+    "name": "SchemaPropertyIsLocatedInSubcellularLocation",
     "slug": "schema-property-is-located-in-subcellular-location",
     "cssExportPath": "./styles/semantic-schema-property-is-located-in-subcellular-location.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-located-in-subcellular-location.css",
@@ -8921,7 +8921,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIso6523Code",
+    "name": "SchemaPropertyIso6523Code",
     "slug": "schema-property-iso6523-code",
     "cssExportPath": "./styles/semantic-schema-property-iso6523-code.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-iso6523-code.css",
@@ -8932,7 +8932,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsPartOf",
+    "name": "SchemaPropertyIsPartOf",
     "slug": "schema-property-is-part-of",
     "cssExportPath": "./styles/semantic-schema-property-is-part-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-part-of.css",
@@ -8943,7 +8943,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsPartOfBioChemEntity",
+    "name": "SchemaPropertyIsPartOfBioChemEntity",
     "slug": "schema-property-is-part-of-bio-chem-entity",
     "cssExportPath": "./styles/semantic-schema-property-is-part-of-bio-chem-entity.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-part-of-bio-chem-entity.css",
@@ -8954,7 +8954,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsProprietary",
+    "name": "SchemaPropertyIsProprietary",
     "slug": "schema-property-is-proprietary",
     "cssExportPath": "./styles/semantic-schema-property-is-proprietary.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-proprietary.css",
@@ -8965,7 +8965,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsrcCode",
+    "name": "SchemaPropertyIsrcCode",
     "slug": "schema-property-isrc-code",
     "cssExportPath": "./styles/semantic-schema-property-isrc-code.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-isrc-code.css",
@@ -8976,7 +8976,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsRelatedTo",
+    "name": "SchemaPropertyIsRelatedTo",
     "slug": "schema-property-is-related-to",
     "cssExportPath": "./styles/semantic-schema-property-is-related-to.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-related-to.css",
@@ -8987,7 +8987,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsSimilarTo",
+    "name": "SchemaPropertyIsSimilarTo",
     "slug": "schema-property-is-similar-to",
     "cssExportPath": "./styles/semantic-schema-property-is-similar-to.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-similar-to.css",
@@ -8998,7 +8998,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIssn",
+    "name": "SchemaPropertyIssn",
     "slug": "schema-property-issn",
     "cssExportPath": "./styles/semantic-schema-property-issn.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-issn.css",
@@ -9009,7 +9009,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIssuedBy",
+    "name": "SchemaPropertyIssuedBy",
     "slug": "schema-property-issued-by",
     "cssExportPath": "./styles/semantic-schema-property-issued-by.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-issued-by.css",
@@ -9020,7 +9020,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsTierOf",
+    "name": "SchemaPropertyIsTierOf",
     "slug": "schema-property-is-tier-of",
     "cssExportPath": "./styles/semantic-schema-property-is-tier-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-tier-of.css",
@@ -9031,7 +9031,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsUnlabelledFallback",
+    "name": "SchemaPropertyIsUnlabelledFallback",
     "slug": "schema-property-is-unlabelled-fallback",
     "cssExportPath": "./styles/semantic-schema-property-is-unlabelled-fallback.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-unlabelled-fallback.css",
@@ -9042,7 +9042,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIsVariantOf",
+    "name": "SchemaPropertyIsVariantOf",
     "slug": "schema-property-is-variant-of",
     "cssExportPath": "./styles/semantic-schema-property-is-variant-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-is-variant-of.css",
@@ -9053,7 +9053,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyIswcCode",
+    "name": "SchemaPropertyIswcCode",
     "slug": "schema-property-iswc-code",
     "cssExportPath": "./styles/semantic-schema-property-iswc-code.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-iswc-code.css",
@@ -9064,7 +9064,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyItem",
+    "name": "SchemaPropertyItem",
     "slug": "schema-property-item",
     "cssExportPath": "./styles/semantic-schema-property-item.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-item.css",
@@ -9075,7 +9075,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyItemCondition",
+    "name": "SchemaPropertyItemCondition",
     "slug": "schema-property-item-condition",
     "cssExportPath": "./styles/semantic-schema-property-item-condition.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-item-condition.css",
@@ -9086,7 +9086,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyItemDefectReturnFees",
+    "name": "SchemaPropertyItemDefectReturnFees",
     "slug": "schema-property-item-defect-return-fees",
     "cssExportPath": "./styles/semantic-schema-property-item-defect-return-fees.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-item-defect-return-fees.css",
@@ -9097,7 +9097,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyItemDefectReturnLabelSource",
+    "name": "SchemaPropertyItemDefectReturnLabelSource",
     "slug": "schema-property-item-defect-return-label-source",
     "cssExportPath": "./styles/semantic-schema-property-item-defect-return-label-source.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-item-defect-return-label-source.css",
@@ -9108,7 +9108,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyItemDefectReturnShippingFeesAmount",
+    "name": "SchemaPropertyItemDefectReturnShippingFeesAmount",
     "slug": "schema-property-item-defect-return-shipping-fees-amount",
     "cssExportPath": "./styles/semantic-schema-property-item-defect-return-shipping-fees-amount.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-item-defect-return-shipping-fees-amount.css",
@@ -9119,7 +9119,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyItemListElement",
+    "name": "SchemaPropertyItemListElement",
     "slug": "schema-property-item-list-element",
     "cssExportPath": "./styles/semantic-schema-property-item-list-element.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-item-list-element.css",
@@ -9130,7 +9130,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyItemListOrder",
+    "name": "SchemaPropertyItemListOrder",
     "slug": "schema-property-item-list-order",
     "cssExportPath": "./styles/semantic-schema-property-item-list-order.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-item-list-order.css",
@@ -9141,7 +9141,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyItemOffered",
+    "name": "SchemaPropertyItemOffered",
     "slug": "schema-property-item-offered",
     "cssExportPath": "./styles/semantic-schema-property-item-offered.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-item-offered.css",
@@ -9152,7 +9152,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyItemReviewed",
+    "name": "SchemaPropertyItemReviewed",
     "slug": "schema-property-item-reviewed",
     "cssExportPath": "./styles/semantic-schema-property-item-reviewed.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-item-reviewed.css",
@@ -9163,7 +9163,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyItinerary",
+    "name": "SchemaPropertyItinerary",
     "slug": "schema-property-itinerary",
     "cssExportPath": "./styles/semantic-schema-property-itinerary.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-itinerary.css",
@@ -9174,7 +9174,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyJobTitle",
+    "name": "SchemaPropertyJobTitle",
     "slug": "schema-property-job-title",
     "cssExportPath": "./styles/semantic-schema-property-job-title.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-job-title.css",
@@ -9185,7 +9185,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyKeywords",
+    "name": "SchemaPropertyKeywords",
     "slug": "schema-property-keywords",
     "cssExportPath": "./styles/semantic-schema-property-keywords.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-keywords.css",
@@ -9196,7 +9196,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyKnows",
+    "name": "SchemaPropertyKnows",
     "slug": "schema-property-knows",
     "cssExportPath": "./styles/semantic-schema-property-knows.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-knows.css",
@@ -9207,7 +9207,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyKnowsAbout",
+    "name": "SchemaPropertyKnowsAbout",
     "slug": "schema-property-knows-about",
     "cssExportPath": "./styles/semantic-schema-property-knows-about.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-knows-about.css",
@@ -9218,7 +9218,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyKnowsLanguage",
+    "name": "SchemaPropertyKnowsLanguage",
     "slug": "schema-property-knows-language",
     "cssExportPath": "./styles/semantic-schema-property-knows-language.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-knows-language.css",
@@ -9229,7 +9229,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLabelDetails",
+    "name": "SchemaPropertyLabelDetails",
     "slug": "schema-property-label-details",
     "cssExportPath": "./styles/semantic-schema-property-label-details.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-label-details.css",
@@ -9240,7 +9240,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLastReviewed",
+    "name": "SchemaPropertyLastReviewed",
     "slug": "schema-property-last-reviewed",
     "cssExportPath": "./styles/semantic-schema-property-last-reviewed.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-last-reviewed.css",
@@ -9251,7 +9251,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLatitude",
+    "name": "SchemaPropertyLatitude",
     "slug": "schema-property-latitude",
     "cssExportPath": "./styles/semantic-schema-property-latitude.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-latitude.css",
@@ -9262,7 +9262,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLearningResourceType",
+    "name": "SchemaPropertyLearningResourceType",
     "slug": "schema-property-learning-resource-type",
     "cssExportPath": "./styles/semantic-schema-property-learning-resource-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-learning-resource-type.css",
@@ -9273,7 +9273,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLeaseLength",
+    "name": "SchemaPropertyLeaseLength",
     "slug": "schema-property-lease-length",
     "cssExportPath": "./styles/semantic-schema-property-lease-length.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-lease-length.css",
@@ -9284,7 +9284,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLegalAddress",
+    "name": "SchemaPropertyLegalAddress",
     "slug": "schema-property-legal-address",
     "cssExportPath": "./styles/semantic-schema-property-legal-address.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-legal-address.css",
@@ -9295,7 +9295,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLegalName",
+    "name": "SchemaPropertyLegalName",
     "slug": "schema-property-legal-name",
     "cssExportPath": "./styles/semantic-schema-property-legal-name.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-legal-name.css",
@@ -9306,7 +9306,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLegalRepresentative",
+    "name": "SchemaPropertyLegalRepresentative",
     "slug": "schema-property-legal-representative",
     "cssExportPath": "./styles/semantic-schema-property-legal-representative.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-legal-representative.css",
@@ -9317,7 +9317,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLegalStatus",
+    "name": "SchemaPropertyLegalStatus",
     "slug": "schema-property-legal-status",
     "cssExportPath": "./styles/semantic-schema-property-legal-status.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-legal-status.css",
@@ -9328,7 +9328,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLeiCode",
+    "name": "SchemaPropertyLeiCode",
     "slug": "schema-property-lei-code",
     "cssExportPath": "./styles/semantic-schema-property-lei-code.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-lei-code.css",
@@ -9339,7 +9339,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLicense",
+    "name": "SchemaPropertyLicense",
     "slug": "schema-property-license",
     "cssExportPath": "./styles/semantic-schema-property-license.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-license.css",
@@ -9350,7 +9350,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLifeEvent",
+    "name": "SchemaPropertyLifeEvent",
     "slug": "schema-property-life-event",
     "cssExportPath": "./styles/semantic-schema-property-life-event.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-life-event.css",
@@ -9361,7 +9361,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLine",
+    "name": "SchemaPropertyLine",
     "slug": "schema-property-line",
     "cssExportPath": "./styles/semantic-schema-property-line.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-line.css",
@@ -9372,7 +9372,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLoanPaymentAmount",
+    "name": "SchemaPropertyLoanPaymentAmount",
     "slug": "schema-property-loan-payment-amount",
     "cssExportPath": "./styles/semantic-schema-property-loan-payment-amount.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-loan-payment-amount.css",
@@ -9383,7 +9383,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLoanPaymentFrequency",
+    "name": "SchemaPropertyLoanPaymentFrequency",
     "slug": "schema-property-loan-payment-frequency",
     "cssExportPath": "./styles/semantic-schema-property-loan-payment-frequency.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-loan-payment-frequency.css",
@@ -9394,7 +9394,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLoanRepaymentForm",
+    "name": "SchemaPropertyLoanRepaymentForm",
     "slug": "schema-property-loan-repayment-form",
     "cssExportPath": "./styles/semantic-schema-property-loan-repayment-form.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-loan-repayment-form.css",
@@ -9405,7 +9405,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLoanTerm",
+    "name": "SchemaPropertyLoanTerm",
     "slug": "schema-property-loan-term",
     "cssExportPath": "./styles/semantic-schema-property-loan-term.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-loan-term.css",
@@ -9416,7 +9416,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLoanType",
+    "name": "SchemaPropertyLoanType",
     "slug": "schema-property-loan-type",
     "cssExportPath": "./styles/semantic-schema-property-loan-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-loan-type.css",
@@ -9427,7 +9427,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLocation",
+    "name": "SchemaPropertyLocation",
     "slug": "schema-property-location",
     "cssExportPath": "./styles/semantic-schema-property-location.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-location.css",
@@ -9438,7 +9438,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLocationCreated",
+    "name": "SchemaPropertyLocationCreated",
     "slug": "schema-property-location-created",
     "cssExportPath": "./styles/semantic-schema-property-location-created.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-location-created.css",
@@ -9449,7 +9449,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLogo",
+    "name": "SchemaPropertyLogo",
     "slug": "schema-property-logo",
     "cssExportPath": "./styles/semantic-schema-property-logo.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-logo.css",
@@ -9460,7 +9460,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLongitude",
+    "name": "SchemaPropertyLongitude",
     "slug": "schema-property-longitude",
     "cssExportPath": "./styles/semantic-schema-property-longitude.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-longitude.css",
@@ -9471,7 +9471,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLowPrice",
+    "name": "SchemaPropertyLowPrice",
     "slug": "schema-property-low-price",
     "cssExportPath": "./styles/semantic-schema-property-low-price.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-low-price.css",
@@ -9482,7 +9482,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLyricist",
+    "name": "SchemaPropertyLyricist",
     "slug": "schema-property-lyricist",
     "cssExportPath": "./styles/semantic-schema-property-lyricist.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-lyricist.css",
@@ -9493,7 +9493,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyLyrics",
+    "name": "SchemaPropertyLyrics",
     "slug": "schema-property-lyrics",
     "cssExportPath": "./styles/semantic-schema-property-lyrics.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-lyrics.css",
@@ -9504,7 +9504,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMainContentOfPage",
+    "name": "SchemaPropertyMainContentOfPage",
     "slug": "schema-property-main-content-of-page",
     "cssExportPath": "./styles/semantic-schema-property-main-content-of-page.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-main-content-of-page.css",
@@ -9515,7 +9515,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMainEntity",
+    "name": "SchemaPropertyMainEntity",
     "slug": "schema-property-main-entity",
     "cssExportPath": "./styles/semantic-schema-property-main-entity.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-main-entity.css",
@@ -9526,7 +9526,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMainEntityOfPage",
+    "name": "SchemaPropertyMainEntityOfPage",
     "slug": "schema-property-main-entity-of-page",
     "cssExportPath": "./styles/semantic-schema-property-main-entity-of-page.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-main-entity-of-page.css",
@@ -9537,7 +9537,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMaintainer",
+    "name": "SchemaPropertyMaintainer",
     "slug": "schema-property-maintainer",
     "cssExportPath": "./styles/semantic-schema-property-maintainer.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-maintainer.css",
@@ -9548,7 +9548,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMakesOffer",
+    "name": "SchemaPropertyMakesOffer",
     "slug": "schema-property-makes-offer",
     "cssExportPath": "./styles/semantic-schema-property-makes-offer.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-makes-offer.css",
@@ -9559,7 +9559,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyManufacturer",
+    "name": "SchemaPropertyManufacturer",
     "slug": "schema-property-manufacturer",
     "cssExportPath": "./styles/semantic-schema-property-manufacturer.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-manufacturer.css",
@@ -9570,7 +9570,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMap",
+    "name": "SchemaPropertyMap",
     "slug": "schema-property-map",
     "cssExportPath": "./styles/semantic-schema-property-map.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-map.css",
@@ -9581,7 +9581,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMaps",
+    "name": "SchemaPropertyMaps",
     "slug": "schema-property-maps",
     "cssExportPath": "./styles/semantic-schema-property-maps.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-maps.css",
@@ -9592,7 +9592,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMapType",
+    "name": "SchemaPropertyMapType",
     "slug": "schema-property-map-type",
     "cssExportPath": "./styles/semantic-schema-property-map-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-map-type.css",
@@ -9603,7 +9603,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMaterial",
+    "name": "SchemaPropertyMaterial",
     "slug": "schema-property-material",
     "cssExportPath": "./styles/semantic-schema-property-material.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-material.css",
@@ -9614,7 +9614,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMaterialExtent",
+    "name": "SchemaPropertyMaterialExtent",
     "slug": "schema-property-material-extent",
     "cssExportPath": "./styles/semantic-schema-property-material-extent.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-material-extent.css",
@@ -9625,7 +9625,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMaximumAttendeeCapacity",
+    "name": "SchemaPropertyMaximumAttendeeCapacity",
     "slug": "schema-property-maximum-attendee-capacity",
     "cssExportPath": "./styles/semantic-schema-property-maximum-attendee-capacity.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-maximum-attendee-capacity.css",
@@ -9636,7 +9636,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMaximumIntake",
+    "name": "SchemaPropertyMaximumIntake",
     "slug": "schema-property-maximum-intake",
     "cssExportPath": "./styles/semantic-schema-property-maximum-intake.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-maximum-intake.css",
@@ -9647,7 +9647,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMaximumPhysicalAttendeeCapacity",
+    "name": "SchemaPropertyMaximumPhysicalAttendeeCapacity",
     "slug": "schema-property-maximum-physical-attendee-capacity",
     "cssExportPath": "./styles/semantic-schema-property-maximum-physical-attendee-capacity.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-maximum-physical-attendee-capacity.css",
@@ -9658,7 +9658,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMaximumVirtualAttendeeCapacity",
+    "name": "SchemaPropertyMaximumVirtualAttendeeCapacity",
     "slug": "schema-property-maximum-virtual-attendee-capacity",
     "cssExportPath": "./styles/semantic-schema-property-maximum-virtual-attendee-capacity.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-maximum-virtual-attendee-capacity.css",
@@ -9669,7 +9669,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMaxPrice",
+    "name": "SchemaPropertyMaxPrice",
     "slug": "schema-property-max-price",
     "cssExportPath": "./styles/semantic-schema-property-max-price.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-max-price.css",
@@ -9680,7 +9680,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMaxValue",
+    "name": "SchemaPropertyMaxValue",
     "slug": "schema-property-max-value",
     "cssExportPath": "./styles/semantic-schema-property-max-value.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-max-value.css",
@@ -9691,7 +9691,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMeasuredProperty",
+    "name": "SchemaPropertyMeasuredProperty",
     "slug": "schema-property-measured-property",
     "cssExportPath": "./styles/semantic-schema-property-measured-property.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-measured-property.css",
@@ -9702,7 +9702,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMeasurementDenominator",
+    "name": "SchemaPropertyMeasurementDenominator",
     "slug": "schema-property-measurement-denominator",
     "cssExportPath": "./styles/semantic-schema-property-measurement-denominator.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-measurement-denominator.css",
@@ -9713,7 +9713,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMeasurementMethod",
+    "name": "SchemaPropertyMeasurementMethod",
     "slug": "schema-property-measurement-method",
     "cssExportPath": "./styles/semantic-schema-property-measurement-method.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-measurement-method.css",
@@ -9724,7 +9724,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMeasurementQualifier",
+    "name": "SchemaPropertyMeasurementQualifier",
     "slug": "schema-property-measurement-qualifier",
     "cssExportPath": "./styles/semantic-schema-property-measurement-qualifier.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-measurement-qualifier.css",
@@ -9735,7 +9735,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMeasurementTechnique",
+    "name": "SchemaPropertyMeasurementTechnique",
     "slug": "schema-property-measurement-technique",
     "cssExportPath": "./styles/semantic-schema-property-measurement-technique.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-measurement-technique.css",
@@ -9746,7 +9746,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMechanismOfAction",
+    "name": "SchemaPropertyMechanismOfAction",
     "slug": "schema-property-mechanism-of-action",
     "cssExportPath": "./styles/semantic-schema-property-mechanism-of-action.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-mechanism-of-action.css",
@@ -9757,7 +9757,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMedian",
+    "name": "SchemaPropertyMedian",
     "slug": "schema-property-median",
     "cssExportPath": "./styles/semantic-schema-property-median.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-median.css",
@@ -9768,7 +9768,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMedicalAudience",
+    "name": "SchemaPropertyMedicalAudience",
     "slug": "schema-property-medical-audience",
     "cssExportPath": "./styles/semantic-schema-property-medical-audience.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-medical-audience.css",
@@ -9779,7 +9779,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMedicineSystem",
+    "name": "SchemaPropertyMedicineSystem",
     "slug": "schema-property-medicine-system",
     "cssExportPath": "./styles/semantic-schema-property-medicine-system.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-medicine-system.css",
@@ -9790,7 +9790,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMember",
+    "name": "SchemaPropertyMember",
     "slug": "schema-property-member",
     "cssExportPath": "./styles/semantic-schema-property-member.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-member.css",
@@ -9801,7 +9801,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMemberOf",
+    "name": "SchemaPropertyMemberOf",
     "slug": "schema-property-member-of",
     "cssExportPath": "./styles/semantic-schema-property-member-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-member-of.css",
@@ -9812,7 +9812,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMembers",
+    "name": "SchemaPropertyMembers",
     "slug": "schema-property-members",
     "cssExportPath": "./styles/semantic-schema-property-members.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-members.css",
@@ -9823,7 +9823,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMembershipNumber",
+    "name": "SchemaPropertyMembershipNumber",
     "slug": "schema-property-membership-number",
     "cssExportPath": "./styles/semantic-schema-property-membership-number.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-membership-number.css",
@@ -9834,7 +9834,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMembershipPointsEarned",
+    "name": "SchemaPropertyMembershipPointsEarned",
     "slug": "schema-property-membership-points-earned",
     "cssExportPath": "./styles/semantic-schema-property-membership-points-earned.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-membership-points-earned.css",
@@ -9845,7 +9845,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMemoryRequirements",
+    "name": "SchemaPropertyMemoryRequirements",
     "slug": "schema-property-memory-requirements",
     "cssExportPath": "./styles/semantic-schema-property-memory-requirements.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-memory-requirements.css",
@@ -9856,7 +9856,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMentions",
+    "name": "SchemaPropertyMentions",
     "slug": "schema-property-mentions",
     "cssExportPath": "./styles/semantic-schema-property-mentions.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-mentions.css",
@@ -9867,7 +9867,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMenuAddOn",
+    "name": "SchemaPropertyMenuAddOn",
     "slug": "schema-property-menu-add-on",
     "cssExportPath": "./styles/semantic-schema-property-menu-add-on.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-menu-add-on.css",
@@ -9878,7 +9878,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMerchantReturnDays",
+    "name": "SchemaPropertyMerchantReturnDays",
     "slug": "schema-property-merchant-return-days",
     "cssExportPath": "./styles/semantic-schema-property-merchant-return-days.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-merchant-return-days.css",
@@ -9889,7 +9889,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMerchantReturnLink",
+    "name": "SchemaPropertyMerchantReturnLink",
     "slug": "schema-property-merchant-return-link",
     "cssExportPath": "./styles/semantic-schema-property-merchant-return-link.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-merchant-return-link.css",
@@ -9900,7 +9900,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMinPrice",
+    "name": "SchemaPropertyMinPrice",
     "slug": "schema-property-min-price",
     "cssExportPath": "./styles/semantic-schema-property-min-price.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-min-price.css",
@@ -9911,7 +9911,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMinValue",
+    "name": "SchemaPropertyMinValue",
     "slug": "schema-property-min-value",
     "cssExportPath": "./styles/semantic-schema-property-min-value.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-min-value.css",
@@ -9922,7 +9922,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMobileUrl",
+    "name": "SchemaPropertyMobileUrl",
     "slug": "schema-property-mobile-url",
     "cssExportPath": "./styles/semantic-schema-property-mobile-url.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-mobile-url.css",
@@ -9933,7 +9933,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyModel",
+    "name": "SchemaPropertyModel",
     "slug": "schema-property-model",
     "cssExportPath": "./styles/semantic-schema-property-model.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-model.css",
@@ -9944,7 +9944,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMonthlyMinimumRepaymentAmount",
+    "name": "SchemaPropertyMonthlyMinimumRepaymentAmount",
     "slug": "schema-property-monthly-minimum-repayment-amount",
     "cssExportPath": "./styles/semantic-schema-property-monthly-minimum-repayment-amount.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-monthly-minimum-repayment-amount.css",
@@ -9955,7 +9955,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMonthsOfExperience",
+    "name": "SchemaPropertyMonthsOfExperience",
     "slug": "schema-property-months-of-experience",
     "cssExportPath": "./styles/semantic-schema-property-months-of-experience.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-months-of-experience.css",
@@ -9966,7 +9966,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMpn",
+    "name": "SchemaPropertyMpn",
     "slug": "schema-property-mpn",
     "cssExportPath": "./styles/semantic-schema-property-mpn.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-mpn.css",
@@ -9977,7 +9977,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMusicalKey",
+    "name": "SchemaPropertyMusicalKey",
     "slug": "schema-property-musical-key",
     "cssExportPath": "./styles/semantic-schema-property-musical-key.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-musical-key.css",
@@ -9988,7 +9988,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMusicArrangement",
+    "name": "SchemaPropertyMusicArrangement",
     "slug": "schema-property-music-arrangement",
     "cssExportPath": "./styles/semantic-schema-property-music-arrangement.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-music-arrangement.css",
@@ -9999,7 +9999,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMusicBy",
+    "name": "SchemaPropertyMusicBy",
     "slug": "schema-property-music-by",
     "cssExportPath": "./styles/semantic-schema-property-music-by.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-music-by.css",
@@ -10010,7 +10010,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMusicCompositionForm",
+    "name": "SchemaPropertyMusicCompositionForm",
     "slug": "schema-property-music-composition-form",
     "cssExportPath": "./styles/semantic-schema-property-music-composition-form.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-music-composition-form.css",
@@ -10021,7 +10021,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMusicGroupMember",
+    "name": "SchemaPropertyMusicGroupMember",
     "slug": "schema-property-music-group-member",
     "cssExportPath": "./styles/semantic-schema-property-music-group-member.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-music-group-member.css",
@@ -10032,7 +10032,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyMusicReleaseFormat",
+    "name": "SchemaPropertyMusicReleaseFormat",
     "slug": "schema-property-music-release-format",
     "cssExportPath": "./styles/semantic-schema-property-music-release-format.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-music-release-format.css",
@@ -10043,7 +10043,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNaics",
+    "name": "SchemaPropertyNaics",
     "slug": "schema-property-naics",
     "cssExportPath": "./styles/semantic-schema-property-naics.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-naics.css",
@@ -10054,7 +10054,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyName",
+    "name": "SchemaPropertyName",
     "slug": "schema-property-name",
     "cssExportPath": "./styles/semantic-schema-property-name.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-name.css",
@@ -10065,7 +10065,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNationality",
+    "name": "SchemaPropertyNationality",
     "slug": "schema-property-nationality",
     "cssExportPath": "./styles/semantic-schema-property-nationality.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-nationality.css",
@@ -10076,7 +10076,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNaturalProgression",
+    "name": "SchemaPropertyNaturalProgression",
     "slug": "schema-property-natural-progression",
     "cssExportPath": "./styles/semantic-schema-property-natural-progression.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-natural-progression.css",
@@ -10087,7 +10087,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNegativeNotes",
+    "name": "SchemaPropertyNegativeNotes",
     "slug": "schema-property-negative-notes",
     "cssExportPath": "./styles/semantic-schema-property-negative-notes.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-negative-notes.css",
@@ -10098,7 +10098,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNetWorth",
+    "name": "SchemaPropertyNetWorth",
     "slug": "schema-property-net-worth",
     "cssExportPath": "./styles/semantic-schema-property-net-worth.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-net-worth.css",
@@ -10109,7 +10109,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNextItem",
+    "name": "SchemaPropertyNextItem",
     "slug": "schema-property-next-item",
     "cssExportPath": "./styles/semantic-schema-property-next-item.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-next-item.css",
@@ -10120,7 +10120,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNonprofitStatus",
+    "name": "SchemaPropertyNonprofitStatus",
     "slug": "schema-property-nonprofit-status",
     "cssExportPath": "./styles/semantic-schema-property-nonprofit-status.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-nonprofit-status.css",
@@ -10131,7 +10131,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNonProprietaryName",
+    "name": "SchemaPropertyNonProprietaryName",
     "slug": "schema-property-non-proprietary-name",
     "cssExportPath": "./styles/semantic-schema-property-non-proprietary-name.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-non-proprietary-name.css",
@@ -10142,7 +10142,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNormalRange",
+    "name": "SchemaPropertyNormalRange",
     "slug": "schema-property-normal-range",
     "cssExportPath": "./styles/semantic-schema-property-normal-range.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-normal-range.css",
@@ -10153,7 +10153,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNsn",
+    "name": "SchemaPropertyNsn",
     "slug": "schema-property-nsn",
     "cssExportPath": "./styles/semantic-schema-property-nsn.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-nsn.css",
@@ -10164,7 +10164,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNumberOfEmployees",
+    "name": "SchemaPropertyNumberOfEmployees",
     "slug": "schema-property-number-of-employees",
     "cssExportPath": "./styles/semantic-schema-property-number-of-employees.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-number-of-employees.css",
@@ -10175,7 +10175,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNumberOfEpisodes",
+    "name": "SchemaPropertyNumberOfEpisodes",
     "slug": "schema-property-number-of-episodes",
     "cssExportPath": "./styles/semantic-schema-property-number-of-episodes.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-number-of-episodes.css",
@@ -10186,7 +10186,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNumberOfItems",
+    "name": "SchemaPropertyNumberOfItems",
     "slug": "schema-property-number-of-items",
     "cssExportPath": "./styles/semantic-schema-property-number-of-items.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-number-of-items.css",
@@ -10197,7 +10197,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNumberOfLoanPayments",
+    "name": "SchemaPropertyNumberOfLoanPayments",
     "slug": "schema-property-number-of-loan-payments",
     "cssExportPath": "./styles/semantic-schema-property-number-of-loan-payments.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-number-of-loan-payments.css",
@@ -10208,7 +10208,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNumConstraints",
+    "name": "SchemaPropertyNumConstraints",
     "slug": "schema-property-num-constraints",
     "cssExportPath": "./styles/semantic-schema-property-num-constraints.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-num-constraints.css",
@@ -10219,7 +10219,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNumItems",
+    "name": "SchemaPropertyNumItems",
     "slug": "schema-property-num-items",
     "cssExportPath": "./styles/semantic-schema-property-num-items.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-num-items.css",
@@ -10230,7 +10230,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNumTracks",
+    "name": "SchemaPropertyNumTracks",
     "slug": "schema-property-num-tracks",
     "cssExportPath": "./styles/semantic-schema-property-num-tracks.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-num-tracks.css",
@@ -10241,7 +10241,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyNutrition",
+    "name": "SchemaPropertyNutrition",
     "slug": "schema-property-nutrition",
     "cssExportPath": "./styles/semantic-schema-property-nutrition.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-nutrition.css",
@@ -10252,7 +10252,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyObject",
+    "name": "SchemaPropertyObject",
     "slug": "schema-property-object",
     "cssExportPath": "./styles/semantic-schema-property-object.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-object.css",
@@ -10263,7 +10263,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOccupationalCategory",
+    "name": "SchemaPropertyOccupationalCategory",
     "slug": "schema-property-occupational-category",
     "cssExportPath": "./styles/semantic-schema-property-occupational-category.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-occupational-category.css",
@@ -10274,7 +10274,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOccupationLocation",
+    "name": "SchemaPropertyOccupationLocation",
     "slug": "schema-property-occupation-location",
     "cssExportPath": "./styles/semantic-schema-property-occupation-location.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-occupation-location.css",
@@ -10285,7 +10285,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOfferCount",
+    "name": "SchemaPropertyOfferCount",
     "slug": "schema-property-offer-count",
     "cssExportPath": "./styles/semantic-schema-property-offer-count.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-offer-count.css",
@@ -10296,7 +10296,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOfferedBy",
+    "name": "SchemaPropertyOfferedBy",
     "slug": "schema-property-offered-by",
     "cssExportPath": "./styles/semantic-schema-property-offered-by.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-offered-by.css",
@@ -10307,7 +10307,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOffers",
+    "name": "SchemaPropertyOffers",
     "slug": "schema-property-offers",
     "cssExportPath": "./styles/semantic-schema-property-offers.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-offers.css",
@@ -10318,7 +10318,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOffersPrescriptionByMail",
+    "name": "SchemaPropertyOffersPrescriptionByMail",
     "slug": "schema-property-offers-prescription-by-mail",
     "cssExportPath": "./styles/semantic-schema-property-offers-prescription-by-mail.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-offers-prescription-by-mail.css",
@@ -10329,7 +10329,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOpeningHours",
+    "name": "SchemaPropertyOpeningHours",
     "slug": "schema-property-opening-hours",
     "cssExportPath": "./styles/semantic-schema-property-opening-hours.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-opening-hours.css",
@@ -10340,7 +10340,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOpeningHoursSpecification",
+    "name": "SchemaPropertyOpeningHoursSpecification",
     "slug": "schema-property-opening-hours-specification",
     "cssExportPath": "./styles/semantic-schema-property-opening-hours-specification.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-opening-hours-specification.css",
@@ -10351,7 +10351,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOpens",
+    "name": "SchemaPropertyOpens",
     "slug": "schema-property-opens",
     "cssExportPath": "./styles/semantic-schema-property-opens.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-opens.css",
@@ -10362,7 +10362,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOperatingSystem",
+    "name": "SchemaPropertyOperatingSystem",
     "slug": "schema-property-operating-system",
     "cssExportPath": "./styles/semantic-schema-property-operating-system.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-operating-system.css",
@@ -10373,7 +10373,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOrderPercentage",
+    "name": "SchemaPropertyOrderPercentage",
     "slug": "schema-property-order-percentage",
     "cssExportPath": "./styles/semantic-schema-property-order-percentage.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-order-percentage.css",
@@ -10384,7 +10384,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOrderValue",
+    "name": "SchemaPropertyOrderValue",
     "slug": "schema-property-order-value",
     "cssExportPath": "./styles/semantic-schema-property-order-value.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-order-value.css",
@@ -10395,7 +10395,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOrganizer",
+    "name": "SchemaPropertyOrganizer",
     "slug": "schema-property-organizer",
     "cssExportPath": "./styles/semantic-schema-property-organizer.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-organizer.css",
@@ -10406,7 +10406,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOverdosage",
+    "name": "SchemaPropertyOverdosage",
     "slug": "schema-property-overdosage",
     "cssExportPath": "./styles/semantic-schema-property-overdosage.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-overdosage.css",
@@ -10417,7 +10417,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOwner",
+    "name": "SchemaPropertyOwner",
     "slug": "schema-property-owner",
     "cssExportPath": "./styles/semantic-schema-property-owner.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-owner.css",
@@ -10428,7 +10428,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOwnershipFundingInfo",
+    "name": "SchemaPropertyOwnershipFundingInfo",
     "slug": "schema-property-ownership-funding-info",
     "cssExportPath": "./styles/semantic-schema-property-ownership-funding-info.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-ownership-funding-info.css",
@@ -10439,7 +10439,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyOwns",
+    "name": "SchemaPropertyOwns",
     "slug": "schema-property-owns",
     "cssExportPath": "./styles/semantic-schema-property-owns.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-owns.css",
@@ -10450,7 +10450,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPageEnd",
+    "name": "SchemaPropertyPageEnd",
     "slug": "schema-property-page-end",
     "cssExportPath": "./styles/semantic-schema-property-page-end.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-page-end.css",
@@ -10461,7 +10461,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPageStart",
+    "name": "SchemaPropertyPageStart",
     "slug": "schema-property-page-start",
     "cssExportPath": "./styles/semantic-schema-property-page-start.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-page-start.css",
@@ -10472,7 +10472,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPagination",
+    "name": "SchemaPropertyPagination",
     "slug": "schema-property-pagination",
     "cssExportPath": "./styles/semantic-schema-property-pagination.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-pagination.css",
@@ -10483,7 +10483,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyParent",
+    "name": "SchemaPropertyParent",
     "slug": "schema-property-parent",
     "cssExportPath": "./styles/semantic-schema-property-parent.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-parent.css",
@@ -10494,7 +10494,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyParentItem",
+    "name": "SchemaPropertyParentItem",
     "slug": "schema-property-parent-item",
     "cssExportPath": "./styles/semantic-schema-property-parent-item.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-parent-item.css",
@@ -10505,7 +10505,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyParentOrganization",
+    "name": "SchemaPropertyParentOrganization",
     "slug": "schema-property-parent-organization",
     "cssExportPath": "./styles/semantic-schema-property-parent-organization.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-parent-organization.css",
@@ -10516,7 +10516,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyParents",
+    "name": "SchemaPropertyParents",
     "slug": "schema-property-parents",
     "cssExportPath": "./styles/semantic-schema-property-parents.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-parents.css",
@@ -10527,7 +10527,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyParentService",
+    "name": "SchemaPropertyParentService",
     "slug": "schema-property-parent-service",
     "cssExportPath": "./styles/semantic-schema-property-parent-service.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-parent-service.css",
@@ -10538,7 +10538,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyParentTaxon",
+    "name": "SchemaPropertyParentTaxon",
     "slug": "schema-property-parent-taxon",
     "cssExportPath": "./styles/semantic-schema-property-parent-taxon.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-parent-taxon.css",
@@ -10549,7 +10549,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyParticipant",
+    "name": "SchemaPropertyParticipant",
     "slug": "schema-property-participant",
     "cssExportPath": "./styles/semantic-schema-property-participant.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-participant.css",
@@ -10560,7 +10560,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPartOfEpisode",
+    "name": "SchemaPropertyPartOfEpisode",
     "slug": "schema-property-part-of-episode",
     "cssExportPath": "./styles/semantic-schema-property-part-of-episode.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-part-of-episode.css",
@@ -10571,7 +10571,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPartOfSeason",
+    "name": "SchemaPropertyPartOfSeason",
     "slug": "schema-property-part-of-season",
     "cssExportPath": "./styles/semantic-schema-property-part-of-season.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-part-of-season.css",
@@ -10582,7 +10582,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPartOfSeries",
+    "name": "SchemaPropertyPartOfSeries",
     "slug": "schema-property-part-of-series",
     "cssExportPath": "./styles/semantic-schema-property-part-of-series.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-part-of-series.css",
@@ -10593,7 +10593,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPartOfSystem",
+    "name": "SchemaPropertyPartOfSystem",
     "slug": "schema-property-part-of-system",
     "cssExportPath": "./styles/semantic-schema-property-part-of-system.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-part-of-system.css",
@@ -10604,7 +10604,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPartOfTrip",
+    "name": "SchemaPropertyPartOfTrip",
     "slug": "schema-property-part-of-trip",
     "cssExportPath": "./styles/semantic-schema-property-part-of-trip.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-part-of-trip.css",
@@ -10615,7 +10615,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPathophysiology",
+    "name": "SchemaPropertyPathophysiology",
     "slug": "schema-property-pathophysiology",
     "cssExportPath": "./styles/semantic-schema-property-pathophysiology.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-pathophysiology.css",
@@ -10626,7 +10626,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPattern",
+    "name": "SchemaPropertyPattern",
     "slug": "schema-property-pattern",
     "cssExportPath": "./styles/semantic-schema-property-pattern.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-pattern.css",
@@ -10637,7 +10637,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPaymentMethodType",
+    "name": "SchemaPropertyPaymentMethodType",
     "slug": "schema-property-payment-method-type",
     "cssExportPath": "./styles/semantic-schema-property-payment-method-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-payment-method-type.css",
@@ -10648,7 +10648,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPercentile10",
+    "name": "SchemaPropertyPercentile10",
     "slug": "schema-property-percentile10",
     "cssExportPath": "./styles/semantic-schema-property-percentile10.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-percentile10.css",
@@ -10659,7 +10659,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPercentile25",
+    "name": "SchemaPropertyPercentile25",
     "slug": "schema-property-percentile25",
     "cssExportPath": "./styles/semantic-schema-property-percentile25.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-percentile25.css",
@@ -10670,7 +10670,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPercentile75",
+    "name": "SchemaPropertyPercentile75",
     "slug": "schema-property-percentile75",
     "cssExportPath": "./styles/semantic-schema-property-percentile75.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-percentile75.css",
@@ -10681,7 +10681,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPercentile90",
+    "name": "SchemaPropertyPercentile90",
     "slug": "schema-property-percentile90",
     "cssExportPath": "./styles/semantic-schema-property-percentile90.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-percentile90.css",
@@ -10692,7 +10692,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPerformer",
+    "name": "SchemaPropertyPerformer",
     "slug": "schema-property-performer",
     "cssExportPath": "./styles/semantic-schema-property-performer.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-performer.css",
@@ -10703,7 +10703,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPerformerIn",
+    "name": "SchemaPropertyPerformerIn",
     "slug": "schema-property-performer-in",
     "cssExportPath": "./styles/semantic-schema-property-performer-in.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-performer-in.css",
@@ -10714,7 +10714,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPerformers",
+    "name": "SchemaPropertyPerformers",
     "slug": "schema-property-performers",
     "cssExportPath": "./styles/semantic-schema-property-performers.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-performers.css",
@@ -10725,7 +10725,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPerformTime",
+    "name": "SchemaPropertyPerformTime",
     "slug": "schema-property-perform-time",
     "cssExportPath": "./styles/semantic-schema-property-perform-time.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-perform-time.css",
@@ -10736,7 +10736,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPermissions",
+    "name": "SchemaPropertyPermissions",
     "slug": "schema-property-permissions",
     "cssExportPath": "./styles/semantic-schema-property-permissions.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-permissions.css",
@@ -10747,7 +10747,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPhoto",
+    "name": "SchemaPropertyPhoto",
     "slug": "schema-property-photo",
     "cssExportPath": "./styles/semantic-schema-property-photo.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-photo.css",
@@ -10758,7 +10758,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPhotos",
+    "name": "SchemaPropertyPhotos",
     "slug": "schema-property-photos",
     "cssExportPath": "./styles/semantic-schema-property-photos.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-photos.css",
@@ -10769,7 +10769,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPhysiologicalBenefits",
+    "name": "SchemaPropertyPhysiologicalBenefits",
     "slug": "schema-property-physiological-benefits",
     "cssExportPath": "./styles/semantic-schema-property-physiological-benefits.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-physiological-benefits.css",
@@ -10780,7 +10780,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPlayerType",
+    "name": "SchemaPropertyPlayerType",
     "slug": "schema-property-player-type",
     "cssExportPath": "./styles/semantic-schema-property-player-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-player-type.css",
@@ -10791,7 +10791,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPolygon",
+    "name": "SchemaPropertyPolygon",
     "slug": "schema-property-polygon",
     "cssExportPath": "./styles/semantic-schema-property-polygon.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-polygon.css",
@@ -10802,7 +10802,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPopulationType",
+    "name": "SchemaPropertyPopulationType",
     "slug": "schema-property-population-type",
     "cssExportPath": "./styles/semantic-schema-property-population-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-population-type.css",
@@ -10813,7 +10813,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPosition",
+    "name": "SchemaPropertyPosition",
     "slug": "schema-property-position",
     "cssExportPath": "./styles/semantic-schema-property-position.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-position.css",
@@ -10824,7 +10824,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPositiveNotes",
+    "name": "SchemaPropertyPositiveNotes",
     "slug": "schema-property-positive-notes",
     "cssExportPath": "./styles/semantic-schema-property-positive-notes.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-positive-notes.css",
@@ -10835,7 +10835,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPossibleComplication",
+    "name": "SchemaPropertyPossibleComplication",
     "slug": "schema-property-possible-complication",
     "cssExportPath": "./styles/semantic-schema-property-possible-complication.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-possible-complication.css",
@@ -10846,7 +10846,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPossibleTreatment",
+    "name": "SchemaPropertyPossibleTreatment",
     "slug": "schema-property-possible-treatment",
     "cssExportPath": "./styles/semantic-schema-property-possible-treatment.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-possible-treatment.css",
@@ -10857,7 +10857,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPostalCode",
+    "name": "SchemaPropertyPostalCode",
     "slug": "schema-property-postal-code",
     "cssExportPath": "./styles/semantic-schema-property-postal-code.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-postal-code.css",
@@ -10868,7 +10868,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPostalCodeBegin",
+    "name": "SchemaPropertyPostalCodeBegin",
     "slug": "schema-property-postal-code-begin",
     "cssExportPath": "./styles/semantic-schema-property-postal-code-begin.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-postal-code-begin.css",
@@ -10879,7 +10879,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPostalCodeEnd",
+    "name": "SchemaPropertyPostalCodeEnd",
     "slug": "schema-property-postal-code-end",
     "cssExportPath": "./styles/semantic-schema-property-postal-code-end.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-postal-code-end.css",
@@ -10890,7 +10890,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPostalCodePrefix",
+    "name": "SchemaPropertyPostalCodePrefix",
     "slug": "schema-property-postal-code-prefix",
     "cssExportPath": "./styles/semantic-schema-property-postal-code-prefix.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-postal-code-prefix.css",
@@ -10901,7 +10901,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPostalCodeRange",
+    "name": "SchemaPropertyPostalCodeRange",
     "slug": "schema-property-postal-code-range",
     "cssExportPath": "./styles/semantic-schema-property-postal-code-range.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-postal-code-range.css",
@@ -10912,7 +10912,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPostOfficeBoxNumber",
+    "name": "SchemaPropertyPostOfficeBoxNumber",
     "slug": "schema-property-post-office-box-number",
     "cssExportPath": "./styles/semantic-schema-property-post-office-box-number.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-post-office-box-number.css",
@@ -10923,7 +10923,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPostOp",
+    "name": "SchemaPropertyPostOp",
     "slug": "schema-property-post-op",
     "cssExportPath": "./styles/semantic-schema-property-post-op.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-post-op.css",
@@ -10934,7 +10934,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPotentialAction",
+    "name": "SchemaPropertyPotentialAction",
     "slug": "schema-property-potential-action",
     "cssExportPath": "./styles/semantic-schema-property-potential-action.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-potential-action.css",
@@ -10945,7 +10945,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPredecessorOf",
+    "name": "SchemaPropertyPredecessorOf",
     "slug": "schema-property-predecessor-of",
     "cssExportPath": "./styles/semantic-schema-property-predecessor-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-predecessor-of.css",
@@ -10956,7 +10956,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPregnancyCategory",
+    "name": "SchemaPropertyPregnancyCategory",
     "slug": "schema-property-pregnancy-category",
     "cssExportPath": "./styles/semantic-schema-property-pregnancy-category.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-pregnancy-category.css",
@@ -10967,7 +10967,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPregnancyWarning",
+    "name": "SchemaPropertyPregnancyWarning",
     "slug": "schema-property-pregnancy-warning",
     "cssExportPath": "./styles/semantic-schema-property-pregnancy-warning.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-pregnancy-warning.css",
@@ -10978,7 +10978,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPreOp",
+    "name": "SchemaPropertyPreOp",
     "slug": "schema-property-pre-op",
     "cssExportPath": "./styles/semantic-schema-property-pre-op.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-pre-op.css",
@@ -10989,7 +10989,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPreparation",
+    "name": "SchemaPropertyPreparation",
     "slug": "schema-property-preparation",
     "cssExportPath": "./styles/semantic-schema-property-preparation.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-preparation.css",
@@ -11000,7 +11000,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPrepTime",
+    "name": "SchemaPropertyPrepTime",
     "slug": "schema-property-prep-time",
     "cssExportPath": "./styles/semantic-schema-property-prep-time.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-prep-time.css",
@@ -11011,7 +11011,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPrescribingInfo",
+    "name": "SchemaPropertyPrescribingInfo",
     "slug": "schema-property-prescribing-info",
     "cssExportPath": "./styles/semantic-schema-property-prescribing-info.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-prescribing-info.css",
@@ -11022,7 +11022,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPrescriptionStatus",
+    "name": "SchemaPropertyPrescriptionStatus",
     "slug": "schema-property-prescription-status",
     "cssExportPath": "./styles/semantic-schema-property-prescription-status.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-prescription-status.css",
@@ -11033,7 +11033,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPreviousItem",
+    "name": "SchemaPropertyPreviousItem",
     "slug": "schema-property-previous-item",
     "cssExportPath": "./styles/semantic-schema-property-previous-item.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-previous-item.css",
@@ -11044,7 +11044,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPreviousStartDate",
+    "name": "SchemaPropertyPreviousStartDate",
     "slug": "schema-property-previous-start-date",
     "cssExportPath": "./styles/semantic-schema-property-previous-start-date.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-previous-start-date.css",
@@ -11055,7 +11055,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPrice",
+    "name": "SchemaPropertyPrice",
     "slug": "schema-property-price",
     "cssExportPath": "./styles/semantic-schema-property-price.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-price.css",
@@ -11066,7 +11066,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPriceComponentType",
+    "name": "SchemaPropertyPriceComponentType",
     "slug": "schema-property-price-component-type",
     "cssExportPath": "./styles/semantic-schema-property-price-component-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-price-component-type.css",
@@ -11077,7 +11077,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPriceCurrency",
+    "name": "SchemaPropertyPriceCurrency",
     "slug": "schema-property-price-currency",
     "cssExportPath": "./styles/semantic-schema-property-price-currency.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-price-currency.css",
@@ -11088,7 +11088,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPriceSpecification",
+    "name": "SchemaPropertyPriceSpecification",
     "slug": "schema-property-price-specification",
     "cssExportPath": "./styles/semantic-schema-property-price-specification.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-price-specification.css",
@@ -11099,7 +11099,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPriceType",
+    "name": "SchemaPropertyPriceType",
     "slug": "schema-property-price-type",
     "cssExportPath": "./styles/semantic-schema-property-price-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-price-type.css",
@@ -11110,7 +11110,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPriceValidUntil",
+    "name": "SchemaPropertyPriceValidUntil",
     "slug": "schema-property-price-valid-until",
     "cssExportPath": "./styles/semantic-schema-property-price-valid-until.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-price-valid-until.css",
@@ -11121,7 +11121,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPrimaryImageOfPage",
+    "name": "SchemaPropertyPrimaryImageOfPage",
     "slug": "schema-property-primary-image-of-page",
     "cssExportPath": "./styles/semantic-schema-property-primary-image-of-page.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-primary-image-of-page.css",
@@ -11132,7 +11132,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPrimaryPrevention",
+    "name": "SchemaPropertyPrimaryPrevention",
     "slug": "schema-property-primary-prevention",
     "cssExportPath": "./styles/semantic-schema-property-primary-prevention.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-primary-prevention.css",
@@ -11143,7 +11143,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPrintColumn",
+    "name": "SchemaPropertyPrintColumn",
     "slug": "schema-property-print-column",
     "cssExportPath": "./styles/semantic-schema-property-print-column.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-print-column.css",
@@ -11154,7 +11154,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPrintEdition",
+    "name": "SchemaPropertyPrintEdition",
     "slug": "schema-property-print-edition",
     "cssExportPath": "./styles/semantic-schema-property-print-edition.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-print-edition.css",
@@ -11165,7 +11165,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPrintPage",
+    "name": "SchemaPropertyPrintPage",
     "slug": "schema-property-print-page",
     "cssExportPath": "./styles/semantic-schema-property-print-page.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-print-page.css",
@@ -11176,7 +11176,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPrintSection",
+    "name": "SchemaPropertyPrintSection",
     "slug": "schema-property-print-section",
     "cssExportPath": "./styles/semantic-schema-property-print-section.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-print-section.css",
@@ -11187,7 +11187,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProcedure",
+    "name": "SchemaPropertyProcedure",
     "slug": "schema-property-procedure",
     "cssExportPath": "./styles/semantic-schema-property-procedure.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-procedure.css",
@@ -11198,7 +11198,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProcedureType",
+    "name": "SchemaPropertyProcedureType",
     "slug": "schema-property-procedure-type",
     "cssExportPath": "./styles/semantic-schema-property-procedure-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-procedure-type.css",
@@ -11209,7 +11209,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProcessingTime",
+    "name": "SchemaPropertyProcessingTime",
     "slug": "schema-property-processing-time",
     "cssExportPath": "./styles/semantic-schema-property-processing-time.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-processing-time.css",
@@ -11220,7 +11220,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProcessorRequirements",
+    "name": "SchemaPropertyProcessorRequirements",
     "slug": "schema-property-processor-requirements",
     "cssExportPath": "./styles/semantic-schema-property-processor-requirements.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-processor-requirements.css",
@@ -11231,7 +11231,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProducer",
+    "name": "SchemaPropertyProducer",
     "slug": "schema-property-producer",
     "cssExportPath": "./styles/semantic-schema-property-producer.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-producer.css",
@@ -11242,7 +11242,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProduces",
+    "name": "SchemaPropertyProduces",
     "slug": "schema-property-produces",
     "cssExportPath": "./styles/semantic-schema-property-produces.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-produces.css",
@@ -11253,7 +11253,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProductGroupID",
+    "name": "SchemaPropertyProductGroupID",
     "slug": "schema-property-product-group-id",
     "cssExportPath": "./styles/semantic-schema-property-product-group-id.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-product-group-id.css",
@@ -11264,7 +11264,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProductID",
+    "name": "SchemaPropertyProductID",
     "slug": "schema-property-product-id",
     "cssExportPath": "./styles/semantic-schema-property-product-id.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-product-id.css",
@@ -11275,7 +11275,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProductionCompany",
+    "name": "SchemaPropertyProductionCompany",
     "slug": "schema-property-production-company",
     "cssExportPath": "./styles/semantic-schema-property-production-company.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-production-company.css",
@@ -11286,7 +11286,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProductionDate",
+    "name": "SchemaPropertyProductionDate",
     "slug": "schema-property-production-date",
     "cssExportPath": "./styles/semantic-schema-property-production-date.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-production-date.css",
@@ -11297,7 +11297,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProductSupported",
+    "name": "SchemaPropertyProductSupported",
     "slug": "schema-property-product-supported",
     "cssExportPath": "./styles/semantic-schema-property-product-supported.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-product-supported.css",
@@ -11308,7 +11308,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProgram",
+    "name": "SchemaPropertyProgram",
     "slug": "schema-property-program",
     "cssExportPath": "./styles/semantic-schema-property-program.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-program.css",
@@ -11319,7 +11319,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProgramName",
+    "name": "SchemaPropertyProgramName",
     "slug": "schema-property-program-name",
     "cssExportPath": "./styles/semantic-schema-property-program-name.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-program-name.css",
@@ -11330,7 +11330,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPronouns",
+    "name": "SchemaPropertyPronouns",
     "slug": "schema-property-pronouns",
     "cssExportPath": "./styles/semantic-schema-property-pronouns.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-pronouns.css",
@@ -11341,7 +11341,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPropertyID",
+    "name": "SchemaPropertyPropertyID",
     "slug": "schema-property-property-id",
     "cssExportPath": "./styles/semantic-schema-property-property-id.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-property-id.css",
@@ -11352,7 +11352,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProprietaryName",
+    "name": "SchemaPropertyProprietaryName",
     "slug": "schema-property-proprietary-name",
     "cssExportPath": "./styles/semantic-schema-property-proprietary-name.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-proprietary-name.css",
@@ -11363,7 +11363,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProteinContent",
+    "name": "SchemaPropertyProteinContent",
     "slug": "schema-property-protein-content",
     "cssExportPath": "./styles/semantic-schema-property-protein-content.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-protein-content.css",
@@ -11374,7 +11374,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProvider",
+    "name": "SchemaPropertyProvider",
     "slug": "schema-property-provider",
     "cssExportPath": "./styles/semantic-schema-property-provider.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-provider.css",
@@ -11385,7 +11385,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProviderMobility",
+    "name": "SchemaPropertyProviderMobility",
     "slug": "schema-property-provider-mobility",
     "cssExportPath": "./styles/semantic-schema-property-provider-mobility.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-provider-mobility.css",
@@ -11396,7 +11396,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProvidesBroadcastService",
+    "name": "SchemaPropertyProvidesBroadcastService",
     "slug": "schema-property-provides-broadcast-service",
     "cssExportPath": "./styles/semantic-schema-property-provides-broadcast-service.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-provides-broadcast-service.css",
@@ -11407,7 +11407,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyProvidesService",
+    "name": "SchemaPropertyProvidesService",
     "slug": "schema-property-provides-service",
     "cssExportPath": "./styles/semantic-schema-property-provides-service.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-provides-service.css",
@@ -11418,7 +11418,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPublicAccess",
+    "name": "SchemaPropertyPublicAccess",
     "slug": "schema-property-public-access",
     "cssExportPath": "./styles/semantic-schema-property-public-access.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-public-access.css",
@@ -11429,7 +11429,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPublication",
+    "name": "SchemaPropertyPublication",
     "slug": "schema-property-publication",
     "cssExportPath": "./styles/semantic-schema-property-publication.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-publication.css",
@@ -11440,7 +11440,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPublishedBy",
+    "name": "SchemaPropertyPublishedBy",
     "slug": "schema-property-published-by",
     "cssExportPath": "./styles/semantic-schema-property-published-by.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-published-by.css",
@@ -11451,7 +11451,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPublishedOn",
+    "name": "SchemaPropertyPublishedOn",
     "slug": "schema-property-published-on",
     "cssExportPath": "./styles/semantic-schema-property-published-on.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-published-on.css",
@@ -11462,7 +11462,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPublisher",
+    "name": "SchemaPropertyPublisher",
     "slug": "schema-property-publisher",
     "cssExportPath": "./styles/semantic-schema-property-publisher.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-publisher.css",
@@ -11473,7 +11473,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPublisherImprint",
+    "name": "SchemaPropertyPublisherImprint",
     "slug": "schema-property-publisher-imprint",
     "cssExportPath": "./styles/semantic-schema-property-publisher-imprint.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-publisher-imprint.css",
@@ -11484,7 +11484,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPublishingPrinciples",
+    "name": "SchemaPropertyPublishingPrinciples",
     "slug": "schema-property-publishing-principles",
     "cssExportPath": "./styles/semantic-schema-property-publishing-principles.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-publishing-principles.css",
@@ -11495,7 +11495,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyPurchaseDate",
+    "name": "SchemaPropertyPurchaseDate",
     "slug": "schema-property-purchase-date",
     "cssExportPath": "./styles/semantic-schema-property-purchase-date.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-purchase-date.css",
@@ -11506,7 +11506,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyQualifications",
+    "name": "SchemaPropertyQualifications",
     "slug": "schema-property-qualifications",
     "cssExportPath": "./styles/semantic-schema-property-qualifications.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-qualifications.css",
@@ -11517,7 +11517,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRangeIncludes",
+    "name": "SchemaPropertyRangeIncludes",
     "slug": "schema-property-range-includes",
     "cssExportPath": "./styles/semantic-schema-property-range-includes.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-range-includes.css",
@@ -11528,7 +11528,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRatingCount",
+    "name": "SchemaPropertyRatingCount",
     "slug": "schema-property-rating-count",
     "cssExportPath": "./styles/semantic-schema-property-rating-count.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-rating-count.css",
@@ -11539,7 +11539,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRatingExplanation",
+    "name": "SchemaPropertyRatingExplanation",
     "slug": "schema-property-rating-explanation",
     "cssExportPath": "./styles/semantic-schema-property-rating-explanation.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-rating-explanation.css",
@@ -11550,7 +11550,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRatingValue",
+    "name": "SchemaPropertyRatingValue",
     "slug": "schema-property-rating-value",
     "cssExportPath": "./styles/semantic-schema-property-rating-value.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-rating-value.css",
@@ -11561,7 +11561,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRecognizedBy",
+    "name": "SchemaPropertyRecognizedBy",
     "slug": "schema-property-recognized-by",
     "cssExportPath": "./styles/semantic-schema-property-recognized-by.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-recognized-by.css",
@@ -11572,7 +11572,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRecognizingAuthority",
+    "name": "SchemaPropertyRecognizingAuthority",
     "slug": "schema-property-recognizing-authority",
     "cssExportPath": "./styles/semantic-schema-property-recognizing-authority.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-recognizing-authority.css",
@@ -11583,7 +11583,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRecordedAs",
+    "name": "SchemaPropertyRecordedAs",
     "slug": "schema-property-recorded-as",
     "cssExportPath": "./styles/semantic-schema-property-recorded-as.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-recorded-as.css",
@@ -11594,7 +11594,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRecordedAt",
+    "name": "SchemaPropertyRecordedAt",
     "slug": "schema-property-recorded-at",
     "cssExportPath": "./styles/semantic-schema-property-recorded-at.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-recorded-at.css",
@@ -11605,7 +11605,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRecordedIn",
+    "name": "SchemaPropertyRecordedIn",
     "slug": "schema-property-recorded-in",
     "cssExportPath": "./styles/semantic-schema-property-recorded-in.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-recorded-in.css",
@@ -11616,7 +11616,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRecordingOf",
+    "name": "SchemaPropertyRecordingOf",
     "slug": "schema-property-recording-of",
     "cssExportPath": "./styles/semantic-schema-property-recording-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-recording-of.css",
@@ -11627,7 +11627,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRecordLabel",
+    "name": "SchemaPropertyRecordLabel",
     "slug": "schema-property-record-label",
     "cssExportPath": "./styles/semantic-schema-property-record-label.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-record-label.css",
@@ -11638,7 +11638,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRecourseLoan",
+    "name": "SchemaPropertyRecourseLoan",
     "slug": "schema-property-recourse-loan",
     "cssExportPath": "./styles/semantic-schema-property-recourse-loan.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-recourse-loan.css",
@@ -11649,7 +11649,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReferenceQuantity",
+    "name": "SchemaPropertyReferenceQuantity",
     "slug": "schema-property-reference-quantity",
     "cssExportPath": "./styles/semantic-schema-property-reference-quantity.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-reference-quantity.css",
@@ -11660,7 +11660,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRefundType",
+    "name": "SchemaPropertyRefundType",
     "slug": "schema-property-refund-type",
     "cssExportPath": "./styles/semantic-schema-property-refund-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-refund-type.css",
@@ -11671,7 +11671,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRegionsAllowed",
+    "name": "SchemaPropertyRegionsAllowed",
     "slug": "schema-property-regions-allowed",
     "cssExportPath": "./styles/semantic-schema-property-regions-allowed.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-regions-allowed.css",
@@ -11682,7 +11682,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRelatedAnatomy",
+    "name": "SchemaPropertyRelatedAnatomy",
     "slug": "schema-property-related-anatomy",
     "cssExportPath": "./styles/semantic-schema-property-related-anatomy.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-related-anatomy.css",
@@ -11693,7 +11693,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRelatedCondition",
+    "name": "SchemaPropertyRelatedCondition",
     "slug": "schema-property-related-condition",
     "cssExportPath": "./styles/semantic-schema-property-related-condition.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-related-condition.css",
@@ -11704,7 +11704,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRelatedDrug",
+    "name": "SchemaPropertyRelatedDrug",
     "slug": "schema-property-related-drug",
     "cssExportPath": "./styles/semantic-schema-property-related-drug.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-related-drug.css",
@@ -11715,7 +11715,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRelatedLink",
+    "name": "SchemaPropertyRelatedLink",
     "slug": "schema-property-related-link",
     "cssExportPath": "./styles/semantic-schema-property-related-link.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-related-link.css",
@@ -11726,7 +11726,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRelatedStructure",
+    "name": "SchemaPropertyRelatedStructure",
     "slug": "schema-property-related-structure",
     "cssExportPath": "./styles/semantic-schema-property-related-structure.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-related-structure.css",
@@ -11737,7 +11737,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRelatedTherapy",
+    "name": "SchemaPropertyRelatedTherapy",
     "slug": "schema-property-related-therapy",
     "cssExportPath": "./styles/semantic-schema-property-related-therapy.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-related-therapy.css",
@@ -11748,7 +11748,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRelatedTo",
+    "name": "SchemaPropertyRelatedTo",
     "slug": "schema-property-related-to",
     "cssExportPath": "./styles/semantic-schema-property-related-to.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-related-to.css",
@@ -11759,7 +11759,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReleaseDate",
+    "name": "SchemaPropertyReleaseDate",
     "slug": "schema-property-release-date",
     "cssExportPath": "./styles/semantic-schema-property-release-date.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-release-date.css",
@@ -11770,7 +11770,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReleasedEvent",
+    "name": "SchemaPropertyReleasedEvent",
     "slug": "schema-property-released-event",
     "cssExportPath": "./styles/semantic-schema-property-released-event.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-released-event.css",
@@ -11781,7 +11781,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReleaseNotes",
+    "name": "SchemaPropertyReleaseNotes",
     "slug": "schema-property-release-notes",
     "cssExportPath": "./styles/semantic-schema-property-release-notes.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-release-notes.css",
@@ -11792,7 +11792,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReleaseOf",
+    "name": "SchemaPropertyReleaseOf",
     "slug": "schema-property-release-of",
     "cssExportPath": "./styles/semantic-schema-property-release-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-release-of.css",
@@ -11803,7 +11803,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRelevantSpecialty",
+    "name": "SchemaPropertyRelevantSpecialty",
     "slug": "schema-property-relevant-specialty",
     "cssExportPath": "./styles/semantic-schema-property-relevant-specialty.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-relevant-specialty.css",
@@ -11814,7 +11814,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRemainingAttendeeCapacity",
+    "name": "SchemaPropertyRemainingAttendeeCapacity",
     "slug": "schema-property-remaining-attendee-capacity",
     "cssExportPath": "./styles/semantic-schema-property-remaining-attendee-capacity.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-remaining-attendee-capacity.css",
@@ -11825,7 +11825,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRenegotiableLoan",
+    "name": "SchemaPropertyRenegotiableLoan",
     "slug": "schema-property-renegotiable-loan",
     "cssExportPath": "./styles/semantic-schema-property-renegotiable-loan.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-renegotiable-loan.css",
@@ -11836,7 +11836,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRepeatCount",
+    "name": "SchemaPropertyRepeatCount",
     "slug": "schema-property-repeat-count",
     "cssExportPath": "./styles/semantic-schema-property-repeat-count.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-repeat-count.css",
@@ -11847,7 +11847,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRepeatFrequency",
+    "name": "SchemaPropertyRepeatFrequency",
     "slug": "schema-property-repeat-frequency",
     "cssExportPath": "./styles/semantic-schema-property-repeat-frequency.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-repeat-frequency.css",
@@ -11858,7 +11858,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRepresentativeOfPage",
+    "name": "SchemaPropertyRepresentativeOfPage",
     "slug": "schema-property-representative-of-page",
     "cssExportPath": "./styles/semantic-schema-property-representative-of-page.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-representative-of-page.css",
@@ -11869,7 +11869,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRequiredCollateral",
+    "name": "SchemaPropertyRequiredCollateral",
     "slug": "schema-property-required-collateral",
     "cssExportPath": "./styles/semantic-schema-property-required-collateral.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-required-collateral.css",
@@ -11880,7 +11880,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRequiredGender",
+    "name": "SchemaPropertyRequiredGender",
     "slug": "schema-property-required-gender",
     "cssExportPath": "./styles/semantic-schema-property-required-gender.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-required-gender.css",
@@ -11891,7 +11891,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRequiredMaxAge",
+    "name": "SchemaPropertyRequiredMaxAge",
     "slug": "schema-property-required-max-age",
     "cssExportPath": "./styles/semantic-schema-property-required-max-age.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-required-max-age.css",
@@ -11902,7 +11902,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRequiredMinAge",
+    "name": "SchemaPropertyRequiredMinAge",
     "slug": "schema-property-required-min-age",
     "cssExportPath": "./styles/semantic-schema-property-required-min-age.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-required-min-age.css",
@@ -11913,7 +11913,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRequiredQuantity",
+    "name": "SchemaPropertyRequiredQuantity",
     "slug": "schema-property-required-quantity",
     "cssExportPath": "./styles/semantic-schema-property-required-quantity.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-required-quantity.css",
@@ -11924,7 +11924,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRequirements",
+    "name": "SchemaPropertyRequirements",
     "slug": "schema-property-requirements",
     "cssExportPath": "./styles/semantic-schema-property-requirements.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-requirements.css",
@@ -11935,7 +11935,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRequiresSubscription",
+    "name": "SchemaPropertyRequiresSubscription",
     "slug": "schema-property-requires-subscription",
     "cssExportPath": "./styles/semantic-schema-property-requires-subscription.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-requires-subscription.css",
@@ -11946,7 +11946,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyResponsibilities",
+    "name": "SchemaPropertyResponsibilities",
     "slug": "schema-property-responsibilities",
     "cssExportPath": "./styles/semantic-schema-property-responsibilities.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-responsibilities.css",
@@ -11957,7 +11957,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRestockingFee",
+    "name": "SchemaPropertyRestockingFee",
     "slug": "schema-property-restocking-fee",
     "cssExportPath": "./styles/semantic-schema-property-restocking-fee.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-restocking-fee.css",
@@ -11968,7 +11968,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyResult",
+    "name": "SchemaPropertyResult",
     "slug": "schema-property-result",
     "cssExportPath": "./styles/semantic-schema-property-result.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-result.css",
@@ -11979,7 +11979,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReturnFees",
+    "name": "SchemaPropertyReturnFees",
     "slug": "schema-property-return-fees",
     "cssExportPath": "./styles/semantic-schema-property-return-fees.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-return-fees.css",
@@ -11990,7 +11990,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReturnLabelSource",
+    "name": "SchemaPropertyReturnLabelSource",
     "slug": "schema-property-return-label-source",
     "cssExportPath": "./styles/semantic-schema-property-return-label-source.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-return-label-source.css",
@@ -12001,7 +12001,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReturnMethod",
+    "name": "SchemaPropertyReturnMethod",
     "slug": "schema-property-return-method",
     "cssExportPath": "./styles/semantic-schema-property-return-method.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-return-method.css",
@@ -12012,7 +12012,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReturnPolicyCategory",
+    "name": "SchemaPropertyReturnPolicyCategory",
     "slug": "schema-property-return-policy-category",
     "cssExportPath": "./styles/semantic-schema-property-return-policy-category.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-return-policy-category.css",
@@ -12023,7 +12023,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReturnPolicyCountry",
+    "name": "SchemaPropertyReturnPolicyCountry",
     "slug": "schema-property-return-policy-country",
     "cssExportPath": "./styles/semantic-schema-property-return-policy-country.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-return-policy-country.css",
@@ -12034,7 +12034,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReturnPolicySeasonalOverride",
+    "name": "SchemaPropertyReturnPolicySeasonalOverride",
     "slug": "schema-property-return-policy-seasonal-override",
     "cssExportPath": "./styles/semantic-schema-property-return-policy-seasonal-override.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-return-policy-seasonal-override.css",
@@ -12045,7 +12045,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReturnShippingFeesAmount",
+    "name": "SchemaPropertyReturnShippingFeesAmount",
     "slug": "schema-property-return-shipping-fees-amount",
     "cssExportPath": "./styles/semantic-schema-property-return-shipping-fees-amount.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-return-shipping-fees-amount.css",
@@ -12056,7 +12056,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReview",
+    "name": "SchemaPropertyReview",
     "slug": "schema-property-review",
     "cssExportPath": "./styles/semantic-schema-property-review.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-review.css",
@@ -12067,7 +12067,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReviewAspect",
+    "name": "SchemaPropertyReviewAspect",
     "slug": "schema-property-review-aspect",
     "cssExportPath": "./styles/semantic-schema-property-review-aspect.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-review-aspect.css",
@@ -12078,7 +12078,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReviewBody",
+    "name": "SchemaPropertyReviewBody",
     "slug": "schema-property-review-body",
     "cssExportPath": "./styles/semantic-schema-property-review-body.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-review-body.css",
@@ -12089,7 +12089,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReviewCount",
+    "name": "SchemaPropertyReviewCount",
     "slug": "schema-property-review-count",
     "cssExportPath": "./styles/semantic-schema-property-review-count.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-review-count.css",
@@ -12100,7 +12100,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReviewedBy",
+    "name": "SchemaPropertyReviewedBy",
     "slug": "schema-property-reviewed-by",
     "cssExportPath": "./styles/semantic-schema-property-reviewed-by.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-reviewed-by.css",
@@ -12111,7 +12111,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReviewRating",
+    "name": "SchemaPropertyReviewRating",
     "slug": "schema-property-review-rating",
     "cssExportPath": "./styles/semantic-schema-property-review-rating.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-review-rating.css",
@@ -12122,7 +12122,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyReviews",
+    "name": "SchemaPropertyReviews",
     "slug": "schema-property-reviews",
     "cssExportPath": "./styles/semantic-schema-property-reviews.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-reviews.css",
@@ -12133,7 +12133,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRiskFactor",
+    "name": "SchemaPropertyRiskFactor",
     "slug": "schema-property-risk-factor",
     "cssExportPath": "./styles/semantic-schema-property-risk-factor.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-risk-factor.css",
@@ -12144,7 +12144,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRisks",
+    "name": "SchemaPropertyRisks",
     "slug": "schema-property-risks",
     "cssExportPath": "./styles/semantic-schema-property-risks.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-risks.css",
@@ -12155,7 +12155,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRuntimePlatform",
+    "name": "SchemaPropertyRuntimePlatform",
     "slug": "schema-property-runtime-platform",
     "cssExportPath": "./styles/semantic-schema-property-runtime-platform.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-runtime-platform.css",
@@ -12166,7 +12166,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyRxcui",
+    "name": "SchemaPropertyRxcui",
     "slug": "schema-property-rxcui",
     "cssExportPath": "./styles/semantic-schema-property-rxcui.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-rxcui.css",
@@ -12177,7 +12177,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySameAs",
+    "name": "SchemaPropertySameAs",
     "slug": "schema-property-same-as",
     "cssExportPath": "./styles/semantic-schema-property-same-as.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-same-as.css",
@@ -12188,7 +12188,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySaturatedFatContent",
+    "name": "SchemaPropertySaturatedFatContent",
     "slug": "schema-property-saturated-fat-content",
     "cssExportPath": "./styles/semantic-schema-property-saturated-fat-content.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-saturated-fat-content.css",
@@ -12199,7 +12199,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyScheduleTimezone",
+    "name": "SchemaPropertyScheduleTimezone",
     "slug": "schema-property-schedule-timezone",
     "cssExportPath": "./styles/semantic-schema-property-schedule-timezone.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-schedule-timezone.css",
@@ -12210,7 +12210,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySchemaVersion",
+    "name": "SchemaPropertySchemaVersion",
     "slug": "schema-property-schema-version",
     "cssExportPath": "./styles/semantic-schema-property-schema-version.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-schema-version.css",
@@ -12221,7 +12221,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyScreenshot",
+    "name": "SchemaPropertyScreenshot",
     "slug": "schema-property-screenshot",
     "cssExportPath": "./styles/semantic-schema-property-screenshot.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-screenshot.css",
@@ -12232,7 +12232,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySdDatePublished",
+    "name": "SchemaPropertySdDatePublished",
     "slug": "schema-property-sd-date-published",
     "cssExportPath": "./styles/semantic-schema-property-sd-date-published.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sd-date-published.css",
@@ -12243,7 +12243,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySdLicense",
+    "name": "SchemaPropertySdLicense",
     "slug": "schema-property-sd-license",
     "cssExportPath": "./styles/semantic-schema-property-sd-license.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sd-license.css",
@@ -12254,7 +12254,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySdPublisher",
+    "name": "SchemaPropertySdPublisher",
     "slug": "schema-property-sd-publisher",
     "cssExportPath": "./styles/semantic-schema-property-sd-publisher.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sd-publisher.css",
@@ -12265,7 +12265,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySeasonalOverride",
+    "name": "SchemaPropertySeasonalOverride",
     "slug": "schema-property-seasonal-override",
     "cssExportPath": "./styles/semantic-schema-property-seasonal-override.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-seasonal-override.css",
@@ -12276,7 +12276,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySeasonNumber",
+    "name": "SchemaPropertySeasonNumber",
     "slug": "schema-property-season-number",
     "cssExportPath": "./styles/semantic-schema-property-season-number.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-season-number.css",
@@ -12287,7 +12287,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySecondaryPrevention",
+    "name": "SchemaPropertySecondaryPrevention",
     "slug": "schema-property-secondary-prevention",
     "cssExportPath": "./styles/semantic-schema-property-secondary-prevention.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-secondary-prevention.css",
@@ -12298,7 +12298,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySeeks",
+    "name": "SchemaPropertySeeks",
     "slug": "schema-property-seeks",
     "cssExportPath": "./styles/semantic-schema-property-seeks.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-seeks.css",
@@ -12309,7 +12309,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySeller",
+    "name": "SchemaPropertySeller",
     "slug": "schema-property-seller",
     "cssExportPath": "./styles/semantic-schema-property-seller.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-seller.css",
@@ -12320,7 +12320,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySerialNumber",
+    "name": "SchemaPropertySerialNumber",
     "slug": "schema-property-serial-number",
     "cssExportPath": "./styles/semantic-schema-property-serial-number.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-serial-number.css",
@@ -12331,7 +12331,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySeriousAdverseOutcome",
+    "name": "SchemaPropertySeriousAdverseOutcome",
     "slug": "schema-property-serious-adverse-outcome",
     "cssExportPath": "./styles/semantic-schema-property-serious-adverse-outcome.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-serious-adverse-outcome.css",
@@ -12342,7 +12342,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyServiceArea",
+    "name": "SchemaPropertyServiceArea",
     "slug": "schema-property-service-area",
     "cssExportPath": "./styles/semantic-schema-property-service-area.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-service-area.css",
@@ -12353,7 +12353,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyServiceAudience",
+    "name": "SchemaPropertyServiceAudience",
     "slug": "schema-property-service-audience",
     "cssExportPath": "./styles/semantic-schema-property-service-audience.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-service-audience.css",
@@ -12364,7 +12364,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyServiceLocation",
+    "name": "SchemaPropertyServiceLocation",
     "slug": "schema-property-service-location",
     "cssExportPath": "./styles/semantic-schema-property-service-location.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-service-location.css",
@@ -12375,7 +12375,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyServiceOutput",
+    "name": "SchemaPropertyServiceOutput",
     "slug": "schema-property-service-output",
     "cssExportPath": "./styles/semantic-schema-property-service-output.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-service-output.css",
@@ -12386,7 +12386,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyServicePhone",
+    "name": "SchemaPropertyServicePhone",
     "slug": "schema-property-service-phone",
     "cssExportPath": "./styles/semantic-schema-property-service-phone.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-service-phone.css",
@@ -12397,7 +12397,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyServicePostalAddress",
+    "name": "SchemaPropertyServicePostalAddress",
     "slug": "schema-property-service-postal-address",
     "cssExportPath": "./styles/semantic-schema-property-service-postal-address.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-service-postal-address.css",
@@ -12408,7 +12408,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyServiceSmsNumber",
+    "name": "SchemaPropertyServiceSmsNumber",
     "slug": "schema-property-service-sms-number",
     "cssExportPath": "./styles/semantic-schema-property-service-sms-number.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-service-sms-number.css",
@@ -12419,7 +12419,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyServiceType",
+    "name": "SchemaPropertyServiceType",
     "slug": "schema-property-service-type",
     "cssExportPath": "./styles/semantic-schema-property-service-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-service-type.css",
@@ -12430,7 +12430,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyServiceUrl",
+    "name": "SchemaPropertyServiceUrl",
     "slug": "schema-property-service-url",
     "cssExportPath": "./styles/semantic-schema-property-service-url.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-service-url.css",
@@ -12441,7 +12441,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyServingSize",
+    "name": "SchemaPropertyServingSize",
     "slug": "schema-property-serving-size",
     "cssExportPath": "./styles/semantic-schema-property-serving-size.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-serving-size.css",
@@ -12452,7 +12452,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySha256",
+    "name": "SchemaPropertySha256",
     "slug": "schema-property-sha256",
     "cssExportPath": "./styles/semantic-schema-property-sha256.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sha256.css",
@@ -12463,7 +12463,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySharedContent",
+    "name": "SchemaPropertySharedContent",
     "slug": "schema-property-shared-content",
     "cssExportPath": "./styles/semantic-schema-property-shared-content.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-shared-content.css",
@@ -12474,7 +12474,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyShippingConditions",
+    "name": "SchemaPropertyShippingConditions",
     "slug": "schema-property-shipping-conditions",
     "cssExportPath": "./styles/semantic-schema-property-shipping-conditions.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-shipping-conditions.css",
@@ -12485,7 +12485,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyShippingDestination",
+    "name": "SchemaPropertyShippingDestination",
     "slug": "schema-property-shipping-destination",
     "cssExportPath": "./styles/semantic-schema-property-shipping-destination.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-shipping-destination.css",
@@ -12496,7 +12496,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyShippingDetails",
+    "name": "SchemaPropertyShippingDetails",
     "slug": "schema-property-shipping-details",
     "cssExportPath": "./styles/semantic-schema-property-shipping-details.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-shipping-details.css",
@@ -12507,7 +12507,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyShippingOrigin",
+    "name": "SchemaPropertyShippingOrigin",
     "slug": "schema-property-shipping-origin",
     "cssExportPath": "./styles/semantic-schema-property-shipping-origin.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-shipping-origin.css",
@@ -12518,7 +12518,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyShippingRate",
+    "name": "SchemaPropertyShippingRate",
     "slug": "schema-property-shipping-rate",
     "cssExportPath": "./styles/semantic-schema-property-shipping-rate.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-shipping-rate.css",
@@ -12529,7 +12529,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySibling",
+    "name": "SchemaPropertySibling",
     "slug": "schema-property-sibling",
     "cssExportPath": "./styles/semantic-schema-property-sibling.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sibling.css",
@@ -12540,7 +12540,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySiblings",
+    "name": "SchemaPropertySiblings",
     "slug": "schema-property-siblings",
     "cssExportPath": "./styles/semantic-schema-property-siblings.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-siblings.css",
@@ -12551,7 +12551,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySignDetected",
+    "name": "SchemaPropertySignDetected",
     "slug": "schema-property-sign-detected",
     "cssExportPath": "./styles/semantic-schema-property-sign-detected.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sign-detected.css",
@@ -12562,7 +12562,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySignificance",
+    "name": "SchemaPropertySignificance",
     "slug": "schema-property-significance",
     "cssExportPath": "./styles/semantic-schema-property-significance.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-significance.css",
@@ -12573,7 +12573,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySignificantLink",
+    "name": "SchemaPropertySignificantLink",
     "slug": "schema-property-significant-link",
     "cssExportPath": "./styles/semantic-schema-property-significant-link.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-significant-link.css",
@@ -12584,7 +12584,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySignificantLinks",
+    "name": "SchemaPropertySignificantLinks",
     "slug": "schema-property-significant-links",
     "cssExportPath": "./styles/semantic-schema-property-significant-links.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-significant-links.css",
@@ -12595,7 +12595,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySignOrSymptom",
+    "name": "SchemaPropertySignOrSymptom",
     "slug": "schema-property-sign-or-symptom",
     "cssExportPath": "./styles/semantic-schema-property-sign-or-symptom.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sign-or-symptom.css",
@@ -12606,7 +12606,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySize",
+    "name": "SchemaPropertySize",
     "slug": "schema-property-size",
     "cssExportPath": "./styles/semantic-schema-property-size.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-size.css",
@@ -12617,7 +12617,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySkills",
+    "name": "SchemaPropertySkills",
     "slug": "schema-property-skills",
     "cssExportPath": "./styles/semantic-schema-property-skills.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-skills.css",
@@ -12628,7 +12628,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySku",
+    "name": "SchemaPropertySku",
     "slug": "schema-property-sku",
     "cssExportPath": "./styles/semantic-schema-property-sku.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sku.css",
@@ -12639,7 +12639,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySlogan",
+    "name": "SchemaPropertySlogan",
     "slug": "schema-property-slogan",
     "cssExportPath": "./styles/semantic-schema-property-slogan.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-slogan.css",
@@ -12650,7 +12650,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySmokingAllowed",
+    "name": "SchemaPropertySmokingAllowed",
     "slug": "schema-property-smoking-allowed",
     "cssExportPath": "./styles/semantic-schema-property-smoking-allowed.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-smoking-allowed.css",
@@ -12661,7 +12661,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySodiumContent",
+    "name": "SchemaPropertySodiumContent",
     "slug": "schema-property-sodium-content",
     "cssExportPath": "./styles/semantic-schema-property-sodium-content.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sodium-content.css",
@@ -12672,7 +12672,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySoftwareAddOn",
+    "name": "SchemaPropertySoftwareAddOn",
     "slug": "schema-property-software-add-on",
     "cssExportPath": "./styles/semantic-schema-property-software-add-on.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-software-add-on.css",
@@ -12683,7 +12683,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySoftwareHelp",
+    "name": "SchemaPropertySoftwareHelp",
     "slug": "schema-property-software-help",
     "cssExportPath": "./styles/semantic-schema-property-software-help.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-software-help.css",
@@ -12694,7 +12694,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySoftwareRequirements",
+    "name": "SchemaPropertySoftwareRequirements",
     "slug": "schema-property-software-requirements",
     "cssExportPath": "./styles/semantic-schema-property-software-requirements.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-software-requirements.css",
@@ -12705,7 +12705,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySoftwareVersion",
+    "name": "SchemaPropertySoftwareVersion",
     "slug": "schema-property-software-version",
     "cssExportPath": "./styles/semantic-schema-property-software-version.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-software-version.css",
@@ -12716,7 +12716,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySourceOrganization",
+    "name": "SchemaPropertySourceOrganization",
     "slug": "schema-property-source-organization",
     "cssExportPath": "./styles/semantic-schema-property-source-organization.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-source-organization.css",
@@ -12727,7 +12727,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySpatial",
+    "name": "SchemaPropertySpatial",
     "slug": "schema-property-spatial",
     "cssExportPath": "./styles/semantic-schema-property-spatial.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-spatial.css",
@@ -12738,7 +12738,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySpatialCoverage",
+    "name": "SchemaPropertySpatialCoverage",
     "slug": "schema-property-spatial-coverage",
     "cssExportPath": "./styles/semantic-schema-property-spatial-coverage.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-spatial-coverage.css",
@@ -12749,7 +12749,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySpeakable",
+    "name": "SchemaPropertySpeakable",
     "slug": "schema-property-speakable",
     "cssExportPath": "./styles/semantic-schema-property-speakable.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-speakable.css",
@@ -12760,7 +12760,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySpecialOpeningHoursSpecification",
+    "name": "SchemaPropertySpecialOpeningHoursSpecification",
     "slug": "schema-property-special-opening-hours-specification",
     "cssExportPath": "./styles/semantic-schema-property-special-opening-hours-specification.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-special-opening-hours-specification.css",
@@ -12771,7 +12771,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySpecialty",
+    "name": "SchemaPropertySpecialty",
     "slug": "schema-property-specialty",
     "cssExportPath": "./styles/semantic-schema-property-specialty.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-specialty.css",
@@ -12782,7 +12782,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySponsor",
+    "name": "SchemaPropertySponsor",
     "slug": "schema-property-sponsor",
     "cssExportPath": "./styles/semantic-schema-property-sponsor.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sponsor.css",
@@ -12793,7 +12793,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySpouse",
+    "name": "SchemaPropertySpouse",
     "slug": "schema-property-spouse",
     "cssExportPath": "./styles/semantic-schema-property-spouse.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-spouse.css",
@@ -12804,7 +12804,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyStage",
+    "name": "SchemaPropertyStage",
     "slug": "schema-property-stage",
     "cssExportPath": "./styles/semantic-schema-property-stage.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-stage.css",
@@ -12815,7 +12815,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyStageAsNumber",
+    "name": "SchemaPropertyStageAsNumber",
     "slug": "schema-property-stage-as-number",
     "cssExportPath": "./styles/semantic-schema-property-stage-as-number.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-stage-as-number.css",
@@ -12826,7 +12826,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyStartDate",
+    "name": "SchemaPropertyStartDate",
     "slug": "schema-property-start-date",
     "cssExportPath": "./styles/semantic-schema-property-start-date.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-start-date.css",
@@ -12837,7 +12837,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyStartOffset",
+    "name": "SchemaPropertyStartOffset",
     "slug": "schema-property-start-offset",
     "cssExportPath": "./styles/semantic-schema-property-start-offset.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-start-offset.css",
@@ -12848,7 +12848,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyStartTime",
+    "name": "SchemaPropertyStartTime",
     "slug": "schema-property-start-time",
     "cssExportPath": "./styles/semantic-schema-property-start-time.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-start-time.css",
@@ -12859,7 +12859,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyStatType",
+    "name": "SchemaPropertyStatType",
     "slug": "schema-property-stat-type",
     "cssExportPath": "./styles/semantic-schema-property-stat-type.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-stat-type.css",
@@ -12870,7 +12870,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyStatus",
+    "name": "SchemaPropertyStatus",
     "slug": "schema-property-status",
     "cssExportPath": "./styles/semantic-schema-property-status.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-status.css",
@@ -12881,7 +12881,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyStep",
+    "name": "SchemaPropertyStep",
     "slug": "schema-property-step",
     "cssExportPath": "./styles/semantic-schema-property-step.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-step.css",
@@ -12892,7 +12892,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySteps",
+    "name": "SchemaPropertySteps",
     "slug": "schema-property-steps",
     "cssExportPath": "./styles/semantic-schema-property-steps.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-steps.css",
@@ -12903,7 +12903,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyStorageRequirements",
+    "name": "SchemaPropertyStorageRequirements",
     "slug": "schema-property-storage-requirements",
     "cssExportPath": "./styles/semantic-schema-property-storage-requirements.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-storage-requirements.css",
@@ -12914,7 +12914,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyStreetAddress",
+    "name": "SchemaPropertyStreetAddress",
     "slug": "schema-property-street-address",
     "cssExportPath": "./styles/semantic-schema-property-street-address.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-street-address.css",
@@ -12925,7 +12925,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyStrengthUnit",
+    "name": "SchemaPropertyStrengthUnit",
     "slug": "schema-property-strength-unit",
     "cssExportPath": "./styles/semantic-schema-property-strength-unit.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-strength-unit.css",
@@ -12936,7 +12936,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyStrengthValue",
+    "name": "SchemaPropertyStrengthValue",
     "slug": "schema-property-strength-value",
     "cssExportPath": "./styles/semantic-schema-property-strength-value.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-strength-value.css",
@@ -12947,7 +12947,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyStudy",
+    "name": "SchemaPropertyStudy",
     "slug": "schema-property-study",
     "cssExportPath": "./styles/semantic-schema-property-study.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-study.css",
@@ -12958,7 +12958,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyStudyLocation",
+    "name": "SchemaPropertyStudyLocation",
     "slug": "schema-property-study-location",
     "cssExportPath": "./styles/semantic-schema-property-study-location.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-study-location.css",
@@ -12969,7 +12969,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyStudySubject",
+    "name": "SchemaPropertyStudySubject",
     "slug": "schema-property-study-subject",
     "cssExportPath": "./styles/semantic-schema-property-study-subject.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-study-subject.css",
@@ -12980,7 +12980,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySubEvent",
+    "name": "SchemaPropertySubEvent",
     "slug": "schema-property-sub-event",
     "cssExportPath": "./styles/semantic-schema-property-sub-event.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sub-event.css",
@@ -12991,7 +12991,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySubEvents",
+    "name": "SchemaPropertySubEvents",
     "slug": "schema-property-sub-events",
     "cssExportPath": "./styles/semantic-schema-property-sub-events.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sub-events.css",
@@ -13002,7 +13002,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySubjectOf",
+    "name": "SchemaPropertySubjectOf",
     "slug": "schema-property-subject-of",
     "cssExportPath": "./styles/semantic-schema-property-subject-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-subject-of.css",
@@ -13013,7 +13013,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySubOrganization",
+    "name": "SchemaPropertySubOrganization",
     "slug": "schema-property-sub-organization",
     "cssExportPath": "./styles/semantic-schema-property-sub-organization.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sub-organization.css",
@@ -13024,7 +13024,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySubStageSuffix",
+    "name": "SchemaPropertySubStageSuffix",
     "slug": "schema-property-sub-stage-suffix",
     "cssExportPath": "./styles/semantic-schema-property-sub-stage-suffix.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sub-stage-suffix.css",
@@ -13035,7 +13035,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySubStructure",
+    "name": "SchemaPropertySubStructure",
     "slug": "schema-property-sub-structure",
     "cssExportPath": "./styles/semantic-schema-property-sub-structure.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sub-structure.css",
@@ -13046,7 +13046,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySubTrip",
+    "name": "SchemaPropertySubTrip",
     "slug": "schema-property-sub-trip",
     "cssExportPath": "./styles/semantic-schema-property-sub-trip.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sub-trip.css",
@@ -13057,7 +13057,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySuccessorOf",
+    "name": "SchemaPropertySuccessorOf",
     "slug": "schema-property-successor-of",
     "cssExportPath": "./styles/semantic-schema-property-successor-of.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-successor-of.css",
@@ -13068,7 +13068,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySugarContent",
+    "name": "SchemaPropertySugarContent",
     "slug": "schema-property-sugar-content",
     "cssExportPath": "./styles/semantic-schema-property-sugar-content.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-sugar-content.css",
@@ -13079,7 +13079,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySuggestedAge",
+    "name": "SchemaPropertySuggestedAge",
     "slug": "schema-property-suggested-age",
     "cssExportPath": "./styles/semantic-schema-property-suggested-age.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-suggested-age.css",
@@ -13090,7 +13090,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySuggestedGender",
+    "name": "SchemaPropertySuggestedGender",
     "slug": "schema-property-suggested-gender",
     "cssExportPath": "./styles/semantic-schema-property-suggested-gender.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-suggested-gender.css",
@@ -13101,7 +13101,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySuggestedMaxAge",
+    "name": "SchemaPropertySuggestedMaxAge",
     "slug": "schema-property-suggested-max-age",
     "cssExportPath": "./styles/semantic-schema-property-suggested-max-age.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-suggested-max-age.css",
@@ -13112,7 +13112,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySuggestedMeasurement",
+    "name": "SchemaPropertySuggestedMeasurement",
     "slug": "schema-property-suggested-measurement",
     "cssExportPath": "./styles/semantic-schema-property-suggested-measurement.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-suggested-measurement.css",
@@ -13123,7 +13123,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySuggestedMinAge",
+    "name": "SchemaPropertySuggestedMinAge",
     "slug": "schema-property-suggested-min-age",
     "cssExportPath": "./styles/semantic-schema-property-suggested-min-age.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-suggested-min-age.css",
@@ -13134,7 +13134,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySuitableForDiet",
+    "name": "SchemaPropertySuitableForDiet",
     "slug": "schema-property-suitable-for-diet",
     "cssExportPath": "./styles/semantic-schema-property-suitable-for-diet.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-suitable-for-diet.css",
@@ -13145,7 +13145,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySuperEvent",
+    "name": "SchemaPropertySuperEvent",
     "slug": "schema-property-super-event",
     "cssExportPath": "./styles/semantic-schema-property-super-event.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-super-event.css",
@@ -13156,7 +13156,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySupersededBy",
+    "name": "SchemaPropertySupersededBy",
     "slug": "schema-property-superseded-by",
     "cssExportPath": "./styles/semantic-schema-property-superseded-by.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-superseded-by.css",
@@ -13167,7 +13167,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySupply",
+    "name": "SchemaPropertySupply",
     "slug": "schema-property-supply",
     "cssExportPath": "./styles/semantic-schema-property-supply.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-supply.css",
@@ -13178,7 +13178,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertySupportingData",
+    "name": "SchemaPropertySupportingData",
     "slug": "schema-property-supporting-data",
     "cssExportPath": "./styles/semantic-schema-property-supporting-data.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-supporting-data.css",
@@ -13189,7 +13189,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTarget",
+    "name": "SchemaPropertyTarget",
     "slug": "schema-property-target",
     "cssExportPath": "./styles/semantic-schema-property-target.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-target.css",
@@ -13200,7 +13200,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTargetDescription",
+    "name": "SchemaPropertyTargetDescription",
     "slug": "schema-property-target-description",
     "cssExportPath": "./styles/semantic-schema-property-target-description.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-target-description.css",
@@ -13211,7 +13211,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTargetName",
+    "name": "SchemaPropertyTargetName",
     "slug": "schema-property-target-name",
     "cssExportPath": "./styles/semantic-schema-property-target-name.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-target-name.css",
@@ -13222,7 +13222,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTargetPopulation",
+    "name": "SchemaPropertyTargetPopulation",
     "slug": "schema-property-target-population",
     "cssExportPath": "./styles/semantic-schema-property-target-population.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-target-population.css",
@@ -13233,7 +13233,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTargetUrl",
+    "name": "SchemaPropertyTargetUrl",
     "slug": "schema-property-target-url",
     "cssExportPath": "./styles/semantic-schema-property-target-url.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-target-url.css",
@@ -13244,7 +13244,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTaxID",
+    "name": "SchemaPropertyTaxID",
     "slug": "schema-property-tax-id",
     "cssExportPath": "./styles/semantic-schema-property-tax-id.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-tax-id.css",
@@ -13255,7 +13255,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTaxonomicRange",
+    "name": "SchemaPropertyTaxonomicRange",
     "slug": "schema-property-taxonomic-range",
     "cssExportPath": "./styles/semantic-schema-property-taxonomic-range.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-taxonomic-range.css",
@@ -13266,7 +13266,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTaxonRank",
+    "name": "SchemaPropertyTaxonRank",
     "slug": "schema-property-taxon-rank",
     "cssExportPath": "./styles/semantic-schema-property-taxon-rank.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-taxon-rank.css",
@@ -13277,7 +13277,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTeaches",
+    "name": "SchemaPropertyTeaches",
     "slug": "schema-property-teaches",
     "cssExportPath": "./styles/semantic-schema-property-teaches.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-teaches.css",
@@ -13288,7 +13288,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTelephone",
+    "name": "SchemaPropertyTelephone",
     "slug": "schema-property-telephone",
     "cssExportPath": "./styles/semantic-schema-property-telephone.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-telephone.css",
@@ -13299,7 +13299,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTemporal",
+    "name": "SchemaPropertyTemporal",
     "slug": "schema-property-temporal",
     "cssExportPath": "./styles/semantic-schema-property-temporal.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-temporal.css",
@@ -13310,7 +13310,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTemporalCoverage",
+    "name": "SchemaPropertyTemporalCoverage",
     "slug": "schema-property-temporal-coverage",
     "cssExportPath": "./styles/semantic-schema-property-temporal-coverage.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-temporal-coverage.css",
@@ -13321,7 +13321,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTermCode",
+    "name": "SchemaPropertyTermCode",
     "slug": "schema-property-term-code",
     "cssExportPath": "./styles/semantic-schema-property-term-code.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-term-code.css",
@@ -13332,7 +13332,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTermsOfService",
+    "name": "SchemaPropertyTermsOfService",
     "slug": "schema-property-terms-of-service",
     "cssExportPath": "./styles/semantic-schema-property-terms-of-service.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-terms-of-service.css",
@@ -13343,7 +13343,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyText",
+    "name": "SchemaPropertyText",
     "slug": "schema-property-text",
     "cssExportPath": "./styles/semantic-schema-property-text.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-text.css",
@@ -13354,7 +13354,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyThumbnail",
+    "name": "SchemaPropertyThumbnail",
     "slug": "schema-property-thumbnail",
     "cssExportPath": "./styles/semantic-schema-property-thumbnail.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-thumbnail.css",
@@ -13365,7 +13365,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyThumbnailUrl",
+    "name": "SchemaPropertyThumbnailUrl",
     "slug": "schema-property-thumbnail-url",
     "cssExportPath": "./styles/semantic-schema-property-thumbnail-url.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-thumbnail-url.css",
@@ -13376,7 +13376,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTimeRequired",
+    "name": "SchemaPropertyTimeRequired",
     "slug": "schema-property-time-required",
     "cssExportPath": "./styles/semantic-schema-property-time-required.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-time-required.css",
@@ -13387,7 +13387,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTocContinuation",
+    "name": "SchemaPropertyTocContinuation",
     "slug": "schema-property-toc-continuation",
     "cssExportPath": "./styles/semantic-schema-property-toc-continuation.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-toc-continuation.css",
@@ -13398,7 +13398,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTool",
+    "name": "SchemaPropertyTool",
     "slug": "schema-property-tool",
     "cssExportPath": "./styles/semantic-schema-property-tool.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-tool.css",
@@ -13409,7 +13409,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTotalTime",
+    "name": "SchemaPropertyTotalTime",
     "slug": "schema-property-total-time",
     "cssExportPath": "./styles/semantic-schema-property-total-time.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-total-time.css",
@@ -13420,7 +13420,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTourBookingPage",
+    "name": "SchemaPropertyTourBookingPage",
     "slug": "schema-property-tour-booking-page",
     "cssExportPath": "./styles/semantic-schema-property-tour-booking-page.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-tour-booking-page.css",
@@ -13431,7 +13431,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTrack",
+    "name": "SchemaPropertyTrack",
     "slug": "schema-property-track",
     "cssExportPath": "./styles/semantic-schema-property-track.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-track.css",
@@ -13442,7 +13442,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTracks",
+    "name": "SchemaPropertyTracks",
     "slug": "schema-property-tracks",
     "cssExportPath": "./styles/semantic-schema-property-tracks.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-tracks.css",
@@ -13453,7 +13453,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTrailer",
+    "name": "SchemaPropertyTrailer",
     "slug": "schema-property-trailer",
     "cssExportPath": "./styles/semantic-schema-property-trailer.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-trailer.css",
@@ -13464,7 +13464,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTranscript",
+    "name": "SchemaPropertyTranscript",
     "slug": "schema-property-transcript",
     "cssExportPath": "./styles/semantic-schema-property-transcript.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-transcript.css",
@@ -13475,7 +13475,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTransFatContent",
+    "name": "SchemaPropertyTransFatContent",
     "slug": "schema-property-trans-fat-content",
     "cssExportPath": "./styles/semantic-schema-property-trans-fat-content.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-trans-fat-content.css",
@@ -13486,7 +13486,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTransitTime",
+    "name": "SchemaPropertyTransitTime",
     "slug": "schema-property-transit-time",
     "cssExportPath": "./styles/semantic-schema-property-transit-time.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-transit-time.css",
@@ -13497,7 +13497,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTranslationOfWork",
+    "name": "SchemaPropertyTranslationOfWork",
     "slug": "schema-property-translation-of-work",
     "cssExportPath": "./styles/semantic-schema-property-translation-of-work.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-translation-of-work.css",
@@ -13508,7 +13508,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTranslator",
+    "name": "SchemaPropertyTranslator",
     "slug": "schema-property-translator",
     "cssExportPath": "./styles/semantic-schema-property-translator.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-translator.css",
@@ -13519,7 +13519,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTripOrigin",
+    "name": "SchemaPropertyTripOrigin",
     "slug": "schema-property-trip-origin",
     "cssExportPath": "./styles/semantic-schema-property-trip-origin.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-trip-origin.css",
@@ -13530,7 +13530,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTypeOfGood",
+    "name": "SchemaPropertyTypeOfGood",
     "slug": "schema-property-type-of-good",
     "cssExportPath": "./styles/semantic-schema-property-type-of-good.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-type-of-good.css",
@@ -13541,7 +13541,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTypicalAgeRange",
+    "name": "SchemaPropertyTypicalAgeRange",
     "slug": "schema-property-typical-age-range",
     "cssExportPath": "./styles/semantic-schema-property-typical-age-range.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-typical-age-range.css",
@@ -13552,7 +13552,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyTypicalTest",
+    "name": "SchemaPropertyTypicalTest",
     "slug": "schema-property-typical-test",
     "cssExportPath": "./styles/semantic-schema-property-typical-test.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-typical-test.css",
@@ -13563,7 +13563,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyUnitCode",
+    "name": "SchemaPropertyUnitCode",
     "slug": "schema-property-unit-code",
     "cssExportPath": "./styles/semantic-schema-property-unit-code.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-unit-code.css",
@@ -13574,7 +13574,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyUnitText",
+    "name": "SchemaPropertyUnitText",
     "slug": "schema-property-unit-text",
     "cssExportPath": "./styles/semantic-schema-property-unit-text.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-unit-text.css",
@@ -13585,7 +13585,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyUnnamedSourcesPolicy",
+    "name": "SchemaPropertyUnnamedSourcesPolicy",
     "slug": "schema-property-unnamed-sources-policy",
     "cssExportPath": "./styles/semantic-schema-property-unnamed-sources-policy.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-unnamed-sources-policy.css",
@@ -13596,7 +13596,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyUnsaturatedFatContent",
+    "name": "SchemaPropertyUnsaturatedFatContent",
     "slug": "schema-property-unsaturated-fat-content",
     "cssExportPath": "./styles/semantic-schema-property-unsaturated-fat-content.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-unsaturated-fat-content.css",
@@ -13607,7 +13607,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyUploadDate",
+    "name": "SchemaPropertyUploadDate",
     "slug": "schema-property-upload-date",
     "cssExportPath": "./styles/semantic-schema-property-upload-date.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-upload-date.css",
@@ -13618,7 +13618,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyUpvoteCount",
+    "name": "SchemaPropertyUpvoteCount",
     "slug": "schema-property-upvote-count",
     "cssExportPath": "./styles/semantic-schema-property-upvote-count.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-upvote-count.css",
@@ -13629,7 +13629,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyUrl",
+    "name": "SchemaPropertyUrl",
     "slug": "schema-property-url",
     "cssExportPath": "./styles/semantic-schema-property-url.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-url.css",
@@ -13640,7 +13640,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyUrlTemplate",
+    "name": "SchemaPropertyUrlTemplate",
     "slug": "schema-property-url-template",
     "cssExportPath": "./styles/semantic-schema-property-url-template.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-url-template.css",
@@ -13651,7 +13651,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyUsageInfo",
+    "name": "SchemaPropertyUsageInfo",
     "slug": "schema-property-usage-info",
     "cssExportPath": "./styles/semantic-schema-property-usage-info.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-usage-info.css",
@@ -13662,7 +13662,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyUsedToDiagnose",
+    "name": "SchemaPropertyUsedToDiagnose",
     "slug": "schema-property-used-to-diagnose",
     "cssExportPath": "./styles/semantic-schema-property-used-to-diagnose.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-used-to-diagnose.css",
@@ -13673,7 +13673,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyUserInteractionCount",
+    "name": "SchemaPropertyUserInteractionCount",
     "slug": "schema-property-user-interaction-count",
     "cssExportPath": "./styles/semantic-schema-property-user-interaction-count.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-user-interaction-count.css",
@@ -13684,7 +13684,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyUsesDevice",
+    "name": "SchemaPropertyUsesDevice",
     "slug": "schema-property-uses-device",
     "cssExportPath": "./styles/semantic-schema-property-uses-device.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-uses-device.css",
@@ -13695,7 +13695,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyUsesHealthPlanIdStandard",
+    "name": "SchemaPropertyUsesHealthPlanIdStandard",
     "slug": "schema-property-uses-health-plan-id-standard",
     "cssExportPath": "./styles/semantic-schema-property-uses-health-plan-id-standard.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-uses-health-plan-id-standard.css",
@@ -13706,7 +13706,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyUtterances",
+    "name": "SchemaPropertyUtterances",
     "slug": "schema-property-utterances",
     "cssExportPath": "./styles/semantic-schema-property-utterances.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-utterances.css",
@@ -13717,7 +13717,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyValidFor",
+    "name": "SchemaPropertyValidFor",
     "slug": "schema-property-valid-for",
     "cssExportPath": "./styles/semantic-schema-property-valid-for.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-valid-for.css",
@@ -13728,7 +13728,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyValidForMemberTier",
+    "name": "SchemaPropertyValidForMemberTier",
     "slug": "schema-property-valid-for-member-tier",
     "cssExportPath": "./styles/semantic-schema-property-valid-for-member-tier.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-valid-for-member-tier.css",
@@ -13739,7 +13739,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyValidFrom",
+    "name": "SchemaPropertyValidFrom",
     "slug": "schema-property-valid-from",
     "cssExportPath": "./styles/semantic-schema-property-valid-from.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-valid-from.css",
@@ -13750,7 +13750,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyValidIn",
+    "name": "SchemaPropertyValidIn",
     "slug": "schema-property-valid-in",
     "cssExportPath": "./styles/semantic-schema-property-valid-in.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-valid-in.css",
@@ -13761,7 +13761,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyValidThrough",
+    "name": "SchemaPropertyValidThrough",
     "slug": "schema-property-valid-through",
     "cssExportPath": "./styles/semantic-schema-property-valid-through.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-valid-through.css",
@@ -13772,7 +13772,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyValue",
+    "name": "SchemaPropertyValue",
     "slug": "schema-property-value",
     "cssExportPath": "./styles/semantic-schema-property-value.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-value.css",
@@ -13783,7 +13783,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyValueAddedTaxIncluded",
+    "name": "SchemaPropertyValueAddedTaxIncluded",
     "slug": "schema-property-value-added-tax-included",
     "cssExportPath": "./styles/semantic-schema-property-value-added-tax-included.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-value-added-tax-included.css",
@@ -13794,7 +13794,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyValueReference",
+    "name": "SchemaPropertyValueReference",
     "slug": "schema-property-value-reference",
     "cssExportPath": "./styles/semantic-schema-property-value-reference.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-value-reference.css",
@@ -13805,7 +13805,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyVariableMeasured",
+    "name": "SchemaPropertyVariableMeasured",
     "slug": "schema-property-variable-measured",
     "cssExportPath": "./styles/semantic-schema-property-variable-measured.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-variable-measured.css",
@@ -13816,7 +13816,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyVariesBy",
+    "name": "SchemaPropertyVariesBy",
     "slug": "schema-property-varies-by",
     "cssExportPath": "./styles/semantic-schema-property-varies-by.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-varies-by.css",
@@ -13827,7 +13827,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyVatID",
+    "name": "SchemaPropertyVatID",
     "slug": "schema-property-vat-id",
     "cssExportPath": "./styles/semantic-schema-property-vat-id.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-vat-id.css",
@@ -13838,7 +13838,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyVersion",
+    "name": "SchemaPropertyVersion",
     "slug": "schema-property-version",
     "cssExportPath": "./styles/semantic-schema-property-version.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-version.css",
@@ -13849,7 +13849,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyVideo",
+    "name": "SchemaPropertyVideo",
     "slug": "schema-property-video",
     "cssExportPath": "./styles/semantic-schema-property-video.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-video.css",
@@ -13860,7 +13860,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyVideoFormat",
+    "name": "SchemaPropertyVideoFormat",
     "slug": "schema-property-video-format",
     "cssExportPath": "./styles/semantic-schema-property-video-format.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-video-format.css",
@@ -13871,7 +13871,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyVideoFrameSize",
+    "name": "SchemaPropertyVideoFrameSize",
     "slug": "schema-property-video-frame-size",
     "cssExportPath": "./styles/semantic-schema-property-video-frame-size.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-video-frame-size.css",
@@ -13882,7 +13882,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyVideoQuality",
+    "name": "SchemaPropertyVideoQuality",
     "slug": "schema-property-video-quality",
     "cssExportPath": "./styles/semantic-schema-property-video-quality.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-video-quality.css",
@@ -13893,7 +13893,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyWarning",
+    "name": "SchemaPropertyWarning",
     "slug": "schema-property-warning",
     "cssExportPath": "./styles/semantic-schema-property-warning.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-warning.css",
@@ -13904,7 +13904,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyWarranty",
+    "name": "SchemaPropertyWarranty",
     "slug": "schema-property-warranty",
     "cssExportPath": "./styles/semantic-schema-property-warranty.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-warranty.css",
@@ -13915,7 +13915,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyWarrantyScope",
+    "name": "SchemaPropertyWarrantyScope",
     "slug": "schema-property-warranty-scope",
     "cssExportPath": "./styles/semantic-schema-property-warranty-scope.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-warranty-scope.css",
@@ -13926,7 +13926,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyWeight",
+    "name": "SchemaPropertyWeight",
     "slug": "schema-property-weight",
     "cssExportPath": "./styles/semantic-schema-property-weight.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-weight.css",
@@ -13937,7 +13937,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyWeightPercentage",
+    "name": "SchemaPropertyWeightPercentage",
     "slug": "schema-property-weight-percentage",
     "cssExportPath": "./styles/semantic-schema-property-weight-percentage.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-weight-percentage.css",
@@ -13948,7 +13948,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyWidth",
+    "name": "SchemaPropertyWidth",
     "slug": "schema-property-width",
     "cssExportPath": "./styles/semantic-schema-property-width.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-width.css",
@@ -13959,7 +13959,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyWordCount",
+    "name": "SchemaPropertyWordCount",
     "slug": "schema-property-word-count",
     "cssExportPath": "./styles/semantic-schema-property-word-count.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-word-count.css",
@@ -13970,7 +13970,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyWorkExample",
+    "name": "SchemaPropertyWorkExample",
     "slug": "schema-property-work-example",
     "cssExportPath": "./styles/semantic-schema-property-work-example.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-work-example.css",
@@ -13981,7 +13981,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyWorkFeatured",
+    "name": "SchemaPropertyWorkFeatured",
     "slug": "schema-property-work-featured",
     "cssExportPath": "./styles/semantic-schema-property-work-featured.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-work-featured.css",
@@ -13992,7 +13992,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyWorkLocation",
+    "name": "SchemaPropertyWorkLocation",
     "slug": "schema-property-work-location",
     "cssExportPath": "./styles/semantic-schema-property-work-location.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-work-location.css",
@@ -14003,7 +14003,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyWorkPerformed",
+    "name": "SchemaPropertyWorkPerformed",
     "slug": "schema-property-work-performed",
     "cssExportPath": "./styles/semantic-schema-property-work-performed.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-work-performed.css",
@@ -14014,7 +14014,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyWorksFor",
+    "name": "SchemaPropertyWorksFor",
     "slug": "schema-property-works-for",
     "cssExportPath": "./styles/semantic-schema-property-works-for.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-works-for.css",
@@ -14025,7 +14025,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyWorkTranslation",
+    "name": "SchemaPropertyWorkTranslation",
     "slug": "schema-property-work-translation",
     "cssExportPath": "./styles/semantic-schema-property-work-translation.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-work-translation.css",
@@ -14036,7 +14036,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyWorstRating",
+    "name": "SchemaPropertyWorstRating",
     "slug": "schema-property-worst-rating",
     "cssExportPath": "./styles/semantic-schema-property-worst-rating.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-worst-rating.css",
@@ -14047,7 +14047,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyXpath",
+    "name": "SchemaPropertyXpath",
     "slug": "schema-property-xpath",
     "cssExportPath": "./styles/semantic-schema-property-xpath.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-xpath.css",
@@ -14058,7 +14058,7 @@ export const semanticTokenFixtures = [
   },
   {
     "kind": "property",
-    "name": "PropertyYield",
+    "name": "SchemaPropertyYield",
     "slug": "schema-property-yield",
     "cssExportPath": "./styles/semantic-schema-property-yield.css",
     "cssSourcePath": "./src/styles/semantic-schema-property-yield.css",
