@@ -33,6 +33,19 @@ export const generatedPassThroughArtifacts = generatedArtifacts.filter(
   (artifact) => artifact.kind !== "type" || !governedCoreTypeNames.has(artifact.name),
 );
 
+export function cloneJsonLike(value) {
+  return value === undefined ? undefined : JSON.parse(JSON.stringify(value));
+}
+
+export function deepFreeze(value) {
+  if (!value || typeof value !== "object") return value;
+  Object.freeze(value);
+  for (const nested of Object.values(value)) {
+    if (nested && typeof nested === "object" && !Object.isFrozen(nested)) deepFreeze(nested);
+  }
+  return value;
+}
+
 const structuredDataAssetMap = getStructuredDataSchemaAssetMap();
 const supportedObjectKinds = listStructuredDataSchemas()
   .map((entry) => entry.type)

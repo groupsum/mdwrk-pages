@@ -1,3 +1,46 @@
+import assert from "node:assert/strict";
 import test from "node:test";
+import React from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 
-test.todo("generated Schema.org properties T2 robustness closure remains out of scope for the T0/T1 tranche");
+import { importLanderReactDist } from "./load-dist.mjs";
+import {
+  cloneJsonLike,
+  deepFreeze,
+  generatedPassThroughArtifacts,
+  propsForGeneratedArtifact,
+  sampleForGeneratedArtifact,
+} from "../../../../tests/generated-schemaorg-artifact-helpers.mjs";
+
+const propertyArtifacts = generatedPassThroughArtifacts.filter((artifact) => artifact.kind === "property");
+
+function extractJsonLd(markup) {
+  const match = markup.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/i);
+  assert.ok(match?.[1], "Rendered markup must contain a JSON-LD payload");
+  return JSON.parse(match[1]);
+}
+
+test("T2: generated property components stay deterministic and do not mutate frozen direct-prop payloads", async () => {
+  const semantic = await importLanderReactDist();
+  const renderableArtifacts = propertyArtifacts.flatMap((artifact) => {
+    try {
+      return [{ artifact, sample: sampleForGeneratedArtifact(artifact) }];
+    } catch {
+      return [];
+    }
+  });
+
+  for (const { artifact, sample } of renderableArtifacts) {
+    const Component = semantic[artifact.visibleExportName];
+    const props = propsForGeneratedArtifact(artifact, sample);
+    const baseline = cloneJsonLike(props);
+    deepFreeze(props);
+
+    const firstMarkup = renderToStaticMarkup(React.createElement(Component, props));
+    const secondMarkup = renderToStaticMarkup(React.createElement(Component, props));
+
+    assert.equal(firstMarkup, secondMarkup, `${artifact.visibleExportName} should render deterministically`);
+    assert.deepEqual(extractJsonLd(firstMarkup), extractJsonLd(secondMarkup));
+    assert.deepEqual(props, baseline, `${artifact.visibleExportName} should not mutate frozen props`);
+  }
+});

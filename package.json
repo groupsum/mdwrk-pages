@@ -1,7 +1,7 @@
 {
   "name": "mdwrk-pages",
   "private": true,
-  "version": "0.1.24",
+  "version": "0.1.25",
   "packageManager": "pnpm@10.11.0",
   "workspaces": [
     "packages/contracts/*",
@@ -36,7 +36,7 @@
     "release:status": "npx @changesets/cli status",
     "release:version": "npx @changesets/cli version",
     "validate:mdwrk-lander-package-suite": "node ./tools/governance/validate-mdwrk-lander-package-suite.mjs",
-    "ci:governance": "node tools/governance/mdwrk-pages-cr-matrix-t0.test.mjs && node tools/governance/mdwrk-pages-agent-hygiene.test.mjs && node tools/governance/generated-schemaorg-certification-matrix-t0.test.mjs && node tools/governance/generated-schemaorg-certification-matrix-t1.test.mjs && npm run validate:mdwrk-lander-package-suite"
+    "ci:governance": "node tools/governance/mdwrk-pages-cr-matrix-t0.test.mjs && node tools/governance/mdwrk-pages-agent-hygiene.test.mjs && node tools/governance/generated-schemaorg-certification-matrix-t0.test.mjs && node tools/governance/generated-schemaorg-certification-matrix-t1.test.mjs && node tools/governance/generated-schemaorg-certification-matrix-t2.test.mjs && npm run validate:mdwrk-lander-package-suite"
   },
   "dependencies": {
     "react": "^19.2.4",

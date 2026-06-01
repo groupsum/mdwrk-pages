@@ -7,12 +7,12 @@ import { importLanderReactDist } from "./load-dist.mjs";
 import {
   cloneJsonLike,
   deepFreeze,
-  generatedPassThroughArtifacts,
+  generatedArtifactsByKind,
   propsForGeneratedArtifact,
   sampleForGeneratedArtifact,
 } from "../../../../tests/generated-schemaorg-artifact-helpers.mjs";
 
-const typeArtifacts = generatedPassThroughArtifacts.filter((artifact) => artifact.kind === "type");
+const datatypeArtifacts = generatedArtifactsByKind("datatype");
 
 function extractJsonLd(markup) {
   const match = markup.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/i);
@@ -20,19 +20,12 @@ function extractJsonLd(markup) {
   return JSON.parse(match[1]);
 }
 
-test("T2: generated type components stay deterministic and do not mutate frozen direct-prop payloads", async () => {
+test("T2: generated datatype components stay deterministic and do not mutate frozen value props", async () => {
   const semantic = await importLanderReactDist();
-  const renderableArtifacts = typeArtifacts.flatMap((artifact) => {
-    try {
-      return [{ artifact, sample: sampleForGeneratedArtifact(artifact) }];
-    } catch {
-      return [];
-    }
-  });
 
-  for (const { artifact, sample } of renderableArtifacts) {
+  for (const artifact of datatypeArtifacts) {
     const Component = semantic[artifact.visibleExportName];
-    const props = propsForGeneratedArtifact(artifact, sample);
+    const props = propsForGeneratedArtifact(artifact, sampleForGeneratedArtifact(artifact));
     const baseline = cloneJsonLike(props);
     deepFreeze(props);
 
