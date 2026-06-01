@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { SoftwareVersionPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertySoftwareVersionProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertySoftwareVersionProps extends SoftwareVersionPropertyInput, GeneratedPropertyUiProps<SoftwareVersionPropertyInput> {}
 
-export function SchemaPropertySoftwareVersion({ value, description = "Version of the software instance.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertySoftwareVersionProps) {
+export function SchemaPropertySoftwareVersion({ value: legacyValue, description = "Version of the software instance.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertySoftwareVersionProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.SoftwareVersionPropertyStructuredData,
     defaultEyebrow: "Property",

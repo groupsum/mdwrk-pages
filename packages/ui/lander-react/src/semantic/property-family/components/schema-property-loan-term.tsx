@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { LoanTermPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyLoanTermProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyLoanTermProps extends LoanTermPropertyInput, GeneratedPropertyUiProps<LoanTermPropertyInput> {}
 
-export function SchemaPropertyLoanTerm({ value, description = "The duration of the loan or credit agreement.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyLoanTermProps) {
+export function SchemaPropertyLoanTerm({ value: legacyValue, description = "The duration of the loan or credit agreement.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyLoanTermProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.LoanTermPropertyStructuredData,
     defaultEyebrow: "Property",

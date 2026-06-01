@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { PolygonPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyPolygonProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyPolygonProps extends PolygonPropertyInput, GeneratedPropertyUiProps<PolygonPropertyInput> {}
 
-export function SchemaPropertyPolygon({ value, description = "A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyPolygonProps) {
+export function SchemaPropertyPolygon({ value: legacyValue, description = "A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyPolygonProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.PolygonPropertyStructuredData,
     defaultEyebrow: "Property",

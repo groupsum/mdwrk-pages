@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { Percentile25PropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyPercentile25Props extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyPercentile25Props extends Percentile25PropertyInput, GeneratedPropertyUiProps<Percentile25PropertyInput> {}
 
-export function SchemaPropertyPercentile25({ value, description = "The 25th percentile value.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyPercentile25Props) {
+export function SchemaPropertyPercentile25({ value: legacyValue, description = "The 25th percentile value.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyPercentile25Props) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.Percentile25PropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ContainedInPlacePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyContainedInPlaceProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyContainedInPlaceProps extends ContainedInPlacePropertyInput, GeneratedPropertyUiProps<ContainedInPlacePropertyInput> {}
 
-export function SchemaPropertyContainedInPlace({ value, description = "The basic containment relation between a place and one that contains it.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyContainedInPlaceProps) {
+export function SchemaPropertyContainedInPlace({ value: legacyValue, description = "The basic containment relation between a place and one that contains it.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyContainedInPlaceProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ContainedInPlacePropertyStructuredData,
     defaultEyebrow: "Property",

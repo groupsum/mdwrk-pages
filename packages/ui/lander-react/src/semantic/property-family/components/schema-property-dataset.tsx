@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DatasetPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDatasetProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDatasetProps extends DatasetPropertyInput, GeneratedPropertyUiProps<DatasetPropertyInput> {}
 
-export function SchemaPropertyDataset({ value, description = "A dataset contained in this catalog.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDatasetProps) {
+export function SchemaPropertyDataset({ value: legacyValue, description = "A dataset contained in this catalog.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDatasetProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DatasetPropertyStructuredData,
     defaultEyebrow: "Property",

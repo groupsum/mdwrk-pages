@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { RelatedTherapyPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyRelatedTherapyProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyRelatedTherapyProps extends RelatedTherapyPropertyInput, GeneratedPropertyUiProps<RelatedTherapyPropertyInput> {}
 
-export function SchemaPropertyRelatedTherapy({ value, description = "A medical therapy related to this anatomy.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyRelatedTherapyProps) {
+export function SchemaPropertyRelatedTherapy({ value: legacyValue, description = "A medical therapy related to this anatomy.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyRelatedTherapyProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.RelatedTherapyPropertyStructuredData,
     defaultEyebrow: "Property",

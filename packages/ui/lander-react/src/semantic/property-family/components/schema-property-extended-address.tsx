@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ExtendedAddressPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyExtendedAddressProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyExtendedAddressProps extends ExtendedAddressPropertyInput, GeneratedPropertyUiProps<ExtendedAddressPropertyInput> {}
 
-export function SchemaPropertyExtendedAddress({ value, description = "An address extension such as an apartment number, C/O or alternative name.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyExtendedAddressProps) {
+export function SchemaPropertyExtendedAddress({ value: legacyValue, description = "An address extension such as an apartment number, C/O or alternative name.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyExtendedAddressProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ExtendedAddressPropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { PregnancyWarningPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyPregnancyWarningProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyPregnancyWarningProps extends PregnancyWarningPropertyInput, GeneratedPropertyUiProps<PregnancyWarningPropertyInput> {}
 
-export function SchemaPropertyPregnancyWarning({ value, description = "Any precaution, guidance, contraindication, etc. related to this drug's use during pregnancy.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyPregnancyWarningProps) {
+export function SchemaPropertyPregnancyWarning({ value: legacyValue, description = "Any precaution, guidance, contraindication, etc. related to this drug's use during pregnancy.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyPregnancyWarningProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.PregnancyWarningPropertyStructuredData,
     defaultEyebrow: "Property",

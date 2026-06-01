@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DoesNotShipPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDoesNotShipProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDoesNotShipProps extends DoesNotShipPropertyInput, GeneratedPropertyUiProps<DoesNotShipPropertyInput> {}
 
-export function SchemaPropertyDoesNotShip({ value, description = "Indicates when shipping to a particular [[shippingDestination]] is not available.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDoesNotShipProps) {
+export function SchemaPropertyDoesNotShip({ value: legacyValue, description = "Indicates when shipping to a particular [[shippingDestination]] is not available.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDoesNotShipProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DoesNotShipPropertyStructuredData,
     defaultEyebrow: "Property",

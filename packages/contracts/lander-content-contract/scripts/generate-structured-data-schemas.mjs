@@ -262,7 +262,7 @@ const artifacts = [
   const pascalName = toPascalCase(entry.name);
   const wrapperExportName = entry.kind === "property" ? `${pascalName}PropertyStructuredData` : `${pascalName}StructuredData`;
   const wrapperAliasExportName = wrapperExportName;
-  const visibleExportName = entry.kind === "property" ? `Property${pascalName}` : pascalName;
+  const visibleExportName = entry.kind === "property" ? `SchemaProperty${pascalName}` : pascalName;
   const visibleAliasExportName = visibleExportName;
   const tokenKindSegment =
     entry.kind === "type" ? "" : entry.kind === "property" ? "SchemaProperty" : entry.kind === "enumeration" ? "SchemaEnumeration" : "SchemaDatatype";

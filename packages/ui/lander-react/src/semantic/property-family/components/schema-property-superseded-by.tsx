@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { SupersededByPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertySupersededByProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertySupersededByProps extends SupersededByPropertyInput, GeneratedPropertyUiProps<SupersededByPropertyInput> {}
 
-export function SchemaPropertySupersededBy({ value, description = "Relates a term (i.e. a property, class or enumeration) to one that supersedes it.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertySupersededByProps) {
+export function SchemaPropertySupersededBy({ value: legacyValue, description = "Relates a term (i.e. a property, class or enumeration) to one that supersedes it.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertySupersededByProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.SupersededByPropertyStructuredData,
     defaultEyebrow: "Property",

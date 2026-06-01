@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { IsFamilyFriendlyPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyIsFamilyFriendlyProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyIsFamilyFriendlyProps extends IsFamilyFriendlyPropertyInput, GeneratedPropertyUiProps<IsFamilyFriendlyPropertyInput> {}
 
-export function SchemaPropertyIsFamilyFriendly({ value, description = "Indicates whether this content is family friendly.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyIsFamilyFriendlyProps) {
+export function SchemaPropertyIsFamilyFriendly({ value: legacyValue, description = "Indicates whether this content is family friendly.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyIsFamilyFriendlyProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.IsFamilyFriendlyPropertyStructuredData,
     defaultEyebrow: "Property",

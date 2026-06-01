@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ExpectedPrognosisPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyExpectedPrognosisProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyExpectedPrognosisProps extends ExpectedPrognosisPropertyInput, GeneratedPropertyUiProps<ExpectedPrognosisPropertyInput> {}
 
-export function SchemaPropertyExpectedPrognosis({ value, description = "The likely outcome in either the short term or long term of the medical condition.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyExpectedPrognosisProps) {
+export function SchemaPropertyExpectedPrognosis({ value: legacyValue, description = "The likely outcome in either the short term or long term of the medical condition.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyExpectedPrognosisProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ExpectedPrognosisPropertyStructuredData,
     defaultEyebrow: "Property",

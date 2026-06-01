@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { FirstAppearancePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyFirstAppearanceProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyFirstAppearanceProps extends FirstAppearancePropertyInput, GeneratedPropertyUiProps<FirstAppearancePropertyInput> {}
 
-export function SchemaPropertyFirstAppearance({ value, description = "Indicates the first known occurrence of a [[Claim]] in some [[CreativeWork]].", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyFirstAppearanceProps) {
+export function SchemaPropertyFirstAppearance({ value: legacyValue, description = "Indicates the first known occurrence of a [[Claim]] in some [[CreativeWork]].", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyFirstAppearanceProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.FirstAppearancePropertyStructuredData,
     defaultEyebrow: "Property",

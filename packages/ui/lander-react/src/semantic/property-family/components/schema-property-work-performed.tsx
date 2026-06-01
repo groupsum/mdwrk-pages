@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { WorkPerformedPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyWorkPerformedProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyWorkPerformedProps extends WorkPerformedPropertyInput, GeneratedPropertyUiProps<WorkPerformedPropertyInput> {}
 
-export function SchemaPropertyWorkPerformed({ value, description = "A work performed in some event, for example a play performed in a TheaterEvent.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyWorkPerformedProps) {
+export function SchemaPropertyWorkPerformed({ value: legacyValue, description = "A work performed in some event, for example a play performed in a TheaterEvent.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyWorkPerformedProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.WorkPerformedPropertyStructuredData,
     defaultEyebrow: "Property",

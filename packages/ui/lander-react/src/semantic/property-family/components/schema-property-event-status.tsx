@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { EventStatusPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyEventStatusProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyEventStatusProps extends EventStatusPropertyInput, GeneratedPropertyUiProps<EventStatusPropertyInput> {}
 
-export function SchemaPropertyEventStatus({ value, description = "An eventStatus of an event represents its status; particularly useful when an event is cancelled or rescheduled.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyEventStatusProps) {
+export function SchemaPropertyEventStatus({ value: legacyValue, description = "An eventStatus of an event represents its status; particularly useful when an event is cancelled or rescheduled.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyEventStatusProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.EventStatusPropertyStructuredData,
     defaultEyebrow: "Property",

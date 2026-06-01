@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { LyricsPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyLyricsProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyLyricsProps extends LyricsPropertyInput, GeneratedPropertyUiProps<LyricsPropertyInput> {}
 
-export function SchemaPropertyLyrics({ value, description = "The words in the song.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyLyricsProps) {
+export function SchemaPropertyLyrics({ value: legacyValue, description = "The words in the song.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyLyricsProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.LyricsPropertyStructuredData,
     defaultEyebrow: "Property",

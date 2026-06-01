@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ByMonthDayPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyByMonthDayProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyByMonthDayProps extends ByMonthDayPropertyInput, GeneratedPropertyUiProps<ByMonthDayPropertyInput> {}
 
-export function SchemaPropertyByMonthDay({ value, description = "Defines the day(s) of the month on which a recurring [[Event]] takes place. Specified as an [[Integer]] between 1-31.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyByMonthDayProps) {
+export function SchemaPropertyByMonthDay({ value: legacyValue, description = "Defines the day(s) of the month on which a recurring [[Event]] takes place. Specified as an [[Integer]] between 1-31.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyByMonthDayProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ByMonthDayPropertyStructuredData,
     defaultEyebrow: "Property",

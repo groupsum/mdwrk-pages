@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { CopyrightYearPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyCopyrightYearProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyCopyrightYearProps extends CopyrightYearPropertyInput, GeneratedPropertyUiProps<CopyrightYearPropertyInput> {}
 
-export function SchemaPropertyCopyrightYear({ value, description = "The year during which the claimed copyright for the CreativeWork was first asserted.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyCopyrightYearProps) {
+export function SchemaPropertyCopyrightYear({ value: legacyValue, description = "The year during which the claimed copyright for the CreativeWork was first asserted.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyCopyrightYearProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.CopyrightYearPropertyStructuredData,
     defaultEyebrow: "Property",

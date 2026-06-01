@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ReturnLabelSourcePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyReturnLabelSourceProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyReturnLabelSourceProps extends ReturnLabelSourcePropertyInput, GeneratedPropertyUiProps<ReturnLabelSourcePropertyInput> {}
 
-export function SchemaPropertyReturnLabelSource({ value, description = "The method (from an enumeration) by which the customer obtains a return shipping label for a product returned for any reason.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyReturnLabelSourceProps) {
+export function SchemaPropertyReturnLabelSource({ value: legacyValue, description = "The method (from an enumeration) by which the customer obtains a return shipping label for a product returned for any reason.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyReturnLabelSourceProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ReturnLabelSourcePropertyStructuredData,
     defaultEyebrow: "Property",

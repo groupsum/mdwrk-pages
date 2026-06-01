@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { MaximumPhysicalAttendeeCapacityPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyMaximumPhysicalAttendeeCapacityProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyMaximumPhysicalAttendeeCapacityProps extends MaximumPhysicalAttendeeCapacityPropertyInput, GeneratedPropertyUiProps<MaximumPhysicalAttendeeCapacityPropertyInput> {}
 
-export function SchemaPropertyMaximumPhysicalAttendeeCapacity({ value, description = "The maximum physical attendee capacity of an [[Event]] whose [[eventAttendanceMode]] is [[OfflineEventAttendanceMode]] (or the offline aspects, in the case of a [[MixedEventAttendanceMode]]). ", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyMaximumPhysicalAttendeeCapacityProps) {
+export function SchemaPropertyMaximumPhysicalAttendeeCapacity({ value: legacyValue, description = "The maximum physical attendee capacity of an [[Event]] whose [[eventAttendanceMode]] is [[OfflineEventAttendanceMode]] (or the offline aspects, in the case of a [[MixedEventAttendanceMode]]). ", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyMaximumPhysicalAttendeeCapacityProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.MaximumPhysicalAttendeeCapacityPropertyStructuredData,
     defaultEyebrow: "Property",

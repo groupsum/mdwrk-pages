@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { SpecialtyPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertySpecialtyProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertySpecialtyProps extends SpecialtyPropertyInput, GeneratedPropertyUiProps<SpecialtyPropertyInput> {}
 
-export function SchemaPropertySpecialty({ value, description = "One of the domain specialities to which this web page's content applies.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertySpecialtyProps) {
+export function SchemaPropertySpecialty({ value: legacyValue, description = "One of the domain specialities to which this web page's content applies.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertySpecialtyProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.SpecialtyPropertyStructuredData,
     defaultEyebrow: "Property",

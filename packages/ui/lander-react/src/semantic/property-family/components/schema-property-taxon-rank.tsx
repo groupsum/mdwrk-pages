@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { TaxonRankPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyTaxonRankProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyTaxonRankProps extends TaxonRankPropertyInput, GeneratedPropertyUiProps<TaxonRankPropertyInput> {}
 
-export function SchemaPropertyTaxonRank({ value, description = "The taxonomic rank of this taxon given preferably as a URI from a controlled vocabulary – typically the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyTaxonRankProps) {
+export function SchemaPropertyTaxonRank({ value: legacyValue, description = "The taxonomic rank of this taxon given preferably as a URI from a controlled vocabulary – typically the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyTaxonRankProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.TaxonRankPropertyStructuredData,
     defaultEyebrow: "Property",

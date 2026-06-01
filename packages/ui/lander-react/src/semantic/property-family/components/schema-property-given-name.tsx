@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { GivenNamePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyGivenNameProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyGivenNameProps extends GivenNamePropertyInput, GeneratedPropertyUiProps<GivenNamePropertyInput> {}
 
-export function SchemaPropertyGivenName({ value, description = "Given name. In the U.S., the first name of a Person.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyGivenNameProps) {
+export function SchemaPropertyGivenName({ value: legacyValue, description = "Given name. In the U.S., the first name of a Person.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyGivenNameProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.GivenNamePropertyStructuredData,
     defaultEyebrow: "Property",

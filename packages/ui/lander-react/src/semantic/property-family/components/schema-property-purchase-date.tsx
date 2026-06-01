@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { PurchaseDatePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyPurchaseDateProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyPurchaseDateProps extends PurchaseDatePropertyInput, GeneratedPropertyUiProps<PurchaseDatePropertyInput> {}
 
-export function SchemaPropertyPurchaseDate({ value, description = "The date the item, e.g. vehicle, was purchased by the current owner.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyPurchaseDateProps) {
+export function SchemaPropertyPurchaseDate({ value: legacyValue, description = "The date the item, e.g. vehicle, was purchased by the current owner.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyPurchaseDateProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.PurchaseDatePropertyStructuredData,
     defaultEyebrow: "Property",

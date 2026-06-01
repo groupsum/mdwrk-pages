@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { MechanismOfActionPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyMechanismOfActionProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyMechanismOfActionProps extends MechanismOfActionPropertyInput, GeneratedPropertyUiProps<MechanismOfActionPropertyInput> {}
 
-export function SchemaPropertyMechanismOfAction({ value, description = "The specific biochemical interaction through which this drug or supplement produces its pharmacological effect.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyMechanismOfActionProps) {
+export function SchemaPropertyMechanismOfAction({ value: legacyValue, description = "The specific biochemical interaction through which this drug or supplement produces its pharmacological effect.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyMechanismOfActionProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.MechanismOfActionPropertyStructuredData,
     defaultEyebrow: "Property",

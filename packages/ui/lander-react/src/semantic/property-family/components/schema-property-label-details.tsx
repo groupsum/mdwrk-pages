@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { LabelDetailsPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyLabelDetailsProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyLabelDetailsProps extends LabelDetailsPropertyInput, GeneratedPropertyUiProps<LabelDetailsPropertyInput> {}
 
-export function SchemaPropertyLabelDetails({ value, description = "Link to the drug's label details.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyLabelDetailsProps) {
+export function SchemaPropertyLabelDetails({ value: legacyValue, description = "Link to the drug's label details.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyLabelDetailsProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.LabelDetailsPropertyStructuredData,
     defaultEyebrow: "Property",

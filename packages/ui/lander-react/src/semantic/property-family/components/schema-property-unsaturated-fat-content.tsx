@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { UnsaturatedFatContentPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyUnsaturatedFatContentProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyUnsaturatedFatContentProps extends UnsaturatedFatContentPropertyInput, GeneratedPropertyUiProps<UnsaturatedFatContentPropertyInput> {}
 
-export function SchemaPropertyUnsaturatedFatContent({ value, description = "The number of grams of unsaturated fat.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyUnsaturatedFatContentProps) {
+export function SchemaPropertyUnsaturatedFatContent({ value: legacyValue, description = "The number of grams of unsaturated fat.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyUnsaturatedFatContentProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.UnsaturatedFatContentPropertyStructuredData,
     defaultEyebrow: "Property",

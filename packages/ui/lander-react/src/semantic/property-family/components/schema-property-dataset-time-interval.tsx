@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DatasetTimeIntervalPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDatasetTimeIntervalProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDatasetTimeIntervalProps extends DatasetTimeIntervalPropertyInput, GeneratedPropertyUiProps<DatasetTimeIntervalPropertyInput> {}
 
-export function SchemaPropertyDatasetTimeInterval({ value, description = "The range of temporal applicability of a dataset, e.g. for a 2011 census dataset, the year 2011 (in ISO 8601 time interval format).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDatasetTimeIntervalProps) {
+export function SchemaPropertyDatasetTimeInterval({ value: legacyValue, description = "The range of temporal applicability of a dataset, e.g. for a 2011 census dataset, the year 2011 (in ISO 8601 time interval format).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDatasetTimeIntervalProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DatasetTimeIntervalPropertyStructuredData,
     defaultEyebrow: "Property",

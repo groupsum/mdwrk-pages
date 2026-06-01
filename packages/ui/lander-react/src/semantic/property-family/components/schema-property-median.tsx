@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { MedianPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyMedianProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyMedianProps extends MedianPropertyInput, GeneratedPropertyUiProps<MedianPropertyInput> {}
 
-export function SchemaPropertyMedian({ value, description = "The median value.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyMedianProps) {
+export function SchemaPropertyMedian({ value: legacyValue, description = "The median value.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyMedianProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.MedianPropertyStructuredData,
     defaultEyebrow: "Property",

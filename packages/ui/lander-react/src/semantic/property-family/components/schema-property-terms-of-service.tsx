@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { TermsOfServicePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyTermsOfServiceProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyTermsOfServiceProps extends TermsOfServicePropertyInput, GeneratedPropertyUiProps<TermsOfServicePropertyInput> {}
 
-export function SchemaPropertyTermsOfService({ value, description = "Human-readable terms of service documentation.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyTermsOfServiceProps) {
+export function SchemaPropertyTermsOfService({ value: legacyValue, description = "Human-readable terms of service documentation.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyTermsOfServiceProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.TermsOfServicePropertyStructuredData,
     defaultEyebrow: "Property",

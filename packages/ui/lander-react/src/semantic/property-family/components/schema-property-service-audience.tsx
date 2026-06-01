@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ServiceAudiencePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyServiceAudienceProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyServiceAudienceProps extends ServiceAudiencePropertyInput, GeneratedPropertyUiProps<ServiceAudiencePropertyInput> {}
 
-export function SchemaPropertyServiceAudience({ value, description = "The audience eligible for this service.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyServiceAudienceProps) {
+export function SchemaPropertyServiceAudience({ value: legacyValue, description = "The audience eligible for this service.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyServiceAudienceProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ServiceAudiencePropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { BusinessFunctionPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyBusinessFunctionProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyBusinessFunctionProps extends BusinessFunctionPropertyInput, GeneratedPropertyUiProps<BusinessFunctionPropertyInput> {}
 
-export function SchemaPropertyBusinessFunction({ value, description = "The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyBusinessFunctionProps) {
+export function SchemaPropertyBusinessFunction({ value: legacyValue, description = "The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyBusinessFunctionProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.BusinessFunctionPropertyStructuredData,
     defaultEyebrow: "Property",

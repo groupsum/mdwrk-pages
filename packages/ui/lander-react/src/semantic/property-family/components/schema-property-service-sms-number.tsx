@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ServiceSmsNumberPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyServiceSmsNumberProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyServiceSmsNumberProps extends ServiceSmsNumberPropertyInput, GeneratedPropertyUiProps<ServiceSmsNumberPropertyInput> {}
 
-export function SchemaPropertyServiceSmsNumber({ value, description = "The number to access the service by text message.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyServiceSmsNumberProps) {
+export function SchemaPropertyServiceSmsNumber({ value: legacyValue, description = "The number to access the service by text message.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyServiceSmsNumberProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ServiceSmsNumberPropertyStructuredData,
     defaultEyebrow: "Property",

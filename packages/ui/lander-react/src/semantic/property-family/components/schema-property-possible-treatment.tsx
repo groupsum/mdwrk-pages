@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { PossibleTreatmentPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyPossibleTreatmentProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyPossibleTreatmentProps extends PossibleTreatmentPropertyInput, GeneratedPropertyUiProps<PossibleTreatmentPropertyInput> {}
 
-export function SchemaPropertyPossibleTreatment({ value, description = "A possible treatment to address this condition, sign or symptom.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyPossibleTreatmentProps) {
+export function SchemaPropertyPossibleTreatment({ value: legacyValue, description = "A possible treatment to address this condition, sign or symptom.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyPossibleTreatmentProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.PossibleTreatmentPropertyStructuredData,
     defaultEyebrow: "Property",

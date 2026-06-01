@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { SupportingDataPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertySupportingDataProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertySupportingDataProps extends SupportingDataPropertyInput, GeneratedPropertyUiProps<SupportingDataPropertyInput> {}
 
-export function SchemaPropertySupportingData({ value, description = "Supporting data for a SoftwareApplication.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertySupportingDataProps) {
+export function SchemaPropertySupportingData({ value: legacyValue, description = "Supporting data for a SoftwareApplication.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertySupportingDataProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.SupportingDataPropertyStructuredData,
     defaultEyebrow: "Property",

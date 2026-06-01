@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { NonprofitStatusPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyNonprofitStatusProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyNonprofitStatusProps extends NonprofitStatusPropertyInput, GeneratedPropertyUiProps<NonprofitStatusPropertyInput> {}
 
-export function SchemaPropertyNonprofitStatus({ value, description = "nonprofitStatus indicates the legal status of a non-profit organization in its primary place of business.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyNonprofitStatusProps) {
+export function SchemaPropertyNonprofitStatus({ value: legacyValue, description = "nonprofitStatus indicates the legal status of a non-profit organization in its primary place of business.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyNonprofitStatusProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.NonprofitStatusPropertyStructuredData,
     defaultEyebrow: "Property",

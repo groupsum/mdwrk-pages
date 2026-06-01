@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { FeatureListPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyFeatureListProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyFeatureListProps extends FeatureListPropertyInput, GeneratedPropertyUiProps<FeatureListPropertyInput> {}
 
-export function SchemaPropertyFeatureList({ value, description = "Features or modules provided by this application (and possibly required by other applications).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyFeatureListProps) {
+export function SchemaPropertyFeatureList({ value: legacyValue, description = "Features or modules provided by this application (and possibly required by other applications).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyFeatureListProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.FeatureListPropertyStructuredData,
     defaultEyebrow: "Property",

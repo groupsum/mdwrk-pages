@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { WorstRatingPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyWorstRatingProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyWorstRatingProps extends WorstRatingPropertyInput, GeneratedPropertyUiProps<WorstRatingPropertyInput> {}
 
-export function SchemaPropertyWorstRating({ value, description = "The lowest value allowed in this rating system.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyWorstRatingProps) {
+export function SchemaPropertyWorstRating({ value: legacyValue, description = "The lowest value allowed in this rating system.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyWorstRatingProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.WorstRatingPropertyStructuredData,
     defaultEyebrow: "Property",

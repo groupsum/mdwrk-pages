@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DissolutionDatePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDissolutionDateProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDissolutionDateProps extends DissolutionDatePropertyInput, GeneratedPropertyUiProps<DissolutionDatePropertyInput> {}
 
-export function SchemaPropertyDissolutionDate({ value, description = "The date that this organization was dissolved.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDissolutionDateProps) {
+export function SchemaPropertyDissolutionDate({ value: legacyValue, description = "The date that this organization was dissolved.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDissolutionDateProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DissolutionDatePropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { NumItemsPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyNumItemsProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyNumItemsProps extends NumItemsPropertyInput, GeneratedPropertyUiProps<NumItemsPropertyInput> {}
 
-export function SchemaPropertyNumItems({ value, description = "Limits the number of items being shipped for which these conditions apply.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyNumItemsProps) {
+export function SchemaPropertyNumItems({ value: legacyValue, description = "Limits the number of items being shipped for which these conditions apply.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyNumItemsProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.NumItemsPropertyStructuredData,
     defaultEyebrow: "Property",

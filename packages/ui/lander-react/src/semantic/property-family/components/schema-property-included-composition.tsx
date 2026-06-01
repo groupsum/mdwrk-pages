@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { IncludedCompositionPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyIncludedCompositionProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyIncludedCompositionProps extends IncludedCompositionPropertyInput, GeneratedPropertyUiProps<IncludedCompositionPropertyInput> {}
 
-export function SchemaPropertyIncludedComposition({ value, description = "Smaller compositions included in this work (e.g. a movement in a symphony).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyIncludedCompositionProps) {
+export function SchemaPropertyIncludedComposition({ value: legacyValue, description = "Smaller compositions included in this work (e.g. a movement in a symphony).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyIncludedCompositionProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.IncludedCompositionPropertyStructuredData,
     defaultEyebrow: "Property",

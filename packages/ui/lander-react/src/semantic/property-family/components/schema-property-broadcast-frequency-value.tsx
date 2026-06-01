@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { BroadcastFrequencyValuePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyBroadcastFrequencyValueProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyBroadcastFrequencyValueProps extends BroadcastFrequencyValuePropertyInput, GeneratedPropertyUiProps<BroadcastFrequencyValuePropertyInput> {}
 
-export function SchemaPropertyBroadcastFrequencyValue({ value, description = "The frequency in MHz for a particular broadcast.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyBroadcastFrequencyValueProps) {
+export function SchemaPropertyBroadcastFrequencyValue({ value: legacyValue, description = "The frequency in MHz for a particular broadcast.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyBroadcastFrequencyValueProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.BroadcastFrequencyValuePropertyStructuredData,
     defaultEyebrow: "Property",

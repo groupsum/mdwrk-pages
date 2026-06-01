@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { CustomerRemorseReturnLabelSourcePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyCustomerRemorseReturnLabelSourceProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyCustomerRemorseReturnLabelSourceProps extends CustomerRemorseReturnLabelSourcePropertyInput, GeneratedPropertyUiProps<CustomerRemorseReturnLabelSourcePropertyInput> {}
 
-export function SchemaPropertyCustomerRemorseReturnLabelSource({ value, description = "The method (from an enumeration) by which the customer obtains a return shipping label for a product returned due to customer remorse.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyCustomerRemorseReturnLabelSourceProps) {
+export function SchemaPropertyCustomerRemorseReturnLabelSource({ value: legacyValue, description = "The method (from an enumeration) by which the customer obtains a return shipping label for a product returned due to customer remorse.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyCustomerRemorseReturnLabelSourceProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.CustomerRemorseReturnLabelSourcePropertyStructuredData,
     defaultEyebrow: "Property",

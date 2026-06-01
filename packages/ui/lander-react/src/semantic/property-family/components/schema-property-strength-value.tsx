@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { StrengthValuePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyStrengthValueProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyStrengthValueProps extends StrengthValuePropertyInput, GeneratedPropertyUiProps<StrengthValuePropertyInput> {}
 
-export function SchemaPropertyStrengthValue({ value, description = "The value of an active ingredient's strength, e.g. 325.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyStrengthValueProps) {
+export function SchemaPropertyStrengthValue({ value: legacyValue, description = "The value of an active ingredient's strength, e.g. 325.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyStrengthValueProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.StrengthValuePropertyStructuredData,
     defaultEyebrow: "Property",

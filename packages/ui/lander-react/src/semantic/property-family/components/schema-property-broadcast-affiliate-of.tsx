@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { BroadcastAffiliateOfPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyBroadcastAffiliateOfProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyBroadcastAffiliateOfProps extends BroadcastAffiliateOfPropertyInput, GeneratedPropertyUiProps<BroadcastAffiliateOfPropertyInput> {}
 
-export function SchemaPropertyBroadcastAffiliateOf({ value, description = "The media network(s) whose content is broadcast on this station.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyBroadcastAffiliateOfProps) {
+export function SchemaPropertyBroadcastAffiliateOf({ value: legacyValue, description = "The media network(s) whose content is broadcast on this station.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyBroadcastAffiliateOfProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.BroadcastAffiliateOfPropertyStructuredData,
     defaultEyebrow: "Property",

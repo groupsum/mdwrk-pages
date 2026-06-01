@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { IssuedByPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyIssuedByProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyIssuedByProps extends IssuedByPropertyInput, GeneratedPropertyUiProps<IssuedByPropertyInput> {}
 
-export function SchemaPropertyIssuedBy({ value, description = "The organization issuing the item, for example a [[Permit]], [[Ticket]], or [[Certification]].", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyIssuedByProps) {
+export function SchemaPropertyIssuedBy({ value: legacyValue, description = "The organization issuing the item, for example a [[Permit]], [[Ticket]], or [[Certification]].", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyIssuedByProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.IssuedByPropertyStructuredData,
     defaultEyebrow: "Property",

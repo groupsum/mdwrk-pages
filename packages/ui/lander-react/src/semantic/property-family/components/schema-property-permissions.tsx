@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { PermissionsPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyPermissionsProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyPermissionsProps extends PermissionsPropertyInput, GeneratedPropertyUiProps<PermissionsPropertyInput> {}
 
-export function SchemaPropertyPermissions({ value, description = "Permission(s) required to run the app (for example, a mobile app may require full internet access or may run only on wifi).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyPermissionsProps) {
+export function SchemaPropertyPermissions({ value: legacyValue, description = "Permission(s) required to run the app (for example, a mobile app may require full internet access or may run only on wifi).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyPermissionsProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.PermissionsPropertyStructuredData,
     defaultEyebrow: "Property",

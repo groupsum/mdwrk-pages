@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { SuggestedAgePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertySuggestedAgeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertySuggestedAgeProps extends SuggestedAgePropertyInput, GeneratedPropertyUiProps<SuggestedAgePropertyInput> {}
 
-export function SchemaPropertySuggestedAge({ value, description = "The age or age range for the intended audience or person, for example 3-12 months for infants, 1-5 years for toddlers.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertySuggestedAgeProps) {
+export function SchemaPropertySuggestedAge({ value: legacyValue, description = "The age or age range for the intended audience or person, for example 3-12 months for infants, 1-5 years for toddlers.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertySuggestedAgeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.SuggestedAgePropertyStructuredData,
     defaultEyebrow: "Property",

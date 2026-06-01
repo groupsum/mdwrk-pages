@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { PartOfEpisodePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyPartOfEpisodeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyPartOfEpisodeProps extends PartOfEpisodePropertyInput, GeneratedPropertyUiProps<PartOfEpisodePropertyInput> {}
 
-export function SchemaPropertyPartOfEpisode({ value, description = "The episode to which this clip belongs.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyPartOfEpisodeProps) {
+export function SchemaPropertyPartOfEpisode({ value: legacyValue, description = "The episode to which this clip belongs.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyPartOfEpisodeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.PartOfEpisodePropertyStructuredData,
     defaultEyebrow: "Property",

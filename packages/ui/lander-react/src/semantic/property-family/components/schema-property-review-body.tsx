@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ReviewBodyPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyReviewBodyProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyReviewBodyProps extends ReviewBodyPropertyInput, GeneratedPropertyUiProps<ReviewBodyPropertyInput> {}
 
-export function SchemaPropertyReviewBody({ value, description = "The actual body of the review.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyReviewBodyProps) {
+export function SchemaPropertyReviewBody({ value: legacyValue, description = "The actual body of the review.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyReviewBodyProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ReviewBodyPropertyStructuredData,
     defaultEyebrow: "Property",

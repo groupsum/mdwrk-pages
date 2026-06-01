@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DatePublishedPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDatePublishedProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDatePublishedProps extends DatePublishedPropertyInput, GeneratedPropertyUiProps<DatePublishedPropertyInput> {}
 
-export function SchemaPropertyDatePublished({ value, description = "Date of first publication or broadcast. For example the date a [[CreativeWork]] was broadcast or a [[Certification]] was issued.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDatePublishedProps) {
+export function SchemaPropertyDatePublished({ value: legacyValue, description = "Date of first publication or broadcast. For example the date a [[CreativeWork]] was broadcast or a [[Certification]] was issued.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDatePublishedProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DatePublishedPropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { StreetAddressPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyStreetAddressProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyStreetAddressProps extends StreetAddressPropertyInput, GeneratedPropertyUiProps<StreetAddressPropertyInput> {}
 
-export function SchemaPropertyStreetAddress({ value, description = "The street address. For example, 1600 Amphitheatre Pkwy.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyStreetAddressProps) {
+export function SchemaPropertyStreetAddress({ value: legacyValue, description = "The street address. For example, 1600 Amphitheatre Pkwy.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyStreetAddressProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.StreetAddressPropertyStructuredData,
     defaultEyebrow: "Property",

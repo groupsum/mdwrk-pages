@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { TelephonePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyTelephoneProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyTelephoneProps extends TelephonePropertyInput, GeneratedPropertyUiProps<TelephonePropertyInput> {}
 
-export function SchemaPropertyTelephone({ value, description = "The telephone number.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyTelephoneProps) {
+export function SchemaPropertyTelephone({ value: legacyValue, description = "The telephone number.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyTelephoneProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.TelephonePropertyStructuredData,
     defaultEyebrow: "Property",

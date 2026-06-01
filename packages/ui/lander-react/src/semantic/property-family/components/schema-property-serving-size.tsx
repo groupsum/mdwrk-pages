@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ServingSizePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyServingSizeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyServingSizeProps extends ServingSizePropertyInput, GeneratedPropertyUiProps<ServingSizePropertyInput> {}
 
-export function SchemaPropertyServingSize({ value, description = "The serving size, in terms of the number of volume or mass.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyServingSizeProps) {
+export function SchemaPropertyServingSize({ value: legacyValue, description = "The serving size, in terms of the number of volume or mass.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyServingSizeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ServingSizePropertyStructuredData,
     defaultEyebrow: "Property",

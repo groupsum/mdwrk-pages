@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { FulfillmentTypePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyFulfillmentTypeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyFulfillmentTypeProps extends FulfillmentTypePropertyInput, GeneratedPropertyUiProps<FulfillmentTypePropertyInput> {}
 
-export function SchemaPropertyFulfillmentType({ value, description = "Type of fulfillment applicable to the [[ShippingService]].", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyFulfillmentTypeProps) {
+export function SchemaPropertyFulfillmentType({ value: legacyValue, description = "Type of fulfillment applicable to the [[ShippingService]].", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyFulfillmentTypeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.FulfillmentTypePropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { StartOffsetPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyStartOffsetProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyStartOffsetProps extends StartOffsetPropertyInput, GeneratedPropertyUiProps<StartOffsetPropertyInput> {}
 
-export function SchemaPropertyStartOffset({ value, description = "The start time of the clip expressed as the number of seconds from the beginning of the work.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyStartOffsetProps) {
+export function SchemaPropertyStartOffset({ value: legacyValue, description = "The start time of the clip expressed as the number of seconds from the beginning of the work.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyStartOffsetProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.StartOffsetPropertyStructuredData,
     defaultEyebrow: "Property",

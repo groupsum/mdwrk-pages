@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { TaxIDPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyTaxIDProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyTaxIDProps extends TaxIDPropertyInput, GeneratedPropertyUiProps<TaxIDPropertyInput> {}
 
-export function SchemaPropertyTaxID({ value, description = "The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyTaxIDProps) {
+export function SchemaPropertyTaxID({ value: legacyValue, description = "The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyTaxIDProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.TaxIDPropertyStructuredData,
     defaultEyebrow: "Property",

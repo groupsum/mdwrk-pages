@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { LifeEventPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyLifeEventProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyLifeEventProps extends LifeEventPropertyInput, GeneratedPropertyUiProps<LifeEventPropertyInput> {}
 
-export function SchemaPropertyLifeEvent({ value, description = "A life event like baptism, communions, Bar Mitzvahs, Aqiqah, Namakarana, Miyamairi, burial, ....", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyLifeEventProps) {
+export function SchemaPropertyLifeEvent({ value: legacyValue, description = "A life event like baptism, communions, Bar Mitzvahs, Aqiqah, Namakarana, Miyamairi, burial, ....", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyLifeEventProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.LifeEventPropertyStructuredData,
     defaultEyebrow: "Property",

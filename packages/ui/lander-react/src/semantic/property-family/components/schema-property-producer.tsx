@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ProducerPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyProducerProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyProducerProps extends ProducerPropertyInput, GeneratedPropertyUiProps<ProducerPropertyInput> {}
 
-export function SchemaPropertyProducer({ value, description = "The person or organization who produced the work (e.g. music album, movie, TV/radio series etc.).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyProducerProps) {
+export function SchemaPropertyProducer({ value: legacyValue, description = "The person or organization who produced the work (e.g. music album, movie, TV/radio series etc.).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyProducerProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ProducerPropertyStructuredData,
     defaultEyebrow: "Property",

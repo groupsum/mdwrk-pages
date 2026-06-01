@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ReleaseDatePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyReleaseDateProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyReleaseDateProps extends ReleaseDatePropertyInput, GeneratedPropertyUiProps<ReleaseDatePropertyInput> {}
 
-export function SchemaPropertyReleaseDate({ value, description = "The release date of a product or product model. This can be used to distinguish the exact variant of a product.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyReleaseDateProps) {
+export function SchemaPropertyReleaseDate({ value: legacyValue, description = "The release date of a product or product model. This can be used to distinguish the exact variant of a product.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyReleaseDateProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ReleaseDatePropertyStructuredData,
     defaultEyebrow: "Property",

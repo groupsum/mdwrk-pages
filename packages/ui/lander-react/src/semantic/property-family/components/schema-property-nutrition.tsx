@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { NutritionPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyNutritionProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyNutritionProps extends NutritionPropertyInput, GeneratedPropertyUiProps<NutritionPropertyInput> {}
 
-export function SchemaPropertyNutrition({ value, description = "Nutrition information about the recipe or menu item.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyNutritionProps) {
+export function SchemaPropertyNutrition({ value: legacyValue, description = "Nutrition information about the recipe or menu item.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyNutritionProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.NutritionPropertyStructuredData,
     defaultEyebrow: "Property",

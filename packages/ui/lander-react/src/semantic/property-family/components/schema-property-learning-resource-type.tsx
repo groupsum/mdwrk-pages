@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { LearningResourceTypePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyLearningResourceTypeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyLearningResourceTypeProps extends LearningResourceTypePropertyInput, GeneratedPropertyUiProps<LearningResourceTypePropertyInput> {}
 
-export function SchemaPropertyLearningResourceType({ value, description = "The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyLearningResourceTypeProps) {
+export function SchemaPropertyLearningResourceType({ value: legacyValue, description = "The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyLearningResourceTypeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.LearningResourceTypePropertyStructuredData,
     defaultEyebrow: "Property",

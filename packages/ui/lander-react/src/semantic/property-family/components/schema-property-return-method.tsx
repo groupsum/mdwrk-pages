@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ReturnMethodPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyReturnMethodProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyReturnMethodProps extends ReturnMethodPropertyInput, GeneratedPropertyUiProps<ReturnMethodPropertyInput> {}
 
-export function SchemaPropertyReturnMethod({ value, description = "The type of return method offered, specified from an enumeration.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyReturnMethodProps) {
+export function SchemaPropertyReturnMethod({ value: legacyValue, description = "The type of return method offered, specified from an enumeration.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyReturnMethodProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ReturnMethodPropertyStructuredData,
     defaultEyebrow: "Property",

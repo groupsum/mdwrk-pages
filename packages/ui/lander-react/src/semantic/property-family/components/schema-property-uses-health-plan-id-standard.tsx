@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { UsesHealthPlanIdStandardPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyUsesHealthPlanIdStandardProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyUsesHealthPlanIdStandardProps extends UsesHealthPlanIdStandardPropertyInput, GeneratedPropertyUiProps<UsesHealthPlanIdStandardPropertyInput> {}
 
-export function SchemaPropertyUsesHealthPlanIdStandard({ value, description = "The standard for interpreting the Plan ID. The preferred is \"HIOS\". See the Centers for Medicare & Medicaid Services for more details.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyUsesHealthPlanIdStandardProps) {
+export function SchemaPropertyUsesHealthPlanIdStandard({ value: legacyValue, description = "The standard for interpreting the Plan ID. The preferred is \"HIOS\". See the Centers for Medicare & Medicaid Services for more details.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyUsesHealthPlanIdStandardProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.UsesHealthPlanIdStandardPropertyStructuredData,
     defaultEyebrow: "Property",

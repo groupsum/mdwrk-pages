@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { PrintColumnPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyPrintColumnProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyPrintColumnProps extends PrintColumnPropertyInput, GeneratedPropertyUiProps<PrintColumnPropertyInput> {}
 
-export function SchemaPropertyPrintColumn({ value, description = "The number of the column in which the NewsArticle appears in the print edition.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyPrintColumnProps) {
+export function SchemaPropertyPrintColumn({ value: legacyValue, description = "The number of the column in which the NewsArticle appears in the print edition.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyPrintColumnProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.PrintColumnPropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DayOfWeekPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDayOfWeekProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDayOfWeekProps extends DayOfWeekPropertyInput, GeneratedPropertyUiProps<DayOfWeekPropertyInput> {}
 
-export function SchemaPropertyDayOfWeek({ value, description = "The day of the week for which these opening hours are valid.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDayOfWeekProps) {
+export function SchemaPropertyDayOfWeek({ value: legacyValue, description = "The day of the week for which these opening hours are valid.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDayOfWeekProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DayOfWeekPropertyStructuredData,
     defaultEyebrow: "Property",

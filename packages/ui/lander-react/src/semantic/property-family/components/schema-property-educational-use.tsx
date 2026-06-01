@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { EducationalUsePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyEducationalUseProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyEducationalUseProps extends EducationalUsePropertyInput, GeneratedPropertyUiProps<EducationalUsePropertyInput> {}
 
-export function SchemaPropertyEducationalUse({ value, description = "The purpose of a work in the context of education; for example, 'assignment', 'group work'.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyEducationalUseProps) {
+export function SchemaPropertyEducationalUse({ value: legacyValue, description = "The purpose of a work in the context of education; for example, 'assignment', 'group work'.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyEducationalUseProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.EducationalUsePropertyStructuredData,
     defaultEyebrow: "Property",

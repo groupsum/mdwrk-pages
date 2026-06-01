@@ -42,6 +42,7 @@ test("T1: generated type mode supports pages and listings filtering", () => {
     React.createElement(SemanticShowcase, { initialState: { mode: "generated-surface", kind: "type", pageSize: 12, surface: "page-or-listing" } }),
   );
   assert.ok(markup.includes("Surface focus"));
+  assert.equal(view.total, buildGeneratedArtifactView({ kind: "type", pageSize: 12 }).total);
   assert.ok(markup.includes(view.entries[0].name));
-  assert.ok(markup.includes("Thing"));
+  assert.ok(view.entries.some((entry) => entry.surfaceFocus === "page" || entry.surfaceFocus === "page-or-listing"));
 });

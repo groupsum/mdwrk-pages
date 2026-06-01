@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { AlbumReleasePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyAlbumReleaseProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyAlbumReleaseProps extends AlbumReleasePropertyInput, GeneratedPropertyUiProps<AlbumReleasePropertyInput> {}
 
-export function SchemaPropertyAlbumRelease({ value, description = "A release of this album.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyAlbumReleaseProps) {
+export function SchemaPropertyAlbumRelease({ value: legacyValue, description = "A release of this album.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyAlbumReleaseProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.AlbumReleasePropertyStructuredData,
     defaultEyebrow: "Property",

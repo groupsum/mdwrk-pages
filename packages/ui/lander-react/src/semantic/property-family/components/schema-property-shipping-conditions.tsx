@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ShippingConditionsPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyShippingConditionsProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyShippingConditionsProps extends ShippingConditionsPropertyInput, GeneratedPropertyUiProps<ShippingConditionsPropertyInput> {}
 
-export function SchemaPropertyShippingConditions({ value, description = "The conditions (constraints, price) applicable to the [[ShippingService]].", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyShippingConditionsProps) {
+export function SchemaPropertyShippingConditions({ value: legacyValue, description = "The conditions (constraints, price) applicable to the [[ShippingService]].", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyShippingConditionsProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ShippingConditionsPropertyStructuredData,
     defaultEyebrow: "Property",

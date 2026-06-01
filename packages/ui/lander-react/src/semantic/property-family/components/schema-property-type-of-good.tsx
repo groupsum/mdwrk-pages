@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { TypeOfGoodPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyTypeOfGoodProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyTypeOfGoodProps extends TypeOfGoodPropertyInput, GeneratedPropertyUiProps<TypeOfGoodPropertyInput> {}
 
-export function SchemaPropertyTypeOfGood({ value, description = "The product that this structured value is referring to.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyTypeOfGoodProps) {
+export function SchemaPropertyTypeOfGood({ value: legacyValue, description = "The product that this structured value is referring to.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyTypeOfGoodProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.TypeOfGoodPropertyStructuredData,
     defaultEyebrow: "Property",

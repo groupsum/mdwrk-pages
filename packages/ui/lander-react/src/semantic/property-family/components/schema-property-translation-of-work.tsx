@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { TranslationOfWorkPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyTranslationOfWorkProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyTranslationOfWorkProps extends TranslationOfWorkPropertyInput, GeneratedPropertyUiProps<TranslationOfWorkPropertyInput> {}
 
-export function SchemaPropertyTranslationOfWork({ value, description = "The work that this work has been translated from. E.g. 物种起源 is a translationOf “On the Origin of Species”.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyTranslationOfWorkProps) {
+export function SchemaPropertyTranslationOfWork({ value: legacyValue, description = "The work that this work has been translated from. E.g. 物种起源 is a translationOf “On the Origin of Species”.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyTranslationOfWorkProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.TranslationOfWorkPropertyStructuredData,
     defaultEyebrow: "Property",

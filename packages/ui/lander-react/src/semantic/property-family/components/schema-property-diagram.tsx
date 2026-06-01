@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DiagramPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDiagramProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDiagramProps extends DiagramPropertyInput, GeneratedPropertyUiProps<DiagramPropertyInput> {}
 
-export function SchemaPropertyDiagram({ value, description = "An image containing a diagram that illustrates the structure and/or its component substructures and/or connections with other structures.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDiagramProps) {
+export function SchemaPropertyDiagram({ value: legacyValue, description = "An image containing a diagram that illustrates the structure and/or its component substructures and/or connections with other structures.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDiagramProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DiagramPropertyStructuredData,
     defaultEyebrow: "Property",

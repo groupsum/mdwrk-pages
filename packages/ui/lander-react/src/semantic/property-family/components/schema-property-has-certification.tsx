@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { HasCertificationPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyHasCertificationProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyHasCertificationProps extends HasCertificationPropertyInput, GeneratedPropertyUiProps<HasCertificationPropertyInput> {}
 
-export function SchemaPropertyHasCertification({ value, description = "Certification information about a product, organization, service, place, or person.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyHasCertificationProps) {
+export function SchemaPropertyHasCertification({ value: legacyValue, description = "Certification information about a product, organization, service, place, or person.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyHasCertificationProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.HasCertificationPropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ActionApplicationPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyActionApplicationProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyActionApplicationProps extends ActionApplicationPropertyInput, GeneratedPropertyUiProps<ActionApplicationPropertyInput> {}
 
-export function SchemaPropertyActionApplication({ value, description = "An application that can complete the request.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyActionApplicationProps) {
+export function SchemaPropertyActionApplication({ value: legacyValue, description = "An application that can complete the request.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyActionApplicationProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ActionApplicationPropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DuplicateTherapyPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDuplicateTherapyProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDuplicateTherapyProps extends DuplicateTherapyPropertyInput, GeneratedPropertyUiProps<DuplicateTherapyPropertyInput> {}
 
-export function SchemaPropertyDuplicateTherapy({ value, description = "A therapy that duplicates or overlaps this one.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDuplicateTherapyProps) {
+export function SchemaPropertyDuplicateTherapy({ value: legacyValue, description = "A therapy that duplicates or overlaps this one.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDuplicateTherapyProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DuplicateTherapyPropertyStructuredData,
     defaultEyebrow: "Property",

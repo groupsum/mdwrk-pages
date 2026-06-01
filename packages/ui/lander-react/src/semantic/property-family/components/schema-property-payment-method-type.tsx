@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { PaymentMethodTypePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyPaymentMethodTypeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyPaymentMethodTypeProps extends PaymentMethodTypePropertyInput, GeneratedPropertyUiProps<PaymentMethodTypePropertyInput> {}
 
-export function SchemaPropertyPaymentMethodType({ value, description = "The type of a payment method.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyPaymentMethodTypeProps) {
+export function SchemaPropertyPaymentMethodType({ value: legacyValue, description = "The type of a payment method.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyPaymentMethodTypeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.PaymentMethodTypePropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { PostOfficeBoxNumberPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyPostOfficeBoxNumberProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyPostOfficeBoxNumberProps extends PostOfficeBoxNumberPropertyInput, GeneratedPropertyUiProps<PostOfficeBoxNumberPropertyInput> {}
 
-export function SchemaPropertyPostOfficeBoxNumber({ value, description = "The post office box number for PO box addresses.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyPostOfficeBoxNumberProps) {
+export function SchemaPropertyPostOfficeBoxNumber({ value: legacyValue, description = "The post office box number for PO box addresses.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyPostOfficeBoxNumberProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.PostOfficeBoxNumberPropertyStructuredData,
     defaultEyebrow: "Property",

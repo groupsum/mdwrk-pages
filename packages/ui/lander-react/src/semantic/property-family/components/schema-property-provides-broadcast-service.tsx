@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ProvidesBroadcastServicePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyProvidesBroadcastServiceProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyProvidesBroadcastServiceProps extends ProvidesBroadcastServicePropertyInput, GeneratedPropertyUiProps<ProvidesBroadcastServicePropertyInput> {}
 
-export function SchemaPropertyProvidesBroadcastService({ value, description = "The BroadcastService offered on this channel.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyProvidesBroadcastServiceProps) {
+export function SchemaPropertyProvidesBroadcastService({ value: legacyValue, description = "The BroadcastService offered on this channel.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyProvidesBroadcastServiceProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ProvidesBroadcastServicePropertyStructuredData,
     defaultEyebrow: "Property",

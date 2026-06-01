@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { KnowsLanguagePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyKnowsLanguageProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyKnowsLanguageProps extends KnowsLanguagePropertyInput, GeneratedPropertyUiProps<KnowsLanguagePropertyInput> {}
 
-export function SchemaPropertyKnowsLanguage({ value, description = "Of a [[Person]], and less typically of an [[Organization]], to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyKnowsLanguageProps) {
+export function SchemaPropertyKnowsLanguage({ value: legacyValue, description = "Of a [[Person]], and less typically of an [[Organization]], to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyKnowsLanguageProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.KnowsLanguagePropertyStructuredData,
     defaultEyebrow: "Property",

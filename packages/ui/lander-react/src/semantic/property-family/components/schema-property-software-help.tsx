@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { SoftwareHelpPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertySoftwareHelpProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertySoftwareHelpProps extends SoftwareHelpPropertyInput, GeneratedPropertyUiProps<SoftwareHelpPropertyInput> {}
 
-export function SchemaPropertySoftwareHelp({ value, description = "Software application help.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertySoftwareHelpProps) {
+export function SchemaPropertySoftwareHelp({ value: legacyValue, description = "Software application help.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertySoftwareHelpProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.SoftwareHelpPropertyStructuredData,
     defaultEyebrow: "Property",

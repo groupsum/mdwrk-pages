@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { CauseOfPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyCauseOfProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyCauseOfProps extends CauseOfPropertyInput, GeneratedPropertyUiProps<CauseOfPropertyInput> {}
 
-export function SchemaPropertyCauseOf({ value, description = "The condition, complication, symptom, sign, etc. caused.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyCauseOfProps) {
+export function SchemaPropertyCauseOf({ value: legacyValue, description = "The condition, complication, symptom, sign, etc. caused.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyCauseOfProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.CauseOfPropertyStructuredData,
     defaultEyebrow: "Property",

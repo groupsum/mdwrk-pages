@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DurationOfWarrantyPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDurationOfWarrantyProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDurationOfWarrantyProps extends DurationOfWarrantyPropertyInput, GeneratedPropertyUiProps<DurationOfWarrantyPropertyInput> {}
 
-export function SchemaPropertyDurationOfWarranty({ value, description = "The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDurationOfWarrantyProps) {
+export function SchemaPropertyDurationOfWarranty({ value: legacyValue, description = "The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDurationOfWarrantyProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DurationOfWarrantyPropertyStructuredData,
     defaultEyebrow: "Property",

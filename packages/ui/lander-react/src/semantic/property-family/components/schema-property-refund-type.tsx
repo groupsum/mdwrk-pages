@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { RefundTypePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyRefundTypeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyRefundTypeProps extends RefundTypePropertyInput, GeneratedPropertyUiProps<RefundTypePropertyInput> {}
 
-export function SchemaPropertyRefundType({ value, description = "A refund type, from an enumerated list.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyRefundTypeProps) {
+export function SchemaPropertyRefundType({ value: legacyValue, description = "A refund type, from an enumerated list.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyRefundTypeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.RefundTypePropertyStructuredData,
     defaultEyebrow: "Property",

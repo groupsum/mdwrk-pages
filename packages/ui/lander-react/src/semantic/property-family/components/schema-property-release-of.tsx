@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ReleaseOfPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyReleaseOfProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyReleaseOfProps extends ReleaseOfPropertyInput, GeneratedPropertyUiProps<ReleaseOfPropertyInput> {}
 
-export function SchemaPropertyReleaseOf({ value, description = "The album this is a release of.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyReleaseOfProps) {
+export function SchemaPropertyReleaseOf({ value: legacyValue, description = "The album this is a release of.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyReleaseOfProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ReleaseOfPropertyStructuredData,
     defaultEyebrow: "Property",

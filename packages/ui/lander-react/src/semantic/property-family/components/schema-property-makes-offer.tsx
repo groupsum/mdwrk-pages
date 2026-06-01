@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { MakesOfferPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyMakesOfferProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyMakesOfferProps extends MakesOfferPropertyInput, GeneratedPropertyUiProps<MakesOfferPropertyInput> {}
 
-export function SchemaPropertyMakesOffer({ value, description = "A pointer to products or services offered by the organization or person.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyMakesOfferProps) {
+export function SchemaPropertyMakesOffer({ value: legacyValue, description = "A pointer to products or services offered by the organization or person.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyMakesOfferProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.MakesOfferPropertyStructuredData,
     defaultEyebrow: "Property",

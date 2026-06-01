@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { EstimatedSalaryPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyEstimatedSalaryProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyEstimatedSalaryProps extends EstimatedSalaryPropertyInput, GeneratedPropertyUiProps<EstimatedSalaryPropertyInput> {}
 
-export function SchemaPropertyEstimatedSalary({ value, description = "An estimated salary for a job posting or occupation, based on a variety of variables including, but not limited to industry, job title, and location. Estimated salaries  are often computed by outside organizations rather than the hiring organization, who may not have committed to the estimated value.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyEstimatedSalaryProps) {
+export function SchemaPropertyEstimatedSalary({ value: legacyValue, description = "An estimated salary for a job posting or occupation, based on a variety of variables including, but not limited to industry, job title, and location. Estimated salaries  are often computed by outside organizations rather than the hiring organization, who may not have committed to the estimated value.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyEstimatedSalaryProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.EstimatedSalaryPropertyStructuredData,
     defaultEyebrow: "Property",

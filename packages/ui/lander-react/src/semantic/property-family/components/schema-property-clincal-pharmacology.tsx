@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ClincalPharmacologyPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyClincalPharmacologyProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyClincalPharmacologyProps extends ClincalPharmacologyPropertyInput, GeneratedPropertyUiProps<ClincalPharmacologyPropertyInput> {}
 
-export function SchemaPropertyClincalPharmacology({ value, description = "Description of the absorption and elimination of drugs, including their concentration (pharmacokinetics, pK) and biological effects (pharmacodynamics, pD).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyClincalPharmacologyProps) {
+export function SchemaPropertyClincalPharmacology({ value: legacyValue, description = "Description of the absorption and elimination of drugs, including their concentration (pharmacokinetics, pK) and biological effects (pharmacodynamics, pD).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyClincalPharmacologyProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ClincalPharmacologyPropertyStructuredData,
     defaultEyebrow: "Property",

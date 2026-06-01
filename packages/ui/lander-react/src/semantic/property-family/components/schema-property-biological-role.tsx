@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { BiologicalRolePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyBiologicalRoleProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyBiologicalRoleProps extends BiologicalRolePropertyInput, GeneratedPropertyUiProps<BiologicalRolePropertyInput> {}
 
-export function SchemaPropertyBiologicalRole({ value, description = "A role played by the BioChemEntity within a biological context.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyBiologicalRoleProps) {
+export function SchemaPropertyBiologicalRole({ value: legacyValue, description = "A role played by the BioChemEntity within a biological context.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyBiologicalRoleProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.BiologicalRolePropertyStructuredData,
     defaultEyebrow: "Property",

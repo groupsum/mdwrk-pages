@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { StageAsNumberPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyStageAsNumberProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyStageAsNumberProps extends StageAsNumberPropertyInput, GeneratedPropertyUiProps<StageAsNumberPropertyInput> {}
 
-export function SchemaPropertyStageAsNumber({ value, description = "The stage represented as a number, e.g. 3.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyStageAsNumberProps) {
+export function SchemaPropertyStageAsNumber({ value: legacyValue, description = "The stage represented as a number, e.g. 3.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyStageAsNumberProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.StageAsNumberPropertyStructuredData,
     defaultEyebrow: "Property",

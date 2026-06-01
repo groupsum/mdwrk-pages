@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { EligibleCustomerTypePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyEligibleCustomerTypeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyEligibleCustomerTypeProps extends EligibleCustomerTypePropertyInput, GeneratedPropertyUiProps<EligibleCustomerTypePropertyInput> {}
 
-export function SchemaPropertyEligibleCustomerType({ value, description = "The type(s) of customers for which the given offer is valid.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyEligibleCustomerTypeProps) {
+export function SchemaPropertyEligibleCustomerType({ value: legacyValue, description = "The type(s) of customers for which the given offer is valid.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyEligibleCustomerTypeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.EligibleCustomerTypePropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { CholesterolContentPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyCholesterolContentProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyCholesterolContentProps extends CholesterolContentPropertyInput, GeneratedPropertyUiProps<CholesterolContentPropertyInput> {}
 
-export function SchemaPropertyCholesterolContent({ value, description = "The number of milligrams of cholesterol.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyCholesterolContentProps) {
+export function SchemaPropertyCholesterolContent({ value: legacyValue, description = "The number of milligrams of cholesterol.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyCholesterolContentProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.CholesterolContentPropertyStructuredData,
     defaultEyebrow: "Property",

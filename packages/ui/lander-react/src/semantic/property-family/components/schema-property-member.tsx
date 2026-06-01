@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { MemberPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyMemberProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyMemberProps extends MemberPropertyInput, GeneratedPropertyUiProps<MemberPropertyInput> {}
 
-export function SchemaPropertyMember({ value, description = "A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyMemberProps) {
+export function SchemaPropertyMember({ value: legacyValue, description = "A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyMemberProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.MemberPropertyStructuredData,
     defaultEyebrow: "Property",

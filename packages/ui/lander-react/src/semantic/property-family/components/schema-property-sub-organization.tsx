@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { SubOrganizationPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertySubOrganizationProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertySubOrganizationProps extends SubOrganizationPropertyInput, GeneratedPropertyUiProps<SubOrganizationPropertyInput> {}
 
-export function SchemaPropertySubOrganization({ value, description = "A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertySubOrganizationProps) {
+export function SchemaPropertySubOrganization({ value: legacyValue, description = "A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertySubOrganizationProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.SubOrganizationPropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { RequiredMaxAgePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyRequiredMaxAgeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyRequiredMaxAgeProps extends RequiredMaxAgePropertyInput, GeneratedPropertyUiProps<RequiredMaxAgePropertyInput> {}
 
-export function SchemaPropertyRequiredMaxAge({ value, description = "Audiences defined by a person's maximum age.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyRequiredMaxAgeProps) {
+export function SchemaPropertyRequiredMaxAge({ value: legacyValue, description = "Audiences defined by a person's maximum age.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyRequiredMaxAgeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.RequiredMaxAgePropertyStructuredData,
     defaultEyebrow: "Property",

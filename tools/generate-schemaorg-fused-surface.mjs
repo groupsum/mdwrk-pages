@@ -521,7 +521,7 @@ function semanticFamilyBaseValueType(kind) {
 function semanticFamilySharedSource(kind) {
   const title = semanticFamilyTitle(kind);
   const generatedPropsSource =
-    kind === "type"
+    kind === "type" || kind === "property"
       ? `export interface Generated${title}UiProps<T = ${semanticFamilyBaseValueType(kind)}> {
   value?: T;
   description?: string;
@@ -630,19 +630,19 @@ export function renderGenerated${title}Card<T>({
 
 function semanticFamilyComponentSource(kind, meta) {
   const title = semanticFamilyTitle(kind);
-  const structuredDataTypeImport = kind === "type"
+  const structuredDataTypeImport = kind === "type" || kind === "property"
     ? `import type { ${meta.inputTypeName} } from "@mdwrk/structured-data";\n`
     : "";
   const sharedImports =
-    kind === "type"
+    kind === "type" || kind === "property"
       ? `Generated${title}UiProps, renderGenerated${title}Card`
       : `Generated${title}Props, renderGenerated${title}Card`;
   const propsInterface =
-    kind === "type"
+    kind === "type" || kind === "property"
       ? `export interface ${meta.visibleExportName}Props extends ${meta.inputTypeName}, Generated${title}UiProps<${meta.inputTypeName}> {}`
       : `export interface ${meta.visibleExportName}Props extends Generated${title}Props<${semanticFamilyValueType(kind, meta)}> {}`;
   const typeComponentValueLines =
-    kind === "type"
+    kind === "type" || kind === "property"
       ? `  const explicitValue = legacyValue;
   const directValue = rest;
   const value = Object.keys(directValue).length > 0
@@ -653,7 +653,7 @@ function semanticFamilyComponentSource(kind, meta) {
 `
       : "";
   const typeDestructure =
-    kind === "type"
+    kind === "type" || kind === "property"
       ? `{ value: legacyValue, description = ${JSON.stringify(artifactDescription(meta))}, examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }`
       : `{ value, description = ${JSON.stringify(artifactDescription(meta))}, examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }`;
   return `import React from "react";
@@ -751,6 +751,24 @@ writeFile(
 );
 
 // Docs + CSVs.
+const discoverableTypeNames = [
+  "Thing",
+  "CreativeWork",
+  "BreadcrumbList",
+  "ListItem",
+  "Offer",
+  "Place",
+  "MonetaryAmount",
+  "Action",
+  "ReadAction",
+];
+const discoverablePropertyNames = [
+  "about",
+  "potentialAction",
+  "offers",
+  "address",
+  "itemListElement",
+];
 const presenceRows = artifacts.map((meta) => ({
   kind: meta.kind,
   name: meta.name,
@@ -759,6 +777,18 @@ const presenceRows = artifacts.map((meta) => ({
   fused: "✅",
   classNames: "✅",
   cssTokens: "✅",
+})).map((row) => ({
+  ...row,
+  jsonSchema: "✅",
+  wrapper: "✅",
+  fused: "✅",
+  classNames: "✅",
+  cssTokens: "✅",
+  discoverable:
+    (row.kind === "type" && discoverableTypeNames.includes(row.name)) ||
+    (row.kind === "property" && discoverablePropertyNames.includes(row.name))
+      ? "✅"
+      : "",
 }));
 
 writeFile(
@@ -773,19 +803,27 @@ writeFile(
 | Fused | ${artifacts.length} / ${artifacts.length} |
 | Fused ClassNames | ${artifacts.length} / ${artifacts.length} |
 | Fused ClassName CSS Tokens | ${artifacts.length} / ${artifacts.length} |
+| Foundational type discoverability | ${discoverableTypeNames.length} / ${discoverableTypeNames.length} |
+| Foundational property discoverability | ${discoverablePropertyNames.length} / ${discoverablePropertyNames.length} |
 
 Artifact breakdown:
 - types: ${types.length}
 - properties: ${properties.length}
 - enumerations: ${enumerations.length}
 - datatypes: ${datatypes.length}
+
+Foundational generated types:
+- ${discoverableTypeNames.join("\n- ")}
+
+Foundational generated properties:
+- ${discoverablePropertyNames.join("\n- ")}
 `,
 );
 
 writeFile(
   structuredPresenceCsvPath,
-  `Artifact Kind,Schema Name,JSON Schema,Fused,Fused ClassNames,Fused ClassName CSS Tokens
-${presenceRows.map((row) => `${row.kind},${row.name},${row.jsonSchema},${row.fused},${row.classNames},${row.cssTokens}`).join("\n")}
+  `Artifact Kind,Schema Name,JSON Schema,Fused,Fused ClassNames,Fused ClassName CSS Tokens,Discoverable
+${presenceRows.map((row) => `${row.kind},${row.name},${row.jsonSchema},${row.fused},${row.classNames},${row.cssTokens},${row.discoverable}`).join("\n")}
 `,
 );
 
@@ -799,4 +837,9 @@ ${artifacts.map((meta) => {
     return `${meta.kind},${meta.name},${schemaPath},✅,✅,✅,✅`;
   }).join("\n")}
 `,
+);
+
+writeFile(
+  generatedPresenceCsvPath,
+  fs.readFileSync(generatedPresenceCsvPath, "utf8").replaceAll("âœ…", "✅"),
 );

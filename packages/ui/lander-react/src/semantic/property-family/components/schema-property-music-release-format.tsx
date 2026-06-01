@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { MusicReleaseFormatPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyMusicReleaseFormatProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyMusicReleaseFormatProps extends MusicReleaseFormatPropertyInput, GeneratedPropertyUiProps<MusicReleaseFormatPropertyInput> {}
 
-export function SchemaPropertyMusicReleaseFormat({ value, description = "Format of this release (the type of recording media used, i.e. compact disc, digital media, LP, etc.).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyMusicReleaseFormatProps) {
+export function SchemaPropertyMusicReleaseFormat({ value: legacyValue, description = "Format of this release (the type of recording media used, i.e. compact disc, digital media, LP, etc.).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyMusicReleaseFormatProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.MusicReleaseFormatPropertyStructuredData,
     defaultEyebrow: "Property",

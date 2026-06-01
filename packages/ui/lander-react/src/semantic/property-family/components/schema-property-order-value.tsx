@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { OrderValuePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyOrderValueProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyOrderValueProps extends OrderValuePropertyInput, GeneratedPropertyUiProps<OrderValuePropertyInput> {}
 
-export function SchemaPropertyOrderValue({ value, description = "Minimum and maximum order value for which these shipping conditions are valid.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyOrderValueProps) {
+export function SchemaPropertyOrderValue({ value: legacyValue, description = "Minimum and maximum order value for which these shipping conditions are valid.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyOrderValueProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.OrderValuePropertyStructuredData,
     defaultEyebrow: "Property",

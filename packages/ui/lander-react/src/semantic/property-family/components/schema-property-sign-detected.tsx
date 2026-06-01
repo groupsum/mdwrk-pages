@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { SignDetectedPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertySignDetectedProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertySignDetectedProps extends SignDetectedPropertyInput, GeneratedPropertyUiProps<SignDetectedPropertyInput> {}
 
-export function SchemaPropertySignDetected({ value, description = "A sign detected by the test.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertySignDetectedProps) {
+export function SchemaPropertySignDetected({ value: legacyValue, description = "A sign detected by the test.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertySignDetectedProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.SignDetectedPropertyStructuredData,
     defaultEyebrow: "Property",

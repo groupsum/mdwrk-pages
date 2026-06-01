@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { IsrcCodePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyIsrcCodeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyIsrcCodeProps extends IsrcCodePropertyInput, GeneratedPropertyUiProps<IsrcCodePropertyInput> {}
 
-export function SchemaPropertyIsrcCode({ value, description = "The International Standard Recording Code for the recording.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyIsrcCodeProps) {
+export function SchemaPropertyIsrcCode({ value: legacyValue, description = "The International Standard Recording Code for the recording.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyIsrcCodeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.IsrcCodePropertyStructuredData,
     defaultEyebrow: "Property",

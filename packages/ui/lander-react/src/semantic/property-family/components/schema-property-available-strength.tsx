@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { AvailableStrengthPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyAvailableStrengthProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyAvailableStrengthProps extends AvailableStrengthPropertyInput, GeneratedPropertyUiProps<AvailableStrengthPropertyInput> {}
 
-export function SchemaPropertyAvailableStrength({ value, description = "An available dosage strength for the drug.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyAvailableStrengthProps) {
+export function SchemaPropertyAvailableStrength({ value: legacyValue, description = "An available dosage strength for the drug.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyAvailableStrengthProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.AvailableStrengthPropertyStructuredData,
     defaultEyebrow: "Property",

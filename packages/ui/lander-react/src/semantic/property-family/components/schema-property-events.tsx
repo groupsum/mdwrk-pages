@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { EventsPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyEventsProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyEventsProps extends EventsPropertyInput, GeneratedPropertyUiProps<EventsPropertyInput> {}
 
-export function SchemaPropertyEvents({ value, description = "Upcoming or past events associated with this place or organization.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyEventsProps) {
+export function SchemaPropertyEvents({ value: legacyValue, description = "Upcoming or past events associated with this place or organization.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyEventsProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.EventsPropertyStructuredData,
     defaultEyebrow: "Property",

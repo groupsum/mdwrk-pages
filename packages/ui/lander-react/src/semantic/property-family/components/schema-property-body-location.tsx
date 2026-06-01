@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { BodyLocationPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyBodyLocationProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyBodyLocationProps extends BodyLocationPropertyInput, GeneratedPropertyUiProps<BodyLocationPropertyInput> {}
 
-export function SchemaPropertyBodyLocation({ value, description = "Location in the body of the anatomical structure.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyBodyLocationProps) {
+export function SchemaPropertyBodyLocation({ value: legacyValue, description = "Location in the body of the anatomical structure.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyBodyLocationProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.BodyLocationPropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,4 +1,10 @@
 import { GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS, GENERATED_SCHEMAORG_PAGE_FAMILY_COUNTS } from "../../../packages/contracts/lander-content-contract/dist/generated-schemaorg-page-family-metadata.js";
+import {
+  getStructuredDataSchemaAssetMap,
+  getStructuredDataSchemaByType,
+  listStructuredDataSchemas,
+  validateStructuredDataByType,
+} from "../../../packages/contracts/lander-content-contract/dist/index.js";
 import { semanticFixtures } from "../../../packages/ui/lander-react/tests/semantic-fixtures.mjs";
 import { governedFamilyEntries } from "./generated-governed-family-map.mjs";
 
@@ -110,6 +116,17 @@ const highlightNames = new Set([
 ]);
 
 const artifactKindOrder = ["type", "property", "enumeration", "datatype"];
+const foundationalGeneratedTypeNames = new Set([
+  "Thing",
+  "CreativeWork",
+  "BreadcrumbList",
+  "ListItem",
+  "Offer",
+  "Place",
+  "MonetaryAmount",
+  "Action",
+  "ReadAction",
+]);
 const artifactKindDescriptions = {
   type: "Class-like semantic entities, including authored runtime types and generated pass-through types.",
   property: "Schema.org property reference surfaces with compact payload previews.",
@@ -121,6 +138,10 @@ const familyByName = new Map(governedFamilyEntries.map((entry) => [entry.name, e
 const familySlugByName = new Map(governedFamilyEntries.map((entry) => [entry.name, entry.familySlug]));
 const fixtureByName = new Map(semanticFixtures.map((fixture) => [fixture.name, fixture]));
 const metadataByName = new Map(GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS.map((artifact) => [artifact.name, artifact]));
+const structuredDataAssetMap = getStructuredDataSchemaAssetMap();
+const supportedObjectKinds = listStructuredDataSchemas()
+  .map((entry) => entry.type)
+  .filter((entry) => /^[A-Z]/u.test(entry));
 
 const listingNamePattern = /(Listing|Rental|JobPosting)/;
 const pageNamePattern = /(Page|Gallery|WebSite)$/;
@@ -140,6 +161,135 @@ function matchesSurfaceFocus(entry, surface = "all") {
   if (surface === "listing") return entry.surfaceFocus === "listing" || entry.surfaceFocus === "page-or-listing";
   if (surface === "page-or-listing") return entry.surfaceFocus !== "all";
   return true;
+}
+
+function assetKeyFromEntryAssetPath(assetPath) {
+  return assetPath.replace(/^\.\/schemas\//u, "");
+}
+
+function resolveAssetPath(currentAssetPath, ref) {
+  const currentDir = currentAssetPath.split("/").slice(0, -1).join("/");
+  const combined = currentDir ? `${currentDir}/${ref}` : ref;
+  return combined.split("/").reduce((parts, segment) => {
+    if (!segment || segment === ".") return parts;
+    if (segment === "..") {
+      parts.pop();
+      return parts;
+    }
+    parts.push(segment);
+    return parts;
+  }, []).join("/");
+}
+
+function resolveSchemaAsset(assetPath) {
+  if (structuredDataAssetMap[assetPath]) return structuredDataAssetMap[assetPath];
+  if (assetPath.startsWith("generated-schemaorg-page-family/types/")) {
+    return structuredDataAssetMap[assetPath.replace("generated-schemaorg-page-family/types/", "generated-schemaorg-full/types/")];
+  }
+  if (assetPath.startsWith("generated-schemaorg-page-family/enumerations/")) {
+    return structuredDataAssetMap[assetPath.replace("generated-schemaorg-page-family/enumerations/", "generated-schemaorg-full/enumerations/")];
+  }
+  if (assetPath.startsWith("generated-schemaorg-page-family/datatypes/")) {
+    return structuredDataAssetMap[assetPath.replace("generated-schemaorg-page-family/datatypes/", "generated-schemaorg-full/datatypes/")];
+  }
+  return undefined;
+}
+
+function sampleForResolvedSchema(assetPath, schema, kind, seen = new Set()) {
+  const visitKey = `${assetPath}::${schema?.$id ?? schema?.title ?? kind}`;
+  if (!schema || typeof schema !== "object" || seen.has(visitKey)) return undefined;
+  seen.add(visitKey);
+
+  if (typeof schema.$ref === "string") {
+    const nextAssetPath = resolveAssetPath(assetPath, schema.$ref);
+    return sampleForResolvedSchema(nextAssetPath, resolveSchemaAsset(nextAssetPath), kind, seen);
+  }
+  if (schema.const !== undefined) return schema.const;
+  if (Array.isArray(schema.enum) && schema.enum.length > 0) return schema.enum[0];
+  if (Array.isArray(schema.oneOf) && schema.oneOf.length) {
+    return sampleForResolvedSchema(assetPath, schema.oneOf[0], kind, seen);
+  }
+  if (Array.isArray(schema.anyOf) && schema.anyOf.length) {
+    return sampleForResolvedSchema(assetPath, schema.anyOf[0], kind, seen);
+  }
+  if (Array.isArray(schema.allOf) && schema.allOf.length) {
+    const branchValues = schema.allOf
+      .map((branch) => sampleForResolvedSchema(assetPath, branch, kind, seen))
+      .filter((value) => value !== undefined);
+    const objectValues = branchValues.filter((value) => value && typeof value === "object" && !Array.isArray(value));
+    if (objectValues.length) return Object.assign({}, ...objectValues);
+    return branchValues[0];
+  }
+  if (schema.type === "boolean") return true;
+  if (schema.type === "number" || schema.type === "integer") return 1;
+  if (schema.type === "string") return `${kind} sample`;
+  if (schema.type === "array") {
+    return [sampleForResolvedSchema(assetPath, schema.items ?? {}, kind, seen)].filter((value) => value !== undefined);
+  }
+  if (schema.type === "object" || schema.properties) {
+    const result = {};
+    for (const key of schema.required ?? []) {
+      if (key === "@context") {
+        result[key] = "https://schema.org";
+        continue;
+      }
+      const propertySchema = schema.properties?.[key];
+      const value = sampleForResolvedSchema(assetPath, propertySchema ?? {}, kind, seen);
+      if (value !== undefined) result[key] = value;
+    }
+    if (schema.properties?.["@type"]?.const && result["@type"] === undefined) result["@type"] = schema.properties["@type"].const;
+    if (schema.properties?.name && result.name === undefined) result.name = kind;
+    if (schema.properties?.text && result.text === undefined) result.text = `${kind} sample`;
+    return result;
+  }
+
+  return undefined;
+}
+
+function schemaDerivedValueForArtifact(artifact) {
+  const entry = getStructuredDataSchemaByType(artifact.name);
+  if (!entry) return undefined;
+  const entryAssetPath = assetKeyFromEntryAssetPath(entry.assetPath);
+  const sample = sampleForResolvedSchema(entryAssetPath, entry.schema, artifact.name);
+  const referencedSchema =
+    artifact.kind === "property" && typeof entry.schema?.$ref === "string"
+      ? resolveSchemaAsset(resolveAssetPath(entryAssetPath, entry.schema.$ref))
+      : undefined;
+  const referencedTypeValue = referencedSchema?.properties?.["@type"]?.const;
+  const candidates = [
+    artifact.kind === "type" && sample && typeof sample === "object" && !Array.isArray(sample)
+      ? { "@type": sample["@type"] ?? artifact.name, ...sample }
+      : undefined,
+    artifact.kind === "property" && sample && typeof sample === "object" && !Array.isArray(sample) && sample["@type"]
+      ? { "@type": sample["@type"] }
+      : undefined,
+    artifact.kind === "property" && referencedTypeValue
+      ? { "@type": referencedTypeValue }
+      : undefined,
+    sample,
+    artifact.kind === "datatype" ? true : undefined,
+    artifact.kind === "datatype" && artifact.name !== "Boolean" ? 1 : undefined,
+    artifact.kind === "datatype" ? `${artifact.name} sample` : undefined,
+    artifact.kind === "enumeration" ? artifact.name : undefined,
+    artifact.kind === "property" ? { name: `${artifact.name} sample`, value: artifact.name } : undefined,
+    artifact.kind === "type" ? { "@type": artifact.name, name: `${artifact.name} sample` } : undefined,
+    `${artifact.name} sample`,
+  ].filter((value) => value !== undefined);
+
+  for (const candidate of candidates) {
+    if (validateStructuredDataByType(artifact.name, candidate).length === 0) return candidate;
+  }
+
+  if (artifact.kind === "property") {
+    for (const candidateKind of supportedObjectKinds) {
+      const objectOnlyCandidate = { "@type": candidateKind };
+      if (validateStructuredDataByType(artifact.name, objectOnlyCandidate).length === 0) return objectOnlyCandidate;
+      const namedCandidate = { ...objectOnlyCandidate, name: `${candidateKind} sample` };
+      if (validateStructuredDataByType(artifact.name, namedCandidate).length === 0) return namedCandidate;
+    }
+  }
+
+  return sample;
 }
 
 function defaultTypeValueForArtifact(artifact) {
@@ -240,6 +390,9 @@ function defaultTypeValueForArtifact(artifact) {
 }
 
 function defaultValueForArtifact(artifact) {
+  const schemaDerived = schemaDerivedValueForArtifact(artifact);
+  if (schemaDerived !== undefined) return schemaDerived;
+
   if (artifact.kind === "datatype") {
     switch (artifact.name) {
       case "Boolean":
@@ -288,7 +441,7 @@ function propsForGeneratedArtifact(artifact) {
   const description = generatedDescriptionForArtifact(artifact);
   const examples = defaultExamplesForArtifact(artifact);
 
-  if (artifact.kind === "type") {
+  if (artifact.kind === "type" || artifact.kind === "property") {
     const value = defaultValueForArtifact(artifact);
     return value && typeof value === "object" && !Array.isArray(value)
       ? {
@@ -390,7 +543,6 @@ export function buildGeneratedArtifactView({ kind = "type", search = "", page = 
   const normalizedSearch = search.trim().toLowerCase();
   const filtered = generatedArtifactEntries.filter((entry) => {
     if (entry.artifactKind !== kind) return false;
-    if (kind !== "type" && !matchesSurfaceFocus(entry, surface)) return false;
     if (!normalizedSearch) return true;
     return [
       entry.name,
@@ -399,13 +551,25 @@ export function buildGeneratedArtifactView({ kind = "type", search = "", page = 
       entry.artifactKind,
     ].join(" ").toLowerCase().includes(normalizedSearch);
   });
+  const prioritized = [...filtered];
+  if (kind === "type" && surface !== "all") {
+    prioritized.sort((left, right) => {
+      const leftSurfaceMatch = matchesSurfaceFocus(left, surface) ? 1 : 0;
+      const rightSurfaceMatch = matchesSurfaceFocus(right, surface) ? 1 : 0;
+      if (leftSurfaceMatch !== rightSurfaceMatch) return rightSurfaceMatch - leftSurfaceMatch;
+      const leftFoundation = foundationalGeneratedTypeNames.has(left.name) ? 1 : 0;
+      const rightFoundation = foundationalGeneratedTypeNames.has(right.name) ? 1 : 0;
+      if (leftFoundation !== rightFoundation) return rightFoundation - leftFoundation;
+      return left.name.localeCompare(right.name);
+    });
+  }
 
   const safePageSize = Math.max(6, pageSize);
-  const total = filtered.length;
+  const total = prioritized.length;
   const totalPages = Math.max(1, Math.ceil(total / safePageSize));
   const currentPage = Math.min(Math.max(1, page), totalPages);
   const start = (currentPage - 1) * safePageSize;
-  const entries = filtered.slice(start, start + safePageSize);
+  const entries = prioritized.slice(start, start + safePageSize);
 
   return {
     kind,

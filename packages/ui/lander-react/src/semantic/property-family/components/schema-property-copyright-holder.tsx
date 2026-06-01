@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { CopyrightHolderPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyCopyrightHolderProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyCopyrightHolderProps extends CopyrightHolderPropertyInput, GeneratedPropertyUiProps<CopyrightHolderPropertyInput> {}
 
-export function SchemaPropertyCopyrightHolder({ value, description = "The party holding the legal copyright to the CreativeWork.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyCopyrightHolderProps) {
+export function SchemaPropertyCopyrightHolder({ value: legacyValue, description = "The party holding the legal copyright to the CreativeWork.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyCopyrightHolderProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.CopyrightHolderPropertyStructuredData,
     defaultEyebrow: "Property",

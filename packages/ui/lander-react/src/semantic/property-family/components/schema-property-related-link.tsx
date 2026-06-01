@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { RelatedLinkPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyRelatedLinkProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyRelatedLinkProps extends RelatedLinkPropertyInput, GeneratedPropertyUiProps<RelatedLinkPropertyInput> {}
 
-export function SchemaPropertyRelatedLink({ value, description = "A link related to this web page, for example to other related web pages.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyRelatedLinkProps) {
+export function SchemaPropertyRelatedLink({ value: legacyValue, description = "A link related to this web page, for example to other related web pages.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyRelatedLinkProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.RelatedLinkPropertyStructuredData,
     defaultEyebrow: "Property",

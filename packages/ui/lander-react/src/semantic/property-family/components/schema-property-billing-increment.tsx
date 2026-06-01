@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { BillingIncrementPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyBillingIncrementProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyBillingIncrementProps extends BillingIncrementPropertyInput, GeneratedPropertyUiProps<BillingIncrementPropertyInput> {}
 
-export function SchemaPropertyBillingIncrement({ value, description = "This property specifies the minimal quantity and rounding increment that will be the basis for the billing. The unit of measurement is specified by the unitCode property.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyBillingIncrementProps) {
+export function SchemaPropertyBillingIncrement({ value: legacyValue, description = "This property specifies the minimal quantity and rounding increment that will be the basis for the billing. The unit of measurement is specified by the unitCode property.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyBillingIncrementProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.BillingIncrementPropertyStructuredData,
     defaultEyebrow: "Property",

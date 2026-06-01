@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ThumbnailPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyThumbnailProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyThumbnailProps extends ThumbnailPropertyInput, GeneratedPropertyUiProps<ThumbnailPropertyInput> {}
 
-export function SchemaPropertyThumbnail({ value, description = "Thumbnail image for an image or video.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyThumbnailProps) {
+export function SchemaPropertyThumbnail({ value: legacyValue, description = "Thumbnail image for an image or video.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyThumbnailProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ThumbnailPropertyStructuredData,
     defaultEyebrow: "Property",

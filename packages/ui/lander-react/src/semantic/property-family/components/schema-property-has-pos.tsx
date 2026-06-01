@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { HasPOSPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyHasPOSProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyHasPOSProps extends HasPOSPropertyInput, GeneratedPropertyUiProps<HasPOSPropertyInput> {}
 
-export function SchemaPropertyHasPOS({ value, description = "Points-of-Sales operated by the organization or person.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyHasPOSProps) {
+export function SchemaPropertyHasPOS({ value: legacyValue, description = "Points-of-Sales operated by the organization or person.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyHasPOSProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.HasPOSPropertyStructuredData,
     defaultEyebrow: "Property",

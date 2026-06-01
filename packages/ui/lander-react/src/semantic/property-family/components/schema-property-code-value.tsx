@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { CodeValuePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyCodeValueProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyCodeValueProps extends CodeValuePropertyInput, GeneratedPropertyUiProps<CodeValuePropertyInput> {}
 
-export function SchemaPropertyCodeValue({ value, description = "A short textual code that uniquely identifies the value.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyCodeValueProps) {
+export function SchemaPropertyCodeValue({ value: legacyValue, description = "A short textual code that uniquely identifies the value.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyCodeValueProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.CodeValuePropertyStructuredData,
     defaultEyebrow: "Property",

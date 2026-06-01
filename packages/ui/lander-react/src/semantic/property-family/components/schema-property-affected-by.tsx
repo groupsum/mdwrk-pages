@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { AffectedByPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyAffectedByProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyAffectedByProps extends AffectedByPropertyInput, GeneratedPropertyUiProps<AffectedByPropertyInput> {}
 
-export function SchemaPropertyAffectedBy({ value, description = "Drugs that affect the test's results.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyAffectedByProps) {
+export function SchemaPropertyAffectedBy({ value: legacyValue, description = "Drugs that affect the test's results.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyAffectedByProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.AffectedByPropertyStructuredData,
     defaultEyebrow: "Property",

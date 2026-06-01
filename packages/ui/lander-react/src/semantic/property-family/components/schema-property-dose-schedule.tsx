@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DoseSchedulePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDoseScheduleProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDoseScheduleProps extends DoseSchedulePropertyInput, GeneratedPropertyUiProps<DoseSchedulePropertyInput> {}
 
-export function SchemaPropertyDoseSchedule({ value, description = "A dosing schedule for the drug for a given population, either observed, recommended, or maximum dose based on the type used.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDoseScheduleProps) {
+export function SchemaPropertyDoseSchedule({ value: legacyValue, description = "A dosing schedule for the drug for a given population, either observed, recommended, or maximum dose based on the type used.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDoseScheduleProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DoseSchedulePropertyStructuredData,
     defaultEyebrow: "Property",

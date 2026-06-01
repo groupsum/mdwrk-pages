@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { IswcCodePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyIswcCodeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyIswcCodeProps extends IswcCodePropertyInput, GeneratedPropertyUiProps<IswcCodePropertyInput> {}
 
-export function SchemaPropertyIswcCode({ value, description = "The International Standard Musical Work Code for the composition.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyIswcCodeProps) {
+export function SchemaPropertyIswcCode({ value: legacyValue, description = "The International Standard Musical Work Code for the composition.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyIswcCodeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.IswcCodePropertyStructuredData,
     defaultEyebrow: "Property",

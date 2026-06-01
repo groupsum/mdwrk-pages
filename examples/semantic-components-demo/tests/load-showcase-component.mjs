@@ -5,6 +5,46 @@ import { fileURLToPath } from "node:url";
 const testRoot = path.dirname(fileURLToPath(import.meta.url));
 const demoRoot = path.resolve(testRoot, "..");
 const repoRoot = path.resolve(demoRoot, "..", "..");
+const cleanupWaitArray = new Int32Array(new SharedArrayBuffer(4));
+
+function sleep(milliseconds) {
+  Atomics.wait(cleanupWaitArray, 0, 0, milliseconds);
+}
+
+function removePathWithRetries(targetPath, options) {
+  for (let attempt = 0; attempt < 6; attempt += 1) {
+    try {
+      fs.rmSync(targetPath, options);
+      return;
+    } catch (error) {
+      if (!["ENOTEMPTY", "EPERM", "EBUSY"].includes(error?.code)) return;
+      sleep(25 * (attempt + 1));
+    }
+  }
+  try {
+    fs.rmSync(targetPath, options);
+  } catch {}
+}
+
+function copySemanticRuntimeTree(sourceRoot, targetRoot, structuredDataReactSmoke) {
+  fs.mkdirSync(targetRoot, { recursive: true });
+  for (const entry of fs.readdirSync(sourceRoot, { withFileTypes: true })) {
+    const sourcePath = path.join(sourceRoot, entry.name);
+    const targetPath = path.join(targetRoot, entry.name);
+    if (entry.isDirectory()) {
+      copySemanticRuntimeTree(sourcePath, targetPath, structuredDataReactSmoke);
+      continue;
+    }
+    if (!entry.name.endsWith(".js")) continue;
+    fs.writeFileSync(
+      targetPath,
+      fs.readFileSync(sourcePath, "utf8").replace(
+        '"@mdwrk/lander-react-structured-data"',
+        `"file:///${structuredDataReactSmoke.replace(/\\/g, "/")}"`,
+      ),
+    );
+  }
+}
 
 export async function importShowcaseComponent() {
   const sourcePath = path.join(demoRoot, "src", "showcase-component.mjs");
@@ -51,17 +91,7 @@ export async function importShowcaseComponent() {
       .replaceAll('"./semantic/', `"./semantic.${suffix}.smoke/`),
   );
 
-  fs.mkdirSync(semanticSmokeRoot, { recursive: true });
-  for (const fileName of fs.readdirSync(semanticDistRoot)) {
-    if (!fileName.endsWith(".js")) continue;
-    fs.writeFileSync(
-      path.join(semanticSmokeRoot, fileName),
-      fs.readFileSync(path.join(semanticDistRoot, fileName), "utf8").replace(
-        '"@mdwrk/lander-react-structured-data"',
-        `"file:///${structuredDataReactSmoke.replace(/\\/g, "/")}"`,
-      ),
-    );
-  }
+  copySemanticRuntimeTree(semanticDistRoot, semanticSmokeRoot, structuredDataReactSmoke);
 
   fs.writeFileSync(
     tempPath,
@@ -74,9 +104,9 @@ export async function importShowcaseComponent() {
   try {
     return await import(`file:///${tempPath.replace(/\\/g, "/")}?t=${Date.now()}`);
   } finally {
-    fs.rmSync(tempPath, { force: true });
-    fs.rmSync(landerReactSmoke, { force: true });
-    fs.rmSync(structuredDataReactSmoke, { force: true });
-    fs.rmSync(semanticSmokeRoot, { recursive: true, force: true });
+    removePathWithRetries(tempPath, { force: true });
+    removePathWithRetries(landerReactSmoke, { force: true });
+    removePathWithRetries(structuredDataReactSmoke, { force: true });
+    removePathWithRetries(semanticSmokeRoot, { recursive: true, force: true });
   }
 }

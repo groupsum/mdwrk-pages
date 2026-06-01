@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { AuthenticatorPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyAuthenticatorProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyAuthenticatorProps extends AuthenticatorPropertyInput, GeneratedPropertyUiProps<AuthenticatorPropertyInput> {}
 
-export function SchemaPropertyAuthenticator({ value, description = "The Organization responsible for authenticating the user's subscription. For example, many media apps require a cable/satellite provider to authenticate your subscription before playing media.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyAuthenticatorProps) {
+export function SchemaPropertyAuthenticator({ value: legacyValue, description = "The Organization responsible for authenticating the user's subscription. For example, many media apps require a cable/satellite provider to authenticate your subscription before playing media.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyAuthenticatorProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.AuthenticatorPropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ApplicableCountryPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyApplicableCountryProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyApplicableCountryProps extends ApplicableCountryPropertyInput, GeneratedPropertyUiProps<ApplicableCountryPropertyInput> {}
 
-export function SchemaPropertyApplicableCountry({ value, description = "A country where a particular merchant return policy applies to, for example the two-letter ISO 3166-1 alpha-2 country code.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyApplicableCountryProps) {
+export function SchemaPropertyApplicableCountry({ value: legacyValue, description = "A country where a particular merchant return policy applies to, for example the two-letter ISO 3166-1 alpha-2 country code.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyApplicableCountryProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ApplicableCountryPropertyStructuredData,
     defaultEyebrow: "Property",

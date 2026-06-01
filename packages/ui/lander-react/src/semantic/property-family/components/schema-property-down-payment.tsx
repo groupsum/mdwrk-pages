@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DownPaymentPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDownPaymentProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDownPaymentProps extends DownPaymentPropertyInput, GeneratedPropertyUiProps<DownPaymentPropertyInput> {}
 
-export function SchemaPropertyDownPayment({ value, description = "a type of payment made in cash during the onset of the purchase of an expensive good/service. The payment typically represents only a percentage of the full purchase price.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDownPaymentProps) {
+export function SchemaPropertyDownPayment({ value: legacyValue, description = "a type of payment made in cash during the onset of the purchase of an expensive good/service. The payment typically represents only a percentage of the full purchase price.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDownPaymentProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DownPaymentPropertyStructuredData,
     defaultEyebrow: "Property",

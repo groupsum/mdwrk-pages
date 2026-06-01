@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { HealthPlanMarketingUrlPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyHealthPlanMarketingUrlProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyHealthPlanMarketingUrlProps extends HealthPlanMarketingUrlPropertyInput, GeneratedPropertyUiProps<HealthPlanMarketingUrlPropertyInput> {}
 
-export function SchemaPropertyHealthPlanMarketingUrl({ value, description = "The URL that goes directly to the plan brochure for the specific standard plan or plan variation.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyHealthPlanMarketingUrlProps) {
+export function SchemaPropertyHealthPlanMarketingUrl({ value: legacyValue, description = "The URL that goes directly to the plan brochure for the specific standard plan or plan variation.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyHealthPlanMarketingUrlProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.HealthPlanMarketingUrlPropertyStructuredData,
     defaultEyebrow: "Property",

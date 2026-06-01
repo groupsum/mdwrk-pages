@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { InteractionServicePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyInteractionServiceProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyInteractionServiceProps extends InteractionServicePropertyInput, GeneratedPropertyUiProps<InteractionServicePropertyInput> {}
 
-export function SchemaPropertyInteractionService({ value, description = "The WebSite or SoftwareApplication where the interactions took place.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyInteractionServiceProps) {
+export function SchemaPropertyInteractionService({ value: legacyValue, description = "The WebSite or SoftwareApplication where the interactions took place.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyInteractionServiceProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.InteractionServicePropertyStructuredData,
     defaultEyebrow: "Property",

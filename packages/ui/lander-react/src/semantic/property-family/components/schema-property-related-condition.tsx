@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { RelatedConditionPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyRelatedConditionProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyRelatedConditionProps extends RelatedConditionPropertyInput, GeneratedPropertyUiProps<RelatedConditionPropertyInput> {}
 
-export function SchemaPropertyRelatedCondition({ value, description = "A medical condition associated with this anatomy.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyRelatedConditionProps) {
+export function SchemaPropertyRelatedCondition({ value: legacyValue, description = "A medical condition associated with this anatomy.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyRelatedConditionProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.RelatedConditionPropertyStructuredData,
     defaultEyebrow: "Property",

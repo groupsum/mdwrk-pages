@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { EpisodeNumberPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyEpisodeNumberProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyEpisodeNumberProps extends EpisodeNumberPropertyInput, GeneratedPropertyUiProps<EpisodeNumberPropertyInput> {}
 
-export function SchemaPropertyEpisodeNumber({ value, description = "Position of the episode within an ordered group of episodes.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyEpisodeNumberProps) {
+export function SchemaPropertyEpisodeNumber({ value: legacyValue, description = "Position of the episode within an ordered group of episodes.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyEpisodeNumberProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.EpisodeNumberPropertyStructuredData,
     defaultEyebrow: "Property",

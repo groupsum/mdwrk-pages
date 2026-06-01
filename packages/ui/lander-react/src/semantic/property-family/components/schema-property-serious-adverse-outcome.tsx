@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { SeriousAdverseOutcomePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertySeriousAdverseOutcomeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertySeriousAdverseOutcomeProps extends SeriousAdverseOutcomePropertyInput, GeneratedPropertyUiProps<SeriousAdverseOutcomePropertyInput> {}
 
-export function SchemaPropertySeriousAdverseOutcome({ value, description = "A possible serious complication and/or serious side effect of this therapy. Serious adverse outcomes include those that are life-threatening; result in death, disability, or permanent damage; require hospitalization or prolong existing hospitalization; cause congenital anomalies or birth defects; or jeopardize the patient and may require medical or surgical intervention to prevent one of the outcomes in this definition.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertySeriousAdverseOutcomeProps) {
+export function SchemaPropertySeriousAdverseOutcome({ value: legacyValue, description = "A possible serious complication and/or serious side effect of this therapy. Serious adverse outcomes include those that are life-threatening; result in death, disability, or permanent damage; require hospitalization or prolong existing hospitalization; cause congenital anomalies or birth defects; or jeopardize the patient and may require medical or surgical intervention to prevent one of the outcomes in this definition.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertySeriousAdverseOutcomeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.SeriousAdverseOutcomePropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { LeiCodePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyLeiCodeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyLeiCodeProps extends LeiCodePropertyInput, GeneratedPropertyUiProps<LeiCodePropertyInput> {}
 
-export function SchemaPropertyLeiCode({ value, description = "An organization identifier that uniquely identifies a legal entity as defined in ISO 17442.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyLeiCodeProps) {
+export function SchemaPropertyLeiCode({ value: legacyValue, description = "An organization identifier that uniquely identifies a legal entity as defined in ISO 17442.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyLeiCodeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.LeiCodePropertyStructuredData,
     defaultEyebrow: "Property",

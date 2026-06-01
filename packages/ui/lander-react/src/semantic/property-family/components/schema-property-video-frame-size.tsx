@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { VideoFrameSizePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyVideoFrameSizeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyVideoFrameSizeProps extends VideoFrameSizePropertyInput, GeneratedPropertyUiProps<VideoFrameSizePropertyInput> {}
 
-export function SchemaPropertyVideoFrameSize({ value, description = "The frame size of the video.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyVideoFrameSizeProps) {
+export function SchemaPropertyVideoFrameSize({ value: legacyValue, description = "The frame size of the video.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyVideoFrameSizeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.VideoFrameSizePropertyStructuredData,
     defaultEyebrow: "Property",

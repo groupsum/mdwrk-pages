@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { EncodesCreativeWorkPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyEncodesCreativeWorkProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyEncodesCreativeWorkProps extends EncodesCreativeWorkPropertyInput, GeneratedPropertyUiProps<EncodesCreativeWorkPropertyInput> {}
 
-export function SchemaPropertyEncodesCreativeWork({ value, description = "The CreativeWork encoded by this media object.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyEncodesCreativeWorkProps) {
+export function SchemaPropertyEncodesCreativeWork({ value: legacyValue, description = "The CreativeWork encoded by this media object.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyEncodesCreativeWorkProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.EncodesCreativeWorkPropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { MemoryRequirementsPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyMemoryRequirementsProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyMemoryRequirementsProps extends MemoryRequirementsPropertyInput, GeneratedPropertyUiProps<MemoryRequirementsPropertyInput> {}
 
-export function SchemaPropertyMemoryRequirements({ value, description = "Minimum memory requirements.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyMemoryRequirementsProps) {
+export function SchemaPropertyMemoryRequirements({ value: legacyValue, description = "Minimum memory requirements.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyMemoryRequirementsProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.MemoryRequirementsPropertyStructuredData,
     defaultEyebrow: "Property",

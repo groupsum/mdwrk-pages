@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DeathPlacePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDeathPlaceProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDeathPlaceProps extends DeathPlacePropertyInput, GeneratedPropertyUiProps<DeathPlacePropertyInput> {}
 
-export function SchemaPropertyDeathPlace({ value, description = "The place where the person died.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDeathPlaceProps) {
+export function SchemaPropertyDeathPlace({ value: legacyValue, description = "The place where the person died.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDeathPlaceProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DeathPlacePropertyStructuredData,
     defaultEyebrow: "Property",

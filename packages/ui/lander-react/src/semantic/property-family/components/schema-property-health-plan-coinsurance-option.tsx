@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { HealthPlanCoinsuranceOptionPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyHealthPlanCoinsuranceOptionProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyHealthPlanCoinsuranceOptionProps extends HealthPlanCoinsuranceOptionPropertyInput, GeneratedPropertyUiProps<HealthPlanCoinsuranceOptionPropertyInput> {}
 
-export function SchemaPropertyHealthPlanCoinsuranceOption({ value, description = "Whether the coinsurance applies before or after deductible, etc. TODO: Is this a closed set?", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyHealthPlanCoinsuranceOptionProps) {
+export function SchemaPropertyHealthPlanCoinsuranceOption({ value: legacyValue, description = "Whether the coinsurance applies before or after deductible, etc. TODO: Is this a closed set?", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyHealthPlanCoinsuranceOptionProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.HealthPlanCoinsuranceOptionPropertyStructuredData,
     defaultEyebrow: "Property",

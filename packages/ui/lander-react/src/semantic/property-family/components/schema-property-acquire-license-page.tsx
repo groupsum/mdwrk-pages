@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { AcquireLicensePagePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyAcquireLicensePageProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyAcquireLicensePageProps extends AcquireLicensePagePropertyInput, GeneratedPropertyUiProps<AcquireLicensePagePropertyInput> {}
 
-export function SchemaPropertyAcquireLicensePage({ value, description = "Indicates a page documenting how licenses can be purchased or otherwise acquired, for the current item.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyAcquireLicensePageProps) {
+export function SchemaPropertyAcquireLicensePage({ value: legacyValue, description = "Indicates a page documenting how licenses can be purchased or otherwise acquired, for the current item.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyAcquireLicensePageProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.AcquireLicensePagePropertyStructuredData,
     defaultEyebrow: "Property",

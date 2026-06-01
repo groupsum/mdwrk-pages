@@ -1,3 +1,3 @@
 import test from "node:test";
 
-test.skip("generated Schema.org properties full-field certification T2", () => {});
+test.todo("generated Schema.org properties T2 robustness closure remains out of scope for the T0/T1 tranche");

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ActionProcessPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyActionProcessProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyActionProcessProps extends ActionProcessPropertyInput, GeneratedPropertyUiProps<ActionProcessPropertyInput> {}
 
-export function SchemaPropertyActionProcess({ value, description = "Description of the process by which the action was performed.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyActionProcessProps) {
+export function SchemaPropertyActionProcess({ value: legacyValue, description = "Description of the process by which the action was performed.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyActionProcessProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ActionProcessPropertyStructuredData,
     defaultEyebrow: "Property",

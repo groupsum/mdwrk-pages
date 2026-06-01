@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DepartmentPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDepartmentProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDepartmentProps extends DepartmentPropertyInput, GeneratedPropertyUiProps<DepartmentPropertyInput> {}
 
-export function SchemaPropertyDepartment({ value, description = "A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDepartmentProps) {
+export function SchemaPropertyDepartment({ value: legacyValue, description = "A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDepartmentProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DepartmentPropertyStructuredData,
     defaultEyebrow: "Property",

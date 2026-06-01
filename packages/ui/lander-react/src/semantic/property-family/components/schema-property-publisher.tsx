@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { PublisherPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyPublisherProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyPublisherProps extends PublisherPropertyInput, GeneratedPropertyUiProps<PublisherPropertyInput> {}
 
-export function SchemaPropertyPublisher({ value, description = "The publisher of the article in question.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyPublisherProps) {
+export function SchemaPropertyPublisher({ value: legacyValue, description = "The publisher of the article in question.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyPublisherProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.PublisherPropertyStructuredData,
     defaultEyebrow: "Property",

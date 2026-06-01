@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { HasShippingServicePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyHasShippingServiceProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyHasShippingServiceProps extends HasShippingServicePropertyInput, GeneratedPropertyUiProps<HasShippingServicePropertyInput> {}
 
-export function SchemaPropertyHasShippingService({ value, description = "Specification of a shipping service offered by the organization.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyHasShippingServiceProps) {
+export function SchemaPropertyHasShippingService({ value: legacyValue, description = "Specification of a shipping service offered by the organization.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyHasShippingServiceProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.HasShippingServicePropertyStructuredData,
     defaultEyebrow: "Property",

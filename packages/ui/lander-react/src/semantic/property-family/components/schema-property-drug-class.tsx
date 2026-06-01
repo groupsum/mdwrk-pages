@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DrugClassPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDrugClassProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDrugClassProps extends DrugClassPropertyInput, GeneratedPropertyUiProps<DrugClassPropertyInput> {}
 
-export function SchemaPropertyDrugClass({ value, description = "The class of drug this belongs to (e.g., statins).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDrugClassProps) {
+export function SchemaPropertyDrugClass({ value: legacyValue, description = "The class of drug this belongs to (e.g., statins).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDrugClassProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DrugClassPropertyStructuredData,
     defaultEyebrow: "Property",

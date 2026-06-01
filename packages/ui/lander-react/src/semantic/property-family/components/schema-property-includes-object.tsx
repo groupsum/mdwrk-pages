@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { IncludesObjectPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyIncludesObjectProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyIncludesObjectProps extends IncludesObjectPropertyInput, GeneratedPropertyUiProps<IncludesObjectPropertyInput> {}
 
-export function SchemaPropertyIncludesObject({ value, description = "This links to a node or nodes indicating the exact quantity of the products included in  an [[Offer]] or [[ProductCollection]].", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyIncludesObjectProps) {
+export function SchemaPropertyIncludesObject({ value: legacyValue, description = "This links to a node or nodes indicating the exact quantity of the products included in  an [[Offer]] or [[ProductCollection]].", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyIncludesObjectProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.IncludesObjectPropertyStructuredData,
     defaultEyebrow: "Property",

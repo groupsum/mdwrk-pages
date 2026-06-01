@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { AssociatedAnatomyPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyAssociatedAnatomyProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyAssociatedAnatomyProps extends AssociatedAnatomyPropertyInput, GeneratedPropertyUiProps<AssociatedAnatomyPropertyInput> {}
 
-export function SchemaPropertyAssociatedAnatomy({ value, description = "The anatomy of the underlying organ system or structures associated with this entity.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyAssociatedAnatomyProps) {
+export function SchemaPropertyAssociatedAnatomy({ value: legacyValue, description = "The anatomy of the underlying organ system or structures associated with this entity.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyAssociatedAnatomyProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.AssociatedAnatomyPropertyStructuredData,
     defaultEyebrow: "Property",

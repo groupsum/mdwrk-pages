@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { SdLicensePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertySdLicenseProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertySdLicenseProps extends SdLicensePropertyInput, GeneratedPropertyUiProps<SdLicensePropertyInput> {}
 
-export function SchemaPropertySdLicense({ value, description = "A license document that applies to this structured data, typically indicated by URL.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertySdLicenseProps) {
+export function SchemaPropertySdLicense({ value: legacyValue, description = "A license document that applies to this structured data, typically indicated by URL.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertySdLicenseProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.SdLicensePropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { InventoryLevelPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyInventoryLevelProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyInventoryLevelProps extends InventoryLevelPropertyInput, GeneratedPropertyUiProps<InventoryLevelPropertyInput> {}
 
-export function SchemaPropertyInventoryLevel({ value, description = "The current approximate inventory level for the item or items.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyInventoryLevelProps) {
+export function SchemaPropertyInventoryLevel({ value: legacyValue, description = "The current approximate inventory level for the item or items.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyInventoryLevelProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.InventoryLevelPropertyStructuredData,
     defaultEyebrow: "Property",

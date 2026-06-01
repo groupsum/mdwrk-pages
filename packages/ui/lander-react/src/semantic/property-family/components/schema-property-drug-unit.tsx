@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DrugUnitPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDrugUnitProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDrugUnitProps extends DrugUnitPropertyInput, GeneratedPropertyUiProps<DrugUnitPropertyInput> {}
 
-export function SchemaPropertyDrugUnit({ value, description = "The unit in which the drug is measured, e.g. '5 mg tablet'.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDrugUnitProps) {
+export function SchemaPropertyDrugUnit({ value: legacyValue, description = "The unit in which the drug is measured, e.g. '5 mg tablet'.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDrugUnitProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DrugUnitPropertyStructuredData,
     defaultEyebrow: "Property",

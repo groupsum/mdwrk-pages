@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { FoundingLocationPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyFoundingLocationProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyFoundingLocationProps extends FoundingLocationPropertyInput, GeneratedPropertyUiProps<FoundingLocationPropertyInput> {}
 
-export function SchemaPropertyFoundingLocation({ value, description = "The place where the Organization was founded.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyFoundingLocationProps) {
+export function SchemaPropertyFoundingLocation({ value: legacyValue, description = "The place where the Organization was founded.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyFoundingLocationProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.FoundingLocationPropertyStructuredData,
     defaultEyebrow: "Property",

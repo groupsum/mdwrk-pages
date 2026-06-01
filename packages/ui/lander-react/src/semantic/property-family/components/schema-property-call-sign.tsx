@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { CallSignPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyCallSignProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyCallSignProps extends CallSignPropertyInput, GeneratedPropertyUiProps<CallSignPropertyInput> {}
 
-export function SchemaPropertyCallSign({ value, description = "A [callsign](https://en.wikipedia.org/wiki/Call_sign), as used in broadcasting and radio communications to identify people, radio and TV stations, or vehicles.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyCallSignProps) {
+export function SchemaPropertyCallSign({ value: legacyValue, description = "A [callsign](https://en.wikipedia.org/wiki/Call_sign), as used in broadcasting and radio communications to identify people, radio and TV stations, or vehicles.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyCallSignProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.CallSignPropertyStructuredData,
     defaultEyebrow: "Property",

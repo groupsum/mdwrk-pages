@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { AgentPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyAgentProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyAgentProps extends AgentPropertyInput, GeneratedPropertyUiProps<AgentPropertyInput> {}
 
-export function SchemaPropertyAgent({ value, description = "The direct performer or driver of the action (animate or inanimate). E.g. *John* wrote a book.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyAgentProps) {
+export function SchemaPropertyAgent({ value: legacyValue, description = "The direct performer or driver of the action (animate or inanimate). E.g. *John* wrote a book.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyAgentProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.AgentPropertyStructuredData,
     defaultEyebrow: "Property",

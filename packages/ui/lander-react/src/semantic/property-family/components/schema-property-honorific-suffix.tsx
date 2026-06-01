@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { HonorificSuffixPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyHonorificSuffixProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyHonorificSuffixProps extends HonorificSuffixPropertyInput, GeneratedPropertyUiProps<HonorificSuffixPropertyInput> {}
 
-export function SchemaPropertyHonorificSuffix({ value, description = "An honorific suffix following a Person's name such as M.D./PhD/MSCSW.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyHonorificSuffixProps) {
+export function SchemaPropertyHonorificSuffix({ value: legacyValue, description = "An honorific suffix following a Person's name such as M.D./PhD/MSCSW.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyHonorificSuffixProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.HonorificSuffixPropertyStructuredData,
     defaultEyebrow: "Property",

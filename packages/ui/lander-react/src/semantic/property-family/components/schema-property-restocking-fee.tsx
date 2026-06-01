@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { RestockingFeePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyRestockingFeeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyRestockingFeeProps extends RestockingFeePropertyInput, GeneratedPropertyUiProps<RestockingFeePropertyInput> {}
 
-export function SchemaPropertyRestockingFee({ value, description = "Use [[MonetaryAmount]] to specify a fixed restocking fee for product returns, or use [[Number]] to specify a percentage of the product price paid by the customer.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyRestockingFeeProps) {
+export function SchemaPropertyRestockingFee({ value: legacyValue, description = "Use [[MonetaryAmount]] to specify a fixed restocking fee for product returns, or use [[Number]] to specify a percentage of the product price paid by the customer.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyRestockingFeeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.RestockingFeePropertyStructuredData,
     defaultEyebrow: "Property",

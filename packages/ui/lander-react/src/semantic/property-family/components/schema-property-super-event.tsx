@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { SuperEventPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertySuperEventProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertySuperEventProps extends SuperEventPropertyInput, GeneratedPropertyUiProps<SuperEventPropertyInput> {}
 
-export function SchemaPropertySuperEvent({ value, description = "An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertySuperEventProps) {
+export function SchemaPropertySuperEvent({ value: legacyValue, description = "An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertySuperEventProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.SuperEventPropertyStructuredData,
     defaultEyebrow: "Property",

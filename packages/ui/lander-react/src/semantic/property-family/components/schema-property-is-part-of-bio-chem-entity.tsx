@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { IsPartOfBioChemEntityPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyIsPartOfBioChemEntityProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyIsPartOfBioChemEntityProps extends IsPartOfBioChemEntityPropertyInput, GeneratedPropertyUiProps<IsPartOfBioChemEntityPropertyInput> {}
 
-export function SchemaPropertyIsPartOfBioChemEntity({ value, description = "Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity. ", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyIsPartOfBioChemEntityProps) {
+export function SchemaPropertyIsPartOfBioChemEntity({ value: legacyValue, description = "Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity. ", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyIsPartOfBioChemEntityProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.IsPartOfBioChemEntityPropertyStructuredData,
     defaultEyebrow: "Property",

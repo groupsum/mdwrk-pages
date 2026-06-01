@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { EmployeesPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyEmployeesProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyEmployeesProps extends EmployeesPropertyInput, GeneratedPropertyUiProps<EmployeesPropertyInput> {}
 
-export function SchemaPropertyEmployees({ value, description = "People working for this organization.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyEmployeesProps) {
+export function SchemaPropertyEmployees({ value: legacyValue, description = "People working for this organization.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyEmployeesProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.EmployeesPropertyStructuredData,
     defaultEyebrow: "Property",

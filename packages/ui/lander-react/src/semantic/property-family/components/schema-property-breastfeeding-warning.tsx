@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { BreastfeedingWarningPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyBreastfeedingWarningProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyBreastfeedingWarningProps extends BreastfeedingWarningPropertyInput, GeneratedPropertyUiProps<BreastfeedingWarningPropertyInput> {}
 
-export function SchemaPropertyBreastfeedingWarning({ value, description = "Any precaution, guidance, contraindication, etc. related to this drug's use by breastfeeding mothers.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyBreastfeedingWarningProps) {
+export function SchemaPropertyBreastfeedingWarning({ value: legacyValue, description = "Any precaution, guidance, contraindication, etc. related to this drug's use by breastfeeding mothers.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyBreastfeedingWarningProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.BreastfeedingWarningPropertyStructuredData,
     defaultEyebrow: "Property",

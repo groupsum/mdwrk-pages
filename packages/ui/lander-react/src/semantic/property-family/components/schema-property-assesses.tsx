@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { AssessesPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyAssessesProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyAssessesProps extends AssessesPropertyInput, GeneratedPropertyUiProps<AssessesPropertyInput> {}
 
-export function SchemaPropertyAssesses({ value, description = "The item being described is intended to assess the competency or learning outcome defined by the referenced term.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyAssessesProps) {
+export function SchemaPropertyAssesses({ value: legacyValue, description = "The item being described is intended to assess the competency or learning outcome defined by the referenced term.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyAssessesProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.AssessesPropertyStructuredData,
     defaultEyebrow: "Property",

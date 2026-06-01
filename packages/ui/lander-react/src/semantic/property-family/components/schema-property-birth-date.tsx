@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { BirthDatePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyBirthDateProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyBirthDateProps extends BirthDatePropertyInput, GeneratedPropertyUiProps<BirthDatePropertyInput> {}
 
-export function SchemaPropertyBirthDate({ value, description = "Date of birth.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyBirthDateProps) {
+export function SchemaPropertyBirthDate({ value: legacyValue, description = "Date of birth.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyBirthDateProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.BirthDatePropertyStructuredData,
     defaultEyebrow: "Property",

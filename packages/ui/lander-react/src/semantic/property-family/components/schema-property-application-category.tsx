@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ApplicationCategoryPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyApplicationCategoryProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyApplicationCategoryProps extends ApplicationCategoryPropertyInput, GeneratedPropertyUiProps<ApplicationCategoryPropertyInput> {}
 
-export function SchemaPropertyApplicationCategory({ value, description = "Type of software application, e.g. 'Game, Multimedia'.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyApplicationCategoryProps) {
+export function SchemaPropertyApplicationCategory({ value: legacyValue, description = "Type of software application, e.g. 'Game, Multimedia'.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyApplicationCategoryProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ApplicationCategoryPropertyStructuredData,
     defaultEyebrow: "Property",

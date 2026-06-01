@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { PageStartPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyPageStartProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyPageStartProps extends PageStartPropertyInput, GeneratedPropertyUiProps<PageStartPropertyInput> {}
 
-export function SchemaPropertyPageStart({ value, description = "The page on which the work starts; for example \"135\" or \"xiii\".", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyPageStartProps) {
+export function SchemaPropertyPageStart({ value: legacyValue, description = "The page on which the work starts; for example \"135\" or \"xiii\".", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyPageStartProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.PageStartPropertyStructuredData,
     defaultEyebrow: "Property",

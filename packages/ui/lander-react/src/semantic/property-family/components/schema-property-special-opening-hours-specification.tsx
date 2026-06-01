@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { SpecialOpeningHoursSpecificationPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertySpecialOpeningHoursSpecificationProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertySpecialOpeningHoursSpecificationProps extends SpecialOpeningHoursSpecificationPropertyInput, GeneratedPropertyUiProps<SpecialOpeningHoursSpecificationPropertyInput> {}
 
-export function SchemaPropertySpecialOpeningHoursSpecification({ value, description = "The special opening hours of a certain place.\\n\\nUse this to explicitly override general opening hours brought in scope by [[openingHoursSpecification]] or [[openingHours]].\n      ", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertySpecialOpeningHoursSpecificationProps) {
+export function SchemaPropertySpecialOpeningHoursSpecification({ value: legacyValue, description = "The special opening hours of a certain place.\\n\\nUse this to explicitly override general opening hours brought in scope by [[openingHoursSpecification]] or [[openingHours]].\n      ", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertySpecialOpeningHoursSpecificationProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.SpecialOpeningHoursSpecificationPropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { LinePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyLineProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyLineProps extends LinePropertyInput, GeneratedPropertyUiProps<LinePropertyInput> {}
 
-export function SchemaPropertyLine({ value, description = "A line is a point-to-point path consisting of two or more points. A line is expressed as a series of two or more point objects separated by space.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyLineProps) {
+export function SchemaPropertyLine({ value: legacyValue, description = "A line is a point-to-point path consisting of two or more points. A line is expressed as a series of two or more point objects separated by space.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyLineProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.LinePropertyStructuredData,
     defaultEyebrow: "Property",

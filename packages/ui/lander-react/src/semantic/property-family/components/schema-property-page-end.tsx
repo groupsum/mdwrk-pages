@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { PageEndPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyPageEndProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyPageEndProps extends PageEndPropertyInput, GeneratedPropertyUiProps<PageEndPropertyInput> {}
 
-export function SchemaPropertyPageEnd({ value, description = "The page on which the work ends; for example \"138\" or \"xvi\".", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyPageEndProps) {
+export function SchemaPropertyPageEnd({ value: legacyValue, description = "The page on which the work ends; for example \"138\" or \"xvi\".", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyPageEndProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.PageEndPropertyStructuredData,
     defaultEyebrow: "Property",

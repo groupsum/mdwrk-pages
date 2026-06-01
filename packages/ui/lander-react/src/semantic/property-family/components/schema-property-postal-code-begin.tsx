@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { PostalCodeBeginPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyPostalCodeBeginProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyPostalCodeBeginProps extends PostalCodeBeginPropertyInput, GeneratedPropertyUiProps<PostalCodeBeginPropertyInput> {}
 
-export function SchemaPropertyPostalCodeBegin({ value, description = "First postal code in a range (included).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyPostalCodeBeginProps) {
+export function SchemaPropertyPostalCodeBegin({ value: legacyValue, description = "First postal code in a range (included).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyPostalCodeBeginProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.PostalCodeBeginPropertyStructuredData,
     defaultEyebrow: "Property",

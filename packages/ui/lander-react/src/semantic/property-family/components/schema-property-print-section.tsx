@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { PrintSectionPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyPrintSectionProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyPrintSectionProps extends PrintSectionPropertyInput, GeneratedPropertyUiProps<PrintSectionPropertyInput> {}
 
-export function SchemaPropertyPrintSection({ value, description = "If this NewsArticle appears in print, this field indicates the print section in which the article appeared.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyPrintSectionProps) {
+export function SchemaPropertyPrintSection({ value: legacyValue, description = "If this NewsArticle appears in print, this field indicates the print section in which the article appeared.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyPrintSectionProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.PrintSectionPropertyStructuredData,
     defaultEyebrow: "Property",

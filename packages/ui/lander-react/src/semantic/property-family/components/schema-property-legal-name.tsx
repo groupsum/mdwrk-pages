@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { LegalNamePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyLegalNameProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyLegalNameProps extends LegalNamePropertyInput, GeneratedPropertyUiProps<LegalNamePropertyInput> {}
 
-export function SchemaPropertyLegalName({ value, description = "The official name of the organization, e.g. the registered company name.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyLegalNameProps) {
+export function SchemaPropertyLegalName({ value: legacyValue, description = "The official name of the organization, e.g. the registered company name.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyLegalNameProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.LegalNamePropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ContentLocationPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyContentLocationProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyContentLocationProps extends ContentLocationPropertyInput, GeneratedPropertyUiProps<ContentLocationPropertyInput> {}
 
-export function SchemaPropertyContentLocation({ value, description = "The location depicted or described in the content. For example, the location in a photograph or painting.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyContentLocationProps) {
+export function SchemaPropertyContentLocation({ value: legacyValue, description = "The location depicted or described in the content. For example, the location in a photograph or painting.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyContentLocationProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ContentLocationPropertyStructuredData,
     defaultEyebrow: "Property",

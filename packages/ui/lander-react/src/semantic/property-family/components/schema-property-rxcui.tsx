@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { RxcuiPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyRxcuiProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyRxcuiProps extends RxcuiPropertyInput, GeneratedPropertyUiProps<RxcuiPropertyInput> {}
 
-export function SchemaPropertyRxcui({ value, description = "The RxCUI drug identifier from RXNORM.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyRxcuiProps) {
+export function SchemaPropertyRxcui({ value: legacyValue, description = "The RxCUI drug identifier from RXNORM.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyRxcuiProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.RxcuiPropertyStructuredData,
     defaultEyebrow: "Property",

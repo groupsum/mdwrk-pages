@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { LoanPaymentFrequencyPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyLoanPaymentFrequencyProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyLoanPaymentFrequencyProps extends LoanPaymentFrequencyPropertyInput, GeneratedPropertyUiProps<LoanPaymentFrequencyPropertyInput> {}
 
-export function SchemaPropertyLoanPaymentFrequency({ value, description = "Frequency of payments due, i.e. number of months between payments. This is defined as a frequency, i.e. the reciprocal of a period of time.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyLoanPaymentFrequencyProps) {
+export function SchemaPropertyLoanPaymentFrequency({ value: legacyValue, description = "Frequency of payments due, i.e. number of months between payments. This is defined as a frequency, i.e. the reciprocal of a period of time.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyLoanPaymentFrequencyProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.LoanPaymentFrequencyPropertyStructuredData,
     defaultEyebrow: "Property",

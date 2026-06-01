@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ProcessingTimePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyProcessingTimeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyProcessingTimeProps extends ProcessingTimePropertyInput, GeneratedPropertyUiProps<ProcessingTimePropertyInput> {}
 
-export function SchemaPropertyProcessingTime({ value, description = "Estimated processing time for the service using this channel.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyProcessingTimeProps) {
+export function SchemaPropertyProcessingTime({ value: legacyValue, description = "Estimated processing time for the service using this channel.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyProcessingTimeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ProcessingTimePropertyStructuredData,
     defaultEyebrow: "Property",

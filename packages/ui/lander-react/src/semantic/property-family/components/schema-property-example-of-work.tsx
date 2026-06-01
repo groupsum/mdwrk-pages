@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ExampleOfWorkPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyExampleOfWorkProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyExampleOfWorkProps extends ExampleOfWorkPropertyInput, GeneratedPropertyUiProps<ExampleOfWorkPropertyInput> {}
 
-export function SchemaPropertyExampleOfWork({ value, description = "A creative work that this work is an example/instance/realization/derivation of.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyExampleOfWorkProps) {
+export function SchemaPropertyExampleOfWork({ value: legacyValue, description = "A creative work that this work is an example/instance/realization/derivation of.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyExampleOfWorkProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ExampleOfWorkPropertyStructuredData,
     defaultEyebrow: "Property",

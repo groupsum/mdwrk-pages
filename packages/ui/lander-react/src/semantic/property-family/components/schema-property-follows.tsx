@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { FollowsPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyFollowsProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyFollowsProps extends FollowsPropertyInput, GeneratedPropertyUiProps<FollowsPropertyInput> {}
 
-export function SchemaPropertyFollows({ value, description = "The most generic uni-directional social relation.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyFollowsProps) {
+export function SchemaPropertyFollows({ value: legacyValue, description = "The most generic uni-directional social relation.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyFollowsProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.FollowsPropertyStructuredData,
     defaultEyebrow: "Property",

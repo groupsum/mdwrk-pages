@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ComposerPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyComposerProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyComposerProps extends ComposerPropertyInput, GeneratedPropertyUiProps<ComposerPropertyInput> {}
 
-export function SchemaPropertyComposer({ value, description = "The person or organization who wrote a composition, or who is the composer of a work performed at some event.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyComposerProps) {
+export function SchemaPropertyComposer({ value: legacyValue, description = "The person or organization who wrote a composition, or who is the composer of a work performed at some event.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyComposerProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ComposerPropertyStructuredData,
     defaultEyebrow: "Property",

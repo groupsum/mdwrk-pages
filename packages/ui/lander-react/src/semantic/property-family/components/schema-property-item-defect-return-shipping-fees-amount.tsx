@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ItemDefectReturnShippingFeesAmountPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyItemDefectReturnShippingFeesAmountProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyItemDefectReturnShippingFeesAmountProps extends ItemDefectReturnShippingFeesAmountPropertyInput, GeneratedPropertyUiProps<ItemDefectReturnShippingFeesAmountPropertyInput> {}
 
-export function SchemaPropertyItemDefectReturnShippingFeesAmount({ value, description = "Amount of shipping costs for defect product returns. Applicable when property [[itemDefectReturnFees]] equals [[ReturnShippingFees]].", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyItemDefectReturnShippingFeesAmountProps) {
+export function SchemaPropertyItemDefectReturnShippingFeesAmount({ value: legacyValue, description = "Amount of shipping costs for defect product returns. Applicable when property [[itemDefectReturnFees]] equals [[ReturnShippingFees]].", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyItemDefectReturnShippingFeesAmountProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ItemDefectReturnShippingFeesAmountPropertyStructuredData,
     defaultEyebrow: "Property",

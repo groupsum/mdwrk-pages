@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { MaximumIntakePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyMaximumIntakeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyMaximumIntakeProps extends MaximumIntakePropertyInput, GeneratedPropertyUiProps<MaximumIntakePropertyInput> {}
 
-export function SchemaPropertyMaximumIntake({ value, description = "Recommended intake of this supplement for a given population as defined by a specific recommending authority.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyMaximumIntakeProps) {
+export function SchemaPropertyMaximumIntake({ value: legacyValue, description = "Recommended intake of this supplement for a given population as defined by a specific recommending authority.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyMaximumIntakeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.MaximumIntakePropertyStructuredData,
     defaultEyebrow: "Property",

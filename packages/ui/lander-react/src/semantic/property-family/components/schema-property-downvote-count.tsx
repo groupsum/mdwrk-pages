@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DownvoteCountPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDownvoteCountProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDownvoteCountProps extends DownvoteCountPropertyInput, GeneratedPropertyUiProps<DownvoteCountPropertyInput> {}
 
-export function SchemaPropertyDownvoteCount({ value, description = "The number of downvotes this question, answer or comment has received from the community.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDownvoteCountProps) {
+export function SchemaPropertyDownvoteCount({ value: legacyValue, description = "The number of downvotes this question, answer or comment has received from the community.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDownvoteCountProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DownvoteCountPropertyStructuredData,
     defaultEyebrow: "Property",

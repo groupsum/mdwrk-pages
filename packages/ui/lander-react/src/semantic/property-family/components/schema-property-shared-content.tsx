@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { SharedContentPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertySharedContentProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertySharedContentProps extends SharedContentPropertyInput, GeneratedPropertyUiProps<SharedContentPropertyInput> {}
 
-export function SchemaPropertySharedContent({ value, description = "A CreativeWork such as an image, video, or audio clip shared as part of this posting.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertySharedContentProps) {
+export function SchemaPropertySharedContent({ value: legacyValue, description = "A CreativeWork such as an image, video, or audio clip shared as part of this posting.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertySharedContentProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.SharedContentPropertyStructuredData,
     defaultEyebrow: "Property",

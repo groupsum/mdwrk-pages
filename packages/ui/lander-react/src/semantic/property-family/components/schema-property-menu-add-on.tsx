@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { MenuAddOnPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyMenuAddOnProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyMenuAddOnProps extends MenuAddOnPropertyInput, GeneratedPropertyUiProps<MenuAddOnPropertyInput> {}
 
-export function SchemaPropertyMenuAddOn({ value, description = "Additional menu item(s) such as a side dish of salad or side order of fries that can be added to this menu item. Additionally it can be a menu section containing allowed add-on menu items for this menu item.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyMenuAddOnProps) {
+export function SchemaPropertyMenuAddOn({ value: legacyValue, description = "Additional menu item(s) such as a side dish of salad or side order of fries that can be added to this menu item. Additionally it can be a menu section containing allowed add-on menu items for this menu item.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyMenuAddOnProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.MenuAddOnPropertyStructuredData,
     defaultEyebrow: "Property",

@@ -15,8 +15,8 @@ export interface GeneratedPropertyViewModel {
   subtitle?: React.ReactNode;
 }
 
-export interface GeneratedPropertyProps<T = Record<string, unknown>> {
-  value: T;
+export interface GeneratedPropertyUiProps<T = Record<string, unknown>> {
+  value?: T;
   description?: string;
   examples?: T[];
   body?: React.ReactNode;
@@ -25,6 +25,8 @@ export interface GeneratedPropertyProps<T = Record<string, unknown>> {
   structuredDataOverrides?: Partial<T>;
   viewModel?: GeneratedPropertyViewModel;
 }
+
+export type GeneratedPropertyProps<T = Record<string, unknown>> = GeneratedPropertyUiProps<T> & T;
 
 interface RenderGeneratedPropertyCardProps<T> {
   StructuredDataComponent: React.ComponentType<{ data: unknown }>;

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { FoodWarningPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyFoodWarningProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyFoodWarningProps extends FoodWarningPropertyInput, GeneratedPropertyUiProps<FoodWarningPropertyInput> {}
 
-export function SchemaPropertyFoodWarning({ value, description = "Any precaution, guidance, contraindication, etc. related to consumption of specific foods while taking this drug.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyFoodWarningProps) {
+export function SchemaPropertyFoodWarning({ value: legacyValue, description = "Any precaution, guidance, contraindication, etc. related to consumption of specific foods while taking this drug.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyFoodWarningProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.FoodWarningPropertyStructuredData,
     defaultEyebrow: "Property",

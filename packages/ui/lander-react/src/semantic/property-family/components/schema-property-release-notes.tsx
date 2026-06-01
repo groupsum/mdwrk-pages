@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ReleaseNotesPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyReleaseNotesProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyReleaseNotesProps extends ReleaseNotesPropertyInput, GeneratedPropertyUiProps<ReleaseNotesPropertyInput> {}
 
-export function SchemaPropertyReleaseNotes({ value, description = "Description of what changed in this version.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyReleaseNotesProps) {
+export function SchemaPropertyReleaseNotes({ value: legacyValue, description = "Description of what changed in this version.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyReleaseNotesProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ReleaseNotesPropertyStructuredData,
     defaultEyebrow: "Property",

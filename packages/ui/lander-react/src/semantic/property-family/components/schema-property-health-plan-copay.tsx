@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { HealthPlanCopayPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyHealthPlanCopayProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyHealthPlanCopayProps extends HealthPlanCopayPropertyInput, GeneratedPropertyUiProps<HealthPlanCopayPropertyInput> {}
 
-export function SchemaPropertyHealthPlanCopay({ value, description = "The copay amount.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyHealthPlanCopayProps) {
+export function SchemaPropertyHealthPlanCopay({ value: legacyValue, description = "The copay amount.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyHealthPlanCopayProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.HealthPlanCopayPropertyStructuredData,
     defaultEyebrow: "Property",

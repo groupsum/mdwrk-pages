@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ReturnPolicyCategoryPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyReturnPolicyCategoryProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyReturnPolicyCategoryProps extends ReturnPolicyCategoryPropertyInput, GeneratedPropertyUiProps<ReturnPolicyCategoryPropertyInput> {}
 
-export function SchemaPropertyReturnPolicyCategory({ value, description = "Specifies an applicable return policy (from an enumeration).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyReturnPolicyCategoryProps) {
+export function SchemaPropertyReturnPolicyCategory({ value: legacyValue, description = "Specifies an applicable return policy (from an enumeration).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyReturnPolicyCategoryProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ReturnPolicyCategoryPropertyStructuredData,
     defaultEyebrow: "Property",

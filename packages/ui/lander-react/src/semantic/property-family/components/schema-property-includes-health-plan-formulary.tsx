@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { IncludesHealthPlanFormularyPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyIncludesHealthPlanFormularyProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyIncludesHealthPlanFormularyProps extends IncludesHealthPlanFormularyPropertyInput, GeneratedPropertyUiProps<IncludesHealthPlanFormularyPropertyInput> {}
 
-export function SchemaPropertyIncludesHealthPlanFormulary({ value, description = "Formularies covered by this plan.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyIncludesHealthPlanFormularyProps) {
+export function SchemaPropertyIncludesHealthPlanFormulary({ value: legacyValue, description = "Formularies covered by this plan.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyIncludesHealthPlanFormularyProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.IncludesHealthPlanFormularyPropertyStructuredData,
     defaultEyebrow: "Property",

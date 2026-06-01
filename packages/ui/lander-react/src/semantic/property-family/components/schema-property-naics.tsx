@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { NaicsPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyNaicsProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyNaicsProps extends NaicsPropertyInput, GeneratedPropertyUiProps<NaicsPropertyInput> {}
 
-export function SchemaPropertyNaics({ value, description = "The North American Industry Classification System (NAICS) code for a particular organization or business person.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyNaicsProps) {
+export function SchemaPropertyNaics({ value: legacyValue, description = "The North American Industry Classification System (NAICS) code for a particular organization or business person.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyNaicsProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.NaicsPropertyStructuredData,
     defaultEyebrow: "Property",

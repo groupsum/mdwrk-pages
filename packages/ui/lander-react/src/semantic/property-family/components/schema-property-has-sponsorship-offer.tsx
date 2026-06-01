@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { HasSponsorshipOfferPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyHasSponsorshipOfferProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyHasSponsorshipOfferProps extends HasSponsorshipOfferPropertyInput, GeneratedPropertyUiProps<HasSponsorshipOfferPropertyInput> {}
 
-export function SchemaPropertyHasSponsorshipOffer({ value, description = "An offer to sponsor the event, for example, Sponsorship Prospectus, Sponsorship Opportunities, or Sponsor Packages.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyHasSponsorshipOfferProps) {
+export function SchemaPropertyHasSponsorshipOffer({ value: legacyValue, description = "An offer to sponsor the event, for example, Sponsorship Prospectus, Sponsorship Opportunities, or Sponsor Packages.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyHasSponsorshipOfferProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.HasSponsorshipOfferPropertyStructuredData,
     defaultEyebrow: "Property",

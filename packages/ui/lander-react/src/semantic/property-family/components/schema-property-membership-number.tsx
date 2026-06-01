@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { MembershipNumberPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyMembershipNumberProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyMembershipNumberProps extends MembershipNumberPropertyInput, GeneratedPropertyUiProps<MembershipNumberPropertyInput> {}
 
-export function SchemaPropertyMembershipNumber({ value, description = "A unique identifier for the membership.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyMembershipNumberProps) {
+export function SchemaPropertyMembershipNumber({ value: legacyValue, description = "A unique identifier for the membership.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyMembershipNumberProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.MembershipNumberPropertyStructuredData,
     defaultEyebrow: "Property",

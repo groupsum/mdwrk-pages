@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { MonthsOfExperiencePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyMonthsOfExperienceProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyMonthsOfExperienceProps extends MonthsOfExperiencePropertyInput, GeneratedPropertyUiProps<MonthsOfExperiencePropertyInput> {}
 
-export function SchemaPropertyMonthsOfExperience({ value, description = "Indicates the minimal number of months of experience required for a position.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyMonthsOfExperienceProps) {
+export function SchemaPropertyMonthsOfExperience({ value: legacyValue, description = "Indicates the minimal number of months of experience required for a position.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyMonthsOfExperienceProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.MonthsOfExperiencePropertyStructuredData,
     defaultEyebrow: "Property",

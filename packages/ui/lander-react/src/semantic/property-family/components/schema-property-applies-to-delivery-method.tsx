@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { AppliesToDeliveryMethodPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyAppliesToDeliveryMethodProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyAppliesToDeliveryMethodProps extends AppliesToDeliveryMethodPropertyInput, GeneratedPropertyUiProps<AppliesToDeliveryMethodPropertyInput> {}
 
-export function SchemaPropertyAppliesToDeliveryMethod({ value, description = "The delivery method(s) to which the delivery charge or payment charge specification applies.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyAppliesToDeliveryMethodProps) {
+export function SchemaPropertyAppliesToDeliveryMethod({ value: legacyValue, description = "The delivery method(s) to which the delivery charge or payment charge specification applies.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyAppliesToDeliveryMethodProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.AppliesToDeliveryMethodPropertyStructuredData,
     defaultEyebrow: "Property",

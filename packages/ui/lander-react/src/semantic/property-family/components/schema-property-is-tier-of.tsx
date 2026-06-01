@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { IsTierOfPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyIsTierOfProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyIsTierOfProps extends IsTierOfPropertyInput, GeneratedPropertyUiProps<IsTierOfPropertyInput> {}
 
-export function SchemaPropertyIsTierOf({ value, description = "The member program this tier is a part of.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyIsTierOfProps) {
+export function SchemaPropertyIsTierOf({ value: legacyValue, description = "The member program this tier is a part of.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyIsTierOfProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.IsTierOfPropertyStructuredData,
     defaultEyebrow: "Property",

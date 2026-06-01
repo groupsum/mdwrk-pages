@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { ProductGroupIDPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyProductGroupIDProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyProductGroupIDProps extends ProductGroupIDPropertyInput, GeneratedPropertyUiProps<ProductGroupIDPropertyInput> {}
 
-export function SchemaPropertyProductGroupID({ value, description = "Indicates a textual identifier for a ProductGroup.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyProductGroupIDProps) {
+export function SchemaPropertyProductGroupID({ value: legacyValue, description = "Indicates a textual identifier for a ProductGroup.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyProductGroupIDProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.ProductGroupIDPropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { IsAccessoryOrSparePartForPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyIsAccessoryOrSparePartForProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyIsAccessoryOrSparePartForProps extends IsAccessoryOrSparePartForPropertyInput, GeneratedPropertyUiProps<IsAccessoryOrSparePartForPropertyInput> {}
 
-export function SchemaPropertyIsAccessoryOrSparePartFor({ value, description = "A pointer to another product (or multiple products) for which this product is an accessory or spare part.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyIsAccessoryOrSparePartForProps) {
+export function SchemaPropertyIsAccessoryOrSparePartFor({ value: legacyValue, description = "A pointer to another product (or multiple products) for which this product is an accessory or spare part.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyIsAccessoryOrSparePartForProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.IsAccessoryOrSparePartForPropertyStructuredData,
     defaultEyebrow: "Property",

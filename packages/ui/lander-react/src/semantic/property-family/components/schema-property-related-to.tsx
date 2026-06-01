@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { RelatedToPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyRelatedToProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyRelatedToProps extends RelatedToPropertyInput, GeneratedPropertyUiProps<RelatedToPropertyInput> {}
 
-export function SchemaPropertyRelatedTo({ value, description = "The most generic familial relation.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyRelatedToProps) {
+export function SchemaPropertyRelatedTo({ value: legacyValue, description = "The most generic familial relation.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyRelatedToProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.RelatedToPropertyStructuredData,
     defaultEyebrow: "Property",

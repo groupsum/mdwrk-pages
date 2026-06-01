@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { DigitalSourceTypePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyDigitalSourceTypeProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyDigitalSourceTypeProps extends DigitalSourceTypePropertyInput, GeneratedPropertyUiProps<DigitalSourceTypePropertyInput> {}
 
-export function SchemaPropertyDigitalSourceType({ value, description = "Indicates an IPTCDigitalSourceEnumeration code indicating the nature of the digital source(s) for some [[CreativeWork]].", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyDigitalSourceTypeProps) {
+export function SchemaPropertyDigitalSourceType({ value: legacyValue, description = "Indicates an IPTCDigitalSourceEnumeration code indicating the nature of the digital source(s) for some [[CreativeWork]].", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyDigitalSourceTypeProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.DigitalSourceTypePropertyStructuredData,
     defaultEyebrow: "Property",

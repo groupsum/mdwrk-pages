@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { AdministrationRoutePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyAdministrationRouteProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyAdministrationRouteProps extends AdministrationRoutePropertyInput, GeneratedPropertyUiProps<AdministrationRoutePropertyInput> {}
 
-export function SchemaPropertyAdministrationRoute({ value, description = "A route by which this drug may be administered, e.g. 'oral'.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyAdministrationRouteProps) {
+export function SchemaPropertyAdministrationRoute({ value: legacyValue, description = "A route by which this drug may be administered, e.g. 'oral'.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyAdministrationRouteProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.AdministrationRoutePropertyStructuredData,
     defaultEyebrow: "Property",

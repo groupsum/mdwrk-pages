@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { TrailerPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyTrailerProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyTrailerProps extends TrailerPropertyInput, GeneratedPropertyUiProps<TrailerPropertyInput> {}
 
-export function SchemaPropertyTrailer({ value, description = "The trailer of a movie or TV/radio series, season, episode, etc.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyTrailerProps) {
+export function SchemaPropertyTrailer({ value: legacyValue, description = "The trailer of a movie or TV/radio series, season, episode, etc.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyTrailerProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.TrailerPropertyStructuredData,
     defaultEyebrow: "Property",

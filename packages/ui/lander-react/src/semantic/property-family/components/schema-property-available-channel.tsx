@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { AvailableChannelPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyAvailableChannelProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyAvailableChannelProps extends AvailableChannelPropertyInput, GeneratedPropertyUiProps<AvailableChannelPropertyInput> {}
 
-export function SchemaPropertyAvailableChannel({ value, description = "A means of accessing the service (e.g. a phone bank, a web site, a location, etc.).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyAvailableChannelProps) {
+export function SchemaPropertyAvailableChannel({ value: legacyValue, description = "A means of accessing the service (e.g. a phone bank, a web site, a location, etc.).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyAvailableChannelProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.AvailableChannelPropertyStructuredData,
     defaultEyebrow: "Property",

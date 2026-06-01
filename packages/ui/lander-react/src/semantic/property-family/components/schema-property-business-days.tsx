@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { BusinessDaysPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyBusinessDaysProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyBusinessDaysProps extends BusinessDaysPropertyInput, GeneratedPropertyUiProps<BusinessDaysPropertyInput> {}
 
-export function SchemaPropertyBusinessDays({ value, description = "Days of the week when the merchant typically operates, indicated via opening hours markup.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyBusinessDaysProps) {
+export function SchemaPropertyBusinessDays({ value: legacyValue, description = "Days of the week when the merchant typically operates, indicated via opening hours markup.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyBusinessDaysProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.BusinessDaysPropertyStructuredData,
     defaultEyebrow: "Property",

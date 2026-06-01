@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { MusicGroupMemberPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyMusicGroupMemberProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyMusicGroupMemberProps extends MusicGroupMemberPropertyInput, GeneratedPropertyUiProps<MusicGroupMemberPropertyInput> {}
 
-export function SchemaPropertyMusicGroupMember({ value, description = "A member of a music group&#x2014;for example, John, Paul, George, or Ringo.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyMusicGroupMemberProps) {
+export function SchemaPropertyMusicGroupMember({ value: legacyValue, description = "A member of a music group&#x2014;for example, John, Paul, George, or Ringo.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyMusicGroupMemberProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.MusicGroupMemberPropertyStructuredData,
     defaultEyebrow: "Property",

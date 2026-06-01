@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { AvailabilityStartsPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyAvailabilityStartsProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyAvailabilityStartsProps extends AvailabilityStartsPropertyInput, GeneratedPropertyUiProps<AvailabilityStartsPropertyInput> {}
 
-export function SchemaPropertyAvailabilityStarts({ value, description = "The beginning of the availability of the product or service included in the offer.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyAvailabilityStartsProps) {
+export function SchemaPropertyAvailabilityStarts({ value: legacyValue, description = "The beginning of the availability of the product or service included in the offer.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyAvailabilityStartsProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.AvailabilityStartsPropertyStructuredData,
     defaultEyebrow: "Property",

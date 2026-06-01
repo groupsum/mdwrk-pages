@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { AlternativeOfPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyAlternativeOfProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyAlternativeOfProps extends AlternativeOfPropertyInput, GeneratedPropertyUiProps<AlternativeOfPropertyInput> {}
 
-export function SchemaPropertyAlternativeOf({ value, description = "Another gene which is a variation of this one.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyAlternativeOfProps) {
+export function SchemaPropertyAlternativeOf({ value: legacyValue, description = "Another gene which is a variation of this one.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyAlternativeOfProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.AlternativeOfPropertyStructuredData,
     defaultEyebrow: "Property",

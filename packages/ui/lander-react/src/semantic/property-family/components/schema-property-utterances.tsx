@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { UtterancesPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyUtterancesProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyUtterancesProps extends UtterancesPropertyInput, GeneratedPropertyUiProps<UtterancesPropertyInput> {}
 
-export function SchemaPropertyUtterances({ value, description = "Text of an utterances (spoken words, lyrics etc.) that occurs at a certain section of a media object, represented as a [[HyperTocEntry]].", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyUtterancesProps) {
+export function SchemaPropertyUtterances({ value: legacyValue, description = "Text of an utterances (spoken words, lyrics etc.) that occurs at a certain section of a media object, represented as a [[HyperTocEntry]].", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyUtterancesProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.UtterancesPropertyStructuredData,
     defaultEyebrow: "Property",

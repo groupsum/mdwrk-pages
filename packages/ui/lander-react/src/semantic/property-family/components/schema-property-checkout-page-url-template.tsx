@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { CheckoutPageURLTemplatePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyCheckoutPageURLTemplateProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyCheckoutPageURLTemplateProps extends CheckoutPageURLTemplatePropertyInput, GeneratedPropertyUiProps<CheckoutPageURLTemplatePropertyInput> {}
 
-export function SchemaPropertyCheckoutPageURLTemplate({ value, description = "A URL template (RFC 6570) for a checkout page for an offer. This approach allows merchants to specify a URL for online checkout of the offered product, by interpolating parameters such as the logged in user ID, product ID, quantity, discount code etc. Parameter naming and standardization are not specified here.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyCheckoutPageURLTemplateProps) {
+export function SchemaPropertyCheckoutPageURLTemplate({ value: legacyValue, description = "A URL template (RFC 6570) for a checkout page for an offer. This approach allows merchants to specify a URL for online checkout of the offered product, by interpolating parameters such as the logged in user ID, product ID, quantity, discount code etc. Parameter naming and standardization are not specified here.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyCheckoutPageURLTemplateProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.CheckoutPageURLTemplatePropertyStructuredData,
     defaultEyebrow: "Property",

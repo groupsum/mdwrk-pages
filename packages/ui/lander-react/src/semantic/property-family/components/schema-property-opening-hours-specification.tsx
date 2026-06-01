@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { OpeningHoursSpecificationPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyOpeningHoursSpecificationProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyOpeningHoursSpecificationProps extends OpeningHoursSpecificationPropertyInput, GeneratedPropertyUiProps<OpeningHoursSpecificationPropertyInput> {}
 
-export function SchemaPropertyOpeningHoursSpecification({ value, description = "The opening hours of a certain place.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyOpeningHoursSpecificationProps) {
+export function SchemaPropertyOpeningHoursSpecification({ value: legacyValue, description = "The opening hours of a certain place.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyOpeningHoursSpecificationProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.OpeningHoursSpecificationPropertyStructuredData,
     defaultEyebrow: "Property",

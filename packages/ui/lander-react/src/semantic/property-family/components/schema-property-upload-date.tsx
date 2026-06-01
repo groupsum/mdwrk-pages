@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { UploadDatePropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyUploadDateProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyUploadDateProps extends UploadDatePropertyInput, GeneratedPropertyUiProps<UploadDatePropertyInput> {}
 
-export function SchemaPropertyUploadDate({ value, description = "Date (including time if available) when this media object was uploaded to this site.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyUploadDateProps) {
+export function SchemaPropertyUploadDate({ value: legacyValue, description = "Date (including time if available) when this media object was uploaded to this site.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyUploadDateProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.UploadDatePropertyStructuredData,
     defaultEyebrow: "Property",

@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { StatusPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyStatusProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyStatusProps extends StatusPropertyInput, GeneratedPropertyUiProps<StatusPropertyInput> {}
 
-export function SchemaPropertyStatus({ value, description = "The status of the study (enumerated).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyStatusProps) {
+export function SchemaPropertyStatus({ value: legacyValue, description = "The status of the study (enumerated).", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyStatusProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.StatusPropertyStructuredData,
     defaultEyebrow: "Property",

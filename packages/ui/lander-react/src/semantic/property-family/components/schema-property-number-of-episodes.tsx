@@ -1,10 +1,18 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedPropertyProps, renderGeneratedPropertyCard } from "../shared.js";
+import type { NumberOfEpisodesPropertyInput } from "@mdwrk/structured-data";
+import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
 
-export interface SchemaPropertyNumberOfEpisodesProps extends GeneratedPropertyProps<Record<string, unknown>> {}
+export interface SchemaPropertyNumberOfEpisodesProps extends NumberOfEpisodesPropertyInput, GeneratedPropertyUiProps<NumberOfEpisodesPropertyInput> {}
 
-export function SchemaPropertyNumberOfEpisodes({ value, description = "The number of episodes in this season or series.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel }: SchemaPropertyNumberOfEpisodesProps) {
+export function SchemaPropertyNumberOfEpisodes({ value: legacyValue, description = "The number of episodes in this season or series.", examples, body, className, emitStructuredData = true, structuredDataOverrides, viewModel, ...rest }: SchemaPropertyNumberOfEpisodesProps) {
+  const explicitValue = legacyValue;
+  const directValue = rest;
+  const value = Object.keys(directValue).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...explicitValue, ...directValue }
+      : directValue
+    : (explicitValue ?? directValue);
   return renderGeneratedPropertyCard({
     StructuredDataComponent: structuredDataReact.NumberOfEpisodesPropertyStructuredData,
     defaultEyebrow: "Property",
