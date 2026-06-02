@@ -1,0 +1,143 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdwrk-primitive-nav-bg: var(--mdwrk-color-bg-panel-strong);
+  --mdwrk-primitive-nav-fg: var(--mdwrk-color-text);
+  --mdwrk-primitive-nav-border: var(--mdwrk-color-border);
+  --mdwrk-primitive-nav-active-bg: var(--mdwrk-color-text);
+  --mdwrk-primitive-nav-active-fg: var(--mdwrk-color-text-inverse);
+  --mdwrk-primitive-nav-focus: var(--mdwrk-color-focus);
+  --mdwrk-primitive-nav-radius: var(--mdwrk-radius-sm);
+  --mdwrk-primitive-nav-padding: 0.65rem 0.85rem;
+  --mdwrk-primitive-nav-gap: 0.55rem;
+}
+
+:root[data-lander-theme="lander-dark"],
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdwrk-primitive-nav-bg: var(--mdwrk-color-bg-panel-strong);
+  --mdwrk-primitive-nav-fg: var(--mdwrk-color-text);
+  --mdwrk-primitive-nav-border: var(--mdwrk-color-border);
+  --mdwrk-primitive-nav-active-bg: var(--mdwrk-color-text);
+  --mdwrk-primitive-nav-active-fg: var(--mdwrk-color-text-inverse);
+  --mdwrk-primitive-nav-focus: var(--mdwrk-color-focus);
+  --mdwrk-primitive-nav-radius: var(--mdwrk-radius-sm);
+  --mdwrk-primitive-nav-padding: 0.65rem 0.85rem;
+  --mdwrk-primitive-nav-gap: 0.55rem;
+}
+
+.mdwrk-primitive--tabs,
+.mdwrk-primitive--view-toggle,
+.mdwrk-primitive--pagination,
+.mdwrk-primitive--navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--mdwrk-primitive-nav-gap);
+}
+
+.mdwrk-primitive__tab {
+  min-height: 2.4rem;
+  padding: var(--mdwrk-primitive-nav-padding);
+  border-radius: var(--mdwrk-primitive-nav-radius);
+  border: 1px solid var(--mdwrk-primitive-nav-border);
+  background: var(--mdwrk-primitive-nav-bg);
+  color: var(--mdwrk-primitive-nav-fg);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mdwrk-primitive__tab[aria-selected="true"] {
+  background: var(--mdwrk-primitive-nav-active-bg);
+  color: var(--mdwrk-primitive-nav-active-fg);
+}
+
+.mdwrk-primitive__tab:focus-visible {
+  outline: 3px solid var(--mdwrk-primitive-nav-focus);
+  outline-offset: 2px;
+}
+
+.mdwrk-primitive--breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mdwrk-primitive-nav-gap);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.mdwrk-primitive--breadcrumbs li + li::before {
+  content: "/";
+  margin-inline-end: var(--mdwrk-primitive-nav-gap);
+  color: var(--mdwrk-color-text-subtle);
+}
+
+.mdwrk-primitive--tree,
+.mdwrk-primitive--explorer {
+  display: grid;
+  gap: var(--mdwrk-primitive-nav-gap);
+}
+
+.mdwrk-primitive--nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mdwrk-primitive-nav-gap);
+  min-height: 2.4rem;
+  padding: var(--mdwrk-primitive-nav-padding);
+  border-radius: var(--mdwrk-primitive-nav-radius);
+  color: var(--mdwrk-primitive-nav-fg);
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.mdwrk-primitive--nav-item-active {
+  background: var(--mdwrk-primitive-nav-active-bg);
+  color: var(--mdwrk-primitive-nav-active-fg);
+}
+
+.mdwrk-primitive--accordion {
+  display: grid;
+  gap: var(--mdwrk-primitive-nav-gap);
+}
+
+.mdwrk-primitive--accordion-item {
+  border: 1px solid var(--mdwrk-primitive-nav-border);
+  border-radius: var(--mdwrk-primitive-nav-radius);
+  background: var(--mdwrk-primitive-nav-bg);
+  overflow: clip;
+}
+
+.mdwrk-primitive--accordion-item summary {
+  display: flex;
+  align-items: center;
+  gap: var(--mdwrk-primitive-nav-gap);
+  cursor: pointer;
+  list-style: none;
+  padding: var(--mdwrk-primitive-nav-padding);
+  font-weight: 700;
+}
+
+.mdwrk-primitive--accordion-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.mdwrk-primitive__accordion-panel {
+  padding: 0 var(--mdwrk-primitive-nav-padding) var(--mdwrk-primitive-nav-padding);
+}
+
+.mdwrk-primitive__nav-label {
+  min-width: 0;
+}
+
+.mdwrk-primitive__nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mdwrk-color-text-subtle);
+}
+
+.mdwrk-primitive__nav-icon--trailing {
+  margin-inline-start: auto;
+}

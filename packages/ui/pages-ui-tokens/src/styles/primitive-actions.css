@@ -1,0 +1,142 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdwrk-primitive-action-bg: var(--mdwrk-color-bg-panel-strong);
+  --mdwrk-primitive-action-fg: var(--mdwrk-color-text);
+  --mdwrk-primitive-action-border: var(--mdwrk-color-border);
+  --mdwrk-primitive-action-primary-bg: var(--mdwrk-color-accent);
+  --mdwrk-primitive-action-primary-fg: var(--mdwrk-color-text-inverse);
+  --mdwrk-primitive-action-ghost-bg: transparent;
+  --mdwrk-primitive-action-ghost-fg: var(--mdwrk-color-text);
+  --mdwrk-primitive-action-accent-bg: color-mix(in srgb, var(--mdwrk-color-accent) 16%, var(--mdwrk-color-bg-panel-strong));
+  --mdwrk-primitive-action-accent-fg: var(--mdwrk-color-accent-strong, var(--mdwrk-color-accent));
+  --mdwrk-primitive-action-success-bg: color-mix(in srgb, var(--mdwrk-color-success) 16%, var(--mdwrk-color-bg-panel-strong));
+  --mdwrk-primitive-action-success-fg: var(--mdwrk-color-success-strong, var(--mdwrk-color-success));
+  --mdwrk-primitive-action-warning-bg: color-mix(in srgb, var(--mdwrk-color-warning) 16%, var(--mdwrk-color-bg-panel-strong));
+  --mdwrk-primitive-action-warning-fg: var(--mdwrk-color-warning-strong, var(--mdwrk-color-warning));
+  --mdwrk-primitive-action-danger-bg: color-mix(in srgb, var(--mdwrk-color-danger) 16%, var(--mdwrk-color-bg-panel-strong));
+  --mdwrk-primitive-action-danger-fg: var(--mdwrk-color-danger-strong, var(--mdwrk-color-danger));
+  --mdwrk-primitive-action-focus: var(--mdwrk-color-focus);
+  --mdwrk-primitive-action-radius: var(--mdwrk-radius-sm);
+  --mdwrk-primitive-action-padding: 0.7rem 0.9rem;
+  --mdwrk-primitive-action-gap: 0.55rem;
+  --mdwrk-primitive-action-disabled-opacity: 0.48;
+}
+
+:root[data-lander-theme="lander-dark"],
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdwrk-primitive-action-bg: var(--mdwrk-color-bg-panel-strong);
+  --mdwrk-primitive-action-fg: var(--mdwrk-color-text);
+  --mdwrk-primitive-action-border: var(--mdwrk-color-border);
+  --mdwrk-primitive-action-primary-bg: var(--mdwrk-color-accent);
+  --mdwrk-primitive-action-primary-fg: var(--mdwrk-color-text-inverse);
+  --mdwrk-primitive-action-ghost-bg: transparent;
+  --mdwrk-primitive-action-ghost-fg: var(--mdwrk-color-text);
+  --mdwrk-primitive-action-accent-bg: color-mix(in srgb, var(--mdwrk-color-accent) 18%, var(--mdwrk-color-bg-panel-strong));
+  --mdwrk-primitive-action-accent-fg: var(--mdwrk-color-accent-strong, var(--mdwrk-color-accent));
+  --mdwrk-primitive-action-success-bg: color-mix(in srgb, var(--mdwrk-color-success) 18%, var(--mdwrk-color-bg-panel-strong));
+  --mdwrk-primitive-action-success-fg: var(--mdwrk-color-success-strong, var(--mdwrk-color-success));
+  --mdwrk-primitive-action-warning-bg: color-mix(in srgb, var(--mdwrk-color-warning) 18%, var(--mdwrk-color-bg-panel-strong));
+  --mdwrk-primitive-action-warning-fg: var(--mdwrk-color-warning-strong, var(--mdwrk-color-warning));
+  --mdwrk-primitive-action-danger-bg: color-mix(in srgb, var(--mdwrk-color-danger) 18%, var(--mdwrk-color-bg-panel-strong));
+  --mdwrk-primitive-action-danger-fg: var(--mdwrk-color-danger-strong, var(--mdwrk-color-danger));
+  --mdwrk-primitive-action-focus: var(--mdwrk-color-focus);
+  --mdwrk-primitive-action-radius: var(--mdwrk-radius-sm);
+  --mdwrk-primitive-action-padding: 0.7rem 0.9rem;
+  --mdwrk-primitive-action-gap: 0.55rem;
+  --mdwrk-primitive-action-disabled-opacity: 0.48;
+}
+
+.mdwrk-primitive--button,
+.mdwrk-primitive--icon-button,
+.mdwrk-primitive--fab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  gap: var(--mdwrk-primitive-action-gap);
+  padding: var(--mdwrk-primitive-action-padding);
+  border-radius: var(--mdwrk-primitive-action-radius);
+  border: 1px solid var(--mdwrk-primitive-action-border);
+  background: var(--mdwrk-primitive-action-bg);
+  color: var(--mdwrk-primitive-action-fg);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mdwrk-primitive--button-primary,
+.mdwrk-primitive--icon-button-primary,
+.mdwrk-primitive--fab-primary {
+  background: var(--mdwrk-primitive-action-primary-bg);
+  color: var(--mdwrk-primitive-action-primary-fg);
+  border-color: transparent;
+}
+
+.mdwrk-primitive--button-ghost,
+.mdwrk-primitive--icon-button-ghost,
+.mdwrk-primitive--fab-ghost {
+  background: var(--mdwrk-primitive-action-ghost-bg);
+  color: var(--mdwrk-primitive-action-ghost-fg);
+}
+
+.mdwrk-primitive--button-accent,
+.mdwrk-primitive--icon-button-accent,
+.mdwrk-primitive--fab-accent {
+  background: var(--mdwrk-primitive-action-accent-bg);
+  color: var(--mdwrk-primitive-action-accent-fg);
+}
+
+.mdwrk-primitive--button-success,
+.mdwrk-primitive--icon-button-success,
+.mdwrk-primitive--fab-success {
+  background: var(--mdwrk-primitive-action-success-bg);
+  color: var(--mdwrk-primitive-action-success-fg);
+}
+
+.mdwrk-primitive--button-warning,
+.mdwrk-primitive--icon-button-warning,
+.mdwrk-primitive--fab-warning {
+  background: var(--mdwrk-primitive-action-warning-bg);
+  color: var(--mdwrk-primitive-action-warning-fg);
+}
+
+.mdwrk-primitive--button-danger,
+.mdwrk-primitive--icon-button-danger,
+.mdwrk-primitive--fab-danger {
+  background: var(--mdwrk-primitive-action-danger-bg);
+  color: var(--mdwrk-primitive-action-danger-fg);
+}
+
+.mdwrk-primitive--button:disabled,
+.mdwrk-primitive--icon-button:disabled,
+.mdwrk-primitive--fab:disabled {
+  cursor: not-allowed;
+  opacity: var(--mdwrk-primitive-action-disabled-opacity);
+}
+
+.mdwrk-primitive--button:focus-visible,
+.mdwrk-primitive--icon-button:focus-visible,
+.mdwrk-primitive--fab:focus-visible {
+  outline: 3px solid var(--mdwrk-primitive-action-focus);
+  outline-offset: 2px;
+}
+
+.mdwrk-primitive--button-group,
+.mdwrk-primitive--icon-button-group,
+.mdwrk-primitive--toolbar,
+.mdwrk-primitive--action-rail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mdwrk-primitive-action-gap);
+  align-items: center;
+}
+
+.mdwrk-primitive--icon-button-group {
+  padding: 0.3rem;
+  border-radius: calc(var(--mdwrk-primitive-action-radius) + 0.2rem);
+  border: 1px solid var(--mdwrk-primitive-action-border);
+  background: color-mix(in srgb, var(--mdwrk-primitive-action-bg) 82%, transparent);
+}

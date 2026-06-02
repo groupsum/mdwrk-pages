@@ -1,7 +1,18 @@
 import React, { startTransition, useDeferredValue, useEffect, useState } from "react";
 import * as landerReact from "@mdwrk/lander-react";
 import {
+  Badge,
+  Card as PrimitiveCard,
+  JsonPreview,
+  Pagination,
+  SearchField as PrimitiveSearchField,
+  SelectField as PrimitiveSelectField,
+  Toolbar,
+  Tabs,
+} from "@mdwrk/lander-primitives";
+import {
   buildGeneratedArtifactView,
+  buildGeneratedArtifactDetailHref,
   buildGovernedCoreGroups,
   generatedArtifactKindOptions,
   generatedPageSizeOptions,
@@ -13,6 +24,8 @@ import {
   showcaseModes,
   showcaseStats,
 } from "./showcase-catalog.mjs";
+import { PrimitiveGallery } from "./showcase-primitives.mjs";
+import { DetailPage, buildPrimitiveDetailHref } from "./showcase-detail.mjs";
 
 const componentMap = landerReact;
 const createElement = React.createElement;
@@ -25,6 +38,8 @@ const DEFAULT_STATE = {
   kind: "type",
   surface: "all",
   theme: "lander-light",
+  detailKind: "",
+  detailName: "",
   page: 1,
   pageSize: 24,
 };
@@ -35,57 +50,23 @@ const themeOptions = [
 ];
 
 function SearchField({ value, onChange, placeholder }) {
-  return createElement(
-    "label",
-    { className: "semantic-demo__field semantic-demo__field--search" },
-    createElement("span", null, "Search"),
-    createElement(
-      "div",
-      { className: "semantic-demo__control semantic-demo__control--search" },
-      createElement(
-        "span",
-        { className: "semantic-demo__control-icon", "aria-hidden": "true" },
-        createElement(
-          "svg",
-          { viewBox: "0 0 20 20", role: "presentation", focusable: "false" },
-          createElement("circle", { cx: "8.5", cy: "8.5", r: "5.5", fill: "none", stroke: "currentColor", strokeWidth: "1.8" }),
-          createElement("path", { d: "M12.75 12.75L17 17", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round" }),
-        ),
-      ),
-      createElement("input", {
-        type: "search",
-        value,
-        onChange,
-        placeholder,
-      }),
-    ),
-  );
+  return createElement(PrimitiveSearchField, {
+    className: "semantic-demo__field semantic-demo__field--search",
+    label: "Search",
+    value,
+    onChange,
+    placeholder,
+  });
 }
 
 function SelectField({ label, value, onChange, options }) {
-  return createElement(
-    "label",
-    { className: "semantic-demo__field semantic-demo__field--select" },
-    createElement("span", null, label),
-    createElement(
-      "div",
-      { className: "semantic-demo__control semantic-demo__control--select" },
-      createElement(
-        "select",
-        { value, onChange },
-        ...options.map((option) => createElement("option", { key: option.value, value: option.value }, option.label)),
-      ),
-      createElement(
-        "span",
-        { className: "semantic-demo__control-caret", "aria-hidden": "true" },
-        createElement(
-          "svg",
-          { viewBox: "0 0 12 8", role: "presentation", focusable: "false" },
-          createElement("path", { d: "M1 1.5L6 6.5L11 1.5", fill: "none", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }),
-        ),
-      ),
-    ),
-  );
+  return createElement(PrimitiveSelectField, {
+    className: "semantic-demo__field semantic-demo__field--select",
+    label,
+    value,
+    onChange,
+    options,
+  });
 }
 
 function isPresentValue(value) {
@@ -118,7 +99,7 @@ function renderStructuredFieldValue(value, depth = 0) {
           createElement(
             "section",
             { className: "semantic-demo__structured-nested", key: index },
-            createElement("span", { className: "semantic-demo__field-label" }, `Item ${index + 1}`),
+            createElement(Badge, { className: "semantic-demo__field-label" }, `Item ${index + 1}`),
             renderStructuredFieldValue(entry, depth + 1),
           ),
         ),
@@ -138,9 +119,9 @@ function renderStructuredFields(value, depth = 0) {
     { className: `semantic-demo__structured-grid semantic-demo__structured-grid--depth-${Math.min(depth, 2)}` },
     ...entries.map(([key, entry]) =>
       createElement(
-        "section",
+        PrimitiveCard,
         { className: "semantic-demo__structured-field", key },
-        createElement("span", { className: "semantic-demo__field-label" }, fieldLabel(key)),
+        createElement(Badge, { className: "semantic-demo__field-label" }, fieldLabel(key)),
         renderStructuredFieldValue(entry, depth + 1),
       ),
     ),
@@ -150,7 +131,7 @@ function renderStructuredFields(value, depth = 0) {
 function StructuredFieldsPanel({ value }) {
   if (!isPresentValue(value)) return null;
   return createElement(
-    "section",
+    PrimitiveCard,
     { className: "semantic-demo__structured-panel" },
     createElement(
       "header",
@@ -181,6 +162,8 @@ function parseStateFromLocation() {
   const kind = params.get("kind") ?? DEFAULT_STATE.kind;
   const surface = params.get("surface") ?? DEFAULT_STATE.surface;
   const theme = params.get("theme") ?? DEFAULT_STATE.theme;
+  const detailKind = params.get("detailKind") ?? DEFAULT_STATE.detailKind;
+  const detailName = params.get("detailName") ?? DEFAULT_STATE.detailName;
   const search = params.get("q") ?? DEFAULT_STATE.search;
   const page = Number.parseInt(params.get("page") ?? `${DEFAULT_STATE.page}`, 10);
   const pageSize = Number.parseInt(params.get("size") ?? `${DEFAULT_STATE.pageSize}`, 10);
@@ -191,6 +174,8 @@ function parseStateFromLocation() {
     kind: generatedArtifactKindOptions.some((entry) => entry.value === kind) ? kind : DEFAULT_STATE.kind,
     surface: surfaceFocusOptions.some((entry) => entry.value === surface) ? surface : DEFAULT_STATE.surface,
     theme: themeOptions.some((entry) => entry.value === theme) ? theme : DEFAULT_STATE.theme,
+    detailKind,
+    detailName,
     search,
     page: Number.isFinite(page) && page > 0 ? page : DEFAULT_STATE.page,
     pageSize: generatedPageSizeOptions.includes(pageSize) ? pageSize : DEFAULT_STATE.pageSize,
@@ -206,19 +191,24 @@ function writeStateToLocation(state) {
   if (state.kind !== DEFAULT_STATE.kind) params.set("kind", state.kind);
   if (state.surface !== DEFAULT_STATE.surface) params.set("surface", state.surface);
   if (state.theme !== DEFAULT_STATE.theme) params.set("theme", state.theme);
+  if (state.detailKind && state.detailName) {
+    params.set("detailKind", state.detailKind);
+    params.set("detailName", state.detailName);
+  }
   if (state.page !== DEFAULT_STATE.page) params.set("page", `${state.page}`);
   if (state.pageSize !== DEFAULT_STATE.pageSize) params.set("size", `${state.pageSize}`);
   const nextUrl = params.toString() ? `?${params}` : window.location.pathname;
   window.history.replaceState(null, "", nextUrl);
 }
 
-function DemoCard({ name, exportName, description, props, structuredFields, tone = "type" }) {
+function DemoCard({ name, exportName, description, props, structuredFields, tone = "type", artifactKind = "type", theme, surface }) {
   const Component = componentMap[exportName];
   if (!Component) return null;
   const componentProps = composeComponentProps(props, structuredFields);
+  const detailHref = buildGeneratedArtifactDetailHref({ kind: artifactKind, name, theme, surface });
 
   return createElement(
-    "article",
+    PrimitiveCard,
     {
       className: `semantic-demo__entry semantic-demo__entry--${slugify(name)} semantic-demo__entry--tone-${slugify(tone)}`,
       id: `artifact-${slugify(name)}`,
@@ -226,14 +216,15 @@ function DemoCard({ name, exportName, description, props, structuredFields, tone
     createElement(
       "div",
       { className: "semantic-demo__entry-meta" },
-      createElement("code", null, name),
+      createElement(Badge, null, name),
       createElement("p", null, description),
     ),
     createElement(Component, { ...componentProps, className: "semantic-demo__card" }),
+    createElement("a", { className: "semantic-demo__detail-link", href: detailHref }, "Open detail page"),
   );
 }
 
-function SectionGroup({ title, description, entries, tone }) {
+function SectionGroup({ title, description, entries, tone, theme, surface }) {
   return createElement(
     "section",
     {
@@ -259,6 +250,9 @@ function SectionGroup({ title, description, entries, tone }) {
           key: `${title}-${entry.name}`,
           ...entry,
           tone: tone ?? title,
+          artifactKind: entry.artifactKind ?? "type",
+          theme,
+          surface,
         }),
       ),
     ),
@@ -284,12 +278,24 @@ export function SemanticShowcase({ initialState } = {}) {
 
   const patchState = (patch) => {
     const nextState = { ...state, ...patch };
+    if (
+      state.detailName
+      && !("detailName" in patch)
+      && !("detailKind" in patch)
+      && ["kind", "family", "surface", "search", "pageSize"].some((key) => key in patch)
+    ) {
+      nextState.detailKind = DEFAULT_STATE.detailKind;
+      nextState.detailName = DEFAULT_STATE.detailName;
+    }
     if (patch.mode && patch.mode !== state.mode) {
       nextState.page = 1;
+      nextState.detailKind = DEFAULT_STATE.detailKind;
+      nextState.detailName = DEFAULT_STATE.detailName;
       nextState.search = patch.mode === "highlights" ? "" : nextState.search;
       if (patch.mode !== "generated-surface") nextState.kind = DEFAULT_STATE.kind;
       if (patch.mode !== "governed-core") nextState.family = DEFAULT_STATE.family;
       if (patch.mode === "highlights") nextState.surface = DEFAULT_STATE.surface;
+      if (patch.mode === "primitives") nextState.surface = DEFAULT_STATE.surface;
     }
     if ("kind" in patch || "family" in patch || "surface" in patch || "search" in patch || "pageSize" in patch) nextState.page = 1;
     startTransition(() => setState(nextState));
@@ -304,6 +310,7 @@ export function SemanticShowcase({ initialState } = {}) {
     pageSize: state.pageSize,
     surface: state.surface,
   });
+  const showDetailPage = Boolean(state.detailKind && state.detailName);
 
   return createElement(
     "div",
@@ -331,25 +338,15 @@ export function SemanticShowcase({ initialState } = {}) {
         createElement("div", null, createElement("dt", null, "Datatypes"), createElement("dd", null, showcaseStats.datatypes)),
         createElement("div", null, createElement("dt", null, "Governed core"), createElement("dd", null, showcaseStats.governedCore)),
       ),
+      createElement(Tabs, {
+        className: "semantic-demo__mode-switcher",
+        items: showcaseModes,
+        value: state.mode,
+        onChange: (mode) => patchState({ mode }),
+      }),
       createElement(
-        "nav",
-        { className: "semantic-demo__mode-switcher", "aria-label": "Showcase mode" },
-        ...showcaseModes.map((mode) =>
-          createElement(
-            "button",
-            {
-              className: mode.value === state.mode ? "is-active" : "",
-              key: mode.value,
-              type: "button",
-              onClick: () => patchState({ mode: mode.value }),
-            },
-            mode.label,
-          ),
-        ),
-      ),
-      createElement(
-        "div",
-        { className: "semantic-demo__toolbar" },
+        Toolbar,
+        { className: "semantic-demo__toolbar", "aria-label": "Showcase controls" },
         createElement(SearchField, {
           value: state.search,
           onChange: (event) => patchState({ search: event.target.value }),
@@ -422,27 +419,43 @@ export function SemanticShowcase({ initialState } = {}) {
     createElement(
       "main",
       { className: "semantic-demo__families" },
-      ...(state.mode === "highlights"
+      ...(showDetailPage
+        ? [
+            createElement(DetailPage, {
+              key: `detail-${state.detailKind}-${state.detailName}`,
+              detailKind: state.detailKind,
+              detailName: state.detailName,
+              kind: state.kind,
+              theme: state.theme,
+              surface: state.surface,
+            }),
+          ]
+        : []),
+      ...(!showDetailPage && state.mode === "highlights"
         ? highlightsView.groups.map((group) =>
             createElement(SectionGroup, {
               key: group.family,
               title: group.family,
               description: group.description,
               entries: group.entries,
+              theme: state.theme,
+              surface: state.surface,
             }),
           )
         : []),
-      ...(state.mode === "governed-core"
+      ...(!showDetailPage && state.mode === "governed-core"
         ? governedCoreGroups.map((group) =>
             createElement(SectionGroup, {
               key: group.family,
               title: group.family,
               description: group.description,
               entries: group.entries,
+              theme: state.theme,
+              surface: state.surface,
             }),
           )
         : []),
-      ...(state.mode === "generated-surface"
+      ...(!showDetailPage && state.mode === "generated-surface"
         ? [
             createElement(
               "section",
@@ -466,29 +479,12 @@ export function SemanticShowcase({ initialState } = {}) {
                 "div",
                 { className: "semantic-demo__generated-status" },
                 createElement("p", null, `Showing ${generatedView.entries.length} of ${generatedView.total} artifacts`),
-                createElement(
-                  "div",
-                  { className: "semantic-demo__pager" },
-                  createElement(
-                    "button",
-                    {
-                      type: "button",
-                      onClick: () => patchState({ page: Math.max(1, state.page - 1) }),
-                      disabled: generatedView.currentPage <= 1,
-                    },
-                    "Previous",
-                  ),
-                  createElement("span", null, `Page ${generatedView.currentPage} of ${generatedView.totalPages}`),
-                  createElement(
-                    "button",
-                    {
-                      type: "button",
-                      onClick: () => patchState({ page: Math.min(generatedView.totalPages, state.page + 1) }),
-                      disabled: generatedView.currentPage >= generatedView.totalPages,
-                    },
-                    "Next",
-                  ),
-                ),
+                createElement(Pagination, {
+                  className: "semantic-demo__pager",
+                  page: generatedView.currentPage,
+                  pageCount: generatedView.totalPages,
+                  onPageChange: (page) => patchState({ page }),
+                }),
               ),
               createElement(
                 "div",
@@ -500,10 +496,21 @@ export function SemanticShowcase({ initialState } = {}) {
                     key: `${generatedView.kind}-${entry.name}`,
                     ...entry,
                     tone: generatedView.kind,
+                    artifactKind: generatedView.kind,
+                    theme: state.theme,
+                    surface: state.surface,
                   }),
                 ),
               ),
             ),
+          ]
+        : []),
+      ...(!showDetailPage && state.mode === "primitives"
+        ? [
+            createElement(PrimitiveGallery, {
+              key: "primitive-gallery",
+              buildHref: (entry) => buildPrimitiveDetailHref({ name: entry.name, theme: state.theme }),
+            }),
           ]
         : []),
     ),

@@ -1,0 +1,240 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdwrk-primitive-form-bg: var(--mdwrk-color-bg-panel-strong);
+  --mdwrk-primitive-form-fg: var(--mdwrk-color-text);
+  --mdwrk-primitive-form-muted: var(--mdwrk-color-text-subtle);
+  --mdwrk-primitive-form-border: var(--mdwrk-color-border);
+  --mdwrk-primitive-form-focus: var(--mdwrk-color-focus);
+  --mdwrk-primitive-form-radius: var(--mdwrk-radius-sm);
+  --mdwrk-primitive-form-padding: 0.7rem 0.8rem;
+  --mdwrk-primitive-form-gap: 0.45rem;
+  --mdwrk-primitive-form-disabled-opacity: 0.5;
+}
+
+:root[data-lander-theme="lander-dark"],
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdwrk-primitive-form-bg: var(--mdwrk-color-bg-panel-strong);
+  --mdwrk-primitive-form-fg: var(--mdwrk-color-text);
+  --mdwrk-primitive-form-muted: var(--mdwrk-color-text-subtle);
+  --mdwrk-primitive-form-border: var(--mdwrk-color-border);
+  --mdwrk-primitive-form-focus: var(--mdwrk-color-focus);
+  --mdwrk-primitive-form-radius: var(--mdwrk-radius-sm);
+  --mdwrk-primitive-form-padding: 0.7rem 0.8rem;
+  --mdwrk-primitive-form-gap: 0.45rem;
+  --mdwrk-primitive-form-disabled-opacity: 0.5;
+}
+
+.mdwrk-primitive--field {
+  display: grid;
+  gap: var(--mdwrk-primitive-form-gap);
+  min-width: 0;
+}
+
+.mdwrk-primitive__subfield {
+  display: grid;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.mdwrk-primitive__sublabel,
+.mdwrk-primitive__choice-hint {
+  color: var(--mdwrk-primitive-form-muted);
+  font-size: 0.74rem;
+}
+
+.mdwrk-primitive__label {
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--mdwrk-primitive-form-muted);
+}
+
+.mdwrk-primitive__control {
+  width: 100%;
+  min-height: 2.5rem;
+  padding: var(--mdwrk-primitive-form-padding);
+  border-radius: var(--mdwrk-primitive-form-radius);
+  border: 1px solid var(--mdwrk-primitive-form-border);
+  background: var(--mdwrk-primitive-form-bg);
+  color: var(--mdwrk-primitive-form-fg);
+  font: inherit;
+}
+
+.mdwrk-primitive__field-control-shell {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--mdwrk-primitive-form-gap);
+  min-width: 0;
+  padding-inline: 0.75rem;
+  border-radius: var(--mdwrk-primitive-form-radius);
+  border: 1px solid var(--mdwrk-primitive-form-border);
+  background: var(--mdwrk-primitive-form-bg);
+}
+
+.mdwrk-primitive__field-control-shell:focus-within {
+  outline: 3px solid var(--mdwrk-primitive-form-focus);
+  outline-offset: 2px;
+}
+
+.mdwrk-primitive__field-control-shell > .mdwrk-primitive__control {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding-inline: 0;
+}
+
+.mdwrk-primitive__field-control-shell > .mdwrk-primitive__control:focus-visible {
+  outline: 0;
+}
+
+.mdwrk-primitive__field-adornment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mdwrk-primitive-form-muted);
+}
+
+.mdwrk-primitive__control:focus-visible {
+  outline: 3px solid var(--mdwrk-primitive-form-focus);
+  outline-offset: 2px;
+}
+
+.mdwrk-primitive__control:disabled {
+  opacity: var(--mdwrk-primitive-form-disabled-opacity);
+}
+
+.mdwrk-primitive__color-picker-shell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mdwrk-primitive__range-field,
+.mdwrk-primitive__fieldset-grid,
+.mdwrk-primitive__choice-group,
+.mdwrk-primitive__tag-field-shell,
+.mdwrk-primitive__tag-editor,
+.mdwrk-primitive__chat-prompt {
+  display: grid;
+  gap: var(--mdwrk-primitive-form-gap);
+}
+
+.mdwrk-primitive__range-field {
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+}
+
+.mdwrk-primitive__fieldset-grid--name {
+  grid-template-columns: 1.35fr minmax(5rem, 0.7fr) 1.35fr;
+  align-items: start;
+}
+
+.mdwrk-primitive__fieldset-grid--address {
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  align-items: start;
+}
+
+@media (max-width: 48rem) {
+  .mdwrk-primitive__fieldset-grid--name {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mdwrk-primitive__choice-group {
+  align-items: start;
+}
+
+.mdwrk-primitive__choice-option {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.mdwrk-primitive__choice-option input {
+  margin: 0;
+}
+
+.mdwrk-primitive__tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.mdwrk-primitive__tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--mdwrk-primitive-form-border) 24%, var(--mdwrk-primitive-form-bg));
+  border: 1px solid var(--mdwrk-primitive-form-border);
+}
+
+.mdwrk-primitive__tag-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2rem;
+  min-width: 2rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--mdwrk-primitive-form-radius);
+  border: 1px solid var(--mdwrk-primitive-form-border);
+  background: var(--mdwrk-primitive-form-bg);
+  color: var(--mdwrk-primitive-form-fg);
+  font: inherit;
+  cursor: pointer;
+}
+
+.mdwrk-primitive__control--swatch {
+  width: 3rem;
+  min-width: 3rem;
+  height: 3rem;
+  min-height: 3rem;
+  padding: 0.2rem;
+  border-radius: 0.85rem;
+  cursor: pointer;
+}
+
+.mdwrk-primitive__control--swatch::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.mdwrk-primitive__control--swatch::-webkit-color-swatch {
+  border: 0;
+  border-radius: 0.6rem;
+}
+
+.mdwrk-primitive--filter-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--mdwrk-primitive-form-gap);
+}
+
+.mdwrk-primitive__chat-attachments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.mdwrk-primitive__chat-prompt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--mdwrk-primitive-form-gap);
+}
+
+.mdwrk-primitive__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

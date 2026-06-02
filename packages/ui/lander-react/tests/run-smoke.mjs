@@ -15,24 +15,30 @@ const semanticSmokeRoot = path.join(distRoot, 'semantic.smoke');
 const structuredDataReactDist = path.join(repoRoot, 'packages', 'machine', 'lander-react-structured-data', 'dist', 'index.js');
 const structuredDataReactSmoke = path.join(repoRoot, 'packages', 'machine', 'lander-react-structured-data', 'dist', 'index.smoke.mjs');
 const structuredDataDist = path.join(repoRoot, 'packages', 'contracts', 'structured-data', 'dist', 'index.js').replace(/\\/g, '/');
+const primitivesDist = path.join(repoRoot, 'packages', 'ui', 'lander-primitives', 'dist', 'index.js').replace(/\\/g, '/');
 
-function copySemanticTree(srcRoot, destRoot, structuredDataReactSmokePath) {
+function copySemanticTree(srcRoot, destRoot, structuredDataReactSmokePath, primitivesDistPath) {
   fs.mkdirSync(destRoot, { recursive: true });
   for (const entry of fs.readdirSync(srcRoot, { withFileTypes: true })) {
     const srcPath = path.join(srcRoot, entry.name);
     const destPath = path.join(destRoot, entry.name);
     if (entry.isDirectory()) {
-      copySemanticTree(srcPath, destPath, structuredDataReactSmokePath);
+      copySemanticTree(srcPath, destPath, structuredDataReactSmokePath, primitivesDistPath);
       continue;
     }
     if (!entry.name.endsWith('.js')) continue;
     fs.mkdirSync(path.dirname(destPath), { recursive: true });
     fs.writeFileSync(
       destPath,
-      fs.readFileSync(srcPath, 'utf8').replace(
-        '"@mdwrk/lander-react-structured-data"',
-        `"file:///${structuredDataReactSmokePath.replace(/\\/g, '/')}"`,
-      ),
+      fs.readFileSync(srcPath, 'utf8')
+        .replace(
+          '"@mdwrk/lander-react-structured-data"',
+          `"file:///${structuredDataReactSmokePath.replace(/\\/g, '/')}"`,
+        )
+        .replace(
+          '"@mdwrk/lander-primitives"',
+          `"file:///${primitivesDistPath}"`,
+        ),
     );
   }
 }
@@ -47,10 +53,13 @@ fs.writeFileSync(
   fs.readFileSync(distIndex, 'utf8').replace(
     '"@mdwrk/lander-react-structured-data"',
     `"file:///${structuredDataReactSmoke.replace(/\\/g, '/')}"`,
+  ).replace(
+    '"@mdwrk/lander-primitives"',
+    `"file:///${primitivesDist}"`,
   ).replaceAll('"./semantic/', '"./semantic.smoke/'),
 );
 
-copySemanticTree(semanticDistRoot, semanticSmokeRoot, structuredDataReactSmoke);
+copySemanticTree(semanticDistRoot, semanticSmokeRoot, structuredDataReactSmoke, primitivesDist);
 
 const {
   Article,

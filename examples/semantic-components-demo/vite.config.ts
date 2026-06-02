@@ -12,6 +12,7 @@ export default defineConfig({
         "../../packages/contracts/lander-content-contract/dist/index.js",
       ),
       "@mdwrk/lander-core": workspaceDistPath("../../packages/core/lander-core/dist/index.js"),
+      "@mdwrk/lander-primitives": workspaceDistPath("../../packages/ui/lander-primitives/dist/index.js"),
       "@mdwrk/lander-react": workspaceDistPath("../../packages/ui/lander-react/dist/index.js"),
       "@mdwrk/lander-react-structured-data": workspaceDistPath(
         "../../packages/machine/lander-react-structured-data/dist/index.js",

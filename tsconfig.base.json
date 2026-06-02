@@ -55,6 +55,12 @@
       "@mdwrk/lander-theme/*": [
         "packages/ui/lander-theme/dist/*"
       ],
+      "@mdwrk/lander-primitives": [
+        "packages/ui/lander-primitives/dist/index.d.ts"
+      ],
+      "@mdwrk/lander-primitives/*": [
+        "packages/ui/lander-primitives/dist/*"
+      ],
       "@mdwrk/lander-markdown-content-adapter": [
         "packages/core/lander-markdown-content-adapter/dist/index.d.ts"
       ],

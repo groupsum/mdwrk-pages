@@ -482,6 +482,95 @@ function structuredFieldValueForGeneratedArtifact(artifact, props) {
   return { "@type": artifact.name, value: props?.value };
 }
 
+function schemaTypeLabel(assetPath, schema, seen = new Set()) {
+  if (!schema || typeof schema !== "object") return "unknown";
+  const visitKey = `${assetPath}::${schema?.$id ?? schema?.title ?? schema?.type ?? "schema-type"}`;
+  if (seen.has(visitKey)) return "recursive";
+  seen.add(visitKey);
+
+  if (typeof schema.$ref === "string") {
+    const nextAssetPath = resolveAssetPath(assetPath, schema.$ref);
+    return schemaTypeLabel(nextAssetPath, resolveSchemaAsset(nextAssetPath), seen);
+  }
+  if (schema.const !== undefined) return `const ${JSON.stringify(schema.const)}`;
+  if (Array.isArray(schema.enum) && schema.enum.length) return `enum (${schema.enum.slice(0, 3).join(", ")}${schema.enum.length > 3 ? ", ..." : ""})`;
+  if (Array.isArray(schema.type)) return schema.type.join(" | ");
+  if (schema.type === "array") return `array<${schemaTypeLabel(assetPath, schema.items ?? {}, seen)}>`;
+  if (schema.type) return schema.type;
+  if (Array.isArray(schema.oneOf) && schema.oneOf.length) return schema.oneOf.map((branch) => schemaTypeLabel(assetPath, branch, seen)).join(" | ");
+  if (Array.isArray(schema.anyOf) && schema.anyOf.length) return schema.anyOf.map((branch) => schemaTypeLabel(assetPath, branch, seen)).join(" | ");
+  if (Array.isArray(schema.allOf) && schema.allOf.length) return schema.allOf.map((branch) => schemaTypeLabel(assetPath, branch, seen)).join(" & ");
+  if (schema.properties) return "object";
+  return "unknown";
+}
+
+function collectObjectSchema(assetPath, schema, seen = new Set()) {
+  if (!schema || typeof schema !== "object") return { required: new Set(), properties: {} };
+  const visitKey = `${assetPath}::${schema?.$id ?? schema?.title ?? schema?.type ?? "schema-object"}`;
+  if (seen.has(visitKey)) return { required: new Set(), properties: {} };
+  seen.add(visitKey);
+
+  if (typeof schema.$ref === "string") {
+    const nextAssetPath = resolveAssetPath(assetPath, schema.$ref);
+    return collectObjectSchema(nextAssetPath, resolveSchemaAsset(nextAssetPath), seen);
+  }
+
+  const merged = { required: new Set(schema.required ?? []), properties: { ...(schema.properties ?? {}) } };
+  for (const branchKey of ["allOf", "anyOf", "oneOf"]) {
+    if (!Array.isArray(schema[branchKey])) continue;
+    for (const branch of schema[branchKey]) {
+      const branchResult = collectObjectSchema(assetPath, branch, seen);
+      for (const key of branchResult.required) merged.required.add(key);
+      Object.assign(merged.properties, branchResult.properties);
+    }
+  }
+
+  return merged;
+}
+
+function schemaRowsForArtifact(artifact) {
+  const schemaEntry = getStructuredDataSchemaByType(artifact.name);
+  if (!schemaEntry) {
+    return [
+      { field: "@type", shape: artifact.name, required: "yes", notes: "Generated artifact identity." },
+    ];
+  }
+
+  const assetPath = assetKeyFromEntryAssetPath(schemaEntry.assetPath);
+  const flattened = collectObjectSchema(assetPath, schemaEntry.schema);
+  const rows = Object.entries(flattened.properties)
+    .map(([field, propertySchema]) => ({
+      field,
+      shape: schemaTypeLabel(assetPath, propertySchema),
+      required: flattened.required.has(field) ? "yes" : "optional",
+      notes: propertySchema?.description ?? "",
+    }))
+    .sort((left, right) => left.field.localeCompare(right.field));
+
+  if (!rows.some((row) => row.field === "@type")) {
+    rows.unshift({ field: "@type", shape: artifact.name, required: "yes", notes: "Generated artifact identity." });
+  }
+
+  return rows;
+}
+
+function generatedProofPathsForArtifact(artifact) {
+  return [
+    "packages/ui/lander-react/src/semantic/generated-components.tsx",
+    "packages/ui/lander-react/tests/generated-schemaorg-semantic-t1.test.mjs",
+    "packages/ui/lander-react-structured-data/tests/generated-schemaorg-wrappers-t1.test.mjs",
+    "packages/structured-data/tests/generated-schemaorg-builders-t1.test.mjs",
+    "examples/semantic-components-demo/tests/semantic-components-demo-t1.test.mjs",
+  ];
+}
+
+function generatedTokenFilesForArtifact(artifact) {
+  return [
+    "packages/ui/pages-ui-tokens/src/styles/generated-semantic-surface.css",
+    `packages/ui/pages-ui-tokens/src/styles/semantic-${artifact.slug}.css`,
+  ];
+}
+
 function coreEntryFromFixture(fixture) {
   const family = familyByName.get(fixture.name) ?? "Unassigned family";
   return {
@@ -560,6 +649,50 @@ const generatedArtifactEntries = GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS.map((
   };
 });
 
+const generatedArtifactEntryByKey = new Map(
+  generatedArtifactEntries.map((entry) => [`${entry.artifactKind}:${entry.name.toLowerCase()}`, entry]),
+);
+
+export function buildGeneratedArtifactDetailHref({ name, kind, theme, surface, mode = "generated-surface" }) {
+  const params = new URLSearchParams();
+  params.set("mode", mode);
+  params.set("kind", kind);
+  params.set("detailKind", kind);
+  params.set("detailName", name);
+  if (theme) params.set("theme", theme);
+  if (surface && surface !== "all") params.set("surface", surface);
+  return `?${params.toString()}`;
+}
+
+export function findGeneratedArtifactEntry(name, kindHint) {
+  if (kindHint) return generatedArtifactEntryByKey.get(`${kindHint}:${name.toLowerCase()}`) ?? null;
+  return generatedArtifactEntries.find((entry) => entry.name.toLowerCase() === name.toLowerCase()) ?? null;
+}
+
+export function buildGeneratedArtifactDetailEntry(name, kindHint) {
+  const artifact = findGeneratedArtifactEntry(name, kindHint);
+  if (!artifact) return null;
+  return {
+    detailKind: artifact.artifactKind,
+    name: artifact.name,
+    slug: artifact.slug,
+    title: artifact.name,
+    eyebrow: `${artifact.artifactKind} artifact`,
+    family: artifact.family,
+    description: artifact.description,
+    exportName: artifact.exportName,
+    schemaRows: schemaRowsForArtifact(artifact),
+    specimenProps: artifact.props,
+    structuredFields: artifact.structuredFields,
+    classNames: [artifact.shellSelector, ".semantic-demo__card", "className prop supported on visible shell"],
+    tokenFiles: generatedTokenFilesForArtifact(artifact),
+    proofPaths: generatedProofPathsForArtifact(artifact),
+    routeHref: buildGeneratedArtifactDetailHref({ kind: artifact.artifactKind, name: artifact.name }),
+    explorerHref: `?mode=generated-surface&kind=${artifact.artifactKind}${artifact.artifactKind === "type" && artifact.surfaceFocus !== "all" ? `&surface=${artifact.surfaceFocus}` : ""}`,
+    jsonLdExample: artifact.structuredFields,
+  };
+}
+
 export function buildGeneratedArtifactView({ kind = "type", search = "", page = 1, pageSize = 24, surface = "all" } = {}) {
   const normalizedSearch = search.trim().toLowerCase();
   const filtered = generatedArtifactEntries.filter((entry) => {
@@ -606,6 +739,7 @@ export const showcaseModes = [
   { value: "highlights", label: "Highlights" },
   { value: "governed-core", label: "Governed Core" },
   { value: "generated-surface", label: "Generated Surface" },
+  { value: "primitives", label: "Primitives" },
 ];
 
 export const governedFamilyOptions = [
@@ -645,6 +779,8 @@ export const qaViewLinks = [
   { label: "Generated Properties", href: "?mode=generated-surface&kind=property" },
   { label: "Generated Enumerations", href: "?mode=generated-surface&kind=enumeration" },
   { label: "Generated Datatypes", href: "?mode=generated-surface&kind=datatype" },
+  { label: "Primitive Gallery", href: "?mode=primitives" },
+  { label: "Primitive Dark", href: "?mode=primitives&theme=lander-dark" },
 ];
 
 export const showcaseHeroCopy = "The semantic-components demo now acts as both a curated highlight reel and a full generated-surface explorer for the fused JSON-LD-emitting runtime.";

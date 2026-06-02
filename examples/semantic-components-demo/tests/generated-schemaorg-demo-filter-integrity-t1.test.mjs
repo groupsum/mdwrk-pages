@@ -10,11 +10,15 @@ import { importShowcaseComponent } from "./load-showcase-component.mjs";
 const { SemanticShowcase } = await importShowcaseComponent();
 
 test("T1: generated-surface filters stay truthful and do not hide implemented foundational artifacts", () => {
-  const typeView = buildGeneratedArtifactView({ kind: "type", surface: "page-or-listing", pageSize: 24 });
+  const typeView = buildGeneratedArtifactView({ kind: "type", pageSize: 24 });
+  const pageListingView = buildGeneratedArtifactView({ kind: "type", surface: "page-or-listing", pageSize: 24 });
+  assert.ok(typeView.total >= 200, "unfiltered type view should expose the full promoted generated type set");
+  assert.ok(pageListingView.total < typeView.total, "page/listing surface focus should filter the type set");
+  assert.ok(pageListingView.entries.every((entry) => entry.surfaceFocus === "page" || entry.surfaceFocus === "listing" || entry.surfaceFocus === "page-or-listing"));
+
   for (const name of foundationalGeneratedTypes) {
-    assert.ok(typeView.total >= 200, "type surface focus should still expose the full promoted generated type set");
-    const searchView = buildGeneratedArtifactView({ kind: "type", surface: "page-or-listing", search: name, pageSize: 24 });
-    assert.ok(searchView.entries.some((entry) => entry.name === name), `surface focus should not hide type ${name}`);
+    const searchView = buildGeneratedArtifactView({ kind: "type", search: name, pageSize: 24 });
+    assert.ok(searchView.entries.some((entry) => entry.name === name), `unfiltered generated search should expose type ${name}`);
   }
 
   for (const name of foundationalGeneratedProperties) {
@@ -24,7 +28,7 @@ test("T1: generated-surface filters stay truthful and do not hide implemented fo
 
   const markup = renderToStaticMarkup(
     React.createElement(SemanticShowcase, {
-      initialState: { mode: "generated-surface", kind: "type", surface: "page-or-listing", search: "Thing", pageSize: 12 },
+      initialState: { mode: "generated-surface", kind: "type", search: "Thing", pageSize: 12 },
     }),
   );
   assert.ok(markup.includes("Thing"));

@@ -11,8 +11,8 @@ const { SemanticShowcase } = await importShowcaseComponent();
 
 test("T2: generated-surface discoverability stays deterministic across case-insensitive search, routing links, and repeated renders", () => {
   for (const name of foundationalGeneratedTypes) {
-    const lower = buildGeneratedArtifactView({ kind: "type", surface: "page-or-listing", search: name.toLowerCase(), pageSize: 24 });
-    const upper = buildGeneratedArtifactView({ kind: "type", surface: "page-or-listing", search: name.toUpperCase(), pageSize: 24 });
+    const lower = buildGeneratedArtifactView({ kind: "type", search: name.toLowerCase(), pageSize: 24 });
+    const upper = buildGeneratedArtifactView({ kind: "type", search: name.toUpperCase(), pageSize: 24 });
     assert.deepEqual(lower.entries, upper.entries, `type search for ${name} should stay case-insensitive and deterministic`);
     assert.ok(lower.entries.some((entry) => entry.name === name), `${name} should remain discoverable`);
   }
@@ -32,12 +32,12 @@ test("T2: generated-surface discoverability stays deterministic across case-inse
 
 test("T2: generated-surface showcase markup stays deterministic for discoverability-focused entry states", () => {
   const props = {
-    initialState: { mode: "generated-surface", kind: "type", surface: "page-or-listing", search: "thing", pageSize: 12 },
+    initialState: { mode: "generated-surface", kind: "type", search: "thing", pageSize: 12 },
   };
   const firstMarkup = renderToStaticMarkup(React.createElement(SemanticShowcase, props));
   const secondMarkup = renderToStaticMarkup(React.createElement(SemanticShowcase, props));
 
   assert.equal(firstMarkup, secondMarkup, "discoverability showcase state should render deterministically");
   assert.ok(firstMarkup.includes("Thing"));
-  assert.ok(firstMarkup.includes("Pages + Listings"));
+  assert.ok(firstMarkup.includes("Generated Surface"));
 });

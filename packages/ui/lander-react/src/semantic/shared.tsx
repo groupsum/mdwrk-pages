@@ -1,4 +1,11 @@
 import React from "react";
+import {
+  Card as PrimitiveCard,
+  JsonPreview,
+  OrderedList,
+  Pill,
+  UnorderedList,
+} from "@mdwrk/lander-primitives";
 
 export function SemanticStructuredDataGate({
   emitStructuredData = true,
@@ -101,7 +108,10 @@ export function SemanticShell({
 }: SemanticShellProps) {
   const Component = as;
   return (
-    <Component className={joinClassNames("lander-semantic", `lander-semantic--${kind}`, className)}>
+    <Component
+      className={joinClassNames("mdwrk-primitive", "mdwrk-primitive--surface", "lander-semantic", `lander-semantic--${kind}`, className)}
+      data-mdwrk-primitive="surface"
+    >
       {title || eyebrow || subtitle || description || (meta?.length ?? 0) > 0 ? (
         <header className="lander-semantic__header">
           {eyebrow ? <p className="lander-semantic__eyebrow">{eyebrow}</p> : null}
@@ -132,7 +142,7 @@ export function SemanticShell({
 export function renderJsonPreview(value: unknown): React.ReactNode {
   if (value === undefined || value === null) return null;
   if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") return String(value);
-  return <code>{JSON.stringify(value)}</code>;
+  return <JsonPreview value={value} />;
 }
 
 function isPresentValue(value: unknown): boolean {
@@ -181,9 +191,9 @@ function renderStructuredArray(value: unknown[], depth: number): React.ReactNode
     return (
       <div className="lander-semantic__field-chip-list">
         {items.map((item, index) => (
-          <span className="lander-semantic__field-chip" key={`${String(item)}-${index}`}>
+          <Pill className="lander-semantic__field-chip" key={`${String(item)}-${index}`}>
             {primitivePreview(item as string | number | boolean)}
-          </span>
+          </Pill>
         ))}
       </div>
     );
@@ -192,10 +202,10 @@ function renderStructuredArray(value: unknown[], depth: number): React.ReactNode
   return (
     <div className="lander-semantic__field-stack">
       {items.map((item, index) => (
-        <article className="lander-semantic__field-card lander-semantic__field-card--nested" key={index}>
+        <PrimitiveCard className="lander-semantic__field-card lander-semantic__field-card--nested" key={index}>
           <span className="lander-semantic__field-label">Item {index + 1}</span>
           {renderStructuredValue(item, depth + 1)}
-        </article>
+        </PrimitiveCard>
       ))}
     </div>
   );
@@ -208,10 +218,10 @@ function renderStructuredObject(value: Record<string, unknown>, depth: number): 
   return (
     <div className={joinClassNames("lander-semantic__field-grid", depth > 0 && "lander-semantic__field-grid--nested")}>
       {entries.map(([key, item]) => (
-        <section className="lander-semantic__field-card" key={key}>
+        <PrimitiveCard className="lander-semantic__field-card" key={key}>
           <span className="lander-semantic__field-label">{fieldKeyLabel(key)}</span>
           {renderStructuredValue(item, depth + 1)}
-        </section>
+        </PrimitiveCard>
       ))}
     </div>
   );
@@ -249,14 +259,8 @@ export function omitRecordKeys<T extends Record<string, unknown>>(value: T, keys
 
 export function bodyList(items: React.ReactNode[], ordered = false) {
   if (!items.length) return null;
-  const List = ordered ? "ol" : "ul";
-  return (
-    <List>
-      {items.map((item, index) => (
-        <li key={index}>{item}</li>
-      ))}
-    </List>
-  );
+  const List = ordered ? OrderedList : UnorderedList;
+  return <List>{items.map((item, index) => <li key={index}>{item}</li>)}</List>;
 }
 
 export function thingReference(value: unknown): Record<string, unknown> | undefined {

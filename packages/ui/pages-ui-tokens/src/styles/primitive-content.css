@@ -1,0 +1,144 @@
+:root,
+:root[data-lander-theme="lander-light"],
+[data-lander-theme="lander-light"] {
+  --mdwrk-primitive-content-bg: var(--mdwrk-color-bg-panel);
+  --mdwrk-primitive-content-strong-bg: var(--mdwrk-color-bg-panel-strong);
+  --mdwrk-primitive-content-code-bg: var(--mdwrk-color-bg-code);
+  --mdwrk-primitive-content-fg: var(--mdwrk-color-text);
+  --mdwrk-primitive-content-muted: var(--mdwrk-color-text-muted);
+  --mdwrk-primitive-content-border: var(--mdwrk-color-border);
+  --mdwrk-primitive-content-radius: var(--mdwrk-radius-md);
+  --mdwrk-primitive-content-padding: var(--mdwrk-space-4);
+  --mdwrk-primitive-content-gap: var(--mdwrk-space-3);
+}
+
+:root[data-lander-theme="lander-dark"],
+[data-lander-theme="lander-dark"],
+[data-lander-theme="dark"],
+.dark {
+  --mdwrk-primitive-content-bg: var(--mdwrk-color-bg-panel);
+  --mdwrk-primitive-content-strong-bg: var(--mdwrk-color-bg-panel-strong);
+  --mdwrk-primitive-content-code-bg: var(--mdwrk-color-bg-code);
+  --mdwrk-primitive-content-fg: var(--mdwrk-color-text);
+  --mdwrk-primitive-content-muted: var(--mdwrk-color-text-muted);
+  --mdwrk-primitive-content-border: var(--mdwrk-color-border);
+  --mdwrk-primitive-content-radius: var(--mdwrk-radius-md);
+  --mdwrk-primitive-content-padding: var(--mdwrk-space-4);
+  --mdwrk-primitive-content-gap: var(--mdwrk-space-3);
+}
+
+.mdwrk-primitive--card,
+.mdwrk-primitive--article-block {
+  display: grid;
+  gap: var(--mdwrk-primitive-content-gap);
+  min-width: 0;
+  padding: var(--mdwrk-primitive-content-padding);
+  border-radius: var(--mdwrk-primitive-content-radius);
+  background: var(--mdwrk-primitive-content-bg);
+  border: 1px solid var(--mdwrk-primitive-content-border);
+  color: var(--mdwrk-primitive-content-fg);
+}
+
+.mdwrk-primitive--card {
+  align-content: start;
+}
+
+.mdwrk-primitive--card-header,
+.mdwrk-primitive--card-body,
+.mdwrk-primitive--card-footer {
+  display: grid;
+  gap: calc(var(--mdwrk-primitive-content-gap) * 0.75);
+  min-width: 0;
+}
+
+.mdwrk-primitive--card-header {
+  padding-block-end: 0.2rem;
+  border-block-end: 1px solid color-mix(in srgb, var(--mdwrk-primitive-content-border) 75%, transparent);
+}
+
+.mdwrk-primitive--card-footer {
+  padding-block-start: 0.2rem;
+  border-block-start: 1px solid color-mix(in srgb, var(--mdwrk-primitive-content-border) 75%, transparent);
+  color: var(--mdwrk-primitive-content-muted);
+}
+
+.mdwrk-primitive--cards,
+.mdwrk-primitive--card-grid {
+  display: grid;
+  gap: var(--mdwrk-primitive-content-gap);
+}
+
+.mdwrk-primitive--cards {
+  grid-template-columns: 1fr;
+}
+
+.mdwrk-primitive--card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.mdwrk-primitive--code-block {
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: var(--mdwrk-primitive-content-padding);
+  border-radius: var(--mdwrk-primitive-content-radius);
+  background: var(--mdwrk-primitive-content-code-bg);
+  border: 1px solid var(--mdwrk-primitive-content-border);
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.mdwrk-primitive--data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mdwrk-primitive--data-table th,
+.mdwrk-primitive--data-table td {
+  padding: 0.65rem;
+  border: 1px solid var(--mdwrk-primitive-content-border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.mdwrk-primitive--ordered-list,
+.mdwrk-primitive--unordered-list {
+  margin: 0;
+  padding-inline-start: 1.25rem;
+}
+
+.mdwrk-primitive--task-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mdwrk-primitive--todo-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.mdwrk-primitive--task-list li + li {
+  margin-top: 0.5rem;
+}
+
+.mdwrk-primitive--task-list label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.mdwrk-primitive__todo-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.mdwrk-primitive--todo-item-done span:last-child {
+  text-decoration: line-through;
+  color: var(--mdwrk-primitive-content-muted);
+}

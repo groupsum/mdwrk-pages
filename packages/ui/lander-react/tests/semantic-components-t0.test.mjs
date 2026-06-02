@@ -19,6 +19,19 @@ test("T0: every fused semantic component exports, renders visible markup, and em
   }
 });
 
+test("T0: shared semantic shell and generated field rendering use lander primitives", async () => {
+  const mod = await importLanderReactDist();
+  const articleMarkup = renderToStaticMarkup(React.createElement(mod.Article, { title: "Primitive article", body: React.createElement("p", null, "Body") }));
+  const generatedMarkup = renderToStaticMarkup(React.createElement(mod.SchemaPropertyAbout, {
+    name: "about",
+    value: { name: "about", sample: { "@type": "Thing", name: "Thing" } },
+  }));
+
+  assert.ok(articleMarkup.includes('data-mdwrk-primitive="surface"'));
+  assert.ok(generatedMarkup.includes('data-mdwrk-primitive="card"'));
+  assert.ok(generatedMarkup.includes('data-mdwrk-primitive="code-block"') || generatedMarkup.includes("mdwrk-primitive--card"));
+});
+
 test("T0: supporting-family fused components expose distinct layout hooks for actions, regions, offer stacks, alignments, audiences, and audio transcripts", async () => {
   const mod = await importLanderReactDist();
   const actionMarkup = renderToStaticMarkup(React.createElement(mod.Action, { name: "Read docs", target: "https://mdwrk.test/docs", agent: { name: "MDWRK" }, object: "Docs", result: "Guide opened" }));

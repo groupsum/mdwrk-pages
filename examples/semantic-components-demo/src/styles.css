@@ -205,6 +205,7 @@ code {
   border-color: var(--semantic-demo-border-strong);
 }
 
+.semantic-demo__mode-switcher button[aria-selected="true"],
 .semantic-demo__mode-switcher .is-active {
   background: var(--semantic-demo-text);
   color: var(--mdwrk-color-text-inverse);
@@ -229,7 +230,8 @@ code {
   min-width: 0;
 }
 
-.semantic-demo__field span {
+.semantic-demo__field .mdwrk-primitive__label,
+.semantic-demo__field > span {
   font-size: 0.78rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -237,11 +239,15 @@ code {
   color: var(--semantic-demo-text-subtle);
 }
 
+.semantic-demo__field .mdwrk-primitive__field-control-shell,
 .semantic-demo__control {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
+  gap: 0.7rem;
   min-height: 3.35rem;
+  padding-inline: 0.85rem 1rem;
   border-radius: 1.1rem;
   border: 1px solid var(--semantic-demo-border);
   background:
@@ -255,10 +261,12 @@ code {
     background 140ms ease;
 }
 
+.semantic-demo__field .mdwrk-primitive__field-control-shell:hover,
 .semantic-demo__control:hover {
   border-color: var(--semantic-demo-border-strong);
 }
 
+.semantic-demo__field .mdwrk-primitive__field-control-shell:focus-within,
 .semantic-demo__control:focus-within {
   border-color: var(--semantic-demo-accent);
   box-shadow:
@@ -280,17 +288,26 @@ code {
   outline: 0;
 }
 
+.semantic-demo__field .mdwrk-primitive__field-control-shell > .mdwrk-primitive__control {
+  min-height: calc(3.35rem - 2px);
+  padding: 0.9rem 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.semantic-demo__field .mdwrk-primitive__field-adornment {
+  color: var(--semantic-demo-text-subtle);
+}
+
+.semantic-demo__field .mdwrk-primitive__field-adornment--trailing {
+  min-height: 2rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--semantic-demo-border);
+}
+
 .semantic-demo__field--search {
   grid-column: span 2;
-}
-
-.semantic-demo__control--search {
-  gap: 0.7rem;
-  padding-inline: 0.85rem 1rem;
-}
-
-.semantic-demo__control--search input {
-  padding-left: 0;
 }
 
 .semantic-demo__control-icon {
@@ -319,6 +336,7 @@ code {
   appearance: none;
 }
 
+.semantic-demo__field--select .mdwrk-primitive__field-control-shell,
 .semantic-demo__field--select .semantic-demo__control {
   padding-right: 3.1rem;
 }
@@ -328,6 +346,7 @@ code {
   cursor: pointer;
   font-weight: 700;
   line-height: 1.25;
+  padding-right: 0;
 }
 
 .semantic-demo__control-caret {
@@ -346,6 +365,7 @@ code {
   height: 0.65rem;
 }
 
+.semantic-demo__field--select .mdwrk-primitive__field-control-shell::before,
 .semantic-demo__field--select .semantic-demo__control::before {
   content: "";
   position: absolute;
@@ -768,6 +788,262 @@ code {
   background: linear-gradient(180deg, rgba(47, 143, 110, 0.3), transparent);
 }
 
+.semantic-demo__primitive-family::before {
+  background: linear-gradient(180deg, rgba(47, 115, 95, 0.28), transparent);
+}
+
+.semantic-demo__primitive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.semantic-demo__primitive-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1rem;
+  min-width: 0;
+  padding: 1rem;
+  border-color: var(--semantic-demo-border);
+  background:
+    radial-gradient(circle at top right, var(--semantic-demo-accent-soft), transparent 14rem),
+    var(--semantic-demo-panel-entry);
+}
+
+.semantic-demo__primitive-card-header {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.semantic-demo__primitive-card-header h3 {
+  margin: 0;
+  font-size: 1.28rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--semantic-demo-text);
+}
+
+.semantic-demo__primitive-rule {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  border: 0;
+  background: linear-gradient(90deg, var(--semantic-demo-accent), color-mix(in srgb, var(--semantic-demo-border) 72%, transparent));
+  opacity: 0.8;
+}
+
+.semantic-demo__primitive-card-header p {
+  margin: 0;
+  color: var(--semantic-demo-text-muted);
+  line-height: 1.5;
+}
+
+.semantic-demo__primitive-sample {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+  align-content: start;
+  overflow: hidden;
+}
+
+.semantic-demo__primitive-sample [data-mdwrk-primitive] {
+  max-width: 100%;
+}
+
+.semantic-demo__primitive-sample .mdwrk-primitive__stack,
+.semantic-demo__primitive-sample .mdwrk-primitive__grid,
+.semantic-demo__primitive-sample .mdwrk-primitive__split {
+  min-width: 0;
+}
+
+.semantic-demo__primitive-sample .mdwrk-primitive__button-group,
+.semantic-demo__primitive-sample .mdwrk-primitive__toolbar,
+.semantic-demo__primitive-sample .mdwrk-primitive__cluster,
+.semantic-demo__primitive-sample .mdwrk-primitive__filter-bar,
+.semantic-demo__primitive-sample .mdwrk-primitive__icon-grid,
+.semantic-demo__primitive-sample .mdwrk-primitive__gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.semantic-demo__primitive-sample .mdwrk-primitive__action-rail {
+  display: inline-grid;
+  gap: 0.55rem;
+  justify-items: center;
+  width: max-content;
+}
+
+.semantic-demo__primitive-sample .mdwrk-primitive__code-block,
+.semantic-demo__primitive-sample .mdwrk-primitive__json-preview {
+  max-width: 100%;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.semantic-demo__primitive-sample .mdwrk-primitive__data-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-wrap: anywhere;
+}
+
+.semantic-demo__primitive-sample .mdwrk-primitive__data-table th,
+.semantic-demo__primitive-sample .mdwrk-primitive__data-table td {
+  padding: 0.5rem;
+  border: 1px solid var(--semantic-demo-border);
+  text-align: left;
+}
+
+.semantic-demo__primitive-sample .mdwrk-primitive__image-frame,
+.semantic-demo__primitive-sample .mdwrk-primitive__video-frame,
+.semantic-demo__primitive-sample .mdwrk-primitive__audio-player {
+  display: grid;
+  min-height: 5.5rem;
+  place-items: center;
+  border: 1px dashed var(--semantic-demo-border-strong);
+  border-radius: 1rem;
+  background: var(--semantic-demo-panel-soft);
+  color: var(--semantic-demo-text-muted);
+}
+
+.semantic-demo__primitive-sample .mdwrk-primitive__dialog,
+.semantic-demo__primitive-sample .mdwrk-primitive__sheet,
+.semantic-demo__primitive-sample .mdwrk-primitive__popover,
+.semantic-demo__primitive-sample .mdwrk-primitive__bubble,
+.semantic-demo__primitive-sample .mdwrk-primitive__console-footer,
+.semantic-demo__primitive-sample .mdwrk-primitive__pane,
+.semantic-demo__primitive-sample .mdwrk-primitive__surface,
+.semantic-demo__primitive-sample .mdwrk-primitive__gutter {
+  padding: 0.75rem;
+  border: 1px solid var(--semantic-demo-border);
+  border-radius: 0.85rem;
+  background: var(--semantic-demo-panel-soft);
+}
+
+.semantic-demo__primitive-sample .mdwrk-primitive__console-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.semantic-demo__detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--semantic-demo-accent-strong);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.semantic-demo__detail-link:hover,
+.semantic-demo__detail-link:focus-visible {
+  text-decoration: underline;
+}
+
+.semantic-demo__detail {
+  display: grid;
+  gap: 1.2rem;
+  min-width: 0;
+}
+
+.semantic-demo__detail-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.semantic-demo__detail-copy,
+.semantic-demo__detail-summary,
+.semantic-demo__detail-section {
+  min-width: 0;
+}
+
+.semantic-demo__detail-copy h2 {
+  margin: 0.2rem 0 0;
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.semantic-demo__detail-description {
+  margin: 0.65rem 0 0;
+  color: var(--semantic-demo-text-muted);
+  max-width: 60ch;
+}
+
+.semantic-demo__detail-meta {
+  margin-top: 0.9rem;
+}
+
+.semantic-demo__detail-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.semantic-demo__detail-summary-grid div,
+.semantic-demo__detail-summary-grid dt,
+.semantic-demo__detail-summary-grid dd {
+  margin: 0;
+}
+
+.semantic-demo__detail-summary-grid dt {
+  color: var(--semantic-demo-text-subtle);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.semantic-demo__detail-summary-grid dd {
+  margin-top: 0.18rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--semantic-demo-text);
+}
+
+.semantic-demo__detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.semantic-demo__detail-section--wide {
+  grid-column: 1 / -1;
+}
+
+.semantic-demo__detail-specimen {
+  display: grid;
+  gap: 0.8rem;
+  align-content: start;
+  min-width: 0;
+}
+
+.semantic-demo__detail-specimen [data-mdwrk-primitive],
+.semantic-demo__detail-specimen .lander-semantic {
+  max-width: 100%;
+}
+
+.semantic-demo__detail-list {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.semantic-demo__detail-empty {
+  margin: 0;
+  color: var(--semantic-demo-text-muted);
+}
+
 @media (max-width: 1380px) {
   .semantic-demo__summary {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -783,6 +1059,10 @@ code {
   .semantic-demo__grid--generated-datatype {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .semantic-demo__primitive-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 1600px) {
@@ -793,6 +1073,7 @@ code {
 
 @media (max-width: 1180px) {
   .semantic-demo__family-header--generated,
+  .semantic-demo__detail-hero,
   .semantic-demo__family--education-family .semantic-demo__family-header,
   .semantic-demo__grid,
   .semantic-demo__family--education-family .semantic-demo__grid {
@@ -859,6 +1140,8 @@ code {
 
   .semantic-demo__summary,
   .semantic-demo__toolbar,
+  .semantic-demo__detail-grid,
+  .semantic-demo__primitive-grid,
   .semantic-demo__grid--generated-type,
   .semantic-demo__grid--generated-property,
   .semantic-demo__grid--generated-enumeration,

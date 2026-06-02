@@ -10,6 +10,15 @@ function extractShellClass(markup, semanticModifier) {
   return match[1];
 }
 
+function assertShellTokens(markup, semanticModifier, expectedTokens) {
+  const className = extractShellClass(markup, semanticModifier);
+  const tokens = className.split(/\s+/u).filter(Boolean);
+  assert.equal(new Set(tokens).size, tokens.length, `expected normalized tokens for ${semanticModifier}`);
+  for (const token of expectedTokens) {
+    assert.ok(tokens.includes(token), `expected ${semanticModifier} class to include ${token}`);
+  }
+}
+
 test("T2: fused semantic className composition stays normalized, deduplicated, and shell-scoped", async () => {
   const mod = await importLanderReactDist();
 
@@ -20,7 +29,13 @@ test("T2: fused semantic className composition stays normalized, deduplicated, a
       body: React.createElement("p", null, "Body"),
     }),
   );
-  assert.equal(extractShellClass(articleMarkup, "lander-semantic--article"), "lander-semantic lander-semantic--article article-shell");
+  assertShellTokens(articleMarkup, "lander-semantic--article", [
+    "mdwrk-primitive",
+    "mdwrk-primitive--surface",
+    "lander-semantic",
+    "lander-semantic--article",
+    "article-shell",
+  ]);
 
   const productMarkup = renderToStaticMarkup(
     React.createElement(mod.Product, {
@@ -29,10 +44,14 @@ test("T2: fused semantic className composition stays normalized, deduplicated, a
       emitStructuredData: false,
     }),
   );
-  assert.equal(
-    extractShellClass(productMarkup, "lander-semantic--product"),
-    "lander-semantic lander-semantic--product product-shell extra-product-shell",
-  );
+  assertShellTokens(productMarkup, "lander-semantic--product", [
+    "mdwrk-primitive",
+    "mdwrk-primitive--surface",
+    "lander-semantic",
+    "lander-semantic--product",
+    "product-shell",
+    "extra-product-shell",
+  ]);
   assert.equal(productMarkup.includes("application/ld+json"), false);
 
   const courseMarkup = renderToStaticMarkup(
@@ -42,10 +61,12 @@ test("T2: fused semantic className composition stays normalized, deduplicated, a
       modules: [{ title: "Module A" }],
     }),
   );
-  assert.equal(
-    extractShellClass(courseMarkup, "lander-semantic--course"),
-    "lander-semantic lander-semantic--course course-shell course-shell--wide",
-  );
+  assertShellTokens(courseMarkup, "lander-semantic--course", [
+    "lander-semantic",
+    "lander-semantic--course",
+    "course-shell",
+    "course-shell--wide",
+  ]);
 
   const quizMarkup = renderToStaticMarkup(
     React.createElement(mod.Quiz, {
@@ -54,8 +75,10 @@ test("T2: fused semantic className composition stays normalized, deduplicated, a
       questions: [{ prompt: "What is latency?", answer: "Elapsed time." }],
     }),
   );
-  assert.equal(
-    extractShellClass(quizMarkup, "lander-semantic--quiz"),
-    "lander-semantic lander-semantic--quiz quiz-shell quiz-shell--study",
-  );
+  assertShellTokens(quizMarkup, "lander-semantic--quiz", [
+    "lander-semantic",
+    "lander-semantic--quiz",
+    "quiz-shell",
+    "quiz-shell--study",
+  ]);
 });

@@ -1,7 +1,7 @@
 {
   "name": "@mdwrk/example-semantic-components-demo",
   "private": true,
-  "version": "0.1.4",
+  "version": "0.1.6",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
@@ -13,6 +13,7 @@
   "dependencies": {
     "@mdwrk/lander-content-contract": "^0.1.0",
     "@mdwrk/lander-core": "^0.1.0",
+    "@mdwrk/lander-primitives": "^0.1.0",
     "@mdwrk/lander-react": "^0.1.0",
     "@mdwrk/lander-react-structured-data": "^0.1.0",
     "@mdwrk/structured-data": "^0.1.0",
