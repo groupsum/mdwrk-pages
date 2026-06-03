@@ -950,9 +950,9 @@ function PrimitiveExampleCard({ entry, buildHref }) {
     createElement(
       "header",
       { className: "semantic-demo__primitive-card-header" },
-      createElement("h3", null, entry.name),
+      createElement("h3", { className: "mdwrk-primitive__text-fit-heading" }, entry.name),
       createElement("hr", { className: "semantic-demo__primitive-rule" }),
-      createElement("p", null, entry.description),
+      createElement("p", { className: "mdwrk-primitive__text-fit-preview" }, entry.description),
     ),
     createElement("div", { className: "semantic-demo__primitive-sample" }, entry.render()),
     buildHref

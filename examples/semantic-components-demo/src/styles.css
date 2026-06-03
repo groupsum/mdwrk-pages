@@ -277,6 +277,7 @@ code {
 
 .semantic-demo__field input,
 .semantic-demo__field select {
+  display: block;
   width: 100%;
   min-width: 0;
   min-height: 3.1rem;
@@ -338,7 +339,9 @@ code {
 
 .semantic-demo__field--select .mdwrk-primitive__field-control-shell,
 .semantic-demo__field--select .semantic-demo__control {
-  padding-right: 3.1rem;
+  grid-template-columns: minmax(0, 1fr);
+  padding-inline: 0;
+  padding-right: 0;
 }
 
 .semantic-demo__field--select select {
@@ -346,7 +349,10 @@ code {
   cursor: pointer;
   font-weight: 700;
   line-height: 1.25;
-  padding-right: 0;
+  grid-column: 1;
+  width: 100%;
+  min-width: 100%;
+  padding: 0.9rem 3.35rem 0.9rem 1rem;
 }
 
 .semantic-demo__control-caret {
@@ -363,6 +369,19 @@ code {
 .semantic-demo__control-caret svg {
   width: 0.85rem;
   height: 0.65rem;
+}
+
+.semantic-demo__field--select .mdwrk-primitive__field-adornment--trailing {
+  position: absolute;
+  inset: 0 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.1rem;
+  min-height: 100%;
+  padding-left: 0;
+  border-left: 0;
+  pointer-events: none;
 }
 
 .semantic-demo__field--select .mdwrk-primitive__field-control-shell::before,
@@ -591,6 +610,7 @@ code {
 
 .semantic-demo__entry-meta p {
   font-size: 0.92rem;
+  --mdwrk-text-fit-preview-lines: 2;
 }
 
 .semantic-demo__card {
@@ -622,8 +642,9 @@ code {
 
 .semantic-demo__structured-header h3 {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.25;
+  --mdwrk-text-fit-heading-min: 1rem;
+  --mdwrk-text-fit-heading-fluid: 1.25vw;
+  --mdwrk-text-fit-heading-max: 1.25rem;
 }
 
 .semantic-demo__structured-grid {
@@ -666,7 +687,6 @@ code {
 .semantic-demo__field-value {
   min-width: 0;
   color: var(--semantic-demo-text);
-  overflow-wrap: anywhere;
 }
 
 .semantic-demo[data-lander-theme="lander-dark"] .lander-semantic,
@@ -819,9 +839,9 @@ code {
 
 .semantic-demo__primitive-card-header h3 {
   margin: 0;
-  font-size: 1.28rem;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  --mdwrk-text-fit-heading-min: 1.1rem;
+  --mdwrk-text-fit-heading-fluid: 1.35vw;
+  --mdwrk-text-fit-heading-max: 1.42rem;
   color: var(--semantic-demo-text);
 }
 
@@ -838,6 +858,7 @@ code {
   margin: 0;
   color: var(--semantic-demo-text-muted);
   line-height: 1.5;
+  --mdwrk-text-fit-preview-lines: 3;
 }
 
 .semantic-demo__primitive-sample {
@@ -881,8 +902,6 @@ code {
 .semantic-demo__primitive-sample .mdwrk-primitive__json-preview {
   max-width: 100%;
   overflow: auto;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
 }
 
 .semantic-demo__primitive-sample .mdwrk-primitive__data-table {
@@ -967,15 +986,54 @@ code {
 
 .semantic-demo__detail-copy h2 {
   margin: 0.2rem 0 0;
-  font-size: clamp(1.9rem, 3vw, 3rem);
-  line-height: 0.98;
-  letter-spacing: -0.04em;
+  --mdwrk-text-fit-heading-min: 1.9rem;
+  --mdwrk-text-fit-heading-fluid: 3vw;
+  --mdwrk-text-fit-heading-max: 3rem;
+  --mdwrk-text-fit-heading-line-height: 0.98;
+  --mdwrk-text-fit-heading-letter-spacing: -0.04em;
 }
 
 .semantic-demo__detail-description {
   margin: 0.65rem 0 0;
   color: var(--semantic-demo-text-muted);
   max-width: 60ch;
+}
+
+.semantic-demo__entry .lander-semantic__title,
+.semantic-demo__entry .lander-semantic__subtitle,
+.semantic-demo__entry .lander-semantic__description,
+.semantic-demo__entry .lander-semantic__body,
+.semantic-demo__entry .lander-semantic__footer,
+.semantic-demo__detail .lander-semantic__title,
+.semantic-demo__detail .lander-semantic__subtitle,
+.semantic-demo__detail .lander-semantic__description,
+.semantic-demo__detail .lander-semantic__body,
+.semantic-demo__detail .lander-semantic__footer {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.semantic-demo__entry .lander-semantic__description {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+.semantic-demo__entry .lander-semantic__meta dd,
+.semantic-demo__entry .lander-semantic__meta dd code,
+.semantic-demo__detail .lander-semantic__meta dd,
+.semantic-demo__detail .lander-semantic__meta dd code,
+.semantic-demo__detail-list code,
+.semantic-demo__detail .mdwrk-primitive--code-block,
+.semantic-demo__detail .mdwrk-primitive--json-preview,
+.semantic-demo__structured-panel code {
+  min-width: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .semantic-demo__detail-meta {

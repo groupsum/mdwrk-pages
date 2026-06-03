@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import test from "node:test";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -56,9 +58,28 @@ test("T1: icon-integrated field primitives render adornment shells without dropp
 
   assert.match(markup, /mdwrk-primitive__field-control-shell/);
   assert.match(markup, /mdwrk-primitive__field-adornment/);
+  assert.match(markup, /mdwrk-primitive__text-fit-preserve/);
   assert.match(markup, /value="Thing"/);
   assert.match(markup, /Primitive contract/);
   assert.match(markup, /<select/);
+});
+
+test("T1: primitive token layers define the shared text-fit contract and control shell sizing rules", () => {
+  const rootCss = readFileSync(resolve("../pages-ui-tokens/src/styles/root.css"), "utf8");
+  const formCss = readFileSync(resolve("../pages-ui-tokens/src/styles/primitive-forms.css"), "utf8");
+
+  for (const selector of [
+    ".mdwrk-primitive__text-fit-heading",
+    ".mdwrk-primitive__text-fit-preserve",
+    ".mdwrk-primitive__text-fit-preview",
+    ".mdwrk-primitive__text-fit-structured",
+  ]) {
+    assert.ok(rootCss.includes(selector), `expected text-fit selector ${selector}`);
+  }
+
+  assert.ok(formCss.includes(".mdwrk-primitive__field-control-shell > .mdwrk-primitive__control"));
+  assert.ok(formCss.includes("width: 100%;"));
+  assert.ok(formCss.includes("min-width: 0;"));
 });
 
 test("T1: action primitives separate hierarchy variant from semantic tone", () => {

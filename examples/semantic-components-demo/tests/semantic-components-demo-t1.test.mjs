@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import test from "node:test";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -143,6 +145,8 @@ test("T1: generated artifact detail pages render schema, specimen, JSON-LD, clas
   assert.ok(markup.includes("Back to explorer"));
   assert.ok(markup.includes("Support summary"));
   assert.ok(markup.includes("semantic-thing.css"));
+  assert.ok(markup.includes("mdwrk-primitive__text-fit-heading"));
+  assert.ok(markup.includes("mdwrk-primitive__text-fit-structured"));
 });
 
 test("T1: primitive detail pages render dedicated primitive documentation sections", () => {
@@ -163,6 +167,7 @@ test("T1: primitive detail pages render dedicated primitive documentation sectio
   assert.ok(markup.includes("This primitive is visible-only and does not emit JSON-LD."));
   assert.ok(markup.includes('data-mdwrk-primitive="button"'));
   assert.ok(markup.includes("primitive-actions.css"));
+  assert.ok(markup.includes("mdwrk-primitive__text-fit-preserve"));
 });
 
 test("T1: primitives mode renders every shared primitive family through live demo cards", () => {
@@ -313,4 +318,21 @@ test("T1: primitives mode renders every shared primitive family through live dem
   assert.ok(markup.includes("Reviewer"), "expected reply specimen");
 
   assert.ok(markup.includes('data-lander-theme="lander-dark"'));
+});
+
+test("T1: demo stylesheet maps preserve, preview, and structured text policies onto explorer surfaces", () => {
+  const css = readFileSync(resolve("src/styles.css"), "utf8");
+
+  for (const selector of [
+    ".semantic-demo__entry .lander-semantic__description",
+    ".semantic-demo__detail-list code",
+    ".semantic-demo__detail .mdwrk-primitive--json-preview",
+    ".semantic-demo__primitive-card-header h3",
+    ".semantic-demo__field input",
+  ]) {
+    assert.ok(css.includes(selector), `expected demo style selector ${selector}`);
+  }
+
+  assert.ok(css.includes("-webkit-line-clamp: 3;"));
+  assert.ok(css.includes("overflow-wrap: anywhere;"));
 });

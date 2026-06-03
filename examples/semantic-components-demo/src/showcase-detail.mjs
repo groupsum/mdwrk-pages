@@ -110,11 +110,11 @@ function renderDetailSpecimen(detail) {
 }
 
 function SectionList({ items, emptyLabel }) {
-  if (!items?.length) return createElement("p", { className: "semantic-demo__detail-empty" }, emptyLabel);
+  if (!items?.length) return createElement("p", { className: "semantic-demo__detail-empty mdwrk-primitive__text-fit-preserve" }, emptyLabel);
   return createElement(
     "ul",
     { className: "semantic-demo__detail-list" },
-    ...items.map((item) => createElement("li", { key: item }, createElement("code", null, item))),
+    ...items.map((item) => createElement("li", { key: item }, createElement("code", { className: "mdwrk-primitive__text-fit-structured" }, item))),
   );
 }
 
@@ -125,8 +125,8 @@ export function DetailPage({ detailKind, detailName, kind, theme, surface }) {
       "section",
       { className: "semantic-demo__detail semantic-demo__detail--missing" },
       createElement("p", { className: "semantic-demo__kicker" }, "Detail route"),
-      createElement("h2", null, "No matching artifact detail page"),
-      createElement("p", null, "The requested primitive or generated artifact is not present in the current manifest."),
+      createElement("h2", { className: "mdwrk-primitive__text-fit-heading" }, "No matching artifact detail page"),
+      createElement("p", { className: "mdwrk-primitive__text-fit-preserve" }, "The requested primitive or generated artifact is not present in the current manifest."),
     );
   }
 
@@ -144,12 +144,12 @@ export function DetailPage({ detailKind, detailName, kind, theme, surface }) {
         { className: "semantic-demo__detail-copy" },
         createElement("a", { className: "semantic-demo__detail-link semantic-demo__detail-link--back", href: detail.explorerHref }, "Back to explorer"),
         createElement("p", { className: "semantic-demo__kicker" }, detail.eyebrow),
-        createElement("h2", null, detail.title),
-        createElement("p", { className: "semantic-demo__detail-description" }, detail.description),
+        createElement("h2", { className: "mdwrk-primitive__text-fit-heading" }, detail.title),
+        createElement("p", { className: "semantic-demo__detail-description mdwrk-primitive__text-fit-preserve" }, detail.description),
         createElement(
           Cluster,
           { className: "semantic-demo__detail-meta" },
-          createElement(Badge, null, detail.family),
+          createElement(Badge, { className: "mdwrk-primitive__text-fit-preserve" }, detail.family),
           createElement(Pill, null, detail.detailKind),
           createElement("a", { className: "semantic-demo__detail-link", href: detail.routeHref }, "Permalink"),
         ),
@@ -160,10 +160,10 @@ export function DetailPage({ detailKind, detailName, kind, theme, surface }) {
         createElement(
           "dl",
           { className: "semantic-demo__detail-summary-grid" },
-          createElement("div", null, createElement("dt", null, "Class hooks"), createElement("dd", null, detail.classNames.length)),
-          createElement("div", null, createElement("dt", null, "Token files"), createElement("dd", null, detail.tokenFiles.length)),
-          createElement("div", null, createElement("dt", null, "Schema rows"), createElement("dd", null, detail.schemaRows.length)),
-          createElement("div", null, createElement("dt", null, "Proof paths"), createElement("dd", null, detail.proofPaths.length)),
+          createElement("div", null, createElement("dt", { className: "mdwrk-primitive__text-fit-preserve" }, "Class hooks"), createElement("dd", null, detail.classNames.length)),
+          createElement("div", null, createElement("dt", { className: "mdwrk-primitive__text-fit-preserve" }, "Token files"), createElement("dd", null, detail.tokenFiles.length)),
+          createElement("div", null, createElement("dt", { className: "mdwrk-primitive__text-fit-preserve" }, "Schema rows"), createElement("dd", null, detail.schemaRows.length)),
+          createElement("div", null, createElement("dt", { className: "mdwrk-primitive__text-fit-preserve" }, "Proof paths"), createElement("dd", null, detail.proofPaths.length)),
         ),
       ),
     ),
@@ -198,7 +198,7 @@ export function DetailPage({ detailKind, detailName, kind, theme, surface }) {
         { className: "semantic-demo__detail-section", title: "JSON-LD" },
         detail.jsonLdExample
           ? createElement(JsonPreview, { value: detail.jsonLdExample })
-          : createElement("p", { className: "semantic-demo__detail-empty" }, "This primitive is visible-only and does not emit JSON-LD."),
+          : createElement("p", { className: "semantic-demo__detail-empty mdwrk-primitive__text-fit-preserve" }, "This primitive is visible-only and does not emit JSON-LD."),
       ),
       createElement(
         Card,

@@ -83,7 +83,7 @@ function fieldLabel(value) {
 }
 
 function primitiveField(value) {
-  return createElement("span", { className: "semantic-demo__field-value" }, String(value));
+  return createElement("span", { className: "semantic-demo__field-value mdwrk-primitive__text-fit-preserve" }, String(value));
 }
 
 function renderStructuredFieldValue(value, depth = 0) {
@@ -99,7 +99,7 @@ function renderStructuredFieldValue(value, depth = 0) {
           createElement(
             "section",
             { className: "semantic-demo__structured-nested", key: index },
-            createElement(Badge, { className: "semantic-demo__field-label" }, `Item ${index + 1}`),
+            createElement(Badge, { className: "semantic-demo__field-label mdwrk-primitive__text-fit-preserve" }, `Item ${index + 1}`),
             renderStructuredFieldValue(entry, depth + 1),
           ),
         ),
@@ -121,7 +121,7 @@ function renderStructuredFields(value, depth = 0) {
       createElement(
         PrimitiveCard,
         { className: "semantic-demo__structured-field", key },
-        createElement(Badge, { className: "semantic-demo__field-label" }, fieldLabel(key)),
+        createElement(Badge, { className: "semantic-demo__field-label mdwrk-primitive__text-fit-preserve" }, fieldLabel(key)),
         renderStructuredFieldValue(entry, depth + 1),
       ),
     ),
@@ -136,8 +136,8 @@ function StructuredFieldsPanel({ value }) {
     createElement(
       "header",
       { className: "semantic-demo__structured-header" },
-      createElement("span", null, "Object"),
-      createElement("h3", null, "Structured fields"),
+      createElement("span", { className: "mdwrk-primitive__text-fit-preserve" }, "Object"),
+      createElement("h3", { className: "mdwrk-primitive__text-fit-heading" }, "Structured fields"),
     ),
     renderStructuredFields(value),
   );
@@ -216,8 +216,8 @@ function DemoCard({ name, exportName, description, props, structuredFields, tone
     createElement(
       "div",
       { className: "semantic-demo__entry-meta" },
-      createElement(Badge, null, name),
-      createElement("p", null, description),
+      createElement(Badge, { className: "mdwrk-primitive__text-fit-preserve" }, name),
+      createElement("p", { className: "mdwrk-primitive__text-fit-preview" }, description),
     ),
     createElement(Component, { ...componentProps, className: "semantic-demo__card" }),
     createElement("a", { className: "semantic-demo__detail-link", href: detailHref }, "Open detail page"),

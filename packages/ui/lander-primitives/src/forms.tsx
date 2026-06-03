@@ -10,7 +10,7 @@ export interface FieldShellProps {
 }
 
 function FieldShell({ label, className, children, primitiveName = "field" }: FieldShellProps) {
-  return <label className={primitiveClass("field", className)} data-mdwrk-primitive={primitiveName}><span className="mdwrk-primitive__label">{label}</span>{children}</label>;
+  return <label className={primitiveClass("field", className)} data-mdwrk-primitive={primitiveName}><span className="mdwrk-primitive__label mdwrk-primitive__text-fit-preserve">{label}</span>{children}</label>;
 }
 
 interface FieldAdornmentProps {
@@ -45,14 +45,14 @@ function TypedTextField({ className, label, primitiveName, leadingIcon, trailing
   return (
     <FieldShell label={label} className={primitiveClass(primitiveName, className)} primitiveName={primitiveName}>
       <FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}>
-        <input {...props} className="mdwrk-primitive__control" />
+        <input {...props} className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve" />
       </FieldControlShell>
     </FieldShell>
   );
 }
 
 export function TextInput({ className, label, leadingIcon, trailingIcon, ...props }: React.InputHTMLAttributes<HTMLInputElement> & { label: React.ReactNode } & FieldAdornmentProps) {
-  return <FieldShell label={label} className={primitiveClass("text-input", className)} primitiveName="text-input"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><input {...props} className="mdwrk-primitive__control" /></FieldControlShell></FieldShell>;
+  return <FieldShell label={label} className={primitiveClass("text-input", className)} primitiveName="text-input"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><input {...props} className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve" /></FieldControlShell></FieldShell>;
 }
 
 export function FirstNameField({ label = "First name", leadingIcon = <Icon name="badge" decorative />, autoComplete = "given-name", ...props }: SpecializedTextFieldProps) {
@@ -87,7 +87,7 @@ export function NameFieldSet({ className, label = "Name", firstNameProps, middle
 }
 
 export function TextArea({ className, label, leadingIcon, trailingIcon, ...props }: React.TextareaHTMLAttributes<HTMLTextAreaElement> & { label: React.ReactNode } & FieldAdornmentProps) {
-  return <FieldShell label={label} className={primitiveClass("text-area", className)} primitiveName="text-area"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><textarea {...props} className="mdwrk-primitive__control" /></FieldControlShell></FieldShell>;
+  return <FieldShell label={label} className={primitiveClass("text-area", className)} primitiveName="text-area"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><textarea {...props} className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve" /></FieldControlShell></FieldShell>;
 }
 
 export interface SelectOption {
@@ -110,7 +110,7 @@ export function SelectField({ className, label, options, leadingIcon, trailingIc
   return (
     <FieldShell label={label} className={primitiveClass("select-field", className)} primitiveName="select-field">
       <FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}>
-        <select {...props} className="mdwrk-primitive__control">
+        <select {...props} className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve">
           {options.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
         </select>
       </FieldControlShell>
@@ -119,7 +119,7 @@ export function SelectField({ className, label, options, leadingIcon, trailingIc
 }
 
 export function SearchField({ className, label = "Search", leadingIcon = <Icon name="search" decorative />, trailingIcon, ...props }: React.InputHTMLAttributes<HTMLInputElement> & { label?: React.ReactNode } & FieldAdornmentProps) {
-  return <FieldShell label={label} className={primitiveClass("search-field", className)} primitiveName="search-field"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><input {...props} type="search" className="mdwrk-primitive__control" /></FieldControlShell></FieldShell>;
+  return <FieldShell label={label} className={primitiveClass("search-field", className)} primitiveName="search-field"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><input {...props} type="search" className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve" /></FieldControlShell></FieldShell>;
 }
 
 export function EmailField({ label = "Email", leadingIcon = <Icon name="mail" decorative />, autoComplete = "email", ...props }: SpecializedTextFieldProps) {
@@ -194,7 +194,7 @@ export function TextCompletionField({ className, label, options, listId, id, lea
   return (
     <FieldShell label={label} className={primitiveClass("text-completion-field", className)} primitiveName="text-completion-field">
       <FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}>
-        <input {...props} id={id} list={resolvedListId} className="mdwrk-primitive__control" />
+        <input {...props} id={id} list={resolvedListId} className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve" />
       </FieldControlShell>
       <datalist id={resolvedListId}>
         {options.map((option) => <option key={option.value} value={option.value}>{typeof option.label === "string" ? option.label : option.value}</option>)}
@@ -220,13 +220,13 @@ export function TaggedCrudField({ className, label, tags, value, placeholder = "
         <div className="mdwrk-primitive__tag-list">
           {tags.map((tag) => (
             <span key={tag} className="mdwrk-primitive__tag-chip">
-              <span>{tag}</span>
+              <span className="mdwrk-primitive__text-fit-preserve">{tag}</span>
               <button type="button" className="mdwrk-primitive__tag-action" aria-label={`Remove ${tag}`}>x</button>
             </span>
           ))}
         </div>
         <div className="mdwrk-primitive__tag-editor">
-          <input {...props} value={value} placeholder={placeholder} className="mdwrk-primitive__control" />
+          <input {...props} value={value} placeholder={placeholder} className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve" />
           <button type="button" className="mdwrk-primitive__tag-action">Add</button>
         </div>
       </div>
@@ -245,19 +245,19 @@ export function ColorPicker({ className, label = "Color", ...props }: React.Inpu
 }
 
 export function IntegerQuantityField({ className, label, step = 1, leadingIcon, trailingIcon, ...props }: React.InputHTMLAttributes<HTMLInputElement> & { label: React.ReactNode } & FieldAdornmentProps) {
-  return <FieldShell label={label} className={primitiveClass("integer-quantity-field", className)} primitiveName="integer-quantity-field"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><input {...props} type="number" step={step} className="mdwrk-primitive__control" /></FieldControlShell></FieldShell>;
+  return <FieldShell label={label} className={primitiveClass("integer-quantity-field", className)} primitiveName="integer-quantity-field"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><input {...props} type="number" step={step} className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve" /></FieldControlShell></FieldShell>;
 }
 
 export function DecimalQuantityField({ className, label, step = "0.01", leadingIcon, trailingIcon, ...props }: React.InputHTMLAttributes<HTMLInputElement> & { label: React.ReactNode } & FieldAdornmentProps) {
-  return <FieldShell label={label} className={primitiveClass("decimal-quantity-field", className)} primitiveName="decimal-quantity-field"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><input {...props} type="number" step={step} className="mdwrk-primitive__control" /></FieldControlShell></FieldShell>;
+  return <FieldShell label={label} className={primitiveClass("decimal-quantity-field", className)} primitiveName="decimal-quantity-field"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><input {...props} type="number" step={step} className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve" /></FieldControlShell></FieldShell>;
 }
 
 export function DateField({ className, label, leadingIcon, trailingIcon = <Icon name="calendar_today" decorative />, ...props }: React.InputHTMLAttributes<HTMLInputElement> & { label: React.ReactNode } & FieldAdornmentProps) {
-  return <FieldShell label={label} className={primitiveClass("date-field", className)} primitiveName="date-field"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><input {...props} type="date" className="mdwrk-primitive__control" /></FieldControlShell></FieldShell>;
+  return <FieldShell label={label} className={primitiveClass("date-field", className)} primitiveName="date-field"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><input {...props} type="date" className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve" /></FieldControlShell></FieldShell>;
 }
 
 export function DateTimeField({ className, label, leadingIcon, trailingIcon = <Icon name="event" decorative />, ...props }: React.InputHTMLAttributes<HTMLInputElement> & { label: React.ReactNode } & FieldAdornmentProps) {
-  return <FieldShell label={label} className={primitiveClass("datetime-field", className)} primitiveName="datetime-field"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><input {...props} type="datetime-local" className="mdwrk-primitive__control" /></FieldControlShell></FieldShell>;
+  return <FieldShell label={label} className={primitiveClass("datetime-field", className)} primitiveName="datetime-field"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><input {...props} type="datetime-local" className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve" /></FieldControlShell></FieldShell>;
 }
 
 export interface RangeFieldProps extends PrimitiveBaseRangeProps {
@@ -277,12 +277,12 @@ function RangeFieldShell({ primitiveName, className, label, startLabel = "Start"
     <FieldShell label={label} className={primitiveClass(primitiveName, className)} primitiveName={primitiveName}>
       <div className="mdwrk-primitive__range-field">
         <label className="mdwrk-primitive__subfield">
-          <span className="mdwrk-primitive__sublabel">{startLabel}</span>
-          <input {...startProps} type={inputType} className="mdwrk-primitive__control" />
+          <span className="mdwrk-primitive__sublabel mdwrk-primitive__text-fit-preserve">{startLabel}</span>
+          <input {...startProps} type={inputType} className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve" />
         </label>
         <label className="mdwrk-primitive__subfield">
-          <span className="mdwrk-primitive__sublabel">{endLabel}</span>
-          <input {...endProps} type={inputType} className="mdwrk-primitive__control" />
+          <span className="mdwrk-primitive__sublabel mdwrk-primitive__text-fit-preserve">{endLabel}</span>
+          <input {...endProps} type={inputType} className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve" />
         </label>
       </div>
     </FieldShell>
@@ -298,7 +298,7 @@ export function DateTimeRangeField(props: RangeFieldProps) {
 }
 
 export function TimePickerField({ className, label, leadingIcon, trailingIcon = <Icon name="schedule" decorative />, ...props }: React.InputHTMLAttributes<HTMLInputElement> & { label: React.ReactNode } & FieldAdornmentProps) {
-  return <FieldShell label={label} className={primitiveClass("time-picker-field", className)} primitiveName="time-picker-field"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><input {...props} type="time" className="mdwrk-primitive__control" /></FieldControlShell></FieldShell>;
+  return <FieldShell label={label} className={primitiveClass("time-picker-field", className)} primitiveName="time-picker-field"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><input {...props} type="time" className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve" /></FieldControlShell></FieldShell>;
 }
 
 export function TimeRangeField(props: RangeFieldProps) {
@@ -306,11 +306,11 @@ export function TimeRangeField(props: RangeFieldProps) {
 }
 
 export function DurationField({ className, label, leadingIcon, trailingIcon = <Icon name="timer" decorative />, ...props }: React.InputHTMLAttributes<HTMLInputElement> & { label: React.ReactNode } & FieldAdornmentProps) {
-  return <FieldShell label={label} className={primitiveClass("duration-field", className)} primitiveName="duration-field"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><input {...props} type="text" className="mdwrk-primitive__control" placeholder={props.placeholder ?? "PT1H30M"} /></FieldControlShell></FieldShell>;
+  return <FieldShell label={label} className={primitiveClass("duration-field", className)} primitiveName="duration-field"><FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}><input {...props} type="text" className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve" placeholder={props.placeholder ?? "PT1H30M"} /></FieldControlShell></FieldShell>;
 }
 
 export function FileDropzone({ className, label = "Upload file", ...props }: React.InputHTMLAttributes<HTMLInputElement> & { label?: React.ReactNode }) {
-  return <FieldShell label={label} className={primitiveClass("file-dropzone", className)} primitiveName="file-dropzone"><input {...props} type="file" className="mdwrk-primitive__control" /></FieldShell>;
+  return <FieldShell label={label} className={primitiveClass("file-dropzone", className)} primitiveName="file-dropzone"><input {...props} type="file" className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve" /></FieldShell>;
 }
 
 export function CheckboxField({ className, label, children, ...props }: React.InputHTMLAttributes<HTMLInputElement> & { label: React.ReactNode }) {
@@ -318,7 +318,7 @@ export function CheckboxField({ className, label, children, ...props }: React.In
     <FieldShell label={label} className={primitiveClass("checkbox-field", className)} primitiveName="checkbox-field">
       <label className="mdwrk-primitive__choice-option">
         <input {...props} type="checkbox" />
-        <span>{children ?? "Checked option"}</span>
+        <span className="mdwrk-primitive__text-fit-preserve">{children ?? "Checked option"}</span>
       </label>
     </FieldShell>
   );
@@ -340,8 +340,8 @@ export function RadioGroup({ className, label, name = "mdwrk-radio-group", optio
         {options.map((option) => (
           <label key={option.value} className="mdwrk-primitive__choice-option">
             <input type="radio" name={name} value={option.value} defaultChecked={option.value === value} />
-            <span>{option.label}</span>
-            {option.hint ? <small className="mdwrk-primitive__choice-hint">{option.hint}</small> : null}
+            <span className="mdwrk-primitive__text-fit-preserve">{option.label}</span>
+            {option.hint ? <small className="mdwrk-primitive__choice-hint mdwrk-primitive__text-fit-preview">{option.hint}</small> : null}
           </label>
         ))}
       </div>
@@ -356,8 +356,8 @@ export function CheckboxGroup({ className, label, name = "mdwrk-checkbox-group",
         {options.map((option) => (
           <label key={option.value} className="mdwrk-primitive__choice-option">
             <input type="checkbox" name={name} value={option.value} defaultChecked={values.includes(option.value)} />
-            <span>{option.label}</span>
-            {option.hint ? <small className="mdwrk-primitive__choice-hint">{option.hint}</small> : null}
+            <span className="mdwrk-primitive__text-fit-preserve">{option.label}</span>
+            {option.hint ? <small className="mdwrk-primitive__choice-hint mdwrk-primitive__text-fit-preview">{option.hint}</small> : null}
           </label>
         ))}
       </div>
@@ -384,12 +384,12 @@ export function ChatPrompt({ className, label = "Chat prompt", attachments = [],
   return (
     <FieldShell label={label} className={primitiveClass("chat-prompt", className)} primitiveName="chat-prompt">
       <div className="mdwrk-primitive__chat-prompt">
-        <textarea {...props} rows={rows} className="mdwrk-primitive__control" />
+        <textarea {...props} rows={rows} className="mdwrk-primitive__control mdwrk-primitive__text-fit-preserve" />
         {attachments.length ? (
           <div className="mdwrk-primitive__chat-attachments">
             {attachments.map((attachment) => (
               <span key={attachment.name} className="mdwrk-primitive__tag-chip">
-                <span>{attachment.kind ? `${attachment.kind}: ` : ""}{attachment.name}</span>
+                <span className="mdwrk-primitive__text-fit-structured">{attachment.kind ? `${attachment.kind}: ` : ""}{attachment.name}</span>
               </span>
             ))}
           </div>
