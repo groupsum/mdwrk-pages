@@ -1,43 +1,37 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { SemanticShell, SemanticStructuredDataGate } from "../shared.js";
+import {
+  formatDateLabel,
+  joinClassNames,
+  LinkList,
+  MediaList,
+  ReferenceInline,
+  ReferenceList,
+  SemanticStructuredDataGate,
+  TextList,
+} from "../shared.js";
 import {
   AboutPageImage,
   AboutPageStructuredDataInput,
+  BreadcrumbNav,
   BreadcrumbItemInput,
-  bodyList,
   NamedMediaReference,
   NamedReference,
   PageViewModel,
   SpeakableInput,
   audienceReference,
   breadcrumbValue,
-  chipSection,
   creativeWorkReference,
-  labeledLinks,
   mediaReference,
-  mediaSection,
   namedReferenceLabel,
   normalizeReferenceArray,
+  pageImageReference,
   pageImageUrl,
-  pageMetaEntries,
   partyReference,
   renderPageArtifactFields,
-  referenceList,
   speakableValue,
   thingReference,
 } from "./shared.js";
-
-function pageImageReference(value?: string | AboutPageImage) {
-  const url = pageImageUrl(value);
-  if (!url) return undefined;
-  return {
-    "@type": "ImageObject",
-    url,
-    contentUrl: url,
-    name: typeof value === "object" && value?.caption ? value.caption : url,
-  };
-}
 
 export interface AboutPageProps {
   name: string;
@@ -74,7 +68,7 @@ export interface AboutPageProps {
   teaches?: string[];
   audience?: NamedReference | NamedReference[];
   body?: React.ReactNode;
-  viewModel?: PageViewModel;
+  viewModel?: PageViewModel & { showStructuredFields?: boolean };
   className?: string;
   emitStructuredData?: boolean;
   structuredDataOverrides?: Partial<AboutPageStructuredDataInput>;
@@ -103,56 +97,134 @@ export function AboutPage(props: AboutPageProps) {
     subjectOf: subjectOf.map(creativeWorkReference), teaches: props.teaches, audience: audience.map(audienceReference),
   };
   const structuredData = { ...base, ...(props.structuredDataOverrides ?? {}) };
+  const imageSrc = pageImageUrl(props.primaryImageOfPage) ?? pageImageUrl(props.image) ?? props.thumbnailUrl;
+  const publishedLabel = formatDateLabel(props.datePublished);
+  const modifiedLabel = formatDateLabel(props.dateModified);
+  const reviewedLabel = formatDateLabel(props.lastReviewed);
+  const editorialRows = [
+    authors.length ? { label: "Written by", value: authors } : null,
+    props.publisher ? { label: "Published by", value: [props.publisher] as NamedReference[] } : null,
+    reviewedBy.length ? { label: "Reviewed by", value: reviewedBy } : null,
+  ].filter(Boolean) as Array<{ label: string; value: NamedReference[] }>;
+  const dateRows = [
+    props.datePublished ? { label: "Published", value: props.datePublished, display: publishedLabel ?? props.datePublished } : null,
+    props.dateModified ? { label: "Updated", value: props.dateModified, display: modifiedLabel ?? props.dateModified } : null,
+    props.lastReviewed ? { label: "Reviewed", value: props.lastReviewed, display: reviewedLabel ?? props.lastReviewed } : null,
+  ].filter(Boolean) as Array<{ label: string; value: string; display: string }>;
+  const overviewText = [props.abstract, props.mainContentOfPage].filter((item): item is string => Boolean(item?.trim()));
+  const topicRows = [
+    props.about ? { label: "Focus", value: props.about } : null,
+    props.mainEntity ? { label: "Primary entity", value: props.mainEntity } : null,
+    props.mainEntityOfPage ? { label: "Canonical page", value: props.mainEntityOfPage } : null,
+  ].filter(Boolean) as Array<{ label: string; value: NamedReference }>;
+
   return (
     <>
       <SemanticStructuredDataGate emitStructuredData={props.emitStructuredData}>
         <structuredDataReact.AboutPageStructuredData data={structuredData} />
       </SemanticStructuredDataGate>
-      <SemanticShell
-        kind="about-page"
-        title={props.name}
-        eyebrow={props.viewModel?.eyebrow ?? "About page"}
-        subtitle={props.headline}
-        description={props.description}
-        meta={pageMetaEntries(structuredData as Record<string, unknown>, [
-          { key: "url", label: "URL" },
-          { key: "datePublished", label: "Published" },
-          { key: "dateModified", label: "Updated" },
-          { key: "lastReviewed", label: "Reviewed" },
-        ])}
-        imageSrc={pageImageUrl(props.primaryImageOfPage) ?? pageImageUrl(props.image) ?? props.thumbnailUrl}
-        imageAlt={props.headline ?? props.name}
-        body={
-          <>
-            {props.about ? <div className="lander-semantic__page-band"><span className="lander-semantic__page-band-label">About</span><strong className="lander-semantic__page-band-value">{namedReferenceLabel(props.about)}</strong></div> : null}
-            {(props.mainEntity || props.mainEntityOfPage || props.mainContentOfPage || props.datePublished || props.dateModified || props.lastReviewed) ? (
-              <div className="lander-semantic__page-facts">
-                {props.mainEntity ? <div className="lander-semantic__page-fact"><span className="lander-semantic__page-fact-label">Main entity</span><strong className="lander-semantic__page-fact-value">{namedReferenceLabel(props.mainEntity)}</strong></div> : null}
-                {props.mainEntityOfPage ? <div className="lander-semantic__page-fact"><span className="lander-semantic__page-fact-label">Main entity of page</span><strong className="lander-semantic__page-fact-value">{namedReferenceLabel(props.mainEntityOfPage)}</strong></div> : null}
-                {props.mainContentOfPage ? <div className="lander-semantic__page-fact"><span className="lander-semantic__page-fact-label">Main content</span><strong className="lander-semantic__page-fact-value">{props.mainContentOfPage}</strong></div> : null}
-                {props.datePublished ? <div className="lander-semantic__page-fact"><span className="lander-semantic__page-fact-label">Published</span><strong className="lander-semantic__page-fact-value">{props.datePublished}</strong></div> : null}
-                {props.dateModified ? <div className="lander-semantic__page-fact"><span className="lander-semantic__page-fact-label">Updated</span><strong className="lander-semantic__page-fact-value">{props.dateModified}</strong></div> : null}
-                {props.lastReviewed ? <div className="lander-semantic__page-fact"><span className="lander-semantic__page-fact-label">Last reviewed</span><strong className="lander-semantic__page-fact-value">{props.lastReviewed}</strong></div> : null}
-              </div>
+      <article
+        className={joinClassNames("mdwrk-primitive", "mdwrk-primitive--surface", "lander-semantic", "lander-semantic--about-page", props.className)}
+        data-mdwrk-primitive="surface"
+      >
+        <BreadcrumbNav items={props.breadcrumb} />
+        <header className="lander-semantic__header lander-semantic__about-hero">
+          <div className="lander-semantic__about-hero-copy">
+            <p className="lander-semantic__eyebrow">{props.viewModel?.eyebrow ?? "About us"}</p>
+            <h1 className="lander-semantic__title">{props.name}</h1>
+            {props.headline ? <p className="lander-semantic__subtitle">{props.headline}</p> : null}
+            {props.description ? <p className="lander-semantic__description">{props.description}</p> : null}
+            {props.url ? <a className="lander-semantic__about-canonical" href={props.url}>{props.url.replace(/^https?:\/\//, "")}</a> : null}
+          </div>
+          {imageSrc || dateRows.length ? (
+            <aside className="lander-semantic__about-hero-aside" aria-label="About page summary">
+              {imageSrc ? (
+                <img
+                  className="lander-semantic__image lander-semantic__about-image"
+                  src={imageSrc}
+                  alt={props.headline ?? props.name}
+                  onError={(event) => {
+                    event.currentTarget.hidden = true;
+                  }}
+                />
+              ) : null}
+              {dateRows.length ? (
+                <dl className="lander-semantic__meta lander-semantic__about-date-list">
+                  {dateRows.map((row) => (
+                    <div key={row.label}>
+                      <dt>{row.label}</dt>
+                      <dd><time dateTime={row.value}>{row.display}</time></dd>
+                    </div>
+                  ))}
+                </dl>
+              ) : null}
+            </aside>
+          ) : null}
+        </header>
+
+        <div className="lander-semantic__body lander-semantic__about-layout">
+          <main className="lander-semantic__about-main">
+            {overviewText.length ? (
+              <section className="lander-semantic__about-overview" aria-labelledby="about-overview-heading">
+                <h2 id="about-overview-heading">Overview</h2>
+                {overviewText.map((item) => <p key={item}>{item}</p>)}
+              </section>
             ) : null}
-            {(authors.length || props.publisher || reviewedBy.length) ? <div className="lander-semantic__publisher-band">{authors.length ? <><span className="lander-semantic__publisher-label">Author</span><strong className="lander-semantic__publisher-value">{authors.map(namedReferenceLabel).join(", ")}</strong></> : null}{props.publisher ? <><span className="lander-semantic__publisher-label">Publisher</span><strong className="lander-semantic__publisher-value">{namedReferenceLabel(props.publisher)}</strong></> : null}{reviewedBy.length ? <><span className="lander-semantic__publisher-label">Reviewed by</span><strong className="lander-semantic__publisher-value">{reviewedBy.map(namedReferenceLabel).join(", ")}</strong></> : null}</div> : null}
-            {props.abstract ? <section className="lander-semantic__about-section"><h3 className="lander-semantic__about-section-heading">Abstract</h3><div className="lander-semantic__page-fact-card"><span className="lander-semantic__page-fact-value">{props.abstract}</span></div></section> : null}
-            {props.breadcrumb?.length ? <section className="lander-semantic__about-section"><h3 className="lander-semantic__about-section-heading">Breadcrumb</h3><nav aria-label="Breadcrumb"><ol className="lander-semantic__breadcrumb-trail">{props.breadcrumb.map((item, index) => <li key={`${item.href ?? item.label}-${index}`} className="lander-semantic__breadcrumb-item">{item.href ? <a href={item.href}>{item.label}</a> : <span>{item.label}</span>}{index < props.breadcrumb.length - 1 ? <span className="lander-semantic__breadcrumb-separator">/</span> : null}</li>)}</ol></nav></section> : null}
-            {props.speakable ? <section className="lander-semantic__about-section"><h3 className="lander-semantic__about-section-heading">Speakable</h3><div className="lander-semantic__selector-grid">{props.speakable.cssSelector?.length ? <section className="lander-semantic__selector-block"><h4 className="lander-semantic__selector-heading">CSS selectors</h4>{bodyList(props.speakable.cssSelector)}</section> : null}{props.speakable.xpath?.length ? <section className="lander-semantic__selector-block"><h4 className="lander-semantic__selector-heading">XPath selectors</h4>{bodyList(props.speakable.xpath)}</section> : null}{props.speakable.idRefs?.length ? <section className="lander-semantic__selector-block"><h4 className="lander-semantic__selector-heading">ID references</h4>{bodyList(props.speakable.idRefs)}</section> : null}</div></section> : null}
-            {props.accessibilitySummary ? <section className="lander-semantic__about-section"><h3 className="lander-semantic__about-section-heading">Accessibility summary</h3><div className="lander-semantic__page-fact-card"><span className="lander-semantic__page-fact-value">{props.accessibilitySummary}</span></div></section> : null}
-            {chipSection(props.accessibilityFeature ?? [], "Accessibility features")}
-            {chipSection(specialties, "Specialty")}
-            {chipSection(props.keywords ?? [], "Keywords")}
-            {chipSection(props.teaches ?? [], "Teaches")}
-            {chipSection(props.sameAs ?? [], "Same as")}
-            {chipSection(audience.map(namedReferenceLabel), "Audience")}
-            {referenceList(mentions, "Mentions")}
-            {referenceList(subjectOf, "Subject of")}
-            {labeledLinks(props.significantLinks, "Significant links")}
-            {labeledLinks(props.relatedLinks, "Related links")}
-            {mediaSection(videos, "Video", "Video")}
-            {mediaSection(audio, "Audio", "Audio")}
-            {renderPageArtifactFields(structuredData as Record<string, unknown>, [
+            {props.body}
+            {props.accessibilitySummary ? (
+              <section className="lander-semantic__about-accessibility" aria-labelledby="about-accessibility-heading">
+                <h2 id="about-accessibility-heading">Accessibility</h2>
+                <p>{props.accessibilitySummary}</p>
+                {props.accessibilityFeature?.length ? (
+                  <ul>
+                    {props.accessibilityFeature.map((feature) => <li key={feature}>{feature}</li>)}
+                  </ul>
+                ) : null}
+              </section>
+            ) : null}
+            <div className="lander-semantic__about-related">
+              <ReferenceList items={subjectOf} label="Coverage" className="lander-semantic__about-link-group" />
+              <MediaList items={videos} label="Videos" type="Video" className="lander-semantic__about-link-group" typeClassName="lander-semantic__about-link-type" />
+              <MediaList items={audio} label="Audio" type="Audio" className="lander-semantic__about-link-group" typeClassName="lander-semantic__about-link-type" />
+            </div>
+          </main>
+
+          <aside className="lander-semantic__about-sidebar" aria-label="About details">
+            {topicRows.length ? (
+              <section className="lander-semantic__about-detail-section" aria-labelledby="about-focus-heading">
+                <h2 id="about-focus-heading">Focus</h2>
+                <dl className="lander-semantic__about-fact-list">
+                  {topicRows.map((row) => (
+                    <div key={row.label}>
+                      <dt>{row.label}</dt>
+                      <dd><ReferenceInline value={row.value} /></dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+            ) : null}
+            {editorialRows.length ? (
+              <section className="lander-semantic__about-detail-section" aria-labelledby="about-editorial-heading">
+                <h2 id="about-editorial-heading">Editorial</h2>
+                <dl className="lander-semantic__about-fact-list">
+                  {editorialRows.map((row) => (
+                    <div key={row.label}>
+                      <dt>{row.label}</dt>
+                      <dd>{row.value.map((item, index) => <React.Fragment key={`${namedReferenceLabel(item)}-${index}`}><ReferenceInline value={item} />{index < row.value.length - 1 ? ", " : null}</React.Fragment>)}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+            ) : null}
+            <TextList items={specialties} label="Specialties" className="lander-semantic__about-list-section" />
+            <TextList items={props.teaches ?? []} label="Teaches" className="lander-semantic__about-list-section" />
+            <TextList items={audience.map(namedReferenceLabel)} label="Audience" className="lander-semantic__about-list-section" />
+            <TextList items={props.keywords ?? []} label="Keywords" className="lander-semantic__about-list-section" />
+            <ReferenceList items={mentions} label="Mentions" className="lander-semantic__about-link-group" />
+            <LinkList links={props.significantLinks} label="Company links" className="lander-semantic__about-link-group" />
+            <LinkList links={props.relatedLinks} label="Related links" className="lander-semantic__about-link-group" />
+            <LinkList links={props.sameAs} label="External profiles" className="lander-semantic__about-link-group" />
+            {props.viewModel?.showStructuredFields ? renderPageArtifactFields(structuredData as Record<string, unknown>, [
               "name",
               "description",
               "headline",
@@ -186,13 +258,11 @@ export function AboutPage(props: AboutPageProps) {
               "image",
               "primaryImageOfPage",
               "thumbnailUrl",
-            ])}
-            {props.body}
-          </>
-        }
-        footer={props.viewModel?.footer}
-        className={props.className}
-      />
+            ]) : null}
+          </aside>
+        </div>
+        {props.viewModel?.footer ? <footer className="lander-semantic__footer">{props.viewModel.footer}</footer> : null}
+      </article>
     </>
   );
 }

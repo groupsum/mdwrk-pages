@@ -4,8 +4,12 @@ import {
   bodyList,
   creativeWorkReference,
   firstImage,
+  namedReferenceHref as sharedNamedReferenceHref,
+  namedReferenceLabel as sharedNamedReferenceLabel,
   omitRecordKeys,
   renderStructuredSection,
+  type SemanticNamedMediaReference,
+  type SemanticNamedReference,
   thingReference,
 } from "../shared.js";
 
@@ -43,8 +47,8 @@ export type AboutPageImage = {
   height?: number;
 };
 
-export type NamedReference = string | { name?: string; url?: string; ["@id"]?: string; ["@type"]?: string };
-export type NamedMediaReference = string | { name?: string; url?: string; contentUrl?: string; thumbnailUrl?: string };
+export type NamedReference = SemanticNamedReference;
+export type NamedMediaReference = SemanticNamedMediaReference;
 export type BreadcrumbItemInput = { label: string; href?: string };
 export type SpeakableInput = {
   cssSelector?: string[];
@@ -53,31 +57,43 @@ export type SpeakableInput = {
 };
 
 export function namedReferenceLabel(value: unknown): string {
-  if (typeof value === "string") return value;
-  if (value && typeof value === "object") {
-    const record = value as Record<string, unknown>;
-    if (typeof record.name === "string" && record.name.trim()) return record.name;
-    if (typeof record.url === "string" && record.url.trim()) return record.url;
-    if (typeof record["@id"] === "string" && record["@id"].trim()) return record["@id"];
-    if (typeof record["@type"] === "string" && record["@type"].trim()) return record["@type"];
-  }
-  return String(value ?? "");
+  return sharedNamedReferenceLabel(value);
 }
 
 export function namedReferenceHref(value: unknown): string | undefined {
-  if (typeof value === "string" && /^https?:\/\//i.test(value)) return value;
-  if (value && typeof value === "object") {
-    const record = value as Record<string, unknown>;
-    if (typeof record.url === "string" && record.url.trim()) return record.url;
-    if (typeof record["@id"] === "string" && /^https?:\/\//i.test(record["@id"])) return record["@id"];
-  }
-  return undefined;
+  return sharedNamedReferenceHref(value);
 }
 
 export function pageImageUrl(value?: string | AboutPageImage): string | undefined {
   if (typeof value === "string" && value.trim()) return value;
   if (value && typeof value === "object") return value.url ?? value.src;
   return undefined;
+}
+
+export function pageImageReference(value?: string | AboutPageImage) {
+  const url = pageImageUrl(value);
+  if (!url) return undefined;
+  return {
+    "@type": "ImageObject",
+    url,
+    contentUrl: url,
+    name: typeof value === "object" && value?.caption ? value.caption : url,
+  };
+}
+
+export function BreadcrumbNav({ items }: { items?: BreadcrumbItemInput[] }) {
+  if (!items?.length) return null;
+  return (
+    <nav className="lander-semantic__breadcrumb lander-semantic__about-breadcrumb" aria-label="Breadcrumb">
+      <ol className="lander-semantic__breadcrumb-trail">
+        {items.map((item, index) => (
+          <li key={`${item.href ?? item.label}-${index}`} className="lander-semantic__breadcrumb-item">
+            {item.href ? <a href={item.href}>{item.label}</a> : <span>{item.label}</span>}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
 }
 
 export function normalizeReferenceArray<T>(value?: T | T[]): T[] {

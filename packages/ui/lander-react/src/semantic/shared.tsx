@@ -68,6 +68,167 @@ export function firstImage(value?: string | string[]): string | undefined {
   return undefined;
 }
 
+export type SemanticNamedReference = string | { name?: string; url?: string; ["@id"]?: string; ["@type"]?: string };
+export type SemanticNamedMediaReference = string | { name?: string; url?: string; contentUrl?: string; thumbnailUrl?: string };
+
+export function formatDateLabel(value?: string): string | undefined {
+  if (!value) return undefined;
+  const date = new Date(value);
+  if (Number.isNaN(date.valueOf())) return value;
+  return date.toLocaleDateString("en", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+}
+
+export function namedReferenceLabel(value: unknown): string {
+  if (typeof value === "string") return value;
+  if (value && typeof value === "object") {
+    const record = value as Record<string, unknown>;
+    if (typeof record.name === "string" && record.name.trim()) return record.name;
+    if (typeof record.url === "string" && record.url.trim()) return record.url;
+    if (typeof record["@id"] === "string" && record["@id"].trim()) return record["@id"];
+    if (typeof record["@type"] === "string" && record["@type"].trim()) return record["@type"];
+  }
+  return String(value ?? "");
+}
+
+export function namedReferenceHref(value: unknown): string | undefined {
+  if (typeof value === "string" && /^https?:\/\//i.test(value)) return value;
+  if (value && typeof value === "object") {
+    const record = value as Record<string, unknown>;
+    if (typeof record.url === "string" && record.url.trim()) return record.url;
+    if (typeof record["@id"] === "string" && /^https?:\/\//i.test(record["@id"])) return record["@id"];
+  }
+  return undefined;
+}
+
+export function referenceHref(value: unknown): string | undefined {
+  return namedReferenceHref(value);
+}
+
+export function ReferenceInline({ value }: { value: unknown }) {
+  const label = namedReferenceLabel(value);
+  const href = referenceHref(value);
+  if (!label) return null;
+  return href ? <a href={href}>{label}</a> : <span>{label}</span>;
+}
+
+export function ReferenceList({
+  items,
+  label,
+  className,
+  listClassName,
+  itemClassName,
+}: {
+  items: unknown[];
+  label: string;
+  className?: string;
+  listClassName?: string;
+  itemClassName?: string;
+}) {
+  if (!items.length) return null;
+  return (
+    <section className={joinClassNames("lander-semantic__reference-list", className)} aria-label={label}>
+      <h2>{label}</h2>
+      <ul className={listClassName}>
+        {items.map((item, index) => (
+          <li key={`${namedReferenceLabel(item)}-${index}`} className={itemClassName}>
+            <ReferenceInline value={item} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+export function LinkList({
+  links,
+  label,
+  className,
+  listClassName,
+  itemClassName,
+}: {
+  links?: string[];
+  label: string;
+  className?: string;
+  listClassName?: string;
+  itemClassName?: string;
+}) {
+  if (!links?.length) return null;
+  return (
+    <section className={joinClassNames("lander-semantic__link-list", className)} aria-label={label}>
+      <h2>{label}</h2>
+      <ul className={listClassName}>
+        {links.map((link) => (
+          <li key={link} className={itemClassName}>
+            <a href={link}>{link.replace(/^https?:\/\//, "")}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+export function TextList({
+  items,
+  label,
+  className,
+  listClassName,
+  itemClassName,
+}: {
+  items: string[];
+  label: string;
+  className?: string;
+  listClassName?: string;
+  itemClassName?: string;
+}) {
+  const values = items.filter((item) => item.trim().length > 0);
+  if (!values.length) return null;
+  return (
+    <section className={joinClassNames("lander-semantic__text-list", className)} aria-label={label}>
+      <h2>{label}</h2>
+      <ul className={listClassName}>
+        {values.map((item) => <li key={item} className={itemClassName}>{item}</li>)}
+      </ul>
+    </section>
+  );
+}
+
+export function MediaList({
+  items,
+  label,
+  type,
+  className,
+  listClassName,
+  itemClassName,
+  typeClassName,
+}: {
+  items: SemanticNamedMediaReference[];
+  label: string;
+  type: "Video" | "Audio";
+  className?: string;
+  listClassName?: string;
+  itemClassName?: string;
+  typeClassName?: string;
+}) {
+  if (!items.length) return null;
+  return (
+    <section className={joinClassNames("lander-semantic__media-list", className)} aria-label={label}>
+      <h2>{label}</h2>
+      <ul className={listClassName}>
+        {items.map((item, index) => {
+          const title = namedReferenceLabel(item);
+          const href = referenceHref(item);
+          return (
+            <li key={`${title}-${index}`} className={itemClassName}>
+              <span className={joinClassNames("lander-semantic__media-type", typeClassName)}>{type}</span>
+              {href ? <a href={href}>{title}</a> : <span>{title}</span>}
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
+
 export interface SemanticMetaEntry {
   label: string;
   value: React.ReactNode;
@@ -247,6 +408,51 @@ export function renderStructuredSection(value: unknown, heading = "Fields"): Rea
         <h2>{heading}</h2>
       </div>
       {renderStructuredValue(value)}
+    </section>
+  );
+}
+
+function previewText(value: unknown): string {
+  if (!isPresentValue(value)) return "";
+  if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") return String(value);
+  if (Array.isArray(value)) return value.map((entry) => previewText(entry)).filter(Boolean).join(", ");
+  if (isRecord(value)) {
+    for (const key of ["name", "headline", "title", "text", "url", "@id", "@type", "value"]) {
+      const text = previewText(value[key]);
+      if (text) return text;
+    }
+    return JSON.stringify(value);
+  }
+  return String(value);
+}
+
+export function renderSemanticPreviewSection(value: unknown, heading = "Preview"): React.ReactNode {
+  if (!isPresentValue(value)) return null;
+  const entries = isRecord(value)
+    ? Object.entries(value)
+      .filter(([, entry]) => isPresentValue(entry))
+      .filter(([key]) => !["body", "className", "emitStructuredData", "structuredDataOverrides", "viewModel"].includes(key))
+      .slice(0, 6)
+    : Array.isArray(value)
+      ? value.filter((entry) => isPresentValue(entry)).slice(0, 6).map((entry, index) => [`Item ${index + 1}`, entry] as [string, unknown])
+      : [["Value", value] as [string, unknown]];
+
+  if (!entries.length) return null;
+
+  return (
+    <section className="lander-semantic__preview-section">
+      <div className="lander-semantic__section-header">
+        <span className="lander-semantic__section-kicker">{valueKindLabel(value)}</span>
+        <h2>{heading}</h2>
+      </div>
+      <dl className="lander-semantic__preview-list">
+        {entries.map(([key, entry]) => (
+          <div className="lander-semantic__preview-item" key={key}>
+            <dt>{fieldKeyLabel(key)}</dt>
+            <dd>{previewText(entry)}</dd>
+          </div>
+        ))}
+      </dl>
     </section>
   );
 }
