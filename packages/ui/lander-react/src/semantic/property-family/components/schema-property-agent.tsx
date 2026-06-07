@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AgentPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAgentProps extends AgentPropertyInput, GeneratedPropertyUiProps<AgentPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAgent({ value: legacyValue, description = "The dir
     viewModel,
   });
 }
+
+(SchemaPropertyAgent as typeof SchemaPropertyAgent & { toStructuredData: (props: SchemaPropertyAgentProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

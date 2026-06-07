@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MinValuePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMinValueProps extends MinValuePropertyInput, GeneratedPropertyUiProps<MinValuePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMinValue({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyMinValue as typeof SchemaPropertyMinValue & { toStructuredData: (props: SchemaPropertyMinValueProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

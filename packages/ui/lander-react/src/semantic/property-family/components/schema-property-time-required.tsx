@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TimeRequiredPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTimeRequiredProps extends TimeRequiredPropertyInput, GeneratedPropertyUiProps<TimeRequiredPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTimeRequired({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyTimeRequired as typeof SchemaPropertyTimeRequired & { toStructuredData: (props: SchemaPropertyTimeRequiredProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

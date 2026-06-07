@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BrandPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBrandProps extends BrandPropertyInput, GeneratedPropertyUiProps<BrandPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBrand({ value: legacyValue, description = "The bra
     viewModel,
   });
 }
+
+(SchemaPropertyBrand as typeof SchemaPropertyBrand & { toStructuredData: (props: SchemaPropertyBrandProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DosageFormPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDosageFormProps extends DosageFormPropertyInput, GeneratedPropertyUiProps<DosageFormPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDosageForm({ value: legacyValue, description = "A 
     viewModel,
   });
 }
+
+(SchemaPropertyDosageForm as typeof SchemaPropertyDosageForm & { toStructuredData: (props: SchemaPropertyDosageFormProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

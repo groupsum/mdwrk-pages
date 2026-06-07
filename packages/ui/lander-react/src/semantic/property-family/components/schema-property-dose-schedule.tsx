@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DoseSchedulePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDoseScheduleProps extends DoseSchedulePropertyInput, GeneratedPropertyUiProps<DoseSchedulePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDoseSchedule({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyDoseSchedule as typeof SchemaPropertyDoseSchedule & { toStructuredData: (props: SchemaPropertyDoseScheduleProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

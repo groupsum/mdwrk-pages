@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PlayerTypePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPlayerTypeProps extends PlayerTypePropertyInput, GeneratedPropertyUiProps<PlayerTypePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPlayerType({ value: legacyValue, description = "Pl
     viewModel,
   });
 }
+
+(SchemaPropertyPlayerType as typeof SchemaPropertyPlayerType & { toStructuredData: (props: SchemaPropertyPlayerTypeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AdvanceBookingRequirementPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAdvanceBookingRequirementProps extends AdvanceBookingRequirementPropertyInput, GeneratedPropertyUiProps<AdvanceBookingRequirementPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAdvanceBookingRequirement({ value: legacyValue, de
     viewModel,
   });
 }
+
+(SchemaPropertyAdvanceBookingRequirement as typeof SchemaPropertyAdvanceBookingRequirement & { toStructuredData: (props: SchemaPropertyAdvanceBookingRequirementProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

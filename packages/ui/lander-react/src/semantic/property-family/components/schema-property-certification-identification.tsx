@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CertificationIdentificationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCertificationIdentificationProps extends CertificationIdentificationPropertyInput, GeneratedPropertyUiProps<CertificationIdentificationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCertificationIdentification({ value: legacyValue, 
     viewModel,
   });
 }
+
+(SchemaPropertyCertificationIdentification as typeof SchemaPropertyCertificationIdentification & { toStructuredData: (props: SchemaPropertyCertificationIdentificationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

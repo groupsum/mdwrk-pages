@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AreaServedPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAreaServedProps extends AreaServedPropertyInput, GeneratedPropertyUiProps<AreaServedPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAreaServed({ value: legacyValue, description = "Th
     viewModel,
   });
 }
+
+(SchemaPropertyAreaServed as typeof SchemaPropertyAreaServed & { toStructuredData: (props: SchemaPropertyAreaServedProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

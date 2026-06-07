@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { GracePeriodPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyGracePeriodProps extends GracePeriodPropertyInput, GeneratedPropertyUiProps<GracePeriodPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyGracePeriod({ value: legacyValue, description = "T
     viewModel,
   });
 }
+
+(SchemaPropertyGracePeriod as typeof SchemaPropertyGracePeriod & { toStructuredData: (props: SchemaPropertyGracePeriodProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

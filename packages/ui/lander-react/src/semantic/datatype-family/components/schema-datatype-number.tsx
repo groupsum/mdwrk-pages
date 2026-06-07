@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedDatatypeProps, renderGeneratedDatatypeCard } from "../shared.js";
+import { GeneratedDatatypeProps, buildGeneratedDatatypeStructuredData, renderGeneratedDatatypeCard } from "../shared.js";
 
 export interface NumberProps extends GeneratedDatatypeProps<number> {}
 
@@ -21,3 +21,6 @@ export function Number({ value, description = "Data type: Number.\\n\\nUsage gui
     viewModel,
   });
 }
+
+(Number as typeof Number & { toStructuredData: (props: NumberProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedDatatypeStructuredData(props);

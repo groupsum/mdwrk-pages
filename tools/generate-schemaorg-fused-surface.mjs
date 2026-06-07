@@ -557,13 +557,49 @@ export type Generated${title}Props<T = ${semanticFamilyBaseValueType(kind)}> = G
   structuredDataOverrides?: Partial<T>;
   viewModel?: Generated${title}ViewModel;
 }`;
+  const structuredDataBuilderSource =
+    kind === "type" || kind === "property"
+      ? `
+const generated${title}UiPropKeys = new Set([
+  "body",
+  "className",
+  "description",
+  "emitStructuredData",
+  "examples",
+  "structuredDataOverrides",
+  "value",
+  "viewModel",
+]);
+
+export function buildGenerated${title}StructuredData<T>(props: Generated${title}Props<T>): T {
+  const record = props as Record<string, unknown>;
+  const explicitValue = record.value as T | undefined;
+  const directValue = Object.fromEntries(
+    Object.entries(record).filter(([key]) => !generated${title}UiPropKeys.has(key)),
+  ) as T;
+  const value = Object.keys(directValue as Record<string, unknown>).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...(explicitValue as Record<string, unknown>), ...(directValue as Record<string, unknown>) } as T
+      : directValue
+    : ((explicitValue ?? directValue) as T);
+
+  return isRecord(value) && isRecord(props.structuredDataOverrides)
+    ? mergeRecordLike(value, props.structuredDataOverrides)
+    : ((props.structuredDataOverrides ?? value) as T);
+}
+`
+      : `
+export function buildGenerated${title}StructuredData<T>(props: Generated${title}Props<T>): T {
+  return ((props.structuredDataOverrides ?? props.value) as T);
+}
+`;
   return `import React from "react";
 import {
   SemanticShell,
   SemanticStructuredDataGate,
   ${kind === "type" || kind === "property" ? "isRecord,\n  mergeRecordLike,\n  " : ""}joinClassNames,
   renderJsonPreview,
-  renderStructuredSection,
+  renderSemanticPreviewSection,
 } from "../shared.js";
 
 export interface Generated${title}ViewModel {
@@ -573,6 +609,8 @@ export interface Generated${title}ViewModel {
 }
 
 ${generatedPropsSource}
+
+${structuredDataBuilderSource}
 
 interface RenderGenerated${title}CardProps<T> {
   StructuredDataComponent: React.ComponentType<{ data: unknown }>;
@@ -613,7 +651,7 @@ export function renderGenerated${title}Card<T>({
 
   return (
     <>
-      <SemanticStructuredDataGate emitStructuredData={emitStructuredData}>
+      <SemanticStructuredDataGate emitStructuredData={emitStructuredData} node={effectiveValue}>
         <StructuredDataComponent data={effectiveValue as never} />
       </SemanticStructuredDataGate>
       <SemanticShell
@@ -628,8 +666,8 @@ export function renderGenerated${title}Card<T>({
           : `{[{ label: "Value", value: renderJsonPreview(effectiveValue) }]}`}
         body={
           <>
-            {renderStructuredSection(effectiveValue${kind === "type" || kind === "property" ? "" : ', "Value"'})}
-            {examples?.length ? renderStructuredSection(examples, "Examples") : null}
+            {renderSemanticPreviewSection(effectiveValue${kind === "type" || kind === "property" ? "" : ', "Value"'})}
+            {examples?.length ? renderSemanticPreviewSection(examples, "Examples") : null}
             {body}
           </>
         }
@@ -648,8 +686,8 @@ function semanticFamilyComponentSource(kind, meta) {
     : "";
   const sharedImports =
     kind === "type" || kind === "property"
-      ? `Generated${title}UiProps, renderGenerated${title}Card`
-      : `Generated${title}Props, renderGenerated${title}Card`;
+      ? `Generated${title}UiProps, buildGenerated${title}StructuredData, renderGenerated${title}Card`
+      : `Generated${title}Props, buildGenerated${title}StructuredData, renderGenerated${title}Card`;
   const propsInterface =
     kind === "type" || kind === "property"
       ? `export interface ${meta.visibleExportName}Props extends ${meta.inputTypeName}, Generated${title}UiProps<${meta.inputTypeName}> {}`
@@ -692,6 +730,9 @@ ${typeComponentValueLines}  return renderGenerated${title}Card({
     viewModel,
   });
 }
+
+(${meta.visibleExportName} as typeof ${meta.visibleExportName} & { toStructuredData: (props: ${meta.visibleExportName}Props) => unknown }).toStructuredData = (props) =>
+  buildGenerated${title}StructuredData(props);
 `;
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BiologicalRolePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBiologicalRoleProps extends BiologicalRolePropertyInput, GeneratedPropertyUiProps<BiologicalRolePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBiologicalRole({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyBiologicalRole as typeof SchemaPropertyBiologicalRole & { toStructuredData: (props: SchemaPropertyBiologicalRoleProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { LifeEventPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyLifeEventProps extends LifeEventPropertyInput, GeneratedPropertyUiProps<LifeEventPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyLifeEvent({ value: legacyValue, description = "A l
     viewModel,
   });
 }
+
+(SchemaPropertyLifeEvent as typeof SchemaPropertyLifeEvent & { toStructuredData: (props: SchemaPropertyLifeEventProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

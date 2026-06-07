@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TourBookingPagePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTourBookingPageProps extends TourBookingPagePropertyInput, GeneratedPropertyUiProps<TourBookingPagePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTourBookingPage({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyTourBookingPage as typeof SchemaPropertyTourBookingPage & { toStructuredData: (props: SchemaPropertyTourBookingPageProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

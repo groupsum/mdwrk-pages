@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ReferenceQuantityPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyReferenceQuantityProps extends ReferenceQuantityPropertyInput, GeneratedPropertyUiProps<ReferenceQuantityPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyReferenceQuantity({ value: legacyValue, descriptio
     viewModel,
   });
 }
+
+(SchemaPropertyReferenceQuantity as typeof SchemaPropertyReferenceQuantity & { toStructuredData: (props: SchemaPropertyReferenceQuantityProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { OwnerPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyOwnerProps extends OwnerPropertyInput, GeneratedPropertyUiProps<OwnerPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyOwner({ value: legacyValue, description = "A perso
     viewModel,
   });
 }
+
+(SchemaPropertyOwner as typeof SchemaPropertyOwner & { toStructuredData: (props: SchemaPropertyOwnerProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CmnsGeGeopoliticalEntityInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface CmnsGeGeopoliticalEntityProps extends CmnsGeGeopoliticalEntityInput, GeneratedTypeUiProps<CmnsGeGeopoliticalEntityInput> {}
 
@@ -29,3 +29,6 @@ export function CmnsGeGeopoliticalEntity({ value: legacyValue, description = "",
     viewModel,
   });
 }
+
+(CmnsGeGeopoliticalEntity as typeof CmnsGeGeopoliticalEntity & { toStructuredData: (props: CmnsGeGeopoliticalEntityProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

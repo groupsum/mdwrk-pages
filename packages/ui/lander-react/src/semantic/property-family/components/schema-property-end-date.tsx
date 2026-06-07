@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EndDatePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEndDateProps extends EndDatePropertyInput, GeneratedPropertyUiProps<EndDatePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEndDate({ value: legacyValue, description = "The e
     viewModel,
   });
 }
+
+(SchemaPropertyEndDate as typeof SchemaPropertyEndDate & { toStructuredData: (props: SchemaPropertyEndDateProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

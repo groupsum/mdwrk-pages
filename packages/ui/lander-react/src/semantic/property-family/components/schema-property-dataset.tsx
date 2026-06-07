@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DatasetPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDatasetProps extends DatasetPropertyInput, GeneratedPropertyUiProps<DatasetPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDataset({ value: legacyValue, description = "A dat
     viewModel,
   });
 }
+
+(SchemaPropertyDataset as typeof SchemaPropertyDataset & { toStructuredData: (props: SchemaPropertyDatasetProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

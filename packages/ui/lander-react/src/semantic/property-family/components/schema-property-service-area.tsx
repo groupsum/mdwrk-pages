@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ServiceAreaPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyServiceAreaProps extends ServiceAreaPropertyInput, GeneratedPropertyUiProps<ServiceAreaPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyServiceArea({ value: legacyValue, description = "T
     viewModel,
   });
 }
+
+(SchemaPropertyServiceArea as typeof SchemaPropertyServiceArea & { toStructuredData: (props: SchemaPropertyServiceAreaProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

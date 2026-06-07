@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SameAsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySameAsProps extends SameAsPropertyInput, GeneratedPropertyUiProps<SameAsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySameAs({ value: legacyValue, description = "URL of
     viewModel,
   });
 }
+
+(SchemaPropertySameAs as typeof SchemaPropertySameAs & { toStructuredData: (props: SchemaPropertySameAsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

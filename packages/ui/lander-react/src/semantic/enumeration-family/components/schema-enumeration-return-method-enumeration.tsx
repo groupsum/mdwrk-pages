@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface ReturnMethodEnumerationProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function ReturnMethodEnumeration({ value, description = "Enumerates sever
     viewModel,
   });
 }
+
+(ReturnMethodEnumeration as typeof ReturnMethodEnumeration & { toStructuredData: (props: ReturnMethodEnumerationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

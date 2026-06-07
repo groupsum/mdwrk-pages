@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RefundTypePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRefundTypeProps extends RefundTypePropertyInput, GeneratedPropertyUiProps<RefundTypePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRefundType({ value: legacyValue, description = "A 
     viewModel,
   });
 }
+
+(SchemaPropertyRefundType as typeof SchemaPropertyRefundType & { toStructuredData: (props: SchemaPropertyRefundTypeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

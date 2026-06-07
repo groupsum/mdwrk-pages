@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { FileSizePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyFileSizeProps extends FileSizePropertyInput, GeneratedPropertyUiProps<FileSizePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyFileSize({ value: legacyValue, description = "Size
     viewModel,
   });
 }
+
+(SchemaPropertyFileSize as typeof SchemaPropertyFileSize & { toStructuredData: (props: SchemaPropertyFileSizeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

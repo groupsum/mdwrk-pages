@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EncodesCreativeWorkPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEncodesCreativeWorkProps extends EncodesCreativeWorkPropertyInput, GeneratedPropertyUiProps<EncodesCreativeWorkPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEncodesCreativeWork({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertyEncodesCreativeWork as typeof SchemaPropertyEncodesCreativeWork & { toStructuredData: (props: SchemaPropertyEncodesCreativeWorkProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MusicalKeyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMusicalKeyProps extends MusicalKeyPropertyInput, GeneratedPropertyUiProps<MusicalKeyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMusicalKey({ value: legacyValue, description = "Th
     viewModel,
   });
 }
+
+(SchemaPropertyMusicalKey as typeof SchemaPropertyMusicalKey & { toStructuredData: (props: SchemaPropertyMusicalKeyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

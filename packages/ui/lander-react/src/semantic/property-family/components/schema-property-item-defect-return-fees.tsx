@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ItemDefectReturnFeesPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyItemDefectReturnFeesProps extends ItemDefectReturnFeesPropertyInput, GeneratedPropertyUiProps<ItemDefectReturnFeesPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyItemDefectReturnFees({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyItemDefectReturnFees as typeof SchemaPropertyItemDefectReturnFees & { toStructuredData: (props: SchemaPropertyItemDefectReturnFeesProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

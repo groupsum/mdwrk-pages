@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IsVariantOfPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIsVariantOfProps extends IsVariantOfPropertyInput, GeneratedPropertyUiProps<IsVariantOfPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIsVariantOf({ value: legacyValue, description = "I
     viewModel,
   });
 }
+
+(SchemaPropertyIsVariantOf as typeof SchemaPropertyIsVariantOf & { toStructuredData: (props: SchemaPropertyIsVariantOfProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

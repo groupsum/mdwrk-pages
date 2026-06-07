@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PrescriptionStatusPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPrescriptionStatusProps extends PrescriptionStatusPropertyInput, GeneratedPropertyUiProps<PrescriptionStatusPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPrescriptionStatus({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyPrescriptionStatus as typeof SchemaPropertyPrescriptionStatus & { toStructuredData: (props: SchemaPropertyPrescriptionStatusProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

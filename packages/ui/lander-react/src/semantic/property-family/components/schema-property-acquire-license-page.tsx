@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AcquireLicensePagePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAcquireLicensePageProps extends AcquireLicensePagePropertyInput, GeneratedPropertyUiProps<AcquireLicensePagePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAcquireLicensePage({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyAcquireLicensePage as typeof SchemaPropertyAcquireLicensePage & { toStructuredData: (props: SchemaPropertyAcquireLicensePageProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

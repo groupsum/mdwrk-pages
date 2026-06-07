@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PrintPagePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPrintPageProps extends PrintPagePropertyInput, GeneratedPropertyUiProps<PrintPagePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPrintPage({ value: legacyValue, description = "If 
     viewModel,
   });
 }
+
+(SchemaPropertyPrintPage as typeof SchemaPropertyPrintPage & { toStructuredData: (props: SchemaPropertyPrintPageProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

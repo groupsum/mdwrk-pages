@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ReturnFeesPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyReturnFeesProps extends ReturnFeesPropertyInput, GeneratedPropertyUiProps<ReturnFeesPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyReturnFees({ value: legacyValue, description = "Th
     viewModel,
   });
 }
+
+(SchemaPropertyReturnFees as typeof SchemaPropertyReturnFees & { toStructuredData: (props: SchemaPropertyReturnFeesProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

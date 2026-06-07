@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { NumberOfLoanPaymentsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyNumberOfLoanPaymentsProps extends NumberOfLoanPaymentsPropertyInput, GeneratedPropertyUiProps<NumberOfLoanPaymentsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyNumberOfLoanPayments({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyNumberOfLoanPayments as typeof SchemaPropertyNumberOfLoanPayments & { toStructuredData: (props: SchemaPropertyNumberOfLoanPaymentsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

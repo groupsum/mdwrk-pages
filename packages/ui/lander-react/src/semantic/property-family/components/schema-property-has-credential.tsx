@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasCredentialPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasCredentialProps extends HasCredentialPropertyInput, GeneratedPropertyUiProps<HasCredentialPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasCredential({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyHasCredential as typeof SchemaPropertyHasCredential & { toStructuredData: (props: SchemaPropertyHasCredentialProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

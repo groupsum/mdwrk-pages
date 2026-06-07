@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IsProprietaryPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIsProprietaryProps extends IsProprietaryPropertyInput, GeneratedPropertyUiProps<IsProprietaryPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIsProprietary({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyIsProprietary as typeof SchemaPropertyIsProprietary & { toStructuredData: (props: SchemaPropertyIsProprietaryProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

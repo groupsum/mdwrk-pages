@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BranchCodePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBranchCodeProps extends BranchCodePropertyInput, GeneratedPropertyUiProps<BranchCodePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBranchCode({ value: legacyValue, description = "A 
     viewModel,
   });
 }
+
+(SchemaPropertyBranchCode as typeof SchemaPropertyBranchCode & { toStructuredData: (props: SchemaPropertyBranchCodeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

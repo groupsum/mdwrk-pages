@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { NumTracksPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyNumTracksProps extends NumTracksPropertyInput, GeneratedPropertyUiProps<NumTracksPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyNumTracks({ value: legacyValue, description = "The
     viewModel,
   });
 }
+
+(SchemaPropertyNumTracks as typeof SchemaPropertyNumTracks & { toStructuredData: (props: SchemaPropertyNumTracksProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

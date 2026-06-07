@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SloganPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySloganProps extends SloganPropertyInput, GeneratedPropertyUiProps<SloganPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySlogan({ value: legacyValue, description = "A slog
     viewModel,
   });
 }
+
+(SchemaPropertySlogan as typeof SchemaPropertySlogan & { toStructuredData: (props: SchemaPropertySloganProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

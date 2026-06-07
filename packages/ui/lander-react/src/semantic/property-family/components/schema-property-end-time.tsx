@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EndTimePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEndTimeProps extends EndTimePropertyInput, GeneratedPropertyUiProps<EndTimePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEndTime({ value: legacyValue, description = "The e
     viewModel,
   });
 }
+
+(SchemaPropertyEndTime as typeof SchemaPropertyEndTime & { toStructuredData: (props: SchemaPropertyEndTimeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

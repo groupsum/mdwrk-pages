@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface DeliveryMethodProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function DeliveryMethod({ value, description = "A delivery method is a st
     viewModel,
   });
 }
+
+(DeliveryMethod as typeof DeliveryMethod & { toStructuredData: (props: DeliveryMethodProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ExpectsAcceptanceOfPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyExpectsAcceptanceOfProps extends ExpectsAcceptanceOfPropertyInput, GeneratedPropertyUiProps<ExpectsAcceptanceOfPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyExpectsAcceptanceOf({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertyExpectsAcceptanceOf as typeof SchemaPropertyExpectsAcceptanceOf & { toStructuredData: (props: SchemaPropertyExpectsAcceptanceOfProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

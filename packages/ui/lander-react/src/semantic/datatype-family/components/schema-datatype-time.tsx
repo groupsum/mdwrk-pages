@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedDatatypeProps, renderGeneratedDatatypeCard } from "../shared.js";
+import { GeneratedDatatypeProps, buildGeneratedDatatypeStructuredData, renderGeneratedDatatypeCard } from "../shared.js";
 
 export interface TimeProps extends GeneratedDatatypeProps<string> {}
 
@@ -21,3 +21,6 @@ export function Time({ value, description = "A point in time recurring on multip
     viewModel,
   });
 }
+
+(Time as typeof Time & { toStructuredData: (props: TimeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedDatatypeStructuredData(props);

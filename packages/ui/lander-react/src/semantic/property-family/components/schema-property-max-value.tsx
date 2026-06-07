@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MaxValuePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMaxValueProps extends MaxValuePropertyInput, GeneratedPropertyUiProps<MaxValuePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMaxValue({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyMaxValue as typeof SchemaPropertyMaxValue & { toStructuredData: (props: SchemaPropertyMaxValueProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

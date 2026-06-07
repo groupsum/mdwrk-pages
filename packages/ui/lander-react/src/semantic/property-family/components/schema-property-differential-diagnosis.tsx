@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DifferentialDiagnosisPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDifferentialDiagnosisProps extends DifferentialDiagnosisPropertyInput, GeneratedPropertyUiProps<DifferentialDiagnosisPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDifferentialDiagnosis({ value: legacyValue, descri
     viewModel,
   });
 }
+
+(SchemaPropertyDifferentialDiagnosis as typeof SchemaPropertyDifferentialDiagnosis & { toStructuredData: (props: SchemaPropertyDifferentialDiagnosisProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

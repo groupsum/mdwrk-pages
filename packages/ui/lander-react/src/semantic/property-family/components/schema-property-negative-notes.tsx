@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { NegativeNotesPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyNegativeNotesProps extends NegativeNotesPropertyInput, GeneratedPropertyUiProps<NegativeNotesPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyNegativeNotes({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyNegativeNotes as typeof SchemaPropertyNegativeNotes & { toStructuredData: (props: SchemaPropertyNegativeNotesProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

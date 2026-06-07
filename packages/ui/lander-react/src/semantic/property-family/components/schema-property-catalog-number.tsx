@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CatalogNumberPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCatalogNumberProps extends CatalogNumberPropertyInput, GeneratedPropertyUiProps<CatalogNumberPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCatalogNumber({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyCatalogNumber as typeof SchemaPropertyCatalogNumber & { toStructuredData: (props: SchemaPropertyCatalogNumberProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

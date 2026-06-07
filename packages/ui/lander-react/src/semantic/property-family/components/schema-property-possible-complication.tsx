@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PossibleComplicationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPossibleComplicationProps extends PossibleComplicationPropertyInput, GeneratedPropertyUiProps<PossibleComplicationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPossibleComplication({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyPossibleComplication as typeof SchemaPropertyPossibleComplication & { toStructuredData: (props: SchemaPropertyPossibleComplicationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

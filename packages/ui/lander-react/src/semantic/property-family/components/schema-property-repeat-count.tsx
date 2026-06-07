@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RepeatCountPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRepeatCountProps extends RepeatCountPropertyInput, GeneratedPropertyUiProps<RepeatCountPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRepeatCount({ value: legacyValue, description = "D
     viewModel,
   });
 }
+
+(SchemaPropertyRepeatCount as typeof SchemaPropertyRepeatCount & { toStructuredData: (props: SchemaPropertyRepeatCountProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

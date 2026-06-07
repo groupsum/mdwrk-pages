@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DownloadUrlPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDownloadUrlProps extends DownloadUrlPropertyInput, GeneratedPropertyUiProps<DownloadUrlPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDownloadUrl({ value: legacyValue, description = "I
     viewModel,
   });
 }
+
+(SchemaPropertyDownloadUrl as typeof SchemaPropertyDownloadUrl & { toStructuredData: (props: SchemaPropertyDownloadUrlProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

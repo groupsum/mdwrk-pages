@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface BusinessFunctionProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function BusinessFunction({ value, description = "The business function s
     viewModel,
   });
 }
+
+(BusinessFunction as typeof BusinessFunction & { toStructuredData: (props: BusinessFunctionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

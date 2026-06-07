@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PostOpPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPostOpProps extends PostOpPropertyInput, GeneratedPropertyUiProps<PostOpPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPostOp({ value: legacyValue, description = "A desc
     viewModel,
   });
 }
+
+(SchemaPropertyPostOp as typeof SchemaPropertyPostOp & { toStructuredData: (props: SchemaPropertyPostOpProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

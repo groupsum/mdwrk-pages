@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { UpvoteCountPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyUpvoteCountProps extends UpvoteCountPropertyInput, GeneratedPropertyUiProps<UpvoteCountPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyUpvoteCount({ value: legacyValue, description = "T
     viewModel,
   });
 }
+
+(SchemaPropertyUpvoteCount as typeof SchemaPropertyUpvoteCount & { toStructuredData: (props: SchemaPropertyUpvoteCountProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

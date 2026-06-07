@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PregnancyCategoryPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPregnancyCategoryProps extends PregnancyCategoryPropertyInput, GeneratedPropertyUiProps<PregnancyCategoryPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPregnancyCategory({ value: legacyValue, descriptio
     viewModel,
   });
 }
+
+(SchemaPropertyPregnancyCategory as typeof SchemaPropertyPregnancyCategory & { toStructuredData: (props: SchemaPropertyPregnancyCategoryProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

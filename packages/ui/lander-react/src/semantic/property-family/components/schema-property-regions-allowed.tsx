@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RegionsAllowedPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRegionsAllowedProps extends RegionsAllowedPropertyInput, GeneratedPropertyUiProps<RegionsAllowedPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRegionsAllowed({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyRegionsAllowed as typeof SchemaPropertyRegionsAllowed & { toStructuredData: (props: SchemaPropertyRegionsAllowedProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

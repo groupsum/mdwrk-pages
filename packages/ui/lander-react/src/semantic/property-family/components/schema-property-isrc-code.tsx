@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IsrcCodePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIsrcCodeProps extends IsrcCodePropertyInput, GeneratedPropertyUiProps<IsrcCodePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIsrcCode({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyIsrcCode as typeof SchemaPropertyIsrcCode & { toStructuredData: (props: SchemaPropertyIsrcCodeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

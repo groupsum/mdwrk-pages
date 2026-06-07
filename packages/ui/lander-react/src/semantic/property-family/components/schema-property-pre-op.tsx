@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PreOpPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPreOpProps extends PreOpPropertyInput, GeneratedPropertyUiProps<PreOpPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPreOp({ value: legacyValue, description = "A descr
     viewModel,
   });
 }
+
+(SchemaPropertyPreOp as typeof SchemaPropertyPreOp & { toStructuredData: (props: SchemaPropertyPreOpProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { OrderPercentagePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyOrderPercentageProps extends OrderPercentagePropertyInput, GeneratedPropertyUiProps<OrderPercentagePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyOrderPercentage({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyOrderPercentage as typeof SchemaPropertyOrderPercentage & { toStructuredData: (props: SchemaPropertyOrderPercentageProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

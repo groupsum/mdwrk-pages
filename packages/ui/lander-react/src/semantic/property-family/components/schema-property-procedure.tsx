@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ProcedurePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyProcedureProps extends ProcedurePropertyInput, GeneratedPropertyUiProps<ProcedurePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyProcedure({ value: legacyValue, description = "A d
     viewModel,
   });
 }
+
+(SchemaPropertyProcedure as typeof SchemaPropertyProcedure & { toStructuredData: (props: SchemaPropertyProcedureProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MaximumVirtualAttendeeCapacityPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMaximumVirtualAttendeeCapacityProps extends MaximumVirtualAttendeeCapacityPropertyInput, GeneratedPropertyUiProps<MaximumVirtualAttendeeCapacityPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMaximumVirtualAttendeeCapacity({ value: legacyValu
     viewModel,
   });
 }
+
+(SchemaPropertyMaximumVirtualAttendeeCapacity as typeof SchemaPropertyMaximumVirtualAttendeeCapacity & { toStructuredData: (props: SchemaPropertyMaximumVirtualAttendeeCapacityProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

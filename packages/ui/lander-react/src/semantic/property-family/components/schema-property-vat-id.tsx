@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { VatIDPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyVatIDProps extends VatIDPropertyInput, GeneratedPropertyUiProps<VatIDPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyVatID({ value: legacyValue, description = "The val
     viewModel,
   });
 }
+
+(SchemaPropertyVatID as typeof SchemaPropertyVatID & { toStructuredData: (props: SchemaPropertyVatIDProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

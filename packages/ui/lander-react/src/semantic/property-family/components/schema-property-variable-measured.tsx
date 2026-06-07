@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { VariableMeasuredPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyVariableMeasuredProps extends VariableMeasuredPropertyInput, GeneratedPropertyUiProps<VariableMeasuredPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyVariableMeasured({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyVariableMeasured as typeof SchemaPropertyVariableMeasured & { toStructuredData: (props: SchemaPropertyVariableMeasuredProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

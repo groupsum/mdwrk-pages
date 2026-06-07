@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TranslatorPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTranslatorProps extends TranslatorPropertyInput, GeneratedPropertyUiProps<TranslatorPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTranslator({ value: legacyValue, description = "Or
     viewModel,
   });
 }
+
+(SchemaPropertyTranslator as typeof SchemaPropertyTranslator & { toStructuredData: (props: SchemaPropertyTranslatorProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

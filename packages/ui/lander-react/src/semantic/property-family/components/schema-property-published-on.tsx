@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PublishedOnPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPublishedOnProps extends PublishedOnPropertyInput, GeneratedPropertyUiProps<PublishedOnPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPublishedOn({ value: legacyValue, description = "A
     viewModel,
   });
 }
+
+(SchemaPropertyPublishedOn as typeof SchemaPropertyPublishedOn & { toStructuredData: (props: SchemaPropertyPublishedOnProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

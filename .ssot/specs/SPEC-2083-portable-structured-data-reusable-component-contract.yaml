@@ -28,6 +28,10 @@ status_notes:
     status: "draft"
     note: "Expanded reusable component coverage to generated types, properties, enumerations, and datatypes."
     at: "2026-06-01T09:09:28Z"
+  -
+    status: "draft"
+    note: "Added toStructuredData helper and page-level graph collection requirements for reusable semantic components."
+    at: "2026-06-07T00:00:00Z"
 references: []
 body: |-
   # SPEC-2083: Portable Structured Data Reusable Component Contract
@@ -43,10 +47,14 @@ body: |-
   3. Reusable components shall accept and preserve all present schema-valid fields unless an explicit fail-closed exception is governed.
   4. Demo payloads and certification fixtures shall be schema-derived where practical rather than minimal placeholders.
   5. Discoverability filters shall not imply that non-page foundational types are unsupported when they are implemented.
+  6. Every promoted visible semantic component shall expose a pure `.toStructuredData(props)` helper that returns the same structured-data contribution represented by its standalone JSON-LD emission path.
+  7. Reusable semantic components shall support page-level graph collection by contributing structured-data intent without emitting component-local scripts when a collector is active.
+  8. `.toStructuredData(props)` shall be deterministic and independent of React render lifecycle, browser globals, side effects, or component-local mutable state.
+  9. Component-local JSON-LD script emission shall remain available as a standalone fallback unless a governed exception declares the component collection-only.
   
   ## Acceptance
   
-  Linked features and tests shall prove reusable coverage for the promoted generated artifact surface and fail when field support or discoverability regresses.
+  Linked features and tests shall prove reusable coverage for the promoted generated artifact surface and fail when field support, graph contribution, local-emission parity, or discoverability regresses.
 spec_kind: "normative"
 adr_ids:
   - "adr:1049"

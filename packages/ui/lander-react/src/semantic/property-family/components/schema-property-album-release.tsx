@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AlbumReleasePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAlbumReleaseProps extends AlbumReleasePropertyInput, GeneratedPropertyUiProps<AlbumReleasePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAlbumRelease({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyAlbumRelease as typeof SchemaPropertyAlbumRelease & { toStructuredData: (props: SchemaPropertyAlbumReleaseProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

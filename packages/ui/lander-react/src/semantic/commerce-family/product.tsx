@@ -8,3 +8,7 @@ export interface ProductProps extends ProductBaseProps {
 export function Product(props: ProductProps) {
   return <ProductBase {...props} />;
 }
+
+(Product as typeof Product & { toStructuredData: (props: ProductProps) => unknown }).toStructuredData = (
+  ProductBase as typeof ProductBase & { toStructuredData: (props: ProductBaseProps) => unknown }
+).toStructuredData;

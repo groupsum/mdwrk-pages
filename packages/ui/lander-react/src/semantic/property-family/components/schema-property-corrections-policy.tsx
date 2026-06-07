@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CorrectionsPolicyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCorrectionsPolicyProps extends CorrectionsPolicyPropertyInput, GeneratedPropertyUiProps<CorrectionsPolicyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCorrectionsPolicy({ value: legacyValue, descriptio
     viewModel,
   });
 }
+
+(SchemaPropertyCorrectionsPolicy as typeof SchemaPropertyCorrectionsPolicy & { toStructuredData: (props: SchemaPropertyCorrectionsPolicyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

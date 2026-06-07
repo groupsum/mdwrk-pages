@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EmployeesPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEmployeesProps extends EmployeesPropertyInput, GeneratedPropertyUiProps<EmployeesPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEmployees({ value: legacyValue, description = "Peo
     viewModel,
   });
 }
+
+(SchemaPropertyEmployees as typeof SchemaPropertyEmployees & { toStructuredData: (props: SchemaPropertyEmployeesProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

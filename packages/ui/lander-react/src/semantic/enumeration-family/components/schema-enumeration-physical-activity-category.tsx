@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface PhysicalActivityCategoryProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function PhysicalActivityCategory({ value, description = "Categories of p
     viewModel,
   });
 }
+
+(PhysicalActivityCategory as typeof PhysicalActivityCategory & { toStructuredData: (props: PhysicalActivityCategoryProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

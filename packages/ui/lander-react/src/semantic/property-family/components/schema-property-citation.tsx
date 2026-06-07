@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CitationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCitationProps extends CitationPropertyInput, GeneratedPropertyUiProps<CitationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCitation({ value: legacyValue, description = "A ci
     viewModel,
   });
 }
+
+(SchemaPropertyCitation as typeof SchemaPropertyCitation & { toStructuredData: (props: SchemaPropertyCitationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

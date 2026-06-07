@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ServicePhonePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyServicePhoneProps extends ServicePhonePropertyInput, GeneratedPropertyUiProps<ServicePhonePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyServicePhone({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyServicePhone as typeof SchemaPropertyServicePhone & { toStructuredData: (props: SchemaPropertyServicePhoneProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

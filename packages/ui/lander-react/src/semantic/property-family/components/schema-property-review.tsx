@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ReviewPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyReviewProps extends ReviewPropertyInput, GeneratedPropertyUiProps<ReviewPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyReview({ value: legacyValue, description = "A revi
     viewModel,
   });
 }
+
+(SchemaPropertyReview as typeof SchemaPropertyReview & { toStructuredData: (props: SchemaPropertyReviewProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

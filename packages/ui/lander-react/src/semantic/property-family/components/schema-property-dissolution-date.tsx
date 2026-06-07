@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DissolutionDatePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDissolutionDateProps extends DissolutionDatePropertyInput, GeneratedPropertyUiProps<DissolutionDatePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDissolutionDate({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyDissolutionDate as typeof SchemaPropertyDissolutionDate & { toStructuredData: (props: SchemaPropertyDissolutionDateProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AvailableChannelPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAvailableChannelProps extends AvailableChannelPropertyInput, GeneratedPropertyUiProps<AvailableChannelPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAvailableChannel({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyAvailableChannel as typeof SchemaPropertyAvailableChannel & { toStructuredData: (props: SchemaPropertyAvailableChannelProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

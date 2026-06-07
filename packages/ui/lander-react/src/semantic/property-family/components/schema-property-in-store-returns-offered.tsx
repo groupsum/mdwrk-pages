@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { InStoreReturnsOfferedPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyInStoreReturnsOfferedProps extends InStoreReturnsOfferedPropertyInput, GeneratedPropertyUiProps<InStoreReturnsOfferedPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyInStoreReturnsOffered({ value: legacyValue, descri
     viewModel,
   });
 }
+
+(SchemaPropertyInStoreReturnsOffered as typeof SchemaPropertyInStoreReturnsOffered & { toStructuredData: (props: SchemaPropertyInStoreReturnsOfferedProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AnatomicalSystemInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface AnatomicalSystemProps extends AnatomicalSystemInput, GeneratedTypeUiProps<AnatomicalSystemInput> {}
 
@@ -29,3 +29,6 @@ export function AnatomicalSystem({ value: legacyValue, description = "An anatomi
     viewModel,
   });
 }
+
+(AnatomicalSystem as typeof AnatomicalSystem & { toStructuredData: (props: AnatomicalSystemProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

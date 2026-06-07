@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasPartPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasPartProps extends HasPartPropertyInput, GeneratedPropertyUiProps<HasPartPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasPart({ value: legacyValue, description = "Indic
     viewModel,
   });
 }
+
+(SchemaPropertyHasPart as typeof SchemaPropertyHasPart & { toStructuredData: (props: SchemaPropertyHasPartProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

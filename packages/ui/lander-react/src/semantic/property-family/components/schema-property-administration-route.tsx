@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AdministrationRoutePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAdministrationRouteProps extends AdministrationRoutePropertyInput, GeneratedPropertyUiProps<AdministrationRoutePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAdministrationRoute({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertyAdministrationRoute as typeof SchemaPropertyAdministrationRoute & { toStructuredData: (props: SchemaPropertyAdministrationRouteProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

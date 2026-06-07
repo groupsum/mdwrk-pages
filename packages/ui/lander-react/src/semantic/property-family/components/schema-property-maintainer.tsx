@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MaintainerPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMaintainerProps extends MaintainerPropertyInput, GeneratedPropertyUiProps<MaintainerPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMaintainer({ value: legacyValue, description = "A 
     viewModel,
   });
 }
+
+(SchemaPropertyMaintainer as typeof SchemaPropertyMaintainer & { toStructuredData: (props: SchemaPropertyMaintainerProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

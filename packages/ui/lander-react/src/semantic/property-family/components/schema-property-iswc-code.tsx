@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IswcCodePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIswcCodeProps extends IswcCodePropertyInput, GeneratedPropertyUiProps<IswcCodePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIswcCode({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyIswcCode as typeof SchemaPropertyIswcCode & { toStructuredData: (props: SchemaPropertyIswcCodeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

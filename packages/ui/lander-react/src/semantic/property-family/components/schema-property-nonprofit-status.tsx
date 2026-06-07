@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { NonprofitStatusPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyNonprofitStatusProps extends NonprofitStatusPropertyInput, GeneratedPropertyUiProps<NonprofitStatusPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyNonprofitStatus({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyNonprofitStatus as typeof SchemaPropertyNonprofitStatus & { toStructuredData: (props: SchemaPropertyNonprofitStatusProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

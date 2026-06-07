@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DrugLegalStatusInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface DrugLegalStatusProps extends DrugLegalStatusInput, GeneratedTypeUiProps<DrugLegalStatusInput> {}
 
@@ -29,3 +29,6 @@ export function DrugLegalStatus({ value: legacyValue, description = "The legal a
     viewModel,
   });
 }
+
+(DrugLegalStatus as typeof DrugLegalStatus & { toStructuredData: (props: DrugLegalStatusProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

@@ -8,7 +8,7 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "`@mdwrk/lander-react-structured-data` shall own the generator-backed wrapper registry for all promoted generated Schema.org artifacts. Its boundary includes wrapper parity for generated `types`, `properties`, `enumerations`, and `datatypes`, along with schema-valid JSON-LD emission behavior and fail-closed handling for authored shorthand that cannot be emitted safely."
+summary: "`@mdwrk/lander-react-structured-data` shall own the generator-backed wrapper registry for all promoted generated Schema.org artifacts. Its boundary includes wrapper parity for generated `types`, `properties`, `enumerations`, and `datatypes`, schema-valid JSON-LD node construction, component `.toStructuredData` delegation targets, and fail-closed handling for authored shorthand that cannot be emitted safely."
 supersedes: []
 superseded_by: []
 status_notes:
@@ -20,15 +20,21 @@ status_notes:
     status: "draft"
     note: "Expanded wrapper ownership to the full promoted generated artifact registry."
     at: "2026-06-01T09:09:24Z"
+  -
+    status: "draft"
+    note: "Clarified that visible components delegate to structured-data package builders for toStructuredData and graph collection."
+    at: "2026-06-07T00:00:00Z"
 references: []
 body: |-
   # ADR-1079: Lander React Structured Data Package Boundary
   
   ## Decision
   
-  `@mdwrk/lander-react-structured-data` shall own the generator-backed wrapper registry for all promoted generated Schema.org artifacts. Its boundary includes wrapper parity for generated `types`, `properties`, `enumerations`, and `datatypes`, along with schema-valid JSON-LD emission behavior and fail-closed handling for authored shorthand that cannot be emitted safely.
+  `@mdwrk/lander-react-structured-data` shall own the generator-backed wrapper registry for all promoted generated Schema.org artifacts. Its boundary includes wrapper parity for generated `types`, `properties`, `enumerations`, and `datatypes`, schema-valid JSON-LD node construction, component `.toStructuredData` delegation targets, and fail-closed handling for authored shorthand that cannot be emitted safely.
+
+  Visible rendering remains owned by `@mdwrk/lander-react`, but wrapper completeness, registry discoverability, and schema-valid structured-data node construction are owned by the split structured-data package. Visible semantic components may expose `.toStructuredData(props)` from `@mdwrk/lander-react`, but those helpers shall delegate to, or compose from, the structured-data package contract rather than inventing app-local JSON-LD shapes.
   
-  Visible rendering remains owned by `@mdwrk/lander-react`, but wrapper completeness and registry discoverability are owned by the split structured-data package.
+  Page-level graph collectors and app page shells own final script placement when collection mode is active. The structured-data package still owns the validity and field preservation of the nodes that are collected.
   
   ## Rationale
   
@@ -38,4 +44,5 @@ body: |-
   
   1. Every promoted generated artifact shall have a wrapper-level ownership path in `@mdwrk/lander-react-structured-data`.
   2. Wrapper registry coverage shall be certifiable against generated artifact inventories.
-  3. Visible fused components may render helper affordances, but emitted structured data must stay schema-valid and package-owned at the wrapper layer.
+  3. Visible fused components may render helper affordances, but emitted or collected structured data must stay schema-valid and package-owned at the wrapper layer.
+  4. Component-local emission and page-level graph collection must share the same structured-data package node construction path.

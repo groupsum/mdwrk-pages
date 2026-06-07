@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { NaicsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyNaicsProps extends NaicsPropertyInput, GeneratedPropertyUiProps<NaicsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyNaics({ value: legacyValue, description = "The Nor
     viewModel,
   });
 }
+
+(SchemaPropertyNaics as typeof SchemaPropertyNaics & { toStructuredData: (props: SchemaPropertyNaicsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

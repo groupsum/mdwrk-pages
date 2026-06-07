@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AppearancePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAppearanceProps extends AppearancePropertyInput, GeneratedPropertyUiProps<AppearancePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAppearance({ value: legacyValue, description = "In
     viewModel,
   });
 }
+
+(SchemaPropertyAppearance as typeof SchemaPropertyAppearance & { toStructuredData: (props: SchemaPropertyAppearanceProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

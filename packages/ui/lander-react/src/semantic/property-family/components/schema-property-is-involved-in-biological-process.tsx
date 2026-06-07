@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IsInvolvedInBiologicalProcessPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIsInvolvedInBiologicalProcessProps extends IsInvolvedInBiologicalProcessPropertyInput, GeneratedPropertyUiProps<IsInvolvedInBiologicalProcessPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIsInvolvedInBiologicalProcess({ value: legacyValue
     viewModel,
   });
 }
+
+(SchemaPropertyIsInvolvedInBiologicalProcess as typeof SchemaPropertyIsInvolvedInBiologicalProcess & { toStructuredData: (props: SchemaPropertyIsInvolvedInBiologicalProcessProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BioChemSimilarityPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBioChemSimilarityProps extends BioChemSimilarityPropertyInput, GeneratedPropertyUiProps<BioChemSimilarityPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBioChemSimilarity({ value: legacyValue, descriptio
     viewModel,
   });
 }
+
+(SchemaPropertyBioChemSimilarity as typeof SchemaPropertyBioChemSimilarity & { toStructuredData: (props: SchemaPropertyBioChemSimilarityProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

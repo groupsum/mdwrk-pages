@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AvailabilityPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAvailabilityProps extends AvailabilityPropertyInput, GeneratedPropertyUiProps<AvailabilityPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAvailability({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyAvailability as typeof SchemaPropertyAvailability & { toStructuredData: (props: SchemaPropertyAvailabilityProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

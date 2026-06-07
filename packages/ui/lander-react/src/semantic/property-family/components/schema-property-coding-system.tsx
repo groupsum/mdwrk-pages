@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CodingSystemPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCodingSystemProps extends CodingSystemPropertyInput, GeneratedPropertyUiProps<CodingSystemPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCodingSystem({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyCodingSystem as typeof SchemaPropertyCodingSystem & { toStructuredData: (props: SchemaPropertyCodingSystemProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

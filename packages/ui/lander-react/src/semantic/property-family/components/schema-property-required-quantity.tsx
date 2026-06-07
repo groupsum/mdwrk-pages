@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RequiredQuantityPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRequiredQuantityProps extends RequiredQuantityPropertyInput, GeneratedPropertyUiProps<RequiredQuantityPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRequiredQuantity({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyRequiredQuantity as typeof SchemaPropertyRequiredQuantity & { toStructuredData: (props: SchemaPropertyRequiredQuantityProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

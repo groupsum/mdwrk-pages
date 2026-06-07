@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RelevantSpecialtyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRelevantSpecialtyProps extends RelevantSpecialtyPropertyInput, GeneratedPropertyUiProps<RelevantSpecialtyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRelevantSpecialty({ value: legacyValue, descriptio
     viewModel,
   });
 }
+
+(SchemaPropertyRelevantSpecialty as typeof SchemaPropertyRelevantSpecialty & { toStructuredData: (props: SchemaPropertyRelevantSpecialtyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

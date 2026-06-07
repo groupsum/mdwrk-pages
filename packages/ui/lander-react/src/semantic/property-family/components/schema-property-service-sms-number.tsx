@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ServiceSmsNumberPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyServiceSmsNumberProps extends ServiceSmsNumberPropertyInput, GeneratedPropertyUiProps<ServiceSmsNumberPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyServiceSmsNumber({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyServiceSmsNumber as typeof SchemaPropertyServiceSmsNumber & { toStructuredData: (props: SchemaPropertyServiceSmsNumberProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

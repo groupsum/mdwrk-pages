@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PaginationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPaginationProps extends PaginationPropertyInput, GeneratedPropertyUiProps<PaginationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPagination({ value: legacyValue, description = "An
     viewModel,
   });
 }
+
+(SchemaPropertyPagination as typeof SchemaPropertyPagination & { toStructuredData: (props: SchemaPropertyPaginationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

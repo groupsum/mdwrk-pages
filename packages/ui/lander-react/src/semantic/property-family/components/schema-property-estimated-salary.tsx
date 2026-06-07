@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EstimatedSalaryPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEstimatedSalaryProps extends EstimatedSalaryPropertyInput, GeneratedPropertyUiProps<EstimatedSalaryPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEstimatedSalary({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyEstimatedSalary as typeof SchemaPropertyEstimatedSalary & { toStructuredData: (props: SchemaPropertyEstimatedSalaryProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

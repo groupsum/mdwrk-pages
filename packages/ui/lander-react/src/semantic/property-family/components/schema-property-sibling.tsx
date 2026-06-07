@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SiblingPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySiblingProps extends SiblingPropertyInput, GeneratedPropertyUiProps<SiblingPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySibling({ value: legacyValue, description = "A sib
     viewModel,
   });
 }
+
+(SchemaPropertySibling as typeof SchemaPropertySibling & { toStructuredData: (props: SchemaPropertySiblingProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

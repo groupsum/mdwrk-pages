@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TransFatContentPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTransFatContentProps extends TransFatContentPropertyInput, GeneratedPropertyUiProps<TransFatContentPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTransFatContent({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyTransFatContent as typeof SchemaPropertyTransFatContent & { toStructuredData: (props: SchemaPropertyTransFatContentProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

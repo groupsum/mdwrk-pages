@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IsTierOfPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIsTierOfProps extends IsTierOfPropertyInput, GeneratedPropertyUiProps<IsTierOfPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIsTierOf({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyIsTierOf as typeof SchemaPropertyIsTierOf & { toStructuredData: (props: SchemaPropertyIsTierOfProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

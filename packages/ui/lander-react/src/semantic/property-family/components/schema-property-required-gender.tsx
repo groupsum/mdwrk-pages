@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RequiredGenderPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRequiredGenderProps extends RequiredGenderPropertyInput, GeneratedPropertyUiProps<RequiredGenderPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRequiredGender({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyRequiredGender as typeof SchemaPropertyRequiredGender & { toStructuredData: (props: SchemaPropertyRequiredGenderProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

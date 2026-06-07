@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CountryOfAssemblyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCountryOfAssemblyProps extends CountryOfAssemblyPropertyInput, GeneratedPropertyUiProps<CountryOfAssemblyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCountryOfAssembly({ value: legacyValue, descriptio
     viewModel,
   });
 }
+
+(SchemaPropertyCountryOfAssembly as typeof SchemaPropertyCountryOfAssembly & { toStructuredData: (props: SchemaPropertyCountryOfAssemblyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -4,7 +4,7 @@ import {
   SemanticStructuredDataGate,
   joinClassNames,
   renderJsonPreview,
-  renderStructuredSection,
+  renderSemanticPreviewSection,
 } from "../shared.js";
 
 export interface GeneratedDatatypeViewModel {
@@ -23,6 +23,12 @@ export interface GeneratedDatatypeProps<T = boolean | number | string> {
   structuredDataOverrides?: Partial<T>;
   viewModel?: GeneratedDatatypeViewModel;
 }
+
+
+export function buildGeneratedDatatypeStructuredData<T>(props: GeneratedDatatypeProps<T>): T {
+  return ((props.structuredDataOverrides ?? props.value) as T);
+}
+
 
 interface RenderGeneratedDatatypeCardProps<T> {
   StructuredDataComponent: React.ComponentType<{ data: unknown }>;
@@ -59,7 +65,7 @@ export function renderGeneratedDatatypeCard<T>({
 
   return (
     <>
-      <SemanticStructuredDataGate emitStructuredData={emitStructuredData}>
+      <SemanticStructuredDataGate emitStructuredData={emitStructuredData} node={effectiveValue}>
         <StructuredDataComponent data={effectiveValue as never} />
       </SemanticStructuredDataGate>
       <SemanticShell
@@ -72,8 +78,8 @@ export function renderGeneratedDatatypeCard<T>({
         meta={[{ label: "Value", value: renderJsonPreview(effectiveValue) }]}
         body={
           <>
-            {renderStructuredSection(effectiveValue, "Value")}
-            {examples?.length ? renderStructuredSection(examples, "Examples") : null}
+            {renderSemanticPreviewSection(effectiveValue, "Value")}
+            {examples?.length ? renderSemanticPreviewSection(examples, "Examples") : null}
             {body}
           </>
         }

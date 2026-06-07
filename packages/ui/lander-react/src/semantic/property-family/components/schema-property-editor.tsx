@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EditorPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEditorProps extends EditorPropertyInput, GeneratedPropertyUiProps<EditorPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEditor({ value: legacyValue, description = "Specif
     viewModel,
   });
 }
+
+(SchemaPropertyEditor as typeof SchemaPropertyEditor & { toStructuredData: (props: SchemaPropertyEditorProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

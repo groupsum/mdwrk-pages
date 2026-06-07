@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DisambiguatingDescriptionPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDisambiguatingDescriptionProps extends DisambiguatingDescriptionPropertyInput, GeneratedPropertyUiProps<DisambiguatingDescriptionPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDisambiguatingDescription({ value: legacyValue, de
     viewModel,
   });
 }
+
+(SchemaPropertyDisambiguatingDescription as typeof SchemaPropertyDisambiguatingDescription & { toStructuredData: (props: SchemaPropertyDisambiguatingDescriptionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

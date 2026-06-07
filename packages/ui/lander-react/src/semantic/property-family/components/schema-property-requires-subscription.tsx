@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RequiresSubscriptionPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRequiresSubscriptionProps extends RequiresSubscriptionPropertyInput, GeneratedPropertyUiProps<RequiresSubscriptionPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRequiresSubscription({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyRequiresSubscription as typeof SchemaPropertyRequiresSubscription & { toStructuredData: (props: SchemaPropertyRequiresSubscriptionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

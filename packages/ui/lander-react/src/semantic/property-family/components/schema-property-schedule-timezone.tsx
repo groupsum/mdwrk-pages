@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ScheduleTimezonePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyScheduleTimezoneProps extends ScheduleTimezonePropertyInput, GeneratedPropertyUiProps<ScheduleTimezonePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyScheduleTimezone({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyScheduleTimezone as typeof SchemaPropertyScheduleTimezone & { toStructuredData: (props: SchemaPropertyScheduleTimezoneProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IsicV4PropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIsicV4Props extends IsicV4PropertyInput, GeneratedPropertyUiProps<IsicV4PropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIsicV4({ value: legacyValue, description = "The In
     viewModel,
   });
 }
+
+(SchemaPropertyIsicV4 as typeof SchemaPropertyIsicV4 & { toStructuredData: (props: SchemaPropertyIsicV4Props) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

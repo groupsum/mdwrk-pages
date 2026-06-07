@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AwardPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAwardProps extends AwardPropertyInput, GeneratedPropertyUiProps<AwardPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAward({ value: legacyValue, description = "An awar
     viewModel,
   });
 }
+
+(SchemaPropertyAward as typeof SchemaPropertyAward & { toStructuredData: (props: SchemaPropertyAwardProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

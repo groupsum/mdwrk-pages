@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TotalTimePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTotalTimeProps extends TotalTimePropertyInput, GeneratedPropertyUiProps<TotalTimePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTotalTime({ value: legacyValue, description = "The
     viewModel,
   });
 }
+
+(SchemaPropertyTotalTime as typeof SchemaPropertyTotalTime & { toStructuredData: (props: SchemaPropertyTotalTimeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

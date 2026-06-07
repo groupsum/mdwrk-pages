@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ProductGroupIDPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyProductGroupIDProps extends ProductGroupIDPropertyInput, GeneratedPropertyUiProps<ProductGroupIDPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyProductGroupID({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyProductGroupID as typeof SchemaPropertyProductGroupID & { toStructuredData: (props: SchemaPropertyProductGroupIDProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

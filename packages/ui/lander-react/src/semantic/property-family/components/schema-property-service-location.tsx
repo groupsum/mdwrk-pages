@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ServiceLocationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyServiceLocationProps extends ServiceLocationPropertyInput, GeneratedPropertyUiProps<ServiceLocationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyServiceLocation({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyServiceLocation as typeof SchemaPropertyServiceLocation & { toStructuredData: (props: SchemaPropertyServiceLocationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

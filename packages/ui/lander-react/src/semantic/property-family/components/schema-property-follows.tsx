@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { FollowsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyFollowsProps extends FollowsPropertyInput, GeneratedPropertyUiProps<FollowsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyFollows({ value: legacyValue, description = "The m
     viewModel,
   });
 }
+
+(SchemaPropertyFollows as typeof SchemaPropertyFollows & { toStructuredData: (props: SchemaPropertyFollowsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

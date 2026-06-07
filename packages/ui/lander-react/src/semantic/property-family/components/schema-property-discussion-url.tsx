@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DiscussionUrlPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDiscussionUrlProps extends DiscussionUrlPropertyInput, GeneratedPropertyUiProps<DiscussionUrlPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDiscussionUrl({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyDiscussionUrl as typeof SchemaPropertyDiscussionUrl & { toStructuredData: (props: SchemaPropertyDiscussionUrlProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BroadcastAffiliateOfPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBroadcastAffiliateOfProps extends BroadcastAffiliateOfPropertyInput, GeneratedPropertyUiProps<BroadcastAffiliateOfPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBroadcastAffiliateOf({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyBroadcastAffiliateOf as typeof SchemaPropertyBroadcastAffiliateOf & { toStructuredData: (props: SchemaPropertyBroadcastAffiliateOfProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

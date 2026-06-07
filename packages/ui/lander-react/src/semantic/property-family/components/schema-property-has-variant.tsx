@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasVariantPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasVariantProps extends HasVariantPropertyInput, GeneratedPropertyUiProps<HasVariantPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasVariant({ value: legacyValue, description = "In
     viewModel,
   });
 }
+
+(SchemaPropertyHasVariant as typeof SchemaPropertyHasVariant & { toStructuredData: (props: SchemaPropertyHasVariantProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HealthPlanCostSharingPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHealthPlanCostSharingProps extends HealthPlanCostSharingPropertyInput, GeneratedPropertyUiProps<HealthPlanCostSharingPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHealthPlanCostSharing({ value: legacyValue, descri
     viewModel,
   });
 }
+
+(SchemaPropertyHealthPlanCostSharing as typeof SchemaPropertyHealthPlanCostSharing & { toStructuredData: (props: SchemaPropertyHealthPlanCostSharingProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

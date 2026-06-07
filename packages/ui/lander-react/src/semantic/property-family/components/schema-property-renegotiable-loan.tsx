@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RenegotiableLoanPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRenegotiableLoanProps extends RenegotiableLoanPropertyInput, GeneratedPropertyUiProps<RenegotiableLoanPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRenegotiableLoan({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyRenegotiableLoan as typeof SchemaPropertyRenegotiableLoan & { toStructuredData: (props: SchemaPropertyRenegotiableLoanProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

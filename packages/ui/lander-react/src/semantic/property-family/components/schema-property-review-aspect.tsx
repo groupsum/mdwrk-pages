@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ReviewAspectPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyReviewAspectProps extends ReviewAspectPropertyInput, GeneratedPropertyUiProps<ReviewAspectPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyReviewAspect({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyReviewAspect as typeof SchemaPropertyReviewAspect & { toStructuredData: (props: SchemaPropertyReviewAspectProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

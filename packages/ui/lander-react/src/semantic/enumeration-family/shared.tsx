@@ -4,7 +4,7 @@ import {
   SemanticStructuredDataGate,
   joinClassNames,
   renderJsonPreview,
-  renderStructuredSection,
+  renderSemanticPreviewSection,
 } from "../shared.js";
 
 export interface GeneratedEnumerationViewModel {
@@ -23,6 +23,12 @@ export interface GeneratedEnumerationProps<T = string> {
   structuredDataOverrides?: Partial<T>;
   viewModel?: GeneratedEnumerationViewModel;
 }
+
+
+export function buildGeneratedEnumerationStructuredData<T>(props: GeneratedEnumerationProps<T>): T {
+  return ((props.structuredDataOverrides ?? props.value) as T);
+}
+
 
 interface RenderGeneratedEnumerationCardProps<T> {
   StructuredDataComponent: React.ComponentType<{ data: unknown }>;
@@ -59,7 +65,7 @@ export function renderGeneratedEnumerationCard<T>({
 
   return (
     <>
-      <SemanticStructuredDataGate emitStructuredData={emitStructuredData}>
+      <SemanticStructuredDataGate emitStructuredData={emitStructuredData} node={effectiveValue}>
         <StructuredDataComponent data={effectiveValue as never} />
       </SemanticStructuredDataGate>
       <SemanticShell
@@ -72,8 +78,8 @@ export function renderGeneratedEnumerationCard<T>({
         meta={[{ label: "Value", value: renderJsonPreview(effectiveValue) }]}
         body={
           <>
-            {renderStructuredSection(effectiveValue, "Value")}
-            {examples?.length ? renderStructuredSection(examples, "Examples") : null}
+            {renderSemanticPreviewSection(effectiveValue, "Value")}
+            {examples?.length ? renderSemanticPreviewSection(examples, "Examples") : null}
             {body}
           </>
         }

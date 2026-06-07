@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { FiboFndAgrCtrMutualContractualAgreementInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface FiboFndAgrCtrMutualContractualAgreementProps extends FiboFndAgrCtrMutualContractualAgreementInput, GeneratedTypeUiProps<FiboFndAgrCtrMutualContractualAgreementInput> {}
 
@@ -29,3 +29,6 @@ export function FiboFndAgrCtrMutualContractualAgreement({ value: legacyValue, de
     viewModel,
   });
 }
+
+(FiboFndAgrCtrMutualContractualAgreement as typeof FiboFndAgrCtrMutualContractualAgreement & { toStructuredData: (props: FiboFndAgrCtrMutualContractualAgreementProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

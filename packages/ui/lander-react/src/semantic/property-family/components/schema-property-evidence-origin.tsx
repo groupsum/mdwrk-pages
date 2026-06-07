@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EvidenceOriginPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEvidenceOriginProps extends EvidenceOriginPropertyInput, GeneratedPropertyUiProps<EvidenceOriginPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEvidenceOrigin({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyEvidenceOrigin as typeof SchemaPropertyEvidenceOrigin & { toStructuredData: (props: SchemaPropertyEvidenceOriginProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

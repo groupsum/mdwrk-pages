@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EmailPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEmailProps extends EmailPropertyInput, GeneratedPropertyUiProps<EmailPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEmail({ value: legacyValue, description = "Email a
     viewModel,
   });
 }
+
+(SchemaPropertyEmail as typeof SchemaPropertyEmail & { toStructuredData: (props: SchemaPropertyEmailProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

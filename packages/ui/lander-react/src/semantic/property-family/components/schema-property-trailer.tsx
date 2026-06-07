@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TrailerPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTrailerProps extends TrailerPropertyInput, GeneratedPropertyUiProps<TrailerPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTrailer({ value: legacyValue, description = "The t
     viewModel,
   });
 }
+
+(SchemaPropertyTrailer as typeof SchemaPropertyTrailer & { toStructuredData: (props: SchemaPropertyTrailerProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

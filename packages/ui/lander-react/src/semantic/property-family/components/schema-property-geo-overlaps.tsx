@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { GeoOverlapsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyGeoOverlapsProps extends GeoOverlapsPropertyInput, GeneratedPropertyUiProps<GeoOverlapsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyGeoOverlaps({ value: legacyValue, description = "R
     viewModel,
   });
 }
+
+(SchemaPropertyGeoOverlaps as typeof SchemaPropertyGeoOverlaps & { toStructuredData: (props: SchemaPropertyGeoOverlapsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

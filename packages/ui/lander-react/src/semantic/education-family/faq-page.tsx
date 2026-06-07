@@ -8,7 +8,7 @@ type FAQPageStructuredDataInput = React.ComponentProps<typeof structuredDataReac
 export interface FAQPageProps extends FAQPageStructuredDataInput {
   heading?: string;
   body?: React.ReactNode;
-  viewModel?: { eyebrow?: string; footer?: React.ReactNode; collapsible?: boolean };
+  viewModel?: { eyebrow?: string; footer?: React.ReactNode; collapsible?: boolean; showStructuredFields?: boolean };
   className?: string;
   emitStructuredData?: boolean;
   structuredDataOverrides?: Partial<FAQPageStructuredDataInput>;
@@ -60,7 +60,9 @@ export function FAQPage(props: FAQPageProps) {
                 ),
               )}
             </div>
-            {renderStructuredSection(omitRecordKeys(structuredData as Record<string, unknown>, ["name", "description", "items"]), "Structured fields")}
+            {viewModel?.showStructuredFields
+              ? renderStructuredSection(omitRecordKeys(structuredData as Record<string, unknown>, ["name", "description", "items"]), "Structured fields")
+              : null}
           </>
         }
         footer={viewModel?.footer}

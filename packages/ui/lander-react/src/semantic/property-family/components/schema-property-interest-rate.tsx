@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { InterestRatePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyInterestRateProps extends InterestRatePropertyInput, GeneratedPropertyUiProps<InterestRatePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyInterestRate({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyInterestRate as typeof SchemaPropertyInterestRate & { toStructuredData: (props: SchemaPropertyInterestRateProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

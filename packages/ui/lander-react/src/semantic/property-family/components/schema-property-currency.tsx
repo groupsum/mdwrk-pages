@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CurrencyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCurrencyProps extends CurrencyPropertyInput, GeneratedPropertyUiProps<CurrencyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCurrency({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyCurrency as typeof SchemaPropertyCurrency & { toStructuredData: (props: SchemaPropertyCurrencyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

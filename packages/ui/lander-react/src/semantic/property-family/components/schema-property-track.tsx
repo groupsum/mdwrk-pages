@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TrackPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTrackProps extends TrackPropertyInput, GeneratedPropertyUiProps<TrackPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTrack({ value: legacyValue, description = "A music
     viewModel,
   });
 }
+
+(SchemaPropertyTrack as typeof SchemaPropertyTrack & { toStructuredData: (props: SchemaPropertyTrackProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

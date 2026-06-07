@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BusinessFunctionPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBusinessFunctionProps extends BusinessFunctionPropertyInput, GeneratedPropertyUiProps<BusinessFunctionPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBusinessFunction({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyBusinessFunction as typeof SchemaPropertyBusinessFunction & { toStructuredData: (props: SchemaPropertyBusinessFunctionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

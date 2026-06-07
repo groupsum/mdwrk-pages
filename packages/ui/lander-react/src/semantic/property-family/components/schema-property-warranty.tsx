@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { WarrantyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyWarrantyProps extends WarrantyPropertyInput, GeneratedPropertyUiProps<WarrantyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyWarranty({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyWarranty as typeof SchemaPropertyWarranty & { toStructuredData: (props: SchemaPropertyWarrantyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

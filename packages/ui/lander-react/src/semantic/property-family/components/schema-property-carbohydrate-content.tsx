@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CarbohydrateContentPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCarbohydrateContentProps extends CarbohydrateContentPropertyInput, GeneratedPropertyUiProps<CarbohydrateContentPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCarbohydrateContent({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertyCarbohydrateContent as typeof SchemaPropertyCarbohydrateContent & { toStructuredData: (props: SchemaPropertyCarbohydrateContentProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

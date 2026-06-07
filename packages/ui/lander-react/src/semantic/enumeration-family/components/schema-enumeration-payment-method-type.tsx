@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface PaymentMethodTypeProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function PaymentMethodType({ value, description = "The type of payment me
     viewModel,
   });
 }
+
+(PaymentMethodType as typeof PaymentMethodType & { toStructuredData: (props: PaymentMethodTypeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

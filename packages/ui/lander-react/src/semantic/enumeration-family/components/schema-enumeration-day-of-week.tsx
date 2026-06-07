@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface DayOfWeekProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function DayOfWeek({ value, description = "The day of the week, e.g. used
     viewModel,
   });
 }
+
+(DayOfWeek as typeof DayOfWeek & { toStructuredData: (props: DayOfWeekProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

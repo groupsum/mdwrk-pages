@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasTierRequirementPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasTierRequirementProps extends HasTierRequirementPropertyInput, GeneratedPropertyUiProps<HasTierRequirementPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasTierRequirement({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyHasTierRequirement as typeof SchemaPropertyHasTierRequirement & { toStructuredData: (props: SchemaPropertyHasTierRequirementProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

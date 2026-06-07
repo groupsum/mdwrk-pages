@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RelatedTherapyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRelatedTherapyProps extends RelatedTherapyPropertyInput, GeneratedPropertyUiProps<RelatedTherapyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRelatedTherapy({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyRelatedTherapy as typeof SchemaPropertyRelatedTherapy & { toStructuredData: (props: SchemaPropertyRelatedTherapyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

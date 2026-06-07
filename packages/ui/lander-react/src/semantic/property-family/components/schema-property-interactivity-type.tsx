@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { InteractivityTypePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyInteractivityTypeProps extends InteractivityTypePropertyInput, GeneratedPropertyUiProps<InteractivityTypePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyInteractivityType({ value: legacyValue, descriptio
     viewModel,
   });
 }
+
+(SchemaPropertyInteractivityType as typeof SchemaPropertyInteractivityType & { toStructuredData: (props: SchemaPropertyInteractivityTypeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

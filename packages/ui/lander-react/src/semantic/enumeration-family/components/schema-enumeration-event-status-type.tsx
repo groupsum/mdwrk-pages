@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface EventStatusTypeProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function EventStatusType({ value, description = "EventStatusType is an en
     viewModel,
   });
 }
+
+(EventStatusType as typeof EventStatusType & { toStructuredData: (props: EventStatusTypeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

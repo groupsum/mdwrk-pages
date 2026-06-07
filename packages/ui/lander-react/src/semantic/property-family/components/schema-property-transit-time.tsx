@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TransitTimePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTransitTimeProps extends TransitTimePropertyInput, GeneratedPropertyUiProps<TransitTimePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTransitTime({ value: legacyValue, description = "T
     viewModel,
   });
 }
+
+(SchemaPropertyTransitTime as typeof SchemaPropertyTransitTime & { toStructuredData: (props: SchemaPropertyTransitTimeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

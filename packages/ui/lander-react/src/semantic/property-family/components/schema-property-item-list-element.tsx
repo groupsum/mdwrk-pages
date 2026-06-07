@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ItemListElementPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyItemListElementProps extends ItemListElementPropertyInput, GeneratedPropertyUiProps<ItemListElementPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyItemListElement({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyItemListElement as typeof SchemaPropertyItemListElement & { toStructuredData: (props: SchemaPropertyItemListElementProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

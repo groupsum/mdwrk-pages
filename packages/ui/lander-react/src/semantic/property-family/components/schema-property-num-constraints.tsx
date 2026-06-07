@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { NumConstraintsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyNumConstraintsProps extends NumConstraintsPropertyInput, GeneratedPropertyUiProps<NumConstraintsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyNumConstraints({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyNumConstraints as typeof SchemaPropertyNumConstraints & { toStructuredData: (props: SchemaPropertyNumConstraintsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

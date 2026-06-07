@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface QualitativeValueProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function QualitativeValue({ value, description = "A predefined value for 
     viewModel,
   });
 }
+
+(QualitativeValue as typeof QualitativeValue & { toStructuredData: (props: QualitativeValueProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

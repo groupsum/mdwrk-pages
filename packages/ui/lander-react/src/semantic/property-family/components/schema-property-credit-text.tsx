@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CreditTextPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCreditTextProps extends CreditTextPropertyInput, GeneratedPropertyUiProps<CreditTextPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCreditText({ value: legacyValue, description = "Te
     viewModel,
   });
 }
+
+(SchemaPropertyCreditText as typeof SchemaPropertyCreditText & { toStructuredData: (props: SchemaPropertyCreditTextProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

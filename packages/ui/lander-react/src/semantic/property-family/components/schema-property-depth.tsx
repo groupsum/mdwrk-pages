@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DepthPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDepthProps extends DepthPropertyInput, GeneratedPropertyUiProps<DepthPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDepth({ value: legacyValue, description = "The dep
     viewModel,
   });
 }
+
+(SchemaPropertyDepth as typeof SchemaPropertyDepth & { toStructuredData: (props: SchemaPropertyDepthProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

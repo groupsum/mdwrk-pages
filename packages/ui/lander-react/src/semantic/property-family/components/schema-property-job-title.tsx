@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { JobTitlePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyJobTitleProps extends JobTitlePropertyInput, GeneratedPropertyUiProps<JobTitlePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyJobTitle({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyJobTitle as typeof SchemaPropertyJobTitle & { toStructuredData: (props: SchemaPropertyJobTitleProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

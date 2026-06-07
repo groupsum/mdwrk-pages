@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AuditDatePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAuditDateProps extends AuditDatePropertyInput, GeneratedPropertyUiProps<AuditDatePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAuditDate({ value: legacyValue, description = "Dat
     viewModel,
   });
 }
+
+(SchemaPropertyAuditDate as typeof SchemaPropertyAuditDate & { toStructuredData: (props: SchemaPropertyAuditDateProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EnergyEfficiencyScaleMinPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEnergyEfficiencyScaleMinProps extends EnergyEfficiencyScaleMinPropertyInput, GeneratedPropertyUiProps<EnergyEfficiencyScaleMinPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEnergyEfficiencyScaleMin({ value: legacyValue, des
     viewModel,
   });
 }
+
+(SchemaPropertyEnergyEfficiencyScaleMin as typeof SchemaPropertyEnergyEfficiencyScaleMin & { toStructuredData: (props: SchemaPropertyEnergyEfficiencyScaleMinProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

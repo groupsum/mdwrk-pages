@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ServicePostalAddressPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyServicePostalAddressProps extends ServicePostalAddressPropertyInput, GeneratedPropertyUiProps<ServicePostalAddressPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyServicePostalAddress({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyServicePostalAddress as typeof SchemaPropertyServicePostalAddress & { toStructuredData: (props: SchemaPropertyServicePostalAddressProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

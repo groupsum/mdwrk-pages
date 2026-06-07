@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { VideoFormatPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyVideoFormatProps extends VideoFormatPropertyInput, GeneratedPropertyUiProps<VideoFormatPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyVideoFormat({ value: legacyValue, description = "T
     viewModel,
   });
 }
+
+(SchemaPropertyVideoFormat as typeof SchemaPropertyVideoFormat & { toStructuredData: (props: SchemaPropertyVideoFormatProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

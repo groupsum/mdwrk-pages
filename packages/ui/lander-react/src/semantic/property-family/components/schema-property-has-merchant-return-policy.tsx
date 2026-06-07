@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasMerchantReturnPolicyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasMerchantReturnPolicyProps extends HasMerchantReturnPolicyPropertyInput, GeneratedPropertyUiProps<HasMerchantReturnPolicyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasMerchantReturnPolicy({ value: legacyValue, desc
     viewModel,
   });
 }
+
+(SchemaPropertyHasMerchantReturnPolicy as typeof SchemaPropertyHasMerchantReturnPolicy & { toStructuredData: (props: SchemaPropertyHasMerchantReturnPolicyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

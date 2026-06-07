@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface DrugPregnancyCategoryProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function DrugPregnancyCategory({ value, description = "Categories that re
     viewModel,
   });
 }
+
+(DrugPregnancyCategory as typeof DrugPregnancyCategory & { toStructuredData: (props: DrugPregnancyCategoryProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

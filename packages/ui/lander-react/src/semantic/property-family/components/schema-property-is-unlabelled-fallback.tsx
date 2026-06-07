@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IsUnlabelledFallbackPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIsUnlabelledFallbackProps extends IsUnlabelledFallbackPropertyInput, GeneratedPropertyUiProps<IsUnlabelledFallbackPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIsUnlabelledFallback({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyIsUnlabelledFallback as typeof SchemaPropertyIsUnlabelledFallback & { toStructuredData: (props: SchemaPropertyIsUnlabelledFallbackProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

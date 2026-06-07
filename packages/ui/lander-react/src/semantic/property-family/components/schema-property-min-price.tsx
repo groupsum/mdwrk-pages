@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MinPricePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMinPriceProps extends MinPricePropertyInput, GeneratedPropertyUiProps<MinPricePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMinPrice({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyMinPrice as typeof SchemaPropertyMinPrice & { toStructuredData: (props: SchemaPropertyMinPriceProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ExceptDatePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyExceptDateProps extends ExceptDatePropertyInput, GeneratedPropertyUiProps<ExceptDatePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyExceptDate({ value: legacyValue, description = "De
     viewModel,
   });
 }
+
+(SchemaPropertyExceptDate as typeof SchemaPropertyExceptDate & { toStructuredData: (props: SchemaPropertyExceptDateProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

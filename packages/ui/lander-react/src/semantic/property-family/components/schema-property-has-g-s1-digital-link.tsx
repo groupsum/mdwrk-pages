@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasGS1DigitalLinkPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasGS1DigitalLinkProps extends HasGS1DigitalLinkPropertyInput, GeneratedPropertyUiProps<HasGS1DigitalLinkPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasGS1DigitalLink({ value: legacyValue, descriptio
     viewModel,
   });
 }
+
+(SchemaPropertyHasGS1DigitalLink as typeof SchemaPropertyHasGS1DigitalLink & { toStructuredData: (props: SchemaPropertyHasGS1DigitalLinkProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

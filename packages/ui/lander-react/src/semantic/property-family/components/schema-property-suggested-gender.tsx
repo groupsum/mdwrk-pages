@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SuggestedGenderPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySuggestedGenderProps extends SuggestedGenderPropertyInput, GeneratedPropertyUiProps<SuggestedGenderPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySuggestedGender({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertySuggestedGender as typeof SchemaPropertySuggestedGender & { toStructuredData: (props: SchemaPropertySuggestedGenderProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

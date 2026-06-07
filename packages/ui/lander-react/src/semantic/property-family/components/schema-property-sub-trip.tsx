@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SubTripPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySubTripProps extends SubTripPropertyInput, GeneratedPropertyUiProps<SubTripPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySubTrip({ value: legacyValue, description = "Ident
     viewModel,
   });
 }
+
+(SchemaPropertySubTrip as typeof SchemaPropertySubTrip & { toStructuredData: (props: SchemaPropertySubTripProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

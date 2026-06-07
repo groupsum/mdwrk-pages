@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { OperatingSystemPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyOperatingSystemProps extends OperatingSystemPropertyInput, GeneratedPropertyUiProps<OperatingSystemPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyOperatingSystem({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyOperatingSystem as typeof SchemaPropertyOperatingSystem & { toStructuredData: (props: SchemaPropertyOperatingSystemProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

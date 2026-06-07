@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EncodingFormatPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEncodingFormatProps extends EncodingFormatPropertyInput, GeneratedPropertyUiProps<EncodingFormatPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEncodingFormat({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyEncodingFormat as typeof SchemaPropertyEncodingFormat & { toStructuredData: (props: SchemaPropertyEncodingFormatProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

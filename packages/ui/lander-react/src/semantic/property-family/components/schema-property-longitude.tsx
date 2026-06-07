@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { LongitudePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyLongitudeProps extends LongitudePropertyInput, GeneratedPropertyUiProps<LongitudePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyLongitude({ value: legacyValue, description = "The
     viewModel,
   });
 }
+
+(SchemaPropertyLongitude as typeof SchemaPropertyLongitude & { toStructuredData: (props: SchemaPropertyLongitudeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

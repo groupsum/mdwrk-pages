@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ReturnPolicyCategoryPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyReturnPolicyCategoryProps extends ReturnPolicyCategoryPropertyInput, GeneratedPropertyUiProps<ReturnPolicyCategoryPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyReturnPolicyCategory({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyReturnPolicyCategory as typeof SchemaPropertyReturnPolicyCategory & { toStructuredData: (props: SchemaPropertyReturnPolicyCategoryProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

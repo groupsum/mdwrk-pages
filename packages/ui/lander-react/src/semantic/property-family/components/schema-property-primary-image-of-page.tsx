@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PrimaryImageOfPagePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPrimaryImageOfPageProps extends PrimaryImageOfPagePropertyInput, GeneratedPropertyUiProps<PrimaryImageOfPagePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPrimaryImageOfPage({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyPrimaryImageOfPage as typeof SchemaPropertyPrimaryImageOfPage & { toStructuredData: (props: SchemaPropertyPrimaryImageOfPageProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

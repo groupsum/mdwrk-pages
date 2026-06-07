@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { KeywordsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyKeywordsProps extends KeywordsPropertyInput, GeneratedPropertyUiProps<KeywordsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyKeywords({ value: legacyValue, description = "Keyw
     viewModel,
   });
 }
+
+(SchemaPropertyKeywords as typeof SchemaPropertyKeywords & { toStructuredData: (props: SchemaPropertyKeywordsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

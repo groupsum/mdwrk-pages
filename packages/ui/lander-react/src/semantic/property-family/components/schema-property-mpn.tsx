@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MpnPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMpnProps extends MpnPropertyInput, GeneratedPropertyUiProps<MpnPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMpn({ value: legacyValue, description = "The Manuf
     viewModel,
   });
 }
+
+(SchemaPropertyMpn as typeof SchemaPropertyMpn & { toStructuredData: (props: SchemaPropertyMpnProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

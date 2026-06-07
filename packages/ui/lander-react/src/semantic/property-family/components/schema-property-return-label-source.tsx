@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ReturnLabelSourcePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyReturnLabelSourceProps extends ReturnLabelSourcePropertyInput, GeneratedPropertyUiProps<ReturnLabelSourcePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyReturnLabelSource({ value: legacyValue, descriptio
     viewModel,
   });
 }
+
+(SchemaPropertyReturnLabelSource as typeof SchemaPropertyReturnLabelSource & { toStructuredData: (props: SchemaPropertyReturnLabelSourceProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

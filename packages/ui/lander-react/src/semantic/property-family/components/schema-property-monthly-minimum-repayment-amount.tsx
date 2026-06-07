@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MonthlyMinimumRepaymentAmountPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMonthlyMinimumRepaymentAmountProps extends MonthlyMinimumRepaymentAmountPropertyInput, GeneratedPropertyUiProps<MonthlyMinimumRepaymentAmountPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMonthlyMinimumRepaymentAmount({ value: legacyValue
     viewModel,
   });
 }
+
+(SchemaPropertyMonthlyMinimumRepaymentAmount as typeof SchemaPropertyMonthlyMinimumRepaymentAmount & { toStructuredData: (props: SchemaPropertyMonthlyMinimumRepaymentAmountProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

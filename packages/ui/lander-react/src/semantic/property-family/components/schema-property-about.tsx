@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AboutPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAboutProps extends AboutPropertyInput, GeneratedPropertyUiProps<AboutPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAbout({ value: legacyValue, description = "The sub
     viewModel,
   });
 }
+
+(SchemaPropertyAbout as typeof SchemaPropertyAbout & { toStructuredData: (props: SchemaPropertyAboutProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

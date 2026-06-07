@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EnergyEfficiencyScaleMaxPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEnergyEfficiencyScaleMaxProps extends EnergyEfficiencyScaleMaxPropertyInput, GeneratedPropertyUiProps<EnergyEfficiencyScaleMaxPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEnergyEfficiencyScaleMax({ value: legacyValue, des
     viewModel,
   });
 }
+
+(SchemaPropertyEnergyEfficiencyScaleMax as typeof SchemaPropertyEnergyEfficiencyScaleMax & { toStructuredData: (props: SchemaPropertyEnergyEfficiencyScaleMaxProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

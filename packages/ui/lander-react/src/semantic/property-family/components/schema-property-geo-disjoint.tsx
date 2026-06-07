@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { GeoDisjointPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyGeoDisjointProps extends GeoDisjointPropertyInput, GeneratedPropertyUiProps<GeoDisjointPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyGeoDisjoint({ value: legacyValue, description = "R
     viewModel,
   });
 }
+
+(SchemaPropertyGeoDisjoint as typeof SchemaPropertyGeoDisjoint & { toStructuredData: (props: SchemaPropertyGeoDisjointProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

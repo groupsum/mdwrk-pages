@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ShippingDestinationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyShippingDestinationProps extends ShippingDestinationPropertyInput, GeneratedPropertyUiProps<ShippingDestinationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyShippingDestination({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertyShippingDestination as typeof SchemaPropertyShippingDestination & { toStructuredData: (props: SchemaPropertyShippingDestinationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

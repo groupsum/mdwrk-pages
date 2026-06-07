@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { GeoEqualsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyGeoEqualsProps extends GeoEqualsPropertyInput, GeneratedPropertyUiProps<GeoEqualsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyGeoEquals({ value: legacyValue, description = "Rep
     viewModel,
   });
 }
+
+(SchemaPropertyGeoEquals as typeof SchemaPropertyGeoEquals & { toStructuredData: (props: SchemaPropertyGeoEqualsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

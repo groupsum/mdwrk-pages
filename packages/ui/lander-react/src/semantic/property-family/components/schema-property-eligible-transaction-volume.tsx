@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EligibleTransactionVolumePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEligibleTransactionVolumeProps extends EligibleTransactionVolumePropertyInput, GeneratedPropertyUiProps<EligibleTransactionVolumePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEligibleTransactionVolume({ value: legacyValue, de
     viewModel,
   });
 }
+
+(SchemaPropertyEligibleTransactionVolume as typeof SchemaPropertyEligibleTransactionVolume & { toStructuredData: (props: SchemaPropertyEligibleTransactionVolumeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

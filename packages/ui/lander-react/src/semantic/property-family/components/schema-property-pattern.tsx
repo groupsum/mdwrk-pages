@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PatternPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPatternProps extends PatternPropertyInput, GeneratedPropertyUiProps<PatternPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPattern({ value: legacyValue, description = "A pat
     viewModel,
   });
 }
+
+(SchemaPropertyPattern as typeof SchemaPropertyPattern & { toStructuredData: (props: SchemaPropertyPatternProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

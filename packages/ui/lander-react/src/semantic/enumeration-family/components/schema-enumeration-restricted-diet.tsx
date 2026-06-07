@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface RestrictedDietProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function RestrictedDiet({ value, description = "A diet restricted to cert
     viewModel,
   });
 }
+
+(RestrictedDiet as typeof RestrictedDiet & { toStructuredData: (props: RestrictedDietProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

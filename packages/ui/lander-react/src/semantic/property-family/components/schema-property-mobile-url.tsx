@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MobileUrlPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMobileUrlProps extends MobileUrlPropertyInput, GeneratedPropertyUiProps<MobileUrlPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMobileUrl({ value: legacyValue, description = "The
     viewModel,
   });
 }
+
+(SchemaPropertyMobileUrl as typeof SchemaPropertyMobileUrl & { toStructuredData: (props: SchemaPropertyMobileUrlProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

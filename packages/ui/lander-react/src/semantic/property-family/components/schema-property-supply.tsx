@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SupplyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySupplyProps extends SupplyPropertyInput, GeneratedPropertyUiProps<SupplyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySupply({ value: legacyValue, description = "A sub-
     viewModel,
   });
 }
+
+(SchemaPropertySupply as typeof SchemaPropertySupply & { toStructuredData: (props: SchemaPropertySupplyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

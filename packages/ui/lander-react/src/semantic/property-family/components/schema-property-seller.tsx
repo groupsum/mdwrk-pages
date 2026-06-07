@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SellerPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySellerProps extends SellerPropertyInput, GeneratedPropertyUiProps<SellerPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySeller({ value: legacyValue, description = "An ent
     viewModel,
   });
 }
+
+(SchemaPropertySeller as typeof SchemaPropertySeller & { toStructuredData: (props: SchemaPropertySellerProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

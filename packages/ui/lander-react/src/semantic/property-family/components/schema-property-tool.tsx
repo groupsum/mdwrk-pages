@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ToolPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyToolProps extends ToolPropertyInput, GeneratedPropertyUiProps<ToolPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTool({ value: legacyValue, description = "A sub pr
     viewModel,
   });
 }
+
+(SchemaPropertyTool as typeof SchemaPropertyTool & { toStructuredData: (props: SchemaPropertyToolProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

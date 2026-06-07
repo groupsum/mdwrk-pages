@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { WarningPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyWarningProps extends WarningPropertyInput, GeneratedPropertyUiProps<WarningPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyWarning({ value: legacyValue, description = "Any F
     viewModel,
   });
 }
+
+(SchemaPropertyWarning as typeof SchemaPropertyWarning & { toStructuredData: (props: SchemaPropertyWarningProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

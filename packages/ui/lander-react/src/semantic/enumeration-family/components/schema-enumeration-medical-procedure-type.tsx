@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface MedicalProcedureTypeProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function MedicalProcedureType({ value, description = "An enumeration that
     viewModel,
   });
 }
+
+(MedicalProcedureType as typeof MedicalProcedureType & { toStructuredData: (props: MedicalProcedureTypeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

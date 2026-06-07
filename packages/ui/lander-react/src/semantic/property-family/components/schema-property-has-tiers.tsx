@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasTiersPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasTiersProps extends HasTiersPropertyInput, GeneratedPropertyUiProps<HasTiersPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasTiers({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyHasTiers as typeof SchemaPropertyHasTiers & { toStructuredData: (props: SchemaPropertyHasTiersProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PostalCodeBeginPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPostalCodeBeginProps extends PostalCodeBeginPropertyInput, GeneratedPropertyUiProps<PostalCodeBeginPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPostalCodeBegin({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyPostalCodeBegin as typeof SchemaPropertyPostalCodeBegin & { toStructuredData: (props: SchemaPropertyPostalCodeBeginProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

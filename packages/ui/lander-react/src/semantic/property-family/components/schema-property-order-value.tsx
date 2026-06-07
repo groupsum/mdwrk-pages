@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { OrderValuePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyOrderValueProps extends OrderValuePropertyInput, GeneratedPropertyUiProps<OrderValuePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyOrderValue({ value: legacyValue, description = "Mi
     viewModel,
   });
 }
+
+(SchemaPropertyOrderValue as typeof SchemaPropertyOrderValue & { toStructuredData: (props: SchemaPropertyOrderValueProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

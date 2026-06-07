@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BirthDatePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBirthDateProps extends BirthDatePropertyInput, GeneratedPropertyUiProps<BirthDatePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBirthDate({ value: legacyValue, description = "Dat
     viewModel,
   });
 }
+
+(SchemaPropertyBirthDate as typeof SchemaPropertyBirthDate & { toStructuredData: (props: SchemaPropertyBirthDateProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

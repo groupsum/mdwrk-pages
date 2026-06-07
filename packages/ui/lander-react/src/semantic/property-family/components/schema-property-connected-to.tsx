@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ConnectedToPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyConnectedToProps extends ConnectedToPropertyInput, GeneratedPropertyUiProps<ConnectedToPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyConnectedTo({ value: legacyValue, description = "O
     viewModel,
   });
 }
+
+(SchemaPropertyConnectedTo as typeof SchemaPropertyConnectedTo & { toStructuredData: (props: SchemaPropertyConnectedToProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

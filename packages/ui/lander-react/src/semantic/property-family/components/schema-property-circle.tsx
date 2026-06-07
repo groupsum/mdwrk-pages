@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CirclePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCircleProps extends CirclePropertyInput, GeneratedPropertyUiProps<CirclePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCircle({ value: legacyValue, description = "A circ
     viewModel,
   });
 }
+
+(SchemaPropertyCircle as typeof SchemaPropertyCircle & { toStructuredData: (props: SchemaPropertyCircleProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

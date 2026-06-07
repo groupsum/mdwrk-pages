@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MembershipNumberPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMembershipNumberProps extends MembershipNumberPropertyInput, GeneratedPropertyUiProps<MembershipNumberPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMembershipNumber({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyMembershipNumber as typeof SchemaPropertyMembershipNumber & { toStructuredData: (props: SchemaPropertyMembershipNumberProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

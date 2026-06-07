@@ -8,7 +8,7 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "Draft."
+summary: "MdWrk shall use page-scoped JSON-LD entity graphs as the canonical emission model. Visible semantic React components shall expose pure `.toStructuredData(props)` helpers so pages can collect multiple component contributions into one validated `@graph`, while component-local script emission remains a standalone fallback."
 supersedes: []
 superseded_by: []
 status_notes:
@@ -20,6 +20,10 @@ status_notes:
     status: "draft"
     note: "Extended graph architecture decision with package-layered builder, reusable component, and app adoption responsibilities."
     at: "2026-05-13T05:42:54Z"
+  -
+    status: "draft"
+    note: "Added page-level collection of visible semantic component structured-data contributions via pure toStructuredData helpers."
+    at: "2026-06-07T00:00:00Z"
 references: []
 body: |-
   # MdWrk JSON-LD Entity Graph Architecture
@@ -44,6 +48,10 @@ body: |-
   
   The graph shall use stable canonical `@id` values and typed relationships such as `mainEntity`, `isPartOf`, `publisher`, `creator`, `breadcrumb`, `about`, and `mentions` to connect entities. The graph shall prefer the most specific supported Schema.org type that truthfully describes the page surface.
   
+  Visible semantic React components shall expose pure `.toStructuredData(props)` helpers that return their structured-data contribution from the same authored props used for visible rendering. Page templates, page presets, and app-level page shells may collect those component contributions, de-duplicate stable nodes, and emit one page-level JSON-LD script containing a single `@graph`.
+
+  Component-local JSON-LD script emission is allowed only as a standalone fallback when a component is rendered outside a page-level graph collection boundary. When a page-level collector is active, reusable semantic components shall contribute structured-data intent to the collector instead of emitting separate scripts.
+
   `@mdwrk/structured-data` shall own typed Schema.org builders and graph primitives. `@mdwrk/lander-react` shall own the reusable lander-level component or composition surface for governed supported types. `apps/mdwrkcom` shall adopt those lander-owned surfaces rather than defining ad hoc app-local ownership for governed structured-data type implementations.
   
   Supported Schema.org types and page-family graph shapes are governed by the JSON-LD Schema Graph Contract SPEC. New Schema.org types require that SPEC to be updated before implementation.
@@ -56,3 +64,4 @@ body: |-
   4. Validation must fail closed when JSON-LD claims content that is not visible, materially represented, or governed as a supported schema type.
   5. SEO, AEO, and AiEO improvements are implemented through governed graph composition and evidence rather than ad hoc structured-data additions.
   6. Supported-type rollout must remain package-layered: builder support, reusable lander component or composition support, and app adoption are separate deliverables.
+  7. Reusable visible semantic components must support graph collection through `.toStructuredData(props)` before they are treated as page-composition-ready structured-data components.

@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedDatatypeProps, renderGeneratedDatatypeCard } from "../shared.js";
+import { GeneratedDatatypeProps, buildGeneratedDatatypeStructuredData, renderGeneratedDatatypeCard } from "../shared.js";
 
 export interface TextProps extends GeneratedDatatypeProps<string> {}
 
@@ -21,3 +21,6 @@ export function Text({ value, description = "Data type: Text.", examples, body, 
     viewModel,
   });
 }
+
+(Text as typeof Text & { toStructuredData: (props: TextProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedDatatypeStructuredData(props);

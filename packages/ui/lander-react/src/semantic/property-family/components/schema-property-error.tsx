@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ErrorPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyErrorProps extends ErrorPropertyInput, GeneratedPropertyUiProps<ErrorPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyError({ value: legacyValue, description = "For fai
     viewModel,
   });
 }
+
+(SchemaPropertyError as typeof SchemaPropertyError & { toStructuredData: (props: SchemaPropertyErrorProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

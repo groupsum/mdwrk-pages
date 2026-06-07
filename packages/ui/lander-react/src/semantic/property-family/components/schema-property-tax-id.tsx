@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TaxIDPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTaxIDProps extends TaxIDPropertyInput, GeneratedPropertyUiProps<TaxIDPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTaxID({ value: legacyValue, description = "The Tax
     viewModel,
   });
 }
+
+(SchemaPropertyTaxID as typeof SchemaPropertyTaxID & { toStructuredData: (props: SchemaPropertyTaxIDProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

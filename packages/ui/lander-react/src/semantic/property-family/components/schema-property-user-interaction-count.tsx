@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { UserInteractionCountPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyUserInteractionCountProps extends UserInteractionCountPropertyInput, GeneratedPropertyUiProps<UserInteractionCountPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyUserInteractionCount({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyUserInteractionCount as typeof SchemaPropertyUserInteractionCount & { toStructuredData: (props: SchemaPropertyUserInteractionCountProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

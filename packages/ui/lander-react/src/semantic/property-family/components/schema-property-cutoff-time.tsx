@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CutoffTimePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCutoffTimeProps extends CutoffTimePropertyInput, GeneratedPropertyUiProps<CutoffTimePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCutoffTime({ value: legacyValue, description = "Or
     viewModel,
   });
 }
+
+(SchemaPropertyCutoffTime as typeof SchemaPropertyCutoffTime & { toStructuredData: (props: SchemaPropertyCutoffTimeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

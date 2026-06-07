@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { GeoContainsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyGeoContainsProps extends GeoContainsPropertyInput, GeneratedPropertyUiProps<GeoContainsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyGeoContains({ value: legacyValue, description = "R
     viewModel,
   });
 }
+
+(SchemaPropertyGeoContains as typeof SchemaPropertyGeoContains & { toStructuredData: (props: SchemaPropertyGeoContainsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

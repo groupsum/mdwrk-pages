@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ColorPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyColorProps extends ColorPropertyInput, GeneratedPropertyUiProps<ColorPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyColor({ value: legacyValue, description = "The col
     viewModel,
   });
 }
+
+(SchemaPropertyColor as typeof SchemaPropertyColor & { toStructuredData: (props: SchemaPropertyColorProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

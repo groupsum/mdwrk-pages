@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MaxPricePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMaxPriceProps extends MaxPricePropertyInput, GeneratedPropertyUiProps<MaxPricePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMaxPrice({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyMaxPrice as typeof SchemaPropertyMaxPrice & { toStructuredData: (props: SchemaPropertyMaxPriceProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

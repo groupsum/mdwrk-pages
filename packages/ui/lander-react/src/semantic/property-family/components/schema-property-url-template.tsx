@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { UrlTemplatePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyUrlTemplateProps extends UrlTemplatePropertyInput, GeneratedPropertyUiProps<UrlTemplatePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyUrlTemplate({ value: legacyValue, description = "A
     viewModel,
   });
 }
+
+(SchemaPropertyUrlTemplate as typeof SchemaPropertyUrlTemplate & { toStructuredData: (props: SchemaPropertyUrlTemplateProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

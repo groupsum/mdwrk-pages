@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { StatusPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyStatusProps extends StatusPropertyInput, GeneratedPropertyUiProps<StatusPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyStatus({ value: legacyValue, description = "The st
     viewModel,
   });
 }
+
+(SchemaPropertyStatus as typeof SchemaPropertyStatus & { toStructuredData: (props: SchemaPropertyStatusProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { LeiCodePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyLeiCodeProps extends LeiCodePropertyInput, GeneratedPropertyUiProps<LeiCodePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyLeiCode({ value: legacyValue, description = "An or
     viewModel,
   });
 }
+
+(SchemaPropertyLeiCode as typeof SchemaPropertyLeiCode & { toStructuredData: (props: SchemaPropertyLeiCodeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

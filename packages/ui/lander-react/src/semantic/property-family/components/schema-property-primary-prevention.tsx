@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PrimaryPreventionPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPrimaryPreventionProps extends PrimaryPreventionPropertyInput, GeneratedPropertyUiProps<PrimaryPreventionPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPrimaryPrevention({ value: legacyValue, descriptio
     viewModel,
   });
 }
+
+(SchemaPropertyPrimaryPrevention as typeof SchemaPropertyPrimaryPrevention & { toStructuredData: (props: SchemaPropertyPrimaryPreventionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

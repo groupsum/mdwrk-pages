@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PriceSpecificationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPriceSpecificationProps extends PriceSpecificationPropertyInput, GeneratedPropertyUiProps<PriceSpecificationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPriceSpecification({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyPriceSpecification as typeof SchemaPropertyPriceSpecification & { toStructuredData: (props: SchemaPropertyPriceSpecificationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

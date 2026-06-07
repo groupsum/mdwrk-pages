@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DownPaymentPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDownPaymentProps extends DownPaymentPropertyInput, GeneratedPropertyUiProps<DownPaymentPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDownPayment({ value: legacyValue, description = "a
     viewModel,
   });
 }
+
+(SchemaPropertyDownPayment as typeof SchemaPropertyDownPayment & { toStructuredData: (props: SchemaPropertyDownPaymentProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PlaceInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface PlaceProps extends PlaceInput, GeneratedTypeUiProps<PlaceInput> {}
 
@@ -29,3 +29,6 @@ export function Place({ value: legacyValue, description = "Entities that have a 
     viewModel,
   });
 }
+
+(Place as typeof Place & { toStructuredData: (props: PlaceProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

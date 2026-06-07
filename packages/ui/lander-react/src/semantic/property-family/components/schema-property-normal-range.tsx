@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { NormalRangePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyNormalRangeProps extends NormalRangePropertyInput, GeneratedPropertyUiProps<NormalRangePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyNormalRange({ value: legacyValue, description = "R
     viewModel,
   });
 }
+
+(SchemaPropertyNormalRange as typeof SchemaPropertyNormalRange & { toStructuredData: (props: SchemaPropertyNormalRangeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

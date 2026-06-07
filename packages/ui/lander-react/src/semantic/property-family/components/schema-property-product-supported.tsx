@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ProductSupportedPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyProductSupportedProps extends ProductSupportedPropertyInput, GeneratedPropertyUiProps<ProductSupportedPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyProductSupported({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyProductSupported as typeof SchemaPropertyProductSupported & { toStructuredData: (props: SchemaPropertyProductSupportedProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

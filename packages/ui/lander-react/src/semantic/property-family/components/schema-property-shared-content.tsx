@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SharedContentPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySharedContentProps extends SharedContentPropertyInput, GeneratedPropertyUiProps<SharedContentPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySharedContent({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertySharedContent as typeof SchemaPropertySharedContent & { toStructuredData: (props: SchemaPropertySharedContentProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ItineraryPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyItineraryProps extends ItineraryPropertyInput, GeneratedPropertyUiProps<ItineraryPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyItinerary({ value: legacyValue, description = "Des
     viewModel,
   });
 }
+
+(SchemaPropertyItinerary as typeof SchemaPropertyItinerary & { toStructuredData: (props: SchemaPropertyItineraryProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

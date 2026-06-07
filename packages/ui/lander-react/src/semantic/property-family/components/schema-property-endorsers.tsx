@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EndorsersPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEndorsersProps extends EndorsersPropertyInput, GeneratedPropertyUiProps<EndorsersPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEndorsers({ value: legacyValue, description = "Peo
     viewModel,
   });
 }
+
+(SchemaPropertyEndorsers as typeof SchemaPropertyEndorsers & { toStructuredData: (props: SchemaPropertyEndorsersProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

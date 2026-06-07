@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { LogoPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyLogoProps extends LogoPropertyInput, GeneratedPropertyUiProps<LogoPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyLogo({ value: legacyValue, description = "An assoc
     viewModel,
   });
 }
+
+(SchemaPropertyLogo as typeof SchemaPropertyLogo & { toStructuredData: (props: SchemaPropertyLogoProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

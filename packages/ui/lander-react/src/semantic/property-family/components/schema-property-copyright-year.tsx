@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CopyrightYearPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCopyrightYearProps extends CopyrightYearPropertyInput, GeneratedPropertyUiProps<CopyrightYearPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCopyrightYear({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyCopyrightYear as typeof SchemaPropertyCopyrightYear & { toStructuredData: (props: SchemaPropertyCopyrightYearProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

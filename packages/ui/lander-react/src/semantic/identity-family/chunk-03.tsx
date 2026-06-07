@@ -21,12 +21,21 @@ export interface WebPageProps extends WebPageStructuredDataInput {
   structuredDataOverrides?: Partial<WebPageStructuredDataInput>;
 }
 
-export function WebPage(props: WebPageProps) {
+export function buildWebPageStructuredData(props: WebPageProps): WebPageStructuredDataInput {
   const { body, viewModel, className, emitStructuredData, structuredDataOverrides, ...base } = props;
-  const structuredData = { ...base, ...(structuredDataOverrides ?? {}) } as WebPageStructuredDataInput;
+  void body;
+  void viewModel;
+  void className;
+  void emitStructuredData;
+  return { ...base, ...(structuredDataOverrides ?? {}) } as WebPageStructuredDataInput;
+}
+
+export function WebPage(props: WebPageProps) {
+  const { body, viewModel, className, emitStructuredData } = props;
+  const structuredData = buildWebPageStructuredData(props);
   return (
     <>
-      <SemanticStructuredDataGate emitStructuredData={emitStructuredData}>
+      <SemanticStructuredDataGate emitStructuredData={emitStructuredData} kind="WebPage" data={structuredData}>
         <structuredDataReact.WebPageStructuredData data={structuredData} />
       </SemanticStructuredDataGate>
       <SemanticShell
@@ -80,6 +89,9 @@ export function WebPage(props: WebPageProps) {
   );
 }
 
+(WebPage as typeof WebPage & { toStructuredData: (props: WebPageProps) => unknown }).toStructuredData = (props) =>
+  structuredDataReact.buildStructuredDataNode("WebPage", buildWebPageStructuredData(props));
+
 export interface WebSiteProps extends WebSiteStructuredDataInput {
   body?: React.ReactNode;
   viewModel?: { eyebrow?: string; footer?: React.ReactNode };
@@ -88,12 +100,21 @@ export interface WebSiteProps extends WebSiteStructuredDataInput {
   structuredDataOverrides?: Partial<WebSiteStructuredDataInput>;
 }
 
-export function WebSite(props: WebSiteProps) {
+export function buildWebSiteStructuredData(props: WebSiteProps): WebSiteStructuredDataInput {
   const { body, viewModel, className, emitStructuredData, structuredDataOverrides, ...base } = props;
-  const structuredData = { ...base, ...(structuredDataOverrides ?? {}) } as WebSiteStructuredDataInput;
+  void body;
+  void viewModel;
+  void className;
+  void emitStructuredData;
+  return { ...base, ...(structuredDataOverrides ?? {}) } as WebSiteStructuredDataInput;
+}
+
+export function WebSite(props: WebSiteProps) {
+  const { body, viewModel, className, emitStructuredData } = props;
+  const structuredData = buildWebSiteStructuredData(props);
   return (
     <>
-      <SemanticStructuredDataGate emitStructuredData={emitStructuredData}>
+      <SemanticStructuredDataGate emitStructuredData={emitStructuredData} kind="WebSite" data={structuredData}>
         <structuredDataReact.WebSiteStructuredData data={structuredData} />
       </SemanticStructuredDataGate>
       <SemanticShell
@@ -124,6 +145,9 @@ export function WebSite(props: WebSiteProps) {
     </>
   );
 }
+
+(WebSite as typeof WebSite & { toStructuredData: (props: WebSiteProps) => unknown }).toStructuredData = (props) =>
+  structuredDataReact.buildStructuredDataNode("WebSite", buildWebSiteStructuredData(props));
 
 export interface BreadcrumbListProps {
   items: Array<{ label: string; href?: string }>;

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AlumniPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAlumniProps extends AlumniPropertyInput, GeneratedPropertyUiProps<AlumniPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAlumni({ value: legacyValue, description = "Alumni
     viewModel,
   });
 }
+
+(SchemaPropertyAlumni as typeof SchemaPropertyAlumni & { toStructuredData: (props: SchemaPropertyAlumniProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

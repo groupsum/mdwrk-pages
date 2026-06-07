@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RequiredMinAgePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRequiredMinAgeProps extends RequiredMinAgePropertyInput, GeneratedPropertyUiProps<RequiredMinAgePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRequiredMinAge({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyRequiredMinAge as typeof SchemaPropertyRequiredMinAge & { toStructuredData: (props: SchemaPropertyRequiredMinAgeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

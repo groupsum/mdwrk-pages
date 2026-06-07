@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ArrivalTimePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyArrivalTimeProps extends ArrivalTimePropertyInput, GeneratedPropertyUiProps<ArrivalTimePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyArrivalTime({ value: legacyValue, description = "T
     viewModel,
   });
 }
+
+(SchemaPropertyArrivalTime as typeof SchemaPropertyArrivalTime & { toStructuredData: (props: SchemaPropertyArrivalTimeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

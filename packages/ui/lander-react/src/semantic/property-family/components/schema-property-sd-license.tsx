@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SdLicensePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySdLicenseProps extends SdLicensePropertyInput, GeneratedPropertyUiProps<SdLicensePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySdLicense({ value: legacyValue, description = "A l
     viewModel,
   });
 }
+
+(SchemaPropertySdLicense as typeof SchemaPropertySdLicense & { toStructuredData: (props: SchemaPropertySdLicenseProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

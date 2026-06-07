@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BioChemInteractionPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBioChemInteractionProps extends BioChemInteractionPropertyInput, GeneratedPropertyUiProps<BioChemInteractionPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBioChemInteraction({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyBioChemInteraction as typeof SchemaPropertyBioChemInteraction & { toStructuredData: (props: SchemaPropertyBioChemInteractionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

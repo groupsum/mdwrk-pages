@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ContentSizePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyContentSizeProps extends ContentSizePropertyInput, GeneratedPropertyUiProps<ContentSizePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyContentSize({ value: legacyValue, description = "F
     viewModel,
   });
 }
+
+(SchemaPropertyContentSize as typeof SchemaPropertyContentSize & { toStructuredData: (props: SchemaPropertyContentSizeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

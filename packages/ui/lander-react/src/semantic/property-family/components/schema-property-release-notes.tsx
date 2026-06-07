@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ReleaseNotesPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyReleaseNotesProps extends ReleaseNotesPropertyInput, GeneratedPropertyUiProps<ReleaseNotesPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyReleaseNotes({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyReleaseNotes as typeof SchemaPropertyReleaseNotes & { toStructuredData: (props: SchemaPropertyReleaseNotesProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

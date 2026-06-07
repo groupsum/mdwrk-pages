@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SoftwareHelpPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySoftwareHelpProps extends SoftwareHelpPropertyInput, GeneratedPropertyUiProps<SoftwareHelpPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySoftwareHelp({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertySoftwareHelp as typeof SchemaPropertySoftwareHelp & { toStructuredData: (props: SchemaPropertySoftwareHelpProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

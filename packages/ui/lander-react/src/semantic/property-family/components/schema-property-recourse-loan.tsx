@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RecourseLoanPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRecourseLoanProps extends RecourseLoanPropertyInput, GeneratedPropertyUiProps<RecourseLoanPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRecourseLoan({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyRecourseLoan as typeof SchemaPropertyRecourseLoan & { toStructuredData: (props: SchemaPropertyRecourseLoanProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

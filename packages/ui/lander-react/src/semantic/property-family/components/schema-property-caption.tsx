@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CaptionPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCaptionProps extends CaptionPropertyInput, GeneratedPropertyUiProps<CaptionPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCaption({ value: legacyValue, description = "The c
     viewModel,
   });
 }
+
+(SchemaPropertyCaption as typeof SchemaPropertyCaption & { toStructuredData: (props: SchemaPropertyCaptionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

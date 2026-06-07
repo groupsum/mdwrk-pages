@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SignDetectedPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySignDetectedProps extends SignDetectedPropertyInput, GeneratedPropertyUiProps<SignDetectedPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySignDetected({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertySignDetected as typeof SchemaPropertySignDetected & { toStructuredData: (props: SchemaPropertySignDetectedProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

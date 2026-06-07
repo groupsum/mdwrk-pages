@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasRepresentationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasRepresentationProps extends HasRepresentationPropertyInput, GeneratedPropertyUiProps<HasRepresentationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasRepresentation({ value: legacyValue, descriptio
     viewModel,
   });
 }
+
+(SchemaPropertyHasRepresentation as typeof SchemaPropertyHasRepresentation & { toStructuredData: (props: SchemaPropertyHasRepresentationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

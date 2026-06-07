@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SuggestedAgePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySuggestedAgeProps extends SuggestedAgePropertyInput, GeneratedPropertyUiProps<SuggestedAgePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySuggestedAge({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertySuggestedAge as typeof SchemaPropertySuggestedAge & { toStructuredData: (props: SchemaPropertySuggestedAgeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

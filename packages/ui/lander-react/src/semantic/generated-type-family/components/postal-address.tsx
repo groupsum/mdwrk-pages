@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PostalAddressInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface PostalAddressProps extends PostalAddressInput, GeneratedTypeUiProps<PostalAddressInput> {}
 
@@ -29,3 +29,6 @@ export function PostalAddress({ value: legacyValue, description = "The mailing a
     viewModel,
   });
 }
+
+(PostalAddress as typeof PostalAddress & { toStructuredData: (props: PostalAddressProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

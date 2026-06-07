@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EducationRequirementsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEducationRequirementsProps extends EducationRequirementsPropertyInput, GeneratedPropertyUiProps<EducationRequirementsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEducationRequirements({ value: legacyValue, descri
     viewModel,
   });
 }
+
+(SchemaPropertyEducationRequirements as typeof SchemaPropertyEducationRequirements & { toStructuredData: (props: SchemaPropertyEducationRequirementsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

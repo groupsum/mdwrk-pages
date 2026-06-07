@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DoesNotShipPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDoesNotShipProps extends DoesNotShipPropertyInput, GeneratedPropertyUiProps<DoesNotShipPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDoesNotShip({ value: legacyValue, description = "I
     viewModel,
   });
 }
+
+(SchemaPropertyDoesNotShip as typeof SchemaPropertyDoesNotShip & { toStructuredData: (props: SchemaPropertyDoesNotShipProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

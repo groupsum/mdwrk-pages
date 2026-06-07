@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { NetWorthPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyNetWorthProps extends NetWorthPropertyInput, GeneratedPropertyUiProps<NetWorthPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyNetWorth({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyNetWorth as typeof SchemaPropertyNetWorth & { toStructuredData: (props: SchemaPropertyNetWorthProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -8,3 +8,7 @@ export interface WebSiteProps extends WebSiteBaseProps {
 export function WebSite(props: WebSiteProps) {
   return <WebSiteBase {...props} />;
 }
+
+(WebSite as typeof WebSite & { toStructuredData: (props: WebSiteProps) => unknown }).toStructuredData = (
+  WebSiteBase as typeof WebSiteBase & { toStructuredData: (props: WebSiteBaseProps) => unknown }
+).toStructuredData;

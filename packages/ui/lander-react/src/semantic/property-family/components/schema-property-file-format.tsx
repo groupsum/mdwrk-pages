@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { FileFormatPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyFileFormatProps extends FileFormatPropertyInput, GeneratedPropertyUiProps<FileFormatPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyFileFormat({ value: legacyValue, description = "Me
     viewModel,
   });
 }
+
+(SchemaPropertyFileFormat as typeof SchemaPropertyFileFormat & { toStructuredData: (props: SchemaPropertyFileFormatProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -8,7 +8,7 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "The MdWrk structured-data family model shall be artifact-kind based rather than type-only. The governed family model now includes generated `types`, `properties`, `enumerations`, and `datatypes`, each with explicit expectations for schema ownership, wrapper ownership, fused rendering, className support, token coverage, and certification tests."
+summary: "The MdWrk structured-data family model shall be artifact-kind based rather than type-only. The governed family model now includes generated `types`, `properties`, `enumerations`, and `datatypes`, each with explicit expectations for schema ownership, wrapper ownership, fused rendering, `.toStructuredData` contribution support, className support, token coverage, and certification tests."
 supersedes: []
 superseded_by: []
 status_notes:
@@ -16,13 +16,17 @@ status_notes:
     status: "draft"
     note: "Reframed the family model from per-type only to generated artifact kinds."
     at: "2026-06-01T09:09:25Z"
+  -
+    status: "draft"
+    note: "Added generated artifact family coverage for toStructuredData helpers and page-level graph contribution."
+    at: "2026-06-07T00:00:00Z"
 references: []
 body: |-
   # ADR-1084: Generated Structured Data Artifact Family Model
   
   ## Decision
   
-  The MdWrk structured-data family model shall be artifact-kind based rather than type-only. The governed family model now includes generated `types`, `properties`, `enumerations`, and `datatypes`, each with explicit expectations for schema ownership, wrapper ownership, fused rendering, className support, token coverage, and certification tests.
+  The MdWrk structured-data family model shall be artifact-kind based rather than type-only. The governed family model now includes generated `types`, `properties`, `enumerations`, and `datatypes`, each with explicit expectations for schema ownership, wrapper ownership, fused rendering, `.toStructuredData` contribution support, className support, token coverage, and certification tests.
   
   ## Rationale
   
@@ -33,3 +37,4 @@ body: |-
   1. Feature and test inventories shall be grouped by generated artifact kind as needed.
   2. Generated properties, enumerations, and datatypes are first-class governed surfaces.
   3. Counts and matrices shall be derived by artifact kind rather than inferred from type-only inventories.
+  4. Generated family certification shall distinguish visible fused rendering, standalone JSON-LD emission, and page-level graph contribution while requiring parity across the shared structured-data builder path.

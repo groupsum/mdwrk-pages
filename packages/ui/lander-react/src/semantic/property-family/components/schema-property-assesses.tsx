@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AssessesPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAssessesProps extends AssessesPropertyInput, GeneratedPropertyUiProps<AssessesPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAssesses({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyAssesses as typeof SchemaPropertyAssesses & { toStructuredData: (props: SchemaPropertyAssessesProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

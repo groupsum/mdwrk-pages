@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ProviderMobilityPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyProviderMobilityProps extends ProviderMobilityPropertyInput, GeneratedPropertyUiProps<ProviderMobilityPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyProviderMobility({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyProviderMobility as typeof SchemaPropertyProviderMobility & { toStructuredData: (props: SchemaPropertyProviderMobilityProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

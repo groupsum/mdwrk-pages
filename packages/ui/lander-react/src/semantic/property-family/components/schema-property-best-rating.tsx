@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BestRatingPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBestRatingProps extends BestRatingPropertyInput, GeneratedPropertyUiProps<BestRatingPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBestRating({ value: legacyValue, description = "Th
     viewModel,
   });
 }
+
+(SchemaPropertyBestRating as typeof SchemaPropertyBestRating & { toStructuredData: (props: SchemaPropertyBestRatingProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

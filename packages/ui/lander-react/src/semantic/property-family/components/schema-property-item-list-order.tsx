@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ItemListOrderPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyItemListOrderProps extends ItemListOrderPropertyInput, GeneratedPropertyUiProps<ItemListOrderPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyItemListOrder({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyItemListOrder as typeof SchemaPropertyItemListOrder & { toStructuredData: (props: SchemaPropertyItemListOrderProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

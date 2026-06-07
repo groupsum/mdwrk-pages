@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TemporalCoveragePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTemporalCoverageProps extends TemporalCoveragePropertyInput, GeneratedPropertyUiProps<TemporalCoveragePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTemporalCoverage({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyTemporalCoverage as typeof SchemaPropertyTemporalCoverage & { toStructuredData: (props: SchemaPropertyTemporalCoverageProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

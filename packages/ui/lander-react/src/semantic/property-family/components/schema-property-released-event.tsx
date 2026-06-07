@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ReleasedEventPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyReleasedEventProps extends ReleasedEventPropertyInput, GeneratedPropertyUiProps<ReleasedEventPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyReleasedEvent({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyReleasedEvent as typeof SchemaPropertyReleasedEvent & { toStructuredData: (props: SchemaPropertyReleasedEventProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

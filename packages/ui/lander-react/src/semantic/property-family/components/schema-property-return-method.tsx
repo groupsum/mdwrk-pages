@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ReturnMethodPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyReturnMethodProps extends ReturnMethodPropertyInput, GeneratedPropertyUiProps<ReturnMethodPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyReturnMethod({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyReturnMethod as typeof SchemaPropertyReturnMethod & { toStructuredData: (props: SchemaPropertyReturnMethodProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TaxonomicRangePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTaxonomicRangeProps extends TaxonomicRangePropertyInput, GeneratedPropertyUiProps<TaxonomicRangePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTaxonomicRange({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyTaxonomicRange as typeof SchemaPropertyTaxonomicRange & { toStructuredData: (props: SchemaPropertyTaxonomicRangeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

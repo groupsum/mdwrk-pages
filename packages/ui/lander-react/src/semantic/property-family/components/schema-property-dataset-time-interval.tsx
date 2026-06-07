@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DatasetTimeIntervalPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDatasetTimeIntervalProps extends DatasetTimeIntervalPropertyInput, GeneratedPropertyUiProps<DatasetTimeIntervalPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDatasetTimeInterval({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertyDatasetTimeInterval as typeof SchemaPropertyDatasetTimeInterval & { toStructuredData: (props: SchemaPropertyDatasetTimeIntervalProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

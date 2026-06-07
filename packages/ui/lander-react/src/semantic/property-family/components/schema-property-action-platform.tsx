@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ActionPlatformPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyActionPlatformProps extends ActionPlatformPropertyInput, GeneratedPropertyUiProps<ActionPlatformPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyActionPlatform({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyActionPlatform as typeof SchemaPropertyActionPlatform & { toStructuredData: (props: SchemaPropertyActionPlatformProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

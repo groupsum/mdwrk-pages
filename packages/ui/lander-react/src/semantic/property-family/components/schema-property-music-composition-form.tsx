@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MusicCompositionFormPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMusicCompositionFormProps extends MusicCompositionFormPropertyInput, GeneratedPropertyUiProps<MusicCompositionFormPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMusicCompositionForm({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyMusicCompositionForm as typeof SchemaPropertyMusicCompositionForm & { toStructuredData: (props: SchemaPropertyMusicCompositionFormProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

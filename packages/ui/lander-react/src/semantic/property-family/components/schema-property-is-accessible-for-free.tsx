@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IsAccessibleForFreePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIsAccessibleForFreeProps extends IsAccessibleForFreePropertyInput, GeneratedPropertyUiProps<IsAccessibleForFreePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIsAccessibleForFree({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertyIsAccessibleForFree as typeof SchemaPropertyIsAccessibleForFree & { toStructuredData: (props: SchemaPropertyIsAccessibleForFreeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

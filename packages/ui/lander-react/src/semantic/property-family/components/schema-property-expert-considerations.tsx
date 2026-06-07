@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ExpertConsiderationsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyExpertConsiderationsProps extends ExpertConsiderationsPropertyInput, GeneratedPropertyUiProps<ExpertConsiderationsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyExpertConsiderations({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyExpertConsiderations as typeof SchemaPropertyExpertConsiderations & { toStructuredData: (props: SchemaPropertyExpertConsiderationsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

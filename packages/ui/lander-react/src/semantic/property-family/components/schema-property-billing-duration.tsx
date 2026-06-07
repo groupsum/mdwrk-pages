@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BillingDurationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBillingDurationProps extends BillingDurationPropertyInput, GeneratedPropertyUiProps<BillingDurationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBillingDuration({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyBillingDuration as typeof SchemaPropertyBillingDuration & { toStructuredData: (props: SchemaPropertyBillingDurationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

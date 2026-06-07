@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AsinPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAsinProps extends AsinPropertyInput, GeneratedPropertyUiProps<AsinPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAsin({ value: legacyValue, description = "An Amazo
     viewModel,
   });
 }
+
+(SchemaPropertyAsin as typeof SchemaPropertyAsin & { toStructuredData: (props: SchemaPropertyAsinProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

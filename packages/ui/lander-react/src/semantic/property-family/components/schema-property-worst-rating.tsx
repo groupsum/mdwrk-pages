@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { WorstRatingPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyWorstRatingProps extends WorstRatingPropertyInput, GeneratedPropertyUiProps<WorstRatingPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyWorstRating({ value: legacyValue, description = "T
     viewModel,
   });
 }
+
+(SchemaPropertyWorstRating as typeof SchemaPropertyWorstRating & { toStructuredData: (props: SchemaPropertyWorstRatingProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

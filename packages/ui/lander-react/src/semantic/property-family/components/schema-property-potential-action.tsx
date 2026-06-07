@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PotentialActionPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPotentialActionProps extends PotentialActionPropertyInput, GeneratedPropertyUiProps<PotentialActionPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPotentialAction({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyPotentialAction as typeof SchemaPropertyPotentialAction & { toStructuredData: (props: SchemaPropertyPotentialActionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

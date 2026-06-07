@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { StagePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyStageProps extends StagePropertyInput, GeneratedPropertyUiProps<StagePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyStage({ value: legacyValue, description = "The sta
     viewModel,
   });
 }
+
+(SchemaPropertyStage as typeof SchemaPropertyStage & { toStructuredData: (props: SchemaPropertyStageProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

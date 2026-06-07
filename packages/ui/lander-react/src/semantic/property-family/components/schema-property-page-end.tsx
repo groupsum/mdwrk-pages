@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PageEndPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPageEndProps extends PageEndPropertyInput, GeneratedPropertyUiProps<PageEndPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPageEnd({ value: legacyValue, description = "The p
     viewModel,
   });
 }
+
+(SchemaPropertyPageEnd as typeof SchemaPropertyPageEnd & { toStructuredData: (props: SchemaPropertyPageEndProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

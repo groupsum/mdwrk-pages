@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IsBasedOnPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIsBasedOnProps extends IsBasedOnPropertyInput, GeneratedPropertyUiProps<IsBasedOnPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIsBasedOn({ value: legacyValue, description = "A r
     viewModel,
   });
 }
+
+(SchemaPropertyIsBasedOn as typeof SchemaPropertyIsBasedOn & { toStructuredData: (props: SchemaPropertyIsBasedOnProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

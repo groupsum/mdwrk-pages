@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CausePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCauseProps extends CausePropertyInput, GeneratedPropertyUiProps<CausePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCause({ value: legacyValue, description = "The cau
     viewModel,
   });
 }
+
+(SchemaPropertyCause as typeof SchemaPropertyCause & { toStructuredData: (props: SchemaPropertyCauseProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

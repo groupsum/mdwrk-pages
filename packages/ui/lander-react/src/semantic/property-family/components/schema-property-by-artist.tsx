@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ByArtistPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyByArtistProps extends ByArtistPropertyInput, GeneratedPropertyUiProps<ByArtistPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyByArtist({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyByArtist as typeof SchemaPropertyByArtist & { toStructuredData: (props: SchemaPropertyByArtistProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

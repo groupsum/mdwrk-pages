@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SkuPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySkuProps extends SkuPropertyInput, GeneratedPropertyUiProps<SkuPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySku({ value: legacyValue, description = "The Stock
     viewModel,
   });
 }
+
+(SchemaPropertySku as typeof SchemaPropertySku & { toStructuredData: (props: SchemaPropertySkuProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ApplicationCategoryPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyApplicationCategoryProps extends ApplicationCategoryPropertyInput, GeneratedPropertyUiProps<ApplicationCategoryPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyApplicationCategory({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertyApplicationCategory as typeof SchemaPropertyApplicationCategory & { toStructuredData: (props: SchemaPropertyApplicationCategoryProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

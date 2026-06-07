@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SignificantLinkPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySignificantLinkProps extends SignificantLinkPropertyInput, GeneratedPropertyUiProps<SignificantLinkPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySignificantLink({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertySignificantLink as typeof SchemaPropertySignificantLink & { toStructuredData: (props: SchemaPropertySignificantLinkProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

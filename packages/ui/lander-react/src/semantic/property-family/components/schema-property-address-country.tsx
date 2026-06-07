@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AddressCountryPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAddressCountryProps extends AddressCountryPropertyInput, GeneratedPropertyUiProps<AddressCountryPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAddressCountry({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyAddressCountry as typeof SchemaPropertyAddressCountry & { toStructuredData: (props: SchemaPropertyAddressCountryProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

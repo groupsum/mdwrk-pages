@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BreadcrumbPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBreadcrumbProps extends BreadcrumbPropertyInput, GeneratedPropertyUiProps<BreadcrumbPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBreadcrumb({ value: legacyValue, description = "A 
     viewModel,
   });
 }
+
+(SchemaPropertyBreadcrumb as typeof SchemaPropertyBreadcrumb & { toStructuredData: (props: SchemaPropertyBreadcrumbProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

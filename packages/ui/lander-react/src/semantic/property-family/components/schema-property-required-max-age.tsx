@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RequiredMaxAgePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRequiredMaxAgeProps extends RequiredMaxAgePropertyInput, GeneratedPropertyUiProps<RequiredMaxAgePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRequiredMaxAge({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyRequiredMaxAge as typeof SchemaPropertyRequiredMaxAge & { toStructuredData: (props: SchemaPropertyRequiredMaxAgeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

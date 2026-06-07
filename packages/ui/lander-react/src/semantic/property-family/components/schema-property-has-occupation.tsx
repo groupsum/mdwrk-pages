@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasOccupationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasOccupationProps extends HasOccupationPropertyInput, GeneratedPropertyUiProps<HasOccupationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasOccupation({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyHasOccupation as typeof SchemaPropertyHasOccupation & { toStructuredData: (props: SchemaPropertyHasOccupationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

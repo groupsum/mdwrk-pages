@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RepresentativeOfPagePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRepresentativeOfPageProps extends RepresentativeOfPagePropertyInput, GeneratedPropertyUiProps<RepresentativeOfPagePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRepresentativeOfPage({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyRepresentativeOfPage as typeof SchemaPropertyRepresentativeOfPage & { toStructuredData: (props: SchemaPropertyRepresentativeOfPageProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

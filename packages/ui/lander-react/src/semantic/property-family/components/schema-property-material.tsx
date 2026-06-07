@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MaterialPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMaterialProps extends MaterialPropertyInput, GeneratedPropertyUiProps<MaterialPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMaterial({ value: legacyValue, description = "A ma
     viewModel,
   });
 }
+
+(SchemaPropertyMaterial as typeof SchemaPropertyMaterial & { toStructuredData: (props: SchemaPropertyMaterialProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MerchantReturnDaysPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMerchantReturnDaysProps extends MerchantReturnDaysPropertyInput, GeneratedPropertyUiProps<MerchantReturnDaysPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMerchantReturnDays({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyMerchantReturnDays as typeof SchemaPropertyMerchantReturnDays & { toStructuredData: (props: SchemaPropertyMerchantReturnDaysProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

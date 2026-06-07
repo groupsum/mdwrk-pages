@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ContainsPlacePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyContainsPlaceProps extends ContainsPlacePropertyInput, GeneratedPropertyUiProps<ContainsPlacePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyContainsPlace({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyContainsPlace as typeof SchemaPropertyContainsPlace & { toStructuredData: (props: SchemaPropertyContainsPlaceProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasTierBenefitPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasTierBenefitProps extends HasTierBenefitPropertyInput, GeneratedPropertyUiProps<HasTierBenefitPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasTierBenefit({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyHasTierBenefit as typeof SchemaPropertyHasTierBenefit & { toStructuredData: (props: SchemaPropertyHasTierBenefitProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

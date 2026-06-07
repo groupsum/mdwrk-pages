@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RelatedLinkPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRelatedLinkProps extends RelatedLinkPropertyInput, GeneratedPropertyUiProps<RelatedLinkPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRelatedLink({ value: legacyValue, description = "A
     viewModel,
   });
 }
+
+(SchemaPropertyRelatedLink as typeof SchemaPropertyRelatedLink & { toStructuredData: (props: SchemaPropertyRelatedLinkProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

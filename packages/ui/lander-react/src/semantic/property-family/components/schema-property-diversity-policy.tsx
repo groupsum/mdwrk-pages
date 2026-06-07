@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DiversityPolicyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDiversityPolicyProps extends DiversityPolicyPropertyInput, GeneratedPropertyUiProps<DiversityPolicyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDiversityPolicy({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyDiversityPolicy as typeof SchemaPropertyDiversityPolicy & { toStructuredData: (props: SchemaPropertyDiversityPolicyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

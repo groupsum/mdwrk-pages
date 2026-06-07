@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface WarrantyScopeProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function WarrantyScope({ value, description = "A range of services that w
     viewModel,
   });
 }
+
+(WarrantyScope as typeof WarrantyScope & { toStructuredData: (props: WarrantyScopeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { StageAsNumberPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyStageAsNumberProps extends StageAsNumberPropertyInput, GeneratedPropertyUiProps<StageAsNumberPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyStageAsNumber({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyStageAsNumber as typeof SchemaPropertyStageAsNumber & { toStructuredData: (props: SchemaPropertyStageAsNumberProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

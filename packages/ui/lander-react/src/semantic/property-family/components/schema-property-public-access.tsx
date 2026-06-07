@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PublicAccessPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPublicAccessProps extends PublicAccessPropertyInput, GeneratedPropertyUiProps<PublicAccessPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPublicAccess({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyPublicAccess as typeof SchemaPropertyPublicAccess & { toStructuredData: (props: SchemaPropertyPublicAccessProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { NumItemsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyNumItemsProps extends NumItemsPropertyInput, GeneratedPropertyUiProps<NumItemsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyNumItems({ value: legacyValue, description = "Limi
     viewModel,
   });
 }
+
+(SchemaPropertyNumItems as typeof SchemaPropertyNumItems & { toStructuredData: (props: SchemaPropertyNumItemsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

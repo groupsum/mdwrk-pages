@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { OfferCountPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyOfferCountProps extends OfferCountPropertyInput, GeneratedPropertyUiProps<OfferCountPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyOfferCount({ value: legacyValue, description = "Th
     viewModel,
   });
 }
+
+(SchemaPropertyOfferCount as typeof SchemaPropertyOfferCount & { toStructuredData: (props: SchemaPropertyOfferCountProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

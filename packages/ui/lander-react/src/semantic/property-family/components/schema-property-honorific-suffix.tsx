@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HonorificSuffixPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHonorificSuffixProps extends HonorificSuffixPropertyInput, GeneratedPropertyUiProps<HonorificSuffixPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHonorificSuffix({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyHonorificSuffix as typeof SchemaPropertyHonorificSuffix & { toStructuredData: (props: SchemaPropertyHonorificSuffixProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

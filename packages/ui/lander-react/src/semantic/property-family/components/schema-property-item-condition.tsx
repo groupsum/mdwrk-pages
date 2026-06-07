@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ItemConditionPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyItemConditionProps extends ItemConditionPropertyInput, GeneratedPropertyUiProps<ItemConditionPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyItemCondition({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyItemCondition as typeof SchemaPropertyItemCondition & { toStructuredData: (props: SchemaPropertyItemConditionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

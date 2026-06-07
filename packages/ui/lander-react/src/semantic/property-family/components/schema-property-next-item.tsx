@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { NextItemPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyNextItemProps extends NextItemPropertyInput, GeneratedPropertyUiProps<NextItemPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyNextItem({ value: legacyValue, description = "A li
     viewModel,
   });
 }
+
+(SchemaPropertyNextItem as typeof SchemaPropertyNextItem & { toStructuredData: (props: SchemaPropertyNextItemProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { FiberContentPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyFiberContentProps extends FiberContentPropertyInput, GeneratedPropertyUiProps<FiberContentPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyFiberContent({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyFiberContent as typeof SchemaPropertyFiberContent & { toStructuredData: (props: SchemaPropertyFiberContentProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

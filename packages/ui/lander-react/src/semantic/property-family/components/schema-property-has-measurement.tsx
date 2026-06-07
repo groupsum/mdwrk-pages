@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasMeasurementPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasMeasurementProps extends HasMeasurementPropertyInput, GeneratedPropertyUiProps<HasMeasurementPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasMeasurement({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyHasMeasurement as typeof SchemaPropertyHasMeasurement & { toStructuredData: (props: SchemaPropertyHasMeasurementProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

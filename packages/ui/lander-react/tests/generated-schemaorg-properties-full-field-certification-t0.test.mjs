@@ -35,6 +35,8 @@ test("T0: generated property components accept direct schema field props, apply 
     assert.ok(markup.includes("generated-probe"), `${artifact.visibleExportName} should apply caller className`);
 
     const payload = extractJsonLd(markup);
+    assert.equal(typeof Component.toStructuredData, "function", `${artifact.visibleExportName} should expose toStructuredData`);
+    assert.deepEqual(Component.toStructuredData(props), payload, `${artifact.visibleExportName} toStructuredData should match emitted JSON-LD`);
     if (sample && typeof sample === "object" && !Array.isArray(sample)) {
       for (const key of Object.keys(sample)) {
         assert.ok(key in payload, `${artifact.visibleExportName} should preserve direct field ${key}`);

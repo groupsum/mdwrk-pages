@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface EUEnergyEfficiencyEnumerationProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function EUEnergyEfficiencyEnumeration({ value, description = "Enumerates
     viewModel,
   });
 }
+
+(EUEnergyEfficiencyEnumeration as typeof EUEnergyEfficiencyEnumeration & { toStructuredData: (props: EUEnergyEfficiencyEnumerationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

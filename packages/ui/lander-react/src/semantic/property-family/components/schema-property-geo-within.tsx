@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { GeoWithinPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyGeoWithinProps extends GeoWithinPropertyInput, GeneratedPropertyUiProps<GeoWithinPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyGeoWithin({ value: legacyValue, description = "Rep
     viewModel,
   });
 }
+
+(SchemaPropertyGeoWithin as typeof SchemaPropertyGeoWithin & { toStructuredData: (props: SchemaPropertyGeoWithinProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

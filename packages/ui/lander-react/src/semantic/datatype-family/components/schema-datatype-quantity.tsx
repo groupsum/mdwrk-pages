@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedDatatypeProps, renderGeneratedDatatypeCard } from "../shared.js";
+import { GeneratedDatatypeProps, buildGeneratedDatatypeStructuredData, renderGeneratedDatatypeCard } from "../shared.js";
 
 export interface QuantityProps extends GeneratedDatatypeProps<number | string> {}
 
@@ -21,3 +21,6 @@ export function Quantity({ value, description = "Quantities such as distance, ti
     viewModel,
   });
 }
+
+(Quantity as typeof Quantity & { toStructuredData: (props: QuantityProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedDatatypeStructuredData(props);

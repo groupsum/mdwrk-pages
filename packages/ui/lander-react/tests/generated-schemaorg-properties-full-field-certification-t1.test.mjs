@@ -15,6 +15,10 @@ function extractJsonLd(markup) {
   return JSON.parse(match[1]);
 }
 
+function extractJsonLdScripts(markup) {
+  return [...markup.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi)].map((match) => JSON.parse(match[1]));
+}
+
 test("T1: generated property components emit schema-conformant JSON-LD from direct top-level props", async () => {
   const semantic = await importLanderReactDist();
   const renderableArtifacts = propertyArtifacts.flatMap((artifact) => {
@@ -36,4 +40,27 @@ test("T1: generated property components emit schema-conformant JSON-LD from dire
       `${artifact.visibleExportName} should emit schema-conformant JSON-LD from direct props`,
     );
   }
+});
+
+test("T1: generated property components contribute object payloads to page-level JSON-LD graphs", async () => {
+  const semantic = await importLanderReactDist();
+  const artifact = propertyArtifacts.find((entry) => {
+    try {
+      sampleForGeneratedArtifact(entry);
+      return true;
+    } catch {
+      return false;
+    }
+  });
+  assert.ok(artifact, "expected at least one generated property artifact");
+
+  const Component = semantic[artifact.visibleExportName];
+  const props = propsForGeneratedArtifact(artifact, sampleForGeneratedArtifact(artifact));
+  const markup = renderToStaticMarkup(
+    React.createElement(semantic.SemanticStructuredDataGraph, null, React.createElement(Component, props)),
+  );
+  const scripts = extractJsonLdScripts(markup);
+
+  assert.equal(scripts.length, 1, `${artifact.visibleExportName} should be collected into one graph script`);
+  assert.deepEqual(scripts[0]["@graph"], [Component.toStructuredData(props)]);
 });

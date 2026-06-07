@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PartOfTripPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPartOfTripProps extends PartOfTripPropertyInput, GeneratedPropertyUiProps<PartOfTripPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPartOfTrip({ value: legacyValue, description = "Id
     viewModel,
   });
 }
+
+(SchemaPropertyPartOfTrip as typeof SchemaPropertyPartOfTrip & { toStructuredData: (props: SchemaPropertyPartOfTripProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

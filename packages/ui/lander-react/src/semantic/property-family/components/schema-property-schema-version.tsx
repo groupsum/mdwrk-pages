@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SchemaVersionPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySchemaVersionProps extends SchemaVersionPropertyInput, GeneratedPropertyUiProps<SchemaVersionPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySchemaVersion({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertySchemaVersion as typeof SchemaPropertySchemaVersion & { toStructuredData: (props: SchemaPropertySchemaVersionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

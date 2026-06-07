@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DoseScheduleInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface DoseScheduleProps extends DoseScheduleInput, GeneratedTypeUiProps<DoseScheduleInput> {}
 
@@ -29,3 +29,6 @@ export function DoseSchedule({ value: legacyValue, description = "A specific dos
     viewModel,
   });
 }
+
+(DoseSchedule as typeof DoseSchedule & { toStructuredData: (props: DoseScheduleProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

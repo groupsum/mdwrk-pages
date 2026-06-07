@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface SizeSpecificationProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function SizeSpecification({ value, description = "Size related propertie
     viewModel,
   });
 }
+
+(SizeSpecification as typeof SizeSpecification & { toStructuredData: (props: SizeSpecificationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SpatialPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySpatialProps extends SpatialPropertyInput, GeneratedPropertyUiProps<SpatialPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySpatial({ value: legacyValue, description = "The \
     viewModel,
   });
 }
+
+(SchemaPropertySpatial as typeof SchemaPropertySpatial & { toStructuredData: (props: SchemaPropertySpatialProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

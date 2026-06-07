@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BroadcastFrequencyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBroadcastFrequencyProps extends BroadcastFrequencyPropertyInput, GeneratedPropertyUiProps<BroadcastFrequencyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBroadcastFrequency({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyBroadcastFrequency as typeof SchemaPropertyBroadcastFrequency & { toStructuredData: (props: SchemaPropertyBroadcastFrequencyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

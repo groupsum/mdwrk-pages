@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MedianPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMedianProps extends MedianPropertyInput, GeneratedPropertyUiProps<MedianPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMedian({ value: legacyValue, description = "The me
     viewModel,
   });
 }
+
+(SchemaPropertyMedian as typeof SchemaPropertyMedian & { toStructuredData: (props: SchemaPropertyMedianProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

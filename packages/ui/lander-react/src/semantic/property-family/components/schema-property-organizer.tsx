@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { OrganizerPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyOrganizerProps extends OrganizerPropertyInput, GeneratedPropertyUiProps<OrganizerPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyOrganizer({ value: legacyValue, description = "An 
     viewModel,
   });
 }
+
+(SchemaPropertyOrganizer as typeof SchemaPropertyOrganizer & { toStructuredData: (props: SchemaPropertyOrganizerProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

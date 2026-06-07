@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { VideoQualityPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyVideoQualityProps extends VideoQualityPropertyInput, GeneratedPropertyUiProps<VideoQualityPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyVideoQuality({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyVideoQuality as typeof SchemaPropertyVideoQuality & { toStructuredData: (props: SchemaPropertyVideoQualityProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

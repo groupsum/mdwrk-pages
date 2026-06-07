@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PostalCodeRangeSpecificationInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface PostalCodeRangeSpecificationProps extends PostalCodeRangeSpecificationInput, GeneratedTypeUiProps<PostalCodeRangeSpecificationInput> {}
 
@@ -29,3 +29,6 @@ export function PostalCodeRangeSpecification({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(PostalCodeRangeSpecification as typeof PostalCodeRangeSpecification & { toStructuredData: (props: PostalCodeRangeSpecificationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

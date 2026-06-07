@@ -4,6 +4,10 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { importLanderReactDist } from "./load-dist.mjs";
 
+function jsonLdScripts(markup) {
+  return [...markup.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
+}
+
 test("T2: semantic components degrade cleanly and preserve required derived structured-data fields", async () => {
   const mod = await importLanderReactDist();
 
@@ -42,6 +46,9 @@ test("T2: semantic components degrade cleanly and preserve required derived stru
   assert.ok(productMarkup.includes("\"priceCurrency\":\"USD\""));
   assert.ok(productMarkup.includes("\"availability\":\"InStock\""));
   assert.ok(productMarkup.includes(">Prompt Delivery Studio<"));
+  assert.ok(productMarkup.includes("lander-semantic__product-offer"));
+  assert.ok(productMarkup.includes("lander-semantic__product-facts"));
+  assert.equal(productMarkup.includes("Structured fields"), false);
 
   const courseMarkup = renderToStaticMarkup(
     React.createElement(mod.Course, {
@@ -71,6 +78,7 @@ test("T2: semantic components degrade cleanly and preserve required derived stru
   assert.ok(courseMarkup.includes("4 weeks"));
   assert.ok(courseMarkup.includes("Module B"));
   assert.ok(courseMarkup.includes("Ship prompts"));
+  assert.equal(courseMarkup.includes("Structured fields"), false);
 
   const quizMarkup = renderToStaticMarkup(
     React.createElement(mod.Quiz, {
@@ -112,4 +120,41 @@ test("T2: semantic components degrade cleanly and preserve required derived stru
   assert.equal(quizMarkup.includes("Injected answer"), false);
   assert.equal(quizMarkup.includes("Wrong enrichment"), false);
   assert.ok(quizMarkup.includes("Done"));
+});
+
+test("T2: semantic structured data graph deduplicates matching @id nodes without dropping merged fields", async () => {
+  const mod = await importLanderReactDist();
+  const markup = renderToStaticMarkup(
+    React.createElement(
+      mod.SemanticStructuredDataGraph,
+      null,
+      React.createElement(mod.Organization, {
+        name: "MDWRK",
+        structuredDataOverrides: {
+          id: "https://mdwrk.test/#org",
+          url: "https://mdwrk.test/",
+          sameAs: ["https://github.com/groupsum/mdwrk-pages"],
+        },
+      }),
+      React.createElement(mod.Organization, {
+        name: "MDWRK",
+        structuredDataOverrides: {
+          id: "https://mdwrk.test/#org",
+          description: "Prompt systems company.",
+          sameAs: ["https://www.linkedin.com/company/mdwrk"],
+        },
+      }),
+    ),
+  );
+  const [graph] = jsonLdScripts(markup);
+  const organizationNodes = graph["@graph"].filter((node) => node["@type"] === "Organization");
+
+  assert.equal(organizationNodes.length, 1, "duplicate Organization @id nodes must merge into one graph node");
+  assert.equal(organizationNodes[0]["@id"], "https://mdwrk.test/#org");
+  assert.equal(organizationNodes[0].url, "https://mdwrk.test/");
+  assert.equal(organizationNodes[0].description, "Prompt systems company.");
+  assert.deepEqual(organizationNodes[0].sameAs.sort(), [
+    "https://github.com/groupsum/mdwrk-pages",
+    "https://www.linkedin.com/company/mdwrk",
+  ]);
 });

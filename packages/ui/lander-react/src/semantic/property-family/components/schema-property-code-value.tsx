@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CodeValuePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCodeValueProps extends CodeValuePropertyInput, GeneratedPropertyUiProps<CodeValuePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCodeValue({ value: legacyValue, description = "A s
     viewModel,
   });
 }
+
+(SchemaPropertyCodeValue as typeof SchemaPropertyCodeValue & { toStructuredData: (props: SchemaPropertyCodeValueProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

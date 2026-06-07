@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CountriesNotSupportedPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCountriesNotSupportedProps extends CountriesNotSupportedPropertyInput, GeneratedPropertyUiProps<CountriesNotSupportedPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCountriesNotSupported({ value: legacyValue, descri
     viewModel,
   });
 }
+
+(SchemaPropertyCountriesNotSupported as typeof SchemaPropertyCountriesNotSupported & { toStructuredData: (props: SchemaPropertyCountriesNotSupportedProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

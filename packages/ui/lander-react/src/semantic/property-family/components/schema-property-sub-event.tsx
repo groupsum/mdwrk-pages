@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SubEventPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySubEventProps extends SubEventPropertyInput, GeneratedPropertyUiProps<SubEventPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySubEvent({ value: legacyValue, description = "An E
     viewModel,
   });
 }
+
+(SchemaPropertySubEvent as typeof SchemaPropertySubEvent & { toStructuredData: (props: SchemaPropertySubEventProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -20,6 +20,10 @@ status_notes:
     status: "accepted"
     note: "Tightened strict validation into full-field generated-surface certification requirements."
     at: "2026-06-01T09:09:30Z"
+  -
+    status: "accepted"
+    note: "Extended strict validation to component toStructuredData output and collected page-level graphs."
+    at: "2026-06-07T00:00:00Z"
 references: []
 body: |-
   # SPEC-2106: Structured-data JSON Schema contract and strict validation
@@ -35,10 +39,13 @@ body: |-
   3. Fail-closed omissions are allowed only when the omission itself is explicitly governed and tested.
   4. Schema-derived payloads shall be preferred for certification fixtures over hand-minimized samples.
   5. Validation and certification gates shall fail when promoted generated artifacts silently drop schema-valid fields.
+  6. `.toStructuredData(props)` output shall be validatable through the same generated Schema.org schema contract as standalone component emission.
+  7. Page-level graph collectors shall validate collected component contributions before final script emission.
+  8. Graph de-duplication or normalization shall not silently drop schema-valid fields unless the omission is explicitly governed and tested.
   
   ## Acceptance
   
-  Linked tests shall prove full-field conformance across generated artifact families and fail closed on field loss.
+  Linked tests shall prove full-field conformance across generated artifact families and fail closed on field loss in standalone emission, `.toStructuredData` output, and collected page-level graphs.
 spec_kind: "normative"
 adr_ids:
   - "adr:1057"

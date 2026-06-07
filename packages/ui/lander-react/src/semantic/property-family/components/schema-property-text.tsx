@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TextPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTextProps extends TextPropertyInput, GeneratedPropertyUiProps<TextPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyText({ value: legacyValue, description = "The text
     viewModel,
   });
 }
+
+(SchemaPropertyText as typeof SchemaPropertyText & { toStructuredData: (props: SchemaPropertyTextProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

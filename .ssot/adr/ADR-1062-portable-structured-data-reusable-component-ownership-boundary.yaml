@@ -8,7 +8,7 @@ status: "draft"
 origin: "repo-local"
 decision_date: null
 tags: []
-summary: "Portable structured-data ownership in MdWrk shall cover the full promoted generated artifact surface. The ownership boundary includes generator-backed reusable surfaces for `types`, `properties`, `enumerations`, and `datatypes`, together with their visible fused components, structured-data wrappers, and supporting certification tests."
+summary: "Portable structured-data ownership in MdWrk shall cover the full promoted generated artifact surface. The ownership boundary includes generator-backed reusable surfaces for `types`, `properties`, `enumerations`, and `datatypes`, together with visible fused components, `.toStructuredData(props)` helpers, structured-data wrappers, and supporting certification tests."
 supersedes: []
 superseded_by: []
 status_notes:
@@ -20,13 +20,19 @@ status_notes:
     status: "draft"
     note: "Expanded reusable ownership beyond curated type components to the full promoted generated artifact surface."
     at: "2026-06-01T09:09:23Z"
+  -
+    status: "draft"
+    note: "Added toStructuredData helper ownership for visible semantic components that participate in page-level graph collection."
+    at: "2026-06-07T00:00:00Z"
 references: []
 body: |-
   # ADR-1062: Portable Structured Data Reusable Component Ownership Boundary
   
   ## Decision
   
-  Portable structured-data ownership in MdWrk shall cover the full promoted generated artifact surface. The ownership boundary includes generator-backed reusable surfaces for `types`, `properties`, `enumerations`, and `datatypes`, together with their visible fused components, structured-data wrappers, and supporting certification tests.
+  Portable structured-data ownership in MdWrk shall cover the full promoted generated artifact surface. The ownership boundary includes generator-backed reusable surfaces for `types`, `properties`, `enumerations`, and `datatypes`, together with their visible fused components, `.toStructuredData(props)` helpers, structured-data wrappers, and supporting certification tests.
+
+  A visible semantic component is reusable for page composition only when its visible rendering contract and structured-data contribution contract are owned together. The component shall be able to render visible content from authored props and derive an equivalent structured-data contribution through a pure `.toStructuredData(props)` helper.
   
   The reusable ownership model is no longer limited to a hand-curated list of high-value type components.
   
@@ -36,6 +42,7 @@ body: |-
   
   ## Consequences
   
-  1. Generated reusable surfaces shall have one owner path across contract, wrapper, fused rendering, and token layers.
+  1. Generated reusable surfaces shall have one owner path across contract, wrapper, fused rendering, `.toStructuredData`, and token layers.
   2. Unsupported or partial-field generated artifacts must be recorded honestly in SSOT rather than silently omitted.
   3. Ownership claims for structured-data reusable components now extend beyond page-like authored types.
+  4. Page templates and presets may compose semantic components without accepting component-local JSON-LD script fragmentation.

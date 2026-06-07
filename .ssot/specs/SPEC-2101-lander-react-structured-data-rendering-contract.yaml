@@ -20,6 +20,10 @@ status_notes:
     status: "draft"
     note: "Expanded rendering contract to full-field generated surfaces and token-backed fused coverage."
     at: "2026-06-01T09:09:29Z"
+  -
+    status: "draft"
+    note: "Added rendering contract requirements for page-level graph collection and local emission fallback parity."
+    at: "2026-06-07T00:00:00Z"
 references: []
 body: |-
   # SPEC-2101: Lander React Structured Data Rendering Contract
@@ -36,10 +40,14 @@ body: |-
   4. All fused generated surfaces shall support `className`.
   5. Fused token ownership shall exist for every promoted generated artifact.
   6. Demo and fixture surfaces shall expose representative generated artifacts from each artifact kind.
+  7. Visible fused semantic components shall expose `.toStructuredData(props)` when they are promoted for structured-data page composition.
+  8. Page-level collection mode shall suppress component-local JSON-LD scripts and emit a single page-owned `@graph` script assembled from collected component contributions.
+  9. Standalone rendering outside collection mode shall preserve component-local JSON-LD emission using the same structured-data node construction path as collection mode.
+  10. Collected graphs shall preserve stable identifiers and relationships supplied by the component contribution helpers.
   
   ## Acceptance
   
-  Linked tests shall prove wrapper completeness, fused rendering completeness, className coverage, and token coverage for promoted generated artifacts.
+  Linked tests shall prove wrapper completeness, fused rendering completeness, className coverage, token coverage, graph collection behavior, and standalone emission parity for promoted generated artifacts.
 spec_kind: "normative"
 adr_ids:
   - "adr:1057"

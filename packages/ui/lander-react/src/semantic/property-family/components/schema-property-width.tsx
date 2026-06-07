@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { WidthPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyWidthProps extends WidthPropertyInput, GeneratedPropertyUiProps<WidthPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyWidth({ value: legacyValue, description = "The wid
     viewModel,
   });
 }
+
+(SchemaPropertyWidth as typeof SchemaPropertyWidth & { toStructuredData: (props: SchemaPropertyWidthProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

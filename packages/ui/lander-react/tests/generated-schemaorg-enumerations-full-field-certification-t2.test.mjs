@@ -29,9 +29,13 @@ test("T2: generated enumeration components stay deterministic and do not mutate 
     const baseline = cloneJsonLike(props);
     deepFreeze(props);
 
+    const firstStructuredData = Component.toStructuredData(props);
+    const secondStructuredData = Component.toStructuredData(props);
     const firstMarkup = renderToStaticMarkup(React.createElement(Component, props));
     const secondMarkup = renderToStaticMarkup(React.createElement(Component, props));
 
+    assert.deepEqual(firstStructuredData, secondStructuredData, `${artifact.visibleExportName} toStructuredData should be deterministic`);
+    assert.deepEqual(firstStructuredData, extractJsonLd(firstMarkup), `${artifact.visibleExportName} toStructuredData should match rendered JSON-LD`);
     assert.equal(firstMarkup, secondMarkup, `${artifact.visibleExportName} should render deterministically`);
     assert.deepEqual(extractJsonLd(firstMarkup), extractJsonLd(secondMarkup));
     assert.deepEqual(props, baseline, `${artifact.visibleExportName} should not mutate frozen props`);

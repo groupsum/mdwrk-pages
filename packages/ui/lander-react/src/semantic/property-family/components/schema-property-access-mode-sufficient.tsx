@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AccessModeSufficientPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAccessModeSufficientProps extends AccessModeSufficientPropertyInput, GeneratedPropertyUiProps<AccessModeSufficientPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAccessModeSufficient({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyAccessModeSufficient as typeof SchemaPropertyAccessModeSufficient & { toStructuredData: (props: SchemaPropertyAccessModeSufficientProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

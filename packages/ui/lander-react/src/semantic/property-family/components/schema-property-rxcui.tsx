@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RxcuiPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRxcuiProps extends RxcuiPropertyInput, GeneratedPropertyUiProps<RxcuiPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRxcui({ value: legacyValue, description = "The RxC
     viewModel,
   });
 }
+
+(SchemaPropertyRxcui as typeof SchemaPropertyRxcui & { toStructuredData: (props: SchemaPropertyRxcuiProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

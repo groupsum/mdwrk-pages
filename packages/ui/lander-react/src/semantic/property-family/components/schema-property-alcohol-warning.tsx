@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AlcoholWarningPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAlcoholWarningProps extends AlcoholWarningPropertyInput, GeneratedPropertyUiProps<AlcoholWarningPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAlcoholWarning({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyAlcoholWarning as typeof SchemaPropertyAlcoholWarning & { toStructuredData: (props: SchemaPropertyAlcoholWarningProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

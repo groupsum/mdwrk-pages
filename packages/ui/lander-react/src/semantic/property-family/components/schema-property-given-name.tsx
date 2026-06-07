@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { GivenNamePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyGivenNameProps extends GivenNamePropertyInput, GeneratedPropertyUiProps<GivenNamePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyGivenName({ value: legacyValue, description = "Giv
     viewModel,
   });
 }
+
+(SchemaPropertyGivenName as typeof SchemaPropertyGivenName & { toStructuredData: (props: SchemaPropertyGivenNameProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

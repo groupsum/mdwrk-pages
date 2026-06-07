@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AmountPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAmountProps extends AmountPropertyInput, GeneratedPropertyUiProps<AmountPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAmount({ value: legacyValue, description = "The am
     viewModel,
   });
 }
+
+(SchemaPropertyAmount as typeof SchemaPropertyAmount & { toStructuredData: (props: SchemaPropertyAmountProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

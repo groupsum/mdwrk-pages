@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { NsnPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyNsnProps extends NsnPropertyInput, GeneratedPropertyUiProps<NsnPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyNsn({ value: legacyValue, description = "Indicates
     viewModel,
   });
 }
+
+(SchemaPropertyNsn as typeof SchemaPropertyNsn & { toStructuredData: (props: SchemaPropertyNsnProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

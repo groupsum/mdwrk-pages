@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ClipNumberPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyClipNumberProps extends ClipNumberPropertyInput, GeneratedPropertyUiProps<ClipNumberPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyClipNumber({ value: legacyValue, description = "Po
     viewModel,
   });
 }
+
+(SchemaPropertyClipNumber as typeof SchemaPropertyClipNumber & { toStructuredData: (props: SchemaPropertyClipNumberProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

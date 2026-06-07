@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AssociatedMediaReviewPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAssociatedMediaReviewProps extends AssociatedMediaReviewPropertyInput, GeneratedPropertyUiProps<AssociatedMediaReviewPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAssociatedMediaReview({ value: legacyValue, descri
     viewModel,
   });
 }
+
+(SchemaPropertyAssociatedMediaReview as typeof SchemaPropertyAssociatedMediaReview & { toStructuredData: (props: SchemaPropertyAssociatedMediaReviewProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

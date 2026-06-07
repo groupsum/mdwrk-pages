@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface SpecialtyProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function Specialty({ value, description = "Any branch of a field in which
     viewModel,
   });
 }
+
+(Specialty as typeof Specialty & { toStructuredData: (props: SpecialtyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EventAttendanceModePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEventAttendanceModeProps extends EventAttendanceModePropertyInput, GeneratedPropertyUiProps<EventAttendanceModePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEventAttendanceMode({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertyEventAttendanceMode as typeof SchemaPropertyEventAttendanceMode & { toStructuredData: (props: SchemaPropertyEventAttendanceModeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

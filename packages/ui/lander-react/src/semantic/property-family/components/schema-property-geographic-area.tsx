@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { GeographicAreaPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyGeographicAreaProps extends GeographicAreaPropertyInput, GeneratedPropertyUiProps<GeographicAreaPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyGeographicArea({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyGeographicArea as typeof SchemaPropertyGeographicArea & { toStructuredData: (props: SchemaPropertyGeographicAreaProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

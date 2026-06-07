@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasOfferCatalogPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasOfferCatalogProps extends HasOfferCatalogPropertyInput, GeneratedPropertyUiProps<HasOfferCatalogPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasOfferCatalog({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyHasOfferCatalog as typeof SchemaPropertyHasOfferCatalog & { toStructuredData: (props: SchemaPropertyHasOfferCatalogProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

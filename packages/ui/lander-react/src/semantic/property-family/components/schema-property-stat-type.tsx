@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { StatTypePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyStatTypeProps extends StatTypePropertyInput, GeneratedPropertyUiProps<StatTypePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyStatType({ value: legacyValue, description = "Indi
     viewModel,
   });
 }
+
+(SchemaPropertyStatType as typeof SchemaPropertyStatType & { toStructuredData: (props: SchemaPropertyStatTypeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

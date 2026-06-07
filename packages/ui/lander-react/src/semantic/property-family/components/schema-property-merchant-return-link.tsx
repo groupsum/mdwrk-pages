@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MerchantReturnLinkPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMerchantReturnLinkProps extends MerchantReturnLinkPropertyInput, GeneratedPropertyUiProps<MerchantReturnLinkPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMerchantReturnLink({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyMerchantReturnLink as typeof SchemaPropertyMerchantReturnLink & { toStructuredData: (props: SchemaPropertyMerchantReturnLinkProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface ItemAvailabilityProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function ItemAvailability({ value, description = "A list of possible prod
     viewModel,
   });
 }
+
+(ItemAvailability as typeof ItemAvailability & { toStructuredData: (props: ItemAvailabilityProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

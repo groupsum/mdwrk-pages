@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface OfferItemConditionProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function OfferItemCondition({ value, description = "A list of possible co
     viewModel,
   });
 }
+
+(OfferItemCondition as typeof OfferItemCondition & { toStructuredData: (props: OfferItemConditionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

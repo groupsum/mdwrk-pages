@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { GeoTouchesPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyGeoTouchesProps extends GeoTouchesPropertyInput, GeneratedPropertyUiProps<GeoTouchesPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyGeoTouches({ value: legacyValue, description = "Re
     viewModel,
   });
 }
+
+(SchemaPropertyGeoTouches as typeof SchemaPropertyGeoTouches & { toStructuredData: (props: SchemaPropertyGeoTouchesProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

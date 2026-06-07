@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { NumberOfItemsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyNumberOfItemsProps extends NumberOfItemsPropertyInput, GeneratedPropertyUiProps<NumberOfItemsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyNumberOfItems({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyNumberOfItems as typeof SchemaPropertyNumberOfItems & { toStructuredData: (props: SchemaPropertyNumberOfItemsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

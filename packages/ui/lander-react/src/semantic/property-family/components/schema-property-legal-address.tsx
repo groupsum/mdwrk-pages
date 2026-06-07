@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { LegalAddressPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyLegalAddressProps extends LegalAddressPropertyInput, GeneratedPropertyUiProps<LegalAddressPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyLegalAddress({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyLegalAddress as typeof SchemaPropertyLegalAddress & { toStructuredData: (props: SchemaPropertyLegalAddressProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

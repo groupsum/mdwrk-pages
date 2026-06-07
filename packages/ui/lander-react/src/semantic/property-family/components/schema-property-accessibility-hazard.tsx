@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AccessibilityHazardPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAccessibilityHazardProps extends AccessibilityHazardPropertyInput, GeneratedPropertyUiProps<AccessibilityHazardPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAccessibilityHazard({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertyAccessibilityHazard as typeof SchemaPropertyAccessibilityHazard & { toStructuredData: (props: SchemaPropertyAccessibilityHazardProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

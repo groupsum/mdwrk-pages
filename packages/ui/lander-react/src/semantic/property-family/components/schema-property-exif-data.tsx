@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ExifDataPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyExifDataProps extends ExifDataPropertyInput, GeneratedPropertyUiProps<ExifDataPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyExifData({ value: legacyValue, description = "exif
     viewModel,
   });
 }
+
+(SchemaPropertyExifData as typeof SchemaPropertyExifData & { toStructuredData: (props: SchemaPropertyExifDataProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

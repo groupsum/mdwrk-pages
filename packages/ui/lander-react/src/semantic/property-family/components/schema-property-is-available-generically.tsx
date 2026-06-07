@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IsAvailableGenericallyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIsAvailableGenericallyProps extends IsAvailableGenericallyPropertyInput, GeneratedPropertyUiProps<IsAvailableGenericallyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIsAvailableGenerically({ value: legacyValue, descr
     viewModel,
   });
 }
+
+(SchemaPropertyIsAvailableGenerically as typeof SchemaPropertyIsAvailableGenerically & { toStructuredData: (props: SchemaPropertyIsAvailableGenericallyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

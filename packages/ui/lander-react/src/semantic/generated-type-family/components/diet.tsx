@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DietInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface DietProps extends DietInput, GeneratedTypeUiProps<DietInput> {}
 
@@ -29,3 +29,6 @@ export function Diet({ value: legacyValue, description = "A strategy of regulati
     viewModel,
   });
 }
+
+(Diet as typeof Diet & { toStructuredData: (props: DietProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedDatatypeProps, renderGeneratedDatatypeCard } from "../shared.js";
+import { GeneratedDatatypeProps, buildGeneratedDatatypeStructuredData, renderGeneratedDatatypeCard } from "../shared.js";
 
 export interface BooleanProps extends GeneratedDatatypeProps<boolean> {}
 
@@ -21,3 +21,6 @@ export function Boolean({ value, description = "Boolean: True or False.", exampl
     viewModel,
   });
 }
+
+(Boolean as typeof Boolean & { toStructuredData: (props: BooleanProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedDatatypeStructuredData(props);

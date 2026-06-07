@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DrugClassInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface DrugClassProps extends DrugClassInput, GeneratedTypeUiProps<DrugClassInput> {}
 
@@ -29,3 +29,6 @@ export function DrugClass({ value: legacyValue, description = "A class of medica
     viewModel,
   });
 }
+
+(DrugClass as typeof DrugClass & { toStructuredData: (props: DrugClassProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MaximumIntakePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMaximumIntakeProps extends MaximumIntakePropertyInput, GeneratedPropertyUiProps<MaximumIntakePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMaximumIntake({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyMaximumIntake as typeof SchemaPropertyMaximumIntake & { toStructuredData: (props: SchemaPropertyMaximumIntakeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

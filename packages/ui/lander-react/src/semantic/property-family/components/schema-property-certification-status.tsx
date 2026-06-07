@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CertificationStatusPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCertificationStatusProps extends CertificationStatusPropertyInput, GeneratedPropertyUiProps<CertificationStatusPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCertificationStatus({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertyCertificationStatus as typeof SchemaPropertyCertificationStatus & { toStructuredData: (props: SchemaPropertyCertificationStatusProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

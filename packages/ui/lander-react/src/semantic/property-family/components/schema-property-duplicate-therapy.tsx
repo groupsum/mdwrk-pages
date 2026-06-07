@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DuplicateTherapyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDuplicateTherapyProps extends DuplicateTherapyPropertyInput, GeneratedPropertyUiProps<DuplicateTherapyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDuplicateTherapy({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyDuplicateTherapy as typeof SchemaPropertyDuplicateTherapy & { toStructuredData: (props: SchemaPropertyDuplicateTherapyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

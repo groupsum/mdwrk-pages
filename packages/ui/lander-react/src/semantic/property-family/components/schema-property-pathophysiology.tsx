@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PathophysiologyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPathophysiologyProps extends PathophysiologyPropertyInput, GeneratedPropertyUiProps<PathophysiologyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPathophysiology({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyPathophysiology as typeof SchemaPropertyPathophysiology & { toStructuredData: (props: SchemaPropertyPathophysiologyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

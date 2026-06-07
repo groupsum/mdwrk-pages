@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ScreenshotPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyScreenshotProps extends ScreenshotPropertyInput, GeneratedPropertyUiProps<ScreenshotPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyScreenshot({ value: legacyValue, description = "A 
     viewModel,
   });
 }
+
+(SchemaPropertyScreenshot as typeof SchemaPropertyScreenshot & { toStructuredData: (props: SchemaPropertyScreenshotProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

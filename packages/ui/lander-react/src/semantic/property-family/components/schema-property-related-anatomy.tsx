@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RelatedAnatomyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRelatedAnatomyProps extends RelatedAnatomyPropertyInput, GeneratedPropertyUiProps<RelatedAnatomyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRelatedAnatomy({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyRelatedAnatomy as typeof SchemaPropertyRelatedAnatomy & { toStructuredData: (props: SchemaPropertyRelatedAnatomyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

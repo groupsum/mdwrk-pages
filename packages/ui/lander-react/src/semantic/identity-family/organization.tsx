@@ -8,3 +8,7 @@ export interface OrganizationProps extends OrganizationBaseProps {
 export function Organization(props: OrganizationProps) {
   return <OrganizationBase {...props} />;
 }
+
+(Organization as typeof Organization & { toStructuredData: (props: OrganizationProps) => unknown }).toStructuredData = (
+  OrganizationBase as typeof OrganizationBase & { toStructuredData: (props: OrganizationBaseProps) => unknown }
+).toStructuredData;

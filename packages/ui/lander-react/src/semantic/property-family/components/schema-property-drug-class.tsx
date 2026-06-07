@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DrugClassPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDrugClassProps extends DrugClassPropertyInput, GeneratedPropertyUiProps<DrugClassPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDrugClass({ value: legacyValue, description = "The
     viewModel,
   });
 }
+
+(SchemaPropertyDrugClass as typeof SchemaPropertyDrugClass & { toStructuredData: (props: SchemaPropertyDrugClassProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

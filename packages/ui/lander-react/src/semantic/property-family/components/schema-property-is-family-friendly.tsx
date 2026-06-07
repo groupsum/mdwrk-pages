@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IsFamilyFriendlyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIsFamilyFriendlyProps extends IsFamilyFriendlyPropertyInput, GeneratedPropertyUiProps<IsFamilyFriendlyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIsFamilyFriendly({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyIsFamilyFriendly as typeof SchemaPropertyIsFamilyFriendly & { toStructuredData: (props: SchemaPropertyIsFamilyFriendlyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

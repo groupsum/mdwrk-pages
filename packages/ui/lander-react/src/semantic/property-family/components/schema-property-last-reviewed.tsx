@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { LastReviewedPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyLastReviewedProps extends LastReviewedPropertyInput, GeneratedPropertyUiProps<LastReviewedPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyLastReviewed({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyLastReviewed as typeof SchemaPropertyLastReviewed & { toStructuredData: (props: SchemaPropertyLastReviewedProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

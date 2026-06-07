@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ClosesPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyClosesProps extends ClosesPropertyInput, GeneratedPropertyUiProps<ClosesPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCloses({ value: legacyValue, description = "The cl
     viewModel,
   });
 }
+
+(SchemaPropertyCloses as typeof SchemaPropertyCloses & { toStructuredData: (props: SchemaPropertyClosesProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

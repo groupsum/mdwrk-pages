@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SizePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySizeProps extends SizePropertyInput, GeneratedPropertyUiProps<SizePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySize({ value: legacyValue, description = "A standa
     viewModel,
   });
 }
+
+(SchemaPropertySize as typeof SchemaPropertySize & { toStructuredData: (props: SchemaPropertySizeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

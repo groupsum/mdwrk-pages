@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ContactTypePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyContactTypeProps extends ContactTypePropertyInput, GeneratedPropertyUiProps<ContactTypePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyContactType({ value: legacyValue, description = "A
     viewModel,
   });
 }
+
+(SchemaPropertyContactType as typeof SchemaPropertyContactType & { toStructuredData: (props: SchemaPropertyContactTypeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

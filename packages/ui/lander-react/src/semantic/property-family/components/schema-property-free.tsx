@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { FreePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyFreeProps extends FreePropertyInput, GeneratedPropertyUiProps<FreePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyFree({ value: legacyValue, description = "A flag t
     viewModel,
   });
 }
+
+(SchemaPropertyFree as typeof SchemaPropertyFree & { toStructuredData: (props: SchemaPropertyFreeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

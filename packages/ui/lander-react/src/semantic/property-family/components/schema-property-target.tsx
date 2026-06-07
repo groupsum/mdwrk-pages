@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TargetPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTargetProps extends TargetPropertyInput, GeneratedPropertyUiProps<TargetPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTarget({ value: legacyValue, description = "Indica
     viewModel,
   });
 }
+
+(SchemaPropertyTarget as typeof SchemaPropertyTarget & { toStructuredData: (props: SchemaPropertyTargetProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

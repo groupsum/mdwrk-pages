@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PreparationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPreparationProps extends PreparationPropertyInput, GeneratedPropertyUiProps<PreparationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPreparation({ value: legacyValue, description = "T
     viewModel,
   });
 }
+
+(SchemaPropertyPreparation as typeof SchemaPropertyPreparation & { toStructuredData: (props: SchemaPropertyPreparationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

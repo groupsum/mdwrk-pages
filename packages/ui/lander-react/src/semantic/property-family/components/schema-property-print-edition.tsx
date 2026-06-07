@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PrintEditionPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPrintEditionProps extends PrintEditionPropertyInput, GeneratedPropertyUiProps<PrintEditionPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPrintEdition({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyPrintEdition as typeof SchemaPropertyPrintEdition & { toStructuredData: (props: SchemaPropertyPrintEditionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

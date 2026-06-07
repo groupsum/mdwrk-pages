@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { StepsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyStepsProps extends StepsPropertyInput, GeneratedPropertyUiProps<StepsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySteps({ value: legacyValue, description = "A singl
     viewModel,
   });
 }
+
+(SchemaPropertySteps as typeof SchemaPropertySteps & { toStructuredData: (props: SchemaPropertyStepsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

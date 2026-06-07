@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TemporalPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTemporalProps extends TemporalPropertyInput, GeneratedPropertyUiProps<TemporalPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTemporal({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyTemporal as typeof SchemaPropertyTemporal & { toStructuredData: (props: SchemaPropertyTemporalProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { FatContentPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyFatContentProps extends FatContentPropertyInput, GeneratedPropertyUiProps<FatContentPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyFatContent({ value: legacyValue, description = "Th
     viewModel,
   });
 }
+
+(SchemaPropertyFatContent as typeof SchemaPropertyFatContent & { toStructuredData: (props: SchemaPropertyFatContentProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

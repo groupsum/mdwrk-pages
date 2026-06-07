@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MemoryRequirementsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMemoryRequirementsProps extends MemoryRequirementsPropertyInput, GeneratedPropertyUiProps<MemoryRequirementsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMemoryRequirements({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyMemoryRequirements as typeof SchemaPropertyMemoryRequirements & { toStructuredData: (props: SchemaPropertyMemoryRequirementsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

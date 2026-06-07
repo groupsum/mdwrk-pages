@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { FaxNumberPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyFaxNumberProps extends FaxNumberPropertyInput, GeneratedPropertyUiProps<FaxNumberPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyFaxNumber({ value: legacyValue, description = "The
     viewModel,
   });
 }
+
+(SchemaPropertyFaxNumber as typeof SchemaPropertyFaxNumber & { toStructuredData: (props: SchemaPropertyFaxNumberProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

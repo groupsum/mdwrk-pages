@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IncludedDataCatalogPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIncludedDataCatalogProps extends IncludedDataCatalogPropertyInput, GeneratedPropertyUiProps<IncludedDataCatalogPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIncludedDataCatalog({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertyIncludedDataCatalog as typeof SchemaPropertyIncludedDataCatalog & { toStructuredData: (props: SchemaPropertyIncludedDataCatalogProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

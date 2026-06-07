@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CopyrightNoticePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCopyrightNoticeProps extends CopyrightNoticePropertyInput, GeneratedPropertyUiProps<CopyrightNoticePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCopyrightNotice({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyCopyrightNotice as typeof SchemaPropertyCopyrightNotice & { toStructuredData: (props: SchemaPropertyCopyrightNoticeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

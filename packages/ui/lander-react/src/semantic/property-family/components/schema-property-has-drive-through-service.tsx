@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasDriveThroughServicePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasDriveThroughServiceProps extends HasDriveThroughServicePropertyInput, GeneratedPropertyUiProps<HasDriveThroughServicePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasDriveThroughService({ value: legacyValue, descr
     viewModel,
   });
 }
+
+(SchemaPropertyHasDriveThroughService as typeof SchemaPropertyHasDriveThroughService & { toStructuredData: (props: SchemaPropertyHasDriveThroughServiceProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

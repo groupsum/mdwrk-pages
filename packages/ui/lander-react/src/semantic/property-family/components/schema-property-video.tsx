@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { VideoPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyVideoProps extends VideoPropertyInput, GeneratedPropertyUiProps<VideoPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyVideo({ value: legacyValue, description = "An embe
     viewModel,
   });
 }
+
+(SchemaPropertyVideo as typeof SchemaPropertyVideo & { toStructuredData: (props: SchemaPropertyVideoProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

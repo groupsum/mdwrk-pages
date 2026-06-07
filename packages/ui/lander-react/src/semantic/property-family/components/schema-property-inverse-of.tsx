@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { InverseOfPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyInverseOfProps extends InverseOfPropertyInput, GeneratedPropertyUiProps<InverseOfPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyInverseOf({ value: legacyValue, description = "Rel
     viewModel,
   });
 }
+
+(SchemaPropertyInverseOf as typeof SchemaPropertyInverseOf & { toStructuredData: (props: SchemaPropertyInverseOfProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

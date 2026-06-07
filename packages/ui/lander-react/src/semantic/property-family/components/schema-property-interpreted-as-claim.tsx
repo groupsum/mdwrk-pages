@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { InterpretedAsClaimPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyInterpretedAsClaimProps extends InterpretedAsClaimPropertyInput, GeneratedPropertyUiProps<InterpretedAsClaimPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyInterpretedAsClaim({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyInterpretedAsClaim as typeof SchemaPropertyInterpretedAsClaim & { toStructuredData: (props: SchemaPropertyInterpretedAsClaimProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

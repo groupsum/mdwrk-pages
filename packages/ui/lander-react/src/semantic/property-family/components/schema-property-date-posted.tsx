@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DatePostedPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDatePostedProps extends DatePostedPropertyInput, GeneratedPropertyUiProps<DatePostedPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDatePosted({ value: legacyValue, description = "Pu
     viewModel,
   });
 }
+
+(SchemaPropertyDatePosted as typeof SchemaPropertyDatePosted & { toStructuredData: (props: SchemaPropertyDatePostedProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

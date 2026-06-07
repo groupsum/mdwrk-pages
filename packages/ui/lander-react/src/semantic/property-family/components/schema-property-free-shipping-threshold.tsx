@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { FreeShippingThresholdPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyFreeShippingThresholdProps extends FreeShippingThresholdPropertyInput, GeneratedPropertyUiProps<FreeShippingThresholdPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyFreeShippingThreshold({ value: legacyValue, descri
     viewModel,
   });
 }
+
+(SchemaPropertyFreeShippingThreshold as typeof SchemaPropertyFreeShippingThreshold & { toStructuredData: (props: SchemaPropertyFreeShippingThresholdProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

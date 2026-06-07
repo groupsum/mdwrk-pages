@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SpatialCoveragePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySpatialCoverageProps extends SpatialCoveragePropertyInput, GeneratedPropertyUiProps<SpatialCoveragePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySpatialCoverage({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertySpatialCoverage as typeof SchemaPropertySpatialCoverage & { toStructuredData: (props: SchemaPropertySpatialCoverageProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

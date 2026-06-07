@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { GeoCoveredByPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyGeoCoveredByProps extends GeoCoveredByPropertyInput, GeneratedPropertyUiProps<GeoCoveredByPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyGeoCoveredBy({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyGeoCoveredBy as typeof SchemaPropertyGeoCoveredBy & { toStructuredData: (props: SchemaPropertyGeoCoveredByProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

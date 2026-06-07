@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PopulationTypePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPopulationTypeProps extends PopulationTypePropertyInput, GeneratedPropertyUiProps<PopulationTypePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPopulationType({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyPopulationType as typeof SchemaPropertyPopulationType & { toStructuredData: (props: SchemaPropertyPopulationTypeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

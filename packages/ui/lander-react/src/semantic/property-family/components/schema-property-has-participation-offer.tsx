@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasParticipationOfferPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasParticipationOfferProps extends HasParticipationOfferPropertyInput, GeneratedPropertyUiProps<HasParticipationOfferPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasParticipationOffer({ value: legacyValue, descri
     viewModel,
   });
 }
+
+(SchemaPropertyHasParticipationOffer as typeof SchemaPropertyHasParticipationOffer & { toStructuredData: (props: SchemaPropertyHasParticipationOfferProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

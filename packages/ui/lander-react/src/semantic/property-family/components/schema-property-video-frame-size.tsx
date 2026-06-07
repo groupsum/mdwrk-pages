@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { VideoFrameSizePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyVideoFrameSizeProps extends VideoFrameSizePropertyInput, GeneratedPropertyUiProps<VideoFrameSizePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyVideoFrameSize({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyVideoFrameSize as typeof SchemaPropertyVideoFrameSize & { toStructuredData: (props: SchemaPropertyVideoFrameSizeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

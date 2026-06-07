@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { OverdosagePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyOverdosageProps extends OverdosagePropertyInput, GeneratedPropertyUiProps<OverdosagePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyOverdosage({ value: legacyValue, description = "An
     viewModel,
   });
 }
+
+(SchemaPropertyOverdosage as typeof SchemaPropertyOverdosage & { toStructuredData: (props: SchemaPropertyOverdosageProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

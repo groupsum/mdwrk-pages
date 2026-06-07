@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SaturatedFatContentPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySaturatedFatContentProps extends SaturatedFatContentPropertyInput, GeneratedPropertyUiProps<SaturatedFatContentPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySaturatedFatContent({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertySaturatedFatContent as typeof SchemaPropertySaturatedFatContent & { toStructuredData: (props: SchemaPropertySaturatedFatContentProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

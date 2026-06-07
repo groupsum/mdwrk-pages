@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PreviousItemPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPreviousItemProps extends PreviousItemPropertyInput, GeneratedPropertyUiProps<PreviousItemPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPreviousItem({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyPreviousItem as typeof SchemaPropertyPreviousItem & { toStructuredData: (props: SchemaPropertyPreviousItemProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

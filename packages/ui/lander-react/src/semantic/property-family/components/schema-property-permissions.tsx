@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PermissionsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPermissionsProps extends PermissionsPropertyInput, GeneratedPropertyUiProps<PermissionsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPermissions({ value: legacyValue, description = "P
     viewModel,
   });
 }
+
+(SchemaPropertyPermissions as typeof SchemaPropertyPermissions & { toStructuredData: (props: SchemaPropertyPermissionsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

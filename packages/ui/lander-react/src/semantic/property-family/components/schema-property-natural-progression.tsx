@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { NaturalProgressionPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyNaturalProgressionProps extends NaturalProgressionPropertyInput, GeneratedPropertyUiProps<NaturalProgressionPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyNaturalProgression({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyNaturalProgression as typeof SchemaPropertyNaturalProgression & { toStructuredData: (props: SchemaPropertyNaturalProgressionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

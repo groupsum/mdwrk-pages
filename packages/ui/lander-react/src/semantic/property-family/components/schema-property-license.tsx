@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { LicensePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyLicenseProps extends LicensePropertyInput, GeneratedPropertyUiProps<LicensePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyLicense({ value: legacyValue, description = "A lic
     viewModel,
   });
 }
+
+(SchemaPropertyLicense as typeof SchemaPropertyLicense & { toStructuredData: (props: SchemaPropertyLicenseProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

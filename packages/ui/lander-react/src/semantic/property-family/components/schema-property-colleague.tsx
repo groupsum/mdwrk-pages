@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ColleaguePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyColleagueProps extends ColleaguePropertyInput, GeneratedPropertyUiProps<ColleaguePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyColleague({ value: legacyValue, description = "A c
     viewModel,
   });
 }
+
+(SchemaPropertyColleague as typeof SchemaPropertyColleague & { toStructuredData: (props: SchemaPropertyColleagueProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

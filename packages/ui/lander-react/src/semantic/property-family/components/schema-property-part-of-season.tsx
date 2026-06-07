@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PartOfSeasonPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPartOfSeasonProps extends PartOfSeasonPropertyInput, GeneratedPropertyUiProps<PartOfSeasonPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPartOfSeason({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyPartOfSeason as typeof SchemaPropertyPartOfSeason & { toStructuredData: (props: SchemaPropertyPartOfSeasonProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

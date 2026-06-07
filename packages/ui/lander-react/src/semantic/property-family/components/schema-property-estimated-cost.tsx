@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EstimatedCostPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEstimatedCostProps extends EstimatedCostPropertyInput, GeneratedPropertyUiProps<EstimatedCostPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEstimatedCost({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyEstimatedCost as typeof SchemaPropertyEstimatedCost & { toStructuredData: (props: SchemaPropertyEstimatedCostProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ContainedInPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyContainedInProps extends ContainedInPropertyInput, GeneratedPropertyUiProps<ContainedInPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyContainedIn({ value: legacyValue, description = "T
     viewModel,
   });
 }
+
+(SchemaPropertyContainedIn as typeof SchemaPropertyContainedIn & { toStructuredData: (props: SchemaPropertyContainedInProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

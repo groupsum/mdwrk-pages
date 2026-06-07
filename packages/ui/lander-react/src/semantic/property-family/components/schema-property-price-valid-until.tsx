@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PriceValidUntilPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPriceValidUntilProps extends PriceValidUntilPropertyInput, GeneratedPropertyUiProps<PriceValidUntilPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPriceValidUntil({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyPriceValidUntil as typeof SchemaPropertyPriceValidUntil & { toStructuredData: (props: SchemaPropertyPriceValidUntilProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

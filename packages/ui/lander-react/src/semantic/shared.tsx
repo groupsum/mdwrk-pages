@@ -1,4 +1,5 @@
 import React from "react";
+import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import {
   Card as PrimitiveCard,
   JsonPreview,
@@ -7,14 +8,129 @@ import {
   UnorderedList,
 } from "@mdwrk/lander-primitives";
 
+interface SemanticStructuredDataCollectionContextValue {
+  collect: (node: unknown) => void;
+}
+
+const SemanticStructuredDataCollectionContext = React.createContext<SemanticStructuredDataCollectionContextValue | null>(null);
+
+function recordKey(value: unknown): string | undefined {
+  if (!isRecord(value)) return undefined;
+  const id = value["@id"];
+  return typeof id === "string" && id.trim() ? id : undefined;
+}
+
+function mergeStructuredDataValue(base: unknown, next: unknown): unknown {
+  if (Array.isArray(base) && Array.isArray(next)) {
+    const seen = new Set<string>();
+    const values: unknown[] = [];
+    for (const item of [...base, ...next]) {
+      const key = JSON.stringify(item);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      values.push(item);
+    }
+    return values;
+  }
+  if (isRecord(base) && isRecord(next)) {
+    return mergeStructuredDataNode(base, next);
+  }
+  return next ?? base;
+}
+
+function mergeStructuredDataNode(base: Record<string, unknown>, next: Record<string, unknown>): Record<string, unknown> {
+  const merged: Record<string, unknown> = { ...base };
+  for (const [key, value] of Object.entries(next)) {
+    merged[key] = key in merged ? mergeStructuredDataValue(merged[key], value) : value;
+  }
+  return merged;
+}
+
+function collectStructuredDataNodes(nodes: unknown[]): Record<string, unknown>[] {
+  const keyed = new Map<string, Record<string, unknown>>();
+  const anonymous: Record<string, unknown>[] = [];
+
+  for (const node of nodes) {
+    if (!isRecord(node)) continue;
+    const key = recordKey(node);
+    if (!key) {
+      anonymous.push(node);
+      continue;
+    }
+    const existing = keyed.get(key);
+    keyed.set(key, existing ? mergeStructuredDataNode(existing, node) : node);
+  }
+
+  return [...keyed.values(), ...anonymous];
+}
+
+function buildStructuredDataContribution(kind: string | undefined, data: unknown, node: unknown): unknown {
+  if (node !== undefined) return isRecord(node) ? node : undefined;
+  if (!kind || data === undefined) return undefined;
+  try {
+    const contribution = structuredDataReact.buildStructuredDataNode(
+      kind as structuredDataReact.SupportedSemanticStructuredDataKind,
+      data,
+    );
+    return isRecord(contribution) ? contribution : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+export function SemanticStructuredDataGraph({
+  children,
+  id,
+  emitStructuredData = true,
+}: {
+  children: React.ReactNode;
+  id?: string;
+  emitStructuredData?: boolean;
+}) {
+  const nodes: unknown[] = [];
+  const contextValue: SemanticStructuredDataCollectionContextValue = {
+    collect: (node) => {
+      nodes.push(node);
+    },
+  };
+
+  return (
+    <SemanticStructuredDataCollectionContext.Provider value={contextValue}>
+      {children}
+      {emitStructuredData ? <SemanticStructuredDataGraphScript id={id} nodes={nodes} /> : null}
+    </SemanticStructuredDataCollectionContext.Provider>
+  );
+}
+
+function SemanticStructuredDataGraphScript({ id, nodes }: { id?: string; nodes: unknown[] }) {
+  const graphNodes = collectStructuredDataNodes(nodes);
+  if (!graphNodes.length) return null;
+  return <structuredDataReact.JsonLd graph={structuredDataReact.buildStructuredDataGraph(graphNodes, id)} />;
+}
+
 export function SemanticStructuredDataGate({
   emitStructuredData = true,
+  kind,
+  data,
+  node,
   children,
 }: {
   emitStructuredData?: boolean;
+  kind?: string;
+  data?: unknown;
+  node?: unknown;
   children: React.ReactNode;
 }) {
-  return emitStructuredData === false ? null : <>{children}</>;
+  const collection = React.useContext(SemanticStructuredDataCollectionContext);
+  if (emitStructuredData === false) return null;
+  if (collection) {
+    const contribution = buildStructuredDataContribution(kind, data, node);
+    if (contribution) {
+      collection.collect(contribution);
+      return null;
+    }
+  }
+  return <>{children}</>;
 }
 
 export function joinClassNames(...values: Array<string | undefined | false | null>): string | undefined {

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CashBackPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCashBackProps extends CashBackPropertyInput, GeneratedPropertyUiProps<CashBackPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCashBack({ value: legacyValue, description = "A ca
     viewModel,
   });
 }
+
+(SchemaPropertyCashBack as typeof SchemaPropertyCashBack & { toStructuredData: (props: SchemaPropertyCashBackProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

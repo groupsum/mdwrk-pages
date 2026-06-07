@@ -73,7 +73,7 @@ export interface OrganizationProps {
   structuredDataOverrides?: Partial<OrganizationStructuredDataInput>;
 }
 
-export function Organization(props: OrganizationProps) {
+export function buildOrganizationStructuredData(props: OrganizationProps): OrganizationStructuredDataInput {
   const base: OrganizationStructuredDataInput = {
     name: props.name,
     description: props.description,
@@ -81,10 +81,14 @@ export function Organization(props: OrganizationProps) {
     logo: props.logo,
     sameAs: props.sameAs,
   };
-  const structuredData = { ...base, ...(props.structuredDataOverrides ?? {}) };
+  return { ...base, ...(props.structuredDataOverrides ?? {}) };
+}
+
+export function Organization(props: OrganizationProps) {
+  const structuredData = buildOrganizationStructuredData(props);
   return (
     <>
-      <SemanticStructuredDataGate emitStructuredData={props.emitStructuredData}>
+      <SemanticStructuredDataGate emitStructuredData={props.emitStructuredData} kind="Organization" data={structuredData}>
         <structuredDataReact.OrganizationStructuredData data={structuredData} />
       </SemanticStructuredDataGate>
       <SemanticShell
@@ -116,6 +120,9 @@ export function Organization(props: OrganizationProps) {
     </>
   );
 }
+
+(Organization as typeof Organization & { toStructuredData: (props: OrganizationProps) => unknown }).toStructuredData = (props) =>
+  structuredDataReact.buildStructuredDataNode("Organization", buildOrganizationStructuredData(props));
 
 export interface EducationalOrganizationProps extends OrganizationProps {
   address?: string;

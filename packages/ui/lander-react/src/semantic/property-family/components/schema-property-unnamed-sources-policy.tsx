@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { UnnamedSourcesPolicyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyUnnamedSourcesPolicyProps extends UnnamedSourcesPolicyPropertyInput, GeneratedPropertyUiProps<UnnamedSourcesPolicyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyUnnamedSourcesPolicy({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyUnnamedSourcesPolicy as typeof SchemaPropertyUnnamedSourcesPolicy & { toStructuredData: (props: SchemaPropertyUnnamedSourcesPolicyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

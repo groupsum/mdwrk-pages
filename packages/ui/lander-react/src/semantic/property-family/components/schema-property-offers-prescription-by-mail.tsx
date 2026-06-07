@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { OffersPrescriptionByMailPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyOffersPrescriptionByMailProps extends OffersPrescriptionByMailPropertyInput, GeneratedPropertyUiProps<OffersPrescriptionByMailPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyOffersPrescriptionByMail({ value: legacyValue, des
     viewModel,
   });
 }
+
+(SchemaPropertyOffersPrescriptionByMail as typeof SchemaPropertyOffersPrescriptionByMail & { toStructuredData: (props: SchemaPropertyOffersPrescriptionByMailProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IncludesObjectPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIncludesObjectProps extends IncludesObjectPropertyInput, GeneratedPropertyUiProps<IncludesObjectPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIncludesObject({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyIncludesObject as typeof SchemaPropertyIncludesObject & { toStructuredData: (props: SchemaPropertyIncludesObjectProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

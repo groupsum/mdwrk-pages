@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CmnsClsClassifierInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface CmnsClsClassifierProps extends CmnsClsClassifierInput, GeneratedTypeUiProps<CmnsClsClassifierInput> {}
 
@@ -29,3 +29,6 @@ export function CmnsClsClassifier({ value: legacyValue, description = "", exampl
     viewModel,
   });
 }
+
+(CmnsClsClassifier as typeof CmnsClsClassifier & { toStructuredData: (props: CmnsClsClassifierProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

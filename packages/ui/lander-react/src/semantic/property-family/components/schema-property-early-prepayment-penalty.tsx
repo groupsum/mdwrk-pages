@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EarlyPrepaymentPenaltyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEarlyPrepaymentPenaltyProps extends EarlyPrepaymentPenaltyPropertyInput, GeneratedPropertyUiProps<EarlyPrepaymentPenaltyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEarlyPrepaymentPenalty({ value: legacyValue, descr
     viewModel,
   });
 }
+
+(SchemaPropertyEarlyPrepaymentPenalty as typeof SchemaPropertyEarlyPrepaymentPenalty & { toStructuredData: (props: SchemaPropertyEarlyPrepaymentPenaltyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasPOSPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasPOSProps extends HasPOSPropertyInput, GeneratedPropertyUiProps<HasPOSPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasPOS({ value: legacyValue, description = "Points
     viewModel,
   });
 }
+
+(SchemaPropertyHasPOS as typeof SchemaPropertyHasPOS & { toStructuredData: (props: SchemaPropertyHasPOSProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

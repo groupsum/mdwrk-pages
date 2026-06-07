@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ActionableFeedbackPolicyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyActionableFeedbackPolicyProps extends ActionableFeedbackPolicyPropertyInput, GeneratedPropertyUiProps<ActionableFeedbackPolicyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyActionableFeedbackPolicy({ value: legacyValue, des
     viewModel,
   });
 }
+
+(SchemaPropertyActionableFeedbackPolicy as typeof SchemaPropertyActionableFeedbackPolicy & { toStructuredData: (props: SchemaPropertyActionableFeedbackPolicyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

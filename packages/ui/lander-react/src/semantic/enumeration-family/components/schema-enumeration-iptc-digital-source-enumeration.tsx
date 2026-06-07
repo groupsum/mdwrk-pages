@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface IPTCDigitalSourceEnumerationProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function IPTCDigitalSourceEnumeration({ value, description = "<a href=\"h
     viewModel,
   });
 }
+
+(IPTCDigitalSourceEnumeration as typeof IPTCDigitalSourceEnumeration & { toStructuredData: (props: IPTCDigitalSourceEnumerationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

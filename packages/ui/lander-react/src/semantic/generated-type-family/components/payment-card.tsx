@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PaymentCardInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface PaymentCardProps extends PaymentCardInput, GeneratedTypeUiProps<PaymentCardInput> {}
 
@@ -29,3 +29,6 @@ export function PaymentCard({ value: legacyValue, description = "A payment metho
     viewModel,
   });
 }
+
+(PaymentCard as typeof PaymentCard & { toStructuredData: (props: PaymentCardProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

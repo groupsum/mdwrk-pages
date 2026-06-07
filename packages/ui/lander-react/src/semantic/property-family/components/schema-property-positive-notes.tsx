@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PositiveNotesPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPositiveNotesProps extends PositiveNotesPropertyInput, GeneratedPropertyUiProps<PositiveNotesPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPositiveNotes({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyPositiveNotes as typeof SchemaPropertyPositiveNotes & { toStructuredData: (props: SchemaPropertyPositiveNotesProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

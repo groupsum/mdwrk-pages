@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CommentCountPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCommentCountProps extends CommentCountPropertyInput, GeneratedPropertyUiProps<CommentCountPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCommentCount({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyCommentCount as typeof SchemaPropertyCommentCount & { toStructuredData: (props: SchemaPropertyCommentCountProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

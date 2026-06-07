@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DoorTimePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDoorTimeProps extends DoorTimePropertyInput, GeneratedPropertyUiProps<DoorTimePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDoorTime({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyDoorTime as typeof SchemaPropertyDoorTime & { toStructuredData: (props: SchemaPropertyDoorTimeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

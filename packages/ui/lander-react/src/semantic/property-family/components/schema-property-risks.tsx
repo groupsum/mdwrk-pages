@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RisksPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRisksProps extends RisksPropertyInput, GeneratedPropertyUiProps<RisksPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRisks({ value: legacyValue, description = "Specifi
     viewModel,
   });
 }
+
+(SchemaPropertyRisks as typeof SchemaPropertyRisks & { toStructuredData: (props: SchemaPropertyRisksProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

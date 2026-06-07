@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DunsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDunsProps extends DunsPropertyInput, GeneratedPropertyUiProps<DunsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDuns({ value: legacyValue, description = "The Dun 
     viewModel,
   });
 }
+
+(SchemaPropertyDuns as typeof SchemaPropertyDuns & { toStructuredData: (props: SchemaPropertyDunsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

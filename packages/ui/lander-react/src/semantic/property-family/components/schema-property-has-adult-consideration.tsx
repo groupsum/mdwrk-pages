@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasAdultConsiderationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasAdultConsiderationProps extends HasAdultConsiderationPropertyInput, GeneratedPropertyUiProps<HasAdultConsiderationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasAdultConsideration({ value: legacyValue, descri
     viewModel,
   });
 }
+
+(SchemaPropertyHasAdultConsideration as typeof SchemaPropertyHasAdultConsideration & { toStructuredData: (props: SchemaPropertyHasAdultConsiderationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

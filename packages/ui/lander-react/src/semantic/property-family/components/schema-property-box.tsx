@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BoxPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBoxProps extends BoxPropertyInput, GeneratedPropertyUiProps<BoxPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBox({ value: legacyValue, description = "A box is 
     viewModel,
   });
 }
+
+(SchemaPropertyBox as typeof SchemaPropertyBox & { toStructuredData: (props: SchemaPropertyBoxProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

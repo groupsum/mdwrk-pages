@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { WeightPercentagePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyWeightPercentageProps extends WeightPercentagePropertyInput, GeneratedPropertyUiProps<WeightPercentagePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyWeightPercentage({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyWeightPercentage as typeof SchemaPropertyWeightPercentage & { toStructuredData: (props: SchemaPropertyWeightPercentageProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

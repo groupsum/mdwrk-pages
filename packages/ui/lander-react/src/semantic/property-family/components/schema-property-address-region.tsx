@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AddressRegionPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAddressRegionProps extends AddressRegionPropertyInput, GeneratedPropertyUiProps<AddressRegionPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAddressRegion({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyAddressRegion as typeof SchemaPropertyAddressRegion & { toStructuredData: (props: SchemaPropertyAddressRegionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

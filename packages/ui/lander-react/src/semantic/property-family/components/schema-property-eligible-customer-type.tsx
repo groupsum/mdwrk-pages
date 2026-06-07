@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EligibleCustomerTypePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEligibleCustomerTypeProps extends EligibleCustomerTypePropertyInput, GeneratedPropertyUiProps<EligibleCustomerTypePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEligibleCustomerType({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyEligibleCustomerType as typeof SchemaPropertyEligibleCustomerType & { toStructuredData: (props: SchemaPropertyEligibleCustomerTypeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

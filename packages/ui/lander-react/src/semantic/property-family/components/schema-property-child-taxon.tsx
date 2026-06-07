@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ChildTaxonPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyChildTaxonProps extends ChildTaxonPropertyInput, GeneratedPropertyUiProps<ChildTaxonPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyChildTaxon({ value: legacyValue, description = "Cl
     viewModel,
   });
 }
+
+(SchemaPropertyChildTaxon as typeof SchemaPropertyChildTaxon & { toStructuredData: (props: SchemaPropertyChildTaxonProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,4 +1,5 @@
 export * from "./supporting-family.js";
+export { SemanticStructuredDataGraph } from "./shared.js";
 export * from "./infrastructure-family.js";
 export * from "./reference-family.js";
 export * from "./medical-family.js";

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SubStageSuffixPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySubStageSuffixProps extends SubStageSuffixPropertyInput, GeneratedPropertyUiProps<SubStageSuffixPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySubStageSuffix({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertySubStageSuffix as typeof SchemaPropertySubStageSuffix & { toStructuredData: (props: SchemaPropertySubStageSuffixProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

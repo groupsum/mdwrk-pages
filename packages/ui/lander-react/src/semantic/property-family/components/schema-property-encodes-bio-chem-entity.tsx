@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EncodesBioChemEntityPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEncodesBioChemEntityProps extends EncodesBioChemEntityPropertyInput, GeneratedPropertyUiProps<EncodesBioChemEntityPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEncodesBioChemEntity({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyEncodesBioChemEntity as typeof SchemaPropertyEncodesBioChemEntity & { toStructuredData: (props: SchemaPropertyEncodesBioChemEntityProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

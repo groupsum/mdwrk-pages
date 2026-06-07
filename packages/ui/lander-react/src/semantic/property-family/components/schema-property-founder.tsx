@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { FounderPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyFounderProps extends FounderPropertyInput, GeneratedPropertyUiProps<FounderPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyFounder({ value: legacyValue, description = "A per
     viewModel,
   });
 }
+
+(SchemaPropertyFounder as typeof SchemaPropertyFounder & { toStructuredData: (props: SchemaPropertyFounderProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

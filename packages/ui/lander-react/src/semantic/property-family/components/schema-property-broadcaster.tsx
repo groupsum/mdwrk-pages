@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BroadcasterPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBroadcasterProps extends BroadcasterPropertyInput, GeneratedPropertyUiProps<BroadcasterPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBroadcaster({ value: legacyValue, description = "T
     viewModel,
   });
 }
+
+(SchemaPropertyBroadcaster as typeof SchemaPropertyBroadcaster & { toStructuredData: (props: SchemaPropertyBroadcasterProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

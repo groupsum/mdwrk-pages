@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IsPartOfBioChemEntityPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIsPartOfBioChemEntityProps extends IsPartOfBioChemEntityPropertyInput, GeneratedPropertyUiProps<IsPartOfBioChemEntityPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIsPartOfBioChemEntity({ value: legacyValue, descri
     viewModel,
   });
 }
+
+(SchemaPropertyIsPartOfBioChemEntity as typeof SchemaPropertyIsPartOfBioChemEntity & { toStructuredData: (props: SchemaPropertyIsPartOfBioChemEntityProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

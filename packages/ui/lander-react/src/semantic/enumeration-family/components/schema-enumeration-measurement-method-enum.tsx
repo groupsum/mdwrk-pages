@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface MeasurementMethodEnumProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function MeasurementMethodEnum({ value, description = "Enumeration(s) for
     viewModel,
   });
 }
+
+(MeasurementMethodEnum as typeof MeasurementMethodEnum & { toStructuredData: (props: MeasurementMethodEnumProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

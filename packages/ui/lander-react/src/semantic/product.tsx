@@ -22,7 +22,7 @@ export interface ProductProps {
   structuredDataOverrides?: Partial<ProductStructuredDataInput>;
 }
 
-function buildProductStructuredData(props: ProductProps): ProductStructuredDataInput {
+export function buildProductStructuredData(props: ProductProps): ProductStructuredDataInput {
   const structuredImage = typeof props.image === "string" ? props.image : firstImage(props.image);
   const offerUrl = props.offersCta?.href ?? props.url;
   const baseOffers =
@@ -101,10 +101,11 @@ export function Product({
     structuredDataOverrides,
   });
   const heroImage = firstImage(image);
+  const priceValue = price !== undefined ? `${priceCurrency ? `${priceCurrency} ` : ""}${price}` : undefined;
 
   return (
     <>
-      <SemanticStructuredDataGate emitStructuredData={emitStructuredData}>
+      <SemanticStructuredDataGate emitStructuredData={emitStructuredData} kind="Product" data={structuredData}>
         <structuredDataReact.ProductStructuredData data={structuredData} />
       </SemanticStructuredDataGate>
       <article className={joinClassNames("lander-semantic", "lander-semantic--product", className)}>
@@ -112,19 +113,45 @@ export function Product({
           {viewModel?.badge ? <p className="lander-semantic__eyebrow">{viewModel.badge}</p> : null}
           <h1 className="lander-semantic__title">{name}</h1>
           {description ? <p className="lander-semantic__description">{description}</p> : null}
-          {viewModel?.supportingText ? <p className="lander-semantic__meta">{viewModel.supportingText}</p> : null}
+          {viewModel?.supportingText ? <p className="lander-semantic__product-supporting">{viewModel.supportingText}</p> : null}
         </header>
         {heroImage ? <img className="lander-semantic__image" src={heroImage} alt={name} /> : null}
         <div className="lander-semantic__body">
-          {brand?.name ? <p>Brand: {brand.name}</p> : null}
-          {sku ? <p>SKU: {sku}</p> : null}
-          {price !== undefined ? (
-            <p>
-              Price: {priceCurrency ? `${priceCurrency} ` : null}
-              {price}
-            </p>
+          {priceValue || availability ? (
+            <section className="lander-semantic__product-offer" aria-label="Offer summary">
+              {priceValue ? (
+                <div className="lander-semantic__price-band">
+                  <span className="lander-semantic__price-label">Price</span>
+                  <strong className="lander-semantic__price-value">{priceValue}</strong>
+                </div>
+              ) : null}
+              {availability ? (
+                <span className="lander-semantic__availability-chip">{availability.replace(/^https?:\/\/schema\.org\//, "")}</span>
+              ) : null}
+            </section>
           ) : null}
-          {availability ? <p>Availability: {availability}</p> : null}
+          {(brand?.name || sku || url) ? (
+            <dl className="lander-semantic__product-facts">
+              {brand?.name ? (
+                <div className="lander-semantic__product-fact">
+                  <dt>Brand</dt>
+                  <dd>{brand.name}</dd>
+                </div>
+              ) : null}
+              {sku ? (
+                <div className="lander-semantic__product-fact">
+                  <dt>SKU</dt>
+                  <dd>{sku}</dd>
+                </div>
+              ) : null}
+              {url ? (
+                <div className="lander-semantic__product-fact">
+                  <dt>URL</dt>
+                  <dd><a href={url}>{url.replace(/^https?:\/\//, "")}</a></dd>
+                </div>
+              ) : null}
+            </dl>
+          ) : null}
           {body}
         </div>
         {offersCta ? (
@@ -139,3 +166,6 @@ export function Product({
     </>
   );
 }
+
+(Product as typeof Product & { toStructuredData: (props: ProductProps) => unknown }).toStructuredData = (props) =>
+  structuredDataReact.buildStructuredDataNode("Product", buildProductStructuredData(props));

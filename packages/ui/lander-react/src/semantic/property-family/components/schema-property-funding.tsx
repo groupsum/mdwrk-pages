@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { FundingPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyFundingProps extends FundingPropertyInput, GeneratedPropertyUiProps<FundingPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyFunding({ value: legacyValue, description = "A [[G
     viewModel,
   });
 }
+
+(SchemaPropertyFunding as typeof SchemaPropertyFunding & { toStructuredData: (props: SchemaPropertyFundingProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

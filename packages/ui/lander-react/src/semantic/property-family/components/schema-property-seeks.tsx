@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SeeksPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySeeksProps extends SeeksPropertyInput, GeneratedPropertyUiProps<SeeksPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySeeks({ value: legacyValue, description = "A point
     viewModel,
   });
 }
+
+(SchemaPropertySeeks as typeof SchemaPropertySeeks & { toStructuredData: (props: SchemaPropertySeeksProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

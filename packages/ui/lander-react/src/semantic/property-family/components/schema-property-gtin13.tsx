@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { Gtin13PropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyGtin13Props extends Gtin13PropertyInput, GeneratedPropertyUiProps<Gtin13PropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyGtin13({ value: legacyValue, description = "The GT
     viewModel,
   });
 }
+
+(SchemaPropertyGtin13 as typeof SchemaPropertyGtin13 & { toStructuredData: (props: SchemaPropertyGtin13Props) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BreastfeedingWarningPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBreastfeedingWarningProps extends BreastfeedingWarningPropertyInput, GeneratedPropertyUiProps<BreastfeedingWarningPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBreastfeedingWarning({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyBreastfeedingWarning as typeof SchemaPropertyBreastfeedingWarning & { toStructuredData: (props: SchemaPropertyBreastfeedingWarningProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

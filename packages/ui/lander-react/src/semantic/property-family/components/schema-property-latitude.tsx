@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { LatitudePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyLatitudeProps extends LatitudePropertyInput, GeneratedPropertyUiProps<LatitudePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyLatitude({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyLatitude as typeof SchemaPropertyLatitude & { toStructuredData: (props: SchemaPropertyLatitudeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

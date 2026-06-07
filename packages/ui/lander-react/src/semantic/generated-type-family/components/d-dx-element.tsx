@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DDxElementInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface DDxElementProps extends DDxElementInput, GeneratedTypeUiProps<DDxElementInput> {}
 
@@ -29,3 +29,6 @@ export function DDxElement({ value: legacyValue, description = "An alternative, 
     viewModel,
   });
 }
+
+(DDxElement as typeof DDxElement & { toStructuredData: (props: DDxElementProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

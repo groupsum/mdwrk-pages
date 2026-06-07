@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AccountablePersonPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAccountablePersonProps extends AccountablePersonPropertyInput, GeneratedPropertyUiProps<AccountablePersonPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAccountablePerson({ value: legacyValue, descriptio
     viewModel,
   });
 }
+
+(SchemaPropertyAccountablePerson as typeof SchemaPropertyAccountablePerson & { toStructuredData: (props: SchemaPropertyAccountablePersonProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

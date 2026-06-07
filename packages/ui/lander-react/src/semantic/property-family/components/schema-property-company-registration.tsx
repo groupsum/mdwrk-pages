@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CompanyRegistrationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCompanyRegistrationProps extends CompanyRegistrationPropertyInput, GeneratedPropertyUiProps<CompanyRegistrationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCompanyRegistration({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertyCompanyRegistration as typeof SchemaPropertyCompanyRegistration & { toStructuredData: (props: SchemaPropertyCompanyRegistrationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

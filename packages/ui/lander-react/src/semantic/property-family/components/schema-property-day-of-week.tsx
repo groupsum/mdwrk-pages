@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DayOfWeekPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDayOfWeekProps extends DayOfWeekPropertyInput, GeneratedPropertyUiProps<DayOfWeekPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDayOfWeek({ value: legacyValue, description = "The
     viewModel,
   });
 }
+
+(SchemaPropertyDayOfWeek as typeof SchemaPropertyDayOfWeek & { toStructuredData: (props: SchemaPropertyDayOfWeekProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

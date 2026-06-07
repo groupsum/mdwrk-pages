@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DirectorPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDirectorProps extends DirectorPropertyInput, GeneratedPropertyUiProps<DirectorPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDirector({ value: legacyValue, description = "A di
     viewModel,
   });
 }
+
+(SchemaPropertyDirector as typeof SchemaPropertyDirector & { toStructuredData: (props: SchemaPropertyDirectorProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

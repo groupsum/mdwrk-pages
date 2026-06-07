@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasMenuItemPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasMenuItemProps extends HasMenuItemPropertyInput, GeneratedPropertyUiProps<HasMenuItemPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasMenuItem({ value: legacyValue, description = "A
     viewModel,
   });
 }
+
+(SchemaPropertyHasMenuItem as typeof SchemaPropertyHasMenuItem & { toStructuredData: (props: SchemaPropertyHasMenuItemProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

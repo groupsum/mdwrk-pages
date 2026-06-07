@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AgentInteractionStatisticPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAgentInteractionStatisticProps extends AgentInteractionStatisticPropertyInput, GeneratedPropertyUiProps<AgentInteractionStatisticPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAgentInteractionStatistic({ value: legacyValue, de
     viewModel,
   });
 }
+
+(SchemaPropertyAgentInteractionStatistic as typeof SchemaPropertyAgentInteractionStatistic & { toStructuredData: (props: SchemaPropertyAgentInteractionStatisticProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

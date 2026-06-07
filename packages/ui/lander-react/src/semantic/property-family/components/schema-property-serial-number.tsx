@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SerialNumberPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySerialNumberProps extends SerialNumberPropertyInput, GeneratedPropertyUiProps<SerialNumberPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySerialNumber({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertySerialNumber as typeof SchemaPropertySerialNumber & { toStructuredData: (props: SchemaPropertySerialNumberProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedDatatypeProps, renderGeneratedDatatypeCard } from "../shared.js";
+import { GeneratedDatatypeProps, buildGeneratedDatatypeStructuredData, renderGeneratedDatatypeCard } from "../shared.js";
 
 export interface DateProps extends GeneratedDatatypeProps<string> {}
 
@@ -21,3 +21,6 @@ export function Date({ value, description = "A date value in [ISO 8601 date form
     viewModel,
   });
 }
+
+(Date as typeof Date & { toStructuredData: (props: DateProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedDatatypeStructuredData(props);

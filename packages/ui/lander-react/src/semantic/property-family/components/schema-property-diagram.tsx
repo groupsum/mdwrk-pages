@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DiagramPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDiagramProps extends DiagramPropertyInput, GeneratedPropertyUiProps<DiagramPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDiagram({ value: legacyValue, description = "An im
     viewModel,
   });
 }
+
+(SchemaPropertyDiagram as typeof SchemaPropertyDiagram & { toStructuredData: (props: SchemaPropertyDiagramProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DateDeletedPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDateDeletedProps extends DateDeletedPropertyInput, GeneratedPropertyUiProps<DateDeletedPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDateDeleted({ value: legacyValue, description = "T
     viewModel,
   });
 }
+
+(SchemaPropertyDateDeleted as typeof SchemaPropertyDateDeleted & { toStructuredData: (props: SchemaPropertyDateDeletedProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

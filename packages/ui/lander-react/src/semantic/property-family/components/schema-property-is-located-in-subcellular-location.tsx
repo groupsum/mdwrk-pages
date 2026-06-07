@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IsLocatedInSubcellularLocationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIsLocatedInSubcellularLocationProps extends IsLocatedInSubcellularLocationPropertyInput, GeneratedPropertyUiProps<IsLocatedInSubcellularLocationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIsLocatedInSubcellularLocation({ value: legacyValu
     viewModel,
   });
 }
+
+(SchemaPropertyIsLocatedInSubcellularLocation as typeof SchemaPropertyIsLocatedInSubcellularLocation & { toStructuredData: (props: SchemaPropertyIsLocatedInSubcellularLocationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -429,6 +429,27 @@ function StructuredDataNode<T>({ data, build }: { data: T; build: (data: T) => J
   return <JsonLd graph={build(data)} />;
 }
 
+type StructuredDataNodeBuilder = (data: unknown) => JsonLd;
+
+const structuredDataNodeBuilderRegistry = Object.freeze({
+  AboutPage: aboutPageNode as StructuredDataNodeBuilder,
+  Course: courseNode as StructuredDataNodeBuilder,
+  Organization: organizationNode as StructuredDataNodeBuilder,
+  Product: productNode as StructuredDataNodeBuilder,
+  WebPage: webPageSchema as StructuredDataNodeBuilder,
+  WebSite: webSiteSchema as StructuredDataNodeBuilder,
+});
+
+export type SupportedSemanticStructuredDataKind = keyof typeof structuredDataNodeBuilderRegistry;
+
+export function buildStructuredDataNode(kind: SupportedSemanticStructuredDataKind, data: unknown): JsonLd {
+  return structuredDataNodeBuilderRegistry[kind](data);
+}
+
+export function buildStructuredDataGraph(nodes: JsonLd[], id?: string): JsonLd {
+  return jsonLdGraph(nodes, id);
+}
+
 export function WebPageStructuredData({ data }: { data: WebPageInput }) {
   return <StructuredDataNode data={data} build={webPageSchema} />;
 }

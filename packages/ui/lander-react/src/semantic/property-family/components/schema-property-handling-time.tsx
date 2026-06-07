@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HandlingTimePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHandlingTimeProps extends HandlingTimePropertyInput, GeneratedPropertyUiProps<HandlingTimePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHandlingTime({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyHandlingTime as typeof SchemaPropertyHandlingTime & { toStructuredData: (props: SchemaPropertyHandlingTimeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

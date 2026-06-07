@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EpidemiologyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEpidemiologyProps extends EpidemiologyPropertyInput, GeneratedPropertyUiProps<EpidemiologyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEpidemiology({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyEpidemiology as typeof SchemaPropertyEpidemiology & { toStructuredData: (props: SchemaPropertyEpidemiologyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

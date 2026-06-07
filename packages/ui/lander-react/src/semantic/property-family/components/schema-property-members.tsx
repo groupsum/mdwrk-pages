@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MembersPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMembersProps extends MembersPropertyInput, GeneratedPropertyUiProps<MembersPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMembers({ value: legacyValue, description = "A mem
     viewModel,
   });
 }
+
+(SchemaPropertyMembers as typeof SchemaPropertyMembers & { toStructuredData: (props: SchemaPropertyMembersProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BroadcastSignalModulationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBroadcastSignalModulationProps extends BroadcastSignalModulationPropertyInput, GeneratedPropertyUiProps<BroadcastSignalModulationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBroadcastSignalModulation({ value: legacyValue, de
     viewModel,
   });
 }
+
+(SchemaPropertyBroadcastSignalModulation as typeof SchemaPropertyBroadcastSignalModulation & { toStructuredData: (props: SchemaPropertyBroadcastSignalModulationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

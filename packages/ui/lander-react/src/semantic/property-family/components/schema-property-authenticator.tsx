@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AuthenticatorPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAuthenticatorProps extends AuthenticatorPropertyInput, GeneratedPropertyUiProps<AuthenticatorPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAuthenticator({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyAuthenticator as typeof SchemaPropertyAuthenticator & { toStructuredData: (props: SchemaPropertyAuthenticatorProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

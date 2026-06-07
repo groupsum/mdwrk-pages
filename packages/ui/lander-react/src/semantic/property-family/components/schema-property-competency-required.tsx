@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CompetencyRequiredPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCompetencyRequiredProps extends CompetencyRequiredPropertyInput, GeneratedPropertyUiProps<CompetencyRequiredPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCompetencyRequired({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyCompetencyRequired as typeof SchemaPropertyCompetencyRequired & { toStructuredData: (props: SchemaPropertyCompetencyRequiredProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

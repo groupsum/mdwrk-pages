@@ -8,3 +8,7 @@ export interface WebPageProps extends WebPageBaseProps {
 export function WebPage(props: WebPageProps) {
   return <WebPageBase {...props} />;
 }
+
+(WebPage as typeof WebPage & { toStructuredData: (props: WebPageProps) => unknown }).toStructuredData = (
+  WebPageBase as typeof WebPageBase & { toStructuredData: (props: WebPageBaseProps) => unknown }
+).toStructuredData;

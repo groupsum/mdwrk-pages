@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { YieldPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyYieldProps extends YieldPropertyInput, GeneratedPropertyUiProps<YieldPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyYield({ value: legacyValue, description = "The qua
     viewModel,
   });
 }
+
+(SchemaPropertyYield as typeof SchemaPropertyYield & { toStructuredData: (props: SchemaPropertyYieldProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

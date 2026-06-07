@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasBioPolymerSequencePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasBioPolymerSequenceProps extends HasBioPolymerSequencePropertyInput, GeneratedPropertyUiProps<HasBioPolymerSequencePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasBioPolymerSequence({ value: legacyValue, descri
     viewModel,
   });
 }
+
+(SchemaPropertyHasBioPolymerSequence as typeof SchemaPropertyHasBioPolymerSequence & { toStructuredData: (props: SchemaPropertyHasBioPolymerSequenceProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

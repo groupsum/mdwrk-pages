@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { GeoCrossesPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyGeoCrossesProps extends GeoCrossesPropertyInput, GeneratedPropertyUiProps<GeoCrossesPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyGeoCrosses({ value: legacyValue, description = "Re
     viewModel,
   });
 }
+
+(SchemaPropertyGeoCrosses as typeof SchemaPropertyGeoCrosses & { toStructuredData: (props: SchemaPropertyGeoCrossesProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

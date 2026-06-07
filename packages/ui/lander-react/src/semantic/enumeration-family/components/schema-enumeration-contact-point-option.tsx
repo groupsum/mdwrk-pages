@@ -1,6 +1,6 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
-import { GeneratedEnumerationProps, renderGeneratedEnumerationCard } from "../shared.js";
+import { GeneratedEnumerationProps, buildGeneratedEnumerationStructuredData, renderGeneratedEnumerationCard } from "../shared.js";
 
 export interface ContactPointOptionProps extends GeneratedEnumerationProps<string> {}
 
@@ -21,3 +21,6 @@ export function ContactPointOption({ value, description = "Enumerated options re
     viewModel,
   });
 }
+
+(ContactPointOption as typeof ContactPointOption & { toStructuredData: (props: ContactPointOptionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedEnumerationStructuredData(props);

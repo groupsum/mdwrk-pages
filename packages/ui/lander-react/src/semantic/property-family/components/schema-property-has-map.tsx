@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasMapPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasMapProps extends HasMapPropertyInput, GeneratedPropertyUiProps<HasMapPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasMap({ value: legacyValue, description = "A URL 
     viewModel,
   });
 }
+
+(SchemaPropertyHasMap as typeof SchemaPropertyHasMap & { toStructuredData: (props: SchemaPropertyHasMapProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

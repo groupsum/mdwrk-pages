@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CreditedToPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCreditedToProps extends CreditedToPropertyInput, GeneratedPropertyUiProps<CreditedToPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCreditedTo({ value: legacyValue, description = "Th
     viewModel,
   });
 }
+
+(SchemaPropertyCreditedTo as typeof SchemaPropertyCreditedTo & { toStructuredData: (props: SchemaPropertyCreditedToProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

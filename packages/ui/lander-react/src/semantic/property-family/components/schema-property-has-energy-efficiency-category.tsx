@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasEnergyEfficiencyCategoryPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasEnergyEfficiencyCategoryProps extends HasEnergyEfficiencyCategoryPropertyInput, GeneratedPropertyUiProps<HasEnergyEfficiencyCategoryPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasEnergyEfficiencyCategory({ value: legacyValue, 
     viewModel,
   });
 }
+
+(SchemaPropertyHasEnergyEfficiencyCategory as typeof SchemaPropertyHasEnergyEfficiencyCategory & { toStructuredData: (props: SchemaPropertyHasEnergyEfficiencyCategoryProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

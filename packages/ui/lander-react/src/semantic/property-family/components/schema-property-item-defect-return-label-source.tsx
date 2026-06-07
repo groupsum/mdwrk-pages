@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ItemDefectReturnLabelSourcePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyItemDefectReturnLabelSourceProps extends ItemDefectReturnLabelSourcePropertyInput, GeneratedPropertyUiProps<ItemDefectReturnLabelSourcePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyItemDefectReturnLabelSource({ value: legacyValue, 
     viewModel,
   });
 }
+
+(SchemaPropertyItemDefectReturnLabelSource as typeof SchemaPropertyItemDefectReturnLabelSource & { toStructuredData: (props: SchemaPropertyItemDefectReturnLabelSourceProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

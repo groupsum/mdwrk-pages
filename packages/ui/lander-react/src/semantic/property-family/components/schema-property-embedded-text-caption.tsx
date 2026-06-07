@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EmbeddedTextCaptionPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEmbeddedTextCaptionProps extends EmbeddedTextCaptionPropertyInput, GeneratedPropertyUiProps<EmbeddedTextCaptionPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEmbeddedTextCaption({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertyEmbeddedTextCaption as typeof SchemaPropertyEmbeddedTextCaption & { toStructuredData: (props: SchemaPropertyEmbeddedTextCaptionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

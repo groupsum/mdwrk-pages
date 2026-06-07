@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ValueReferencePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyValueReferenceProps extends ValueReferencePropertyInput, GeneratedPropertyUiProps<ValueReferencePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyValueReference({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyValueReference as typeof SchemaPropertyValueReference & { toStructuredData: (props: SchemaPropertyValueReferenceProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DatePublishedPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDatePublishedProps extends DatePublishedPropertyInput, GeneratedPropertyUiProps<DatePublishedPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDatePublished({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyDatePublished as typeof SchemaPropertyDatePublished & { toStructuredData: (props: SchemaPropertyDatePublishedProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

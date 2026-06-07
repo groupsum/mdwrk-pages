@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { Sha256PropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySha256Props extends Sha256PropertyInput, GeneratedPropertyUiProps<Sha256PropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySha256({ value: legacyValue, description = "The [S
     viewModel,
   });
 }
+
+(SchemaPropertySha256 as typeof SchemaPropertySha256 & { toStructuredData: (props: SchemaPropertySha256Props) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

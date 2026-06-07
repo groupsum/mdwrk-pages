@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { StrengthUnitPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyStrengthUnitProps extends StrengthUnitPropertyInput, GeneratedPropertyUiProps<StrengthUnitPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyStrengthUnit({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyStrengthUnit as typeof SchemaPropertyStrengthUnit & { toStructuredData: (props: SchemaPropertyStrengthUnitProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

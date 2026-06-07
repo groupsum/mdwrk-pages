@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { FeatureListPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyFeatureListProps extends FeatureListPropertyInput, GeneratedPropertyUiProps<FeatureListPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyFeatureList({ value: legacyValue, description = "F
     viewModel,
   });
 }
+
+(SchemaPropertyFeatureList as typeof SchemaPropertyFeatureList & { toStructuredData: (props: SchemaPropertyFeatureListProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

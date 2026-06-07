@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MusicGroupMemberPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMusicGroupMemberProps extends MusicGroupMemberPropertyInput, GeneratedPropertyUiProps<MusicGroupMemberPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMusicGroupMember({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyMusicGroupMember as typeof SchemaPropertyMusicGroupMember & { toStructuredData: (props: SchemaPropertyMusicGroupMemberProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

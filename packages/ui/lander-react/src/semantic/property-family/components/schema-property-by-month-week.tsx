@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ByMonthWeekPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyByMonthWeekProps extends ByMonthWeekPropertyInput, GeneratedPropertyUiProps<ByMonthWeekPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyByMonthWeek({ value: legacyValue, description = "D
     viewModel,
   });
 }
+
+(SchemaPropertyByMonthWeek as typeof SchemaPropertyByMonthWeek & { toStructuredData: (props: SchemaPropertyByMonthWeekProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AggregateElementPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAggregateElementProps extends AggregateElementPropertyInput, GeneratedPropertyUiProps<AggregateElementPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAggregateElement({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyAggregateElement as typeof SchemaPropertyAggregateElement & { toStructuredData: (props: SchemaPropertyAggregateElementProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

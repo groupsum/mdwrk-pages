@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ContactlessPaymentPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyContactlessPaymentProps extends ContactlessPaymentPropertyInput, GeneratedPropertyUiProps<ContactlessPaymentPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyContactlessPayment({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyContactlessPayment as typeof SchemaPropertyContactlessPayment & { toStructuredData: (props: SchemaPropertyContactlessPaymentProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

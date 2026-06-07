@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ContentRatingPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyContentRatingProps extends ContentRatingPropertyInput, GeneratedPropertyUiProps<ContentRatingPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyContentRating({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyContentRating as typeof SchemaPropertyContentRating & { toStructuredData: (props: SchemaPropertyContentRatingProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

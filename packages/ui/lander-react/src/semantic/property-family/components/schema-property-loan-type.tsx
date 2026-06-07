@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { LoanTypePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyLoanTypeProps extends LoanTypePropertyInput, GeneratedPropertyUiProps<LoanTypePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyLoanType({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyLoanType as typeof SchemaPropertyLoanType & { toStructuredData: (props: SchemaPropertyLoanTypeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

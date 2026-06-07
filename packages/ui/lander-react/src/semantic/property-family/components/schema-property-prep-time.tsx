@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PrepTimePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPrepTimeProps extends PrepTimePropertyInput, GeneratedPropertyUiProps<PrepTimePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPrepTime({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyPrepTime as typeof SchemaPropertyPrepTime & { toStructuredData: (props: SchemaPropertyPrepTimeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

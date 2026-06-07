@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EligibleDurationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEligibleDurationProps extends EligibleDurationPropertyInput, GeneratedPropertyUiProps<EligibleDurationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEligibleDuration({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyEligibleDuration as typeof SchemaPropertyEligibleDuration & { toStructuredData: (props: SchemaPropertyEligibleDurationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

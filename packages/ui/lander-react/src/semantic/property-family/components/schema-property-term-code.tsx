@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TermCodePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTermCodeProps extends TermCodePropertyInput, GeneratedPropertyUiProps<TermCodePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTermCode({ value: legacyValue, description = "A co
     viewModel,
   });
 }
+
+(SchemaPropertyTermCode as typeof SchemaPropertyTermCode & { toStructuredData: (props: SchemaPropertyTermCodeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

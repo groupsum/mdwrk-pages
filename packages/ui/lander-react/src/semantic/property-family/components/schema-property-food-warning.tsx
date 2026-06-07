@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { FoodWarningPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyFoodWarningProps extends FoodWarningPropertyInput, GeneratedPropertyUiProps<FoodWarningPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyFoodWarning({ value: legacyValue, description = "A
     viewModel,
   });
 }
+
+(SchemaPropertyFoodWarning as typeof SchemaPropertyFoodWarning & { toStructuredData: (props: SchemaPropertyFoodWarningProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BioChemEntityInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface BioChemEntityProps extends BioChemEntityInput, GeneratedTypeUiProps<BioChemEntityInput> {}
 
@@ -29,3 +29,6 @@ export function BioChemEntity({ value: legacyValue, description = "Any biologica
     viewModel,
   });
 }
+
+(BioChemEntity as typeof BioChemEntity & { toStructuredData: (props: BioChemEntityProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

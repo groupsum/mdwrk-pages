@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AdverseOutcomePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAdverseOutcomeProps extends AdverseOutcomePropertyInput, GeneratedPropertyUiProps<AdverseOutcomePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAdverseOutcome({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyAdverseOutcome as typeof SchemaPropertyAdverseOutcome & { toStructuredData: (props: SchemaPropertyAdverseOutcomeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

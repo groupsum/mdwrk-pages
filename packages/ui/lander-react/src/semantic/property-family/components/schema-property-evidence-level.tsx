@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EvidenceLevelPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEvidenceLevelProps extends EvidenceLevelPropertyInput, GeneratedPropertyUiProps<EvidenceLevelPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEvidenceLevel({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyEvidenceLevel as typeof SchemaPropertyEvidenceLevel & { toStructuredData: (props: SchemaPropertyEvidenceLevelProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

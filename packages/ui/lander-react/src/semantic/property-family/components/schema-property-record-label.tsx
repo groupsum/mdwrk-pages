@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RecordLabelPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRecordLabelProps extends RecordLabelPropertyInput, GeneratedPropertyUiProps<RecordLabelPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRecordLabel({ value: legacyValue, description = "T
     viewModel,
   });
 }
+
+(SchemaPropertyRecordLabel as typeof SchemaPropertyRecordLabel & { toStructuredData: (props: SchemaPropertyRecordLabelProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

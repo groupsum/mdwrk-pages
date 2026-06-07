@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ValidForPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyValidForProps extends ValidForPropertyInput, GeneratedPropertyUiProps<ValidForPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyValidFor({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyValidFor as typeof SchemaPropertyValidFor & { toStructuredData: (props: SchemaPropertyValidForProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

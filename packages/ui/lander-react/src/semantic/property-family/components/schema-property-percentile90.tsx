@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { Percentile90PropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPercentile90Props extends Percentile90PropertyInput, GeneratedPropertyUiProps<Percentile90PropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPercentile90({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyPercentile90 as typeof SchemaPropertyPercentile90 & { toStructuredData: (props: SchemaPropertyPercentile90Props) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

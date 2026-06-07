@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AnnualPercentageRatePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAnnualPercentageRateProps extends AnnualPercentageRatePropertyInput, GeneratedPropertyUiProps<AnnualPercentageRatePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAnnualPercentageRate({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyAnnualPercentageRate as typeof SchemaPropertyAnnualPercentageRate & { toStructuredData: (props: SchemaPropertyAnnualPercentageRateProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

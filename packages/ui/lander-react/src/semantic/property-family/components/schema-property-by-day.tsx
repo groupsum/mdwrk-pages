@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ByDayPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyByDayProps extends ByDayPropertyInput, GeneratedPropertyUiProps<ByDayPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyByDay({ value: legacyValue, description = "Defines
     viewModel,
   });
 }
+
+(SchemaPropertyByDay as typeof SchemaPropertyByDay & { toStructuredData: (props: SchemaPropertyByDayProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

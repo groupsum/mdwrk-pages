@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TypeOfGoodPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTypeOfGoodProps extends TypeOfGoodPropertyInput, GeneratedPropertyUiProps<TypeOfGoodPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTypeOfGood({ value: legacyValue, description = "Th
     viewModel,
   });
 }
+
+(SchemaPropertyTypeOfGood as typeof SchemaPropertyTypeOfGood & { toStructuredData: (props: SchemaPropertyTypeOfGoodProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

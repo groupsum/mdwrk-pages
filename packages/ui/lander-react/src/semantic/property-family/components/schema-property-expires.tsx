@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ExpiresPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyExpiresProps extends ExpiresPropertyInput, GeneratedPropertyUiProps<ExpiresPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyExpires({ value: legacyValue, description = "Date 
     viewModel,
   });
 }
+
+(SchemaPropertyExpires as typeof SchemaPropertyExpires & { toStructuredData: (props: SchemaPropertyExpiresProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

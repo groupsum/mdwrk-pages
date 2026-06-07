@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TypicalAgeRangePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTypicalAgeRangeProps extends TypicalAgeRangePropertyInput, GeneratedPropertyUiProps<TypicalAgeRangePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTypicalAgeRange({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyTypicalAgeRange as typeof SchemaPropertyTypicalAgeRange & { toStructuredData: (props: SchemaPropertyTypicalAgeRangeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

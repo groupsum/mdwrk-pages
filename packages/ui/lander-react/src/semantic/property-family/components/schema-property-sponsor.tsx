@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SponsorPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySponsorProps extends SponsorPropertyInput, GeneratedPropertyUiProps<SponsorPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySponsor({ value: legacyValue, description = "A per
     viewModel,
   });
 }
+
+(SchemaPropertySponsor as typeof SchemaPropertySponsor & { toStructuredData: (props: SchemaPropertySponsorProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

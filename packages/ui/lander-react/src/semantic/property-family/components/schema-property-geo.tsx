@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { GeoPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyGeoProps extends GeoPropertyInput, GeneratedPropertyUiProps<GeoPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyGeo({ value: legacyValue, description = "The geo c
     viewModel,
   });
 }
+
+(SchemaPropertyGeo as typeof SchemaPropertyGeo & { toStructuredData: (props: SchemaPropertyGeoProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

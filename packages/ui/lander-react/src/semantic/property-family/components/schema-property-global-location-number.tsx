@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { GlobalLocationNumberPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyGlobalLocationNumberProps extends GlobalLocationNumberPropertyInput, GeneratedPropertyUiProps<GlobalLocationNumberPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyGlobalLocationNumber({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyGlobalLocationNumber as typeof SchemaPropertyGlobalLocationNumber & { toStructuredData: (props: SchemaPropertyGlobalLocationNumberProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { InPlaylistPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyInPlaylistProps extends InPlaylistPropertyInput, GeneratedPropertyUiProps<InPlaylistPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyInPlaylist({ value: legacyValue, description = "Th
     viewModel,
   });
 }
+
+(SchemaPropertyInPlaylist as typeof SchemaPropertyInPlaylist & { toStructuredData: (props: SchemaPropertyInPlaylistProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

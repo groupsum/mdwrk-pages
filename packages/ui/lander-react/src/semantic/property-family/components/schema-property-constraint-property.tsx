@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ConstraintPropertyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyConstraintPropertyProps extends ConstraintPropertyPropertyInput, GeneratedPropertyUiProps<ConstraintPropertyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyConstraintProperty({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyConstraintProperty as typeof SchemaPropertyConstraintProperty & { toStructuredData: (props: SchemaPropertyConstraintPropertyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

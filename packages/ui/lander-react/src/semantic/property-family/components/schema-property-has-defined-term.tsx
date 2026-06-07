@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasDefinedTermPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasDefinedTermProps extends HasDefinedTermPropertyInput, GeneratedPropertyUiProps<HasDefinedTermPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasDefinedTerm({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyHasDefinedTerm as typeof SchemaPropertyHasDefinedTerm & { toStructuredData: (props: SchemaPropertyHasDefinedTermProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

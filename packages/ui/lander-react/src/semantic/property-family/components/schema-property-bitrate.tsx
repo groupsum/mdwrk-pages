@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BitratePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBitrateProps extends BitratePropertyInput, GeneratedPropertyUiProps<BitratePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBitrate({ value: legacyValue, description = "The b
     viewModel,
   });
 }
+
+(SchemaPropertyBitrate as typeof SchemaPropertyBitrate & { toStructuredData: (props: SchemaPropertyBitrateProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

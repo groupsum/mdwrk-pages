@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HostingOrganizationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHostingOrganizationProps extends HostingOrganizationPropertyInput, GeneratedPropertyUiProps<HostingOrganizationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHostingOrganization({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertyHostingOrganization as typeof SchemaPropertyHostingOrganization & { toStructuredData: (props: SchemaPropertyHostingOrganizationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

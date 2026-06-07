@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BenefitsSummaryUrlPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBenefitsSummaryUrlProps extends BenefitsSummaryUrlPropertyInput, GeneratedPropertyUiProps<BenefitsSummaryUrlPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBenefitsSummaryUrl({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyBenefitsSummaryUrl as typeof SchemaPropertyBenefitsSummaryUrl & { toStructuredData: (props: SchemaPropertyBenefitsSummaryUrlProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

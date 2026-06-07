@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CauseOfPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCauseOfProps extends CauseOfPropertyInput, GeneratedPropertyUiProps<CauseOfPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCauseOf({ value: legacyValue, description = "The c
     viewModel,
   });
 }
+
+(SchemaPropertyCauseOf as typeof SchemaPropertyCauseOf & { toStructuredData: (props: SchemaPropertyCauseOfProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

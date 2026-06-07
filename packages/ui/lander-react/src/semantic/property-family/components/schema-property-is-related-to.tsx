@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IsRelatedToPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIsRelatedToProps extends IsRelatedToPropertyInput, GeneratedPropertyUiProps<IsRelatedToPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIsRelatedTo({ value: legacyValue, description = "A
     viewModel,
   });
 }
+
+(SchemaPropertyIsRelatedTo as typeof SchemaPropertyIsRelatedTo & { toStructuredData: (props: SchemaPropertyIsRelatedToProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

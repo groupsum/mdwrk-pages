@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { FiboFndArrDocCertificateInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface FiboFndArrDocCertificateProps extends FiboFndArrDocCertificateInput, GeneratedTypeUiProps<FiboFndArrDocCertificateInput> {}
 
@@ -29,3 +29,6 @@ export function FiboFndArrDocCertificate({ value: legacyValue, description = "",
     viewModel,
   });
 }
+
+(FiboFndArrDocCertificate as typeof FiboFndArrDocCertificate & { toStructuredData: (props: FiboFndArrDocCertificateProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ResponsibilitiesPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyResponsibilitiesProps extends ResponsibilitiesPropertyInput, GeneratedPropertyUiProps<ResponsibilitiesPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyResponsibilities({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyResponsibilities as typeof SchemaPropertyResponsibilities & { toStructuredData: (props: SchemaPropertyResponsibilitiesProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

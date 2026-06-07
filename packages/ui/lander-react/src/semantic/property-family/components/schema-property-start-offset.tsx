@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { StartOffsetPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyStartOffsetProps extends StartOffsetPropertyInput, GeneratedPropertyUiProps<StartOffsetPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyStartOffset({ value: legacyValue, description = "T
     viewModel,
   });
 }
+
+(SchemaPropertyStartOffset as typeof SchemaPropertyStartOffset & { toStructuredData: (props: SchemaPropertyStartOffsetProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

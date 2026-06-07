@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AffiliationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAffiliationProps extends AffiliationPropertyInput, GeneratedPropertyUiProps<AffiliationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAffiliation({ value: legacyValue, description = "A
     viewModel,
   });
 }
+
+(SchemaPropertyAffiliation as typeof SchemaPropertyAffiliation & { toStructuredData: (props: SchemaPropertyAffiliationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

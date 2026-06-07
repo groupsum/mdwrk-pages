@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PublisherImprintPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPublisherImprintProps extends PublisherImprintPropertyInput, GeneratedPropertyUiProps<PublisherImprintPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPublisherImprint({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyPublisherImprint as typeof SchemaPropertyPublisherImprint & { toStructuredData: (props: SchemaPropertyPublisherImprintProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

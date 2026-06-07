@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ConditionsOfAccessPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyConditionsOfAccessProps extends ConditionsOfAccessPropertyInput, GeneratedPropertyUiProps<ConditionsOfAccessPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyConditionsOfAccess({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyConditionsOfAccess as typeof SchemaPropertyConditionsOfAccess & { toStructuredData: (props: SchemaPropertyConditionsOfAccessProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

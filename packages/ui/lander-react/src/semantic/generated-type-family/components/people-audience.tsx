@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PeopleAudienceInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface PeopleAudienceProps extends PeopleAudienceInput, GeneratedTypeUiProps<PeopleAudienceInput> {}
 
@@ -29,3 +29,6 @@ export function PeopleAudience({ value: legacyValue, description = "A set of cha
     viewModel,
   });
 }
+
+(PeopleAudience as typeof PeopleAudience & { toStructuredData: (props: PeopleAudienceProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

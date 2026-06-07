@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RequiredCollateralPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRequiredCollateralProps extends RequiredCollateralPropertyInput, GeneratedPropertyUiProps<RequiredCollateralPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRequiredCollateral({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyRequiredCollateral as typeof SchemaPropertyRequiredCollateral & { toStructuredData: (props: SchemaPropertyRequiredCollateralProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

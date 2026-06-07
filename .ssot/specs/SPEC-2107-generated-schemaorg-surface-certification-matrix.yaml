@@ -16,6 +16,10 @@ status_notes:
     status: "draft"
     note: "Created the generated-surface certification matrix contract across contract, wrapper, fused, token, and demo layers."
     at: "2026-06-01T09:09:31Z"
+  -
+    status: "draft"
+    note: "Added certification matrix coverage for toStructuredData helpers, graph collection, validation parity, and local emission fallback."
+    at: "2026-06-07T00:00:00Z"
 references: []
 body: |-
   # SPEC-2107: Generated Schema.org surface certification matrix
@@ -31,6 +35,10 @@ body: |-
      - schema-backed contract coverage
      - wrapper coverage
      - fused visible coverage
+     - `.toStructuredData` helper coverage
+     - `.toStructuredData` strict-validation coverage
+     - page-level graph collection coverage
+     - local emission fallback parity
      - className coverage
      - dedicated token coverage
      - demo discoverability coverage
@@ -40,7 +48,7 @@ body: |-
   
   ## Acceptance
   
-  Linked features and tests shall prove that the certification matrix is deterministic, code-derived, and fail-closed.
+  Linked features and tests shall prove that the certification matrix is deterministic, code-derived, and fail-closed across visible rendering, structured-data helper output, page-level graph collection, and standalone emission fallback.
 spec_kind: "governance"
 adr_ids:
   - "adr:1059"

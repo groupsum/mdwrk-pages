@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EpisodeNumberPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEpisodeNumberProps extends EpisodeNumberPropertyInput, GeneratedPropertyUiProps<EpisodeNumberPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEpisodeNumber({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyEpisodeNumber as typeof SchemaPropertyEpisodeNumber & { toStructuredData: (props: SchemaPropertyEpisodeNumberProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

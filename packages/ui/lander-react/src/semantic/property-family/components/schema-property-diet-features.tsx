@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DietFeaturesPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDietFeaturesProps extends DietFeaturesPropertyInput, GeneratedPropertyUiProps<DietFeaturesPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDietFeatures({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyDietFeatures as typeof SchemaPropertyDietFeatures & { toStructuredData: (props: SchemaPropertyDietFeaturesProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

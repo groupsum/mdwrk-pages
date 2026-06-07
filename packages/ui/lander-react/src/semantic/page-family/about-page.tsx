@@ -74,7 +74,7 @@ export interface AboutPageProps {
   structuredDataOverrides?: Partial<AboutPageStructuredDataInput>;
 }
 
-export function AboutPage(props: AboutPageProps) {
+export function buildAboutPageStructuredData(props: AboutPageProps): AboutPageStructuredDataInput {
   const reviewedBy = normalizeReferenceArray(props.reviewedBy);
   const authors = normalizeReferenceArray(props.author);
   const mentions = normalizeReferenceArray(props.mentions);
@@ -96,7 +96,19 @@ export function AboutPage(props: AboutPageProps) {
     specialty: specialties.length > 1 ? specialties : specialties[0], keywords: props.keywords, mentions: mentions.map(thingReference),
     subjectOf: subjectOf.map(creativeWorkReference), teaches: props.teaches, audience: audience.map(audienceReference),
   };
-  const structuredData = { ...base, ...(props.structuredDataOverrides ?? {}) };
+  return { ...base, ...(props.structuredDataOverrides ?? {}) };
+}
+
+export function AboutPage(props: AboutPageProps) {
+  const reviewedBy = normalizeReferenceArray(props.reviewedBy);
+  const authors = normalizeReferenceArray(props.author);
+  const mentions = normalizeReferenceArray(props.mentions);
+  const subjectOf = normalizeReferenceArray(props.subjectOf);
+  const audience = normalizeReferenceArray(props.audience);
+  const videos = normalizeReferenceArray(props.video);
+  const audio = normalizeReferenceArray(props.audio);
+  const specialties = Array.isArray(props.specialty) ? props.specialty : props.specialty ? [props.specialty] : [];
+  const structuredData = buildAboutPageStructuredData(props);
   const imageSrc = pageImageUrl(props.primaryImageOfPage) ?? pageImageUrl(props.image) ?? props.thumbnailUrl;
   const publishedLabel = formatDateLabel(props.datePublished);
   const modifiedLabel = formatDateLabel(props.dateModified);
@@ -120,7 +132,7 @@ export function AboutPage(props: AboutPageProps) {
 
   return (
     <>
-      <SemanticStructuredDataGate emitStructuredData={props.emitStructuredData}>
+      <SemanticStructuredDataGate emitStructuredData={props.emitStructuredData} kind="AboutPage" data={structuredData}>
         <structuredDataReact.AboutPageStructuredData data={structuredData} />
       </SemanticStructuredDataGate>
       <article
@@ -266,3 +278,6 @@ export function AboutPage(props: AboutPageProps) {
     </>
   );
 }
+
+(AboutPage as typeof AboutPage & { toStructuredData: (props: AboutPageProps) => unknown }).toStructuredData = (props) =>
+  structuredDataReact.buildStructuredDataNode("AboutPage", buildAboutPageStructuredData(props));

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DistributionPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDistributionProps extends DistributionPropertyInput, GeneratedPropertyUiProps<DistributionPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDistribution({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyDistribution as typeof SchemaPropertyDistribution & { toStructuredData: (props: SchemaPropertyDistributionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

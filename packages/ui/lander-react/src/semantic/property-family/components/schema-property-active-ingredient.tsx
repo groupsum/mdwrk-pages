@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ActiveIngredientPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyActiveIngredientProps extends ActiveIngredientPropertyInput, GeneratedPropertyUiProps<ActiveIngredientPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyActiveIngredient({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyActiveIngredient as typeof SchemaPropertyActiveIngredient & { toStructuredData: (props: SchemaPropertyActiveIngredientProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

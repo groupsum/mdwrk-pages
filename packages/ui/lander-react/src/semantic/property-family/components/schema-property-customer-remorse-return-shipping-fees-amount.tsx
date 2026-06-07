@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CustomerRemorseReturnShippingFeesAmountPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCustomerRemorseReturnShippingFeesAmountProps extends CustomerRemorseReturnShippingFeesAmountPropertyInput, GeneratedPropertyUiProps<CustomerRemorseReturnShippingFeesAmountPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCustomerRemorseReturnShippingFeesAmount({ value: l
     viewModel,
   });
 }
+
+(SchemaPropertyCustomerRemorseReturnShippingFeesAmount as typeof SchemaPropertyCustomerRemorseReturnShippingFeesAmount & { toStructuredData: (props: SchemaPropertyCustomerRemorseReturnShippingFeesAmountProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

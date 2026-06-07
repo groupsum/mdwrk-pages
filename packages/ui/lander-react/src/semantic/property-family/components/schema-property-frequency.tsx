@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { FrequencyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyFrequencyProps extends FrequencyPropertyInput, GeneratedPropertyUiProps<FrequencyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyFrequency({ value: legacyValue, description = "How
     viewModel,
   });
 }
+
+(SchemaPropertyFrequency as typeof SchemaPropertyFrequency & { toStructuredData: (props: SchemaPropertyFrequencyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

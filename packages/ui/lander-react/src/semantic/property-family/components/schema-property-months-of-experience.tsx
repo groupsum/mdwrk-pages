@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MonthsOfExperiencePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMonthsOfExperienceProps extends MonthsOfExperiencePropertyInput, GeneratedPropertyUiProps<MonthsOfExperiencePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMonthsOfExperience({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyMonthsOfExperience as typeof SchemaPropertyMonthsOfExperience & { toStructuredData: (props: SchemaPropertyMonthsOfExperienceProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SpeakablePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySpeakableProps extends SpeakablePropertyInput, GeneratedPropertyUiProps<SpeakablePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySpeakable({ value: legacyValue, description = "Ind
     viewModel,
   });
 }
+
+(SchemaPropertySpeakable as typeof SchemaPropertySpeakable & { toStructuredData: (props: SchemaPropertySpeakableProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

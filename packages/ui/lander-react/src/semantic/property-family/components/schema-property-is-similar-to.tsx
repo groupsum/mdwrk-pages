@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { IsSimilarToPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyIsSimilarToProps extends IsSimilarToPropertyInput, GeneratedPropertyUiProps<IsSimilarToPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyIsSimilarTo({ value: legacyValue, description = "A
     viewModel,
   });
 }
+
+(SchemaPropertyIsSimilarTo as typeof SchemaPropertyIsSimilarTo & { toStructuredData: (props: SchemaPropertyIsSimilarToProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

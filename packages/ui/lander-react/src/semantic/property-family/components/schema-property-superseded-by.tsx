@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SupersededByPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySupersededByProps extends SupersededByPropertyInput, GeneratedPropertyUiProps<SupersededByPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySupersededBy({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertySupersededBy as typeof SchemaPropertySupersededBy & { toStructuredData: (props: SchemaPropertySupersededByProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

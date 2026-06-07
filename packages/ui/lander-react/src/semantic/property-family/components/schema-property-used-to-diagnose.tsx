@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { UsedToDiagnosePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyUsedToDiagnoseProps extends UsedToDiagnosePropertyInput, GeneratedPropertyUiProps<UsedToDiagnosePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyUsedToDiagnose({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyUsedToDiagnose as typeof SchemaPropertyUsedToDiagnose & { toStructuredData: (props: SchemaPropertyUsedToDiagnoseProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

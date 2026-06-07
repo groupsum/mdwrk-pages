@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AccessModePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAccessModeProps extends AccessModePropertyInput, GeneratedPropertyUiProps<AccessModePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAccessMode({ value: legacyValue, description = "Th
     viewModel,
   });
 }
+
+(SchemaPropertyAccessMode as typeof SchemaPropertyAccessMode & { toStructuredData: (props: SchemaPropertyAccessModeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { TypicalTestPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyTypicalTestProps extends TypicalTestPropertyInput, GeneratedPropertyUiProps<TypicalTestPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyTypicalTest({ value: legacyValue, description = "A
     viewModel,
   });
 }
+
+(SchemaPropertyTypicalTest as typeof SchemaPropertyTypicalTest & { toStructuredData: (props: SchemaPropertyTypicalTestProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

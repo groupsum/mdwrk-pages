@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { WordCountPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyWordCountProps extends WordCountPropertyInput, GeneratedPropertyUiProps<WordCountPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyWordCount({ value: legacyValue, description = "The
     viewModel,
   });
 }
+
+(SchemaPropertyWordCount as typeof SchemaPropertyWordCount & { toStructuredData: (props: SchemaPropertyWordCountProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PhotoPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPhotoProps extends PhotoPropertyInput, GeneratedPropertyUiProps<PhotoPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPhoto({ value: legacyValue, description = "A photo
     viewModel,
   });
 }
+
+(SchemaPropertyPhoto as typeof SchemaPropertyPhoto & { toStructuredData: (props: SchemaPropertyPhotoProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

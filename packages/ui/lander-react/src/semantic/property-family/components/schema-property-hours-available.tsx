@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HoursAvailablePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHoursAvailableProps extends HoursAvailablePropertyInput, GeneratedPropertyUiProps<HoursAvailablePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHoursAvailable({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyHoursAvailable as typeof SchemaPropertyHoursAvailable & { toStructuredData: (props: SchemaPropertyHoursAvailableProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

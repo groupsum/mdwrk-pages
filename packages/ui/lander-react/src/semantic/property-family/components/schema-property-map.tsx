@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MapPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMapProps extends MapPropertyInput, GeneratedPropertyUiProps<MapPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMap({ value: legacyValue, description = "A URL to 
     viewModel,
   });
 }
+
+(SchemaPropertyMap as typeof SchemaPropertyMap & { toStructuredData: (props: SchemaPropertyMapProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

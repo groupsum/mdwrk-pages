@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CredentialCategoryPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCredentialCategoryProps extends CredentialCategoryPropertyInput, GeneratedPropertyUiProps<CredentialCategoryPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCredentialCategory({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyCredentialCategory as typeof SchemaPropertyCredentialCategory & { toStructuredData: (props: SchemaPropertyCredentialCategoryProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

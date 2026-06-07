@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { InLanguagePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyInLanguageProps extends InLanguagePropertyInput, GeneratedPropertyUiProps<InLanguagePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyInLanguage({ value: legacyValue, description = "Th
     viewModel,
   });
 }
+
+(SchemaPropertyInLanguage as typeof SchemaPropertyInLanguage & { toStructuredData: (props: SchemaPropertyInLanguageProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

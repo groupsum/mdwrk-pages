@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CaloriesPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCaloriesProps extends CaloriesPropertyInput, GeneratedPropertyUiProps<CaloriesPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCalories({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyCalories as typeof SchemaPropertyCalories & { toStructuredData: (props: SchemaPropertyCaloriesProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

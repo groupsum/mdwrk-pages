@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RecognizingAuthorityPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRecognizingAuthorityProps extends RecognizingAuthorityPropertyInput, GeneratedPropertyUiProps<RecognizingAuthorityPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRecognizingAuthority({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyRecognizingAuthority as typeof SchemaPropertyRecognizingAuthority & { toStructuredData: (props: SchemaPropertyRecognizingAuthorityProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

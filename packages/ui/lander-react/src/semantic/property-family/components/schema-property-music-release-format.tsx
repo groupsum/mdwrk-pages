@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MusicReleaseFormatPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMusicReleaseFormatProps extends MusicReleaseFormatPropertyInput, GeneratedPropertyUiProps<MusicReleaseFormatPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMusicReleaseFormat({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyMusicReleaseFormat as typeof SchemaPropertyMusicReleaseFormat & { toStructuredData: (props: SchemaPropertyMusicReleaseFormatProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

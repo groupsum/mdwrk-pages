@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AlignmentTypePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAlignmentTypeProps extends AlignmentTypePropertyInput, GeneratedPropertyUiProps<AlignmentTypePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAlignmentType({ value: legacyValue, description = 
     viewModel,
   });
 }
+
+(SchemaPropertyAlignmentType as typeof SchemaPropertyAlignmentType & { toStructuredData: (props: SchemaPropertyAlignmentTypeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

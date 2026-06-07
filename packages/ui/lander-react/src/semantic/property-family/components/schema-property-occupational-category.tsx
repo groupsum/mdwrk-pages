@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { OccupationalCategoryPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyOccupationalCategoryProps extends OccupationalCategoryPropertyInput, GeneratedPropertyUiProps<OccupationalCategoryPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyOccupationalCategory({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyOccupationalCategory as typeof SchemaPropertyOccupationalCategory & { toStructuredData: (props: SchemaPropertyOccupationalCategoryProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

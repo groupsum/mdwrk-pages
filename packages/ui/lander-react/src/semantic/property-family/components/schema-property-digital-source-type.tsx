@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DigitalSourceTypePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDigitalSourceTypeProps extends DigitalSourceTypePropertyInput, GeneratedPropertyUiProps<DigitalSourceTypePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDigitalSourceType({ value: legacyValue, descriptio
     viewModel,
   });
 }
+
+(SchemaPropertyDigitalSourceType as typeof SchemaPropertyDigitalSourceType & { toStructuredData: (props: SchemaPropertyDigitalSourceTypeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

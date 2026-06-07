@@ -6,7 +6,7 @@ import {
   mergeRecordLike,
   joinClassNames,
   renderJsonPreview,
-  renderStructuredSection,
+  renderSemanticPreviewSection,
 } from "../shared.js";
 
 export interface GeneratedPropertyViewModel {
@@ -27,6 +27,36 @@ export interface GeneratedPropertyUiProps<T = Record<string, unknown>> {
 }
 
 export type GeneratedPropertyProps<T = Record<string, unknown>> = GeneratedPropertyUiProps<T> & T;
+
+
+const generatedPropertyUiPropKeys = new Set([
+  "body",
+  "className",
+  "description",
+  "emitStructuredData",
+  "examples",
+  "structuredDataOverrides",
+  "value",
+  "viewModel",
+]);
+
+export function buildGeneratedPropertyStructuredData<T>(props: GeneratedPropertyProps<T>): T {
+  const record = props as Record<string, unknown>;
+  const explicitValue = record.value as T | undefined;
+  const directValue = Object.fromEntries(
+    Object.entries(record).filter(([key]) => !generatedPropertyUiPropKeys.has(key)),
+  ) as T;
+  const value = Object.keys(directValue as Record<string, unknown>).length > 0
+    ? explicitValue && typeof explicitValue === "object" && !Array.isArray(explicitValue)
+      ? { ...(explicitValue as Record<string, unknown>), ...(directValue as Record<string, unknown>) } as T
+      : directValue
+    : ((explicitValue ?? directValue) as T);
+
+  return isRecord(value) && isRecord(props.structuredDataOverrides)
+    ? mergeRecordLike(value, props.structuredDataOverrides)
+    : ((props.structuredDataOverrides ?? value) as T);
+}
+
 
 interface RenderGeneratedPropertyCardProps<T> {
   StructuredDataComponent: React.ComponentType<{ data: unknown }>;
@@ -65,7 +95,7 @@ export function renderGeneratedPropertyCard<T>({
 
   return (
     <>
-      <SemanticStructuredDataGate emitStructuredData={emitStructuredData}>
+      <SemanticStructuredDataGate emitStructuredData={emitStructuredData} node={effectiveValue}>
         <StructuredDataComponent data={effectiveValue as never} />
       </SemanticStructuredDataGate>
       <SemanticShell
@@ -78,8 +108,8 @@ export function renderGeneratedPropertyCard<T>({
         meta={isRecord(effectiveValue) ? undefined : [{ label: "Value", value: renderJsonPreview(effectiveValue) }]}
         body={
           <>
-            {renderStructuredSection(effectiveValue)}
-            {examples?.length ? renderStructuredSection(examples, "Examples") : null}
+            {renderSemanticPreviewSection(effectiveValue)}
+            {examples?.length ? renderSemanticPreviewSection(examples, "Examples") : null}
             {body}
           </>
         }

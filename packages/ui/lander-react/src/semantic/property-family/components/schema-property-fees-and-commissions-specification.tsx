@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { FeesAndCommissionsSpecificationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyFeesAndCommissionsSpecificationProps extends FeesAndCommissionsSpecificationPropertyInput, GeneratedPropertyUiProps<FeesAndCommissionsSpecificationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyFeesAndCommissionsSpecification({ value: legacyVal
     viewModel,
   });
 }
+
+(SchemaPropertyFeesAndCommissionsSpecification as typeof SchemaPropertyFeesAndCommissionsSpecification & { toStructuredData: (props: SchemaPropertyFeesAndCommissionsSpecificationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

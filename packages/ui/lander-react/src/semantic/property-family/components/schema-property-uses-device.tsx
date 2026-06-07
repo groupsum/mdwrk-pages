@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { UsesDevicePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyUsesDeviceProps extends UsesDevicePropertyInput, GeneratedPropertyUiProps<UsesDevicePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyUsesDevice({ value: legacyValue, description = "De
     viewModel,
   });
 }
+
+(SchemaPropertyUsesDevice as typeof SchemaPropertyUsesDevice & { toStructuredData: (props: SchemaPropertyUsesDeviceProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

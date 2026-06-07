@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { InCodeSetPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyInCodeSetProps extends InCodeSetPropertyInput, GeneratedPropertyUiProps<InCodeSetPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyInCodeSet({ value: legacyValue, description = "A [
     viewModel,
   });
 }
+
+(SchemaPropertyInCodeSet as typeof SchemaPropertyInCodeSet & { toStructuredData: (props: SchemaPropertyInCodeSetProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

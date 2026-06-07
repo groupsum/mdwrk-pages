@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DrugInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface DrugProps extends DrugInput, GeneratedTypeUiProps<DrugInput> {}
 
@@ -29,3 +29,6 @@ export function Drug({ value: legacyValue, description = "A chemical or biologic
     viewModel,
   });
 }
+
+(Drug as typeof Drug & { toStructuredData: (props: DrugProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { CheckoutPageURLTemplatePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyCheckoutPageURLTemplateProps extends CheckoutPageURLTemplatePropertyInput, GeneratedPropertyUiProps<CheckoutPageURLTemplatePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyCheckoutPageURLTemplate({ value: legacyValue, desc
     viewModel,
   });
 }
+
+(SchemaPropertyCheckoutPageURLTemplate as typeof SchemaPropertyCheckoutPageURLTemplate & { toStructuredData: (props: SchemaPropertyCheckoutPageURLTemplateProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

@@ -19,7 +19,26 @@ test("T0: every fused semantic component exports, renders visible markup, and em
   }
 });
 
-test("T0: shared semantic shell and generated field rendering use lander primitives", async () => {
+test("T0: representative semantic components expose toStructuredData helpers", async () => {
+  const mod = await importLanderReactDist();
+  const cases = [
+    ["AboutPage", "AboutPage", { name: "About MDWRK", description: "Company overview." }],
+    ["Course", "Course", { name: "Prompt Delivery 101", provider: { name: "MDWRK" } }],
+    ["Organization", "Organization", { name: "MDWRK", url: "https://mdwrk.test/" }],
+    ["Product", "Product", { name: "Prompt Delivery Studio", price: 49, priceCurrency: "USD" }],
+    ["WebPage", "WebPage", { name: "Prompt docs", description: "Documentation page." }],
+    ["WebSite", "WebSite", { name: "MDWRK Docs", publisher: { name: "MDWRK" } }],
+  ];
+
+  for (const [name, expectedType, props] of cases) {
+    assert.equal(typeof mod[name].toStructuredData, "function", `${name} must expose toStructuredData`);
+    const node = mod[name].toStructuredData(props);
+    assert.equal(node["@type"], expectedType, `${name} must build a ${expectedType} JSON-LD node`);
+    assert.equal(node.name, props.name, `${name} must preserve the visible name in structured data`);
+  }
+});
+
+test("T0: shared semantic shell and generated fallback rendering use reader-facing previews", async () => {
   const mod = await importLanderReactDist();
   const articleMarkup = renderToStaticMarkup(React.createElement(mod.Article, { title: "Primitive article", body: React.createElement("p", null, "Body") }));
   const generatedMarkup = renderToStaticMarkup(React.createElement(mod.SchemaPropertyAbout, {
@@ -28,8 +47,10 @@ test("T0: shared semantic shell and generated field rendering use lander primiti
   }));
 
   assert.ok(articleMarkup.includes('data-mdwrk-primitive="surface"'));
-  assert.ok(generatedMarkup.includes('data-mdwrk-primitive="card"'));
-  assert.ok(generatedMarkup.includes('data-mdwrk-primitive="code-block"') || generatedMarkup.includes("mdwrk-primitive--card"));
+  assert.ok(generatedMarkup.includes('data-mdwrk-primitive="surface"'));
+  assert.ok(generatedMarkup.includes("lander-semantic__preview-section"));
+  assert.equal(generatedMarkup.includes("lander-semantic__field-card"), false);
+  assert.equal(generatedMarkup.includes("Structured fields"), false);
 });
 
 test("T0: supporting-family fused components expose distinct layout hooks for actions, regions, offer stacks, alignments, audiences, and audio transcripts", async () => {
@@ -60,6 +81,7 @@ test("T0: article-family fused components render distinct shell classes for thei
   const claimMarkup = renderToStaticMarkup(React.createElement(mod.ClaimReview, { title: "Claim", claimReviewed: "Claim text" }));
 
   assert.ok(articleMarkup.includes("lander-semantic--article"));
+  assert.equal(articleMarkup.includes("Structured fields"), false);
   assert.ok(blogMarkup.includes("lander-semantic--blog-posting"));
   assert.ok(newsMarkup.includes("lander-semantic--news-article"));
   assert.ok(techMarkup.includes("lander-semantic--tech-article"));
@@ -114,11 +136,12 @@ test("T0: education-family fused components expose distinct layout hooks for the
   assert.ok(faqMarkup.includes("lander-semantic__faq-list"));
   assert.ok(faqMarkup.includes("lander-semantic__faq-item"));
   assert.ok(faqMarkup.includes("lander-semantic__faq-kicker"));
+  assert.equal(faqMarkup.includes("Structured fields"), false);
 });
 
 test("T0: commerce-family fused components expose distinct layout hooks for pricing, rating, variant, and policy surfaces", async () => {
   const mod = await importLanderReactDist();
-  const productMarkup = renderToStaticMarkup(React.createElement(mod.Product, { name: "Studio", price: 49, priceCurrency: "USD", offersCta: { label: "Buy", href: "/buy" } }));
+  const productMarkup = renderToStaticMarkup(React.createElement(mod.Product, { name: "Studio", brand: { name: "MDWRK" }, sku: "SKU-49", price: 49, priceCurrency: "USD", offersCta: { label: "Buy", href: "/buy" } }));
   const groupMarkup = renderToStaticMarkup(React.createElement(mod.ProductGroup, { name: "Studio", variesBy: ["Region"], hasVariant: [{ name: "US" }, { name: "EU" }] }));
   const reviewMarkup = renderToStaticMarkup(React.createElement(mod.Review, { name: "Launch review", itemReviewed: "Studio", ratingValue: 5, reviewBody: "Great release." }));
   const ratingMarkup = renderToStaticMarkup(React.createElement(mod.AggregateRating, { ratingValue: 4.8, reviewCount: 12 }));
@@ -128,6 +151,8 @@ test("T0: commerce-family fused components expose distinct layout hooks for pric
   const employerMarkup = renderToStaticMarkup(React.createElement(mod.EmployerAggregateRating, { employerName: "MDWRK", ratingValue: 4.4, reviewCount: 7 }));
 
   assert.ok(productMarkup.includes("lander-semantic__price-band"));
+  assert.ok(productMarkup.includes("lander-semantic__product-offer"));
+  assert.ok(productMarkup.includes("lander-semantic__product-facts"));
   assert.ok(groupMarkup.includes("lander-semantic__variant-list"));
   assert.ok(groupMarkup.includes("lander-semantic__variation-axes"));
   assert.ok(reviewMarkup.includes("lander-semantic__review-score"));
@@ -167,13 +192,15 @@ test("T0: identity-family fused components expose distinct layout hooks for prof
   const breadcrumbMarkup = renderToStaticMarkup(React.createElement(mod.BreadcrumbList, { items: [{ label: "Home", href: "/" }, { label: "Guide" }] }));
   const speakableMarkup = renderToStaticMarkup(React.createElement(mod.SpeakableSpecification, { cssSelector: [".hero"], xpath: ["//main/h1"] }));
 
-  assert.ok(aboutMarkup.includes("lander-semantic__page-band"));
-  assert.ok(aboutMarkup.includes("lander-semantic__page-facts"));
-  assert.ok(aboutMarkup.includes("lander-semantic__publisher-band"));
+  assert.ok(aboutMarkup.includes("lander-semantic__about-hero"));
+  assert.ok(aboutMarkup.includes("lander-semantic__about-layout"));
+  assert.ok(aboutMarkup.includes("lander-semantic__about-main"));
+  assert.ok(aboutMarkup.includes("lander-semantic__about-sidebar"));
   assert.ok(aboutMarkup.includes("lander-semantic__breadcrumb-trail"));
-  assert.ok(aboutMarkup.includes("lander-semantic__selector-grid"));
-  assert.ok(aboutMarkup.includes("lander-semantic__about-section"));
-  assert.ok(aboutMarkup.includes("lander-semantic__chip-list"));
+  assert.ok(aboutMarkup.includes("lander-semantic__about-fact-list"));
+  assert.ok(aboutMarkup.includes("lander-semantic__about-list-section"));
+  assert.equal(aboutMarkup.includes("lander-semantic__selector-grid"), false);
+  assert.equal(aboutMarkup.includes("Structured fields"), false);
   assert.ok(profileMarkup.includes("lander-semantic__profile-summary"));
   assert.ok(organizationMarkup.includes("lander-semantic__network-list"));
   assert.ok(businessMarkup.includes("lander-semantic__hours-card"));

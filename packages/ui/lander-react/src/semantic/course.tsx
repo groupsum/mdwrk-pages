@@ -28,7 +28,7 @@ export interface CourseProps {
   structuredDataOverrides?: Partial<CourseStructuredDataInput>;
 }
 
-function buildCourseStructuredData(props: CourseProps): CourseStructuredDataInput {
+export function buildCourseStructuredData(props: CourseProps): CourseStructuredDataInput {
   const structuredImage = typeof props.image === "string" ? props.image : firstImage(props.image);
   const baseInstances =
     props.duration || props.educationalLevel
@@ -105,7 +105,7 @@ export function Course({
 
   return (
     <>
-      <SemanticStructuredDataGate emitStructuredData={emitStructuredData}>
+      <SemanticStructuredDataGate emitStructuredData={emitStructuredData} kind="Course" data={structuredData}>
         <structuredDataReact.CourseStructuredData data={structuredData} />
       </SemanticStructuredDataGate>
       <article className={joinClassNames("lander-semantic", "lander-semantic--course", className)}>
@@ -167,3 +167,6 @@ export function Course({
     </>
   );
 }
+
+(Course as typeof Course & { toStructuredData: (props: CourseProps) => unknown }).toStructuredData = (props) =>
+  structuredDataReact.buildStructuredDataNode("Course", buildCourseStructuredData(props));

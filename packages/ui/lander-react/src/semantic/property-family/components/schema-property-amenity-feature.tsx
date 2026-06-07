@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AmenityFeaturePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAmenityFeatureProps extends AmenityFeaturePropertyInput, GeneratedPropertyUiProps<AmenityFeaturePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAmenityFeature({ value: legacyValue, description =
     viewModel,
   });
 }
+
+(SchemaPropertyAmenityFeature as typeof SchemaPropertyAmenityFeature & { toStructuredData: (props: SchemaPropertyAmenityFeatureProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

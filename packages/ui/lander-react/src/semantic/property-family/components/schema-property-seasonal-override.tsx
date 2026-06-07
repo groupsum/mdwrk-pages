@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { SeasonalOverridePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertySeasonalOverrideProps extends SeasonalOverridePropertyInput, GeneratedPropertyUiProps<SeasonalOverridePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertySeasonalOverride({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertySeasonalOverride as typeof SchemaPropertySeasonalOverride & { toStructuredData: (props: SchemaPropertySeasonalOverrideProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

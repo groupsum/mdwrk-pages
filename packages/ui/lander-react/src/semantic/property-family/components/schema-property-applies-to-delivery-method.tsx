@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AppliesToDeliveryMethodPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAppliesToDeliveryMethodProps extends AppliesToDeliveryMethodPropertyInput, GeneratedPropertyUiProps<AppliesToDeliveryMethodPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAppliesToDeliveryMethod({ value: legacyValue, desc
     viewModel,
   });
 }
+
+(SchemaPropertyAppliesToDeliveryMethod as typeof SchemaPropertyAppliesToDeliveryMethod & { toStructuredData: (props: SchemaPropertyAppliesToDeliveryMethodProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

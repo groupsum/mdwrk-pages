@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { LeaseLengthPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyLeaseLengthProps extends LeaseLengthPropertyInput, GeneratedPropertyUiProps<LeaseLengthPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyLeaseLength({ value: legacyValue, description = "L
     viewModel,
   });
 }
+
+(SchemaPropertyLeaseLength as typeof SchemaPropertyLeaseLength & { toStructuredData: (props: SchemaPropertyLeaseLengthProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

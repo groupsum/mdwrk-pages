@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RatingExplanationPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRatingExplanationProps extends RatingExplanationPropertyInput, GeneratedPropertyUiProps<RatingExplanationPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRatingExplanation({ value: legacyValue, descriptio
     viewModel,
   });
 }
+
+(SchemaPropertyRatingExplanation as typeof SchemaPropertyRatingExplanation & { toStructuredData: (props: SchemaPropertyRatingExplanationProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

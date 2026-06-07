@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EmbedUrlPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEmbedUrlProps extends EmbedUrlPropertyInput, GeneratedPropertyUiProps<EmbedUrlPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEmbedUrl({ value: legacyValue, description = "A UR
     viewModel,
   });
 }
+
+(SchemaPropertyEmbedUrl as typeof SchemaPropertyEmbedUrl & { toStructuredData: (props: SchemaPropertyEmbedUrlProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

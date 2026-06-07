@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BroadcastSubChannelPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBroadcastSubChannelProps extends BroadcastSubChannelPropertyInput, GeneratedPropertyUiProps<BroadcastSubChannelPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBroadcastSubChannel({ value: legacyValue, descript
     viewModel,
   });
 }
+
+(SchemaPropertyBroadcastSubChannel as typeof SchemaPropertyBroadcastSubChannel & { toStructuredData: (props: SchemaPropertyBroadcastSubChannelProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

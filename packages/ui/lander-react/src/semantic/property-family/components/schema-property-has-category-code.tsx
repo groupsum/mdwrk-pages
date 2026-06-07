@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasCategoryCodePropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasCategoryCodeProps extends HasCategoryCodePropertyInput, GeneratedPropertyUiProps<HasCategoryCodePropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasCategoryCode({ value: legacyValue, description 
     viewModel,
   });
 }
+
+(SchemaPropertyHasCategoryCode as typeof SchemaPropertyHasCategoryCode & { toStructuredData: (props: SchemaPropertyHasCategoryCodeProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

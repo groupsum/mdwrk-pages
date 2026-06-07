@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { HasMolecularFunctionPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyHasMolecularFunctionProps extends HasMolecularFunctionPropertyInput, GeneratedPropertyUiProps<HasMolecularFunctionPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyHasMolecularFunction({ value: legacyValue, descrip
     viewModel,
   });
 }
+
+(SchemaPropertyHasMolecularFunction as typeof SchemaPropertyHasMolecularFunction & { toStructuredData: (props: SchemaPropertyHasMolecularFunctionProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

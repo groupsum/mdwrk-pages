@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { RemainingAttendeeCapacityPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyRemainingAttendeeCapacityProps extends RemainingAttendeeCapacityPropertyInput, GeneratedPropertyUiProps<RemainingAttendeeCapacityPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyRemainingAttendeeCapacity({ value: legacyValue, de
     viewModel,
   });
 }
+
+(SchemaPropertyRemainingAttendeeCapacity as typeof SchemaPropertyRemainingAttendeeCapacity & { toStructuredData: (props: SchemaPropertyRemainingAttendeeCapacityProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

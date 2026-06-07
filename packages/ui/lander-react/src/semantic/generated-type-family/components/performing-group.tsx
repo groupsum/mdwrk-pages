@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PerformingGroupInput } from "@mdwrk/structured-data";
-import { GeneratedTypeUiProps, renderGeneratedTypeCard } from "../shared.js";
+import { GeneratedTypeUiProps, buildGeneratedTypeStructuredData, renderGeneratedTypeCard } from "../shared.js";
 
 export interface PerformingGroupProps extends PerformingGroupInput, GeneratedTypeUiProps<PerformingGroupInput> {}
 
@@ -29,3 +29,6 @@ export function PerformingGroup({ value: legacyValue, description = "A performan
     viewModel,
   });
 }
+
+(PerformingGroup as typeof PerformingGroup & { toStructuredData: (props: PerformingGroupProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedTypeStructuredData(props);

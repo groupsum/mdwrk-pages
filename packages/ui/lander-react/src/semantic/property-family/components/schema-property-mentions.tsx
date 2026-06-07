@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { MentionsPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyMentionsProps extends MentionsPropertyInput, GeneratedPropertyUiProps<MentionsPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyMentions({ value: legacyValue, description = "Indi
     viewModel,
   });
 }
+
+(SchemaPropertyMentions as typeof SchemaPropertyMentions & { toStructuredData: (props: SchemaPropertyMentionsProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

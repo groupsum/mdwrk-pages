@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { AccessibilityAPIPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyAccessibilityAPIProps extends AccessibilityAPIPropertyInput, GeneratedPropertyUiProps<AccessibilityAPIPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyAccessibilityAPI({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyAccessibilityAPI as typeof SchemaPropertyAccessibilityAPI & { toStructuredData: (props: SchemaPropertyAccessibilityAPIProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

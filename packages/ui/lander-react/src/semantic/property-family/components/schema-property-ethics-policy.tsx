@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { EthicsPolicyPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyEthicsPolicyProps extends EthicsPolicyPropertyInput, GeneratedPropertyUiProps<EthicsPolicyPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyEthicsPolicy({ value: legacyValue, description = "
     viewModel,
   });
 }
+
+(SchemaPropertyEthicsPolicy as typeof SchemaPropertyEthicsPolicy & { toStructuredData: (props: SchemaPropertyEthicsPolicyProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

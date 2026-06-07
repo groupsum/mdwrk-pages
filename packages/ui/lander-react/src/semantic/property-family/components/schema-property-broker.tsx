@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { BrokerPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyBrokerProps extends BrokerPropertyInput, GeneratedPropertyUiProps<BrokerPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyBroker({ value: legacyValue, description = "An ent
     viewModel,
   });
 }
+
+(SchemaPropertyBroker as typeof SchemaPropertyBroker & { toStructuredData: (props: SchemaPropertyBrokerProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

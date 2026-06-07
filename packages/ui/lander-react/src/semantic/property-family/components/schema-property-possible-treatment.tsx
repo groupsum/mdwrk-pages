@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PossibleTreatmentPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPossibleTreatmentProps extends PossibleTreatmentPropertyInput, GeneratedPropertyUiProps<PossibleTreatmentPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPossibleTreatment({ value: legacyValue, descriptio
     viewModel,
   });
 }
+
+(SchemaPropertyPossibleTreatment as typeof SchemaPropertyPossibleTreatment & { toStructuredData: (props: SchemaPropertyPossibleTreatmentProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

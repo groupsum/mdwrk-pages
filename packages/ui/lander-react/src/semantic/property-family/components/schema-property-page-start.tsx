@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { PageStartPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyPageStartProps extends PageStartPropertyInput, GeneratedPropertyUiProps<PageStartPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyPageStart({ value: legacyValue, description = "The
     viewModel,
   });
 }
+
+(SchemaPropertyPageStart as typeof SchemaPropertyPageStart & { toStructuredData: (props: SchemaPropertyPageStartProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

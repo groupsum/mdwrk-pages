@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { LyricistPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyLyricistProps extends LyricistPropertyInput, GeneratedPropertyUiProps<LyricistPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyLyricist({ value: legacyValue, description = "The 
     viewModel,
   });
 }
+
+(SchemaPropertyLyricist as typeof SchemaPropertyLyricist & { toStructuredData: (props: SchemaPropertyLyricistProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

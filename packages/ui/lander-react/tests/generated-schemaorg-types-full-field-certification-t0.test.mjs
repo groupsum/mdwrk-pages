@@ -34,6 +34,8 @@ test("T0: generated type components accept direct schema field props, apply clas
     assert.ok(markup.includes(artifact.shellSelector.slice(1)), `${artifact.visibleExportName} should render its shell class`);
     assert.ok(markup.includes("generated-probe"), `${artifact.visibleExportName} should apply caller className`);
 
-    extractJsonLd(markup);
+    const payload = extractJsonLd(markup);
+    assert.equal(typeof Component.toStructuredData, "function", `${artifact.visibleExportName} should expose toStructuredData`);
+    assert.deepEqual(Component.toStructuredData(props), payload, `${artifact.visibleExportName} toStructuredData should match emitted JSON-LD`);
   }
 });

@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { DistinguishingSignPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyDistinguishingSignProps extends DistinguishingSignPropertyInput, GeneratedPropertyUiProps<DistinguishingSignPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyDistinguishingSign({ value: legacyValue, descripti
     viewModel,
   });
 }
+
+(SchemaPropertyDistinguishingSign as typeof SchemaPropertyDistinguishingSign & { toStructuredData: (props: SchemaPropertyDistinguishingSignProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

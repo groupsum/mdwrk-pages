@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { InDefinedTermSetPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyInDefinedTermSetProps extends InDefinedTermSetPropertyInput, GeneratedPropertyUiProps<InDefinedTermSetPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyInDefinedTermSet({ value: legacyValue, description
     viewModel,
   });
 }
+
+(SchemaPropertyInDefinedTermSet as typeof SchemaPropertyInDefinedTermSet & { toStructuredData: (props: SchemaPropertyInDefinedTermSetProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);

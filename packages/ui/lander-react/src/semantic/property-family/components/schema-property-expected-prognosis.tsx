@@ -1,7 +1,7 @@
 import React from "react";
 import * as structuredDataReact from "@mdwrk/lander-react-structured-data";
 import type { ExpectedPrognosisPropertyInput } from "@mdwrk/structured-data";
-import { GeneratedPropertyUiProps, renderGeneratedPropertyCard } from "../shared.js";
+import { GeneratedPropertyUiProps, buildGeneratedPropertyStructuredData, renderGeneratedPropertyCard } from "../shared.js";
 
 export interface SchemaPropertyExpectedPrognosisProps extends ExpectedPrognosisPropertyInput, GeneratedPropertyUiProps<ExpectedPrognosisPropertyInput> {}
 
@@ -29,3 +29,6 @@ export function SchemaPropertyExpectedPrognosis({ value: legacyValue, descriptio
     viewModel,
   });
 }
+
+(SchemaPropertyExpectedPrognosis as typeof SchemaPropertyExpectedPrognosis & { toStructuredData: (props: SchemaPropertyExpectedPrognosisProps) => unknown }).toStructuredData = (props) =>
+  buildGeneratedPropertyStructuredData(props);
