@@ -1,2 +1,3 @@
-2026/05/31-15:11:24.100 2af0 Creating DB E:\swarmauri_github\mdwrk-pages\.tmp-demo-chrome-profile\Default\shared_proto_db since it was missing.
-2026/05/31-15:11:24.104 2af0 Reusing MANIFEST E:\swarmauri_github\mdwrk-pages\.tmp-demo-chrome-profile\Default\shared_proto_db/MANIFEST-000001
+2026/06/03-14:12:25.041 823c Reusing MANIFEST E:\swarmauri_github\mdwrk-pages\.tmp-demo-chrome-profile\Default\shared_proto_db/MANIFEST-000001
+2026/06/03-14:12:25.042 823c Recovering log #3
+2026/06/03-14:12:25.042 823c Reusing old log E:\swarmauri_github\mdwrk-pages\.tmp-demo-chrome-profile\Default\shared_proto_db/000003.log 
