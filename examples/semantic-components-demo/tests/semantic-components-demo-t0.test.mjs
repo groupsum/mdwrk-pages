@@ -29,8 +29,8 @@ const clientGeneratedCatalogSource = readFileSync(path.join(demoRoot, "src", "sh
 const clientPrimitivesSource = readFileSync(path.join(demoRoot, "src", "showcase-client-primitives.mjs"), "utf8");
 const clientSemanticSource = readFileSync(path.join(demoRoot, "src", "showcase-client-semantic.mjs"), "utf8");
 const semanticLoaderSource = readFileSync(path.join(demoRoot, "src", "showcase-semantic-component-loader.mjs"), "utf8");
-const semanticPropertyLoaderSource = readFileSync(path.join(demoRoot, "src", "semantic-loaders", "module-property.mjs"), "utf8");
-const semanticStyleLoaderSource = readFileSync(path.join(demoRoot, "src", "semantic-loaders", "style-s-z.mjs"), "utf8");
+const semanticPropertyLoaderSource = readFileSync(path.join(demoRoot, "src", "semantic-loaders", "module-property-a-f.mjs"), "utf8");
+const semanticStyleLoaderSource = readFileSync(path.join(demoRoot, "src", "semantic-loaders", "style-p-r-a-m.mjs"), "utf8");
 const showcaseSource = readFileSync(path.join(demoRoot, "src", "showcase-component.mjs"), "utf8");
 const detailSource = readFileSync(path.join(demoRoot, "src", "showcase-detail.mjs"), "utf8");
 const detailRendererSource = readFileSync(path.join(demoRoot, "src", "showcase-artifact-detail.mjs"), "utf8");
@@ -64,8 +64,9 @@ test("T0: semantic components demo is a mode-driven explorer over the full gener
   assert.equal(clientSemanticSource.includes("import.meta.glob"), false);
   assert.ok(clientSemanticSource.includes('import("./showcase-semantic-component-loader.mjs")'));
   assert.ok(semanticLoaderSource.includes("loadSemanticArtifactStyle"));
-  assert.ok(semanticPropertyLoaderSource.includes("property-family/components/*.js"));
-  assert.ok(semanticStyleLoaderSource.includes("pages-ui-tokens/src/styles/semantic-s*.css"));
+  assert.ok(semanticPropertyLoaderSource.includes("property-family/components/schema-property-a*.js"));
+  assert.ok(semanticStyleLoaderSource.includes("pages-ui-tokens/src/styles/semantic-pra*.css"));
+  assert.ok(semanticStyleLoaderSource.includes("pages-ui-tokens/src/styles/semantic-schema-property-pra*.css"));
   assert.equal(semanticStyleLoaderSource.includes("semantic-*.css"), false);
   assert.equal(clientSemanticSource.includes('import "./semantic-token-styles.css";'), false);
   assert.equal(clientSemanticSource.includes("generated-semantic-surface.css"), false);

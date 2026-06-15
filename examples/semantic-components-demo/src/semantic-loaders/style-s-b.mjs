@@ -1,10 +1,8 @@
 const styleImporters = import.meta.glob([
-  "../../../../packages/ui/pages-ui-tokens/src/styles/semantic-m*.css",
-  "../../../../packages/ui/pages-ui-tokens/src/styles/semantic-n*.css",
-  "../../../../packages/ui/pages-ui-tokens/src/styles/semantic-o*.css",
-  "../../../../packages/ui/pages-ui-tokens/src/styles/semantic-p*.css",
-  "../../../../packages/ui/pages-ui-tokens/src/styles/semantic-q*.css",
-  "../../../../packages/ui/pages-ui-tokens/src/styles/semantic-r*.css",
+  "../../../../packages/ui/pages-ui-tokens/src/styles/semantic-sb*.css",
+  "../../../../packages/ui/pages-ui-tokens/src/styles/semantic-schema-property-sb*.css",
+  "../../../../packages/ui/pages-ui-tokens/src/styles/semantic-schema-enumeration-sb*.css",
+  "../../../../packages/ui/pages-ui-tokens/src/styles/semantic-schema-datatype-sb*.css"
 ]);
 const styleImportersByBasename = new Map();
 

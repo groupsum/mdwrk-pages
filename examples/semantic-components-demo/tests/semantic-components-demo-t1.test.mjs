@@ -324,8 +324,8 @@ test("T1: detail tabs render lazily behind route-level and app-level error bound
   const detailSource = readFileSync(resolve("src/showcase-artifact-detail.mjs"), "utf8");
   const semanticSource = readFileSync(resolve("src/showcase-client-semantic.mjs"), "utf8");
   const semanticLoaderSource = readFileSync(resolve("src/showcase-semantic-component-loader.mjs"), "utf8");
-  const semanticPropertyLoaderSource = readFileSync(resolve("src/semantic-loaders/module-property.mjs"), "utf8");
-  const semanticStyleLoaderSource = readFileSync(resolve("src/semantic-loaders/style-s-z.mjs"), "utf8");
+  const semanticPropertyLoaderSource = readFileSync(resolve("src/semantic-loaders/module-property-a-f.mjs"), "utf8");
+  const semanticStyleLoaderSource = readFileSync(resolve("src/semantic-loaders/style-p-r-a-m.mjs"), "utf8");
   const mainSource = readFileSync(resolve("src/main.tsx"), "utf8");
 
   assert.ok(detailSource.includes("class DetailTabErrorBoundary"), "expected detail-tab error boundary");
@@ -340,8 +340,8 @@ test("T1: detail tabs render lazily behind route-level and app-level error bound
   assert.ok(semanticSource.includes("function AuthoredSpecimenPanel"), "expected visible specimens to include an authored primitive-backed panel");
   assert.ok(!semanticSource.includes("structuredDataOverrides: specimen.jsonLd"), "expected live specimens to use direct schema props instead of override bags");
   assert.ok(semanticLoaderSource.includes("property-family/components/${moduleSlug}.js"), "expected exact property component path candidate");
-  assert.ok(semanticPropertyLoaderSource.includes("property-family/components/*.js"), "expected property components to load from a property-only registry");
-  assert.ok(semanticStyleLoaderSource.includes("semantic-s*.css"), "expected semantic styles to load from alphabet-bucketed registries");
+  assert.ok(semanticPropertyLoaderSource.includes("property-family/components/schema-property-a*.js"), "expected property components to load from alphabet-bucketed property registries");
+  assert.ok(semanticStyleLoaderSource.includes("semantic-schema-property-pra*.css"), "expected semantic styles to load from prefix-aware alphabet-bucketed registries");
   assert.ok(semanticSource.includes("componentResolved"), "expected component loading to distinguish not-found from still-loading");
   assert.ok(mainSource.includes("class ShowcaseErrorBoundary"), "expected root app error boundary");
 });
