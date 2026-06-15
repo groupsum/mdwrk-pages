@@ -8,9 +8,6 @@ import {
   Tabs,
   Toolbar,
 } from "@mdwrk/lander-primitives";
-import { primitiveEntries, PrimitiveGallery } from "./showcase-primitives.mjs";
-import { ArtifactDetailPage } from "./showcase-artifact-detail.mjs";
-import { buildPrimitiveDetailHref, buildPrimitiveDetailManifest } from "./showcase-primitive-manifest.mjs";
 
 const createElement = React.createElement;
 const slugify = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -76,7 +73,9 @@ const themeOptions = [
   { value: "lander-dark", label: "Dark" },
 ];
 type SemanticCatalogModule = typeof import("./showcase-catalog-index.mjs");
+type GeneratedCatalogModule = typeof import("./showcase-generated-catalog-index.mjs");
 type SemanticRenderModule = typeof import("./showcase-client-semantic.mjs");
+type PrimitiveRenderModule = typeof import("./showcase-client-primitives.mjs");
 
 function SearchField({ value, onChange, placeholder }: { value: string; onChange: (event: React.ChangeEvent<HTMLInputElement>) => void; placeholder: string }) {
   return createElement(PrimitiveSearchField, {
@@ -220,48 +219,6 @@ function ArtifactIndexSection({
   );
 }
 
-function PrimitiveDetailPage({
-  detailName,
-  theme,
-  activeTab,
-  specimenKey,
-  viewport,
-  onTabChange,
-  onSpecimenChange,
-}: {
-  detailName: string;
-  theme: string;
-  activeTab: string;
-  specimenKey: string;
-  viewport: string;
-  onTabChange: (tab: string) => void;
-  onSpecimenChange: (specimen: string) => void;
-}) {
-  const entry = primitiveEntries.find((candidate) => candidate.name.toLowerCase() === detailName.toLowerCase());
-  const manifest = buildPrimitiveDetailManifest(detailName, theme, primitiveEntries);
-  if (!entry || !manifest) {
-    return createElement(
-      "section",
-      { className: "semantic-demo__detail semantic-demo__detail--missing" },
-      createElement("p", { className: "semantic-demo__kicker" }, "Detail route"),
-      createElement("h2", { className: "mdwrk-primitive__text-fit-heading" }, "No matching primitive detail page"),
-      createElement("p", { className: "mdwrk-primitive__text-fit-preserve" }, "The requested primitive is not present in the current manifest."),
-    );
-  }
-
-  return createElement(ArtifactDetailPage, {
-    manifest,
-    activeTab,
-    onTabChange,
-    specimenKey,
-    onSpecimenChange,
-    theme,
-    viewport,
-    renderVisibleSpecimen: () => entry.render(),
-    renderFieldCoverageSpecimen: () => null,
-  });
-}
-
 function parseStateFromLocation() {
   if (typeof window === "undefined") return DEFAULT_STATE;
   const params = new URLSearchParams(window.location.search);
@@ -321,11 +278,15 @@ function writeStateToLocation(state: typeof DEFAULT_STATE) {
 export function SemanticShowcaseClient() {
   const [state, setState] = useState(() => ({ ...DEFAULT_STATE, ...parseStateFromLocation() }));
   const [semanticCatalog, setSemanticCatalog] = useState<SemanticCatalogModule | null>(null);
+  const [generatedCatalog, setGeneratedCatalog] = useState<GeneratedCatalogModule | null>(null);
   const [semanticRenderers, setSemanticRenderers] = useState<SemanticRenderModule | null>(null);
+  const [primitiveRenderers, setPrimitiveRenderers] = useState<PrimitiveRenderModule | null>(null);
   const deferredSearch = useDeferredValue(state.search);
   const showDetailPage = Boolean(state.detailKind && state.detailName);
-  const needsSemanticCatalog = state.mode !== "primitives" || (showDetailPage && state.detailKind !== "primitive");
+  const needsSemanticCatalog = state.mode === "highlights" || state.mode === "governed-core";
+  const needsGeneratedCatalog = state.mode === "generated-surface";
   const needsSemanticRuntime = showDetailPage && state.detailKind !== "primitive";
+  const needsPrimitiveRuntime = state.mode === "primitives" || (showDetailPage && state.detailKind === "primitive");
 
   useEffect(() => {
     const sync = () => {
@@ -348,6 +309,18 @@ export function SemanticShowcaseClient() {
   }, [needsSemanticCatalog]);
 
   useEffect(() => {
+    if (!needsGeneratedCatalog) return;
+    let cancelled = false;
+    import("./showcase-generated-catalog-index.mjs").then((catalogModule) => {
+      if (cancelled) return;
+      setGeneratedCatalog(catalogModule);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [needsGeneratedCatalog]);
+
+  useEffect(() => {
     if (!needsSemanticRuntime) return;
     let cancelled = false;
     import("./showcase-client-semantic.mjs").then((renderModule) => {
@@ -357,6 +330,17 @@ export function SemanticShowcaseClient() {
       cancelled = true;
     };
   }, [needsSemanticRuntime]);
+
+  useEffect(() => {
+    if (!needsPrimitiveRuntime) return;
+    let cancelled = false;
+    import("./showcase-client-primitives.mjs").then((renderModule) => {
+      if (!cancelled) setPrimitiveRenderers(renderModule);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [needsPrimitiveRuntime]);
 
   const patchState = (patch: Partial<typeof DEFAULT_STATE>) => {
     const nextState = { ...state, ...patch };
@@ -392,7 +376,7 @@ export function SemanticShowcaseClient() {
     surface: state.surface,
   }) ?? [];
   const highlightsGroups = semanticCatalog?.highlightsView.groups ?? [];
-  const generatedView = semanticCatalog?.buildGeneratedArtifactView({
+  const generatedView = generatedCatalog?.buildGeneratedArtifactView({
     kind: state.kind,
     search: deferredSearch,
     page: state.page,
@@ -508,7 +492,8 @@ export function SemanticShowcaseClient() {
       "main",
       { className: "semantic-demo__families" },
       showDetailPage && state.detailKind === "primitive"
-        ? createElement(PrimitiveDetailPage, {
+        ? primitiveRenderers
+          ? createElement(primitiveRenderers.PrimitiveDetailRoute, {
             detailName: state.detailName,
             theme: state.theme,
             activeTab: state.tab,
@@ -517,6 +502,7 @@ export function SemanticShowcaseClient() {
             onTabChange: (tab: string) => patchState({ tab }),
             onSpecimenChange: (specimen: string) => patchState({ specimen }),
           })
+          : createElement("section", { className: "semantic-demo__detail semantic-demo__detail--loading" }, createElement("p", null, "Loading primitive detail page..."))
         : null,
       !showDetailPage && state.mode === "highlights"
         ? semanticCatalog
@@ -598,9 +584,18 @@ export function SemanticShowcaseClient() {
           : createElement("section", { className: "semantic-demo__family semantic-demo__family--loading" }, createElement("p", null, "Loading generated surfaces..."))
         : null,
       !showDetailPage && state.mode === "primitives"
-        ? createElement(PrimitiveGallery, {
-            buildHref: (entry: { name: string }) => buildPrimitiveDetailHref({ name: entry.name, theme: state.theme }),
-          })
+        ? primitiveRenderers
+          ? createElement(primitiveRenderers.PrimitiveGalleryRoute, {
+              buildHref: (entry: { name: string }) => {
+                const params = new URLSearchParams();
+                params.set("mode", "primitives");
+                params.set("detailKind", "primitive");
+                params.set("detailName", entry.name);
+                if (state.theme) params.set("theme", state.theme);
+                return `?${params.toString()}`;
+              },
+            })
+          : createElement("section", { className: "semantic-demo__family semantic-demo__family--loading" }, createElement("p", null, "Loading primitive gallery..."))
         : null,
       showDetailPage && state.detailKind !== "primitive"
         ? semanticRenderers

@@ -25,6 +25,8 @@ const packageJson = JSON.parse(readFileSync(path.join(demoRoot, "package.json"),
 const mainSource = readFileSync(path.join(demoRoot, "src", "main.tsx"), "utf8");
 const clientSource = readFileSync(path.join(demoRoot, "src", "showcase-client.tsx"), "utf8");
 const clientIndexCatalogSource = readFileSync(path.join(demoRoot, "src", "showcase-catalog-index.mjs"), "utf8");
+const clientGeneratedCatalogSource = readFileSync(path.join(demoRoot, "src", "showcase-generated-catalog-index.mjs"), "utf8");
+const clientPrimitivesSource = readFileSync(path.join(demoRoot, "src", "showcase-client-primitives.mjs"), "utf8");
 const clientSemanticSource = readFileSync(path.join(demoRoot, "src", "showcase-client-semantic.mjs"), "utf8");
 const semanticLoaderSource = readFileSync(path.join(demoRoot, "src", "showcase-semantic-component-loader.mjs"), "utf8");
 const semanticPropertyLoaderSource = readFileSync(path.join(demoRoot, "src", "semantic-loaders", "module-property.mjs"), "utf8");
@@ -46,9 +48,16 @@ test("T0: semantic components demo is a mode-driven explorer over the full gener
   assert.ok(packageJson.scripts.test.includes("semantic-components-demo-t0.test.mjs"));
   assert.ok(mainSource.includes('import "./token-styles.css";'));
   assert.ok(mainSource.includes("SemanticShowcaseClient"));
-  assert.ok(clientSource.includes("PrimitiveGallery"));
+  assert.ok(clientSource.includes('import("./showcase-client-primitives.mjs")'));
+  assert.equal(clientSource.includes('from "./showcase-primitives.mjs"'), false);
+  assert.ok(clientPrimitivesSource.includes("PrimitiveGallery"));
   assert.ok(clientSource.includes('import("./showcase-catalog-index.mjs")'));
+  assert.ok(clientSource.includes('import("./showcase-generated-catalog-index.mjs")'));
   assert.equal(clientSource.includes('import("./showcase-catalog.mjs")'), false);
+  assert.equal(clientIndexCatalogSource.includes("compactGeneratedArtifacts"), false);
+  assert.equal(clientIndexCatalogSource.includes("buildGeneratedArtifactView"), false);
+  assert.ok(clientGeneratedCatalogSource.includes("compactGeneratedArtifacts"));
+  assert.ok(clientGeneratedCatalogSource.includes("buildGeneratedArtifactView"));
   assert.equal(clientIndexCatalogSource.includes("validateStructuredDataByType"), false);
   assert.equal(clientIndexCatalogSource.includes("getStructuredDataSchemaAssetMap"), false);
   assert.ok(clientSource.includes('import("./showcase-client-semantic.mjs")'));

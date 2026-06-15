@@ -349,6 +349,8 @@ test("T1: detail tabs render lazily behind route-level and app-level error bound
 test("T1: semantic demo build emits artifact-scoped CSS instead of a multi-megabyte aggregate semantic stylesheet", () => {
   const assetsRoot = resolve("dist/assets");
   const assetNames = readdirSync(assetsRoot);
+  const indexHtml = readFileSync(resolve("dist/index.html"), "utf8");
+  const entryScriptMatch = indexHtml.match(/<script[^>]+src="\/assets\/([^"]+\.js)"/u);
   const cssAssets = readdirSync(assetsRoot)
     .filter((filename) => filename.endsWith(".css"))
     .map((filename) => ({
@@ -357,6 +359,12 @@ test("T1: semantic demo build emits artifact-scoped CSS instead of a multi-megab
     }));
 
   assert.ok(cssAssets.length > 0, "expected built CSS assets");
+  assert.ok(entryScriptMatch, "expected an HTML module entry script");
+  const entryScript = {
+    filename: entryScriptMatch[1],
+    bytes: statSync(resolve(assetsRoot, entryScriptMatch[1])).size,
+  };
+  assert.ok(entryScript.bytes < 128 * 1024, `expected client entry script below 128KB, got ${JSON.stringify(entryScript)}`);
   assert.ok(!cssAssets.some((asset) => asset.filename.startsWith("showcase-client-semantic-")), "did not expect a semantic aggregate CSS chunk");
   const oversizedSemanticRuntimeAssets = assetNames
     .filter((filename) => filename.startsWith("semantic-runtime-") && /\.(?:js|css)$/u.test(filename))
@@ -372,7 +380,7 @@ test("T1: semantic demo build emits artifact-scoped CSS instead of a multi-megab
       filename,
       bytes: statSync(resolve(assetsRoot, filename)).size,
     }))
-    .filter((asset) => asset.bytes >= 512 * 1024);
-  assert.deepEqual(oversizedRuntimeAssets, [], "did not expect any JS or CSS runtime chunk above 512KB");
-  assert.ok(cssAssets.every((asset) => asset.bytes < 512 * 1024), `expected all CSS assets below 512KB, got ${JSON.stringify(cssAssets)}`);
+    .filter((asset) => asset.bytes >= 300 * 1024);
+  assert.deepEqual(oversizedRuntimeAssets, [], "did not expect any JS or CSS runtime chunk at or above 300KB");
+  assert.ok(cssAssets.every((asset) => asset.bytes < 300 * 1024), `expected all CSS assets below 300KB, got ${JSON.stringify(cssAssets)}`);
 });

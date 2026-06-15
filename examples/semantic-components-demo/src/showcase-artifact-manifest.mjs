@@ -1,7 +1,7 @@
 import {
   buildGeneratedArtifactDetailHref,
   generatedArtifactEntries,
-} from "./showcase-catalog-index.mjs";
+} from "./showcase-generated-catalog-index.mjs";
 
 const helperPropNames = new Set([
   "body",

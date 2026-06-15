@@ -1,10 +1,9 @@
 import { semanticFixtures } from "../../../packages/ui/lander-react/tests/semantic-fixtures.mjs";
-import { compactGeneratedArtifacts } from "./generated-artifact-index.mjs";
 import { governedFamilyEntries } from "./generated-governed-family-map.mjs";
 
-const slugify = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+export const slugify = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-const curatedDescriptionsByName = {
+export const curatedDescriptionsByName = {
   AboutPage: "About-page variant with entity framing.",
   AggregateRating: "Aggregate rating summary block.",
   Answer: "Answer block with lightweight attribution.",
@@ -109,32 +108,13 @@ const highlightNames = new Set([
   "RealEstateListing",
 ]);
 
-const foundationalGeneratedTypeNames = new Set([
-  "Thing",
-  "CreativeWork",
-  "BreadcrumbList",
-  "ListItem",
-  "Offer",
-  "Place",
-  "MonetaryAmount",
-  "Action",
-  "ReadAction",
-]);
-
-const artifactKindDescriptions = {
-  type: "Class-like semantic entities, including authored runtime types and generated pass-through types.",
-  property: "Schema.org property reference surfaces with compact payload previews.",
-  enumeration: "Enumerated vocabularies rendered as labeled reference cards.",
-  datatype: "Primitive semantic value surfaces for direct value-bearing payloads.",
-};
-
-const familyByName = new Map(governedFamilyEntries.map((entry) => [entry.name, entry.family]));
-const familySlugByName = new Map(governedFamilyEntries.map((entry) => [entry.name, entry.familySlug]));
+export const familyByName = new Map(governedFamilyEntries.map((entry) => [entry.name, entry.family]));
+export const familySlugByName = new Map(governedFamilyEntries.map((entry) => [entry.name, entry.familySlug]));
 const fixtureByName = new Map(semanticFixtures.map((fixture) => [fixture.name, fixture]));
 const listingNamePattern = /(Listing|Rental|JobPosting)/;
 const pageNamePattern = /(Page|Gallery|WebSite)$/;
 
-function surfaceFocusForName(name) {
+export function surfaceFocusForName(name) {
   const isListing = listingNamePattern.test(name);
   const isPage = pageNamePattern.test(name);
   if (isPage && isListing) return "page-or-listing";
@@ -143,19 +123,12 @@ function surfaceFocusForName(name) {
   return "all";
 }
 
-function matchesSurfaceFocus(entry, surface = "all") {
+export function matchesSurfaceFocus(entry, surface = "all") {
   if (surface === "all") return true;
   if (surface === "page") return entry.surfaceFocus === "page" || entry.surfaceFocus === "page-or-listing";
   if (surface === "listing") return entry.surfaceFocus === "listing" || entry.surfaceFocus === "page-or-listing";
   if (surface === "page-or-listing") return entry.surfaceFocus !== "all";
   return true;
-}
-
-function generatedDescriptionForArtifact(artifact) {
-  if (artifact.kind === "property") return "Generated Schema.org property surface with a compact payload preview.";
-  if (artifact.kind === "enumeration") return "Generated enumeration surface for a controlled vocabulary value.";
-  if (artifact.kind === "datatype") return "Generated datatype surface for direct primitive semantic values.";
-  return "Generated Schema.org type surface beyond the governed authored runtime catalog.";
 }
 
 function coreEntryFromFixture(fixture) {
@@ -216,71 +189,6 @@ export function buildGovernedCoreGroups({ family = "all", search = "", surface =
   return groupEntriesByFamily(filtered);
 }
 
-const generatedArtifactEntries = compactGeneratedArtifacts.map((artifact) => ({
-  artifactKind: artifact.kind,
-  name: artifact.name,
-  exportName: artifact.visibleExportName,
-  slug: artifact.slug,
-  shellSelector: artifact.shellSelector,
-  family: familyByName.get(artifact.name) ?? `${artifact.kind[0].toUpperCase()}${artifact.kind.slice(1)} artifacts`,
-  familySlug: familySlugByName.get(artifact.name) ?? slugify(`${artifact.kind} artifacts`),
-  surfaceFocus: surfaceFocusForName(artifact.name),
-  description: curatedDescriptionsByName[artifact.name] ?? generatedDescriptionForArtifact(artifact),
-}));
-
-export function buildGeneratedArtifactDetailHref({ name, kind, theme, surface, mode = "generated-surface" }) {
-  const params = new URLSearchParams();
-  params.set("mode", mode);
-  params.set("kind", kind);
-  params.set("detailKind", kind);
-  params.set("detailName", name);
-  if (theme) params.set("theme", theme);
-  if (surface && surface !== "all") params.set("surface", surface);
-  return `?${params.toString()}`;
-}
-
-export function buildGeneratedArtifactView({ kind = "type", search = "", page = 1, pageSize = 24, surface = "all" } = {}) {
-  const normalizedSearch = search.trim().toLowerCase();
-  const filtered = generatedArtifactEntries.filter((entry) => {
-    if (entry.artifactKind !== kind) return false;
-    if (kind === "type" && !matchesSurfaceFocus(entry, surface)) return false;
-    if (!normalizedSearch) return true;
-    return [
-      entry.name,
-      entry.description,
-      entry.family,
-      entry.artifactKind,
-    ].join(" ").toLowerCase().includes(normalizedSearch);
-  });
-  const prioritized = [...filtered];
-  if (kind === "type" && surface !== "all") {
-    prioritized.sort((left, right) => {
-      const leftFoundation = foundationalGeneratedTypeNames.has(left.name) ? 1 : 0;
-      const rightFoundation = foundationalGeneratedTypeNames.has(right.name) ? 1 : 0;
-      if (leftFoundation !== rightFoundation) return rightFoundation - leftFoundation;
-      return left.name.localeCompare(right.name);
-    });
-  }
-
-  const safePageSize = Math.max(6, pageSize);
-  const total = prioritized.length;
-  const totalPages = Math.max(1, Math.ceil(total / safePageSize));
-  const currentPage = Math.min(Math.max(1, page), totalPages);
-  const start = (currentPage - 1) * safePageSize;
-  const entries = prioritized.slice(start, start + safePageSize);
-
-  return {
-    kind,
-    title: `${kind[0].toUpperCase()}${kind.slice(1)} artifacts`,
-    description: artifactKindDescriptions[kind],
-    entries,
-    total,
-    currentPage,
-    pageSize: safePageSize,
-    totalPages,
-  };
-}
-
 export const governedFamilyOptions = [
   { value: "all", label: "All families" },
   ...groupEntriesByFamily(governedCoreEntries).map((group) => ({ value: group.family, label: group.family })),
@@ -293,4 +201,4 @@ export const highlightsView = {
   groups: highlightsEntriesByFamily,
 };
 
-export { generatedArtifactEntries, governedCoreEntries, highlightFamilyOrder };
+export { governedCoreEntries, highlightFamilyOrder };
