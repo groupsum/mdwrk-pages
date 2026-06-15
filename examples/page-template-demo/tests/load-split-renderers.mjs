@@ -10,7 +10,22 @@ function rewriteModule(inputPath, replacements, outputPath) {
   for (const [from, to] of replacements) {
     source = source.replaceAll(from, to);
   }
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, source);
+}
+
+function copySemanticTree(srcRoot, destRoot, replacements) {
+  fs.mkdirSync(destRoot, { recursive: true });
+  for (const entry of fs.readdirSync(srcRoot, { withFileTypes: true })) {
+    const srcPath = path.join(srcRoot, entry.name);
+    const destPath = path.join(destRoot, entry.name);
+    if (entry.isDirectory()) {
+      copySemanticTree(srcPath, destPath, replacements);
+      continue;
+    }
+    if (!entry.name.endsWith(".js")) continue;
+    rewriteModule(srcPath, replacements, destPath);
+  }
 }
 
 export async function importSplitRenderers() {
@@ -48,6 +63,14 @@ export async function importSplitRenderers() {
     "dist",
     `index.${suffix}.smoke.mjs`,
   );
+  const primitivesDist = path.join(
+    repoRoot,
+    "packages",
+    "ui",
+    "lander-primitives",
+    "dist",
+    "index.js",
+  ).replace(/\\/g, "/");
   const semanticDistRoot = path.join(repoRoot, "packages", "ui", "lander-react", "dist", "semantic");
   const semanticSmokeRoot = path.join(
     repoRoot,
@@ -67,20 +90,16 @@ export async function importSplitRenderers() {
     landerReactDist,
     [
       ['"@mdwrk/lander-react-structured-data"', `"file:///${structuredDataReactSmoke.replace(/\\/g, "/")}"`],
+      ['"@mdwrk/lander-primitives"', `"file:///${primitivesDist}"`],
       ['"./semantic/', `"./semantic.${suffix}.smoke/`],
     ],
     landerReactSmoke,
   );
 
-  fs.mkdirSync(semanticSmokeRoot, { recursive: true });
-  for (const fileName of fs.readdirSync(semanticDistRoot)) {
-    if (!fileName.endsWith(".js")) continue;
-    rewriteModule(
-      path.join(semanticDistRoot, fileName),
-      [['"@mdwrk/lander-react-structured-data"', `"file:///${structuredDataReactSmoke.replace(/\\/g, "/")}"`]],
-      path.join(semanticSmokeRoot, fileName),
-    );
-  }
+  copySemanticTree(semanticDistRoot, semanticSmokeRoot, [
+    ['"@mdwrk/lander-react-structured-data"', `"file:///${structuredDataReactSmoke.replace(/\\/g, "/")}"`],
+    ['"@mdwrk/lander-primitives"', `"file:///${primitivesDist}"`],
+  ]);
 
   try {
     const landerReact = await import(`file:///${landerReactSmoke.replace(/\\/g, "/")}?t=${Date.now()}`);

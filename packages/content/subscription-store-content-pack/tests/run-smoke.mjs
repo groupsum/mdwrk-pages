@@ -11,9 +11,9 @@ async function importShim() {
   const presetSmokeRoot = path.resolve(packageRoot, ".smoke-presets-dist");
   const templateSmokeRoot = path.resolve(packageRoot, ".smoke-templates-dist");
   const distRoot = path.resolve(packageRoot, "dist");
-  const presetsDistRoot = path.resolve(packageRoot, "..", "..", "lander", "lander-page-template-presets", "dist");
-  const templatesDistRoot = path.resolve(packageRoot, "..", "..", "lander", "lander-page-templates", "dist");
-  const contractDist = path.resolve(packageRoot, "..", "..", "lander", "lander-content-contract", "dist", "index.js").replace(/\\/g, "/");
+  const presetsDistRoot = path.resolve(packageRoot, "..", "..", "core", "lander-page-template-presets", "dist");
+  const templatesDistRoot = path.resolve(packageRoot, "..", "..", "core", "lander-page-templates", "dist");
+  const contractDist = path.resolve(packageRoot, "..", "..", "contracts", "lander-content-contract", "dist", "index.js").replace(/\\/g, "/");
 
   fs.rmSync(smokeRoot, { recursive: true, force: true });
   fs.rmSync(presetSmokeRoot, { recursive: true, force: true });

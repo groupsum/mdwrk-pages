@@ -6,6 +6,7 @@ function workspaceDistPath(relativePath: string) {
 }
 
 export default defineConfig({
+  root: workspaceDistPath("./"),
   resolve: {
     alias: {
       "@mdwrk/lander-content-contract": workspaceDistPath(

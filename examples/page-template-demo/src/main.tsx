@@ -44,6 +44,21 @@ interface MarkdownSiteField {
   value: string;
 }
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return Boolean(value && typeof value === "object" && !Array.isArray(value));
+}
+
+function isDemoSchemaLinkItem(value: unknown): value is DemoSchemaLinkItem {
+  return isRecord(value)
+    && typeof value.href === "string"
+    && typeof value.label === "string"
+    && typeof value.targetTemplateId === "string"
+    && typeof value.pageId === "string";
+}
+
+function demoSchemaLinkItems(value: unknown): DemoSchemaLinkItem[] {
+  return Array.isArray(value) ? value.filter(isDemoSchemaLinkItem) : [];
+}
 function normalizeRouteSlug(value: string) {
   const trimmed = String(value ?? "").trim();
   if (!trimmed || trimmed === "/") return "/";
@@ -220,14 +235,11 @@ function linkClassName(href: string, current: string) {
 function schemaLinkRowsFor(page: CompiledPage): DemoSchemaPanel[] {
   return (page.schema ?? [])
     .map((schema) => {
-      const linkedPages = schema.data?.linkedPages;
-      if (!linkedPages || typeof linkedPages !== "object") return null;
+      const linkedPages = isRecord(schema.data) ? schema.data.linkedPages : undefined;
+      if (!isRecord(linkedPages)) return null;
       const entries = Object.entries(linkedPages)
-        .filter(([, items]) => Array.isArray(items) && items.length > 0)
-        .map(([property, items]) => ({
-          property,
-          items: items as DemoSchemaLinkItem[],
-        }));
+        .map(([property, items]) => ({ property, items: demoSchemaLinkItems(items) }))
+        .filter((entry) => entry.items.length > 0);
       if (!entries.length) return null;
       return { kind: schema.kind, entries };
     })

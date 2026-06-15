@@ -7,7 +7,7 @@ const testRoot = path.dirname(fileURLToPath(import.meta.url));
 const packageRoot = path.resolve(testRoot, "..");
 const distRoot = path.resolve(packageRoot, "dist");
 const smokeRoot = path.resolve(packageRoot, ".smoke-dist");
-const contractDist = path.resolve(packageRoot, "..", "lander-content-contract", "dist", "index.js").replace(/\\/g, "/");
+const contractDist = path.resolve(packageRoot, "..", "..", "contracts", "lander-content-contract", "dist", "index.js").replace(/\\/g, "/");
 
 fs.rmSync(smokeRoot, { recursive: true, force: true });
 fs.cpSync(distRoot, smokeRoot, { recursive: true });
@@ -536,13 +536,13 @@ assert.deepEqual([...coveredFeatures].sort(), [
 
 coversDefaultGraph("feat:lander.page-templates.product-domain-bundle", () => {
   const ids = productDomainBundle.templates.map((item) => item.id);
-  assert.deepEqual(ids, ["product.home", "product.product", "product.feature", "product.compare", "product.pricing", "product.case-study", "product.changelog"]);
+  assert.deepEqual(ids, ["product.home", "product.catalog", "product.product", "product.feature", "product.compare", "product.pricing", "product.plan-detail", "product.case-study", "product.changelog"]);
   assert.equal(productDomainBundle.templates.find((item) => item.id === "product.product").topology.childSlots[0].targetTemplateIds.includes("product.changelog"), true);
 });
 
 coversDefaultGraph("feat:lander.page-templates.support-domain-bundle", () => {
   const ids = supportDomainBundle.templates.map((item) => item.id);
-  assert.deepEqual(ids, ["support.hub", "support.faq", "support.qa", "support.article", "support.contact", "support.status", "support.ticket-intent"]);
+  assert.deepEqual(ids, ["support.hub", "support.billing", "support.faq", "support.qa", "support.article", "support.contact", "support.status", "support.ticket-intent"]);
   assert.equal(supportDomainBundle.templates.find((item) => item.id === "support.hub").linkSlots.some((slot) => slot.id === "support"), true);
 });
 
@@ -568,7 +568,7 @@ coversDefaultGraph("feat:lander.page-templates.package-domain-bundle", () => {
 
 coversDefaultGraph("feat:lander.page-templates.trust-domain-bundle", () => {
   const ids = trustDomainBundle.templates.map((item) => item.id);
-  assert.deepEqual(ids, ["trust.hub", "trust.privacy", "trust.terms", "trust.security", "trust.compliance", "trust.policy", "trust.legal", "trust.support"]);
+  assert.deepEqual(ids, ["trust.hub", "trust.privacy", "trust.refunds", "trust.terms", "trust.security", "trust.compliance", "trust.policy", "trust.legal", "trust.support"]);
   assert.equal(trustDomainBundle.templates.find((item) => item.id === "trust.hub").topology.childSlots[0].targetTemplateIds.includes("trust.support"), true);
 });
 

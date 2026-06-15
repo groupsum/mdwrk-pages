@@ -7,9 +7,9 @@ const testRoot = path.dirname(fileURLToPath(import.meta.url));
 const seoDistRoot = path.resolve(testRoot, '..', 'dist');
 const seoDistIndex = path.join(seoDistRoot, 'index.js');
 const seoSmokeIndex = path.join(seoDistRoot, 'index.smoke.mjs');
-const coreDistIndex = path.resolve(testRoot, '..', '..', 'lander-core', 'dist', 'index.js').replace(/\\/g, '/');
-const contentContractDist = path.resolve(testRoot, '..', '..', 'lander-content-contract', 'dist', 'index.js').replace(/\\/g, '/');
-const coreSmokeIndex = path.resolve(testRoot, '..', '..', 'lander-core', 'dist', 'index.smoke.mjs');
+const coreDistIndex = path.resolve(testRoot, '..', '..', '..', 'core', 'lander-core', 'dist', 'index.js').replace(/\\/g, '/');
+const contentContractDist = path.resolve(testRoot, '..', '..', '..', 'contracts', 'lander-content-contract', 'dist', 'index.js').replace(/\\/g, '/');
+const coreSmokeIndex = path.resolve(testRoot, '..', '..', '..', 'core', 'lander-core', 'dist', 'index.smoke.mjs');
 
 fs.writeFileSync(
   coreSmokeIndex,

@@ -7,6 +7,7 @@ function workspaceDistPath(relativePath: string) {
 }
 
 export default defineConfig({
+  root: workspaceDistPath("./"),
   plugins: [react()],
   resolve: {
     alias: {

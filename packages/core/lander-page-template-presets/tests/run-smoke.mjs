@@ -10,7 +10,7 @@ const smokeRoot = path.resolve(packageRoot, ".smoke-dist");
 const templatePackageRoot = path.resolve(packageRoot, "..", "lander-page-templates");
 const templateDistRoot = path.resolve(templatePackageRoot, "dist");
 const templateSmokeRoot = path.resolve(templatePackageRoot, ".smoke-dist");
-const contractDist = path.resolve(packageRoot, "..", "lander-content-contract", "dist", "index.js").replace(/\\/g, "/");
+const contractDist = path.resolve(packageRoot, "..", "..", "contracts", "lander-content-contract", "dist", "index.js").replace(/\\/g, "/");
 
 fs.rmSync(templateSmokeRoot, { recursive: true, force: true });
 fs.cpSync(templateDistRoot, templateSmokeRoot, { recursive: true });

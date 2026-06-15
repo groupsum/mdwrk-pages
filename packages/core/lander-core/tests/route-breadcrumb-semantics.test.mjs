@@ -8,7 +8,7 @@ const repoRoot = path.resolve(testRoot, '..', '..', '..', '..');
 const distRoot = path.resolve(testRoot, '..', 'dist');
 const distIndex = path.join(distRoot, 'index.js');
 const smokeIndex = path.join(distRoot, 'index.route-boundary.mjs');
-const contentContractDist = path.join(repoRoot, 'packages', 'lander', 'lander-content-contract', 'dist', 'index.js').replace(/\\/g, '/');
+const contentContractDist = path.join(repoRoot, 'packages', 'contracts', 'lander-content-contract', 'dist', 'index.js').replace(/\\/g, '/');
 
 fs.writeFileSync(
   smokeIndex,
