@@ -715,6 +715,11 @@ export const governedFamilyEntries = [
     "familySlug": "education-family"
   },
   {
+    "name": "buildProductStructuredData",
+    "family": "Commerce family",
+    "familySlug": "commerce-family"
+  },
+  {
     "name": "Product",
     "family": "Commerce family",
     "familySlug": "commerce-family"
@@ -830,6 +835,11 @@ export const governedFamilyEntries = [
     "familySlug": "identity-family"
   },
   {
+    "name": "buildOrganizationStructuredData",
+    "family": "Identity family",
+    "familySlug": "identity-family"
+  },
+  {
     "name": "Organization",
     "family": "Identity family",
     "familySlug": "identity-family"
@@ -855,7 +865,17 @@ export const governedFamilyEntries = [
     "familySlug": "identity-family"
   },
   {
+    "name": "buildWebPageStructuredData",
+    "family": "Identity family",
+    "familySlug": "identity-family"
+  },
+  {
     "name": "WebPage",
+    "family": "Identity family",
+    "familySlug": "identity-family"
+  },
+  {
+    "name": "buildWebSiteStructuredData",
     "family": "Identity family",
     "familySlug": "identity-family"
   },
@@ -873,6 +893,11 @@ export const governedFamilyEntries = [
     "name": "SpeakableSpecification",
     "family": "Identity family",
     "familySlug": "identity-family"
+  },
+  {
+    "name": "buildAboutPageStructuredData",
+    "family": "Page family",
+    "familySlug": "page-family"
   },
   {
     "name": "AboutPage",

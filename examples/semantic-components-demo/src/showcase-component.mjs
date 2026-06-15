@@ -145,13 +145,7 @@ function StructuredFieldsPanel({ value }) {
 
 function composeComponentProps(props, structuredFields) {
   if (!structuredFields) return props;
-  const structuredPanel = createElement(StructuredFieldsPanel, { value: structuredFields });
-  return {
-    ...props,
-    body: props?.body
-      ? createElement(React.Fragment, null, props.body, structuredPanel)
-      : structuredPanel,
-  };
+  return props;
 }
 
 function parseStateFromLocation() {

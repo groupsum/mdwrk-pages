@@ -173,6 +173,7 @@ a {
 .demo-layout {
   display: grid;
   grid-template-columns: 360px minmax(0, 1fr);
+  align-items: start;
   gap: 20px;
   margin-top: 20px;
 }
@@ -181,6 +182,10 @@ a {
 .demo-stage {
   display: grid;
   gap: 20px;
+}
+
+.demo-stage {
+  align-content: start;
 }
 
 .demo-panel {

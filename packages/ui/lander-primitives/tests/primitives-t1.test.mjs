@@ -42,6 +42,7 @@ test("T1: form and navigation primitives preserve className hooks", () => {
   assert.match(markup, /demo-select/);
   assert.match(markup, /demo-breadcrumbs/);
   assert.match(markup, /aria-current="page"/);
+  assert.ok(!markup.includes("expand_more"), "SelectField should use the native select affordance by default");
 });
 
 test("T1: icon-integrated field primitives render adornment shells without dropping controls", () => {

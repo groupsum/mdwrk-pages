@@ -55,10 +55,16 @@ export async function importShowcaseComponent() {
   const sourcePath = path.join(demoRoot, "src", "showcase-component.mjs");
   const primitivesSourcePath = path.join(demoRoot, "src", "showcase-primitives.mjs");
   const detailSourcePath = path.join(demoRoot, "src", "showcase-detail.mjs");
+  const artifactDetailSourcePath = path.join(demoRoot, "src", "showcase-artifact-detail.mjs");
+  const artifactManifestSourcePath = path.join(demoRoot, "src", "showcase-artifact-manifest.mjs");
+  const primitiveManifestSourcePath = path.join(demoRoot, "src", "showcase-primitive-manifest.mjs");
   const suffix = `${process.pid}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
   const tempPath = path.join(demoRoot, "src", `showcase-component.${suffix}.smoke.mjs`);
   const primitivesTempPath = path.join(demoRoot, "src", `showcase-primitives.${suffix}.smoke.mjs`);
   const detailTempPath = path.join(demoRoot, "src", `showcase-detail.${suffix}.smoke.mjs`);
+  const artifactDetailTempPath = path.join(demoRoot, "src", `showcase-artifact-detail.${suffix}.smoke.mjs`);
+  const artifactManifestTempPath = path.join(demoRoot, "src", `showcase-artifact-manifest.${suffix}.smoke.mjs`);
+  const primitiveManifestTempPath = path.join(demoRoot, "src", `showcase-primitive-manifest.${suffix}.smoke.mjs`);
   const landerReactDistRoot = path.join(repoRoot, "packages", "ui", "lander-react", "dist");
   const landerReactDist = path.join(landerReactDistRoot, "index.js");
   const landerReactSmoke = path.join(landerReactDistRoot, `index.${suffix}.smoke.mjs`);
@@ -116,6 +122,24 @@ export async function importShowcaseComponent() {
   );
 
   fs.writeFileSync(
+    artifactDetailTempPath,
+    fs.readFileSync(artifactDetailSourcePath, "utf8").replace(
+      '"@mdwrk/lander-primitives"',
+      `"file:///${primitivesDist}"`,
+    ),
+  );
+
+  fs.writeFileSync(
+    artifactManifestTempPath,
+    fs.readFileSync(artifactManifestSourcePath, "utf8"),
+  );
+
+  fs.writeFileSync(
+    primitiveManifestTempPath,
+    fs.readFileSync(primitiveManifestSourcePath, "utf8"),
+  );
+
+  fs.writeFileSync(
     detailTempPath,
     fs.readFileSync(detailSourcePath, "utf8")
       .replace(
@@ -129,6 +153,18 @@ export async function importShowcaseComponent() {
       .replace(
         '"./showcase-primitives.mjs"',
         `"file:///${primitivesTempPath.replace(/\\/g, "/")}"`,
+      )
+      .replace(
+        '"./showcase-artifact-detail.mjs"',
+        `"file:///${artifactDetailTempPath.replace(/\\/g, "/")}"`,
+      )
+      .replace(
+        '"./showcase-artifact-manifest.mjs"',
+        `"file:///${artifactManifestTempPath.replace(/\\/g, "/")}"`,
+      )
+      .replace(
+        '"./showcase-primitive-manifest.mjs"',
+        `"file:///${primitiveManifestTempPath.replace(/\\/g, "/")}"`,
       ),
   );
 
@@ -155,6 +191,9 @@ export async function importShowcaseComponent() {
     removePathWithRetries(tempPath, { force: true });
     removePathWithRetries(primitivesTempPath, { force: true });
     removePathWithRetries(detailTempPath, { force: true });
+    removePathWithRetries(artifactDetailTempPath, { force: true });
+    removePathWithRetries(artifactManifestTempPath, { force: true });
+    removePathWithRetries(primitiveManifestTempPath, { force: true });
     removePathWithRetries(landerReactSmoke, { force: true });
     removePathWithRetries(structuredDataReactSmoke, { force: true });
     removePathWithRetries(semanticSmokeRoot, { recursive: true, force: true });

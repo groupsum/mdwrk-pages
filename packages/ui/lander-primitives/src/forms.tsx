@@ -106,7 +106,7 @@ export interface SelectFieldProps extends Omit<React.SelectHTMLAttributes<HTMLSe
   trailingIcon?: React.ReactNode;
 }
 
-export function SelectField({ className, label, options, leadingIcon, trailingIcon = <Icon name="expand_more" decorative />, ...props }: SelectFieldProps) {
+export function SelectField({ className, label, options, leadingIcon, trailingIcon, ...props }: SelectFieldProps) {
   return (
     <FieldShell label={label} className={primitiveClass("select-field", className)} primitiveName="select-field">
       <FieldControlShell leadingIcon={leadingIcon} trailingIcon={trailingIcon}>

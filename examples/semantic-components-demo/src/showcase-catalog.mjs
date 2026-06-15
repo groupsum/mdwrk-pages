@@ -632,9 +632,11 @@ export function buildGovernedCoreGroups({ family = "all", search = "", surface =
 
 const generatedArtifactEntries = GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS.map((artifact) => {
   const fixture = artifact.kind === "type" ? fixtureByName.get(artifact.name) : null;
-  const props = fixture ? fixture.props : propsForGeneratedArtifact(artifact);
+  let cachedProps;
+  let cachedStructuredFields;
   return {
     artifactKind: artifact.kind,
+    artifact,
     name: artifact.name,
     exportName: artifact.visibleExportName,
     slug: artifact.slug,
@@ -643,9 +645,16 @@ const generatedArtifactEntries = GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS.map((
     familySlug: familySlugByName.get(artifact.name) ?? slugify(`${artifact.kind} artifacts`),
     surfaceFocus: surfaceFocusForName(artifact.name),
     description: curatedDescriptionsByName[artifact.name] ?? generatedDescriptionForArtifact(artifact),
-    props,
-    structuredFields: structuredFieldValueForGeneratedArtifact(artifact, props),
     visible: fixture?.visible ?? [artifact.name],
+    fixtureProps: fixture?.props,
+    get props() {
+      cachedProps ??= fixture?.props ?? propsForGeneratedArtifact(artifact);
+      return cachedProps;
+    },
+    get structuredFields() {
+      cachedStructuredFields ??= structuredFieldValueForGeneratedArtifact(artifact, this.props);
+      return cachedStructuredFields;
+    },
   };
 });
 
@@ -672,6 +681,8 @@ export function findGeneratedArtifactEntry(name, kindHint) {
 export function buildGeneratedArtifactDetailEntry(name, kindHint) {
   const artifact = findGeneratedArtifactEntry(name, kindHint);
   if (!artifact) return null;
+  const props = artifact.props;
+  const structuredFields = artifact.structuredFields;
   return {
     detailKind: artifact.artifactKind,
     name: artifact.name,
@@ -681,15 +692,15 @@ export function buildGeneratedArtifactDetailEntry(name, kindHint) {
     family: artifact.family,
     description: artifact.description,
     exportName: artifact.exportName,
-    schemaRows: schemaRowsForArtifact(artifact),
-    specimenProps: artifact.props,
-    structuredFields: artifact.structuredFields,
+    schemaRows: schemaRowsForArtifact(artifact.artifact),
+    specimenProps: props,
+    structuredFields,
     classNames: [artifact.shellSelector, ".semantic-demo__card", "className prop supported on visible shell"],
-    tokenFiles: generatedTokenFilesForArtifact(artifact),
-    proofPaths: generatedProofPathsForArtifact(artifact),
+    tokenFiles: generatedTokenFilesForArtifact(artifact.artifact),
+    proofPaths: generatedProofPathsForArtifact(artifact.artifact),
     routeHref: buildGeneratedArtifactDetailHref({ kind: artifact.artifactKind, name: artifact.name }),
     explorerHref: `?mode=generated-surface&kind=${artifact.artifactKind}${artifact.artifactKind === "type" && artifact.surfaceFocus !== "all" ? `&surface=${artifact.surfaceFocus}` : ""}`,
-    jsonLdExample: artifact.structuredFields,
+    jsonLdExample: structuredFields,
   };
 }
 

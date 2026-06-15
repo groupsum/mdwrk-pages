@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as landerReact from "@mdwrk/lander-react";
 import {
   Badge,
@@ -7,12 +7,18 @@ import {
   DataTable,
   JsonPreview,
   Pill,
+  Tabs,
 } from "@mdwrk/lander-primitives";
 import {
   buildGeneratedArtifactDetailEntry,
   buildGeneratedArtifactDetailHref,
 } from "./showcase-catalog.mjs";
 import { primitiveEntries, primitiveSlug } from "./showcase-primitives.mjs";
+import { ArtifactDetailPage } from "./showcase-artifact-detail.mjs";
+import {
+  buildGeneratedDetailManifest,
+} from "./showcase-artifact-manifest.mjs";
+import { buildPrimitiveDetailManifest } from "./showcase-primitive-manifest.mjs";
 
 const createElement = React.createElement;
 const componentMap = landerReact;
@@ -120,6 +126,11 @@ function SectionList({ items, emptyLabel }) {
 
 export function DetailPage({ detailKind, detailName, kind, theme, surface }) {
   const detail = resolveDetailEntry({ detailKind, detailName, kind, theme, surface });
+  const manifest = detailKind === "primitive"
+    ? buildPrimitiveDetailManifest(detailName, theme, primitiveEntries)
+    : buildGeneratedDetailManifest(detailName, detailKind === "type" ? kind ?? "type" : detailKind, theme, surface);
+  const [activeTab, setActiveTab] = useState("overview");
+  const [specimenKey, setSpecimenKey] = useState("typical");
   if (!detail) {
     return createElement(
       "section",
@@ -130,91 +141,14 @@ export function DetailPage({ detailKind, detailName, kind, theme, surface }) {
     );
   }
 
-  return createElement(
-    "article",
-    {
-      className: `semantic-demo__detail semantic-demo__detail--${detail.detailKind}`,
-      id: `detail-${detail.slug}`,
-    },
-    createElement(
-      "header",
-      { className: "semantic-demo__detail-hero" },
-      createElement(
-        "div",
-        { className: "semantic-demo__detail-copy" },
-        createElement("a", { className: "semantic-demo__detail-link semantic-demo__detail-link--back", href: detail.explorerHref }, "Back to explorer"),
-        createElement("p", { className: "semantic-demo__kicker" }, detail.eyebrow),
-        createElement("h2", { className: "mdwrk-primitive__text-fit-heading" }, detail.title),
-        createElement("p", { className: "semantic-demo__detail-description mdwrk-primitive__text-fit-preserve" }, detail.description),
-        createElement(
-          Cluster,
-          { className: "semantic-demo__detail-meta" },
-          createElement(Badge, { className: "mdwrk-primitive__text-fit-preserve" }, detail.family),
-          createElement(Pill, null, detail.detailKind),
-          createElement("a", { className: "semantic-demo__detail-link", href: detail.routeHref }, "Permalink"),
-        ),
-      ),
-      createElement(
-        Card,
-        { className: "semantic-demo__detail-summary", title: "Support summary" },
-        createElement(
-          "dl",
-          { className: "semantic-demo__detail-summary-grid" },
-          createElement("div", null, createElement("dt", { className: "mdwrk-primitive__text-fit-preserve" }, "Class hooks"), createElement("dd", null, detail.classNames.length)),
-          createElement("div", null, createElement("dt", { className: "mdwrk-primitive__text-fit-preserve" }, "Token files"), createElement("dd", null, detail.tokenFiles.length)),
-          createElement("div", null, createElement("dt", { className: "mdwrk-primitive__text-fit-preserve" }, "Schema rows"), createElement("dd", null, detail.schemaRows.length)),
-          createElement("div", null, createElement("dt", { className: "mdwrk-primitive__text-fit-preserve" }, "Proof paths"), createElement("dd", null, detail.proofPaths.length)),
-        ),
-      ),
-    ),
-    createElement(
-      "section",
-      { className: "semantic-demo__detail-grid" },
-      createElement(
-        Card,
-        { className: "semantic-demo__detail-section", title: "Live specimen" },
-        createElement("div", { className: "semantic-demo__detail-specimen" }, renderDetailSpecimen(detail)),
-      ),
-      createElement(
-        Card,
-        { className: "semantic-demo__detail-section", title: "Example specimen" },
-        createElement(JsonPreview, { value: detail.specimenProps }),
-      ),
-      createElement(
-        Card,
-        { className: "semantic-demo__detail-section semantic-demo__detail-section--wide", title: "Schema" },
-        createElement(DataTable, {
-          columns: ["Field", "Shape", "Required", "Notes"],
-          rows: detail.schemaRows.map((row) => ({
-            Field: createElement("code", null, row.field),
-            Shape: row.shape,
-            Required: row.required,
-            Notes: row.notes || " ",
-          })),
-        }),
-      ),
-      createElement(
-        Card,
-        { className: "semantic-demo__detail-section", title: "JSON-LD" },
-        detail.jsonLdExample
-          ? createElement(JsonPreview, { value: detail.jsonLdExample })
-          : createElement("p", { className: "semantic-demo__detail-empty mdwrk-primitive__text-fit-preserve" }, "This primitive is visible-only and does not emit JSON-LD."),
-      ),
-      createElement(
-        Card,
-        { className: "semantic-demo__detail-section", title: "Class names" },
-        createElement(SectionList, { items: detail.classNames, emptyLabel: "No class hooks recorded." }),
-      ),
-      createElement(
-        Card,
-        { className: "semantic-demo__detail-section", title: "Tokens" },
-        createElement(SectionList, { items: detail.tokenFiles, emptyLabel: "No token files recorded." }),
-      ),
-      createElement(
-        Card,
-        { className: "semantic-demo__detail-section", title: "Proof" },
-        createElement(SectionList, { items: detail.proofPaths, emptyLabel: "No proof paths recorded." }),
-      ),
-    ),
-  );
+  return createElement(ArtifactDetailPage, {
+    manifest,
+    activeTab,
+    onTabChange: setActiveTab,
+    specimenKey,
+    onSpecimenChange: setSpecimenKey,
+    theme,
+    viewport: "responsive",
+    renderVisibleSpecimen: (specimen) => renderDetailSpecimen({ ...detail, specimenProps: specimen.props }),
+  });
 }

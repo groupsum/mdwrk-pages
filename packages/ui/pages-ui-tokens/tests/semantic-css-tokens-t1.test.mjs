@@ -86,6 +86,9 @@ test("T1: article-family token files define distinct layout hooks beyond the sha
   assert.ok(techCss.includes("font-family: var(--mdwrk-font-mono)"), "tech article should expose code-oriented typography");
   assert.ok(discussionCss.includes("background: rgba(255, 255, 255, 0.74)"), "discussion posting should style its body as a thread panel");
   assert.ok(claimCss.includes(".lander-semantic__callout"), "claim review should style the reviewed-claim callout");
+  const rootCss = readCssFile("root.css");
+  assert.ok(rootCss.includes(".lander-semantic__preview-section"), "root should style generated semantic preview sections");
+  assert.ok(rootCss.includes(".lander-semantic__preview-item"), "root should style generated semantic preview items");
 });
 
 test("T1: education-family token files define distinct layout hooks beyond the shared shell baseline", () => {
@@ -130,6 +133,8 @@ test("T1: commerce-family token files define distinct layout hooks beyond the sh
   const employerCss = readCssFile("semantic-employer-aggregate-rating.css");
 
   assert.ok(productCss.includes(".lander-semantic__price-band"), "product should style the price band");
+  assert.ok(productCss.includes(".lander-semantic__product-offer"), "product should style offer summaries");
+  assert.ok(productCss.includes(".lander-semantic__product-facts"), "product should style product fact lists");
   assert.ok(groupCss.includes(".lander-semantic__variant-list"), "product group should style variant cards");
   assert.ok(reviewCss.includes(".lander-semantic__review-quote"), "review should style quoted review copy");
   assert.ok(ratingCss.includes(".lander-semantic__rating-score-value"), "aggregate rating should style the score readout");

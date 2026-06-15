@@ -954,7 +954,12 @@ function PrimitiveExampleCard({ entry, buildHref }) {
       createElement("hr", { className: "semantic-demo__primitive-rule" }),
       createElement("p", { className: "mdwrk-primitive__text-fit-preview" }, entry.description),
     ),
-    createElement("div", { className: "semantic-demo__primitive-sample" }, entry.render()),
+    createElement(
+      "dl",
+      { className: "semantic-demo__index-meta" },
+      createElement("div", null, createElement("dt", null, "Family"), createElement("dd", null, entry.family)),
+      createElement("div", null, createElement("dt", null, "Marker"), createElement("dd", null, createElement("code", null, entry.slug))),
+    ),
     buildHref
       ? createElement("a", { className: "semantic-demo__detail-link", href: buildHref(entry) }, "Open detail page")
       : null,

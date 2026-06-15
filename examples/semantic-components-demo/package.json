@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc --noEmit && vite build",
-    "test": "npm run build && node --test tests/semantic-components-demo-t0.test.mjs tests/semantic-components-demo-t1.test.mjs tests/generated-schemaorg-schema-derived-demo-payloads-t0.test.mjs tests/generated-schemaorg-schema-derived-demo-payloads-t1.test.mjs tests/generated-schemaorg-schema-derived-demo-payloads-t2.test.mjs tests/generated-schemaorg-demo-discoverability-t0.test.mjs tests/generated-schemaorg-demo-filter-integrity-t1.test.mjs tests/generated-schemaorg-demo-discoverability-t2.test.mjs tests/docker-delivery-t0.test.mjs tests/docker-delivery-t1.test.mjs tests/vite-delivery-t1.test.mjs",
+    "test": "npm run build && node --test --test-concurrency=1 tests/semantic-components-demo-t0.test.mjs tests/semantic-components-demo-t1.test.mjs tests/generated-schemaorg-schema-derived-demo-payloads-t0.test.mjs tests/generated-schemaorg-schema-derived-demo-payloads-t1.test.mjs tests/generated-schemaorg-schema-derived-demo-payloads-t2.test.mjs tests/generated-schemaorg-demo-discoverability-t0.test.mjs tests/generated-schemaorg-demo-filter-integrity-t1.test.mjs tests/generated-schemaorg-demo-discoverability-t2.test.mjs tests/docker-delivery-t0.test.mjs tests/docker-delivery-t1.test.mjs tests/vite-delivery-t1.test.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "npm run typecheck"
   },

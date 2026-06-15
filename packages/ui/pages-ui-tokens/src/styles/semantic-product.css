@@ -45,6 +45,7 @@
 .lander-semantic--product .lander-semantic__subtitle,
 .lander-semantic--product .lander-semantic__description,
 .lander-semantic--product .lander-semantic__footer { margin: 0; color: var(--lander-fg-muted); }
+.lander-semantic--product .lander-semantic__product-supporting { margin: 0; color: var(--lander-fg-muted); font-weight: 600; }
 .lander-semantic--product .lander-semantic__meta { display: flex; flex-wrap: wrap; gap: 0.7rem 1rem; }
 .lander-semantic--product .lander-semantic__meta dt { margin: 0; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mdp-semantic-product-accent); }
 .lander-semantic--product .lander-semantic__meta dd { margin: 0; font-weight: 600; }
@@ -52,9 +53,15 @@
 .lander-semantic--product .lander-semantic__body { grid-area: body; display: grid; gap: 0.9rem; }
 .lander-semantic--product .lander-semantic__actions { grid-area: actions; display: flex; align-items: center; gap: 0.8rem; }
 .lander-semantic--product .lander-semantic__footer { grid-area: footer; padding-top: 1rem; border-top: 1px solid color-mix(in srgb, var(--mdp-semantic-product-border) 72%, transparent); }
+.lander-semantic--product .lander-semantic__product-offer { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
 .lander-semantic--product .lander-semantic__price-band { display: inline-grid; gap: 0.2rem; width: fit-content; padding: 0.85rem 1rem; border-radius: 1rem; background: rgba(255,255,255,0.78); border: 1px solid color-mix(in srgb, var(--mdp-semantic-product-border) 72%, white 28%); box-shadow: 0 0.8rem 1.6rem rgba(117, 78, 14, 0.08); }
 .lander-semantic--product .lander-semantic__price-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mdp-semantic-product-accent); }
 .lander-semantic--product .lander-semantic__price-value { font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1; color: var(--lander-heading-fg); }
+.lander-semantic--product .lander-semantic__availability-chip { display: inline-flex; width: fit-content; padding: 0.48rem 0.75rem; border-radius: 999px; background: color-mix(in srgb, var(--mdp-semantic-product-accent) 12%, white 88%); color: var(--mdp-semantic-product-accent); font-weight: 800; }
+.lander-semantic--product .lander-semantic__product-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: 0.75rem; margin: 0; }
+.lander-semantic--product .lander-semantic__product-fact { display: grid; gap: 0.25rem; padding: 0.8rem 0.9rem; border-radius: 0.9rem; background: rgba(255,255,255,0.72); border: 1px solid color-mix(in srgb, var(--mdp-semantic-product-border) 62%, white 38%); }
+.lander-semantic--product .lander-semantic__product-fact dt { margin: 0; color: var(--mdp-semantic-product-accent); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.lander-semantic--product .lander-semantic__product-fact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; font-weight: 700; }
 
 @media (max-width: 860px) {
   .lander-semantic--product {
