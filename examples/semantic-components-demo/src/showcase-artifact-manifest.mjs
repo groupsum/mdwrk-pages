@@ -1,7 +1,7 @@
 import {
-  buildGeneratedArtifactDetailEntry,
   buildGeneratedArtifactDetailHref,
-} from "./showcase-catalog.mjs";
+  generatedArtifactEntries,
+} from "./showcase-catalog-index.mjs";
 
 const helperPropNames = new Set([
   "body",
@@ -14,6 +14,76 @@ const helperPropNames = new Set([
 
 function presentEntries(value) {
   return Object.entries(value ?? {}).filter(([, entry]) => entry !== undefined && entry !== null && entry !== "");
+}
+
+function samplePropsForGeneratedArtifact(entry) {
+  const description = entry.description;
+  if (entry.artifactKind === "datatype" || entry.artifactKind === "enumeration") {
+    return {
+      value: entry.artifactKind === "datatype" && entry.name === "Boolean" ? true : `${entry.name} sample`,
+      description,
+    };
+  }
+  if (entry.artifactKind === "property") {
+    return {
+      name: `${entry.name} sample`,
+      value: entry.name,
+      description,
+    };
+  }
+  return {
+    "@type": entry.name,
+    name: `${entry.name} sample`,
+    description,
+    url: `https://mdwrk.test/schema/${entry.slug}`,
+  };
+}
+
+function schemaRowsFromProps(entry, props) {
+  const rows = Object.keys(props ?? {})
+    .filter((key) => !helperPropNames.has(key))
+    .map((key) => ({
+      field: key,
+      shape: key === "@type" ? `const ${entry.name}` : "string | number | boolean | object",
+      required: key === "@type" ? "yes" : "optional",
+      notes: "Runtime documentation row derived from the generated artifact specimen.",
+    }));
+  if (!rows.some((row) => row.field === "@type")) {
+    rows.unshift({
+      field: "@type",
+      shape: `const ${entry.name}`,
+      required: "yes",
+      notes: "Generated artifact identity.",
+    });
+  }
+  return rows;
+}
+
+function buildGeneratedArtifactDetailEntry(name, kindHint) {
+  const entry = generatedArtifactEntries.find((candidate) => (
+    candidate.name.toLowerCase() === name.toLowerCase()
+    && (!kindHint || candidate.artifactKind === kindHint)
+  ));
+  if (!entry) return null;
+  const props = samplePropsForGeneratedArtifact(entry);
+  return {
+    detailKind: entry.artifactKind,
+    name: entry.name,
+    slug: entry.slug,
+    family: entry.family,
+    description: entry.description,
+    exportName: entry.exportName,
+    schemaRows: schemaRowsFromProps(entry, props),
+    specimenProps: props,
+    classNames: [entry.shellSelector, ".semantic-demo__card", "className prop supported on visible shell"],
+    tokenFiles: [`packages/ui/pages-ui-tokens/src/styles/semantic-${entry.slug}.css`],
+    proofPaths: [
+      "packages/ui/lander-react/src/semantic/generated-components.tsx",
+      "examples/semantic-components-demo/tests/semantic-components-demo-t1.test.mjs",
+    ],
+    routeHref: buildGeneratedArtifactDetailHref({ kind: entry.artifactKind, name: entry.name }),
+    explorerHref: `?mode=generated-surface&kind=${entry.artifactKind}${entry.artifactKind === "type" && entry.surfaceFocus !== "all" ? `&surface=${entry.surfaceFocus}` : ""}`,
+  };
 }
 
 function propsToJsonLd(detail, props) {

@@ -1,5 +1,5 @@
-import { GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS } from "../../../packages/contracts/lander-content-contract/dist/generated-schemaorg-page-family-metadata.js";
 import { semanticFixtures } from "../../../packages/ui/lander-react/tests/semantic-fixtures.mjs";
+import { compactGeneratedArtifacts } from "./generated-artifact-index.mjs";
 import { governedFamilyEntries } from "./generated-governed-family-map.mjs";
 
 const slugify = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -216,7 +216,7 @@ export function buildGovernedCoreGroups({ family = "all", search = "", surface =
   return groupEntriesByFamily(filtered);
 }
 
-const generatedArtifactEntries = GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS.map((artifact) => ({
+const generatedArtifactEntries = compactGeneratedArtifacts.map((artifact) => ({
   artifactKind: artifact.kind,
   name: artifact.name,
   exportName: artifact.visibleExportName,
@@ -227,6 +227,17 @@ const generatedArtifactEntries = GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS.map((
   surfaceFocus: surfaceFocusForName(artifact.name),
   description: curatedDescriptionsByName[artifact.name] ?? generatedDescriptionForArtifact(artifact),
 }));
+
+export function buildGeneratedArtifactDetailHref({ name, kind, theme, surface, mode = "generated-surface" }) {
+  const params = new URLSearchParams();
+  params.set("mode", mode);
+  params.set("kind", kind);
+  params.set("detailKind", kind);
+  params.set("detailName", name);
+  if (theme) params.set("theme", theme);
+  if (surface && surface !== "all") params.set("surface", surface);
+  return `?${params.toString()}`;
+}
 
 export function buildGeneratedArtifactView({ kind = "type", search = "", page = 1, pageSize = 24, surface = "all" } = {}) {
   const normalizedSearch = search.trim().toLowerCase();

@@ -1,117 +1,13 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Badge,
   Card as PrimitiveCard,
-  Pagination,
 } from "@mdwrk/lander-primitives";
-import {
-  buildGeneratedArtifactDetailHref,
-  buildGeneratedArtifactView,
-} from "./showcase-catalog.mjs";
 import { ArtifactDetailPage } from "./showcase-artifact-detail.mjs";
-import { buildGeneratedDetailManifest } from "./showcase-artifact-manifest.mjs";
 
 const createElement = React.createElement;
 
-const semanticModuleImporters = import.meta.glob("../../../packages/ui/lander-react/dist/semantic/**/*.js");
-const semanticStyleImporters = import.meta.glob("../../../packages/ui/pages-ui-tokens/src/styles/semantic-*.css");
-const semanticModuleEntries = Object.entries(semanticModuleImporters).filter(([path]) => (
-  path.endsWith(".js")
-  && !path.endsWith("/index.js")
-  && !path.includes("/chunk-")
-  && !path.endsWith("/shared.js")
-));
-const semanticModuleByExactPath = new Map(semanticModuleEntries);
-const semanticModuleByBasename = new Map();
-const semanticStyleByExactPath = new Map(Object.entries(semanticStyleImporters));
-const semanticStyleByBasename = new Map();
-
-for (const [path, importer] of semanticModuleEntries) {
-  const basename = path.split("/").pop();
-  if (!basename || semanticModuleByBasename.has(basename)) continue;
-  semanticModuleByBasename.set(basename, importer);
-}
-
-for (const [path, importer] of Object.entries(semanticStyleImporters)) {
-  const basename = path.split("/").pop();
-  if (!basename || semanticStyleByBasename.has(basename)) continue;
-  semanticStyleByBasename.set(basename, importer);
-}
-
 const slugify = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-const pascalToKebab = (value) => value.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
-
-function prefixedArtifactSlug(entry, prefix) {
-  return entry.slug.startsWith(`${prefix}-`) ? entry.slug : `${prefix}-${entry.slug}`;
-}
-
-function moduleCandidatesForEntry(entry) {
-  if (entry.artifactKind === "property") {
-    const moduleSlug = prefixedArtifactSlug(entry, "schema-property");
-    return [
-      `property-family/components/${moduleSlug}.js`,
-      `${moduleSlug}.js`,
-    ];
-  }
-  if (entry.artifactKind === "enumeration") {
-    const moduleSlug = prefixedArtifactSlug(entry, "schema-enumeration");
-    return [
-      `enumeration-family/components/${moduleSlug}.js`,
-      `${moduleSlug}.js`,
-    ];
-  }
-  if (entry.artifactKind === "datatype") {
-    const moduleSlug = prefixedArtifactSlug(entry, "schema-datatype");
-    return [
-      `datatype-family/components/${moduleSlug}.js`,
-      `${moduleSlug}.js`,
-    ];
-  }
-  if (entry.artifactKind === "type") {
-    return [
-      `${entry.slug}.js`,
-      `${pascalToKebab(entry.name)}.js`,
-      `generated-type-family/components/${entry.slug}.js`,
-    ];
-  }
-  return [`${entry.slug}.js`];
-}
-
-function styleCandidatesForEntry(entry) {
-  const candidateSlugs = [entry.slug];
-  if (entry.artifactKind === "property") candidateSlugs.push(prefixedArtifactSlug(entry, "schema-property"));
-  if (entry.artifactKind === "enumeration") candidateSlugs.push(prefixedArtifactSlug(entry, "schema-enumeration"));
-  if (entry.artifactKind === "datatype") candidateSlugs.push(prefixedArtifactSlug(entry, "schema-datatype"));
-  if (entry.artifactKind === "type") candidateSlugs.push(pascalToKebab(entry.name));
-  return [...new Set(candidateSlugs)].map((slug) => `semantic-${slug}.css`);
-}
-
-async function loadSemanticArtifactStyle(entry) {
-  for (const candidate of styleCandidatesForEntry(entry)) {
-    const importer = semanticStyleByExactPath.get(`../../../packages/ui/pages-ui-tokens/src/styles/${candidate}`)
-      ?? semanticStyleByBasename.get(candidate);
-    if (!importer) continue;
-    await importer();
-    return true;
-  }
-  return false;
-}
-
-async function loadSemanticComponent(entry) {
-  for (const candidate of moduleCandidatesForEntry(entry)) {
-    const importer = candidate.includes("/")
-      ? semanticModuleByExactPath.get(`../../../packages/ui/lander-react/dist/semantic/${candidate}`)
-      : semanticModuleByBasename.get(candidate);
-    if (!importer) continue;
-    const module = await importer();
-    const Component = module[entry.exportName] ?? module.default ?? module[Object.keys(module)[0]];
-    if (Component) {
-      await loadSemanticArtifactStyle(entry);
-      return Component;
-    }
-  }
-  return null;
-}
 
 function isPresentValue(value) {
   if (value === undefined || value === null) return false;
@@ -351,144 +247,6 @@ class SpecimenErrorBoundary extends React.Component {
   }
 }
 
-function useSemanticComponents(entries) {
-  const [componentsByName, setComponentsByName] = useState({});
-  const keys = useMemo(() => entries.map((entry) => `${entry.artifactKind}:${entry.name}`).join("|"), [entries]);
-
-  useEffect(() => {
-    let cancelled = false;
-    const pendingEntries = entries.filter((entry) => !componentsByName[entry.name]);
-    if (!pendingEntries.length) return undefined;
-
-    Promise.all(pendingEntries.map(async (entry) => [entry.name, await loadSemanticComponent(entry)]))
-      .then((loadedEntries) => {
-        if (cancelled) return;
-        setComponentsByName((current) => {
-          const next = { ...current };
-          for (const [name, component] of loadedEntries) {
-            if (component) next[name] = component;
-          }
-          return next;
-        });
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [componentsByName, entries, keys]);
-
-  return componentsByName;
-}
-
-function SemanticCardBody({ entry, theme, surface, Component }) {
-  const detailHref = buildGeneratedArtifactDetailHref({ kind: entry.artifactKind, name: entry.name, theme, surface });
-
-  return createElement(
-    PrimitiveCard,
-    {
-      className: `semantic-demo__entry semantic-demo__entry--${slugify(entry.name)} semantic-demo__entry--tone-${slugify(entry.artifactKind)}`,
-      id: `artifact-${slugify(entry.name)}`,
-    },
-    createElement(
-      "div",
-      { className: "semantic-demo__entry-meta" },
-      createElement(Badge, { className: "mdwrk-primitive__text-fit-preserve" }, entry.name),
-      createElement("p", { className: "mdwrk-primitive__text-fit-preview" }, entry.description),
-    ),
-    Component
-      ? createElement(Component, { ...composeComponentProps(entry.props, entry.structuredFields), className: "semantic-demo__card" })
-      : createElement("div", { className: "semantic-demo__card semantic-demo__card--loading" }, "Loading specimen..."),
-    createElement("a", { className: "semantic-demo__detail-link", href: detailHref }, "Open detail page"),
-  );
-}
-
-function SemanticEntryGrid({ entries, theme, surface, className }) {
-  const componentsByName = useSemanticComponents(entries);
-  return createElement(
-    "div",
-    { className },
-    ...entries.map((entry) =>
-      createElement(SemanticCardBody, {
-        key: `${entry.artifactKind}-${entry.name}`,
-        entry,
-        theme,
-        surface,
-        Component: componentsByName[entry.name] ?? null,
-      }),
-    ),
-  );
-}
-
-export function SemanticGroupSections({ groups, theme, surface }) {
-  return groups.map((group) =>
-    createElement(
-      "section",
-      {
-        className: `semantic-demo__family semantic-demo__family--${slugify(group.family)}`,
-        id: slugify(group.family),
-        key: group.family,
-      },
-      createElement(
-        "header",
-        { className: "semantic-demo__family-header" },
-        createElement(
-          "div",
-          null,
-          createElement("p", { className: "semantic-demo__kicker" }, group.family),
-          createElement("h2", null, `${group.entries.length} rendered examples`),
-        ),
-        createElement("p", null, group.description),
-      ),
-      createElement(SemanticEntryGrid, {
-        entries: group.entries,
-        theme,
-        surface,
-        className: `semantic-demo__grid semantic-demo__grid--${slugify(group.family)}`,
-      }),
-    ),
-  );
-}
-
-export function GeneratedSurfaceSection({ kind, search, page, pageSize, surface, theme, onPageChange }) {
-  const generatedView = buildGeneratedArtifactView({ kind, search, page, pageSize, surface });
-  return createElement(
-    "section",
-    {
-      className: `semantic-demo__family semantic-demo__family--${generatedView.kind}`,
-      id: `generated-${generatedView.kind}`,
-      key: `generated-${generatedView.kind}`,
-    },
-    createElement(
-      "header",
-      { className: "semantic-demo__family-header semantic-demo__family-header--generated" },
-      createElement(
-        "div",
-        null,
-        createElement("p", { className: "semantic-demo__kicker" }, generatedView.title),
-        createElement("h2", null, `${generatedView.total} matching artifacts`),
-      ),
-      createElement("p", null, generatedView.description),
-    ),
-    createElement(
-      "div",
-      { className: "semantic-demo__generated-status" },
-      createElement("p", null, `Showing ${generatedView.entries.length} of ${generatedView.total} artifacts`),
-      createElement(Pagination, {
-        className: "semantic-demo__pager",
-        page: generatedView.currentPage,
-        pageCount: generatedView.totalPages,
-        onPageChange,
-      }),
-    ),
-    createElement(SemanticEntryGrid, {
-      entries: generatedView.entries,
-      theme,
-      surface,
-      className: `semantic-demo__grid semantic-demo__grid--generated semantic-demo__grid--generated-${generatedView.kind}`,
-    }),
-  );
-}
-
 function SectionList({ items, emptyLabel }) {
   if (!items?.length) return createElement("p", { className: "semantic-demo__detail-empty mdwrk-primitive__text-fit-preserve" }, emptyLabel);
   return createElement(
@@ -510,13 +268,41 @@ export function GeneratedDetailPage({
   onTabChange,
   onSpecimenChange,
 }) {
-  const manifest = useMemo(
-    () => buildGeneratedDetailManifest(detailName, detailKind === "type" ? kind ?? "type" : detailKind, theme, surface),
-    [detailKind, detailName, kind, surface, theme],
-  );
+  const [manifest, setManifest] = useState(null);
+  const [manifestResolved, setManifestResolved] = useState(false);
+  const [manifestError, setManifestError] = useState(null);
   const [Component, setComponent] = useState(null);
   const [loadError, setLoadError] = useState(null);
   const [componentResolved, setComponentResolved] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    setManifest(null);
+    setManifestResolved(false);
+    setManifestError(null);
+
+    import("./showcase-artifact-manifest.mjs")
+      .then(({ buildGeneratedDetailManifest }) => {
+        if (cancelled) return;
+        const resolvedManifest = buildGeneratedDetailManifest(
+          detailName,
+          detailKind === "type" ? kind ?? "type" : detailKind,
+          theme,
+          surface,
+        );
+        setManifest(resolvedManifest);
+        setManifestResolved(true);
+      })
+      .catch((error) => {
+        if (cancelled) return;
+        setManifestError(error);
+        setManifestResolved(true);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [detailKind, detailName, kind, surface, theme]);
 
   useEffect(() => {
     let cancelled = false;
@@ -524,12 +310,12 @@ export function GeneratedDetailPage({
     setComponent(null);
     setLoadError(null);
     setComponentResolved(false);
-    loadSemanticComponent({
+    import("./showcase-semantic-component-loader.mjs").then(({ loadSemanticComponent }) => loadSemanticComponent({
       artifactKind: manifest.kind,
       exportName: manifest.exportName,
       name: manifest.name,
       slug: manifest.slug,
-    }).then((resolved) => {
+    })).then((resolved) => {
       if (cancelled) return;
       setComponent(() => resolved);
       setComponentResolved(true);
@@ -544,6 +330,26 @@ export function GeneratedDetailPage({
       cancelled = true;
     };
   }, [manifest]);
+
+  if (manifestError) {
+    return createElement(
+      "section",
+      { className: "semantic-demo__detail semantic-demo__detail--missing", role: "status" },
+      createElement("p", { className: "semantic-demo__kicker" }, "Detail route"),
+      createElement("h2", { className: "mdwrk-primitive__text-fit-heading" }, "Artifact detail manifest could not load"),
+      createElement("p", { className: "mdwrk-primitive__text-fit-preserve" }, manifestError.message ?? "Unknown manifest loading error."),
+    );
+  }
+
+  if (!manifestResolved) {
+    return createElement(
+      "section",
+      { className: "semantic-demo__detail semantic-demo__detail--loading", role: "status" },
+      createElement("p", { className: "semantic-demo__kicker" }, "Detail route"),
+      createElement("h2", { className: "mdwrk-primitive__text-fit-heading" }, "Loading artifact detail manifest"),
+      createElement("p", { className: "mdwrk-primitive__text-fit-preserve" }, "The generated artifact detail data is loading separately from the visible runtime."),
+    );
+  }
 
   if (!manifest) {
     return createElement(

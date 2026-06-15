@@ -323,26 +323,32 @@ test("T1: demo dark theme uses warm graphite tokens instead of steel-blue and te
 test("T1: detail tabs render lazily behind route-level and app-level error boundaries", () => {
   const detailSource = readFileSync(resolve("src/showcase-artifact-detail.mjs"), "utf8");
   const semanticSource = readFileSync(resolve("src/showcase-client-semantic.mjs"), "utf8");
+  const semanticLoaderSource = readFileSync(resolve("src/showcase-semantic-component-loader.mjs"), "utf8");
+  const semanticPropertyLoaderSource = readFileSync(resolve("src/semantic-loaders/module-property.mjs"), "utf8");
+  const semanticStyleLoaderSource = readFileSync(resolve("src/semantic-loaders/style-s-z.mjs"), "utf8");
   const mainSource = readFileSync(resolve("src/main.tsx"), "utf8");
 
   assert.ok(detailSource.includes("class DetailTabErrorBoundary"), "expected detail-tab error boundary");
   assert.ok(detailSource.includes("function ArtifactDetailPanel"), "expected isolated active detail panel renderer");
   assert.ok(detailSource.includes("renderVisibleSpecimen: renderLiveSpecimen"), "expected visible specimen renderer prop to avoid name shadowing");
   assert.ok(!detailSource.includes("const tabPanels = {"), "expected tabs to avoid eager panel construction");
-  assert.ok(semanticSource.includes("function prefixedArtifactSlug"), "expected generated component loader to normalize prefixed manifest slugs");
-  assert.ok(semanticSource.includes("const semanticStyleImporters"), "expected generated component loader to declare artifact CSS importers");
-  assert.ok(semanticSource.includes("function styleCandidatesForEntry"), "expected generated component loader to resolve artifact CSS candidates");
-  assert.ok(semanticSource.includes("await loadSemanticArtifactStyle(entry);"), "expected generated component loader to load CSS with the component");
+  assert.ok(semanticSource.includes('import("./showcase-semantic-component-loader.mjs")'), "expected detail renderer to lazy-load the semantic component loader");
+  assert.ok(semanticLoaderSource.includes("function prefixedArtifactSlug"), "expected generated component loader to normalize prefixed manifest slugs");
+  assert.ok(semanticLoaderSource.includes("function styleCandidatesForEntry"), "expected generated component loader to resolve artifact CSS candidates");
+  assert.ok(semanticLoaderSource.includes("await loadSemanticArtifactStyle(entry);"), "expected generated component loader to load CSS with the component");
   assert.ok(!semanticSource.includes("generated-semantic-surface.css"), "did not expect generated runtime to import aggregate semantic CSS");
   assert.ok(semanticSource.includes("function AuthoredSpecimenPanel"), "expected visible specimens to include an authored primitive-backed panel");
   assert.ok(!semanticSource.includes("structuredDataOverrides: specimen.jsonLd"), "expected live specimens to use direct schema props instead of override bags");
-  assert.ok(semanticSource.includes("property-family/components/${moduleSlug}.js"), "expected exact property component path candidate");
+  assert.ok(semanticLoaderSource.includes("property-family/components/${moduleSlug}.js"), "expected exact property component path candidate");
+  assert.ok(semanticPropertyLoaderSource.includes("property-family/components/*.js"), "expected property components to load from a property-only registry");
+  assert.ok(semanticStyleLoaderSource.includes("semantic-s*.css"), "expected semantic styles to load from alphabet-bucketed registries");
   assert.ok(semanticSource.includes("componentResolved"), "expected component loading to distinguish not-found from still-loading");
   assert.ok(mainSource.includes("class ShowcaseErrorBoundary"), "expected root app error boundary");
 });
 
 test("T1: semantic demo build emits artifact-scoped CSS instead of a multi-megabyte aggregate semantic stylesheet", () => {
   const assetsRoot = resolve("dist/assets");
+  const assetNames = readdirSync(assetsRoot);
   const cssAssets = readdirSync(assetsRoot)
     .filter((filename) => filename.endsWith(".css"))
     .map((filename) => ({
@@ -352,5 +358,21 @@ test("T1: semantic demo build emits artifact-scoped CSS instead of a multi-megab
 
   assert.ok(cssAssets.length > 0, "expected built CSS assets");
   assert.ok(!cssAssets.some((asset) => asset.filename.startsWith("showcase-client-semantic-")), "did not expect a semantic aggregate CSS chunk");
+  const oversizedSemanticRuntimeAssets = assetNames
+    .filter((filename) => filename.startsWith("semantic-runtime-") && /\.(?:js|css)$/u.test(filename))
+    .map((filename) => ({
+      filename,
+      bytes: statSync(resolve(assetsRoot, filename)).size,
+    }))
+    .filter((asset) => asset.bytes >= 512 * 1024);
+  assert.deepEqual(oversizedSemanticRuntimeAssets, [], "did not expect an oversized grouped semantic runtime asset");
+  const oversizedRuntimeAssets = assetNames
+    .filter((filename) => /\.(?:js|css)$/u.test(filename))
+    .map((filename) => ({
+      filename,
+      bytes: statSync(resolve(assetsRoot, filename)).size,
+    }))
+    .filter((asset) => asset.bytes >= 512 * 1024);
+  assert.deepEqual(oversizedRuntimeAssets, [], "did not expect any JS or CSS runtime chunk above 512KB");
   assert.ok(cssAssets.every((asset) => asset.bytes < 512 * 1024), `expected all CSS assets below 512KB, got ${JSON.stringify(cssAssets)}`);
 });

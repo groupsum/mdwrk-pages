@@ -14,7 +14,6 @@ export default defineConfig({
           if (id.includes("packages/ui/lander-primitives")) return "lander-primitives";
           if (id.includes("packages/contracts/lander-content-contract/dist/generated-schemaorg-page-family-metadata")) return "schemaorg-generated-metadata";
           if (id.includes("packages/contracts/lander-content-contract/dist")) return "schemaorg-contract";
-          if (id.includes("packages/ui/lander-react/dist/semantic")) return "semantic-runtime";
           return undefined;
         },
       },
