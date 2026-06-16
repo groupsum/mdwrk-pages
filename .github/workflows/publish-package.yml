@@ -56,5 +56,5 @@ jobs:
           test-command: ${{ inputs.test_command }}
           scope: "@mdwrk"
           access: public
-          provenance: "true"
+          provenance: "false"
           dry-run: ${{ inputs.dry_run }}
