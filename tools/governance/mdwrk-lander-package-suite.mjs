@@ -6,17 +6,17 @@ export const MDWRK_LANDER_PACKAGE_SUITE_BOUNDARY_ID = 'bnd:mdwrk-lander-package-
 export const MDWRK_LANDER_PACKAGE_SUITE_FEATURE_ID = 'feat:lander-package-suite-validation';
 
 export const LANDER_PACKAGE_SUITE_WORKSPACES = [
-  { name: '@mdwrk/lander-content-contract', path: 'packages/contracts/lander-content-contract' },
-  { name: '@mdwrk/lander-core', path: 'packages/core/lander-core' },
-  { name: '@mdwrk/structured-data', path: 'packages/contracts/structured-data' },
-  { name: '@mdwrk/lander-seo', path: 'packages/machine/lander-seo' },
-  { name: '@mdwrk/lander-theme', path: 'packages/ui/lander-theme' },
-  { name: '@mdwrk/lander-markdown-content-adapter', path: 'packages/core/lander-markdown-content-adapter' },
-  { name: '@mdwrk/lander-page-templates', path: 'packages/core/lander-page-templates' },
-  { name: '@mdwrk/lander-page-template-presets', path: 'packages/core/lander-page-template-presets' },
-  { name: '@mdwrk/lander-react-structured-data', path: 'packages/machine/lander-react-structured-data' },
-  { name: '@mdwrk/lander-react', path: 'packages/ui/lander-react' },
-  { name: '@mdwrk/page-template-demo-content-pack', path: 'packages/content/page-template-demo-content-pack' },
+  { name: '@mdwrk/lander-content-contract', path: 'packages/00-contracts/lander-content-contract' },
+  { name: '@mdwrk/lander-core', path: 'packages/10-core/lander-core' },
+  { name: '@mdwrk/structured-data', path: 'packages/00-contracts/structured-data' },
+  { name: '@mdwrk/lander-seo', path: 'packages/50-machine-output/lander-seo' },
+  { name: '@mdwrk/lander-theme', path: 'packages/30-ui-foundation/lander-theme' },
+  { name: '@mdwrk/lander-markdown-content-adapter', path: 'packages/10-core/lander-markdown-content-adapter' },
+  { name: '@mdwrk/lander-page-templates', path: 'packages/20-page-systems/lander-page-templates' },
+  { name: '@mdwrk/lander-page-template-presets', path: 'packages/20-page-systems/lander-page-template-presets' },
+  { name: '@mdwrk/lander-react-structured-data', path: 'packages/50-machine-output/lander-react-structured-data' },
+  { name: '@mdwrk/lander-react', path: 'packages/40-react-renderers/lander-react' },
+  { name: '@mdwrk/page-template-demo-content-pack', path: 'packages/60-content-packs/page-template-demo-content-pack' },
 ];
 
 const REQUIRED_ROOT_SUITE_SCRIPTS = [
@@ -157,6 +157,13 @@ async function validatePackageSuite(root, packageJson, failures) {
 }
 
 function workspacePatternCovers(pattern, relativePath) {
+  if (pattern.includes('*')) {
+    const escaped = pattern
+      .split('*')
+      .map((part) => part.replace(/[.+?^${}()|[\]\\]/g, '\\$&'))
+      .join('[^/]+');
+    return new RegExp(`^${escaped}$`).test(relativePath);
+  }
   if (pattern.endsWith('/*')) {
     return relativePath.startsWith(pattern.slice(0, -1));
   }

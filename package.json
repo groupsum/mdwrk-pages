@@ -4,12 +4,7 @@
   "version": "0.1.29",
   "packageManager": "pnpm@10.11.0",
   "workspaces": [
-    "packages/contracts/*",
-    "packages/core/*",
-    "packages/ui/*",
-    "packages/machine/*",
-    "packages/content/*",
-    "examples/*"
+    "packages/*/*"
   ],
   "engines": {
     "node": ">=20 <23",

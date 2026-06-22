@@ -9,13 +9,15 @@ export const repoRoot = path.resolve(__dirname, '..', '..');
 
 const WORKSPACE_PREFIXES = [
   'apps/',
-  'packages/contracts/',
-  'packages/core/',
-  'packages/ui/',
-  'packages/machine/',
-  'packages/content/',
+  'packages/00-contracts/',
+  'packages/10-core/',
+  'packages/20-page-systems/',
+  'packages/30-ui-foundation/',
+  'packages/40-react-renderers/',
+  'packages/50-machine-output/',
+  'packages/60-content-packs/',
   'packages/extensions/',
-  'examples/',
+  'packages/70-demos/',
 ];
 
 const SKIP_DIRS = new Set([
@@ -77,25 +79,31 @@ export function classifyWorkspace(relativePath) {
   if (normalized.startsWith('apps/')) {
     return 'app';
   }
-  if (normalized.startsWith('packages/contracts/')) {
+  if (normalized.startsWith('packages/00-contracts/')) {
     return 'contract';
   }
-  if (normalized.startsWith('packages/core/')) {
+  if (normalized.startsWith('packages/10-core/')) {
     return 'core';
   }
-  if (normalized.startsWith('packages/ui/')) {
+  if (normalized.startsWith('packages/20-page-systems/')) {
+    return 'page-system';
+  }
+  if (normalized.startsWith('packages/30-ui-foundation/')) {
+    return 'ui-foundation';
+  }
+  if (normalized.startsWith('packages/40-react-renderers/')) {
     return 'ui';
   }
-  if (normalized.startsWith('packages/machine/')) {
+  if (normalized.startsWith('packages/50-machine-output/')) {
     return 'machine';
   }
-  if (normalized.startsWith('packages/content/')) {
+  if (normalized.startsWith('packages/60-content-packs/')) {
     return 'content';
   }
   if (normalized.startsWith('packages/extensions/')) {
     return 'extension';
   }
-  if (normalized.startsWith('examples/')) {
+  if (normalized.startsWith('packages/70-demos/')) {
     return 'example';
   }
   return 'other';

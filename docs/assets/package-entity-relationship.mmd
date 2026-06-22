@@ -1,31 +1,41 @@
 erDiagram
   CONTRACTS_BUCKET {
-    string path "packages/contracts"
+    string path "packages/00-contracts"
     string role "typed contracts and schemas"
   }
 
   CORE_BUCKET {
-    string path "packages/core"
-    string role "compile and authoring logic"
+    string path "packages/10-core"
+    string role "compile and source adaptation"
   }
 
-  UI_BUCKET {
-    string path "packages/ui"
-    string role "visible rendering"
+  PAGE_SYSTEMS_BUCKET {
+    string path "packages/20-page-systems"
+    string role "templates and presets"
+  }
+
+  UI_FOUNDATION_BUCKET {
+    string path "packages/30-ui-foundation"
+    string role "tokens themes primitives"
+  }
+
+  REACT_RENDERERS_BUCKET {
+    string path "packages/40-react-renderers"
+    string role "visible React rendering"
   }
 
   MACHINE_BUCKET {
-    string path "packages/machine"
+    string path "packages/50-machine-output"
     string role "machine-readable output"
   }
 
   CONTENT_BUCKET {
-    string path "packages/content"
+    string path "packages/60-content-packs"
     string role "authored content packs"
   }
 
-  EXAMPLES_BUCKET {
-    string path "examples"
+  DEMOS_BUCKET {
+    string path "packages/70-demos"
     string role "consumer demo apps"
   }
 
@@ -51,12 +61,12 @@ erDiagram
 
   LANDER_PAGE_TEMPLATES {
     string package "@mdwrk/lander-page-templates"
-    string bucket "core"
+    string bucket "page-systems"
   }
 
   LANDER_PAGE_TEMPLATE_PRESETS {
     string package "@mdwrk/lander-page-template-presets"
-    string bucket "core"
+    string bucket "page-systems"
   }
 
   LANDER_MARKDOWN_CONTENT_ADAPTER {
@@ -66,17 +76,17 @@ erDiagram
 
   LANDER_REACT {
     string package "@mdwrk/lander-react"
-    string bucket "ui"
+    string bucket "react-renderers"
   }
 
   LANDER_REACT_COMMERCE {
     string package "@mdwrk/lander-react-commerce"
-    string bucket "ui"
+    string bucket "react-renderers"
   }
 
   LANDER_THEME {
     string package "@mdwrk/lander-theme"
-    string bucket "ui"
+    string bucket "ui-foundation"
   }
 
   LANDER_REACT_STRUCTURED_DATA {
@@ -101,17 +111,17 @@ erDiagram
 
   EXAMPLE_PAGE_TEMPLATE_DEMO {
     string package "@mdwrk/example-page-template-demo"
-    string bucket "examples"
+    string bucket "demos"
   }
 
   EXAMPLE_LEARNING_PATH_DEMO {
     string package "@mdwrk/example-learning-path-demo"
-    string bucket "examples"
+    string bucket "demos"
   }
 
   EXAMPLE_SUBSCRIPTION_STORE_DEMO {
     string package "@mdwrk/example-subscription-store-demo"
-    string bucket "examples"
+    string bucket "demos"
   }
 
   CONTRACTS_BUCKET ||--o{ LANDER_CONTENT_CONTRACT : contains
@@ -119,13 +129,15 @@ erDiagram
   CONTRACTS_BUCKET ||--o{ LANDER_COMMERCE_CONTRACT : contains
 
   CORE_BUCKET ||--o{ LANDER_CORE : contains
-  CORE_BUCKET ||--o{ LANDER_PAGE_TEMPLATES : contains
-  CORE_BUCKET ||--o{ LANDER_PAGE_TEMPLATE_PRESETS : contains
   CORE_BUCKET ||--o{ LANDER_MARKDOWN_CONTENT_ADAPTER : contains
 
-  UI_BUCKET ||--o{ LANDER_REACT : contains
-  UI_BUCKET ||--o{ LANDER_REACT_COMMERCE : contains
-  UI_BUCKET ||--o{ LANDER_THEME : contains
+  PAGE_SYSTEMS_BUCKET ||--o{ LANDER_PAGE_TEMPLATES : contains
+  PAGE_SYSTEMS_BUCKET ||--o{ LANDER_PAGE_TEMPLATE_PRESETS : contains
+
+  UI_FOUNDATION_BUCKET ||--o{ LANDER_THEME : contains
+
+  REACT_RENDERERS_BUCKET ||--o{ LANDER_REACT : contains
+  REACT_RENDERERS_BUCKET ||--o{ LANDER_REACT_COMMERCE : contains
 
   MACHINE_BUCKET ||--o{ LANDER_REACT_STRUCTURED_DATA : contains
   MACHINE_BUCKET ||--o{ LANDER_SEO : contains
@@ -133,9 +145,9 @@ erDiagram
   CONTENT_BUCKET ||--o{ PAGE_TEMPLATE_DEMO_CONTENT_PACK : contains
   CONTENT_BUCKET ||--o{ SUBSCRIPTION_STORE_CONTENT_PACK : contains
 
-  EXAMPLES_BUCKET ||--o{ EXAMPLE_PAGE_TEMPLATE_DEMO : contains
-  EXAMPLES_BUCKET ||--o{ EXAMPLE_LEARNING_PATH_DEMO : contains
-  EXAMPLES_BUCKET ||--o{ EXAMPLE_SUBSCRIPTION_STORE_DEMO : contains
+  DEMOS_BUCKET ||--o{ EXAMPLE_PAGE_TEMPLATE_DEMO : contains
+  DEMOS_BUCKET ||--o{ EXAMPLE_LEARNING_PATH_DEMO : contains
+  DEMOS_BUCKET ||--o{ EXAMPLE_SUBSCRIPTION_STORE_DEMO : contains
 
   LANDER_CONTENT_CONTRACT ||--o{ LANDER_CORE : supports
   LANDER_CONTENT_CONTRACT ||--o{ LANDER_PAGE_TEMPLATES : supports

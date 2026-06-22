@@ -24,21 +24,23 @@ const requiredRootFiles = [
   'docs/README.md',
 ];
 
-const requiredRootDirs = ['.github', '.ssot', 'docs', 'examples', 'packages', 'tools'];
+const requiredRootDirs = ['.github', '.ssot', 'docs', 'packages', 'tools'];
 const requiredAgentFiles = [
   'AGENTS.md',
   'docs/AGENTS.md',
-  'examples/AGENTS.md',
+  'packages/70-demos/AGENTS.md',
   'packages/AGENTS.md',
-  'packages/contracts/AGENTS.md',
-  'packages/core/AGENTS.md',
-  'packages/ui/AGENTS.md',
-  'packages/machine/AGENTS.md',
-  'packages/content/AGENTS.md',
-  'packages/contracts/lander-content-contract/AGENTS.md',
-  'packages/ui/lander-react/AGENTS.md',
-  'packages/ui/lander-react/src/AGENTS.md',
-  'packages/ui/lander-theme/AGENTS.md',
+  'packages/00-contracts/AGENTS.md',
+  'packages/10-core/AGENTS.md',
+  'packages/20-page-systems/AGENTS.md',
+  'packages/30-ui-foundation/AGENTS.md',
+  'packages/40-react-renderers/AGENTS.md',
+  'packages/50-machine-output/AGENTS.md',
+  'packages/60-content-packs/AGENTS.md',
+  'packages/00-contracts/lander-content-contract/AGENTS.md',
+  'packages/40-react-renderers/lander-react/AGENTS.md',
+  'packages/40-react-renderers/lander-react/src/AGENTS.md',
+  'packages/30-ui-foundation/lander-theme/AGENTS.md',
   'tools/AGENTS.md',
 ];
 

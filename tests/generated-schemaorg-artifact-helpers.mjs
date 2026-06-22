@@ -3,9 +3,9 @@ import {
   getStructuredDataSchemaByType,
   listStructuredDataSchemas,
   validateStructuredDataByType,
-} from "../packages/contracts/lander-content-contract/dist/index.js";
-import { GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS } from "../packages/contracts/lander-content-contract/dist/generated-schemaorg-page-family-metadata.js";
-import { semanticFixtures } from "../packages/ui/lander-react/tests/semantic-fixtures.mjs";
+} from "../packages/00-contracts/lander-content-contract/dist/index.js";
+import { GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS } from "../packages/00-contracts/lander-content-contract/dist/generated-schemaorg-page-family-metadata.js";
+import { semanticFixtures } from "../packages/40-react-renderers/lander-react/tests/semantic-fixtures.mjs";
 
 export const foundationalGeneratedTypes = Object.freeze([
   "Thing",

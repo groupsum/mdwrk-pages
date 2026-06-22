@@ -4,7 +4,7 @@ import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 
-import { GENERATED_SCHEMAORG_PAGE_FAMILY_COUNTS } from "../../packages/contracts/lander-content-contract/dist/generated-schemaorg-page-family-metadata.js";
+import { GENERATED_SCHEMAORG_PAGE_FAMILY_COUNTS } from "../../packages/00-contracts/lander-content-contract/dist/generated-schemaorg-page-family-metadata.js";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, "..", "..");

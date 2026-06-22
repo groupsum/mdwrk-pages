@@ -886,8 +886,8 @@ writeFile(
   `Artifact Kind,Schema Name,Schema Path,JSON Schema,Fused,Fused ClassNames,Fused ClassName CSS Tokens
 ${artifacts.map((meta) => {
     const schemaPath = meta.kind === "type"
-      ? `packages/contracts/lander-content-contract/schemas/structured-data/${meta.slug}.schema.json`
-      : `packages/contracts/lander-content-contract/schemas/generated-schemaorg-page-family/${meta.kind}s/${meta.name}.schema.json`;
+      ? `packages/00-contracts/lander-content-contract/schemas/structured-data/${meta.slug}.schema.json`
+      : `packages/00-contracts/lander-content-contract/schemas/generated-schemaorg-page-family/${meta.kind}s/${meta.name}.schema.json`;
     return `${meta.kind},${meta.name},${schemaPath},✅,✅,✅,✅`;
   }).join("\n")}
 `,

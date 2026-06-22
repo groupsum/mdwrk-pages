@@ -6,10 +6,17 @@ This repo owns page/content contracts, static-site compilation, SEO and AI-disco
 
 ## Package Families
 
-- `packages/lander` contains the current package family. These packages should be renamed to `@mdwrk/pages-*` over a compatibility window.
-- `packages/contracts/structured-data` contains structured-data builders used by Pages rendering and discovery output.
-- `packages/content/page-template-demo-content-pack` contains reusable demo content for page-template examples.
-- `examples/page-template-demo` validates downstream package consumption.
+- `packages/00-contracts` contains portable contracts and structured-data builders.
+- `packages/10-core` contains framework-neutral compilation and markdown adaptation.
+- `packages/20-page-systems` contains reusable page templates and presets.
+- `packages/30-ui-foundation` contains tokens, theme, and primitive UI building blocks.
+- `packages/40-react-renderers` contains visible React renderers and React commerce UI.
+- `packages/50-machine-output` contains structured-data and SEO/discovery output helpers.
+- `packages/60-content-packs` contains reusable demo/content bundles.
+- `packages/70-demos` contains runnable integration demos.
+- `packages/00-contracts/structured-data` contains structured-data builders used by Pages rendering and discovery output.
+- `packages/60-content-packs/page-template-demo-content-pack` contains reusable demo content for page-template examples.
+- `packages/70-demos/page-template-demo` validates downstream package consumption.
 
 ## Commands
 

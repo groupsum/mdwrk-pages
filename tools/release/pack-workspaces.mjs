@@ -21,7 +21,7 @@ function shouldPack(workspacePackage) {
   }
   if (
     workspacePackage.relativeDir === 'apps/mdwrkcom'
-    || workspacePackage.relativeDir === 'packages/content/mdwrkcom-content-pack'
+    || workspacePackage.relativeDir === 'packages/60-content-packs/mdwrkcom-content-pack'
   ) {
     return false;
   }
