@@ -1,4 +1,4 @@
-schema_version: "0.6.0"
+schema_version: "0.8.0"
 kind: "spec"
 id: "spc:2104"
 number: 2104
@@ -13,9 +13,13 @@ supersedes: []
 superseded_by: []
 status_notes:
   -
-    status: "accepted"
-    note: "Accepted after implementing the active Google-targeted structured-data runtime coverage and documenting warning-only treatment for deprecated or narrow Google Search features."
     at: "2026-05-27T14:48:48Z"
+    note: "Accepted after implementing the active Google-targeted structured-data runtime coverage and documenting warning-only treatment for deprecated or narrow Google Search features."
+    status: "accepted"
+  -
+    status: "accepted"
+    note: "Refined by SPEC-2110 for versioned Google eligibility and explicit optional entity composition."
+    at: "2026-07-13T20:22:29Z"
 references: []
 body: |-
   # Scope
@@ -45,3 +49,4 @@ adr_ids:
   - "adr:1062"
   - "adr:1079"
   - "adr:1081"
+  - "adr:1087"

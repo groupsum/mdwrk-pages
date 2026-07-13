@@ -1,4 +1,4 @@
-schema_version: "0.2.0"
+schema_version: "0.8.0"
 kind: "spec"
 id: "spc:2072"
 number: 2072
@@ -13,29 +13,33 @@ supersedes: []
 superseded_by: []
 status_notes:
   -
-    status: "draft"
-    note: "Created dedicated JSON-LD supported schema type contract."
     at: "2026-05-06T08:16:39Z"
-  -
+    note: "Created dedicated JSON-LD supported schema type contract."
     status: "draft"
-    note: "Expanded supported schema types into a page-scoped JSON-LD graph contract."
+  -
     at: "2026-05-06T08:30:18Z"
-  -
+    note: "Expanded supported schema types into a page-scoped JSON-LD graph contract."
     status: "draft"
-    note: "Added social and DCMI metadata parity to page-scoped JSON-LD graph validation."
+  -
     at: "2026-05-06T08:43:30Z"
-  -
+    note: "Added social and DCMI metadata parity to page-scoped JSON-LD graph validation."
     status: "draft"
-    note: "Expanded JSON-LD schema support contract to require builder support, reusable lander component support, and mdwrkcom adoption tracking by type."
+  -
     at: "2026-05-13T05:47:36Z"
-  -
+    note: "Expanded JSON-LD schema support contract to require builder support, reusable lander component support, and mdwrkcom adoption tracking by type."
     status: "draft"
-    note: "Updated to require content-pack declared schema intent through contract, core, lander-react, and mdwrkcom host output."
+  -
     at: "2026-05-13T09:08:56Z"
+    note: "Updated to require content-pack declared schema intent through contract, core, lander-react, and mdwrkcom host output."
+    status: "draft"
+  -
+    at: "2026-05-13T09:13:51Z"
+    note: "Preserved existing JSON-LD graph obligations and appended content-pack schema intent requirements."
+    status: "draft"
   -
     status: "draft"
-    note: "Preserved existing JSON-LD graph obligations and appended content-pack schema intent requirements."
-    at: "2026-05-13T09:13:51Z"
+    note: "Refined by SPEC-2110 for versioned Google eligibility and explicit optional entity composition."
+    at: "2026-07-13T20:22:27Z"
 references: []
 body: |-
   # MdWrk JSON-LD Schema Graph Contract
@@ -94,3 +98,4 @@ adr_ids:
   - "adr:1059"
   - "adr:1062"
   - "adr:1063"
+  - "adr:1087"

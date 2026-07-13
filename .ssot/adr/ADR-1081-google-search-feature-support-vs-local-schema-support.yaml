@@ -1,4 +1,4 @@
-schema_version: "0.6.0"
+schema_version: "0.8.0"
 kind: "adr"
 id: "adr:1081"
 number: 1081
@@ -13,9 +13,13 @@ supersedes: []
 superseded_by: []
 status_notes:
   -
-    status: "accepted"
-    note: "Accepted after implementing Google-targeted structured-data builder coverage, concrete React wrappers, and warning-only handling for deprecated Google Search features."
     at: "2026-05-27T14:47:24Z"
+    note: "Accepted after implementing Google-targeted structured-data builder coverage, concrete React wrappers, and warning-only handling for deprecated Google Search features."
+    status: "accepted"
+  -
+    status: "accepted"
+    note: "Refined by ADR-1087: Google eligibility is a versioned opt-in layer over generic Schema.org semantics."
+    at: "2026-07-13T20:22:26Z"
 references: []
 body: |-
   # Context

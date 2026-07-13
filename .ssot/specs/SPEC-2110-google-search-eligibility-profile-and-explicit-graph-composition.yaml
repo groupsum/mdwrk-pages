@@ -1,0 +1,58 @@
+schema_version: "0.8.0"
+kind: "spec"
+id: "spc:2110"
+number: 2110
+slug: "google-search-eligibility-profile-and-explicit-graph-composition"
+title: "Google Search eligibility profile and explicit graph composition contract"
+status: "accepted"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "This specification governs the `@mdwrk/structured-data/google` entry point, versioned Google Search eligibility profiles, Google-specific builders and validators, and explicit optional entity composition in generic JSON-LD graphs."
+supersedes: []
+superseded_by: []
+status_notes:
+  -
+    status: "accepted"
+    note: "Accepted for the @mdwrk/structured-data Google eligibility release."
+    at: "2026-07-13T20:22:26Z"
+references: []
+body: |-
+  # Scope
+  
+  This specification governs the `@mdwrk/structured-data/google` entry point, versioned Google Search eligibility profiles, Google-specific builders and validators, and explicit optional entity composition in generic JSON-LD graphs.
+  
+  # Requirements
+  
+  1. The package shall export `@mdwrk/structured-data/google` independently from its generic root entry point.
+  2. The Google entry point shall publish a deterministic `GOOGLE_SEARCH_PROFILE` containing a profile version, effective date, supported feature identifiers, authoritative guidance URLs, and feature requirements.
+  3. Initial governed feature identifiers shall include `software-application`, `product-snippet`, and `job-posting`.
+  4. `validateGoogleRichResult(feature, node)` shall return an eligibility result without throwing.
+  5. `assertGoogleRichResult(feature, node)` shall return the validated node or throw a structured eligibility error.
+  6. Validation issues shall contain stable codes, severities, property paths, and actionable messages.
+  7. `googleSoftwareApplicationNode`, `googleProductSnippetNode`, and `googleJobPostingNode` shall validate their typed inputs before delegating emission to the generic Schema.org builders.
+  8. Software application eligibility shall require an offer with a price and at least one genuine aggregate rating or review. Aggregate rating counts shall be positive.
+  9. Product snippet eligibility shall require at least one offer, review, or aggregate rating and shall validate nested commercial and reputation facts when present.
+  10. Job posting eligibility shall enforce title, description, hiring organization, publication date, and either a physical job location with a postal address or an explicitly remote applicant-location contract.
+  11. Validators shall accept hand-authored JSON-LD nodes as well as generic builder output.
+  12. Builders and validators shall not synthesize ratings, reviews, prices, availability, addresses, or employment facts.
+  13. Generic Schema.org builders shall remain available from the root entry point and shall not adopt Google-only rejection behavior.
+  14. `buildJsonLdGraph(site, page)` shall emit Organization, WebSite, WebPage, BreadcrumbList, and applicable page-content nodes without unconditionally inferring SoftwareApplication.
+  15. `buildJsonLdGraph(site, page, { entities })` shall append explicitly supplied entities deterministically without duplicating nodes that share an `@id`.
+  16. The package README and changelog shall explain the semantic-versus-eligibility boundary, migration from implicit SoftwareApplication output, and truthfulness requirements.
+  17. The package version shall advance for the public API and graph behavior change.
+  
+  # Verification
+  
+  T0 tests shall prove public exports, profile metadata, generic-builder compatibility, and safe default graph composition. T1 tests shall cover valid and invalid inputs, required paths, throwing and non-throwing validation, and explicit entity inclusion. T2 tests shall cover nested malformed data, deterministic output, unknown features, non-fabrication, de-duplication, and Schema.org-valid but Google-ineligible nodes.
+  
+  # Compatibility
+  
+  The generic builder surface remains source-compatible. Consumers that depended on the implicit SoftwareApplication node in `buildJsonLdGraph` must pass that entity explicitly. Google profile revisions are independently versioned and documented.
+spec_kind: "normative"
+adr_ids:
+  - "adr:1059"
+  - "adr:1062"
+  - "adr:1081"
+  - "adr:1082"
+  - "adr:1087"

@@ -36,6 +36,34 @@ const graph = jsonLdGraph([
 ]);
 ```
 
+## Google Search eligibility
+
+Schema.org validity and Google search-feature eligibility are intentionally separate contracts. Use the Google entry point only when the page visibly supports every emitted fact:
+
+```ts
+import { googleSoftwareApplicationNode } from "@mdwrk/structured-data/google";
+
+const application = googleSoftwareApplicationNode({
+  name: "Example",
+  applicationCategory: "DeveloperApplication",
+  operatingSystem: "Web",
+  offers: { name: "Free", price: 0, priceCurrency: "USD" },
+  aggregateRating: { ratingValue: 4.8, ratingCount: 42 },
+});
+```
+
+Ratings, reviews, prices, availability, addresses, and job facts must be genuine and visible. The Google builders never invent them. For hand-authored JSON-LD, use `validateGoogleRichResult(...)` or `assertGoogleRichResult(...)` from the same entry point.
+
+## Explicit graph entities
+
+The default graph emits defensible organization, website, page, breadcrumb, and applicable page-content nodes. Optional software, product, job, offer, review, and rating entities are explicit:
+
+```ts
+const nodes = buildJsonLdGraph(site, page, { entities: [application] });
+```
+
+Starting in 0.2.0, `buildJsonLdGraph` no longer infers `SoftwareApplication` from `site.product`.
+
 ## Schema Conformance Policy
 - Emitted JSON-LD is generator-backed and must remain valid against the Schema.org-derived contract surface in `@mdwrk/lander-content-contract`.
 - Repo-local authored helper fields must not leak into emitted JSON-LD unless they are mapped to a real Schema.org field.

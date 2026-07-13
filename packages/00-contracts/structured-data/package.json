@@ -1,6 +1,6 @@
 {
   "name": "@mdwrk/structured-data",
-  "version": "0.1.11",
+  "version": "0.2.0",
   "type": "module",
   "license": "Apache-2.0",
   "publishConfig": {
@@ -29,7 +29,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "npm run typecheck",
     "test:schema-conformance": "npm run build && npm run build -w @mdwrk/lander-content-contract && node --test tests/schema-contract-t0.test.mjs tests/schema-contract-t1.test.mjs tests/schema-contract-t2.test.mjs tests/generated-page-family-builders-t0.test.mjs tests/generated-page-family-builders-t1.test.mjs tests/generated-page-family-builders-t2.test.mjs",
-    "test": "npm run build && npm run build -w @mdwrk/lander-content-contract && node --test tests/pure-builder-t0.test.mjs tests/pure-builder-t1.test.mjs tests/pure-builder-t2.test.mjs tests/schema-contract-t0.test.mjs tests/schema-contract-t1.test.mjs tests/schema-contract-t2.test.mjs tests/generated-page-family-builders-t0.test.mjs tests/generated-page-family-builders-t1.test.mjs tests/generated-page-family-builders-t2.test.mjs && node tests/run-smoke.mjs",
+    "test": "npm run build && npm run build -w @mdwrk/lander-content-contract && node --test tests/pure-builder-t0.test.mjs tests/pure-builder-t1.test.mjs tests/pure-builder-t2.test.mjs tests/google-eligibility-t0.test.mjs tests/google-eligibility-t1.test.mjs tests/google-eligibility-t2.test.mjs tests/explicit-graph-entities-t0.test.mjs tests/explicit-graph-entities-t1.test.mjs tests/explicit-graph-entities-t2.test.mjs tests/schema-contract-t0.test.mjs tests/schema-contract-t1.test.mjs tests/schema-contract-t2.test.mjs tests/generated-page-family-builders-t0.test.mjs tests/generated-page-family-builders-t1.test.mjs tests/generated-page-family-builders-t2.test.mjs && node tests/run-smoke.mjs",
     "prepack": "npm run build"
   },
   "exports": {
@@ -40,6 +40,10 @@
     "./version": {
       "types": "./dist/version.d.ts",
       "import": "./dist/version.js"
+    },
+    "./google": {
+      "types": "./dist/google/index.d.ts",
+      "import": "./dist/google/index.js"
     }
   },
   "main": "./dist/index.js",

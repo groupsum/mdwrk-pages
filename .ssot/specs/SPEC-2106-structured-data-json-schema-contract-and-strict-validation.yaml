@@ -1,4 +1,4 @@
-schema_version: "0.7.0"
+schema_version: "0.8.0"
 kind: "spec"
 id: "spc:2106"
 number: 2106
@@ -17,13 +17,13 @@ status_notes:
     note: "Accepted with the phase-one structured-data schema registry, high-value schema hardening, and opt-in strict structured-data intent validation."
     status: "accepted"
   -
-    status: "accepted"
-    note: "Tightened strict validation into full-field generated-surface certification requirements."
     at: "2026-06-01T09:09:30Z"
+    note: "Tightened strict validation into full-field generated-surface certification requirements."
+    status: "accepted"
   -
     status: "accepted"
-    note: "Extended strict validation to component toStructuredData output and collected page-level graphs."
-    at: "2026-06-07T00:00:00Z"
+    note: "Refined by SPEC-2110 for versioned Google eligibility and explicit optional entity composition."
+    at: "2026-07-13T20:22:30Z"
 references: []
 body: |-
   # SPEC-2106: Structured-data JSON Schema contract and strict validation
@@ -54,3 +54,4 @@ adr_ids:
   - "adr:1080"
   - "adr:1082"
   - "adr:1086"
+  - "adr:1087"

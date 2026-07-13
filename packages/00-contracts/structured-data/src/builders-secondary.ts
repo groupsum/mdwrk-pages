@@ -634,7 +634,15 @@ export function howToSchema(page: StructuredDataPage): JsonLd {
   });
 }
 
-export function buildJsonLdGraph(site: StructuredDataSite, page: StructuredDataPage): JsonLd[] {
+export interface BuildJsonLdGraphOptions {
+  entities?: readonly JsonLd[];
+}
+
+export function buildJsonLdGraph(
+  site: StructuredDataSite,
+  page: StructuredDataPage,
+  options: BuildJsonLdGraphOptions = {},
+): JsonLd[] {
   const canonicalRoot = site.product.canonicalUrl;
   const organization = organizationSchema(site);
   const website = websiteSchema(site);
@@ -645,7 +653,6 @@ export function buildJsonLdGraph(site: StructuredDataSite, page: StructuredDataP
   const graph: JsonLd[] = [
     organization,
     website,
-    softwareApplicationSchema(site),
     webPageSchema({
       id: stableId(page.canonicalUrl, "web-page"),
       name: page.h1,
@@ -679,6 +686,20 @@ export function buildJsonLdGraph(site: StructuredDataSite, page: StructuredDataP
       }),
     );
     graph[graph.length - 1]["@type"] = "BlogPosting";
+  }
+
+  const entityIds = new Set(
+    graph
+      .map((entry) => entry["@id"])
+      .filter((id): id is string => typeof id === "string" && id.length > 0),
+  );
+  for (const entity of options.entities ?? []) {
+    const id = entity["@id"];
+    if (typeof id === "string" && id.length > 0) {
+      if (entityIds.has(id)) continue;
+      entityIds.add(id);
+    }
+    graph.push(entity);
   }
 
   return graph;

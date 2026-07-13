@@ -1,0 +1,47 @@
+schema_version: "0.8.0"
+kind: "adr"
+id: "adr:1087"
+number: 1087
+slug: "google-eligibility-profiles-wrap-schemaorg-semantics"
+title: "Google eligibility profiles wrap but do not narrow Schema.org semantics"
+status: "accepted"
+origin: "repo-local"
+decision_date: null
+tags: []
+summary: "`@mdwrk/structured-data` supports a broader Schema.org-valid surface than Google Search rewards. Schema.org validity and Google search-feature eligibility are separate contracts with independent change cadences. The generic `buildJsonLdGraph(site, page)` helper also infers `SoftwareApplication` from `site.product`, which can cause consumers to emit an application entity without explicit intent or the visible offer, rating, review, or other facts needed for a Google appearance."
+supersedes: []
+superseded_by: []
+status_notes:
+  -
+    status: "accepted"
+    note: "Accepted to govern the Google eligibility layer and explicit graph intent."
+    at: "2026-07-13T20:22:25Z"
+references: []
+body: |-
+  # Context
+  
+  `@mdwrk/structured-data` supports a broader Schema.org-valid surface than Google Search rewards. Schema.org validity and Google search-feature eligibility are separate contracts with independent change cadences. The generic `buildJsonLdGraph(site, page)` helper also infers `SoftwareApplication` from `site.product`, which can cause consumers to emit an application entity without explicit intent or the visible offer, rating, review, or other facts needed for a Google appearance.
+  
+  # Decision
+  
+  1. `@mdwrk/structured-data` remains the authority for Schema.org semantics, JSON-LD normalization, stable identifiers, and graph composition.
+  2. Google search-feature eligibility is exposed through `@mdwrk/structured-data/google`.
+  3. Google builders validate a versioned Google Search profile and then delegate emission to existing Schema.org builders.
+  4. The Google entry point provides non-throwing `validateGoogleRichResult(...)` and throwing `assertGoogleRichResult(...)` APIs with stable feature identifiers, issue codes, and property paths.
+  5. Generic Schema.org builders remain valid and do not reject documents solely because Google imposes narrower requirements.
+  6. Builders never fabricate or default ratings, reviews, prices, availability, addresses, employment facts, or other externally verifiable claims.
+  7. `buildJsonLdGraph(...)` defaults to universally defensible site and page identity nodes. Software, product, job, offer, review, and rating entities require explicit graph intent.
+  8. Visible-content parity remains a consumer and rendering obligation; eligibility validation proves field shape and feature requirements, not page visibility.
+  
+  # Consequences
+  
+  - Consumers can distinguish semantic Schema.org support from Google eligibility at import and validation time.
+  - Google requirements can evolve through dated profile revisions without narrowing generic builders.
+  - Consumers relying on implicit `SoftwareApplication` output must migrate to explicit entity composition.
+  - Search Console eligibility failures become deterministic build-time diagnostics when a Google profile is selected.
+  - A Schema.org-valid node may correctly remain Google-ineligible.
+  
+  # Related decisions
+  
+  - ADR-1081 separates Google Search feature support from local Schema.org support.
+  - ADR-1082 governs opt-in Schema.org JSON Schema validation and remains orthogonal to Google eligibility validation.

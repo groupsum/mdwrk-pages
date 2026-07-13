@@ -44,7 +44,7 @@ import {
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, "..", "..", "..", "..");
 const contractDistEntry = pathToFileURL(
-  path.join(repoRoot, "packages", "contracts", "lander-content-contract", "dist", "index.js"),
+  path.join(repoRoot, "packages", "00-contracts", "lander-content-contract", "dist", "index.js"),
 ).href;
 
 test("T1: representative structured-data builder payloads satisfy published JSON Schema contracts", async () => {

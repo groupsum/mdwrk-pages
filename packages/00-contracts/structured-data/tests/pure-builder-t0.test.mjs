@@ -44,7 +44,7 @@ test("T0: package metadata keeps structured-data as a pure builder layer", () =>
 
   assert.deepEqual(
     Object.keys(packageJson.exports).sort(),
-    [".", "./version"],
+    [".", "./google", "./version"],
     "The package surface should stay minimal and non-React-specific",
   );
 });
