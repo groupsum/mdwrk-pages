@@ -1,6 +1,6 @@
 {
   "name": "@mdwrk/lander-react-structured-data",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "type": "module",
   "license": "Apache-2.0",
   "publishConfig": {
@@ -23,7 +23,7 @@
   "description": "Reusable React JSON-LD wrappers and schema-intent rendering for portable product landers.",
   "dependencies": {
     "@mdwrk/lander-core": "^0.1.5",
-    "@mdwrk/structured-data": "^0.1.11"
+    "@mdwrk/structured-data": "^0.2.1"
   },
   "peerDependencies": {
     "react": "^19.0.0",

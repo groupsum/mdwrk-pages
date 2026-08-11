@@ -29,6 +29,7 @@ import {
   certificationNode,
   claimNode,
   commentNode,
+  computerLanguageNode,
   constraintNodeNode,
   creditCardNode,
   cssSelectorTypeNode,
@@ -242,6 +243,7 @@ import {
   type ClipInput,
   type CollectionPageInput,
   type CommentInput,
+  type ComputerLanguageInput,
   type ConstraintNodeInput,
   type ContactPointInput,
   type ContactPageInput,
@@ -644,6 +646,10 @@ export function ConstraintNodeStructuredData({ data }: { data: ConstraintNodeInp
 
 export function CommentStructuredData({ data }: { data: CommentInput }) {
   return <StructuredDataNode data={data} build={commentNode} />;
+}
+
+export function ComputerLanguageStructuredData({ data }: { data: ComputerLanguageInput }) {
+  return <StructuredDataNode data={data} build={computerLanguageNode} />;
 }
 
 export function ContactPointStructuredData({ data }: { data: ContactPointInput }) {
@@ -1409,6 +1415,7 @@ export const landerStructuredDataIntentRegistry = Object.freeze({
   Claim: { componentName: "ClaimStructuredData", render: (intent) => renderDataIntent(ClaimStructuredData, intent) },
   ConstraintNode: { componentName: "ConstraintNodeStructuredData", render: (intent) => renderDataIntent(ConstraintNodeStructuredData, intent) },
   Comment: { componentName: "CommentStructuredData", render: (intent) => renderDataIntent(CommentStructuredData, intent) },
+  ComputerLanguage: { componentName: "ComputerLanguageStructuredData", render: (intent) => renderDataIntent(ComputerLanguageStructuredData, intent) },
   ContactPoint: { componentName: "ContactPointStructuredData", render: (intent) => renderDataIntent(ContactPointStructuredData, intent) },
   CorrectionComment: { componentName: "CorrectionCommentStructuredData", render: (intent) => renderDataIntent(CorrectionCommentStructuredData, intent) },
   ClaimReview: { componentName: "ClaimReviewStructuredData", render: (intent) => renderDataIntent(ClaimReviewStructuredData, intent) },
@@ -1632,7 +1639,7 @@ export function buildLanderJsonLdGraph(site: CompiledLanderSite, page: CompiledP
     name: stringValue(organizationData.name) ?? site.product.name,
     description: stringValue(organizationData.description) ?? site.product.description,
     url: stringValue(organizationData.url) ?? `${canonicalRoot}/`,
-    logo: stringValue(organizationData.logo) ?? site.product.logo,
+    logo: stringValue(organizationData.logo) ?? site.product.logo?.src,
     sameAs: stringArrayValue(organizationData.sameAs) ?? site.product.sameAs,
   });
   const websiteData = schemaData(page, "WebSite");
@@ -1641,7 +1648,7 @@ export function buildLanderJsonLdGraph(site: CompiledLanderSite, page: CompiledP
     name: stringValue(websiteData.name) ?? site.product.name,
     description: stringValue(websiteData.description) ?? site.product.description,
     url: stringValue(websiteData.url) ?? `${canonicalRoot}/`,
-    image: stringValue(websiteData.image) ?? site.product.logo,
+    image: stringValue(websiteData.image) ?? site.product.logo?.src,
     publisher: jsonLdValue(websiteData.publisher) ?? organization,
   });
   const breadcrumbData = schemaData(page, "BreadcrumbList");
@@ -1684,7 +1691,7 @@ export function buildLanderJsonLdGraph(site: CompiledLanderSite, page: CompiledP
     name: site.product.name,
     description: site.product.description,
     url: `${canonicalRoot}/`,
-    image: site.product.logo,
+    image: site.product.logo?.src,
     applicationCategory: site.product.category,
   };
   if (shouldEmit(page, "SoftwareApplication", page.kind === "home")) {
@@ -1702,7 +1709,7 @@ export function buildLanderJsonLdGraph(site: CompiledLanderSite, page: CompiledP
       name: stringValue(data.name) ?? site.product.name,
       description: stringValue(data.description) ?? site.product.description,
       url: stringValue(data.url) ?? `${canonicalRoot}/`,
-      image: jsonLdValue(data.image) ?? site.product.logo,
+      image: jsonLdValue(data.image) ?? site.product.logo?.src,
       brand: jsonLdValue(data.brand) ?? organization,
       category: stringValue(data.category) ?? site.product.category,
       offers: jsonLdValue(data.offers) as JsonLd | undefined,
@@ -1741,7 +1748,7 @@ export function buildLanderJsonLdGraph(site: CompiledLanderSite, page: CompiledP
     headline: page.title,
     description: page.description,
     url: page.canonicalUrl,
-    image: pageImage,
+    image: pageImage?.src,
     publisher: organization,
     author: organization,
   };
@@ -1836,7 +1843,7 @@ export function buildLanderJsonLdGraph(site: CompiledLanderSite, page: CompiledP
       name: stringValue(data.name) ?? page.h1,
       description: stringValue(data.description) ?? page.description,
       url: stringValue(data.url) ?? page.canonicalUrl,
-      image: jsonLdValue(data.image) ?? pageImage,
+      image: jsonLdValue(data.image) ?? pageImage?.src,
       mainEntity: jsonLdValue(data.mainEntity) ?? organization,
     }));
   }
@@ -1879,7 +1886,7 @@ export function buildLanderJsonLdGraph(site: CompiledLanderSite, page: CompiledP
       name: stringValue(data.name) ?? page.h1,
       description: stringValue(data.description) ?? page.description,
       url: stringValue(data.url) ?? page.canonicalUrl,
-      image: jsonLdValue(data.image) ?? pageImage,
+      image: jsonLdValue(data.image) ?? pageImage?.src,
       steps: Array.isArray(data.steps)
         ? data.steps as Array<{ name: string; text: string; url?: string }>
         : [{ name: page.h1, text: page.intro, url: page.canonicalUrl }],

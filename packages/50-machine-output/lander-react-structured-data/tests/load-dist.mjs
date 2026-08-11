@@ -13,7 +13,7 @@ export async function importStructuredDataReactDist() {
   const structuredDataDist = path.join(
     repoRoot,
     "packages",
-    "contracts",
+    "00-contracts",
     "structured-data",
     "dist",
     "index.js",

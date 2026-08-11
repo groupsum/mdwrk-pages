@@ -492,7 +492,7 @@ export function ${meta.wrapperExportName}({ data }: ${meta.wrapperExportName}Pro
 export const generatedPageFamilyIntentRegistry = Object.freeze({
 ${[...generatedOnlyTypes, ...datatypes, ...enumerations, ...properties].map((meta) => `  ${JSON.stringify(meta.name)}: {
     componentName: ${JSON.stringify(meta.wrapperExportName)},
-    render: (intent: CompiledStructuredDataIntent) => <${meta.wrapperExportName} data={intent.data as ${meta.inputTypeName}} />,
+    render: (intent: CompiledStructuredDataIntent) => <${meta.wrapperExportName} data={intent.data as unknown as ${meta.inputTypeName}} />,
   },`).join("\n")}
 }) satisfies Record<string, StructuredDataIntentRendererEntry>;
 `;

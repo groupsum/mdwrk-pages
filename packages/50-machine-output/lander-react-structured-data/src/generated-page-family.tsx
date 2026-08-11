@@ -6141,4086 +6141,4086 @@ export function YieldPropertyStructuredData({ data }: YieldPropertyStructuredDat
 export const generatedPageFamilyIntentRegistry = Object.freeze({
   "AnatomicalStructure": {
     componentName: "AnatomicalStructureStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AnatomicalStructureStructuredData data={intent.data as AnatomicalStructureInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AnatomicalStructureStructuredData data={intent.data as unknown as AnatomicalStructureInput} />,
   },
   "AnatomicalSystem": {
     componentName: "AnatomicalSystemStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AnatomicalSystemStructuredData data={intent.data as AnatomicalSystemInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AnatomicalSystemStructuredData data={intent.data as unknown as AnatomicalSystemInput} />,
   },
   "BioChemEntity": {
     componentName: "BioChemEntityStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BioChemEntityStructuredData data={intent.data as BioChemEntityInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BioChemEntityStructuredData data={intent.data as unknown as BioChemEntityInput} />,
   },
   "cmns-cls_Classifier": {
     componentName: "CmnsClsClassifierStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CmnsClsClassifierStructuredData data={intent.data as CmnsClsClassifierInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CmnsClsClassifierStructuredData data={intent.data as unknown as CmnsClsClassifierInput} />,
   },
   "cmns-col_Collection": {
     componentName: "CmnsColCollectionStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CmnsColCollectionStructuredData data={intent.data as CmnsColCollectionInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CmnsColCollectionStructuredData data={intent.data as unknown as CmnsColCollectionInput} />,
   },
   "cmns-ge_GeopoliticalEntity": {
     componentName: "CmnsGeGeopoliticalEntityStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CmnsGeGeopoliticalEntityStructuredData data={intent.data as CmnsGeGeopoliticalEntityInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CmnsGeGeopoliticalEntityStructuredData data={intent.data as unknown as CmnsGeGeopoliticalEntityInput} />,
   },
   "DDxElement": {
     componentName: "DDxElementStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DDxElementStructuredData data={intent.data as DDxElementInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DDxElementStructuredData data={intent.data as unknown as DDxElementInput} />,
   },
   "Diet": {
     componentName: "DietStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DietStructuredData data={intent.data as DietInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DietStructuredData data={intent.data as unknown as DietInput} />,
   },
   "DoseSchedule": {
     componentName: "DoseScheduleStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DoseScheduleStructuredData data={intent.data as DoseScheduleInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DoseScheduleStructuredData data={intent.data as unknown as DoseScheduleInput} />,
   },
   "Drug": {
     componentName: "DrugStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DrugStructuredData data={intent.data as DrugInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DrugStructuredData data={intent.data as unknown as DrugInput} />,
   },
   "DrugClass": {
     componentName: "DrugClassStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DrugClassStructuredData data={intent.data as DrugClassInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DrugClassStructuredData data={intent.data as unknown as DrugClassInput} />,
   },
   "DrugLegalStatus": {
     componentName: "DrugLegalStatusStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DrugLegalStatusStructuredData data={intent.data as DrugLegalStatusInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DrugLegalStatusStructuredData data={intent.data as unknown as DrugLegalStatusInput} />,
   },
   "DrugStrength": {
     componentName: "DrugStrengthStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DrugStrengthStructuredData data={intent.data as DrugStrengthInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DrugStrengthStructuredData data={intent.data as unknown as DrugStrengthInput} />,
   },
   "fibo-fnd-agr-ctr_MutualContractualAgreement": {
     componentName: "FiboFndAgrCtrMutualContractualAgreementStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FiboFndAgrCtrMutualContractualAgreementStructuredData data={intent.data as FiboFndAgrCtrMutualContractualAgreementInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FiboFndAgrCtrMutualContractualAgreementStructuredData data={intent.data as unknown as FiboFndAgrCtrMutualContractualAgreementInput} />,
   },
   "fibo-fnd-arr-doc_Certificate": {
     componentName: "FiboFndArrDocCertificateStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FiboFndArrDocCertificateStructuredData data={intent.data as FiboFndArrDocCertificateInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FiboFndArrDocCertificateStructuredData data={intent.data as unknown as FiboFndArrDocCertificateInput} />,
   },
   "PaymentCard": {
     componentName: "PaymentCardStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PaymentCardStructuredData data={intent.data as PaymentCardInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PaymentCardStructuredData data={intent.data as unknown as PaymentCardInput} />,
   },
   "PaymentMethod": {
     componentName: "PaymentMethodStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PaymentMethodStructuredData data={intent.data as PaymentMethodInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PaymentMethodStructuredData data={intent.data as unknown as PaymentMethodInput} />,
   },
   "PeopleAudience": {
     componentName: "PeopleAudienceStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PeopleAudienceStructuredData data={intent.data as PeopleAudienceInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PeopleAudienceStructuredData data={intent.data as unknown as PeopleAudienceInput} />,
   },
   "PerformingGroup": {
     componentName: "PerformingGroupStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PerformingGroupStructuredData data={intent.data as PerformingGroupInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PerformingGroupStructuredData data={intent.data as unknown as PerformingGroupInput} />,
   },
   "Person": {
     componentName: "PersonStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PersonStructuredData data={intent.data as PersonInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PersonStructuredData data={intent.data as unknown as PersonInput} />,
   },
   "Photograph": {
     componentName: "PhotographStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PhotographStructuredData data={intent.data as PhotographInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PhotographStructuredData data={intent.data as unknown as PhotographInput} />,
   },
   "Place": {
     componentName: "PlaceStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PlaceStructuredData data={intent.data as PlaceInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PlaceStructuredData data={intent.data as unknown as PlaceInput} />,
   },
   "PostalAddress": {
     componentName: "PostalAddressStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PostalAddressStructuredData data={intent.data as PostalAddressInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PostalAddressStructuredData data={intent.data as unknown as PostalAddressInput} />,
   },
   "PostalCodeRangeSpecification": {
     componentName: "PostalCodeRangeSpecificationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PostalCodeRangeSpecificationStructuredData data={intent.data as PostalCodeRangeSpecificationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PostalCodeRangeSpecificationStructuredData data={intent.data as unknown as PostalCodeRangeSpecificationInput} />,
   },
   "PriceSpecification": {
     componentName: "PriceSpecificationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PriceSpecificationStructuredData data={intent.data as PriceSpecificationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PriceSpecificationStructuredData data={intent.data as unknown as PriceSpecificationInput} />,
   },
   "Boolean": {
     componentName: "BooleanStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BooleanStructuredData data={intent.data as BooleanInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BooleanStructuredData data={intent.data as unknown as BooleanInput} />,
   },
   "Date": {
     componentName: "DateStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DateStructuredData data={intent.data as DateInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DateStructuredData data={intent.data as unknown as DateInput} />,
   },
   "DateTime": {
     componentName: "DateTimeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DateTimeStructuredData data={intent.data as DateTimeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DateTimeStructuredData data={intent.data as unknown as DateTimeInput} />,
   },
   "Number": {
     componentName: "NumberStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NumberStructuredData data={intent.data as NumberInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NumberStructuredData data={intent.data as unknown as NumberInput} />,
   },
   "Quantity": {
     componentName: "QuantityStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <QuantityStructuredData data={intent.data as QuantityInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <QuantityStructuredData data={intent.data as unknown as QuantityInput} />,
   },
   "Text": {
     componentName: "TextStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TextStructuredData data={intent.data as TextInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TextStructuredData data={intent.data as unknown as TextInput} />,
   },
   "Time": {
     componentName: "TimeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TimeStructuredData data={intent.data as TimeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TimeStructuredData data={intent.data as unknown as TimeInput} />,
   },
   "ActionStatusType": {
     componentName: "ActionStatusTypeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ActionStatusTypeStructuredData data={intent.data as ActionStatusTypeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ActionStatusTypeStructuredData data={intent.data as unknown as ActionStatusTypeInput} />,
   },
   "AdultOrientedEnumeration": {
     componentName: "AdultOrientedEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AdultOrientedEnumerationStructuredData data={intent.data as AdultOrientedEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AdultOrientedEnumerationStructuredData data={intent.data as unknown as AdultOrientedEnumerationInput} />,
   },
   "BusinessEntityType": {
     componentName: "BusinessEntityTypeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BusinessEntityTypeStructuredData data={intent.data as BusinessEntityTypeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BusinessEntityTypeStructuredData data={intent.data as unknown as BusinessEntityTypeInput} />,
   },
   "BusinessFunction": {
     componentName: "BusinessFunctionStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BusinessFunctionStructuredData data={intent.data as BusinessFunctionInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BusinessFunctionStructuredData data={intent.data as unknown as BusinessFunctionInput} />,
   },
   "CertificationStatusEnumeration": {
     componentName: "CertificationStatusEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CertificationStatusEnumerationStructuredData data={intent.data as CertificationStatusEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CertificationStatusEnumerationStructuredData data={intent.data as unknown as CertificationStatusEnumerationInput} />,
   },
   "ContactPointOption": {
     componentName: "ContactPointOptionStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContactPointOptionStructuredData data={intent.data as ContactPointOptionInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContactPointOptionStructuredData data={intent.data as unknown as ContactPointOptionInput} />,
   },
   "DayOfWeek": {
     componentName: "DayOfWeekStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DayOfWeekStructuredData data={intent.data as DayOfWeekInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DayOfWeekStructuredData data={intent.data as unknown as DayOfWeekInput} />,
   },
   "DeliveryMethod": {
     componentName: "DeliveryMethodStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DeliveryMethodStructuredData data={intent.data as DeliveryMethodInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DeliveryMethodStructuredData data={intent.data as unknown as DeliveryMethodInput} />,
   },
   "DigitalPlatformEnumeration": {
     componentName: "DigitalPlatformEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DigitalPlatformEnumerationStructuredData data={intent.data as DigitalPlatformEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DigitalPlatformEnumerationStructuredData data={intent.data as unknown as DigitalPlatformEnumerationInput} />,
   },
   "DrugPregnancyCategory": {
     componentName: "DrugPregnancyCategoryStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DrugPregnancyCategoryStructuredData data={intent.data as DrugPregnancyCategoryInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DrugPregnancyCategoryStructuredData data={intent.data as unknown as DrugPregnancyCategoryInput} />,
   },
   "DrugPrescriptionStatus": {
     componentName: "DrugPrescriptionStatusStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DrugPrescriptionStatusStructuredData data={intent.data as DrugPrescriptionStatusInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DrugPrescriptionStatusStructuredData data={intent.data as unknown as DrugPrescriptionStatusInput} />,
   },
   "EnergyEfficiencyEnumeration": {
     componentName: "EnergyEfficiencyEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EnergyEfficiencyEnumerationStructuredData data={intent.data as EnergyEfficiencyEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EnergyEfficiencyEnumerationStructuredData data={intent.data as unknown as EnergyEfficiencyEnumerationInput} />,
   },
   "EUEnergyEfficiencyEnumeration": {
     componentName: "EUEnergyEfficiencyEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EUEnergyEfficiencyEnumerationStructuredData data={intent.data as EUEnergyEfficiencyEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EUEnergyEfficiencyEnumerationStructuredData data={intent.data as unknown as EUEnergyEfficiencyEnumerationInput} />,
   },
   "EventAttendanceModeEnumeration": {
     componentName: "EventAttendanceModeEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EventAttendanceModeEnumerationStructuredData data={intent.data as EventAttendanceModeEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EventAttendanceModeEnumerationStructuredData data={intent.data as unknown as EventAttendanceModeEnumerationInput} />,
   },
   "EventStatusType": {
     componentName: "EventStatusTypeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EventStatusTypeStructuredData data={intent.data as EventStatusTypeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EventStatusTypeStructuredData data={intent.data as unknown as EventStatusTypeInput} />,
   },
   "FulfillmentTypeEnumeration": {
     componentName: "FulfillmentTypeEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FulfillmentTypeEnumerationStructuredData data={intent.data as FulfillmentTypeEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FulfillmentTypeEnumerationStructuredData data={intent.data as unknown as FulfillmentTypeEnumerationInput} />,
   },
   "GenderType": {
     componentName: "GenderTypeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GenderTypeStructuredData data={intent.data as GenderTypeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GenderTypeStructuredData data={intent.data as unknown as GenderTypeInput} />,
   },
   "GovernmentBenefitsType": {
     componentName: "GovernmentBenefitsTypeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GovernmentBenefitsTypeStructuredData data={intent.data as GovernmentBenefitsTypeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GovernmentBenefitsTypeStructuredData data={intent.data as unknown as GovernmentBenefitsTypeInput} />,
   },
   "IPTCDigitalSourceEnumeration": {
     componentName: "IPTCDigitalSourceEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IPTCDigitalSourceEnumerationStructuredData data={intent.data as IPTCDigitalSourceEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IPTCDigitalSourceEnumerationStructuredData data={intent.data as unknown as IPTCDigitalSourceEnumerationInput} />,
   },
   "ItemAvailability": {
     componentName: "ItemAvailabilityStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ItemAvailabilityStructuredData data={intent.data as ItemAvailabilityInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ItemAvailabilityStructuredData data={intent.data as unknown as ItemAvailabilityInput} />,
   },
   "ItemListOrderType": {
     componentName: "ItemListOrderTypeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ItemListOrderTypeStructuredData data={intent.data as ItemListOrderTypeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ItemListOrderTypeStructuredData data={intent.data as unknown as ItemListOrderTypeInput} />,
   },
   "MapCategoryType": {
     componentName: "MapCategoryTypeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MapCategoryTypeStructuredData data={intent.data as MapCategoryTypeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MapCategoryTypeStructuredData data={intent.data as unknown as MapCategoryTypeInput} />,
   },
   "MeasurementMethodEnum": {
     componentName: "MeasurementMethodEnumStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MeasurementMethodEnumStructuredData data={intent.data as MeasurementMethodEnumInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MeasurementMethodEnumStructuredData data={intent.data as unknown as MeasurementMethodEnumInput} />,
   },
   "MeasurementTypeEnumeration": {
     componentName: "MeasurementTypeEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MeasurementTypeEnumerationStructuredData data={intent.data as MeasurementTypeEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MeasurementTypeEnumerationStructuredData data={intent.data as unknown as MeasurementTypeEnumerationInput} />,
   },
   "MediaEnumeration": {
     componentName: "MediaEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MediaEnumerationStructuredData data={intent.data as MediaEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MediaEnumerationStructuredData data={intent.data as unknown as MediaEnumerationInput} />,
   },
   "MedicalAudienceType": {
     componentName: "MedicalAudienceTypeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MedicalAudienceTypeStructuredData data={intent.data as MedicalAudienceTypeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MedicalAudienceTypeStructuredData data={intent.data as unknown as MedicalAudienceTypeInput} />,
   },
   "MedicalEnumeration": {
     componentName: "MedicalEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MedicalEnumerationStructuredData data={intent.data as MedicalEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MedicalEnumerationStructuredData data={intent.data as unknown as MedicalEnumerationInput} />,
   },
   "MedicalEvidenceLevel": {
     componentName: "MedicalEvidenceLevelStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MedicalEvidenceLevelStructuredData data={intent.data as MedicalEvidenceLevelInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MedicalEvidenceLevelStructuredData data={intent.data as unknown as MedicalEvidenceLevelInput} />,
   },
   "MedicalProcedureType": {
     componentName: "MedicalProcedureTypeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MedicalProcedureTypeStructuredData data={intent.data as MedicalProcedureTypeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MedicalProcedureTypeStructuredData data={intent.data as unknown as MedicalProcedureTypeInput} />,
   },
   "MedicalSpecialty": {
     componentName: "MedicalSpecialtyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MedicalSpecialtyStructuredData data={intent.data as MedicalSpecialtyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MedicalSpecialtyStructuredData data={intent.data as unknown as MedicalSpecialtyInput} />,
   },
   "MedicalStudyStatus": {
     componentName: "MedicalStudyStatusStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MedicalStudyStatusStructuredData data={intent.data as MedicalStudyStatusInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MedicalStudyStatusStructuredData data={intent.data as unknown as MedicalStudyStatusInput} />,
   },
   "MedicineSystem": {
     componentName: "MedicineSystemStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MedicineSystemStructuredData data={intent.data as MedicineSystemInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MedicineSystemStructuredData data={intent.data as unknown as MedicineSystemInput} />,
   },
   "MerchantReturnEnumeration": {
     componentName: "MerchantReturnEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MerchantReturnEnumerationStructuredData data={intent.data as MerchantReturnEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MerchantReturnEnumerationStructuredData data={intent.data as unknown as MerchantReturnEnumerationInput} />,
   },
   "MusicAlbumProductionType": {
     componentName: "MusicAlbumProductionTypeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MusicAlbumProductionTypeStructuredData data={intent.data as MusicAlbumProductionTypeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MusicAlbumProductionTypeStructuredData data={intent.data as unknown as MusicAlbumProductionTypeInput} />,
   },
   "MusicAlbumReleaseType": {
     componentName: "MusicAlbumReleaseTypeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MusicAlbumReleaseTypeStructuredData data={intent.data as MusicAlbumReleaseTypeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MusicAlbumReleaseTypeStructuredData data={intent.data as unknown as MusicAlbumReleaseTypeInput} />,
   },
   "MusicReleaseFormatType": {
     componentName: "MusicReleaseFormatTypeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MusicReleaseFormatTypeStructuredData data={intent.data as MusicReleaseFormatTypeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MusicReleaseFormatTypeStructuredData data={intent.data as unknown as MusicReleaseFormatTypeInput} />,
   },
   "NonprofitType": {
     componentName: "NonprofitTypeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NonprofitTypeStructuredData data={intent.data as NonprofitTypeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NonprofitTypeStructuredData data={intent.data as unknown as NonprofitTypeInput} />,
   },
   "OfferItemCondition": {
     componentName: "OfferItemConditionStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OfferItemConditionStructuredData data={intent.data as OfferItemConditionInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OfferItemConditionStructuredData data={intent.data as unknown as OfferItemConditionInput} />,
   },
   "PaymentMethodType": {
     componentName: "PaymentMethodTypeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PaymentMethodTypeStructuredData data={intent.data as PaymentMethodTypeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PaymentMethodTypeStructuredData data={intent.data as unknown as PaymentMethodTypeInput} />,
   },
   "PhysicalActivityCategory": {
     componentName: "PhysicalActivityCategoryStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PhysicalActivityCategoryStructuredData data={intent.data as PhysicalActivityCategoryInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PhysicalActivityCategoryStructuredData data={intent.data as unknown as PhysicalActivityCategoryInput} />,
   },
   "PhysicalExam": {
     componentName: "PhysicalExamStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PhysicalExamStructuredData data={intent.data as PhysicalExamInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PhysicalExamStructuredData data={intent.data as unknown as PhysicalExamInput} />,
   },
   "PriceComponentTypeEnumeration": {
     componentName: "PriceComponentTypeEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PriceComponentTypeEnumerationStructuredData data={intent.data as PriceComponentTypeEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PriceComponentTypeEnumerationStructuredData data={intent.data as unknown as PriceComponentTypeEnumerationInput} />,
   },
   "PriceTypeEnumeration": {
     componentName: "PriceTypeEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PriceTypeEnumerationStructuredData data={intent.data as PriceTypeEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PriceTypeEnumerationStructuredData data={intent.data as unknown as PriceTypeEnumerationInput} />,
   },
   "QualitativeValue": {
     componentName: "QualitativeValueStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <QualitativeValueStructuredData data={intent.data as QualitativeValueInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <QualitativeValueStructuredData data={intent.data as unknown as QualitativeValueInput} />,
   },
   "RefundTypeEnumeration": {
     componentName: "RefundTypeEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RefundTypeEnumerationStructuredData data={intent.data as RefundTypeEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RefundTypeEnumerationStructuredData data={intent.data as unknown as RefundTypeEnumerationInput} />,
   },
   "RestrictedDiet": {
     componentName: "RestrictedDietStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RestrictedDietStructuredData data={intent.data as RestrictedDietInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RestrictedDietStructuredData data={intent.data as unknown as RestrictedDietInput} />,
   },
   "ReturnFeesEnumeration": {
     componentName: "ReturnFeesEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReturnFeesEnumerationStructuredData data={intent.data as ReturnFeesEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReturnFeesEnumerationStructuredData data={intent.data as unknown as ReturnFeesEnumerationInput} />,
   },
   "ReturnLabelSourceEnumeration": {
     componentName: "ReturnLabelSourceEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReturnLabelSourceEnumerationStructuredData data={intent.data as ReturnLabelSourceEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReturnLabelSourceEnumerationStructuredData data={intent.data as unknown as ReturnLabelSourceEnumerationInput} />,
   },
   "ReturnMethodEnumeration": {
     componentName: "ReturnMethodEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReturnMethodEnumerationStructuredData data={intent.data as ReturnMethodEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReturnMethodEnumerationStructuredData data={intent.data as unknown as ReturnMethodEnumerationInput} />,
   },
   "SizeSpecification": {
     componentName: "SizeSpecificationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SizeSpecificationStructuredData data={intent.data as SizeSpecificationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SizeSpecificationStructuredData data={intent.data as unknown as SizeSpecificationInput} />,
   },
   "Specialty": {
     componentName: "SpecialtyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SpecialtyStructuredData data={intent.data as SpecialtyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SpecialtyStructuredData data={intent.data as unknown as SpecialtyInput} />,
   },
   "StatusEnumeration": {
     componentName: "StatusEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StatusEnumerationStructuredData data={intent.data as StatusEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StatusEnumerationStructuredData data={intent.data as unknown as StatusEnumerationInput} />,
   },
   "TierBenefitEnumeration": {
     componentName: "TierBenefitEnumerationStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TierBenefitEnumerationStructuredData data={intent.data as TierBenefitEnumerationInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TierBenefitEnumerationStructuredData data={intent.data as unknown as TierBenefitEnumerationInput} />,
   },
   "WarrantyScope": {
     componentName: "WarrantyScopeStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <WarrantyScopeStructuredData data={intent.data as WarrantyScopeInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <WarrantyScopeStructuredData data={intent.data as unknown as WarrantyScopeInput} />,
   },
   "about": {
     componentName: "AboutPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AboutPropertyStructuredData data={intent.data as AboutPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AboutPropertyStructuredData data={intent.data as unknown as AboutPropertyInput} />,
   },
   "abstract": {
     componentName: "AbstractPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AbstractPropertyStructuredData data={intent.data as AbstractPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AbstractPropertyStructuredData data={intent.data as unknown as AbstractPropertyInput} />,
   },
   "acceptedPaymentMethod": {
     componentName: "AcceptedPaymentMethodPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AcceptedPaymentMethodPropertyStructuredData data={intent.data as AcceptedPaymentMethodPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AcceptedPaymentMethodPropertyStructuredData data={intent.data as unknown as AcceptedPaymentMethodPropertyInput} />,
   },
   "accessibilityAPI": {
     componentName: "AccessibilityAPIPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AccessibilityAPIPropertyStructuredData data={intent.data as AccessibilityAPIPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AccessibilityAPIPropertyStructuredData data={intent.data as unknown as AccessibilityAPIPropertyInput} />,
   },
   "accessibilityControl": {
     componentName: "AccessibilityControlPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AccessibilityControlPropertyStructuredData data={intent.data as AccessibilityControlPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AccessibilityControlPropertyStructuredData data={intent.data as unknown as AccessibilityControlPropertyInput} />,
   },
   "accessibilityFeature": {
     componentName: "AccessibilityFeaturePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AccessibilityFeaturePropertyStructuredData data={intent.data as AccessibilityFeaturePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AccessibilityFeaturePropertyStructuredData data={intent.data as unknown as AccessibilityFeaturePropertyInput} />,
   },
   "accessibilityHazard": {
     componentName: "AccessibilityHazardPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AccessibilityHazardPropertyStructuredData data={intent.data as AccessibilityHazardPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AccessibilityHazardPropertyStructuredData data={intent.data as unknown as AccessibilityHazardPropertyInput} />,
   },
   "accessibilitySummary": {
     componentName: "AccessibilitySummaryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AccessibilitySummaryPropertyStructuredData data={intent.data as AccessibilitySummaryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AccessibilitySummaryPropertyStructuredData data={intent.data as unknown as AccessibilitySummaryPropertyInput} />,
   },
   "accessMode": {
     componentName: "AccessModePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AccessModePropertyStructuredData data={intent.data as AccessModePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AccessModePropertyStructuredData data={intent.data as unknown as AccessModePropertyInput} />,
   },
   "accessModeSufficient": {
     componentName: "AccessModeSufficientPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AccessModeSufficientPropertyStructuredData data={intent.data as AccessModeSufficientPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AccessModeSufficientPropertyStructuredData data={intent.data as unknown as AccessModeSufficientPropertyInput} />,
   },
   "accountablePerson": {
     componentName: "AccountablePersonPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AccountablePersonPropertyStructuredData data={intent.data as AccountablePersonPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AccountablePersonPropertyStructuredData data={intent.data as unknown as AccountablePersonPropertyInput} />,
   },
   "acquireLicensePage": {
     componentName: "AcquireLicensePagePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AcquireLicensePagePropertyStructuredData data={intent.data as AcquireLicensePagePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AcquireLicensePagePropertyStructuredData data={intent.data as unknown as AcquireLicensePagePropertyInput} />,
   },
   "actionableFeedbackPolicy": {
     componentName: "ActionableFeedbackPolicyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ActionableFeedbackPolicyPropertyStructuredData data={intent.data as ActionableFeedbackPolicyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ActionableFeedbackPolicyPropertyStructuredData data={intent.data as unknown as ActionableFeedbackPolicyPropertyInput} />,
   },
   "actionApplication": {
     componentName: "ActionApplicationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ActionApplicationPropertyStructuredData data={intent.data as ActionApplicationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ActionApplicationPropertyStructuredData data={intent.data as unknown as ActionApplicationPropertyInput} />,
   },
   "actionPlatform": {
     componentName: "ActionPlatformPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ActionPlatformPropertyStructuredData data={intent.data as ActionPlatformPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ActionPlatformPropertyStructuredData data={intent.data as unknown as ActionPlatformPropertyInput} />,
   },
   "actionProcess": {
     componentName: "ActionProcessPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ActionProcessPropertyStructuredData data={intent.data as ActionProcessPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ActionProcessPropertyStructuredData data={intent.data as unknown as ActionProcessPropertyInput} />,
   },
   "actionStatus": {
     componentName: "ActionStatusPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ActionStatusPropertyStructuredData data={intent.data as ActionStatusPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ActionStatusPropertyStructuredData data={intent.data as unknown as ActionStatusPropertyInput} />,
   },
   "activeIngredient": {
     componentName: "ActiveIngredientPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ActiveIngredientPropertyStructuredData data={intent.data as ActiveIngredientPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ActiveIngredientPropertyStructuredData data={intent.data as unknown as ActiveIngredientPropertyInput} />,
   },
   "actor": {
     componentName: "ActorPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ActorPropertyStructuredData data={intent.data as ActorPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ActorPropertyStructuredData data={intent.data as unknown as ActorPropertyInput} />,
   },
   "actors": {
     componentName: "ActorsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ActorsPropertyStructuredData data={intent.data as ActorsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ActorsPropertyStructuredData data={intent.data as unknown as ActorsPropertyInput} />,
   },
   "additionalName": {
     componentName: "AdditionalNamePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AdditionalNamePropertyStructuredData data={intent.data as AdditionalNamePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AdditionalNamePropertyStructuredData data={intent.data as unknown as AdditionalNamePropertyInput} />,
   },
   "additionalProperty": {
     componentName: "AdditionalPropertyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AdditionalPropertyPropertyStructuredData data={intent.data as AdditionalPropertyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AdditionalPropertyPropertyStructuredData data={intent.data as unknown as AdditionalPropertyPropertyInput} />,
   },
   "additionalType": {
     componentName: "AdditionalTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AdditionalTypePropertyStructuredData data={intent.data as AdditionalTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AdditionalTypePropertyStructuredData data={intent.data as unknown as AdditionalTypePropertyInput} />,
   },
   "addOn": {
     componentName: "AddOnPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AddOnPropertyStructuredData data={intent.data as AddOnPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AddOnPropertyStructuredData data={intent.data as unknown as AddOnPropertyInput} />,
   },
   "address": {
     componentName: "AddressPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AddressPropertyStructuredData data={intent.data as AddressPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AddressPropertyStructuredData data={intent.data as unknown as AddressPropertyInput} />,
   },
   "addressCountry": {
     componentName: "AddressCountryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AddressCountryPropertyStructuredData data={intent.data as AddressCountryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AddressCountryPropertyStructuredData data={intent.data as unknown as AddressCountryPropertyInput} />,
   },
   "addressLocality": {
     componentName: "AddressLocalityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AddressLocalityPropertyStructuredData data={intent.data as AddressLocalityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AddressLocalityPropertyStructuredData data={intent.data as unknown as AddressLocalityPropertyInput} />,
   },
   "addressRegion": {
     componentName: "AddressRegionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AddressRegionPropertyStructuredData data={intent.data as AddressRegionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AddressRegionPropertyStructuredData data={intent.data as unknown as AddressRegionPropertyInput} />,
   },
   "administrationRoute": {
     componentName: "AdministrationRoutePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AdministrationRoutePropertyStructuredData data={intent.data as AdministrationRoutePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AdministrationRoutePropertyStructuredData data={intent.data as unknown as AdministrationRoutePropertyInput} />,
   },
   "advanceBookingRequirement": {
     componentName: "AdvanceBookingRequirementPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AdvanceBookingRequirementPropertyStructuredData data={intent.data as AdvanceBookingRequirementPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AdvanceBookingRequirementPropertyStructuredData data={intent.data as unknown as AdvanceBookingRequirementPropertyInput} />,
   },
   "adverseOutcome": {
     componentName: "AdverseOutcomePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AdverseOutcomePropertyStructuredData data={intent.data as AdverseOutcomePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AdverseOutcomePropertyStructuredData data={intent.data as unknown as AdverseOutcomePropertyInput} />,
   },
   "affectedBy": {
     componentName: "AffectedByPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AffectedByPropertyStructuredData data={intent.data as AffectedByPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AffectedByPropertyStructuredData data={intent.data as unknown as AffectedByPropertyInput} />,
   },
   "affiliation": {
     componentName: "AffiliationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AffiliationPropertyStructuredData data={intent.data as AffiliationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AffiliationPropertyStructuredData data={intent.data as unknown as AffiliationPropertyInput} />,
   },
   "agent": {
     componentName: "AgentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AgentPropertyStructuredData data={intent.data as AgentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AgentPropertyStructuredData data={intent.data as unknown as AgentPropertyInput} />,
   },
   "agentInteractionStatistic": {
     componentName: "AgentInteractionStatisticPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AgentInteractionStatisticPropertyStructuredData data={intent.data as AgentInteractionStatisticPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AgentInteractionStatisticPropertyStructuredData data={intent.data as unknown as AgentInteractionStatisticPropertyInput} />,
   },
   "aggregateElement": {
     componentName: "AggregateElementPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AggregateElementPropertyStructuredData data={intent.data as AggregateElementPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AggregateElementPropertyStructuredData data={intent.data as unknown as AggregateElementPropertyInput} />,
   },
   "aggregateRating": {
     componentName: "AggregateRatingPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AggregateRatingPropertyStructuredData data={intent.data as AggregateRatingPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AggregateRatingPropertyStructuredData data={intent.data as unknown as AggregateRatingPropertyInput} />,
   },
   "album": {
     componentName: "AlbumPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AlbumPropertyStructuredData data={intent.data as AlbumPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AlbumPropertyStructuredData data={intent.data as unknown as AlbumPropertyInput} />,
   },
   "albumProductionType": {
     componentName: "AlbumProductionTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AlbumProductionTypePropertyStructuredData data={intent.data as AlbumProductionTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AlbumProductionTypePropertyStructuredData data={intent.data as unknown as AlbumProductionTypePropertyInput} />,
   },
   "albumRelease": {
     componentName: "AlbumReleasePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AlbumReleasePropertyStructuredData data={intent.data as AlbumReleasePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AlbumReleasePropertyStructuredData data={intent.data as unknown as AlbumReleasePropertyInput} />,
   },
   "albumReleaseType": {
     componentName: "AlbumReleaseTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AlbumReleaseTypePropertyStructuredData data={intent.data as AlbumReleaseTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AlbumReleaseTypePropertyStructuredData data={intent.data as unknown as AlbumReleaseTypePropertyInput} />,
   },
   "albums": {
     componentName: "AlbumsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AlbumsPropertyStructuredData data={intent.data as AlbumsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AlbumsPropertyStructuredData data={intent.data as unknown as AlbumsPropertyInput} />,
   },
   "alcoholWarning": {
     componentName: "AlcoholWarningPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AlcoholWarningPropertyStructuredData data={intent.data as AlcoholWarningPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AlcoholWarningPropertyStructuredData data={intent.data as unknown as AlcoholWarningPropertyInput} />,
   },
   "alignmentType": {
     componentName: "AlignmentTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AlignmentTypePropertyStructuredData data={intent.data as AlignmentTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AlignmentTypePropertyStructuredData data={intent.data as unknown as AlignmentTypePropertyInput} />,
   },
   "alternateName": {
     componentName: "AlternateNamePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AlternateNamePropertyStructuredData data={intent.data as AlternateNamePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AlternateNamePropertyStructuredData data={intent.data as unknown as AlternateNamePropertyInput} />,
   },
   "alternativeHeadline": {
     componentName: "AlternativeHeadlinePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AlternativeHeadlinePropertyStructuredData data={intent.data as AlternativeHeadlinePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AlternativeHeadlinePropertyStructuredData data={intent.data as unknown as AlternativeHeadlinePropertyInput} />,
   },
   "alternativeOf": {
     componentName: "AlternativeOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AlternativeOfPropertyStructuredData data={intent.data as AlternativeOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AlternativeOfPropertyStructuredData data={intent.data as unknown as AlternativeOfPropertyInput} />,
   },
   "alumni": {
     componentName: "AlumniPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AlumniPropertyStructuredData data={intent.data as AlumniPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AlumniPropertyStructuredData data={intent.data as unknown as AlumniPropertyInput} />,
   },
   "alumniOf": {
     componentName: "AlumniOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AlumniOfPropertyStructuredData data={intent.data as AlumniOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AlumniOfPropertyStructuredData data={intent.data as unknown as AlumniOfPropertyInput} />,
   },
   "amenityFeature": {
     componentName: "AmenityFeaturePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AmenityFeaturePropertyStructuredData data={intent.data as AmenityFeaturePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AmenityFeaturePropertyStructuredData data={intent.data as unknown as AmenityFeaturePropertyInput} />,
   },
   "amount": {
     componentName: "AmountPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AmountPropertyStructuredData data={intent.data as AmountPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AmountPropertyStructuredData data={intent.data as unknown as AmountPropertyInput} />,
   },
   "amountOfThisGood": {
     componentName: "AmountOfThisGoodPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AmountOfThisGoodPropertyStructuredData data={intent.data as AmountOfThisGoodPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AmountOfThisGoodPropertyStructuredData data={intent.data as unknown as AmountOfThisGoodPropertyInput} />,
   },
   "annualPercentageRate": {
     componentName: "AnnualPercentageRatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AnnualPercentageRatePropertyStructuredData data={intent.data as AnnualPercentageRatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AnnualPercentageRatePropertyStructuredData data={intent.data as unknown as AnnualPercentageRatePropertyInput} />,
   },
   "appearance": {
     componentName: "AppearancePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AppearancePropertyStructuredData data={intent.data as AppearancePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AppearancePropertyStructuredData data={intent.data as unknown as AppearancePropertyInput} />,
   },
   "applicableCountry": {
     componentName: "ApplicableCountryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ApplicableCountryPropertyStructuredData data={intent.data as ApplicableCountryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ApplicableCountryPropertyStructuredData data={intent.data as unknown as ApplicableCountryPropertyInput} />,
   },
   "applicableLocation": {
     componentName: "ApplicableLocationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ApplicableLocationPropertyStructuredData data={intent.data as ApplicableLocationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ApplicableLocationPropertyStructuredData data={intent.data as unknown as ApplicableLocationPropertyInput} />,
   },
   "application": {
     componentName: "ApplicationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ApplicationPropertyStructuredData data={intent.data as ApplicationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ApplicationPropertyStructuredData data={intent.data as unknown as ApplicationPropertyInput} />,
   },
   "applicationCategory": {
     componentName: "ApplicationCategoryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ApplicationCategoryPropertyStructuredData data={intent.data as ApplicationCategoryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ApplicationCategoryPropertyStructuredData data={intent.data as unknown as ApplicationCategoryPropertyInput} />,
   },
   "applicationSubCategory": {
     componentName: "ApplicationSubCategoryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ApplicationSubCategoryPropertyStructuredData data={intent.data as ApplicationSubCategoryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ApplicationSubCategoryPropertyStructuredData data={intent.data as unknown as ApplicationSubCategoryPropertyInput} />,
   },
   "applicationSuite": {
     componentName: "ApplicationSuitePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ApplicationSuitePropertyStructuredData data={intent.data as ApplicationSuitePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ApplicationSuitePropertyStructuredData data={intent.data as unknown as ApplicationSuitePropertyInput} />,
   },
   "appliesToDeliveryMethod": {
     componentName: "AppliesToDeliveryMethodPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AppliesToDeliveryMethodPropertyStructuredData data={intent.data as AppliesToDeliveryMethodPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AppliesToDeliveryMethodPropertyStructuredData data={intent.data as unknown as AppliesToDeliveryMethodPropertyInput} />,
   },
   "archivedAt": {
     componentName: "ArchivedAtPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ArchivedAtPropertyStructuredData data={intent.data as ArchivedAtPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ArchivedAtPropertyStructuredData data={intent.data as unknown as ArchivedAtPropertyInput} />,
   },
   "area": {
     componentName: "AreaPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AreaPropertyStructuredData data={intent.data as AreaPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AreaPropertyStructuredData data={intent.data as unknown as AreaPropertyInput} />,
   },
   "areaServed": {
     componentName: "AreaServedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AreaServedPropertyStructuredData data={intent.data as AreaServedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AreaServedPropertyStructuredData data={intent.data as unknown as AreaServedPropertyInput} />,
   },
   "arrivalTime": {
     componentName: "ArrivalTimePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ArrivalTimePropertyStructuredData data={intent.data as ArrivalTimePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ArrivalTimePropertyStructuredData data={intent.data as unknown as ArrivalTimePropertyInput} />,
   },
   "articleBody": {
     componentName: "ArticleBodyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ArticleBodyPropertyStructuredData data={intent.data as ArticleBodyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ArticleBodyPropertyStructuredData data={intent.data as unknown as ArticleBodyPropertyInput} />,
   },
   "articleSection": {
     componentName: "ArticleSectionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ArticleSectionPropertyStructuredData data={intent.data as ArticleSectionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ArticleSectionPropertyStructuredData data={intent.data as unknown as ArticleSectionPropertyInput} />,
   },
   "asin": {
     componentName: "AsinPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AsinPropertyStructuredData data={intent.data as AsinPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AsinPropertyStructuredData data={intent.data as unknown as AsinPropertyInput} />,
   },
   "aspect": {
     componentName: "AspectPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AspectPropertyStructuredData data={intent.data as AspectPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AspectPropertyStructuredData data={intent.data as unknown as AspectPropertyInput} />,
   },
   "assesses": {
     componentName: "AssessesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AssessesPropertyStructuredData data={intent.data as AssessesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AssessesPropertyStructuredData data={intent.data as unknown as AssessesPropertyInput} />,
   },
   "associatedAnatomy": {
     componentName: "AssociatedAnatomyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AssociatedAnatomyPropertyStructuredData data={intent.data as AssociatedAnatomyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AssociatedAnatomyPropertyStructuredData data={intent.data as unknown as AssociatedAnatomyPropertyInput} />,
   },
   "associatedArticle": {
     componentName: "AssociatedArticlePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AssociatedArticlePropertyStructuredData data={intent.data as AssociatedArticlePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AssociatedArticlePropertyStructuredData data={intent.data as unknown as AssociatedArticlePropertyInput} />,
   },
   "associatedClaimReview": {
     componentName: "AssociatedClaimReviewPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AssociatedClaimReviewPropertyStructuredData data={intent.data as AssociatedClaimReviewPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AssociatedClaimReviewPropertyStructuredData data={intent.data as unknown as AssociatedClaimReviewPropertyInput} />,
   },
   "associatedDisease": {
     componentName: "AssociatedDiseasePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AssociatedDiseasePropertyStructuredData data={intent.data as AssociatedDiseasePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AssociatedDiseasePropertyStructuredData data={intent.data as unknown as AssociatedDiseasePropertyInput} />,
   },
   "associatedMedia": {
     componentName: "AssociatedMediaPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AssociatedMediaPropertyStructuredData data={intent.data as AssociatedMediaPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AssociatedMediaPropertyStructuredData data={intent.data as unknown as AssociatedMediaPropertyInput} />,
   },
   "associatedMediaReview": {
     componentName: "AssociatedMediaReviewPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AssociatedMediaReviewPropertyStructuredData data={intent.data as AssociatedMediaReviewPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AssociatedMediaReviewPropertyStructuredData data={intent.data as unknown as AssociatedMediaReviewPropertyInput} />,
   },
   "associatedPathophysiology": {
     componentName: "AssociatedPathophysiologyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AssociatedPathophysiologyPropertyStructuredData data={intent.data as AssociatedPathophysiologyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AssociatedPathophysiologyPropertyStructuredData data={intent.data as unknown as AssociatedPathophysiologyPropertyInput} />,
   },
   "associatedReview": {
     componentName: "AssociatedReviewPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AssociatedReviewPropertyStructuredData data={intent.data as AssociatedReviewPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AssociatedReviewPropertyStructuredData data={intent.data as unknown as AssociatedReviewPropertyInput} />,
   },
   "attendee": {
     componentName: "AttendeePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AttendeePropertyStructuredData data={intent.data as AttendeePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AttendeePropertyStructuredData data={intent.data as unknown as AttendeePropertyInput} />,
   },
   "attendees": {
     componentName: "AttendeesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AttendeesPropertyStructuredData data={intent.data as AttendeesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AttendeesPropertyStructuredData data={intent.data as unknown as AttendeesPropertyInput} />,
   },
   "audience": {
     componentName: "AudiencePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AudiencePropertyStructuredData data={intent.data as AudiencePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AudiencePropertyStructuredData data={intent.data as unknown as AudiencePropertyInput} />,
   },
   "audienceType": {
     componentName: "AudienceTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AudienceTypePropertyStructuredData data={intent.data as AudienceTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AudienceTypePropertyStructuredData data={intent.data as unknown as AudienceTypePropertyInput} />,
   },
   "audio": {
     componentName: "AudioPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AudioPropertyStructuredData data={intent.data as AudioPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AudioPropertyStructuredData data={intent.data as unknown as AudioPropertyInput} />,
   },
   "auditDate": {
     componentName: "AuditDatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AuditDatePropertyStructuredData data={intent.data as AuditDatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AuditDatePropertyStructuredData data={intent.data as unknown as AuditDatePropertyInput} />,
   },
   "authenticator": {
     componentName: "AuthenticatorPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AuthenticatorPropertyStructuredData data={intent.data as AuthenticatorPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AuthenticatorPropertyStructuredData data={intent.data as unknown as AuthenticatorPropertyInput} />,
   },
   "author": {
     componentName: "AuthorPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AuthorPropertyStructuredData data={intent.data as AuthorPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AuthorPropertyStructuredData data={intent.data as unknown as AuthorPropertyInput} />,
   },
   "availability": {
     componentName: "AvailabilityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AvailabilityPropertyStructuredData data={intent.data as AvailabilityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AvailabilityPropertyStructuredData data={intent.data as unknown as AvailabilityPropertyInput} />,
   },
   "availabilityEnds": {
     componentName: "AvailabilityEndsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AvailabilityEndsPropertyStructuredData data={intent.data as AvailabilityEndsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AvailabilityEndsPropertyStructuredData data={intent.data as unknown as AvailabilityEndsPropertyInput} />,
   },
   "availabilityStarts": {
     componentName: "AvailabilityStartsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AvailabilityStartsPropertyStructuredData data={intent.data as AvailabilityStartsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AvailabilityStartsPropertyStructuredData data={intent.data as unknown as AvailabilityStartsPropertyInput} />,
   },
   "availableAtOrFrom": {
     componentName: "AvailableAtOrFromPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AvailableAtOrFromPropertyStructuredData data={intent.data as AvailableAtOrFromPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AvailableAtOrFromPropertyStructuredData data={intent.data as unknown as AvailableAtOrFromPropertyInput} />,
   },
   "availableChannel": {
     componentName: "AvailableChannelPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AvailableChannelPropertyStructuredData data={intent.data as AvailableChannelPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AvailableChannelPropertyStructuredData data={intent.data as unknown as AvailableChannelPropertyInput} />,
   },
   "availableDeliveryMethod": {
     componentName: "AvailableDeliveryMethodPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AvailableDeliveryMethodPropertyStructuredData data={intent.data as AvailableDeliveryMethodPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AvailableDeliveryMethodPropertyStructuredData data={intent.data as unknown as AvailableDeliveryMethodPropertyInput} />,
   },
   "availableIn": {
     componentName: "AvailableInPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AvailableInPropertyStructuredData data={intent.data as AvailableInPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AvailableInPropertyStructuredData data={intent.data as unknown as AvailableInPropertyInput} />,
   },
   "availableLanguage": {
     componentName: "AvailableLanguagePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AvailableLanguagePropertyStructuredData data={intent.data as AvailableLanguagePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AvailableLanguagePropertyStructuredData data={intent.data as unknown as AvailableLanguagePropertyInput} />,
   },
   "availableOnDevice": {
     componentName: "AvailableOnDevicePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AvailableOnDevicePropertyStructuredData data={intent.data as AvailableOnDevicePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AvailableOnDevicePropertyStructuredData data={intent.data as unknown as AvailableOnDevicePropertyInput} />,
   },
   "availableStrength": {
     componentName: "AvailableStrengthPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AvailableStrengthPropertyStructuredData data={intent.data as AvailableStrengthPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AvailableStrengthPropertyStructuredData data={intent.data as unknown as AvailableStrengthPropertyInput} />,
   },
   "award": {
     componentName: "AwardPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AwardPropertyStructuredData data={intent.data as AwardPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AwardPropertyStructuredData data={intent.data as unknown as AwardPropertyInput} />,
   },
   "awards": {
     componentName: "AwardsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <AwardsPropertyStructuredData data={intent.data as AwardsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <AwardsPropertyStructuredData data={intent.data as unknown as AwardsPropertyInput} />,
   },
   "backstory": {
     componentName: "BackstoryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BackstoryPropertyStructuredData data={intent.data as BackstoryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BackstoryPropertyStructuredData data={intent.data as unknown as BackstoryPropertyInput} />,
   },
   "benefitsSummaryUrl": {
     componentName: "BenefitsSummaryUrlPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BenefitsSummaryUrlPropertyStructuredData data={intent.data as BenefitsSummaryUrlPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BenefitsSummaryUrlPropertyStructuredData data={intent.data as unknown as BenefitsSummaryUrlPropertyInput} />,
   },
   "bestRating": {
     componentName: "BestRatingPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BestRatingPropertyStructuredData data={intent.data as BestRatingPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BestRatingPropertyStructuredData data={intent.data as unknown as BestRatingPropertyInput} />,
   },
   "billingDuration": {
     componentName: "BillingDurationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BillingDurationPropertyStructuredData data={intent.data as BillingDurationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BillingDurationPropertyStructuredData data={intent.data as unknown as BillingDurationPropertyInput} />,
   },
   "billingIncrement": {
     componentName: "BillingIncrementPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BillingIncrementPropertyStructuredData data={intent.data as BillingIncrementPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BillingIncrementPropertyStructuredData data={intent.data as unknown as BillingIncrementPropertyInput} />,
   },
   "billingStart": {
     componentName: "BillingStartPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BillingStartPropertyStructuredData data={intent.data as BillingStartPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BillingStartPropertyStructuredData data={intent.data as unknown as BillingStartPropertyInput} />,
   },
   "bioChemInteraction": {
     componentName: "BioChemInteractionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BioChemInteractionPropertyStructuredData data={intent.data as BioChemInteractionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BioChemInteractionPropertyStructuredData data={intent.data as unknown as BioChemInteractionPropertyInput} />,
   },
   "bioChemSimilarity": {
     componentName: "BioChemSimilarityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BioChemSimilarityPropertyStructuredData data={intent.data as BioChemSimilarityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BioChemSimilarityPropertyStructuredData data={intent.data as unknown as BioChemSimilarityPropertyInput} />,
   },
   "biologicalRole": {
     componentName: "BiologicalRolePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BiologicalRolePropertyStructuredData data={intent.data as BiologicalRolePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BiologicalRolePropertyStructuredData data={intent.data as unknown as BiologicalRolePropertyInput} />,
   },
   "birthDate": {
     componentName: "BirthDatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BirthDatePropertyStructuredData data={intent.data as BirthDatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BirthDatePropertyStructuredData data={intent.data as unknown as BirthDatePropertyInput} />,
   },
   "birthPlace": {
     componentName: "BirthPlacePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BirthPlacePropertyStructuredData data={intent.data as BirthPlacePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BirthPlacePropertyStructuredData data={intent.data as unknown as BirthPlacePropertyInput} />,
   },
   "bitrate": {
     componentName: "BitratePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BitratePropertyStructuredData data={intent.data as BitratePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BitratePropertyStructuredData data={intent.data as unknown as BitratePropertyInput} />,
   },
   "bodyLocation": {
     componentName: "BodyLocationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BodyLocationPropertyStructuredData data={intent.data as BodyLocationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BodyLocationPropertyStructuredData data={intent.data as unknown as BodyLocationPropertyInput} />,
   },
   "box": {
     componentName: "BoxPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BoxPropertyStructuredData data={intent.data as BoxPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BoxPropertyStructuredData data={intent.data as unknown as BoxPropertyInput} />,
   },
   "branchCode": {
     componentName: "BranchCodePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BranchCodePropertyStructuredData data={intent.data as BranchCodePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BranchCodePropertyStructuredData data={intent.data as unknown as BranchCodePropertyInput} />,
   },
   "brand": {
     componentName: "BrandPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BrandPropertyStructuredData data={intent.data as BrandPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BrandPropertyStructuredData data={intent.data as unknown as BrandPropertyInput} />,
   },
   "breadcrumb": {
     componentName: "BreadcrumbPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BreadcrumbPropertyStructuredData data={intent.data as BreadcrumbPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BreadcrumbPropertyStructuredData data={intent.data as unknown as BreadcrumbPropertyInput} />,
   },
   "breastfeedingWarning": {
     componentName: "BreastfeedingWarningPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BreastfeedingWarningPropertyStructuredData data={intent.data as BreastfeedingWarningPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BreastfeedingWarningPropertyStructuredData data={intent.data as unknown as BreastfeedingWarningPropertyInput} />,
   },
   "broadcastAffiliateOf": {
     componentName: "BroadcastAffiliateOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BroadcastAffiliateOfPropertyStructuredData data={intent.data as BroadcastAffiliateOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BroadcastAffiliateOfPropertyStructuredData data={intent.data as unknown as BroadcastAffiliateOfPropertyInput} />,
   },
   "broadcastChannelId": {
     componentName: "BroadcastChannelIdPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BroadcastChannelIdPropertyStructuredData data={intent.data as BroadcastChannelIdPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BroadcastChannelIdPropertyStructuredData data={intent.data as unknown as BroadcastChannelIdPropertyInput} />,
   },
   "broadcastDisplayName": {
     componentName: "BroadcastDisplayNamePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BroadcastDisplayNamePropertyStructuredData data={intent.data as BroadcastDisplayNamePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BroadcastDisplayNamePropertyStructuredData data={intent.data as unknown as BroadcastDisplayNamePropertyInput} />,
   },
   "broadcaster": {
     componentName: "BroadcasterPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BroadcasterPropertyStructuredData data={intent.data as BroadcasterPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BroadcasterPropertyStructuredData data={intent.data as unknown as BroadcasterPropertyInput} />,
   },
   "broadcastFrequency": {
     componentName: "BroadcastFrequencyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BroadcastFrequencyPropertyStructuredData data={intent.data as BroadcastFrequencyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BroadcastFrequencyPropertyStructuredData data={intent.data as unknown as BroadcastFrequencyPropertyInput} />,
   },
   "broadcastFrequencyValue": {
     componentName: "BroadcastFrequencyValuePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BroadcastFrequencyValuePropertyStructuredData data={intent.data as BroadcastFrequencyValuePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BroadcastFrequencyValuePropertyStructuredData data={intent.data as unknown as BroadcastFrequencyValuePropertyInput} />,
   },
   "broadcastServiceTier": {
     componentName: "BroadcastServiceTierPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BroadcastServiceTierPropertyStructuredData data={intent.data as BroadcastServiceTierPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BroadcastServiceTierPropertyStructuredData data={intent.data as unknown as BroadcastServiceTierPropertyInput} />,
   },
   "broadcastSignalModulation": {
     componentName: "BroadcastSignalModulationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BroadcastSignalModulationPropertyStructuredData data={intent.data as BroadcastSignalModulationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BroadcastSignalModulationPropertyStructuredData data={intent.data as unknown as BroadcastSignalModulationPropertyInput} />,
   },
   "broadcastSubChannel": {
     componentName: "BroadcastSubChannelPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BroadcastSubChannelPropertyStructuredData data={intent.data as BroadcastSubChannelPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BroadcastSubChannelPropertyStructuredData data={intent.data as unknown as BroadcastSubChannelPropertyInput} />,
   },
   "broadcastTimezone": {
     componentName: "BroadcastTimezonePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BroadcastTimezonePropertyStructuredData data={intent.data as BroadcastTimezonePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BroadcastTimezonePropertyStructuredData data={intent.data as unknown as BroadcastTimezonePropertyInput} />,
   },
   "broker": {
     componentName: "BrokerPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BrokerPropertyStructuredData data={intent.data as BrokerPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BrokerPropertyStructuredData data={intent.data as unknown as BrokerPropertyInput} />,
   },
   "businessDays": {
     componentName: "BusinessDaysPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BusinessDaysPropertyStructuredData data={intent.data as BusinessDaysPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BusinessDaysPropertyStructuredData data={intent.data as unknown as BusinessDaysPropertyInput} />,
   },
   "businessFunction": {
     componentName: "BusinessFunctionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <BusinessFunctionPropertyStructuredData data={intent.data as BusinessFunctionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <BusinessFunctionPropertyStructuredData data={intent.data as unknown as BusinessFunctionPropertyInput} />,
   },
   "byArtist": {
     componentName: "ByArtistPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ByArtistPropertyStructuredData data={intent.data as ByArtistPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ByArtistPropertyStructuredData data={intent.data as unknown as ByArtistPropertyInput} />,
   },
   "byDay": {
     componentName: "ByDayPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ByDayPropertyStructuredData data={intent.data as ByDayPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ByDayPropertyStructuredData data={intent.data as unknown as ByDayPropertyInput} />,
   },
   "byMonth": {
     componentName: "ByMonthPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ByMonthPropertyStructuredData data={intent.data as ByMonthPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ByMonthPropertyStructuredData data={intent.data as unknown as ByMonthPropertyInput} />,
   },
   "byMonthDay": {
     componentName: "ByMonthDayPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ByMonthDayPropertyStructuredData data={intent.data as ByMonthDayPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ByMonthDayPropertyStructuredData data={intent.data as unknown as ByMonthDayPropertyInput} />,
   },
   "byMonthWeek": {
     componentName: "ByMonthWeekPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ByMonthWeekPropertyStructuredData data={intent.data as ByMonthWeekPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ByMonthWeekPropertyStructuredData data={intent.data as unknown as ByMonthWeekPropertyInput} />,
   },
   "callSign": {
     componentName: "CallSignPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CallSignPropertyStructuredData data={intent.data as CallSignPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CallSignPropertyStructuredData data={intent.data as unknown as CallSignPropertyInput} />,
   },
   "calories": {
     componentName: "CaloriesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CaloriesPropertyStructuredData data={intent.data as CaloriesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CaloriesPropertyStructuredData data={intent.data as unknown as CaloriesPropertyInput} />,
   },
   "caption": {
     componentName: "CaptionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CaptionPropertyStructuredData data={intent.data as CaptionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CaptionPropertyStructuredData data={intent.data as unknown as CaptionPropertyInput} />,
   },
   "carbohydrateContent": {
     componentName: "CarbohydrateContentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CarbohydrateContentPropertyStructuredData data={intent.data as CarbohydrateContentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CarbohydrateContentPropertyStructuredData data={intent.data as unknown as CarbohydrateContentPropertyInput} />,
   },
   "cashBack": {
     componentName: "CashBackPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CashBackPropertyStructuredData data={intent.data as CashBackPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CashBackPropertyStructuredData data={intent.data as unknown as CashBackPropertyInput} />,
   },
   "catalog": {
     componentName: "CatalogPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CatalogPropertyStructuredData data={intent.data as CatalogPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CatalogPropertyStructuredData data={intent.data as unknown as CatalogPropertyInput} />,
   },
   "catalogNumber": {
     componentName: "CatalogNumberPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CatalogNumberPropertyStructuredData data={intent.data as CatalogNumberPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CatalogNumberPropertyStructuredData data={intent.data as unknown as CatalogNumberPropertyInput} />,
   },
   "category": {
     componentName: "CategoryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CategoryPropertyStructuredData data={intent.data as CategoryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CategoryPropertyStructuredData data={intent.data as unknown as CategoryPropertyInput} />,
   },
   "cause": {
     componentName: "CausePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CausePropertyStructuredData data={intent.data as CausePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CausePropertyStructuredData data={intent.data as unknown as CausePropertyInput} />,
   },
   "causeOf": {
     componentName: "CauseOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CauseOfPropertyStructuredData data={intent.data as CauseOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CauseOfPropertyStructuredData data={intent.data as unknown as CauseOfPropertyInput} />,
   },
   "certificationIdentification": {
     componentName: "CertificationIdentificationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CertificationIdentificationPropertyStructuredData data={intent.data as CertificationIdentificationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CertificationIdentificationPropertyStructuredData data={intent.data as unknown as CertificationIdentificationPropertyInput} />,
   },
   "certificationRating": {
     componentName: "CertificationRatingPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CertificationRatingPropertyStructuredData data={intent.data as CertificationRatingPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CertificationRatingPropertyStructuredData data={intent.data as unknown as CertificationRatingPropertyInput} />,
   },
   "certificationStatus": {
     componentName: "CertificationStatusPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CertificationStatusPropertyStructuredData data={intent.data as CertificationStatusPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CertificationStatusPropertyStructuredData data={intent.data as unknown as CertificationStatusPropertyInput} />,
   },
   "character": {
     componentName: "CharacterPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CharacterPropertyStructuredData data={intent.data as CharacterPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CharacterPropertyStructuredData data={intent.data as unknown as CharacterPropertyInput} />,
   },
   "checkoutPageURLTemplate": {
     componentName: "CheckoutPageURLTemplatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CheckoutPageURLTemplatePropertyStructuredData data={intent.data as CheckoutPageURLTemplatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CheckoutPageURLTemplatePropertyStructuredData data={intent.data as unknown as CheckoutPageURLTemplatePropertyInput} />,
   },
   "children": {
     componentName: "ChildrenPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ChildrenPropertyStructuredData data={intent.data as ChildrenPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ChildrenPropertyStructuredData data={intent.data as unknown as ChildrenPropertyInput} />,
   },
   "childTaxon": {
     componentName: "ChildTaxonPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ChildTaxonPropertyStructuredData data={intent.data as ChildTaxonPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ChildTaxonPropertyStructuredData data={intent.data as unknown as ChildTaxonPropertyInput} />,
   },
   "cholesterolContent": {
     componentName: "CholesterolContentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CholesterolContentPropertyStructuredData data={intent.data as CholesterolContentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CholesterolContentPropertyStructuredData data={intent.data as unknown as CholesterolContentPropertyInput} />,
   },
   "circle": {
     componentName: "CirclePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CirclePropertyStructuredData data={intent.data as CirclePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CirclePropertyStructuredData data={intent.data as unknown as CirclePropertyInput} />,
   },
   "citation": {
     componentName: "CitationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CitationPropertyStructuredData data={intent.data as CitationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CitationPropertyStructuredData data={intent.data as unknown as CitationPropertyInput} />,
   },
   "claimInterpreter": {
     componentName: "ClaimInterpreterPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ClaimInterpreterPropertyStructuredData data={intent.data as ClaimInterpreterPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ClaimInterpreterPropertyStructuredData data={intent.data as unknown as ClaimInterpreterPropertyInput} />,
   },
   "clincalPharmacology": {
     componentName: "ClincalPharmacologyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ClincalPharmacologyPropertyStructuredData data={intent.data as ClincalPharmacologyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ClincalPharmacologyPropertyStructuredData data={intent.data as unknown as ClincalPharmacologyPropertyInput} />,
   },
   "clinicalPharmacology": {
     componentName: "ClinicalPharmacologyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ClinicalPharmacologyPropertyStructuredData data={intent.data as ClinicalPharmacologyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ClinicalPharmacologyPropertyStructuredData data={intent.data as unknown as ClinicalPharmacologyPropertyInput} />,
   },
   "clipNumber": {
     componentName: "ClipNumberPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ClipNumberPropertyStructuredData data={intent.data as ClipNumberPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ClipNumberPropertyStructuredData data={intent.data as unknown as ClipNumberPropertyInput} />,
   },
   "closes": {
     componentName: "ClosesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ClosesPropertyStructuredData data={intent.data as ClosesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ClosesPropertyStructuredData data={intent.data as unknown as ClosesPropertyInput} />,
   },
   "code": {
     componentName: "CodePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CodePropertyStructuredData data={intent.data as CodePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CodePropertyStructuredData data={intent.data as unknown as CodePropertyInput} />,
   },
   "codeValue": {
     componentName: "CodeValuePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CodeValuePropertyStructuredData data={intent.data as CodeValuePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CodeValuePropertyStructuredData data={intent.data as unknown as CodeValuePropertyInput} />,
   },
   "codingSystem": {
     componentName: "CodingSystemPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CodingSystemPropertyStructuredData data={intent.data as CodingSystemPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CodingSystemPropertyStructuredData data={intent.data as unknown as CodingSystemPropertyInput} />,
   },
   "colleague": {
     componentName: "ColleaguePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ColleaguePropertyStructuredData data={intent.data as ColleaguePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ColleaguePropertyStructuredData data={intent.data as unknown as ColleaguePropertyInput} />,
   },
   "colleagues": {
     componentName: "ColleaguesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ColleaguesPropertyStructuredData data={intent.data as ColleaguesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ColleaguesPropertyStructuredData data={intent.data as unknown as ColleaguesPropertyInput} />,
   },
   "color": {
     componentName: "ColorPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ColorPropertyStructuredData data={intent.data as ColorPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ColorPropertyStructuredData data={intent.data as unknown as ColorPropertyInput} />,
   },
   "colorSwatch": {
     componentName: "ColorSwatchPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ColorSwatchPropertyStructuredData data={intent.data as ColorSwatchPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ColorSwatchPropertyStructuredData data={intent.data as unknown as ColorSwatchPropertyInput} />,
   },
   "comment": {
     componentName: "CommentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CommentPropertyStructuredData data={intent.data as CommentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CommentPropertyStructuredData data={intent.data as unknown as CommentPropertyInput} />,
   },
   "commentCount": {
     componentName: "CommentCountPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CommentCountPropertyStructuredData data={intent.data as CommentCountPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CommentCountPropertyStructuredData data={intent.data as unknown as CommentCountPropertyInput} />,
   },
   "companyRegistration": {
     componentName: "CompanyRegistrationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CompanyRegistrationPropertyStructuredData data={intent.data as CompanyRegistrationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CompanyRegistrationPropertyStructuredData data={intent.data as unknown as CompanyRegistrationPropertyInput} />,
   },
   "competencyRequired": {
     componentName: "CompetencyRequiredPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CompetencyRequiredPropertyStructuredData data={intent.data as CompetencyRequiredPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CompetencyRequiredPropertyStructuredData data={intent.data as unknown as CompetencyRequiredPropertyInput} />,
   },
   "composer": {
     componentName: "ComposerPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ComposerPropertyStructuredData data={intent.data as ComposerPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ComposerPropertyStructuredData data={intent.data as unknown as ComposerPropertyInput} />,
   },
   "comprisedOf": {
     componentName: "ComprisedOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ComprisedOfPropertyStructuredData data={intent.data as ComprisedOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ComprisedOfPropertyStructuredData data={intent.data as unknown as ComprisedOfPropertyInput} />,
   },
   "conditionsOfAccess": {
     componentName: "ConditionsOfAccessPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ConditionsOfAccessPropertyStructuredData data={intent.data as ConditionsOfAccessPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ConditionsOfAccessPropertyStructuredData data={intent.data as unknown as ConditionsOfAccessPropertyInput} />,
   },
   "connectedTo": {
     componentName: "ConnectedToPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ConnectedToPropertyStructuredData data={intent.data as ConnectedToPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ConnectedToPropertyStructuredData data={intent.data as unknown as ConnectedToPropertyInput} />,
   },
   "constraintProperty": {
     componentName: "ConstraintPropertyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ConstraintPropertyPropertyStructuredData data={intent.data as ConstraintPropertyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ConstraintPropertyPropertyStructuredData data={intent.data as unknown as ConstraintPropertyPropertyInput} />,
   },
   "contactlessPayment": {
     componentName: "ContactlessPaymentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContactlessPaymentPropertyStructuredData data={intent.data as ContactlessPaymentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContactlessPaymentPropertyStructuredData data={intent.data as unknown as ContactlessPaymentPropertyInput} />,
   },
   "contactOption": {
     componentName: "ContactOptionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContactOptionPropertyStructuredData data={intent.data as ContactOptionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContactOptionPropertyStructuredData data={intent.data as unknown as ContactOptionPropertyInput} />,
   },
   "contactPoint": {
     componentName: "ContactPointPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContactPointPropertyStructuredData data={intent.data as ContactPointPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContactPointPropertyStructuredData data={intent.data as unknown as ContactPointPropertyInput} />,
   },
   "contactPoints": {
     componentName: "ContactPointsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContactPointsPropertyStructuredData data={intent.data as ContactPointsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContactPointsPropertyStructuredData data={intent.data as unknown as ContactPointsPropertyInput} />,
   },
   "contactType": {
     componentName: "ContactTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContactTypePropertyStructuredData data={intent.data as ContactTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContactTypePropertyStructuredData data={intent.data as unknown as ContactTypePropertyInput} />,
   },
   "containedIn": {
     componentName: "ContainedInPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContainedInPropertyStructuredData data={intent.data as ContainedInPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContainedInPropertyStructuredData data={intent.data as unknown as ContainedInPropertyInput} />,
   },
   "containedInPlace": {
     componentName: "ContainedInPlacePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContainedInPlacePropertyStructuredData data={intent.data as ContainedInPlacePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContainedInPlacePropertyStructuredData data={intent.data as unknown as ContainedInPlacePropertyInput} />,
   },
   "containsPlace": {
     componentName: "ContainsPlacePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContainsPlacePropertyStructuredData data={intent.data as ContainsPlacePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContainsPlacePropertyStructuredData data={intent.data as unknown as ContainsPlacePropertyInput} />,
   },
   "contentLocation": {
     componentName: "ContentLocationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContentLocationPropertyStructuredData data={intent.data as ContentLocationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContentLocationPropertyStructuredData data={intent.data as unknown as ContentLocationPropertyInput} />,
   },
   "contentRating": {
     componentName: "ContentRatingPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContentRatingPropertyStructuredData data={intent.data as ContentRatingPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContentRatingPropertyStructuredData data={intent.data as unknown as ContentRatingPropertyInput} />,
   },
   "contentReferenceTime": {
     componentName: "ContentReferenceTimePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContentReferenceTimePropertyStructuredData data={intent.data as ContentReferenceTimePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContentReferenceTimePropertyStructuredData data={intent.data as unknown as ContentReferenceTimePropertyInput} />,
   },
   "contentSize": {
     componentName: "ContentSizePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContentSizePropertyStructuredData data={intent.data as ContentSizePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContentSizePropertyStructuredData data={intent.data as unknown as ContentSizePropertyInput} />,
   },
   "contentType": {
     componentName: "ContentTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContentTypePropertyStructuredData data={intent.data as ContentTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContentTypePropertyStructuredData data={intent.data as unknown as ContentTypePropertyInput} />,
   },
   "contentUrl": {
     componentName: "ContentUrlPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContentUrlPropertyStructuredData data={intent.data as ContentUrlPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContentUrlPropertyStructuredData data={intent.data as unknown as ContentUrlPropertyInput} />,
   },
   "contraindication": {
     componentName: "ContraindicationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContraindicationPropertyStructuredData data={intent.data as ContraindicationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContraindicationPropertyStructuredData data={intent.data as unknown as ContraindicationPropertyInput} />,
   },
   "contributor": {
     componentName: "ContributorPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ContributorPropertyStructuredData data={intent.data as ContributorPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ContributorPropertyStructuredData data={intent.data as unknown as ContributorPropertyInput} />,
   },
   "copyrightHolder": {
     componentName: "CopyrightHolderPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CopyrightHolderPropertyStructuredData data={intent.data as CopyrightHolderPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CopyrightHolderPropertyStructuredData data={intent.data as unknown as CopyrightHolderPropertyInput} />,
   },
   "copyrightNotice": {
     componentName: "CopyrightNoticePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CopyrightNoticePropertyStructuredData data={intent.data as CopyrightNoticePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CopyrightNoticePropertyStructuredData data={intent.data as unknown as CopyrightNoticePropertyInput} />,
   },
   "copyrightYear": {
     componentName: "CopyrightYearPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CopyrightYearPropertyStructuredData data={intent.data as CopyrightYearPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CopyrightYearPropertyStructuredData data={intent.data as unknown as CopyrightYearPropertyInput} />,
   },
   "correction": {
     componentName: "CorrectionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CorrectionPropertyStructuredData data={intent.data as CorrectionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CorrectionPropertyStructuredData data={intent.data as unknown as CorrectionPropertyInput} />,
   },
   "correctionsPolicy": {
     componentName: "CorrectionsPolicyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CorrectionsPolicyPropertyStructuredData data={intent.data as CorrectionsPolicyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CorrectionsPolicyPropertyStructuredData data={intent.data as unknown as CorrectionsPolicyPropertyInput} />,
   },
   "countriesNotSupported": {
     componentName: "CountriesNotSupportedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CountriesNotSupportedPropertyStructuredData data={intent.data as CountriesNotSupportedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CountriesNotSupportedPropertyStructuredData data={intent.data as unknown as CountriesNotSupportedPropertyInput} />,
   },
   "countriesSupported": {
     componentName: "CountriesSupportedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CountriesSupportedPropertyStructuredData data={intent.data as CountriesSupportedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CountriesSupportedPropertyStructuredData data={intent.data as unknown as CountriesSupportedPropertyInput} />,
   },
   "countryOfAssembly": {
     componentName: "CountryOfAssemblyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CountryOfAssemblyPropertyStructuredData data={intent.data as CountryOfAssemblyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CountryOfAssemblyPropertyStructuredData data={intent.data as unknown as CountryOfAssemblyPropertyInput} />,
   },
   "countryOfLastProcessing": {
     componentName: "CountryOfLastProcessingPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CountryOfLastProcessingPropertyStructuredData data={intent.data as CountryOfLastProcessingPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CountryOfLastProcessingPropertyStructuredData data={intent.data as unknown as CountryOfLastProcessingPropertyInput} />,
   },
   "countryOfOrigin": {
     componentName: "CountryOfOriginPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CountryOfOriginPropertyStructuredData data={intent.data as CountryOfOriginPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CountryOfOriginPropertyStructuredData data={intent.data as unknown as CountryOfOriginPropertyInput} />,
   },
   "creativeWorkStatus": {
     componentName: "CreativeWorkStatusPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CreativeWorkStatusPropertyStructuredData data={intent.data as CreativeWorkStatusPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CreativeWorkStatusPropertyStructuredData data={intent.data as unknown as CreativeWorkStatusPropertyInput} />,
   },
   "creator": {
     componentName: "CreatorPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CreatorPropertyStructuredData data={intent.data as CreatorPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CreatorPropertyStructuredData data={intent.data as unknown as CreatorPropertyInput} />,
   },
   "credentialCategory": {
     componentName: "CredentialCategoryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CredentialCategoryPropertyStructuredData data={intent.data as CredentialCategoryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CredentialCategoryPropertyStructuredData data={intent.data as unknown as CredentialCategoryPropertyInput} />,
   },
   "creditedTo": {
     componentName: "CreditedToPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CreditedToPropertyStructuredData data={intent.data as CreditedToPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CreditedToPropertyStructuredData data={intent.data as unknown as CreditedToPropertyInput} />,
   },
   "creditText": {
     componentName: "CreditTextPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CreditTextPropertyStructuredData data={intent.data as CreditTextPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CreditTextPropertyStructuredData data={intent.data as unknown as CreditTextPropertyInput} />,
   },
   "cssSelector": {
     componentName: "CssSelectorPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CssSelectorPropertyStructuredData data={intent.data as CssSelectorPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CssSelectorPropertyStructuredData data={intent.data as unknown as CssSelectorPropertyInput} />,
   },
   "currency": {
     componentName: "CurrencyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CurrencyPropertyStructuredData data={intent.data as CurrencyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CurrencyPropertyStructuredData data={intent.data as unknown as CurrencyPropertyInput} />,
   },
   "customerRemorseReturnFees": {
     componentName: "CustomerRemorseReturnFeesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CustomerRemorseReturnFeesPropertyStructuredData data={intent.data as CustomerRemorseReturnFeesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CustomerRemorseReturnFeesPropertyStructuredData data={intent.data as unknown as CustomerRemorseReturnFeesPropertyInput} />,
   },
   "customerRemorseReturnLabelSource": {
     componentName: "CustomerRemorseReturnLabelSourcePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CustomerRemorseReturnLabelSourcePropertyStructuredData data={intent.data as CustomerRemorseReturnLabelSourcePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CustomerRemorseReturnLabelSourcePropertyStructuredData data={intent.data as unknown as CustomerRemorseReturnLabelSourcePropertyInput} />,
   },
   "customerRemorseReturnShippingFeesAmount": {
     componentName: "CustomerRemorseReturnShippingFeesAmountPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CustomerRemorseReturnShippingFeesAmountPropertyStructuredData data={intent.data as CustomerRemorseReturnShippingFeesAmountPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CustomerRemorseReturnShippingFeesAmountPropertyStructuredData data={intent.data as unknown as CustomerRemorseReturnShippingFeesAmountPropertyInput} />,
   },
   "cutoffTime": {
     componentName: "CutoffTimePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <CutoffTimePropertyStructuredData data={intent.data as CutoffTimePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <CutoffTimePropertyStructuredData data={intent.data as unknown as CutoffTimePropertyInput} />,
   },
   "dataFeedElement": {
     componentName: "DataFeedElementPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DataFeedElementPropertyStructuredData data={intent.data as DataFeedElementPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DataFeedElementPropertyStructuredData data={intent.data as unknown as DataFeedElementPropertyInput} />,
   },
   "dataset": {
     componentName: "DatasetPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DatasetPropertyStructuredData data={intent.data as DatasetPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DatasetPropertyStructuredData data={intent.data as unknown as DatasetPropertyInput} />,
   },
   "datasetTimeInterval": {
     componentName: "DatasetTimeIntervalPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DatasetTimeIntervalPropertyStructuredData data={intent.data as DatasetTimeIntervalPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DatasetTimeIntervalPropertyStructuredData data={intent.data as unknown as DatasetTimeIntervalPropertyInput} />,
   },
   "dateCreated": {
     componentName: "DateCreatedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DateCreatedPropertyStructuredData data={intent.data as DateCreatedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DateCreatedPropertyStructuredData data={intent.data as unknown as DateCreatedPropertyInput} />,
   },
   "dateDeleted": {
     componentName: "DateDeletedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DateDeletedPropertyStructuredData data={intent.data as DateDeletedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DateDeletedPropertyStructuredData data={intent.data as unknown as DateDeletedPropertyInput} />,
   },
   "dateline": {
     componentName: "DatelinePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DatelinePropertyStructuredData data={intent.data as DatelinePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DatelinePropertyStructuredData data={intent.data as unknown as DatelinePropertyInput} />,
   },
   "dateModified": {
     componentName: "DateModifiedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DateModifiedPropertyStructuredData data={intent.data as DateModifiedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DateModifiedPropertyStructuredData data={intent.data as unknown as DateModifiedPropertyInput} />,
   },
   "datePosted": {
     componentName: "DatePostedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DatePostedPropertyStructuredData data={intent.data as DatePostedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DatePostedPropertyStructuredData data={intent.data as unknown as DatePostedPropertyInput} />,
   },
   "datePublished": {
     componentName: "DatePublishedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DatePublishedPropertyStructuredData data={intent.data as DatePublishedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DatePublishedPropertyStructuredData data={intent.data as unknown as DatePublishedPropertyInput} />,
   },
   "dayOfWeek": {
     componentName: "DayOfWeekPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DayOfWeekPropertyStructuredData data={intent.data as DayOfWeekPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DayOfWeekPropertyStructuredData data={intent.data as unknown as DayOfWeekPropertyInput} />,
   },
   "deathDate": {
     componentName: "DeathDatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DeathDatePropertyStructuredData data={intent.data as DeathDatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DeathDatePropertyStructuredData data={intent.data as unknown as DeathDatePropertyInput} />,
   },
   "deathPlace": {
     componentName: "DeathPlacePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DeathPlacePropertyStructuredData data={intent.data as DeathPlacePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DeathPlacePropertyStructuredData data={intent.data as unknown as DeathPlacePropertyInput} />,
   },
   "deliveryLeadTime": {
     componentName: "DeliveryLeadTimePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DeliveryLeadTimePropertyStructuredData data={intent.data as DeliveryLeadTimePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DeliveryLeadTimePropertyStructuredData data={intent.data as unknown as DeliveryLeadTimePropertyInput} />,
   },
   "deliveryTime": {
     componentName: "DeliveryTimePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DeliveryTimePropertyStructuredData data={intent.data as DeliveryTimePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DeliveryTimePropertyStructuredData data={intent.data as unknown as DeliveryTimePropertyInput} />,
   },
   "department": {
     componentName: "DepartmentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DepartmentPropertyStructuredData data={intent.data as DepartmentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DepartmentPropertyStructuredData data={intent.data as unknown as DepartmentPropertyInput} />,
   },
   "departureTime": {
     componentName: "DepartureTimePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DepartureTimePropertyStructuredData data={intent.data as DepartureTimePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DepartureTimePropertyStructuredData data={intent.data as unknown as DepartureTimePropertyInput} />,
   },
   "depth": {
     componentName: "DepthPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DepthPropertyStructuredData data={intent.data as DepthPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DepthPropertyStructuredData data={intent.data as unknown as DepthPropertyInput} />,
   },
   "description": {
     componentName: "DescriptionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DescriptionPropertyStructuredData data={intent.data as DescriptionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DescriptionPropertyStructuredData data={intent.data as unknown as DescriptionPropertyInput} />,
   },
   "device": {
     componentName: "DevicePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DevicePropertyStructuredData data={intent.data as DevicePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DevicePropertyStructuredData data={intent.data as unknown as DevicePropertyInput} />,
   },
   "diagnosis": {
     componentName: "DiagnosisPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DiagnosisPropertyStructuredData data={intent.data as DiagnosisPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DiagnosisPropertyStructuredData data={intent.data as unknown as DiagnosisPropertyInput} />,
   },
   "diagram": {
     componentName: "DiagramPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DiagramPropertyStructuredData data={intent.data as DiagramPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DiagramPropertyStructuredData data={intent.data as unknown as DiagramPropertyInput} />,
   },
   "dietFeatures": {
     componentName: "DietFeaturesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DietFeaturesPropertyStructuredData data={intent.data as DietFeaturesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DietFeaturesPropertyStructuredData data={intent.data as unknown as DietFeaturesPropertyInput} />,
   },
   "differentialDiagnosis": {
     componentName: "DifferentialDiagnosisPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DifferentialDiagnosisPropertyStructuredData data={intent.data as DifferentialDiagnosisPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DifferentialDiagnosisPropertyStructuredData data={intent.data as unknown as DifferentialDiagnosisPropertyInput} />,
   },
   "digitalSourceType": {
     componentName: "DigitalSourceTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DigitalSourceTypePropertyStructuredData data={intent.data as DigitalSourceTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DigitalSourceTypePropertyStructuredData data={intent.data as unknown as DigitalSourceTypePropertyInput} />,
   },
   "director": {
     componentName: "DirectorPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DirectorPropertyStructuredData data={intent.data as DirectorPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DirectorPropertyStructuredData data={intent.data as unknown as DirectorPropertyInput} />,
   },
   "directors": {
     componentName: "DirectorsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DirectorsPropertyStructuredData data={intent.data as DirectorsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DirectorsPropertyStructuredData data={intent.data as unknown as DirectorsPropertyInput} />,
   },
   "disambiguatingDescription": {
     componentName: "DisambiguatingDescriptionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DisambiguatingDescriptionPropertyStructuredData data={intent.data as DisambiguatingDescriptionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DisambiguatingDescriptionPropertyStructuredData data={intent.data as unknown as DisambiguatingDescriptionPropertyInput} />,
   },
   "discussionUrl": {
     componentName: "DiscussionUrlPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DiscussionUrlPropertyStructuredData data={intent.data as DiscussionUrlPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DiscussionUrlPropertyStructuredData data={intent.data as unknown as DiscussionUrlPropertyInput} />,
   },
   "displayLocation": {
     componentName: "DisplayLocationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DisplayLocationPropertyStructuredData data={intent.data as DisplayLocationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DisplayLocationPropertyStructuredData data={intent.data as unknown as DisplayLocationPropertyInput} />,
   },
   "dissolutionDate": {
     componentName: "DissolutionDatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DissolutionDatePropertyStructuredData data={intent.data as DissolutionDatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DissolutionDatePropertyStructuredData data={intent.data as unknown as DissolutionDatePropertyInput} />,
   },
   "distinguishingSign": {
     componentName: "DistinguishingSignPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DistinguishingSignPropertyStructuredData data={intent.data as DistinguishingSignPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DistinguishingSignPropertyStructuredData data={intent.data as unknown as DistinguishingSignPropertyInput} />,
   },
   "distribution": {
     componentName: "DistributionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DistributionPropertyStructuredData data={intent.data as DistributionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DistributionPropertyStructuredData data={intent.data as unknown as DistributionPropertyInput} />,
   },
   "diversityPolicy": {
     componentName: "DiversityPolicyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DiversityPolicyPropertyStructuredData data={intent.data as DiversityPolicyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DiversityPolicyPropertyStructuredData data={intent.data as unknown as DiversityPolicyPropertyInput} />,
   },
   "diversityStaffingReport": {
     componentName: "DiversityStaffingReportPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DiversityStaffingReportPropertyStructuredData data={intent.data as DiversityStaffingReportPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DiversityStaffingReportPropertyStructuredData data={intent.data as unknown as DiversityStaffingReportPropertyInput} />,
   },
   "doesNotShip": {
     componentName: "DoesNotShipPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DoesNotShipPropertyStructuredData data={intent.data as DoesNotShipPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DoesNotShipPropertyStructuredData data={intent.data as unknown as DoesNotShipPropertyInput} />,
   },
   "domainIncludes": {
     componentName: "DomainIncludesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DomainIncludesPropertyStructuredData data={intent.data as DomainIncludesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DomainIncludesPropertyStructuredData data={intent.data as unknown as DomainIncludesPropertyInput} />,
   },
   "doorTime": {
     componentName: "DoorTimePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DoorTimePropertyStructuredData data={intent.data as DoorTimePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DoorTimePropertyStructuredData data={intent.data as unknown as DoorTimePropertyInput} />,
   },
   "dosageForm": {
     componentName: "DosageFormPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DosageFormPropertyStructuredData data={intent.data as DosageFormPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DosageFormPropertyStructuredData data={intent.data as unknown as DosageFormPropertyInput} />,
   },
   "doseSchedule": {
     componentName: "DoseSchedulePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DoseSchedulePropertyStructuredData data={intent.data as DoseSchedulePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DoseSchedulePropertyStructuredData data={intent.data as unknown as DoseSchedulePropertyInput} />,
   },
   "doseUnit": {
     componentName: "DoseUnitPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DoseUnitPropertyStructuredData data={intent.data as DoseUnitPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DoseUnitPropertyStructuredData data={intent.data as unknown as DoseUnitPropertyInput} />,
   },
   "doseValue": {
     componentName: "DoseValuePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DoseValuePropertyStructuredData data={intent.data as DoseValuePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DoseValuePropertyStructuredData data={intent.data as unknown as DoseValuePropertyInput} />,
   },
   "downloadUrl": {
     componentName: "DownloadUrlPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DownloadUrlPropertyStructuredData data={intent.data as DownloadUrlPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DownloadUrlPropertyStructuredData data={intent.data as unknown as DownloadUrlPropertyInput} />,
   },
   "downPayment": {
     componentName: "DownPaymentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DownPaymentPropertyStructuredData data={intent.data as DownPaymentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DownPaymentPropertyStructuredData data={intent.data as unknown as DownPaymentPropertyInput} />,
   },
   "downvoteCount": {
     componentName: "DownvoteCountPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DownvoteCountPropertyStructuredData data={intent.data as DownvoteCountPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DownvoteCountPropertyStructuredData data={intent.data as unknown as DownvoteCountPropertyInput} />,
   },
   "drug": {
     componentName: "DrugPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DrugPropertyStructuredData data={intent.data as DrugPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DrugPropertyStructuredData data={intent.data as unknown as DrugPropertyInput} />,
   },
   "drugClass": {
     componentName: "DrugClassPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DrugClassPropertyStructuredData data={intent.data as DrugClassPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DrugClassPropertyStructuredData data={intent.data as unknown as DrugClassPropertyInput} />,
   },
   "drugUnit": {
     componentName: "DrugUnitPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DrugUnitPropertyStructuredData data={intent.data as DrugUnitPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DrugUnitPropertyStructuredData data={intent.data as unknown as DrugUnitPropertyInput} />,
   },
   "duns": {
     componentName: "DunsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DunsPropertyStructuredData data={intent.data as DunsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DunsPropertyStructuredData data={intent.data as unknown as DunsPropertyInput} />,
   },
   "duplicateTherapy": {
     componentName: "DuplicateTherapyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DuplicateTherapyPropertyStructuredData data={intent.data as DuplicateTherapyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DuplicateTherapyPropertyStructuredData data={intent.data as unknown as DuplicateTherapyPropertyInput} />,
   },
   "duration": {
     componentName: "DurationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DurationPropertyStructuredData data={intent.data as DurationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DurationPropertyStructuredData data={intent.data as unknown as DurationPropertyInput} />,
   },
   "durationOfWarranty": {
     componentName: "DurationOfWarrantyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <DurationOfWarrantyPropertyStructuredData data={intent.data as DurationOfWarrantyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <DurationOfWarrantyPropertyStructuredData data={intent.data as unknown as DurationOfWarrantyPropertyInput} />,
   },
   "earlyPrepaymentPenalty": {
     componentName: "EarlyPrepaymentPenaltyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EarlyPrepaymentPenaltyPropertyStructuredData data={intent.data as EarlyPrepaymentPenaltyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EarlyPrepaymentPenaltyPropertyStructuredData data={intent.data as unknown as EarlyPrepaymentPenaltyPropertyInput} />,
   },
   "editEIDR": {
     componentName: "EditEIDRPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EditEIDRPropertyStructuredData data={intent.data as EditEIDRPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EditEIDRPropertyStructuredData data={intent.data as unknown as EditEIDRPropertyInput} />,
   },
   "editor": {
     componentName: "EditorPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EditorPropertyStructuredData data={intent.data as EditorPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EditorPropertyStructuredData data={intent.data as unknown as EditorPropertyInput} />,
   },
   "educationalAlignment": {
     componentName: "EducationalAlignmentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EducationalAlignmentPropertyStructuredData data={intent.data as EducationalAlignmentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EducationalAlignmentPropertyStructuredData data={intent.data as unknown as EducationalAlignmentPropertyInput} />,
   },
   "educationalFramework": {
     componentName: "EducationalFrameworkPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EducationalFrameworkPropertyStructuredData data={intent.data as EducationalFrameworkPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EducationalFrameworkPropertyStructuredData data={intent.data as unknown as EducationalFrameworkPropertyInput} />,
   },
   "educationalLevel": {
     componentName: "EducationalLevelPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EducationalLevelPropertyStructuredData data={intent.data as EducationalLevelPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EducationalLevelPropertyStructuredData data={intent.data as unknown as EducationalLevelPropertyInput} />,
   },
   "educationalUse": {
     componentName: "EducationalUsePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EducationalUsePropertyStructuredData data={intent.data as EducationalUsePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EducationalUsePropertyStructuredData data={intent.data as unknown as EducationalUsePropertyInput} />,
   },
   "educationRequirements": {
     componentName: "EducationRequirementsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EducationRequirementsPropertyStructuredData data={intent.data as EducationRequirementsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EducationRequirementsPropertyStructuredData data={intent.data as unknown as EducationRequirementsPropertyInput} />,
   },
   "elevation": {
     componentName: "ElevationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ElevationPropertyStructuredData data={intent.data as ElevationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ElevationPropertyStructuredData data={intent.data as unknown as ElevationPropertyInput} />,
   },
   "eligibleCustomerType": {
     componentName: "EligibleCustomerTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EligibleCustomerTypePropertyStructuredData data={intent.data as EligibleCustomerTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EligibleCustomerTypePropertyStructuredData data={intent.data as unknown as EligibleCustomerTypePropertyInput} />,
   },
   "eligibleDuration": {
     componentName: "EligibleDurationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EligibleDurationPropertyStructuredData data={intent.data as EligibleDurationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EligibleDurationPropertyStructuredData data={intent.data as unknown as EligibleDurationPropertyInput} />,
   },
   "eligibleQuantity": {
     componentName: "EligibleQuantityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EligibleQuantityPropertyStructuredData data={intent.data as EligibleQuantityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EligibleQuantityPropertyStructuredData data={intent.data as unknown as EligibleQuantityPropertyInput} />,
   },
   "eligibleRegion": {
     componentName: "EligibleRegionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EligibleRegionPropertyStructuredData data={intent.data as EligibleRegionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EligibleRegionPropertyStructuredData data={intent.data as unknown as EligibleRegionPropertyInput} />,
   },
   "eligibleTransactionVolume": {
     componentName: "EligibleTransactionVolumePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EligibleTransactionVolumePropertyStructuredData data={intent.data as EligibleTransactionVolumePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EligibleTransactionVolumePropertyStructuredData data={intent.data as unknown as EligibleTransactionVolumePropertyInput} />,
   },
   "email": {
     componentName: "EmailPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EmailPropertyStructuredData data={intent.data as EmailPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EmailPropertyStructuredData data={intent.data as unknown as EmailPropertyInput} />,
   },
   "embeddedTextCaption": {
     componentName: "EmbeddedTextCaptionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EmbeddedTextCaptionPropertyStructuredData data={intent.data as EmbeddedTextCaptionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EmbeddedTextCaptionPropertyStructuredData data={intent.data as unknown as EmbeddedTextCaptionPropertyInput} />,
   },
   "embedUrl": {
     componentName: "EmbedUrlPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EmbedUrlPropertyStructuredData data={intent.data as EmbedUrlPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EmbedUrlPropertyStructuredData data={intent.data as unknown as EmbedUrlPropertyInput} />,
   },
   "employee": {
     componentName: "EmployeePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EmployeePropertyStructuredData data={intent.data as EmployeePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EmployeePropertyStructuredData data={intent.data as unknown as EmployeePropertyInput} />,
   },
   "employees": {
     componentName: "EmployeesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EmployeesPropertyStructuredData data={intent.data as EmployeesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EmployeesPropertyStructuredData data={intent.data as unknown as EmployeesPropertyInput} />,
   },
   "encodesBioChemEntity": {
     componentName: "EncodesBioChemEntityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EncodesBioChemEntityPropertyStructuredData data={intent.data as EncodesBioChemEntityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EncodesBioChemEntityPropertyStructuredData data={intent.data as unknown as EncodesBioChemEntityPropertyInput} />,
   },
   "encodesCreativeWork": {
     componentName: "EncodesCreativeWorkPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EncodesCreativeWorkPropertyStructuredData data={intent.data as EncodesCreativeWorkPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EncodesCreativeWorkPropertyStructuredData data={intent.data as unknown as EncodesCreativeWorkPropertyInput} />,
   },
   "encoding": {
     componentName: "EncodingPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EncodingPropertyStructuredData data={intent.data as EncodingPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EncodingPropertyStructuredData data={intent.data as unknown as EncodingPropertyInput} />,
   },
   "encodingFormat": {
     componentName: "EncodingFormatPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EncodingFormatPropertyStructuredData data={intent.data as EncodingFormatPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EncodingFormatPropertyStructuredData data={intent.data as unknown as EncodingFormatPropertyInput} />,
   },
   "encodings": {
     componentName: "EncodingsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EncodingsPropertyStructuredData data={intent.data as EncodingsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EncodingsPropertyStructuredData data={intent.data as unknown as EncodingsPropertyInput} />,
   },
   "encodingType": {
     componentName: "EncodingTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EncodingTypePropertyStructuredData data={intent.data as EncodingTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EncodingTypePropertyStructuredData data={intent.data as unknown as EncodingTypePropertyInput} />,
   },
   "endDate": {
     componentName: "EndDatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EndDatePropertyStructuredData data={intent.data as EndDatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EndDatePropertyStructuredData data={intent.data as unknown as EndDatePropertyInput} />,
   },
   "endOffset": {
     componentName: "EndOffsetPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EndOffsetPropertyStructuredData data={intent.data as EndOffsetPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EndOffsetPropertyStructuredData data={intent.data as unknown as EndOffsetPropertyInput} />,
   },
   "endorsers": {
     componentName: "EndorsersPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EndorsersPropertyStructuredData data={intent.data as EndorsersPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EndorsersPropertyStructuredData data={intent.data as unknown as EndorsersPropertyInput} />,
   },
   "endTime": {
     componentName: "EndTimePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EndTimePropertyStructuredData data={intent.data as EndTimePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EndTimePropertyStructuredData data={intent.data as unknown as EndTimePropertyInput} />,
   },
   "energyEfficiencyScaleMax": {
     componentName: "EnergyEfficiencyScaleMaxPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EnergyEfficiencyScaleMaxPropertyStructuredData data={intent.data as EnergyEfficiencyScaleMaxPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EnergyEfficiencyScaleMaxPropertyStructuredData data={intent.data as unknown as EnergyEfficiencyScaleMaxPropertyInput} />,
   },
   "energyEfficiencyScaleMin": {
     componentName: "EnergyEfficiencyScaleMinPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EnergyEfficiencyScaleMinPropertyStructuredData data={intent.data as EnergyEfficiencyScaleMinPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EnergyEfficiencyScaleMinPropertyStructuredData data={intent.data as unknown as EnergyEfficiencyScaleMinPropertyInput} />,
   },
   "epidemiology": {
     componentName: "EpidemiologyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EpidemiologyPropertyStructuredData data={intent.data as EpidemiologyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EpidemiologyPropertyStructuredData data={intent.data as unknown as EpidemiologyPropertyInput} />,
   },
   "episode": {
     componentName: "EpisodePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EpisodePropertyStructuredData data={intent.data as EpisodePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EpisodePropertyStructuredData data={intent.data as unknown as EpisodePropertyInput} />,
   },
   "episodeNumber": {
     componentName: "EpisodeNumberPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EpisodeNumberPropertyStructuredData data={intent.data as EpisodeNumberPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EpisodeNumberPropertyStructuredData data={intent.data as unknown as EpisodeNumberPropertyInput} />,
   },
   "episodes": {
     componentName: "EpisodesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EpisodesPropertyStructuredData data={intent.data as EpisodesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EpisodesPropertyStructuredData data={intent.data as unknown as EpisodesPropertyInput} />,
   },
   "error": {
     componentName: "ErrorPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ErrorPropertyStructuredData data={intent.data as ErrorPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ErrorPropertyStructuredData data={intent.data as unknown as ErrorPropertyInput} />,
   },
   "estimatedCost": {
     componentName: "EstimatedCostPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EstimatedCostPropertyStructuredData data={intent.data as EstimatedCostPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EstimatedCostPropertyStructuredData data={intent.data as unknown as EstimatedCostPropertyInput} />,
   },
   "estimatedSalary": {
     componentName: "EstimatedSalaryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EstimatedSalaryPropertyStructuredData data={intent.data as EstimatedSalaryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EstimatedSalaryPropertyStructuredData data={intent.data as unknown as EstimatedSalaryPropertyInput} />,
   },
   "ethicsPolicy": {
     componentName: "EthicsPolicyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EthicsPolicyPropertyStructuredData data={intent.data as EthicsPolicyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EthicsPolicyPropertyStructuredData data={intent.data as unknown as EthicsPolicyPropertyInput} />,
   },
   "event": {
     componentName: "EventPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EventPropertyStructuredData data={intent.data as EventPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EventPropertyStructuredData data={intent.data as unknown as EventPropertyInput} />,
   },
   "eventAttendanceMode": {
     componentName: "EventAttendanceModePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EventAttendanceModePropertyStructuredData data={intent.data as EventAttendanceModePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EventAttendanceModePropertyStructuredData data={intent.data as unknown as EventAttendanceModePropertyInput} />,
   },
   "events": {
     componentName: "EventsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EventsPropertyStructuredData data={intent.data as EventsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EventsPropertyStructuredData data={intent.data as unknown as EventsPropertyInput} />,
   },
   "eventSchedule": {
     componentName: "EventSchedulePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EventSchedulePropertyStructuredData data={intent.data as EventSchedulePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EventSchedulePropertyStructuredData data={intent.data as unknown as EventSchedulePropertyInput} />,
   },
   "eventStatus": {
     componentName: "EventStatusPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EventStatusPropertyStructuredData data={intent.data as EventStatusPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EventStatusPropertyStructuredData data={intent.data as unknown as EventStatusPropertyInput} />,
   },
   "evidenceLevel": {
     componentName: "EvidenceLevelPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EvidenceLevelPropertyStructuredData data={intent.data as EvidenceLevelPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EvidenceLevelPropertyStructuredData data={intent.data as unknown as EvidenceLevelPropertyInput} />,
   },
   "evidenceOrigin": {
     componentName: "EvidenceOriginPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <EvidenceOriginPropertyStructuredData data={intent.data as EvidenceOriginPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <EvidenceOriginPropertyStructuredData data={intent.data as unknown as EvidenceOriginPropertyInput} />,
   },
   "exampleOfWork": {
     componentName: "ExampleOfWorkPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ExampleOfWorkPropertyStructuredData data={intent.data as ExampleOfWorkPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ExampleOfWorkPropertyStructuredData data={intent.data as unknown as ExampleOfWorkPropertyInput} />,
   },
   "exceptDate": {
     componentName: "ExceptDatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ExceptDatePropertyStructuredData data={intent.data as ExceptDatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ExceptDatePropertyStructuredData data={intent.data as unknown as ExceptDatePropertyInput} />,
   },
   "exifData": {
     componentName: "ExifDataPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ExifDataPropertyStructuredData data={intent.data as ExifDataPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ExifDataPropertyStructuredData data={intent.data as unknown as ExifDataPropertyInput} />,
   },
   "expectedPrognosis": {
     componentName: "ExpectedPrognosisPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ExpectedPrognosisPropertyStructuredData data={intent.data as ExpectedPrognosisPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ExpectedPrognosisPropertyStructuredData data={intent.data as unknown as ExpectedPrognosisPropertyInput} />,
   },
   "expectsAcceptanceOf": {
     componentName: "ExpectsAcceptanceOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ExpectsAcceptanceOfPropertyStructuredData data={intent.data as ExpectsAcceptanceOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ExpectsAcceptanceOfPropertyStructuredData data={intent.data as unknown as ExpectsAcceptanceOfPropertyInput} />,
   },
   "experienceRequirements": {
     componentName: "ExperienceRequirementsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ExperienceRequirementsPropertyStructuredData data={intent.data as ExperienceRequirementsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ExperienceRequirementsPropertyStructuredData data={intent.data as unknown as ExperienceRequirementsPropertyInput} />,
   },
   "expertConsiderations": {
     componentName: "ExpertConsiderationsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ExpertConsiderationsPropertyStructuredData data={intent.data as ExpertConsiderationsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ExpertConsiderationsPropertyStructuredData data={intent.data as unknown as ExpertConsiderationsPropertyInput} />,
   },
   "expires": {
     componentName: "ExpiresPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ExpiresPropertyStructuredData data={intent.data as ExpiresPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ExpiresPropertyStructuredData data={intent.data as unknown as ExpiresPropertyInput} />,
   },
   "expressedIn": {
     componentName: "ExpressedInPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ExpressedInPropertyStructuredData data={intent.data as ExpressedInPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ExpressedInPropertyStructuredData data={intent.data as unknown as ExpressedInPropertyInput} />,
   },
   "extendedAddress": {
     componentName: "ExtendedAddressPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ExtendedAddressPropertyStructuredData data={intent.data as ExtendedAddressPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ExtendedAddressPropertyStructuredData data={intent.data as unknown as ExtendedAddressPropertyInput} />,
   },
   "familyName": {
     componentName: "FamilyNamePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FamilyNamePropertyStructuredData data={intent.data as FamilyNamePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FamilyNamePropertyStructuredData data={intent.data as unknown as FamilyNamePropertyInput} />,
   },
   "fatContent": {
     componentName: "FatContentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FatContentPropertyStructuredData data={intent.data as FatContentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FatContentPropertyStructuredData data={intent.data as unknown as FatContentPropertyInput} />,
   },
   "faxNumber": {
     componentName: "FaxNumberPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FaxNumberPropertyStructuredData data={intent.data as FaxNumberPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FaxNumberPropertyStructuredData data={intent.data as unknown as FaxNumberPropertyInput} />,
   },
   "featureList": {
     componentName: "FeatureListPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FeatureListPropertyStructuredData data={intent.data as FeatureListPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FeatureListPropertyStructuredData data={intent.data as unknown as FeatureListPropertyInput} />,
   },
   "feesAndCommissionsSpecification": {
     componentName: "FeesAndCommissionsSpecificationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FeesAndCommissionsSpecificationPropertyStructuredData data={intent.data as FeesAndCommissionsSpecificationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FeesAndCommissionsSpecificationPropertyStructuredData data={intent.data as unknown as FeesAndCommissionsSpecificationPropertyInput} />,
   },
   "fiberContent": {
     componentName: "FiberContentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FiberContentPropertyStructuredData data={intent.data as FiberContentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FiberContentPropertyStructuredData data={intent.data as unknown as FiberContentPropertyInput} />,
   },
   "fileFormat": {
     componentName: "FileFormatPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FileFormatPropertyStructuredData data={intent.data as FileFormatPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FileFormatPropertyStructuredData data={intent.data as unknown as FileFormatPropertyInput} />,
   },
   "fileSize": {
     componentName: "FileSizePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FileSizePropertyStructuredData data={intent.data as FileSizePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FileSizePropertyStructuredData data={intent.data as unknown as FileSizePropertyInput} />,
   },
   "firstAppearance": {
     componentName: "FirstAppearancePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FirstAppearancePropertyStructuredData data={intent.data as FirstAppearancePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FirstAppearancePropertyStructuredData data={intent.data as unknown as FirstAppearancePropertyInput} />,
   },
   "firstPerformance": {
     componentName: "FirstPerformancePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FirstPerformancePropertyStructuredData data={intent.data as FirstPerformancePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FirstPerformancePropertyStructuredData data={intent.data as unknown as FirstPerformancePropertyInput} />,
   },
   "floorLimit": {
     componentName: "FloorLimitPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FloorLimitPropertyStructuredData data={intent.data as FloorLimitPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FloorLimitPropertyStructuredData data={intent.data as unknown as FloorLimitPropertyInput} />,
   },
   "follows": {
     componentName: "FollowsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FollowsPropertyStructuredData data={intent.data as FollowsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FollowsPropertyStructuredData data={intent.data as unknown as FollowsPropertyInput} />,
   },
   "followup": {
     componentName: "FollowupPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FollowupPropertyStructuredData data={intent.data as FollowupPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FollowupPropertyStructuredData data={intent.data as unknown as FollowupPropertyInput} />,
   },
   "foodWarning": {
     componentName: "FoodWarningPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FoodWarningPropertyStructuredData data={intent.data as FoodWarningPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FoodWarningPropertyStructuredData data={intent.data as unknown as FoodWarningPropertyInput} />,
   },
   "founder": {
     componentName: "FounderPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FounderPropertyStructuredData data={intent.data as FounderPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FounderPropertyStructuredData data={intent.data as unknown as FounderPropertyInput} />,
   },
   "founders": {
     componentName: "FoundersPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FoundersPropertyStructuredData data={intent.data as FoundersPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FoundersPropertyStructuredData data={intent.data as unknown as FoundersPropertyInput} />,
   },
   "foundingDate": {
     componentName: "FoundingDatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FoundingDatePropertyStructuredData data={intent.data as FoundingDatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FoundingDatePropertyStructuredData data={intent.data as unknown as FoundingDatePropertyInput} />,
   },
   "foundingLocation": {
     componentName: "FoundingLocationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FoundingLocationPropertyStructuredData data={intent.data as FoundingLocationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FoundingLocationPropertyStructuredData data={intent.data as unknown as FoundingLocationPropertyInput} />,
   },
   "free": {
     componentName: "FreePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FreePropertyStructuredData data={intent.data as FreePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FreePropertyStructuredData data={intent.data as unknown as FreePropertyInput} />,
   },
   "freeShippingThreshold": {
     componentName: "FreeShippingThresholdPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FreeShippingThresholdPropertyStructuredData data={intent.data as FreeShippingThresholdPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FreeShippingThresholdPropertyStructuredData data={intent.data as unknown as FreeShippingThresholdPropertyInput} />,
   },
   "frequency": {
     componentName: "FrequencyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FrequencyPropertyStructuredData data={intent.data as FrequencyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FrequencyPropertyStructuredData data={intent.data as unknown as FrequencyPropertyInput} />,
   },
   "fulfillmentType": {
     componentName: "FulfillmentTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FulfillmentTypePropertyStructuredData data={intent.data as FulfillmentTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FulfillmentTypePropertyStructuredData data={intent.data as unknown as FulfillmentTypePropertyInput} />,
   },
   "fundedItem": {
     componentName: "FundedItemPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FundedItemPropertyStructuredData data={intent.data as FundedItemPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FundedItemPropertyStructuredData data={intent.data as unknown as FundedItemPropertyInput} />,
   },
   "funder": {
     componentName: "FunderPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FunderPropertyStructuredData data={intent.data as FunderPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FunderPropertyStructuredData data={intent.data as unknown as FunderPropertyInput} />,
   },
   "funding": {
     componentName: "FundingPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <FundingPropertyStructuredData data={intent.data as FundingPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <FundingPropertyStructuredData data={intent.data as unknown as FundingPropertyInput} />,
   },
   "gender": {
     componentName: "GenderPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GenderPropertyStructuredData data={intent.data as GenderPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GenderPropertyStructuredData data={intent.data as unknown as GenderPropertyInput} />,
   },
   "genre": {
     componentName: "GenrePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GenrePropertyStructuredData data={intent.data as GenrePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GenrePropertyStructuredData data={intent.data as unknown as GenrePropertyInput} />,
   },
   "geo": {
     componentName: "GeoPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GeoPropertyStructuredData data={intent.data as GeoPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GeoPropertyStructuredData data={intent.data as unknown as GeoPropertyInput} />,
   },
   "geoContains": {
     componentName: "GeoContainsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GeoContainsPropertyStructuredData data={intent.data as GeoContainsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GeoContainsPropertyStructuredData data={intent.data as unknown as GeoContainsPropertyInput} />,
   },
   "geoCoveredBy": {
     componentName: "GeoCoveredByPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GeoCoveredByPropertyStructuredData data={intent.data as GeoCoveredByPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GeoCoveredByPropertyStructuredData data={intent.data as unknown as GeoCoveredByPropertyInput} />,
   },
   "geoCovers": {
     componentName: "GeoCoversPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GeoCoversPropertyStructuredData data={intent.data as GeoCoversPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GeoCoversPropertyStructuredData data={intent.data as unknown as GeoCoversPropertyInput} />,
   },
   "geoCrosses": {
     componentName: "GeoCrossesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GeoCrossesPropertyStructuredData data={intent.data as GeoCrossesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GeoCrossesPropertyStructuredData data={intent.data as unknown as GeoCrossesPropertyInput} />,
   },
   "geoDisjoint": {
     componentName: "GeoDisjointPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GeoDisjointPropertyStructuredData data={intent.data as GeoDisjointPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GeoDisjointPropertyStructuredData data={intent.data as unknown as GeoDisjointPropertyInput} />,
   },
   "geoEquals": {
     componentName: "GeoEqualsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GeoEqualsPropertyStructuredData data={intent.data as GeoEqualsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GeoEqualsPropertyStructuredData data={intent.data as unknown as GeoEqualsPropertyInput} />,
   },
   "geographicArea": {
     componentName: "GeographicAreaPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GeographicAreaPropertyStructuredData data={intent.data as GeographicAreaPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GeographicAreaPropertyStructuredData data={intent.data as unknown as GeographicAreaPropertyInput} />,
   },
   "geoIntersects": {
     componentName: "GeoIntersectsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GeoIntersectsPropertyStructuredData data={intent.data as GeoIntersectsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GeoIntersectsPropertyStructuredData data={intent.data as unknown as GeoIntersectsPropertyInput} />,
   },
   "geoOverlaps": {
     componentName: "GeoOverlapsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GeoOverlapsPropertyStructuredData data={intent.data as GeoOverlapsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GeoOverlapsPropertyStructuredData data={intent.data as unknown as GeoOverlapsPropertyInput} />,
   },
   "geoTouches": {
     componentName: "GeoTouchesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GeoTouchesPropertyStructuredData data={intent.data as GeoTouchesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GeoTouchesPropertyStructuredData data={intent.data as unknown as GeoTouchesPropertyInput} />,
   },
   "geoWithin": {
     componentName: "GeoWithinPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GeoWithinPropertyStructuredData data={intent.data as GeoWithinPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GeoWithinPropertyStructuredData data={intent.data as unknown as GeoWithinPropertyInput} />,
   },
   "givenName": {
     componentName: "GivenNamePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GivenNamePropertyStructuredData data={intent.data as GivenNamePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GivenNamePropertyStructuredData data={intent.data as unknown as GivenNamePropertyInput} />,
   },
   "globalLocationNumber": {
     componentName: "GlobalLocationNumberPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GlobalLocationNumberPropertyStructuredData data={intent.data as GlobalLocationNumberPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GlobalLocationNumberPropertyStructuredData data={intent.data as unknown as GlobalLocationNumberPropertyInput} />,
   },
   "gracePeriod": {
     componentName: "GracePeriodPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GracePeriodPropertyStructuredData data={intent.data as GracePeriodPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GracePeriodPropertyStructuredData data={intent.data as unknown as GracePeriodPropertyInput} />,
   },
   "gtin": {
     componentName: "GtinPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GtinPropertyStructuredData data={intent.data as GtinPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GtinPropertyStructuredData data={intent.data as unknown as GtinPropertyInput} />,
   },
   "gtin12": {
     componentName: "Gtin12PropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <Gtin12PropertyStructuredData data={intent.data as Gtin12PropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <Gtin12PropertyStructuredData data={intent.data as unknown as Gtin12PropertyInput} />,
   },
   "gtin13": {
     componentName: "Gtin13PropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <Gtin13PropertyStructuredData data={intent.data as Gtin13PropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <Gtin13PropertyStructuredData data={intent.data as unknown as Gtin13PropertyInput} />,
   },
   "gtin14": {
     componentName: "Gtin14PropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <Gtin14PropertyStructuredData data={intent.data as Gtin14PropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <Gtin14PropertyStructuredData data={intent.data as unknown as Gtin14PropertyInput} />,
   },
   "gtin8": {
     componentName: "Gtin8PropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <Gtin8PropertyStructuredData data={intent.data as Gtin8PropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <Gtin8PropertyStructuredData data={intent.data as unknown as Gtin8PropertyInput} />,
   },
   "guideline": {
     componentName: "GuidelinePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GuidelinePropertyStructuredData data={intent.data as GuidelinePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GuidelinePropertyStructuredData data={intent.data as unknown as GuidelinePropertyInput} />,
   },
   "guidelineDate": {
     componentName: "GuidelineDatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GuidelineDatePropertyStructuredData data={intent.data as GuidelineDatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GuidelineDatePropertyStructuredData data={intent.data as unknown as GuidelineDatePropertyInput} />,
   },
   "guidelineSubject": {
     componentName: "GuidelineSubjectPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <GuidelineSubjectPropertyStructuredData data={intent.data as GuidelineSubjectPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <GuidelineSubjectPropertyStructuredData data={intent.data as unknown as GuidelineSubjectPropertyInput} />,
   },
   "handlingTime": {
     componentName: "HandlingTimePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HandlingTimePropertyStructuredData data={intent.data as HandlingTimePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HandlingTimePropertyStructuredData data={intent.data as unknown as HandlingTimePropertyInput} />,
   },
   "hasAdultConsideration": {
     componentName: "HasAdultConsiderationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasAdultConsiderationPropertyStructuredData data={intent.data as HasAdultConsiderationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasAdultConsiderationPropertyStructuredData data={intent.data as unknown as HasAdultConsiderationPropertyInput} />,
   },
   "hasBioChemEntityPart": {
     componentName: "HasBioChemEntityPartPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasBioChemEntityPartPropertyStructuredData data={intent.data as HasBioChemEntityPartPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasBioChemEntityPartPropertyStructuredData data={intent.data as unknown as HasBioChemEntityPartPropertyInput} />,
   },
   "hasBioPolymerSequence": {
     componentName: "HasBioPolymerSequencePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasBioPolymerSequencePropertyStructuredData data={intent.data as HasBioPolymerSequencePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasBioPolymerSequencePropertyStructuredData data={intent.data as unknown as HasBioPolymerSequencePropertyInput} />,
   },
   "hasBroadcastChannel": {
     componentName: "HasBroadcastChannelPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasBroadcastChannelPropertyStructuredData data={intent.data as HasBroadcastChannelPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasBroadcastChannelPropertyStructuredData data={intent.data as unknown as HasBroadcastChannelPropertyInput} />,
   },
   "hasCategoryCode": {
     componentName: "HasCategoryCodePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasCategoryCodePropertyStructuredData data={intent.data as HasCategoryCodePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasCategoryCodePropertyStructuredData data={intent.data as unknown as HasCategoryCodePropertyInput} />,
   },
   "hasCertification": {
     componentName: "HasCertificationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasCertificationPropertyStructuredData data={intent.data as HasCertificationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasCertificationPropertyStructuredData data={intent.data as unknown as HasCertificationPropertyInput} />,
   },
   "hasCredential": {
     componentName: "HasCredentialPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasCredentialPropertyStructuredData data={intent.data as HasCredentialPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasCredentialPropertyStructuredData data={intent.data as unknown as HasCredentialPropertyInput} />,
   },
   "hasDefinedTerm": {
     componentName: "HasDefinedTermPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasDefinedTermPropertyStructuredData data={intent.data as HasDefinedTermPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasDefinedTermPropertyStructuredData data={intent.data as unknown as HasDefinedTermPropertyInput} />,
   },
   "hasDriveThroughService": {
     componentName: "HasDriveThroughServicePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasDriveThroughServicePropertyStructuredData data={intent.data as HasDriveThroughServicePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasDriveThroughServicePropertyStructuredData data={intent.data as unknown as HasDriveThroughServicePropertyInput} />,
   },
   "hasEnergyConsumptionDetails": {
     componentName: "HasEnergyConsumptionDetailsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasEnergyConsumptionDetailsPropertyStructuredData data={intent.data as HasEnergyConsumptionDetailsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasEnergyConsumptionDetailsPropertyStructuredData data={intent.data as unknown as HasEnergyConsumptionDetailsPropertyInput} />,
   },
   "hasEnergyEfficiencyCategory": {
     componentName: "HasEnergyEfficiencyCategoryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasEnergyEfficiencyCategoryPropertyStructuredData data={intent.data as HasEnergyEfficiencyCategoryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasEnergyEfficiencyCategoryPropertyStructuredData data={intent.data as unknown as HasEnergyEfficiencyCategoryPropertyInput} />,
   },
   "hasGS1DigitalLink": {
     componentName: "HasGS1DigitalLinkPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasGS1DigitalLinkPropertyStructuredData data={intent.data as HasGS1DigitalLinkPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasGS1DigitalLinkPropertyStructuredData data={intent.data as unknown as HasGS1DigitalLinkPropertyInput} />,
   },
   "hasMap": {
     componentName: "HasMapPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasMapPropertyStructuredData data={intent.data as HasMapPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasMapPropertyStructuredData data={intent.data as unknown as HasMapPropertyInput} />,
   },
   "hasMeasurement": {
     componentName: "HasMeasurementPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasMeasurementPropertyStructuredData data={intent.data as HasMeasurementPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasMeasurementPropertyStructuredData data={intent.data as unknown as HasMeasurementPropertyInput} />,
   },
   "hasMemberProgram": {
     componentName: "HasMemberProgramPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasMemberProgramPropertyStructuredData data={intent.data as HasMemberProgramPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasMemberProgramPropertyStructuredData data={intent.data as unknown as HasMemberProgramPropertyInput} />,
   },
   "hasMenuItem": {
     componentName: "HasMenuItemPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasMenuItemPropertyStructuredData data={intent.data as HasMenuItemPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasMenuItemPropertyStructuredData data={intent.data as unknown as HasMenuItemPropertyInput} />,
   },
   "hasMenuSection": {
     componentName: "HasMenuSectionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasMenuSectionPropertyStructuredData data={intent.data as HasMenuSectionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasMenuSectionPropertyStructuredData data={intent.data as unknown as HasMenuSectionPropertyInput} />,
   },
   "hasMerchantReturnPolicy": {
     componentName: "HasMerchantReturnPolicyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasMerchantReturnPolicyPropertyStructuredData data={intent.data as HasMerchantReturnPolicyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasMerchantReturnPolicyPropertyStructuredData data={intent.data as unknown as HasMerchantReturnPolicyPropertyInput} />,
   },
   "hasMolecularFunction": {
     componentName: "HasMolecularFunctionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasMolecularFunctionPropertyStructuredData data={intent.data as HasMolecularFunctionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasMolecularFunctionPropertyStructuredData data={intent.data as unknown as HasMolecularFunctionPropertyInput} />,
   },
   "hasOccupation": {
     componentName: "HasOccupationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasOccupationPropertyStructuredData data={intent.data as HasOccupationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasOccupationPropertyStructuredData data={intent.data as unknown as HasOccupationPropertyInput} />,
   },
   "hasOfferCatalog": {
     componentName: "HasOfferCatalogPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasOfferCatalogPropertyStructuredData data={intent.data as HasOfferCatalogPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasOfferCatalogPropertyStructuredData data={intent.data as unknown as HasOfferCatalogPropertyInput} />,
   },
   "hasPart": {
     componentName: "HasPartPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasPartPropertyStructuredData data={intent.data as HasPartPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasPartPropertyStructuredData data={intent.data as unknown as HasPartPropertyInput} />,
   },
   "hasParticipationOffer": {
     componentName: "HasParticipationOfferPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasParticipationOfferPropertyStructuredData data={intent.data as HasParticipationOfferPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasParticipationOfferPropertyStructuredData data={intent.data as unknown as HasParticipationOfferPropertyInput} />,
   },
   "hasPOS": {
     componentName: "HasPOSPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasPOSPropertyStructuredData data={intent.data as HasPOSPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasPOSPropertyStructuredData data={intent.data as unknown as HasPOSPropertyInput} />,
   },
   "hasRepresentation": {
     componentName: "HasRepresentationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasRepresentationPropertyStructuredData data={intent.data as HasRepresentationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasRepresentationPropertyStructuredData data={intent.data as unknown as HasRepresentationPropertyInput} />,
   },
   "hasShippingService": {
     componentName: "HasShippingServicePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasShippingServicePropertyStructuredData data={intent.data as HasShippingServicePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasShippingServicePropertyStructuredData data={intent.data as unknown as HasShippingServicePropertyInput} />,
   },
   "hasSponsorshipOffer": {
     componentName: "HasSponsorshipOfferPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasSponsorshipOfferPropertyStructuredData data={intent.data as HasSponsorshipOfferPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasSponsorshipOfferPropertyStructuredData data={intent.data as unknown as HasSponsorshipOfferPropertyInput} />,
   },
   "hasTierBenefit": {
     componentName: "HasTierBenefitPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasTierBenefitPropertyStructuredData data={intent.data as HasTierBenefitPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasTierBenefitPropertyStructuredData data={intent.data as unknown as HasTierBenefitPropertyInput} />,
   },
   "hasTierRequirement": {
     componentName: "HasTierRequirementPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasTierRequirementPropertyStructuredData data={intent.data as HasTierRequirementPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasTierRequirementPropertyStructuredData data={intent.data as unknown as HasTierRequirementPropertyInput} />,
   },
   "hasTiers": {
     componentName: "HasTiersPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasTiersPropertyStructuredData data={intent.data as HasTiersPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasTiersPropertyStructuredData data={intent.data as unknown as HasTiersPropertyInput} />,
   },
   "hasVariant": {
     componentName: "HasVariantPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HasVariantPropertyStructuredData data={intent.data as HasVariantPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HasVariantPropertyStructuredData data={intent.data as unknown as HasVariantPropertyInput} />,
   },
   "headline": {
     componentName: "HeadlinePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HeadlinePropertyStructuredData data={intent.data as HeadlinePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HeadlinePropertyStructuredData data={intent.data as unknown as HeadlinePropertyInput} />,
   },
   "healthCondition": {
     componentName: "HealthConditionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HealthConditionPropertyStructuredData data={intent.data as HealthConditionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HealthConditionPropertyStructuredData data={intent.data as unknown as HealthConditionPropertyInput} />,
   },
   "healthPlanCoinsuranceOption": {
     componentName: "HealthPlanCoinsuranceOptionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HealthPlanCoinsuranceOptionPropertyStructuredData data={intent.data as HealthPlanCoinsuranceOptionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HealthPlanCoinsuranceOptionPropertyStructuredData data={intent.data as unknown as HealthPlanCoinsuranceOptionPropertyInput} />,
   },
   "healthPlanCoinsuranceRate": {
     componentName: "HealthPlanCoinsuranceRatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HealthPlanCoinsuranceRatePropertyStructuredData data={intent.data as HealthPlanCoinsuranceRatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HealthPlanCoinsuranceRatePropertyStructuredData data={intent.data as unknown as HealthPlanCoinsuranceRatePropertyInput} />,
   },
   "healthPlanCopay": {
     componentName: "HealthPlanCopayPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HealthPlanCopayPropertyStructuredData data={intent.data as HealthPlanCopayPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HealthPlanCopayPropertyStructuredData data={intent.data as unknown as HealthPlanCopayPropertyInput} />,
   },
   "healthPlanCopayOption": {
     componentName: "HealthPlanCopayOptionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HealthPlanCopayOptionPropertyStructuredData data={intent.data as HealthPlanCopayOptionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HealthPlanCopayOptionPropertyStructuredData data={intent.data as unknown as HealthPlanCopayOptionPropertyInput} />,
   },
   "healthPlanCostSharing": {
     componentName: "HealthPlanCostSharingPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HealthPlanCostSharingPropertyStructuredData data={intent.data as HealthPlanCostSharingPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HealthPlanCostSharingPropertyStructuredData data={intent.data as unknown as HealthPlanCostSharingPropertyInput} />,
   },
   "healthPlanDrugOption": {
     componentName: "HealthPlanDrugOptionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HealthPlanDrugOptionPropertyStructuredData data={intent.data as HealthPlanDrugOptionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HealthPlanDrugOptionPropertyStructuredData data={intent.data as unknown as HealthPlanDrugOptionPropertyInput} />,
   },
   "healthPlanDrugTier": {
     componentName: "HealthPlanDrugTierPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HealthPlanDrugTierPropertyStructuredData data={intent.data as HealthPlanDrugTierPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HealthPlanDrugTierPropertyStructuredData data={intent.data as unknown as HealthPlanDrugTierPropertyInput} />,
   },
   "healthPlanId": {
     componentName: "HealthPlanIdPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HealthPlanIdPropertyStructuredData data={intent.data as HealthPlanIdPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HealthPlanIdPropertyStructuredData data={intent.data as unknown as HealthPlanIdPropertyInput} />,
   },
   "healthPlanMarketingUrl": {
     componentName: "HealthPlanMarketingUrlPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HealthPlanMarketingUrlPropertyStructuredData data={intent.data as HealthPlanMarketingUrlPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HealthPlanMarketingUrlPropertyStructuredData data={intent.data as unknown as HealthPlanMarketingUrlPropertyInput} />,
   },
   "healthPlanNetworkId": {
     componentName: "HealthPlanNetworkIdPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HealthPlanNetworkIdPropertyStructuredData data={intent.data as HealthPlanNetworkIdPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HealthPlanNetworkIdPropertyStructuredData data={intent.data as unknown as HealthPlanNetworkIdPropertyInput} />,
   },
   "healthPlanNetworkTier": {
     componentName: "HealthPlanNetworkTierPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HealthPlanNetworkTierPropertyStructuredData data={intent.data as HealthPlanNetworkTierPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HealthPlanNetworkTierPropertyStructuredData data={intent.data as unknown as HealthPlanNetworkTierPropertyInput} />,
   },
   "healthPlanPharmacyCategory": {
     componentName: "HealthPlanPharmacyCategoryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HealthPlanPharmacyCategoryPropertyStructuredData data={intent.data as HealthPlanPharmacyCategoryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HealthPlanPharmacyCategoryPropertyStructuredData data={intent.data as unknown as HealthPlanPharmacyCategoryPropertyInput} />,
   },
   "height": {
     componentName: "HeightPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HeightPropertyStructuredData data={intent.data as HeightPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HeightPropertyStructuredData data={intent.data as unknown as HeightPropertyInput} />,
   },
   "highPrice": {
     componentName: "HighPricePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HighPricePropertyStructuredData data={intent.data as HighPricePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HighPricePropertyStructuredData data={intent.data as unknown as HighPricePropertyInput} />,
   },
   "homeLocation": {
     componentName: "HomeLocationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HomeLocationPropertyStructuredData data={intent.data as HomeLocationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HomeLocationPropertyStructuredData data={intent.data as unknown as HomeLocationPropertyInput} />,
   },
   "honorificPrefix": {
     componentName: "HonorificPrefixPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HonorificPrefixPropertyStructuredData data={intent.data as HonorificPrefixPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HonorificPrefixPropertyStructuredData data={intent.data as unknown as HonorificPrefixPropertyInput} />,
   },
   "honorificSuffix": {
     componentName: "HonorificSuffixPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HonorificSuffixPropertyStructuredData data={intent.data as HonorificSuffixPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HonorificSuffixPropertyStructuredData data={intent.data as unknown as HonorificSuffixPropertyInput} />,
   },
   "hostingOrganization": {
     componentName: "HostingOrganizationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HostingOrganizationPropertyStructuredData data={intent.data as HostingOrganizationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HostingOrganizationPropertyStructuredData data={intent.data as unknown as HostingOrganizationPropertyInput} />,
   },
   "hoursAvailable": {
     componentName: "HoursAvailablePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HoursAvailablePropertyStructuredData data={intent.data as HoursAvailablePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HoursAvailablePropertyStructuredData data={intent.data as unknown as HoursAvailablePropertyInput} />,
   },
   "howPerformed": {
     componentName: "HowPerformedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HowPerformedPropertyStructuredData data={intent.data as HowPerformedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HowPerformedPropertyStructuredData data={intent.data as unknown as HowPerformedPropertyInput} />,
   },
   "httpMethod": {
     componentName: "HttpMethodPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <HttpMethodPropertyStructuredData data={intent.data as HttpMethodPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <HttpMethodPropertyStructuredData data={intent.data as unknown as HttpMethodPropertyInput} />,
   },
   "identifier": {
     componentName: "IdentifierPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IdentifierPropertyStructuredData data={intent.data as IdentifierPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IdentifierPropertyStructuredData data={intent.data as unknown as IdentifierPropertyInput} />,
   },
   "identifyingExam": {
     componentName: "IdentifyingExamPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IdentifyingExamPropertyStructuredData data={intent.data as IdentifyingExamPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IdentifyingExamPropertyStructuredData data={intent.data as unknown as IdentifyingExamPropertyInput} />,
   },
   "identifyingTest": {
     componentName: "IdentifyingTestPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IdentifyingTestPropertyStructuredData data={intent.data as IdentifyingTestPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IdentifyingTestPropertyStructuredData data={intent.data as unknown as IdentifyingTestPropertyInput} />,
   },
   "image": {
     componentName: "ImagePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ImagePropertyStructuredData data={intent.data as ImagePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ImagePropertyStructuredData data={intent.data as unknown as ImagePropertyInput} />,
   },
   "inAlbum": {
     componentName: "InAlbumPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InAlbumPropertyStructuredData data={intent.data as InAlbumPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InAlbumPropertyStructuredData data={intent.data as unknown as InAlbumPropertyInput} />,
   },
   "inBroadcastLineup": {
     componentName: "InBroadcastLineupPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InBroadcastLineupPropertyStructuredData data={intent.data as InBroadcastLineupPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InBroadcastLineupPropertyStructuredData data={intent.data as unknown as InBroadcastLineupPropertyInput} />,
   },
   "includedComposition": {
     componentName: "IncludedCompositionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IncludedCompositionPropertyStructuredData data={intent.data as IncludedCompositionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IncludedCompositionPropertyStructuredData data={intent.data as unknown as IncludedCompositionPropertyInput} />,
   },
   "includedDataCatalog": {
     componentName: "IncludedDataCatalogPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IncludedDataCatalogPropertyStructuredData data={intent.data as IncludedDataCatalogPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IncludedDataCatalogPropertyStructuredData data={intent.data as unknown as IncludedDataCatalogPropertyInput} />,
   },
   "includedInDataCatalog": {
     componentName: "IncludedInDataCatalogPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IncludedInDataCatalogPropertyStructuredData data={intent.data as IncludedInDataCatalogPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IncludedInDataCatalogPropertyStructuredData data={intent.data as unknown as IncludedInDataCatalogPropertyInput} />,
   },
   "includedInHealthInsurancePlan": {
     componentName: "IncludedInHealthInsurancePlanPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IncludedInHealthInsurancePlanPropertyStructuredData data={intent.data as IncludedInHealthInsurancePlanPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IncludedInHealthInsurancePlanPropertyStructuredData data={intent.data as unknown as IncludedInHealthInsurancePlanPropertyInput} />,
   },
   "includesHealthPlanFormulary": {
     componentName: "IncludesHealthPlanFormularyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IncludesHealthPlanFormularyPropertyStructuredData data={intent.data as IncludesHealthPlanFormularyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IncludesHealthPlanFormularyPropertyStructuredData data={intent.data as unknown as IncludesHealthPlanFormularyPropertyInput} />,
   },
   "includesHealthPlanNetwork": {
     componentName: "IncludesHealthPlanNetworkPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IncludesHealthPlanNetworkPropertyStructuredData data={intent.data as IncludesHealthPlanNetworkPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IncludesHealthPlanNetworkPropertyStructuredData data={intent.data as unknown as IncludesHealthPlanNetworkPropertyInput} />,
   },
   "includesObject": {
     componentName: "IncludesObjectPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IncludesObjectPropertyStructuredData data={intent.data as IncludesObjectPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IncludesObjectPropertyStructuredData data={intent.data as unknown as IncludesObjectPropertyInput} />,
   },
   "inCodeSet": {
     componentName: "InCodeSetPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InCodeSetPropertyStructuredData data={intent.data as InCodeSetPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InCodeSetPropertyStructuredData data={intent.data as unknown as InCodeSetPropertyInput} />,
   },
   "increasesRiskOf": {
     componentName: "IncreasesRiskOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IncreasesRiskOfPropertyStructuredData data={intent.data as IncreasesRiskOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IncreasesRiskOfPropertyStructuredData data={intent.data as unknown as IncreasesRiskOfPropertyInput} />,
   },
   "inDefinedTermSet": {
     componentName: "InDefinedTermSetPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InDefinedTermSetPropertyStructuredData data={intent.data as InDefinedTermSetPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InDefinedTermSetPropertyStructuredData data={intent.data as unknown as InDefinedTermSetPropertyInput} />,
   },
   "ineligibleRegion": {
     componentName: "IneligibleRegionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IneligibleRegionPropertyStructuredData data={intent.data as IneligibleRegionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IneligibleRegionPropertyStructuredData data={intent.data as unknown as IneligibleRegionPropertyInput} />,
   },
   "inLanguage": {
     componentName: "InLanguagePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InLanguagePropertyStructuredData data={intent.data as InLanguagePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InLanguagePropertyStructuredData data={intent.data as unknown as InLanguagePropertyInput} />,
   },
   "inPlaylist": {
     componentName: "InPlaylistPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InPlaylistPropertyStructuredData data={intent.data as InPlaylistPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InPlaylistPropertyStructuredData data={intent.data as unknown as InPlaylistPropertyInput} />,
   },
   "inProductGroupWithID": {
     componentName: "InProductGroupWithIDPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InProductGroupWithIDPropertyStructuredData data={intent.data as InProductGroupWithIDPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InProductGroupWithIDPropertyStructuredData data={intent.data as unknown as InProductGroupWithIDPropertyInput} />,
   },
   "installUrl": {
     componentName: "InstallUrlPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InstallUrlPropertyStructuredData data={intent.data as InstallUrlPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InstallUrlPropertyStructuredData data={intent.data as unknown as InstallUrlPropertyInput} />,
   },
   "inStoreReturnsOffered": {
     componentName: "InStoreReturnsOfferedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InStoreReturnsOfferedPropertyStructuredData data={intent.data as InStoreReturnsOfferedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InStoreReturnsOfferedPropertyStructuredData data={intent.data as unknown as InStoreReturnsOfferedPropertyInput} />,
   },
   "instrument": {
     componentName: "InstrumentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InstrumentPropertyStructuredData data={intent.data as InstrumentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InstrumentPropertyStructuredData data={intent.data as unknown as InstrumentPropertyInput} />,
   },
   "interactingDrug": {
     componentName: "InteractingDrugPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InteractingDrugPropertyStructuredData data={intent.data as InteractingDrugPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InteractingDrugPropertyStructuredData data={intent.data as unknown as InteractingDrugPropertyInput} />,
   },
   "interactionService": {
     componentName: "InteractionServicePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InteractionServicePropertyStructuredData data={intent.data as InteractionServicePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InteractionServicePropertyStructuredData data={intent.data as unknown as InteractionServicePropertyInput} />,
   },
   "interactionStatistic": {
     componentName: "InteractionStatisticPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InteractionStatisticPropertyStructuredData data={intent.data as InteractionStatisticPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InteractionStatisticPropertyStructuredData data={intent.data as unknown as InteractionStatisticPropertyInput} />,
   },
   "interactionType": {
     componentName: "InteractionTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InteractionTypePropertyStructuredData data={intent.data as InteractionTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InteractionTypePropertyStructuredData data={intent.data as unknown as InteractionTypePropertyInput} />,
   },
   "interactivityType": {
     componentName: "InteractivityTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InteractivityTypePropertyStructuredData data={intent.data as InteractivityTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InteractivityTypePropertyStructuredData data={intent.data as unknown as InteractivityTypePropertyInput} />,
   },
   "interestRate": {
     componentName: "InterestRatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InterestRatePropertyStructuredData data={intent.data as InterestRatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InterestRatePropertyStructuredData data={intent.data as unknown as InterestRatePropertyInput} />,
   },
   "interpretedAsClaim": {
     componentName: "InterpretedAsClaimPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InterpretedAsClaimPropertyStructuredData data={intent.data as InterpretedAsClaimPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InterpretedAsClaimPropertyStructuredData data={intent.data as unknown as InterpretedAsClaimPropertyInput} />,
   },
   "inventoryLevel": {
     componentName: "InventoryLevelPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InventoryLevelPropertyStructuredData data={intent.data as InventoryLevelPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InventoryLevelPropertyStructuredData data={intent.data as unknown as InventoryLevelPropertyInput} />,
   },
   "inverseOf": {
     componentName: "InverseOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <InverseOfPropertyStructuredData data={intent.data as InverseOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <InverseOfPropertyStructuredData data={intent.data as unknown as InverseOfPropertyInput} />,
   },
   "isAccessibleForFree": {
     componentName: "IsAccessibleForFreePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsAccessibleForFreePropertyStructuredData data={intent.data as IsAccessibleForFreePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsAccessibleForFreePropertyStructuredData data={intent.data as unknown as IsAccessibleForFreePropertyInput} />,
   },
   "isAccessoryOrSparePartFor": {
     componentName: "IsAccessoryOrSparePartForPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsAccessoryOrSparePartForPropertyStructuredData data={intent.data as IsAccessoryOrSparePartForPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsAccessoryOrSparePartForPropertyStructuredData data={intent.data as unknown as IsAccessoryOrSparePartForPropertyInput} />,
   },
   "isAvailableGenerically": {
     componentName: "IsAvailableGenericallyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsAvailableGenericallyPropertyStructuredData data={intent.data as IsAvailableGenericallyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsAvailableGenericallyPropertyStructuredData data={intent.data as unknown as IsAvailableGenericallyPropertyInput} />,
   },
   "isBasedOn": {
     componentName: "IsBasedOnPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsBasedOnPropertyStructuredData data={intent.data as IsBasedOnPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsBasedOnPropertyStructuredData data={intent.data as unknown as IsBasedOnPropertyInput} />,
   },
   "isBasedOnUrl": {
     componentName: "IsBasedOnUrlPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsBasedOnUrlPropertyStructuredData data={intent.data as IsBasedOnUrlPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsBasedOnUrlPropertyStructuredData data={intent.data as unknown as IsBasedOnUrlPropertyInput} />,
   },
   "isConsumableFor": {
     componentName: "IsConsumableForPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsConsumableForPropertyStructuredData data={intent.data as IsConsumableForPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsConsumableForPropertyStructuredData data={intent.data as unknown as IsConsumableForPropertyInput} />,
   },
   "isEncodedByBioChemEntity": {
     componentName: "IsEncodedByBioChemEntityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsEncodedByBioChemEntityPropertyStructuredData data={intent.data as IsEncodedByBioChemEntityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsEncodedByBioChemEntityPropertyStructuredData data={intent.data as unknown as IsEncodedByBioChemEntityPropertyInput} />,
   },
   "isFamilyFriendly": {
     componentName: "IsFamilyFriendlyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsFamilyFriendlyPropertyStructuredData data={intent.data as IsFamilyFriendlyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsFamilyFriendlyPropertyStructuredData data={intent.data as unknown as IsFamilyFriendlyPropertyInput} />,
   },
   "isicV4": {
     componentName: "IsicV4PropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsicV4PropertyStructuredData data={intent.data as IsicV4PropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsicV4PropertyStructuredData data={intent.data as unknown as IsicV4PropertyInput} />,
   },
   "isInvolvedInBiologicalProcess": {
     componentName: "IsInvolvedInBiologicalProcessPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsInvolvedInBiologicalProcessPropertyStructuredData data={intent.data as IsInvolvedInBiologicalProcessPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsInvolvedInBiologicalProcessPropertyStructuredData data={intent.data as unknown as IsInvolvedInBiologicalProcessPropertyInput} />,
   },
   "isLocatedInSubcellularLocation": {
     componentName: "IsLocatedInSubcellularLocationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsLocatedInSubcellularLocationPropertyStructuredData data={intent.data as IsLocatedInSubcellularLocationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsLocatedInSubcellularLocationPropertyStructuredData data={intent.data as unknown as IsLocatedInSubcellularLocationPropertyInput} />,
   },
   "iso6523Code": {
     componentName: "Iso6523CodePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <Iso6523CodePropertyStructuredData data={intent.data as Iso6523CodePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <Iso6523CodePropertyStructuredData data={intent.data as unknown as Iso6523CodePropertyInput} />,
   },
   "isPartOf": {
     componentName: "IsPartOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsPartOfPropertyStructuredData data={intent.data as IsPartOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsPartOfPropertyStructuredData data={intent.data as unknown as IsPartOfPropertyInput} />,
   },
   "isPartOfBioChemEntity": {
     componentName: "IsPartOfBioChemEntityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsPartOfBioChemEntityPropertyStructuredData data={intent.data as IsPartOfBioChemEntityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsPartOfBioChemEntityPropertyStructuredData data={intent.data as unknown as IsPartOfBioChemEntityPropertyInput} />,
   },
   "isProprietary": {
     componentName: "IsProprietaryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsProprietaryPropertyStructuredData data={intent.data as IsProprietaryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsProprietaryPropertyStructuredData data={intent.data as unknown as IsProprietaryPropertyInput} />,
   },
   "isrcCode": {
     componentName: "IsrcCodePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsrcCodePropertyStructuredData data={intent.data as IsrcCodePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsrcCodePropertyStructuredData data={intent.data as unknown as IsrcCodePropertyInput} />,
   },
   "isRelatedTo": {
     componentName: "IsRelatedToPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsRelatedToPropertyStructuredData data={intent.data as IsRelatedToPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsRelatedToPropertyStructuredData data={intent.data as unknown as IsRelatedToPropertyInput} />,
   },
   "isSimilarTo": {
     componentName: "IsSimilarToPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsSimilarToPropertyStructuredData data={intent.data as IsSimilarToPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsSimilarToPropertyStructuredData data={intent.data as unknown as IsSimilarToPropertyInput} />,
   },
   "issn": {
     componentName: "IssnPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IssnPropertyStructuredData data={intent.data as IssnPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IssnPropertyStructuredData data={intent.data as unknown as IssnPropertyInput} />,
   },
   "issuedBy": {
     componentName: "IssuedByPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IssuedByPropertyStructuredData data={intent.data as IssuedByPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IssuedByPropertyStructuredData data={intent.data as unknown as IssuedByPropertyInput} />,
   },
   "isTierOf": {
     componentName: "IsTierOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsTierOfPropertyStructuredData data={intent.data as IsTierOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsTierOfPropertyStructuredData data={intent.data as unknown as IsTierOfPropertyInput} />,
   },
   "isUnlabelledFallback": {
     componentName: "IsUnlabelledFallbackPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsUnlabelledFallbackPropertyStructuredData data={intent.data as IsUnlabelledFallbackPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsUnlabelledFallbackPropertyStructuredData data={intent.data as unknown as IsUnlabelledFallbackPropertyInput} />,
   },
   "isVariantOf": {
     componentName: "IsVariantOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IsVariantOfPropertyStructuredData data={intent.data as IsVariantOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IsVariantOfPropertyStructuredData data={intent.data as unknown as IsVariantOfPropertyInput} />,
   },
   "iswcCode": {
     componentName: "IswcCodePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <IswcCodePropertyStructuredData data={intent.data as IswcCodePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <IswcCodePropertyStructuredData data={intent.data as unknown as IswcCodePropertyInput} />,
   },
   "item": {
     componentName: "ItemPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ItemPropertyStructuredData data={intent.data as ItemPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ItemPropertyStructuredData data={intent.data as unknown as ItemPropertyInput} />,
   },
   "itemCondition": {
     componentName: "ItemConditionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ItemConditionPropertyStructuredData data={intent.data as ItemConditionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ItemConditionPropertyStructuredData data={intent.data as unknown as ItemConditionPropertyInput} />,
   },
   "itemDefectReturnFees": {
     componentName: "ItemDefectReturnFeesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ItemDefectReturnFeesPropertyStructuredData data={intent.data as ItemDefectReturnFeesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ItemDefectReturnFeesPropertyStructuredData data={intent.data as unknown as ItemDefectReturnFeesPropertyInput} />,
   },
   "itemDefectReturnLabelSource": {
     componentName: "ItemDefectReturnLabelSourcePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ItemDefectReturnLabelSourcePropertyStructuredData data={intent.data as ItemDefectReturnLabelSourcePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ItemDefectReturnLabelSourcePropertyStructuredData data={intent.data as unknown as ItemDefectReturnLabelSourcePropertyInput} />,
   },
   "itemDefectReturnShippingFeesAmount": {
     componentName: "ItemDefectReturnShippingFeesAmountPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ItemDefectReturnShippingFeesAmountPropertyStructuredData data={intent.data as ItemDefectReturnShippingFeesAmountPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ItemDefectReturnShippingFeesAmountPropertyStructuredData data={intent.data as unknown as ItemDefectReturnShippingFeesAmountPropertyInput} />,
   },
   "itemListElement": {
     componentName: "ItemListElementPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ItemListElementPropertyStructuredData data={intent.data as ItemListElementPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ItemListElementPropertyStructuredData data={intent.data as unknown as ItemListElementPropertyInput} />,
   },
   "itemListOrder": {
     componentName: "ItemListOrderPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ItemListOrderPropertyStructuredData data={intent.data as ItemListOrderPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ItemListOrderPropertyStructuredData data={intent.data as unknown as ItemListOrderPropertyInput} />,
   },
   "itemOffered": {
     componentName: "ItemOfferedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ItemOfferedPropertyStructuredData data={intent.data as ItemOfferedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ItemOfferedPropertyStructuredData data={intent.data as unknown as ItemOfferedPropertyInput} />,
   },
   "itemReviewed": {
     componentName: "ItemReviewedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ItemReviewedPropertyStructuredData data={intent.data as ItemReviewedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ItemReviewedPropertyStructuredData data={intent.data as unknown as ItemReviewedPropertyInput} />,
   },
   "itinerary": {
     componentName: "ItineraryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ItineraryPropertyStructuredData data={intent.data as ItineraryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ItineraryPropertyStructuredData data={intent.data as unknown as ItineraryPropertyInput} />,
   },
   "jobTitle": {
     componentName: "JobTitlePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <JobTitlePropertyStructuredData data={intent.data as JobTitlePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <JobTitlePropertyStructuredData data={intent.data as unknown as JobTitlePropertyInput} />,
   },
   "keywords": {
     componentName: "KeywordsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <KeywordsPropertyStructuredData data={intent.data as KeywordsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <KeywordsPropertyStructuredData data={intent.data as unknown as KeywordsPropertyInput} />,
   },
   "knows": {
     componentName: "KnowsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <KnowsPropertyStructuredData data={intent.data as KnowsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <KnowsPropertyStructuredData data={intent.data as unknown as KnowsPropertyInput} />,
   },
   "knowsAbout": {
     componentName: "KnowsAboutPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <KnowsAboutPropertyStructuredData data={intent.data as KnowsAboutPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <KnowsAboutPropertyStructuredData data={intent.data as unknown as KnowsAboutPropertyInput} />,
   },
   "knowsLanguage": {
     componentName: "KnowsLanguagePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <KnowsLanguagePropertyStructuredData data={intent.data as KnowsLanguagePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <KnowsLanguagePropertyStructuredData data={intent.data as unknown as KnowsLanguagePropertyInput} />,
   },
   "labelDetails": {
     componentName: "LabelDetailsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LabelDetailsPropertyStructuredData data={intent.data as LabelDetailsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LabelDetailsPropertyStructuredData data={intent.data as unknown as LabelDetailsPropertyInput} />,
   },
   "lastReviewed": {
     componentName: "LastReviewedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LastReviewedPropertyStructuredData data={intent.data as LastReviewedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LastReviewedPropertyStructuredData data={intent.data as unknown as LastReviewedPropertyInput} />,
   },
   "latitude": {
     componentName: "LatitudePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LatitudePropertyStructuredData data={intent.data as LatitudePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LatitudePropertyStructuredData data={intent.data as unknown as LatitudePropertyInput} />,
   },
   "learningResourceType": {
     componentName: "LearningResourceTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LearningResourceTypePropertyStructuredData data={intent.data as LearningResourceTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LearningResourceTypePropertyStructuredData data={intent.data as unknown as LearningResourceTypePropertyInput} />,
   },
   "leaseLength": {
     componentName: "LeaseLengthPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LeaseLengthPropertyStructuredData data={intent.data as LeaseLengthPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LeaseLengthPropertyStructuredData data={intent.data as unknown as LeaseLengthPropertyInput} />,
   },
   "legalAddress": {
     componentName: "LegalAddressPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LegalAddressPropertyStructuredData data={intent.data as LegalAddressPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LegalAddressPropertyStructuredData data={intent.data as unknown as LegalAddressPropertyInput} />,
   },
   "legalName": {
     componentName: "LegalNamePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LegalNamePropertyStructuredData data={intent.data as LegalNamePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LegalNamePropertyStructuredData data={intent.data as unknown as LegalNamePropertyInput} />,
   },
   "legalRepresentative": {
     componentName: "LegalRepresentativePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LegalRepresentativePropertyStructuredData data={intent.data as LegalRepresentativePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LegalRepresentativePropertyStructuredData data={intent.data as unknown as LegalRepresentativePropertyInput} />,
   },
   "legalStatus": {
     componentName: "LegalStatusPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LegalStatusPropertyStructuredData data={intent.data as LegalStatusPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LegalStatusPropertyStructuredData data={intent.data as unknown as LegalStatusPropertyInput} />,
   },
   "leiCode": {
     componentName: "LeiCodePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LeiCodePropertyStructuredData data={intent.data as LeiCodePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LeiCodePropertyStructuredData data={intent.data as unknown as LeiCodePropertyInput} />,
   },
   "license": {
     componentName: "LicensePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LicensePropertyStructuredData data={intent.data as LicensePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LicensePropertyStructuredData data={intent.data as unknown as LicensePropertyInput} />,
   },
   "lifeEvent": {
     componentName: "LifeEventPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LifeEventPropertyStructuredData data={intent.data as LifeEventPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LifeEventPropertyStructuredData data={intent.data as unknown as LifeEventPropertyInput} />,
   },
   "line": {
     componentName: "LinePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LinePropertyStructuredData data={intent.data as LinePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LinePropertyStructuredData data={intent.data as unknown as LinePropertyInput} />,
   },
   "loanPaymentAmount": {
     componentName: "LoanPaymentAmountPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LoanPaymentAmountPropertyStructuredData data={intent.data as LoanPaymentAmountPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LoanPaymentAmountPropertyStructuredData data={intent.data as unknown as LoanPaymentAmountPropertyInput} />,
   },
   "loanPaymentFrequency": {
     componentName: "LoanPaymentFrequencyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LoanPaymentFrequencyPropertyStructuredData data={intent.data as LoanPaymentFrequencyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LoanPaymentFrequencyPropertyStructuredData data={intent.data as unknown as LoanPaymentFrequencyPropertyInput} />,
   },
   "loanRepaymentForm": {
     componentName: "LoanRepaymentFormPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LoanRepaymentFormPropertyStructuredData data={intent.data as LoanRepaymentFormPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LoanRepaymentFormPropertyStructuredData data={intent.data as unknown as LoanRepaymentFormPropertyInput} />,
   },
   "loanTerm": {
     componentName: "LoanTermPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LoanTermPropertyStructuredData data={intent.data as LoanTermPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LoanTermPropertyStructuredData data={intent.data as unknown as LoanTermPropertyInput} />,
   },
   "loanType": {
     componentName: "LoanTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LoanTypePropertyStructuredData data={intent.data as LoanTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LoanTypePropertyStructuredData data={intent.data as unknown as LoanTypePropertyInput} />,
   },
   "location": {
     componentName: "LocationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LocationPropertyStructuredData data={intent.data as LocationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LocationPropertyStructuredData data={intent.data as unknown as LocationPropertyInput} />,
   },
   "locationCreated": {
     componentName: "LocationCreatedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LocationCreatedPropertyStructuredData data={intent.data as LocationCreatedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LocationCreatedPropertyStructuredData data={intent.data as unknown as LocationCreatedPropertyInput} />,
   },
   "logo": {
     componentName: "LogoPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LogoPropertyStructuredData data={intent.data as LogoPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LogoPropertyStructuredData data={intent.data as unknown as LogoPropertyInput} />,
   },
   "longitude": {
     componentName: "LongitudePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LongitudePropertyStructuredData data={intent.data as LongitudePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LongitudePropertyStructuredData data={intent.data as unknown as LongitudePropertyInput} />,
   },
   "lowPrice": {
     componentName: "LowPricePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LowPricePropertyStructuredData data={intent.data as LowPricePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LowPricePropertyStructuredData data={intent.data as unknown as LowPricePropertyInput} />,
   },
   "lyricist": {
     componentName: "LyricistPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LyricistPropertyStructuredData data={intent.data as LyricistPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LyricistPropertyStructuredData data={intent.data as unknown as LyricistPropertyInput} />,
   },
   "lyrics": {
     componentName: "LyricsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <LyricsPropertyStructuredData data={intent.data as LyricsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <LyricsPropertyStructuredData data={intent.data as unknown as LyricsPropertyInput} />,
   },
   "mainContentOfPage": {
     componentName: "MainContentOfPagePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MainContentOfPagePropertyStructuredData data={intent.data as MainContentOfPagePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MainContentOfPagePropertyStructuredData data={intent.data as unknown as MainContentOfPagePropertyInput} />,
   },
   "mainEntity": {
     componentName: "MainEntityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MainEntityPropertyStructuredData data={intent.data as MainEntityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MainEntityPropertyStructuredData data={intent.data as unknown as MainEntityPropertyInput} />,
   },
   "mainEntityOfPage": {
     componentName: "MainEntityOfPagePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MainEntityOfPagePropertyStructuredData data={intent.data as MainEntityOfPagePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MainEntityOfPagePropertyStructuredData data={intent.data as unknown as MainEntityOfPagePropertyInput} />,
   },
   "maintainer": {
     componentName: "MaintainerPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MaintainerPropertyStructuredData data={intent.data as MaintainerPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MaintainerPropertyStructuredData data={intent.data as unknown as MaintainerPropertyInput} />,
   },
   "makesOffer": {
     componentName: "MakesOfferPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MakesOfferPropertyStructuredData data={intent.data as MakesOfferPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MakesOfferPropertyStructuredData data={intent.data as unknown as MakesOfferPropertyInput} />,
   },
   "manufacturer": {
     componentName: "ManufacturerPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ManufacturerPropertyStructuredData data={intent.data as ManufacturerPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ManufacturerPropertyStructuredData data={intent.data as unknown as ManufacturerPropertyInput} />,
   },
   "map": {
     componentName: "MapPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MapPropertyStructuredData data={intent.data as MapPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MapPropertyStructuredData data={intent.data as unknown as MapPropertyInput} />,
   },
   "maps": {
     componentName: "MapsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MapsPropertyStructuredData data={intent.data as MapsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MapsPropertyStructuredData data={intent.data as unknown as MapsPropertyInput} />,
   },
   "mapType": {
     componentName: "MapTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MapTypePropertyStructuredData data={intent.data as MapTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MapTypePropertyStructuredData data={intent.data as unknown as MapTypePropertyInput} />,
   },
   "material": {
     componentName: "MaterialPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MaterialPropertyStructuredData data={intent.data as MaterialPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MaterialPropertyStructuredData data={intent.data as unknown as MaterialPropertyInput} />,
   },
   "materialExtent": {
     componentName: "MaterialExtentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MaterialExtentPropertyStructuredData data={intent.data as MaterialExtentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MaterialExtentPropertyStructuredData data={intent.data as unknown as MaterialExtentPropertyInput} />,
   },
   "maximumAttendeeCapacity": {
     componentName: "MaximumAttendeeCapacityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MaximumAttendeeCapacityPropertyStructuredData data={intent.data as MaximumAttendeeCapacityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MaximumAttendeeCapacityPropertyStructuredData data={intent.data as unknown as MaximumAttendeeCapacityPropertyInput} />,
   },
   "maximumIntake": {
     componentName: "MaximumIntakePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MaximumIntakePropertyStructuredData data={intent.data as MaximumIntakePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MaximumIntakePropertyStructuredData data={intent.data as unknown as MaximumIntakePropertyInput} />,
   },
   "maximumPhysicalAttendeeCapacity": {
     componentName: "MaximumPhysicalAttendeeCapacityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MaximumPhysicalAttendeeCapacityPropertyStructuredData data={intent.data as MaximumPhysicalAttendeeCapacityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MaximumPhysicalAttendeeCapacityPropertyStructuredData data={intent.data as unknown as MaximumPhysicalAttendeeCapacityPropertyInput} />,
   },
   "maximumVirtualAttendeeCapacity": {
     componentName: "MaximumVirtualAttendeeCapacityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MaximumVirtualAttendeeCapacityPropertyStructuredData data={intent.data as MaximumVirtualAttendeeCapacityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MaximumVirtualAttendeeCapacityPropertyStructuredData data={intent.data as unknown as MaximumVirtualAttendeeCapacityPropertyInput} />,
   },
   "maxPrice": {
     componentName: "MaxPricePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MaxPricePropertyStructuredData data={intent.data as MaxPricePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MaxPricePropertyStructuredData data={intent.data as unknown as MaxPricePropertyInput} />,
   },
   "maxValue": {
     componentName: "MaxValuePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MaxValuePropertyStructuredData data={intent.data as MaxValuePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MaxValuePropertyStructuredData data={intent.data as unknown as MaxValuePropertyInput} />,
   },
   "measuredProperty": {
     componentName: "MeasuredPropertyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MeasuredPropertyPropertyStructuredData data={intent.data as MeasuredPropertyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MeasuredPropertyPropertyStructuredData data={intent.data as unknown as MeasuredPropertyPropertyInput} />,
   },
   "measurementDenominator": {
     componentName: "MeasurementDenominatorPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MeasurementDenominatorPropertyStructuredData data={intent.data as MeasurementDenominatorPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MeasurementDenominatorPropertyStructuredData data={intent.data as unknown as MeasurementDenominatorPropertyInput} />,
   },
   "measurementMethod": {
     componentName: "MeasurementMethodPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MeasurementMethodPropertyStructuredData data={intent.data as MeasurementMethodPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MeasurementMethodPropertyStructuredData data={intent.data as unknown as MeasurementMethodPropertyInput} />,
   },
   "measurementQualifier": {
     componentName: "MeasurementQualifierPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MeasurementQualifierPropertyStructuredData data={intent.data as MeasurementQualifierPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MeasurementQualifierPropertyStructuredData data={intent.data as unknown as MeasurementQualifierPropertyInput} />,
   },
   "measurementTechnique": {
     componentName: "MeasurementTechniquePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MeasurementTechniquePropertyStructuredData data={intent.data as MeasurementTechniquePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MeasurementTechniquePropertyStructuredData data={intent.data as unknown as MeasurementTechniquePropertyInput} />,
   },
   "mechanismOfAction": {
     componentName: "MechanismOfActionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MechanismOfActionPropertyStructuredData data={intent.data as MechanismOfActionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MechanismOfActionPropertyStructuredData data={intent.data as unknown as MechanismOfActionPropertyInput} />,
   },
   "median": {
     componentName: "MedianPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MedianPropertyStructuredData data={intent.data as MedianPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MedianPropertyStructuredData data={intent.data as unknown as MedianPropertyInput} />,
   },
   "medicalAudience": {
     componentName: "MedicalAudiencePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MedicalAudiencePropertyStructuredData data={intent.data as MedicalAudiencePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MedicalAudiencePropertyStructuredData data={intent.data as unknown as MedicalAudiencePropertyInput} />,
   },
   "medicineSystem": {
     componentName: "MedicineSystemPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MedicineSystemPropertyStructuredData data={intent.data as MedicineSystemPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MedicineSystemPropertyStructuredData data={intent.data as unknown as MedicineSystemPropertyInput} />,
   },
   "member": {
     componentName: "MemberPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MemberPropertyStructuredData data={intent.data as MemberPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MemberPropertyStructuredData data={intent.data as unknown as MemberPropertyInput} />,
   },
   "memberOf": {
     componentName: "MemberOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MemberOfPropertyStructuredData data={intent.data as MemberOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MemberOfPropertyStructuredData data={intent.data as unknown as MemberOfPropertyInput} />,
   },
   "members": {
     componentName: "MembersPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MembersPropertyStructuredData data={intent.data as MembersPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MembersPropertyStructuredData data={intent.data as unknown as MembersPropertyInput} />,
   },
   "membershipNumber": {
     componentName: "MembershipNumberPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MembershipNumberPropertyStructuredData data={intent.data as MembershipNumberPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MembershipNumberPropertyStructuredData data={intent.data as unknown as MembershipNumberPropertyInput} />,
   },
   "membershipPointsEarned": {
     componentName: "MembershipPointsEarnedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MembershipPointsEarnedPropertyStructuredData data={intent.data as MembershipPointsEarnedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MembershipPointsEarnedPropertyStructuredData data={intent.data as unknown as MembershipPointsEarnedPropertyInput} />,
   },
   "memoryRequirements": {
     componentName: "MemoryRequirementsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MemoryRequirementsPropertyStructuredData data={intent.data as MemoryRequirementsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MemoryRequirementsPropertyStructuredData data={intent.data as unknown as MemoryRequirementsPropertyInput} />,
   },
   "mentions": {
     componentName: "MentionsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MentionsPropertyStructuredData data={intent.data as MentionsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MentionsPropertyStructuredData data={intent.data as unknown as MentionsPropertyInput} />,
   },
   "menuAddOn": {
     componentName: "MenuAddOnPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MenuAddOnPropertyStructuredData data={intent.data as MenuAddOnPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MenuAddOnPropertyStructuredData data={intent.data as unknown as MenuAddOnPropertyInput} />,
   },
   "merchantReturnDays": {
     componentName: "MerchantReturnDaysPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MerchantReturnDaysPropertyStructuredData data={intent.data as MerchantReturnDaysPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MerchantReturnDaysPropertyStructuredData data={intent.data as unknown as MerchantReturnDaysPropertyInput} />,
   },
   "merchantReturnLink": {
     componentName: "MerchantReturnLinkPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MerchantReturnLinkPropertyStructuredData data={intent.data as MerchantReturnLinkPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MerchantReturnLinkPropertyStructuredData data={intent.data as unknown as MerchantReturnLinkPropertyInput} />,
   },
   "minPrice": {
     componentName: "MinPricePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MinPricePropertyStructuredData data={intent.data as MinPricePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MinPricePropertyStructuredData data={intent.data as unknown as MinPricePropertyInput} />,
   },
   "minValue": {
     componentName: "MinValuePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MinValuePropertyStructuredData data={intent.data as MinValuePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MinValuePropertyStructuredData data={intent.data as unknown as MinValuePropertyInput} />,
   },
   "mobileUrl": {
     componentName: "MobileUrlPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MobileUrlPropertyStructuredData data={intent.data as MobileUrlPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MobileUrlPropertyStructuredData data={intent.data as unknown as MobileUrlPropertyInput} />,
   },
   "model": {
     componentName: "ModelPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ModelPropertyStructuredData data={intent.data as ModelPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ModelPropertyStructuredData data={intent.data as unknown as ModelPropertyInput} />,
   },
   "monthlyMinimumRepaymentAmount": {
     componentName: "MonthlyMinimumRepaymentAmountPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MonthlyMinimumRepaymentAmountPropertyStructuredData data={intent.data as MonthlyMinimumRepaymentAmountPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MonthlyMinimumRepaymentAmountPropertyStructuredData data={intent.data as unknown as MonthlyMinimumRepaymentAmountPropertyInput} />,
   },
   "monthsOfExperience": {
     componentName: "MonthsOfExperiencePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MonthsOfExperiencePropertyStructuredData data={intent.data as MonthsOfExperiencePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MonthsOfExperiencePropertyStructuredData data={intent.data as unknown as MonthsOfExperiencePropertyInput} />,
   },
   "mpn": {
     componentName: "MpnPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MpnPropertyStructuredData data={intent.data as MpnPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MpnPropertyStructuredData data={intent.data as unknown as MpnPropertyInput} />,
   },
   "musicalKey": {
     componentName: "MusicalKeyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MusicalKeyPropertyStructuredData data={intent.data as MusicalKeyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MusicalKeyPropertyStructuredData data={intent.data as unknown as MusicalKeyPropertyInput} />,
   },
   "musicArrangement": {
     componentName: "MusicArrangementPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MusicArrangementPropertyStructuredData data={intent.data as MusicArrangementPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MusicArrangementPropertyStructuredData data={intent.data as unknown as MusicArrangementPropertyInput} />,
   },
   "musicBy": {
     componentName: "MusicByPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MusicByPropertyStructuredData data={intent.data as MusicByPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MusicByPropertyStructuredData data={intent.data as unknown as MusicByPropertyInput} />,
   },
   "musicCompositionForm": {
     componentName: "MusicCompositionFormPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MusicCompositionFormPropertyStructuredData data={intent.data as MusicCompositionFormPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MusicCompositionFormPropertyStructuredData data={intent.data as unknown as MusicCompositionFormPropertyInput} />,
   },
   "musicGroupMember": {
     componentName: "MusicGroupMemberPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MusicGroupMemberPropertyStructuredData data={intent.data as MusicGroupMemberPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MusicGroupMemberPropertyStructuredData data={intent.data as unknown as MusicGroupMemberPropertyInput} />,
   },
   "musicReleaseFormat": {
     componentName: "MusicReleaseFormatPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <MusicReleaseFormatPropertyStructuredData data={intent.data as MusicReleaseFormatPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <MusicReleaseFormatPropertyStructuredData data={intent.data as unknown as MusicReleaseFormatPropertyInput} />,
   },
   "naics": {
     componentName: "NaicsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NaicsPropertyStructuredData data={intent.data as NaicsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NaicsPropertyStructuredData data={intent.data as unknown as NaicsPropertyInput} />,
   },
   "name": {
     componentName: "NamePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NamePropertyStructuredData data={intent.data as NamePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NamePropertyStructuredData data={intent.data as unknown as NamePropertyInput} />,
   },
   "nationality": {
     componentName: "NationalityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NationalityPropertyStructuredData data={intent.data as NationalityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NationalityPropertyStructuredData data={intent.data as unknown as NationalityPropertyInput} />,
   },
   "naturalProgression": {
     componentName: "NaturalProgressionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NaturalProgressionPropertyStructuredData data={intent.data as NaturalProgressionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NaturalProgressionPropertyStructuredData data={intent.data as unknown as NaturalProgressionPropertyInput} />,
   },
   "negativeNotes": {
     componentName: "NegativeNotesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NegativeNotesPropertyStructuredData data={intent.data as NegativeNotesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NegativeNotesPropertyStructuredData data={intent.data as unknown as NegativeNotesPropertyInput} />,
   },
   "netWorth": {
     componentName: "NetWorthPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NetWorthPropertyStructuredData data={intent.data as NetWorthPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NetWorthPropertyStructuredData data={intent.data as unknown as NetWorthPropertyInput} />,
   },
   "nextItem": {
     componentName: "NextItemPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NextItemPropertyStructuredData data={intent.data as NextItemPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NextItemPropertyStructuredData data={intent.data as unknown as NextItemPropertyInput} />,
   },
   "nonprofitStatus": {
     componentName: "NonprofitStatusPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NonprofitStatusPropertyStructuredData data={intent.data as NonprofitStatusPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NonprofitStatusPropertyStructuredData data={intent.data as unknown as NonprofitStatusPropertyInput} />,
   },
   "nonProprietaryName": {
     componentName: "NonProprietaryNamePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NonProprietaryNamePropertyStructuredData data={intent.data as NonProprietaryNamePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NonProprietaryNamePropertyStructuredData data={intent.data as unknown as NonProprietaryNamePropertyInput} />,
   },
   "normalRange": {
     componentName: "NormalRangePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NormalRangePropertyStructuredData data={intent.data as NormalRangePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NormalRangePropertyStructuredData data={intent.data as unknown as NormalRangePropertyInput} />,
   },
   "nsn": {
     componentName: "NsnPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NsnPropertyStructuredData data={intent.data as NsnPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NsnPropertyStructuredData data={intent.data as unknown as NsnPropertyInput} />,
   },
   "numberOfEmployees": {
     componentName: "NumberOfEmployeesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NumberOfEmployeesPropertyStructuredData data={intent.data as NumberOfEmployeesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NumberOfEmployeesPropertyStructuredData data={intent.data as unknown as NumberOfEmployeesPropertyInput} />,
   },
   "numberOfEpisodes": {
     componentName: "NumberOfEpisodesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NumberOfEpisodesPropertyStructuredData data={intent.data as NumberOfEpisodesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NumberOfEpisodesPropertyStructuredData data={intent.data as unknown as NumberOfEpisodesPropertyInput} />,
   },
   "numberOfItems": {
     componentName: "NumberOfItemsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NumberOfItemsPropertyStructuredData data={intent.data as NumberOfItemsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NumberOfItemsPropertyStructuredData data={intent.data as unknown as NumberOfItemsPropertyInput} />,
   },
   "numberOfLoanPayments": {
     componentName: "NumberOfLoanPaymentsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NumberOfLoanPaymentsPropertyStructuredData data={intent.data as NumberOfLoanPaymentsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NumberOfLoanPaymentsPropertyStructuredData data={intent.data as unknown as NumberOfLoanPaymentsPropertyInput} />,
   },
   "numConstraints": {
     componentName: "NumConstraintsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NumConstraintsPropertyStructuredData data={intent.data as NumConstraintsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NumConstraintsPropertyStructuredData data={intent.data as unknown as NumConstraintsPropertyInput} />,
   },
   "numItems": {
     componentName: "NumItemsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NumItemsPropertyStructuredData data={intent.data as NumItemsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NumItemsPropertyStructuredData data={intent.data as unknown as NumItemsPropertyInput} />,
   },
   "numTracks": {
     componentName: "NumTracksPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NumTracksPropertyStructuredData data={intent.data as NumTracksPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NumTracksPropertyStructuredData data={intent.data as unknown as NumTracksPropertyInput} />,
   },
   "nutrition": {
     componentName: "NutritionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <NutritionPropertyStructuredData data={intent.data as NutritionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <NutritionPropertyStructuredData data={intent.data as unknown as NutritionPropertyInput} />,
   },
   "object": {
     componentName: "ObjectPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ObjectPropertyStructuredData data={intent.data as ObjectPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ObjectPropertyStructuredData data={intent.data as unknown as ObjectPropertyInput} />,
   },
   "occupationalCategory": {
     componentName: "OccupationalCategoryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OccupationalCategoryPropertyStructuredData data={intent.data as OccupationalCategoryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OccupationalCategoryPropertyStructuredData data={intent.data as unknown as OccupationalCategoryPropertyInput} />,
   },
   "occupationLocation": {
     componentName: "OccupationLocationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OccupationLocationPropertyStructuredData data={intent.data as OccupationLocationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OccupationLocationPropertyStructuredData data={intent.data as unknown as OccupationLocationPropertyInput} />,
   },
   "offerCount": {
     componentName: "OfferCountPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OfferCountPropertyStructuredData data={intent.data as OfferCountPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OfferCountPropertyStructuredData data={intent.data as unknown as OfferCountPropertyInput} />,
   },
   "offeredBy": {
     componentName: "OfferedByPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OfferedByPropertyStructuredData data={intent.data as OfferedByPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OfferedByPropertyStructuredData data={intent.data as unknown as OfferedByPropertyInput} />,
   },
   "offers": {
     componentName: "OffersPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OffersPropertyStructuredData data={intent.data as OffersPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OffersPropertyStructuredData data={intent.data as unknown as OffersPropertyInput} />,
   },
   "offersPrescriptionByMail": {
     componentName: "OffersPrescriptionByMailPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OffersPrescriptionByMailPropertyStructuredData data={intent.data as OffersPrescriptionByMailPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OffersPrescriptionByMailPropertyStructuredData data={intent.data as unknown as OffersPrescriptionByMailPropertyInput} />,
   },
   "openingHours": {
     componentName: "OpeningHoursPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OpeningHoursPropertyStructuredData data={intent.data as OpeningHoursPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OpeningHoursPropertyStructuredData data={intent.data as unknown as OpeningHoursPropertyInput} />,
   },
   "openingHoursSpecification": {
     componentName: "OpeningHoursSpecificationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OpeningHoursSpecificationPropertyStructuredData data={intent.data as OpeningHoursSpecificationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OpeningHoursSpecificationPropertyStructuredData data={intent.data as unknown as OpeningHoursSpecificationPropertyInput} />,
   },
   "opens": {
     componentName: "OpensPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OpensPropertyStructuredData data={intent.data as OpensPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OpensPropertyStructuredData data={intent.data as unknown as OpensPropertyInput} />,
   },
   "operatingSystem": {
     componentName: "OperatingSystemPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OperatingSystemPropertyStructuredData data={intent.data as OperatingSystemPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OperatingSystemPropertyStructuredData data={intent.data as unknown as OperatingSystemPropertyInput} />,
   },
   "orderPercentage": {
     componentName: "OrderPercentagePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OrderPercentagePropertyStructuredData data={intent.data as OrderPercentagePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OrderPercentagePropertyStructuredData data={intent.data as unknown as OrderPercentagePropertyInput} />,
   },
   "orderValue": {
     componentName: "OrderValuePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OrderValuePropertyStructuredData data={intent.data as OrderValuePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OrderValuePropertyStructuredData data={intent.data as unknown as OrderValuePropertyInput} />,
   },
   "organizer": {
     componentName: "OrganizerPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OrganizerPropertyStructuredData data={intent.data as OrganizerPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OrganizerPropertyStructuredData data={intent.data as unknown as OrganizerPropertyInput} />,
   },
   "overdosage": {
     componentName: "OverdosagePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OverdosagePropertyStructuredData data={intent.data as OverdosagePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OverdosagePropertyStructuredData data={intent.data as unknown as OverdosagePropertyInput} />,
   },
   "owner": {
     componentName: "OwnerPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OwnerPropertyStructuredData data={intent.data as OwnerPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OwnerPropertyStructuredData data={intent.data as unknown as OwnerPropertyInput} />,
   },
   "ownershipFundingInfo": {
     componentName: "OwnershipFundingInfoPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OwnershipFundingInfoPropertyStructuredData data={intent.data as OwnershipFundingInfoPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OwnershipFundingInfoPropertyStructuredData data={intent.data as unknown as OwnershipFundingInfoPropertyInput} />,
   },
   "owns": {
     componentName: "OwnsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <OwnsPropertyStructuredData data={intent.data as OwnsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <OwnsPropertyStructuredData data={intent.data as unknown as OwnsPropertyInput} />,
   },
   "pageEnd": {
     componentName: "PageEndPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PageEndPropertyStructuredData data={intent.data as PageEndPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PageEndPropertyStructuredData data={intent.data as unknown as PageEndPropertyInput} />,
   },
   "pageStart": {
     componentName: "PageStartPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PageStartPropertyStructuredData data={intent.data as PageStartPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PageStartPropertyStructuredData data={intent.data as unknown as PageStartPropertyInput} />,
   },
   "pagination": {
     componentName: "PaginationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PaginationPropertyStructuredData data={intent.data as PaginationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PaginationPropertyStructuredData data={intent.data as unknown as PaginationPropertyInput} />,
   },
   "parent": {
     componentName: "ParentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ParentPropertyStructuredData data={intent.data as ParentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ParentPropertyStructuredData data={intent.data as unknown as ParentPropertyInput} />,
   },
   "parentItem": {
     componentName: "ParentItemPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ParentItemPropertyStructuredData data={intent.data as ParentItemPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ParentItemPropertyStructuredData data={intent.data as unknown as ParentItemPropertyInput} />,
   },
   "parentOrganization": {
     componentName: "ParentOrganizationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ParentOrganizationPropertyStructuredData data={intent.data as ParentOrganizationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ParentOrganizationPropertyStructuredData data={intent.data as unknown as ParentOrganizationPropertyInput} />,
   },
   "parents": {
     componentName: "ParentsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ParentsPropertyStructuredData data={intent.data as ParentsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ParentsPropertyStructuredData data={intent.data as unknown as ParentsPropertyInput} />,
   },
   "parentService": {
     componentName: "ParentServicePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ParentServicePropertyStructuredData data={intent.data as ParentServicePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ParentServicePropertyStructuredData data={intent.data as unknown as ParentServicePropertyInput} />,
   },
   "parentTaxon": {
     componentName: "ParentTaxonPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ParentTaxonPropertyStructuredData data={intent.data as ParentTaxonPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ParentTaxonPropertyStructuredData data={intent.data as unknown as ParentTaxonPropertyInput} />,
   },
   "participant": {
     componentName: "ParticipantPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ParticipantPropertyStructuredData data={intent.data as ParticipantPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ParticipantPropertyStructuredData data={intent.data as unknown as ParticipantPropertyInput} />,
   },
   "partOfEpisode": {
     componentName: "PartOfEpisodePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PartOfEpisodePropertyStructuredData data={intent.data as PartOfEpisodePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PartOfEpisodePropertyStructuredData data={intent.data as unknown as PartOfEpisodePropertyInput} />,
   },
   "partOfSeason": {
     componentName: "PartOfSeasonPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PartOfSeasonPropertyStructuredData data={intent.data as PartOfSeasonPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PartOfSeasonPropertyStructuredData data={intent.data as unknown as PartOfSeasonPropertyInput} />,
   },
   "partOfSeries": {
     componentName: "PartOfSeriesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PartOfSeriesPropertyStructuredData data={intent.data as PartOfSeriesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PartOfSeriesPropertyStructuredData data={intent.data as unknown as PartOfSeriesPropertyInput} />,
   },
   "partOfSystem": {
     componentName: "PartOfSystemPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PartOfSystemPropertyStructuredData data={intent.data as PartOfSystemPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PartOfSystemPropertyStructuredData data={intent.data as unknown as PartOfSystemPropertyInput} />,
   },
   "partOfTrip": {
     componentName: "PartOfTripPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PartOfTripPropertyStructuredData data={intent.data as PartOfTripPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PartOfTripPropertyStructuredData data={intent.data as unknown as PartOfTripPropertyInput} />,
   },
   "pathophysiology": {
     componentName: "PathophysiologyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PathophysiologyPropertyStructuredData data={intent.data as PathophysiologyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PathophysiologyPropertyStructuredData data={intent.data as unknown as PathophysiologyPropertyInput} />,
   },
   "pattern": {
     componentName: "PatternPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PatternPropertyStructuredData data={intent.data as PatternPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PatternPropertyStructuredData data={intent.data as unknown as PatternPropertyInput} />,
   },
   "paymentMethodType": {
     componentName: "PaymentMethodTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PaymentMethodTypePropertyStructuredData data={intent.data as PaymentMethodTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PaymentMethodTypePropertyStructuredData data={intent.data as unknown as PaymentMethodTypePropertyInput} />,
   },
   "percentile10": {
     componentName: "Percentile10PropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <Percentile10PropertyStructuredData data={intent.data as Percentile10PropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <Percentile10PropertyStructuredData data={intent.data as unknown as Percentile10PropertyInput} />,
   },
   "percentile25": {
     componentName: "Percentile25PropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <Percentile25PropertyStructuredData data={intent.data as Percentile25PropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <Percentile25PropertyStructuredData data={intent.data as unknown as Percentile25PropertyInput} />,
   },
   "percentile75": {
     componentName: "Percentile75PropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <Percentile75PropertyStructuredData data={intent.data as Percentile75PropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <Percentile75PropertyStructuredData data={intent.data as unknown as Percentile75PropertyInput} />,
   },
   "percentile90": {
     componentName: "Percentile90PropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <Percentile90PropertyStructuredData data={intent.data as Percentile90PropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <Percentile90PropertyStructuredData data={intent.data as unknown as Percentile90PropertyInput} />,
   },
   "performer": {
     componentName: "PerformerPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PerformerPropertyStructuredData data={intent.data as PerformerPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PerformerPropertyStructuredData data={intent.data as unknown as PerformerPropertyInput} />,
   },
   "performerIn": {
     componentName: "PerformerInPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PerformerInPropertyStructuredData data={intent.data as PerformerInPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PerformerInPropertyStructuredData data={intent.data as unknown as PerformerInPropertyInput} />,
   },
   "performers": {
     componentName: "PerformersPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PerformersPropertyStructuredData data={intent.data as PerformersPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PerformersPropertyStructuredData data={intent.data as unknown as PerformersPropertyInput} />,
   },
   "performTime": {
     componentName: "PerformTimePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PerformTimePropertyStructuredData data={intent.data as PerformTimePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PerformTimePropertyStructuredData data={intent.data as unknown as PerformTimePropertyInput} />,
   },
   "permissions": {
     componentName: "PermissionsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PermissionsPropertyStructuredData data={intent.data as PermissionsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PermissionsPropertyStructuredData data={intent.data as unknown as PermissionsPropertyInput} />,
   },
   "photo": {
     componentName: "PhotoPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PhotoPropertyStructuredData data={intent.data as PhotoPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PhotoPropertyStructuredData data={intent.data as unknown as PhotoPropertyInput} />,
   },
   "photos": {
     componentName: "PhotosPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PhotosPropertyStructuredData data={intent.data as PhotosPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PhotosPropertyStructuredData data={intent.data as unknown as PhotosPropertyInput} />,
   },
   "physiologicalBenefits": {
     componentName: "PhysiologicalBenefitsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PhysiologicalBenefitsPropertyStructuredData data={intent.data as PhysiologicalBenefitsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PhysiologicalBenefitsPropertyStructuredData data={intent.data as unknown as PhysiologicalBenefitsPropertyInput} />,
   },
   "playerType": {
     componentName: "PlayerTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PlayerTypePropertyStructuredData data={intent.data as PlayerTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PlayerTypePropertyStructuredData data={intent.data as unknown as PlayerTypePropertyInput} />,
   },
   "polygon": {
     componentName: "PolygonPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PolygonPropertyStructuredData data={intent.data as PolygonPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PolygonPropertyStructuredData data={intent.data as unknown as PolygonPropertyInput} />,
   },
   "populationType": {
     componentName: "PopulationTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PopulationTypePropertyStructuredData data={intent.data as PopulationTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PopulationTypePropertyStructuredData data={intent.data as unknown as PopulationTypePropertyInput} />,
   },
   "position": {
     componentName: "PositionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PositionPropertyStructuredData data={intent.data as PositionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PositionPropertyStructuredData data={intent.data as unknown as PositionPropertyInput} />,
   },
   "positiveNotes": {
     componentName: "PositiveNotesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PositiveNotesPropertyStructuredData data={intent.data as PositiveNotesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PositiveNotesPropertyStructuredData data={intent.data as unknown as PositiveNotesPropertyInput} />,
   },
   "possibleComplication": {
     componentName: "PossibleComplicationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PossibleComplicationPropertyStructuredData data={intent.data as PossibleComplicationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PossibleComplicationPropertyStructuredData data={intent.data as unknown as PossibleComplicationPropertyInput} />,
   },
   "possibleTreatment": {
     componentName: "PossibleTreatmentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PossibleTreatmentPropertyStructuredData data={intent.data as PossibleTreatmentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PossibleTreatmentPropertyStructuredData data={intent.data as unknown as PossibleTreatmentPropertyInput} />,
   },
   "postalCode": {
     componentName: "PostalCodePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PostalCodePropertyStructuredData data={intent.data as PostalCodePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PostalCodePropertyStructuredData data={intent.data as unknown as PostalCodePropertyInput} />,
   },
   "postalCodeBegin": {
     componentName: "PostalCodeBeginPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PostalCodeBeginPropertyStructuredData data={intent.data as PostalCodeBeginPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PostalCodeBeginPropertyStructuredData data={intent.data as unknown as PostalCodeBeginPropertyInput} />,
   },
   "postalCodeEnd": {
     componentName: "PostalCodeEndPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PostalCodeEndPropertyStructuredData data={intent.data as PostalCodeEndPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PostalCodeEndPropertyStructuredData data={intent.data as unknown as PostalCodeEndPropertyInput} />,
   },
   "postalCodePrefix": {
     componentName: "PostalCodePrefixPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PostalCodePrefixPropertyStructuredData data={intent.data as PostalCodePrefixPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PostalCodePrefixPropertyStructuredData data={intent.data as unknown as PostalCodePrefixPropertyInput} />,
   },
   "postalCodeRange": {
     componentName: "PostalCodeRangePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PostalCodeRangePropertyStructuredData data={intent.data as PostalCodeRangePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PostalCodeRangePropertyStructuredData data={intent.data as unknown as PostalCodeRangePropertyInput} />,
   },
   "postOfficeBoxNumber": {
     componentName: "PostOfficeBoxNumberPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PostOfficeBoxNumberPropertyStructuredData data={intent.data as PostOfficeBoxNumberPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PostOfficeBoxNumberPropertyStructuredData data={intent.data as unknown as PostOfficeBoxNumberPropertyInput} />,
   },
   "postOp": {
     componentName: "PostOpPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PostOpPropertyStructuredData data={intent.data as PostOpPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PostOpPropertyStructuredData data={intent.data as unknown as PostOpPropertyInput} />,
   },
   "potentialAction": {
     componentName: "PotentialActionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PotentialActionPropertyStructuredData data={intent.data as PotentialActionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PotentialActionPropertyStructuredData data={intent.data as unknown as PotentialActionPropertyInput} />,
   },
   "predecessorOf": {
     componentName: "PredecessorOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PredecessorOfPropertyStructuredData data={intent.data as PredecessorOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PredecessorOfPropertyStructuredData data={intent.data as unknown as PredecessorOfPropertyInput} />,
   },
   "pregnancyCategory": {
     componentName: "PregnancyCategoryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PregnancyCategoryPropertyStructuredData data={intent.data as PregnancyCategoryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PregnancyCategoryPropertyStructuredData data={intent.data as unknown as PregnancyCategoryPropertyInput} />,
   },
   "pregnancyWarning": {
     componentName: "PregnancyWarningPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PregnancyWarningPropertyStructuredData data={intent.data as PregnancyWarningPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PregnancyWarningPropertyStructuredData data={intent.data as unknown as PregnancyWarningPropertyInput} />,
   },
   "preOp": {
     componentName: "PreOpPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PreOpPropertyStructuredData data={intent.data as PreOpPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PreOpPropertyStructuredData data={intent.data as unknown as PreOpPropertyInput} />,
   },
   "preparation": {
     componentName: "PreparationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PreparationPropertyStructuredData data={intent.data as PreparationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PreparationPropertyStructuredData data={intent.data as unknown as PreparationPropertyInput} />,
   },
   "prepTime": {
     componentName: "PrepTimePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PrepTimePropertyStructuredData data={intent.data as PrepTimePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PrepTimePropertyStructuredData data={intent.data as unknown as PrepTimePropertyInput} />,
   },
   "prescribingInfo": {
     componentName: "PrescribingInfoPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PrescribingInfoPropertyStructuredData data={intent.data as PrescribingInfoPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PrescribingInfoPropertyStructuredData data={intent.data as unknown as PrescribingInfoPropertyInput} />,
   },
   "prescriptionStatus": {
     componentName: "PrescriptionStatusPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PrescriptionStatusPropertyStructuredData data={intent.data as PrescriptionStatusPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PrescriptionStatusPropertyStructuredData data={intent.data as unknown as PrescriptionStatusPropertyInput} />,
   },
   "previousItem": {
     componentName: "PreviousItemPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PreviousItemPropertyStructuredData data={intent.data as PreviousItemPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PreviousItemPropertyStructuredData data={intent.data as unknown as PreviousItemPropertyInput} />,
   },
   "previousStartDate": {
     componentName: "PreviousStartDatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PreviousStartDatePropertyStructuredData data={intent.data as PreviousStartDatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PreviousStartDatePropertyStructuredData data={intent.data as unknown as PreviousStartDatePropertyInput} />,
   },
   "price": {
     componentName: "PricePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PricePropertyStructuredData data={intent.data as PricePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PricePropertyStructuredData data={intent.data as unknown as PricePropertyInput} />,
   },
   "priceComponentType": {
     componentName: "PriceComponentTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PriceComponentTypePropertyStructuredData data={intent.data as PriceComponentTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PriceComponentTypePropertyStructuredData data={intent.data as unknown as PriceComponentTypePropertyInput} />,
   },
   "priceCurrency": {
     componentName: "PriceCurrencyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PriceCurrencyPropertyStructuredData data={intent.data as PriceCurrencyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PriceCurrencyPropertyStructuredData data={intent.data as unknown as PriceCurrencyPropertyInput} />,
   },
   "priceSpecification": {
     componentName: "PriceSpecificationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PriceSpecificationPropertyStructuredData data={intent.data as PriceSpecificationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PriceSpecificationPropertyStructuredData data={intent.data as unknown as PriceSpecificationPropertyInput} />,
   },
   "priceType": {
     componentName: "PriceTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PriceTypePropertyStructuredData data={intent.data as PriceTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PriceTypePropertyStructuredData data={intent.data as unknown as PriceTypePropertyInput} />,
   },
   "priceValidUntil": {
     componentName: "PriceValidUntilPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PriceValidUntilPropertyStructuredData data={intent.data as PriceValidUntilPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PriceValidUntilPropertyStructuredData data={intent.data as unknown as PriceValidUntilPropertyInput} />,
   },
   "primaryImageOfPage": {
     componentName: "PrimaryImageOfPagePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PrimaryImageOfPagePropertyStructuredData data={intent.data as PrimaryImageOfPagePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PrimaryImageOfPagePropertyStructuredData data={intent.data as unknown as PrimaryImageOfPagePropertyInput} />,
   },
   "primaryPrevention": {
     componentName: "PrimaryPreventionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PrimaryPreventionPropertyStructuredData data={intent.data as PrimaryPreventionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PrimaryPreventionPropertyStructuredData data={intent.data as unknown as PrimaryPreventionPropertyInput} />,
   },
   "printColumn": {
     componentName: "PrintColumnPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PrintColumnPropertyStructuredData data={intent.data as PrintColumnPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PrintColumnPropertyStructuredData data={intent.data as unknown as PrintColumnPropertyInput} />,
   },
   "printEdition": {
     componentName: "PrintEditionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PrintEditionPropertyStructuredData data={intent.data as PrintEditionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PrintEditionPropertyStructuredData data={intent.data as unknown as PrintEditionPropertyInput} />,
   },
   "printPage": {
     componentName: "PrintPagePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PrintPagePropertyStructuredData data={intent.data as PrintPagePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PrintPagePropertyStructuredData data={intent.data as unknown as PrintPagePropertyInput} />,
   },
   "printSection": {
     componentName: "PrintSectionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PrintSectionPropertyStructuredData data={intent.data as PrintSectionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PrintSectionPropertyStructuredData data={intent.data as unknown as PrintSectionPropertyInput} />,
   },
   "procedure": {
     componentName: "ProcedurePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProcedurePropertyStructuredData data={intent.data as ProcedurePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProcedurePropertyStructuredData data={intent.data as unknown as ProcedurePropertyInput} />,
   },
   "procedureType": {
     componentName: "ProcedureTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProcedureTypePropertyStructuredData data={intent.data as ProcedureTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProcedureTypePropertyStructuredData data={intent.data as unknown as ProcedureTypePropertyInput} />,
   },
   "processingTime": {
     componentName: "ProcessingTimePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProcessingTimePropertyStructuredData data={intent.data as ProcessingTimePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProcessingTimePropertyStructuredData data={intent.data as unknown as ProcessingTimePropertyInput} />,
   },
   "processorRequirements": {
     componentName: "ProcessorRequirementsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProcessorRequirementsPropertyStructuredData data={intent.data as ProcessorRequirementsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProcessorRequirementsPropertyStructuredData data={intent.data as unknown as ProcessorRequirementsPropertyInput} />,
   },
   "producer": {
     componentName: "ProducerPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProducerPropertyStructuredData data={intent.data as ProducerPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProducerPropertyStructuredData data={intent.data as unknown as ProducerPropertyInput} />,
   },
   "produces": {
     componentName: "ProducesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProducesPropertyStructuredData data={intent.data as ProducesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProducesPropertyStructuredData data={intent.data as unknown as ProducesPropertyInput} />,
   },
   "productGroupID": {
     componentName: "ProductGroupIDPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProductGroupIDPropertyStructuredData data={intent.data as ProductGroupIDPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProductGroupIDPropertyStructuredData data={intent.data as unknown as ProductGroupIDPropertyInput} />,
   },
   "productID": {
     componentName: "ProductIDPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProductIDPropertyStructuredData data={intent.data as ProductIDPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProductIDPropertyStructuredData data={intent.data as unknown as ProductIDPropertyInput} />,
   },
   "productionCompany": {
     componentName: "ProductionCompanyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProductionCompanyPropertyStructuredData data={intent.data as ProductionCompanyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProductionCompanyPropertyStructuredData data={intent.data as unknown as ProductionCompanyPropertyInput} />,
   },
   "productionDate": {
     componentName: "ProductionDatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProductionDatePropertyStructuredData data={intent.data as ProductionDatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProductionDatePropertyStructuredData data={intent.data as unknown as ProductionDatePropertyInput} />,
   },
   "productSupported": {
     componentName: "ProductSupportedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProductSupportedPropertyStructuredData data={intent.data as ProductSupportedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProductSupportedPropertyStructuredData data={intent.data as unknown as ProductSupportedPropertyInput} />,
   },
   "program": {
     componentName: "ProgramPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProgramPropertyStructuredData data={intent.data as ProgramPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProgramPropertyStructuredData data={intent.data as unknown as ProgramPropertyInput} />,
   },
   "programName": {
     componentName: "ProgramNamePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProgramNamePropertyStructuredData data={intent.data as ProgramNamePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProgramNamePropertyStructuredData data={intent.data as unknown as ProgramNamePropertyInput} />,
   },
   "pronouns": {
     componentName: "PronounsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PronounsPropertyStructuredData data={intent.data as PronounsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PronounsPropertyStructuredData data={intent.data as unknown as PronounsPropertyInput} />,
   },
   "propertyID": {
     componentName: "PropertyIDPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PropertyIDPropertyStructuredData data={intent.data as PropertyIDPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PropertyIDPropertyStructuredData data={intent.data as unknown as PropertyIDPropertyInput} />,
   },
   "proprietaryName": {
     componentName: "ProprietaryNamePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProprietaryNamePropertyStructuredData data={intent.data as ProprietaryNamePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProprietaryNamePropertyStructuredData data={intent.data as unknown as ProprietaryNamePropertyInput} />,
   },
   "proteinContent": {
     componentName: "ProteinContentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProteinContentPropertyStructuredData data={intent.data as ProteinContentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProteinContentPropertyStructuredData data={intent.data as unknown as ProteinContentPropertyInput} />,
   },
   "provider": {
     componentName: "ProviderPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProviderPropertyStructuredData data={intent.data as ProviderPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProviderPropertyStructuredData data={intent.data as unknown as ProviderPropertyInput} />,
   },
   "providerMobility": {
     componentName: "ProviderMobilityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProviderMobilityPropertyStructuredData data={intent.data as ProviderMobilityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProviderMobilityPropertyStructuredData data={intent.data as unknown as ProviderMobilityPropertyInput} />,
   },
   "providesBroadcastService": {
     componentName: "ProvidesBroadcastServicePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProvidesBroadcastServicePropertyStructuredData data={intent.data as ProvidesBroadcastServicePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProvidesBroadcastServicePropertyStructuredData data={intent.data as unknown as ProvidesBroadcastServicePropertyInput} />,
   },
   "providesService": {
     componentName: "ProvidesServicePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ProvidesServicePropertyStructuredData data={intent.data as ProvidesServicePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ProvidesServicePropertyStructuredData data={intent.data as unknown as ProvidesServicePropertyInput} />,
   },
   "publicAccess": {
     componentName: "PublicAccessPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PublicAccessPropertyStructuredData data={intent.data as PublicAccessPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PublicAccessPropertyStructuredData data={intent.data as unknown as PublicAccessPropertyInput} />,
   },
   "publication": {
     componentName: "PublicationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PublicationPropertyStructuredData data={intent.data as PublicationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PublicationPropertyStructuredData data={intent.data as unknown as PublicationPropertyInput} />,
   },
   "publishedBy": {
     componentName: "PublishedByPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PublishedByPropertyStructuredData data={intent.data as PublishedByPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PublishedByPropertyStructuredData data={intent.data as unknown as PublishedByPropertyInput} />,
   },
   "publishedOn": {
     componentName: "PublishedOnPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PublishedOnPropertyStructuredData data={intent.data as PublishedOnPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PublishedOnPropertyStructuredData data={intent.data as unknown as PublishedOnPropertyInput} />,
   },
   "publisher": {
     componentName: "PublisherPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PublisherPropertyStructuredData data={intent.data as PublisherPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PublisherPropertyStructuredData data={intent.data as unknown as PublisherPropertyInput} />,
   },
   "publisherImprint": {
     componentName: "PublisherImprintPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PublisherImprintPropertyStructuredData data={intent.data as PublisherImprintPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PublisherImprintPropertyStructuredData data={intent.data as unknown as PublisherImprintPropertyInput} />,
   },
   "publishingPrinciples": {
     componentName: "PublishingPrinciplesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PublishingPrinciplesPropertyStructuredData data={intent.data as PublishingPrinciplesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PublishingPrinciplesPropertyStructuredData data={intent.data as unknown as PublishingPrinciplesPropertyInput} />,
   },
   "purchaseDate": {
     componentName: "PurchaseDatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <PurchaseDatePropertyStructuredData data={intent.data as PurchaseDatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <PurchaseDatePropertyStructuredData data={intent.data as unknown as PurchaseDatePropertyInput} />,
   },
   "qualifications": {
     componentName: "QualificationsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <QualificationsPropertyStructuredData data={intent.data as QualificationsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <QualificationsPropertyStructuredData data={intent.data as unknown as QualificationsPropertyInput} />,
   },
   "rangeIncludes": {
     componentName: "RangeIncludesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RangeIncludesPropertyStructuredData data={intent.data as RangeIncludesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RangeIncludesPropertyStructuredData data={intent.data as unknown as RangeIncludesPropertyInput} />,
   },
   "ratingCount": {
     componentName: "RatingCountPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RatingCountPropertyStructuredData data={intent.data as RatingCountPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RatingCountPropertyStructuredData data={intent.data as unknown as RatingCountPropertyInput} />,
   },
   "ratingExplanation": {
     componentName: "RatingExplanationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RatingExplanationPropertyStructuredData data={intent.data as RatingExplanationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RatingExplanationPropertyStructuredData data={intent.data as unknown as RatingExplanationPropertyInput} />,
   },
   "ratingValue": {
     componentName: "RatingValuePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RatingValuePropertyStructuredData data={intent.data as RatingValuePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RatingValuePropertyStructuredData data={intent.data as unknown as RatingValuePropertyInput} />,
   },
   "recognizedBy": {
     componentName: "RecognizedByPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RecognizedByPropertyStructuredData data={intent.data as RecognizedByPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RecognizedByPropertyStructuredData data={intent.data as unknown as RecognizedByPropertyInput} />,
   },
   "recognizingAuthority": {
     componentName: "RecognizingAuthorityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RecognizingAuthorityPropertyStructuredData data={intent.data as RecognizingAuthorityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RecognizingAuthorityPropertyStructuredData data={intent.data as unknown as RecognizingAuthorityPropertyInput} />,
   },
   "recordedAs": {
     componentName: "RecordedAsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RecordedAsPropertyStructuredData data={intent.data as RecordedAsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RecordedAsPropertyStructuredData data={intent.data as unknown as RecordedAsPropertyInput} />,
   },
   "recordedAt": {
     componentName: "RecordedAtPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RecordedAtPropertyStructuredData data={intent.data as RecordedAtPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RecordedAtPropertyStructuredData data={intent.data as unknown as RecordedAtPropertyInput} />,
   },
   "recordedIn": {
     componentName: "RecordedInPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RecordedInPropertyStructuredData data={intent.data as RecordedInPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RecordedInPropertyStructuredData data={intent.data as unknown as RecordedInPropertyInput} />,
   },
   "recordingOf": {
     componentName: "RecordingOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RecordingOfPropertyStructuredData data={intent.data as RecordingOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RecordingOfPropertyStructuredData data={intent.data as unknown as RecordingOfPropertyInput} />,
   },
   "recordLabel": {
     componentName: "RecordLabelPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RecordLabelPropertyStructuredData data={intent.data as RecordLabelPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RecordLabelPropertyStructuredData data={intent.data as unknown as RecordLabelPropertyInput} />,
   },
   "recourseLoan": {
     componentName: "RecourseLoanPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RecourseLoanPropertyStructuredData data={intent.data as RecourseLoanPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RecourseLoanPropertyStructuredData data={intent.data as unknown as RecourseLoanPropertyInput} />,
   },
   "referenceQuantity": {
     componentName: "ReferenceQuantityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReferenceQuantityPropertyStructuredData data={intent.data as ReferenceQuantityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReferenceQuantityPropertyStructuredData data={intent.data as unknown as ReferenceQuantityPropertyInput} />,
   },
   "refundType": {
     componentName: "RefundTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RefundTypePropertyStructuredData data={intent.data as RefundTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RefundTypePropertyStructuredData data={intent.data as unknown as RefundTypePropertyInput} />,
   },
   "regionsAllowed": {
     componentName: "RegionsAllowedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RegionsAllowedPropertyStructuredData data={intent.data as RegionsAllowedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RegionsAllowedPropertyStructuredData data={intent.data as unknown as RegionsAllowedPropertyInput} />,
   },
   "relatedAnatomy": {
     componentName: "RelatedAnatomyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RelatedAnatomyPropertyStructuredData data={intent.data as RelatedAnatomyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RelatedAnatomyPropertyStructuredData data={intent.data as unknown as RelatedAnatomyPropertyInput} />,
   },
   "relatedCondition": {
     componentName: "RelatedConditionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RelatedConditionPropertyStructuredData data={intent.data as RelatedConditionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RelatedConditionPropertyStructuredData data={intent.data as unknown as RelatedConditionPropertyInput} />,
   },
   "relatedDrug": {
     componentName: "RelatedDrugPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RelatedDrugPropertyStructuredData data={intent.data as RelatedDrugPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RelatedDrugPropertyStructuredData data={intent.data as unknown as RelatedDrugPropertyInput} />,
   },
   "relatedLink": {
     componentName: "RelatedLinkPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RelatedLinkPropertyStructuredData data={intent.data as RelatedLinkPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RelatedLinkPropertyStructuredData data={intent.data as unknown as RelatedLinkPropertyInput} />,
   },
   "relatedStructure": {
     componentName: "RelatedStructurePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RelatedStructurePropertyStructuredData data={intent.data as RelatedStructurePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RelatedStructurePropertyStructuredData data={intent.data as unknown as RelatedStructurePropertyInput} />,
   },
   "relatedTherapy": {
     componentName: "RelatedTherapyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RelatedTherapyPropertyStructuredData data={intent.data as RelatedTherapyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RelatedTherapyPropertyStructuredData data={intent.data as unknown as RelatedTherapyPropertyInput} />,
   },
   "relatedTo": {
     componentName: "RelatedToPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RelatedToPropertyStructuredData data={intent.data as RelatedToPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RelatedToPropertyStructuredData data={intent.data as unknown as RelatedToPropertyInput} />,
   },
   "releaseDate": {
     componentName: "ReleaseDatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReleaseDatePropertyStructuredData data={intent.data as ReleaseDatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReleaseDatePropertyStructuredData data={intent.data as unknown as ReleaseDatePropertyInput} />,
   },
   "releasedEvent": {
     componentName: "ReleasedEventPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReleasedEventPropertyStructuredData data={intent.data as ReleasedEventPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReleasedEventPropertyStructuredData data={intent.data as unknown as ReleasedEventPropertyInput} />,
   },
   "releaseNotes": {
     componentName: "ReleaseNotesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReleaseNotesPropertyStructuredData data={intent.data as ReleaseNotesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReleaseNotesPropertyStructuredData data={intent.data as unknown as ReleaseNotesPropertyInput} />,
   },
   "releaseOf": {
     componentName: "ReleaseOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReleaseOfPropertyStructuredData data={intent.data as ReleaseOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReleaseOfPropertyStructuredData data={intent.data as unknown as ReleaseOfPropertyInput} />,
   },
   "relevantSpecialty": {
     componentName: "RelevantSpecialtyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RelevantSpecialtyPropertyStructuredData data={intent.data as RelevantSpecialtyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RelevantSpecialtyPropertyStructuredData data={intent.data as unknown as RelevantSpecialtyPropertyInput} />,
   },
   "remainingAttendeeCapacity": {
     componentName: "RemainingAttendeeCapacityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RemainingAttendeeCapacityPropertyStructuredData data={intent.data as RemainingAttendeeCapacityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RemainingAttendeeCapacityPropertyStructuredData data={intent.data as unknown as RemainingAttendeeCapacityPropertyInput} />,
   },
   "renegotiableLoan": {
     componentName: "RenegotiableLoanPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RenegotiableLoanPropertyStructuredData data={intent.data as RenegotiableLoanPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RenegotiableLoanPropertyStructuredData data={intent.data as unknown as RenegotiableLoanPropertyInput} />,
   },
   "repeatCount": {
     componentName: "RepeatCountPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RepeatCountPropertyStructuredData data={intent.data as RepeatCountPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RepeatCountPropertyStructuredData data={intent.data as unknown as RepeatCountPropertyInput} />,
   },
   "repeatFrequency": {
     componentName: "RepeatFrequencyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RepeatFrequencyPropertyStructuredData data={intent.data as RepeatFrequencyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RepeatFrequencyPropertyStructuredData data={intent.data as unknown as RepeatFrequencyPropertyInput} />,
   },
   "representativeOfPage": {
     componentName: "RepresentativeOfPagePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RepresentativeOfPagePropertyStructuredData data={intent.data as RepresentativeOfPagePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RepresentativeOfPagePropertyStructuredData data={intent.data as unknown as RepresentativeOfPagePropertyInput} />,
   },
   "requiredCollateral": {
     componentName: "RequiredCollateralPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RequiredCollateralPropertyStructuredData data={intent.data as RequiredCollateralPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RequiredCollateralPropertyStructuredData data={intent.data as unknown as RequiredCollateralPropertyInput} />,
   },
   "requiredGender": {
     componentName: "RequiredGenderPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RequiredGenderPropertyStructuredData data={intent.data as RequiredGenderPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RequiredGenderPropertyStructuredData data={intent.data as unknown as RequiredGenderPropertyInput} />,
   },
   "requiredMaxAge": {
     componentName: "RequiredMaxAgePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RequiredMaxAgePropertyStructuredData data={intent.data as RequiredMaxAgePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RequiredMaxAgePropertyStructuredData data={intent.data as unknown as RequiredMaxAgePropertyInput} />,
   },
   "requiredMinAge": {
     componentName: "RequiredMinAgePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RequiredMinAgePropertyStructuredData data={intent.data as RequiredMinAgePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RequiredMinAgePropertyStructuredData data={intent.data as unknown as RequiredMinAgePropertyInput} />,
   },
   "requiredQuantity": {
     componentName: "RequiredQuantityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RequiredQuantityPropertyStructuredData data={intent.data as RequiredQuantityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RequiredQuantityPropertyStructuredData data={intent.data as unknown as RequiredQuantityPropertyInput} />,
   },
   "requirements": {
     componentName: "RequirementsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RequirementsPropertyStructuredData data={intent.data as RequirementsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RequirementsPropertyStructuredData data={intent.data as unknown as RequirementsPropertyInput} />,
   },
   "requiresSubscription": {
     componentName: "RequiresSubscriptionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RequiresSubscriptionPropertyStructuredData data={intent.data as RequiresSubscriptionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RequiresSubscriptionPropertyStructuredData data={intent.data as unknown as RequiresSubscriptionPropertyInput} />,
   },
   "responsibilities": {
     componentName: "ResponsibilitiesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ResponsibilitiesPropertyStructuredData data={intent.data as ResponsibilitiesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ResponsibilitiesPropertyStructuredData data={intent.data as unknown as ResponsibilitiesPropertyInput} />,
   },
   "restockingFee": {
     componentName: "RestockingFeePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RestockingFeePropertyStructuredData data={intent.data as RestockingFeePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RestockingFeePropertyStructuredData data={intent.data as unknown as RestockingFeePropertyInput} />,
   },
   "result": {
     componentName: "ResultPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ResultPropertyStructuredData data={intent.data as ResultPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ResultPropertyStructuredData data={intent.data as unknown as ResultPropertyInput} />,
   },
   "returnFees": {
     componentName: "ReturnFeesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReturnFeesPropertyStructuredData data={intent.data as ReturnFeesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReturnFeesPropertyStructuredData data={intent.data as unknown as ReturnFeesPropertyInput} />,
   },
   "returnLabelSource": {
     componentName: "ReturnLabelSourcePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReturnLabelSourcePropertyStructuredData data={intent.data as ReturnLabelSourcePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReturnLabelSourcePropertyStructuredData data={intent.data as unknown as ReturnLabelSourcePropertyInput} />,
   },
   "returnMethod": {
     componentName: "ReturnMethodPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReturnMethodPropertyStructuredData data={intent.data as ReturnMethodPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReturnMethodPropertyStructuredData data={intent.data as unknown as ReturnMethodPropertyInput} />,
   },
   "returnPolicyCategory": {
     componentName: "ReturnPolicyCategoryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReturnPolicyCategoryPropertyStructuredData data={intent.data as ReturnPolicyCategoryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReturnPolicyCategoryPropertyStructuredData data={intent.data as unknown as ReturnPolicyCategoryPropertyInput} />,
   },
   "returnPolicyCountry": {
     componentName: "ReturnPolicyCountryPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReturnPolicyCountryPropertyStructuredData data={intent.data as ReturnPolicyCountryPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReturnPolicyCountryPropertyStructuredData data={intent.data as unknown as ReturnPolicyCountryPropertyInput} />,
   },
   "returnPolicySeasonalOverride": {
     componentName: "ReturnPolicySeasonalOverridePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReturnPolicySeasonalOverridePropertyStructuredData data={intent.data as ReturnPolicySeasonalOverridePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReturnPolicySeasonalOverridePropertyStructuredData data={intent.data as unknown as ReturnPolicySeasonalOverridePropertyInput} />,
   },
   "returnShippingFeesAmount": {
     componentName: "ReturnShippingFeesAmountPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReturnShippingFeesAmountPropertyStructuredData data={intent.data as ReturnShippingFeesAmountPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReturnShippingFeesAmountPropertyStructuredData data={intent.data as unknown as ReturnShippingFeesAmountPropertyInput} />,
   },
   "review": {
     componentName: "ReviewPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReviewPropertyStructuredData data={intent.data as ReviewPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReviewPropertyStructuredData data={intent.data as unknown as ReviewPropertyInput} />,
   },
   "reviewAspect": {
     componentName: "ReviewAspectPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReviewAspectPropertyStructuredData data={intent.data as ReviewAspectPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReviewAspectPropertyStructuredData data={intent.data as unknown as ReviewAspectPropertyInput} />,
   },
   "reviewBody": {
     componentName: "ReviewBodyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReviewBodyPropertyStructuredData data={intent.data as ReviewBodyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReviewBodyPropertyStructuredData data={intent.data as unknown as ReviewBodyPropertyInput} />,
   },
   "reviewCount": {
     componentName: "ReviewCountPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReviewCountPropertyStructuredData data={intent.data as ReviewCountPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReviewCountPropertyStructuredData data={intent.data as unknown as ReviewCountPropertyInput} />,
   },
   "reviewedBy": {
     componentName: "ReviewedByPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReviewedByPropertyStructuredData data={intent.data as ReviewedByPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReviewedByPropertyStructuredData data={intent.data as unknown as ReviewedByPropertyInput} />,
   },
   "reviewRating": {
     componentName: "ReviewRatingPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReviewRatingPropertyStructuredData data={intent.data as ReviewRatingPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReviewRatingPropertyStructuredData data={intent.data as unknown as ReviewRatingPropertyInput} />,
   },
   "reviews": {
     componentName: "ReviewsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ReviewsPropertyStructuredData data={intent.data as ReviewsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ReviewsPropertyStructuredData data={intent.data as unknown as ReviewsPropertyInput} />,
   },
   "riskFactor": {
     componentName: "RiskFactorPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RiskFactorPropertyStructuredData data={intent.data as RiskFactorPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RiskFactorPropertyStructuredData data={intent.data as unknown as RiskFactorPropertyInput} />,
   },
   "risks": {
     componentName: "RisksPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RisksPropertyStructuredData data={intent.data as RisksPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RisksPropertyStructuredData data={intent.data as unknown as RisksPropertyInput} />,
   },
   "runtimePlatform": {
     componentName: "RuntimePlatformPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RuntimePlatformPropertyStructuredData data={intent.data as RuntimePlatformPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RuntimePlatformPropertyStructuredData data={intent.data as unknown as RuntimePlatformPropertyInput} />,
   },
   "rxcui": {
     componentName: "RxcuiPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <RxcuiPropertyStructuredData data={intent.data as RxcuiPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <RxcuiPropertyStructuredData data={intent.data as unknown as RxcuiPropertyInput} />,
   },
   "sameAs": {
     componentName: "SameAsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SameAsPropertyStructuredData data={intent.data as SameAsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SameAsPropertyStructuredData data={intent.data as unknown as SameAsPropertyInput} />,
   },
   "saturatedFatContent": {
     componentName: "SaturatedFatContentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SaturatedFatContentPropertyStructuredData data={intent.data as SaturatedFatContentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SaturatedFatContentPropertyStructuredData data={intent.data as unknown as SaturatedFatContentPropertyInput} />,
   },
   "scheduleTimezone": {
     componentName: "ScheduleTimezonePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ScheduleTimezonePropertyStructuredData data={intent.data as ScheduleTimezonePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ScheduleTimezonePropertyStructuredData data={intent.data as unknown as ScheduleTimezonePropertyInput} />,
   },
   "schemaVersion": {
     componentName: "SchemaVersionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SchemaVersionPropertyStructuredData data={intent.data as SchemaVersionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SchemaVersionPropertyStructuredData data={intent.data as unknown as SchemaVersionPropertyInput} />,
   },
   "screenshot": {
     componentName: "ScreenshotPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ScreenshotPropertyStructuredData data={intent.data as ScreenshotPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ScreenshotPropertyStructuredData data={intent.data as unknown as ScreenshotPropertyInput} />,
   },
   "sdDatePublished": {
     componentName: "SdDatePublishedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SdDatePublishedPropertyStructuredData data={intent.data as SdDatePublishedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SdDatePublishedPropertyStructuredData data={intent.data as unknown as SdDatePublishedPropertyInput} />,
   },
   "sdLicense": {
     componentName: "SdLicensePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SdLicensePropertyStructuredData data={intent.data as SdLicensePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SdLicensePropertyStructuredData data={intent.data as unknown as SdLicensePropertyInput} />,
   },
   "sdPublisher": {
     componentName: "SdPublisherPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SdPublisherPropertyStructuredData data={intent.data as SdPublisherPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SdPublisherPropertyStructuredData data={intent.data as unknown as SdPublisherPropertyInput} />,
   },
   "seasonalOverride": {
     componentName: "SeasonalOverridePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SeasonalOverridePropertyStructuredData data={intent.data as SeasonalOverridePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SeasonalOverridePropertyStructuredData data={intent.data as unknown as SeasonalOverridePropertyInput} />,
   },
   "seasonNumber": {
     componentName: "SeasonNumberPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SeasonNumberPropertyStructuredData data={intent.data as SeasonNumberPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SeasonNumberPropertyStructuredData data={intent.data as unknown as SeasonNumberPropertyInput} />,
   },
   "secondaryPrevention": {
     componentName: "SecondaryPreventionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SecondaryPreventionPropertyStructuredData data={intent.data as SecondaryPreventionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SecondaryPreventionPropertyStructuredData data={intent.data as unknown as SecondaryPreventionPropertyInput} />,
   },
   "seeks": {
     componentName: "SeeksPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SeeksPropertyStructuredData data={intent.data as SeeksPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SeeksPropertyStructuredData data={intent.data as unknown as SeeksPropertyInput} />,
   },
   "seller": {
     componentName: "SellerPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SellerPropertyStructuredData data={intent.data as SellerPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SellerPropertyStructuredData data={intent.data as unknown as SellerPropertyInput} />,
   },
   "serialNumber": {
     componentName: "SerialNumberPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SerialNumberPropertyStructuredData data={intent.data as SerialNumberPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SerialNumberPropertyStructuredData data={intent.data as unknown as SerialNumberPropertyInput} />,
   },
   "seriousAdverseOutcome": {
     componentName: "SeriousAdverseOutcomePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SeriousAdverseOutcomePropertyStructuredData data={intent.data as SeriousAdverseOutcomePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SeriousAdverseOutcomePropertyStructuredData data={intent.data as unknown as SeriousAdverseOutcomePropertyInput} />,
   },
   "serviceArea": {
     componentName: "ServiceAreaPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ServiceAreaPropertyStructuredData data={intent.data as ServiceAreaPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ServiceAreaPropertyStructuredData data={intent.data as unknown as ServiceAreaPropertyInput} />,
   },
   "serviceAudience": {
     componentName: "ServiceAudiencePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ServiceAudiencePropertyStructuredData data={intent.data as ServiceAudiencePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ServiceAudiencePropertyStructuredData data={intent.data as unknown as ServiceAudiencePropertyInput} />,
   },
   "serviceLocation": {
     componentName: "ServiceLocationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ServiceLocationPropertyStructuredData data={intent.data as ServiceLocationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ServiceLocationPropertyStructuredData data={intent.data as unknown as ServiceLocationPropertyInput} />,
   },
   "serviceOutput": {
     componentName: "ServiceOutputPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ServiceOutputPropertyStructuredData data={intent.data as ServiceOutputPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ServiceOutputPropertyStructuredData data={intent.data as unknown as ServiceOutputPropertyInput} />,
   },
   "servicePhone": {
     componentName: "ServicePhonePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ServicePhonePropertyStructuredData data={intent.data as ServicePhonePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ServicePhonePropertyStructuredData data={intent.data as unknown as ServicePhonePropertyInput} />,
   },
   "servicePostalAddress": {
     componentName: "ServicePostalAddressPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ServicePostalAddressPropertyStructuredData data={intent.data as ServicePostalAddressPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ServicePostalAddressPropertyStructuredData data={intent.data as unknown as ServicePostalAddressPropertyInput} />,
   },
   "serviceSmsNumber": {
     componentName: "ServiceSmsNumberPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ServiceSmsNumberPropertyStructuredData data={intent.data as ServiceSmsNumberPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ServiceSmsNumberPropertyStructuredData data={intent.data as unknown as ServiceSmsNumberPropertyInput} />,
   },
   "serviceType": {
     componentName: "ServiceTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ServiceTypePropertyStructuredData data={intent.data as ServiceTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ServiceTypePropertyStructuredData data={intent.data as unknown as ServiceTypePropertyInput} />,
   },
   "serviceUrl": {
     componentName: "ServiceUrlPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ServiceUrlPropertyStructuredData data={intent.data as ServiceUrlPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ServiceUrlPropertyStructuredData data={intent.data as unknown as ServiceUrlPropertyInput} />,
   },
   "servingSize": {
     componentName: "ServingSizePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ServingSizePropertyStructuredData data={intent.data as ServingSizePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ServingSizePropertyStructuredData data={intent.data as unknown as ServingSizePropertyInput} />,
   },
   "sha256": {
     componentName: "Sha256PropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <Sha256PropertyStructuredData data={intent.data as Sha256PropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <Sha256PropertyStructuredData data={intent.data as unknown as Sha256PropertyInput} />,
   },
   "sharedContent": {
     componentName: "SharedContentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SharedContentPropertyStructuredData data={intent.data as SharedContentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SharedContentPropertyStructuredData data={intent.data as unknown as SharedContentPropertyInput} />,
   },
   "shippingConditions": {
     componentName: "ShippingConditionsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ShippingConditionsPropertyStructuredData data={intent.data as ShippingConditionsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ShippingConditionsPropertyStructuredData data={intent.data as unknown as ShippingConditionsPropertyInput} />,
   },
   "shippingDestination": {
     componentName: "ShippingDestinationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ShippingDestinationPropertyStructuredData data={intent.data as ShippingDestinationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ShippingDestinationPropertyStructuredData data={intent.data as unknown as ShippingDestinationPropertyInput} />,
   },
   "shippingDetails": {
     componentName: "ShippingDetailsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ShippingDetailsPropertyStructuredData data={intent.data as ShippingDetailsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ShippingDetailsPropertyStructuredData data={intent.data as unknown as ShippingDetailsPropertyInput} />,
   },
   "shippingOrigin": {
     componentName: "ShippingOriginPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ShippingOriginPropertyStructuredData data={intent.data as ShippingOriginPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ShippingOriginPropertyStructuredData data={intent.data as unknown as ShippingOriginPropertyInput} />,
   },
   "shippingRate": {
     componentName: "ShippingRatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ShippingRatePropertyStructuredData data={intent.data as ShippingRatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ShippingRatePropertyStructuredData data={intent.data as unknown as ShippingRatePropertyInput} />,
   },
   "sibling": {
     componentName: "SiblingPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SiblingPropertyStructuredData data={intent.data as SiblingPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SiblingPropertyStructuredData data={intent.data as unknown as SiblingPropertyInput} />,
   },
   "siblings": {
     componentName: "SiblingsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SiblingsPropertyStructuredData data={intent.data as SiblingsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SiblingsPropertyStructuredData data={intent.data as unknown as SiblingsPropertyInput} />,
   },
   "signDetected": {
     componentName: "SignDetectedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SignDetectedPropertyStructuredData data={intent.data as SignDetectedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SignDetectedPropertyStructuredData data={intent.data as unknown as SignDetectedPropertyInput} />,
   },
   "significance": {
     componentName: "SignificancePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SignificancePropertyStructuredData data={intent.data as SignificancePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SignificancePropertyStructuredData data={intent.data as unknown as SignificancePropertyInput} />,
   },
   "significantLink": {
     componentName: "SignificantLinkPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SignificantLinkPropertyStructuredData data={intent.data as SignificantLinkPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SignificantLinkPropertyStructuredData data={intent.data as unknown as SignificantLinkPropertyInput} />,
   },
   "significantLinks": {
     componentName: "SignificantLinksPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SignificantLinksPropertyStructuredData data={intent.data as SignificantLinksPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SignificantLinksPropertyStructuredData data={intent.data as unknown as SignificantLinksPropertyInput} />,
   },
   "signOrSymptom": {
     componentName: "SignOrSymptomPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SignOrSymptomPropertyStructuredData data={intent.data as SignOrSymptomPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SignOrSymptomPropertyStructuredData data={intent.data as unknown as SignOrSymptomPropertyInput} />,
   },
   "size": {
     componentName: "SizePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SizePropertyStructuredData data={intent.data as SizePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SizePropertyStructuredData data={intent.data as unknown as SizePropertyInput} />,
   },
   "skills": {
     componentName: "SkillsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SkillsPropertyStructuredData data={intent.data as SkillsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SkillsPropertyStructuredData data={intent.data as unknown as SkillsPropertyInput} />,
   },
   "sku": {
     componentName: "SkuPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SkuPropertyStructuredData data={intent.data as SkuPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SkuPropertyStructuredData data={intent.data as unknown as SkuPropertyInput} />,
   },
   "slogan": {
     componentName: "SloganPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SloganPropertyStructuredData data={intent.data as SloganPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SloganPropertyStructuredData data={intent.data as unknown as SloganPropertyInput} />,
   },
   "smokingAllowed": {
     componentName: "SmokingAllowedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SmokingAllowedPropertyStructuredData data={intent.data as SmokingAllowedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SmokingAllowedPropertyStructuredData data={intent.data as unknown as SmokingAllowedPropertyInput} />,
   },
   "sodiumContent": {
     componentName: "SodiumContentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SodiumContentPropertyStructuredData data={intent.data as SodiumContentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SodiumContentPropertyStructuredData data={intent.data as unknown as SodiumContentPropertyInput} />,
   },
   "softwareAddOn": {
     componentName: "SoftwareAddOnPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SoftwareAddOnPropertyStructuredData data={intent.data as SoftwareAddOnPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SoftwareAddOnPropertyStructuredData data={intent.data as unknown as SoftwareAddOnPropertyInput} />,
   },
   "softwareHelp": {
     componentName: "SoftwareHelpPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SoftwareHelpPropertyStructuredData data={intent.data as SoftwareHelpPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SoftwareHelpPropertyStructuredData data={intent.data as unknown as SoftwareHelpPropertyInput} />,
   },
   "softwareRequirements": {
     componentName: "SoftwareRequirementsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SoftwareRequirementsPropertyStructuredData data={intent.data as SoftwareRequirementsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SoftwareRequirementsPropertyStructuredData data={intent.data as unknown as SoftwareRequirementsPropertyInput} />,
   },
   "softwareVersion": {
     componentName: "SoftwareVersionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SoftwareVersionPropertyStructuredData data={intent.data as SoftwareVersionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SoftwareVersionPropertyStructuredData data={intent.data as unknown as SoftwareVersionPropertyInput} />,
   },
   "sourceOrganization": {
     componentName: "SourceOrganizationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SourceOrganizationPropertyStructuredData data={intent.data as SourceOrganizationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SourceOrganizationPropertyStructuredData data={intent.data as unknown as SourceOrganizationPropertyInput} />,
   },
   "spatial": {
     componentName: "SpatialPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SpatialPropertyStructuredData data={intent.data as SpatialPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SpatialPropertyStructuredData data={intent.data as unknown as SpatialPropertyInput} />,
   },
   "spatialCoverage": {
     componentName: "SpatialCoveragePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SpatialCoveragePropertyStructuredData data={intent.data as SpatialCoveragePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SpatialCoveragePropertyStructuredData data={intent.data as unknown as SpatialCoveragePropertyInput} />,
   },
   "speakable": {
     componentName: "SpeakablePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SpeakablePropertyStructuredData data={intent.data as SpeakablePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SpeakablePropertyStructuredData data={intent.data as unknown as SpeakablePropertyInput} />,
   },
   "specialOpeningHoursSpecification": {
     componentName: "SpecialOpeningHoursSpecificationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SpecialOpeningHoursSpecificationPropertyStructuredData data={intent.data as SpecialOpeningHoursSpecificationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SpecialOpeningHoursSpecificationPropertyStructuredData data={intent.data as unknown as SpecialOpeningHoursSpecificationPropertyInput} />,
   },
   "specialty": {
     componentName: "SpecialtyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SpecialtyPropertyStructuredData data={intent.data as SpecialtyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SpecialtyPropertyStructuredData data={intent.data as unknown as SpecialtyPropertyInput} />,
   },
   "sponsor": {
     componentName: "SponsorPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SponsorPropertyStructuredData data={intent.data as SponsorPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SponsorPropertyStructuredData data={intent.data as unknown as SponsorPropertyInput} />,
   },
   "spouse": {
     componentName: "SpousePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SpousePropertyStructuredData data={intent.data as SpousePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SpousePropertyStructuredData data={intent.data as unknown as SpousePropertyInput} />,
   },
   "stage": {
     componentName: "StagePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StagePropertyStructuredData data={intent.data as StagePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StagePropertyStructuredData data={intent.data as unknown as StagePropertyInput} />,
   },
   "stageAsNumber": {
     componentName: "StageAsNumberPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StageAsNumberPropertyStructuredData data={intent.data as StageAsNumberPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StageAsNumberPropertyStructuredData data={intent.data as unknown as StageAsNumberPropertyInput} />,
   },
   "startDate": {
     componentName: "StartDatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StartDatePropertyStructuredData data={intent.data as StartDatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StartDatePropertyStructuredData data={intent.data as unknown as StartDatePropertyInput} />,
   },
   "startOffset": {
     componentName: "StartOffsetPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StartOffsetPropertyStructuredData data={intent.data as StartOffsetPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StartOffsetPropertyStructuredData data={intent.data as unknown as StartOffsetPropertyInput} />,
   },
   "startTime": {
     componentName: "StartTimePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StartTimePropertyStructuredData data={intent.data as StartTimePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StartTimePropertyStructuredData data={intent.data as unknown as StartTimePropertyInput} />,
   },
   "statType": {
     componentName: "StatTypePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StatTypePropertyStructuredData data={intent.data as StatTypePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StatTypePropertyStructuredData data={intent.data as unknown as StatTypePropertyInput} />,
   },
   "status": {
     componentName: "StatusPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StatusPropertyStructuredData data={intent.data as StatusPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StatusPropertyStructuredData data={intent.data as unknown as StatusPropertyInput} />,
   },
   "step": {
     componentName: "StepPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StepPropertyStructuredData data={intent.data as StepPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StepPropertyStructuredData data={intent.data as unknown as StepPropertyInput} />,
   },
   "steps": {
     componentName: "StepsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StepsPropertyStructuredData data={intent.data as StepsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StepsPropertyStructuredData data={intent.data as unknown as StepsPropertyInput} />,
   },
   "storageRequirements": {
     componentName: "StorageRequirementsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StorageRequirementsPropertyStructuredData data={intent.data as StorageRequirementsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StorageRequirementsPropertyStructuredData data={intent.data as unknown as StorageRequirementsPropertyInput} />,
   },
   "streetAddress": {
     componentName: "StreetAddressPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StreetAddressPropertyStructuredData data={intent.data as StreetAddressPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StreetAddressPropertyStructuredData data={intent.data as unknown as StreetAddressPropertyInput} />,
   },
   "strengthUnit": {
     componentName: "StrengthUnitPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StrengthUnitPropertyStructuredData data={intent.data as StrengthUnitPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StrengthUnitPropertyStructuredData data={intent.data as unknown as StrengthUnitPropertyInput} />,
   },
   "strengthValue": {
     componentName: "StrengthValuePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StrengthValuePropertyStructuredData data={intent.data as StrengthValuePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StrengthValuePropertyStructuredData data={intent.data as unknown as StrengthValuePropertyInput} />,
   },
   "study": {
     componentName: "StudyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StudyPropertyStructuredData data={intent.data as StudyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StudyPropertyStructuredData data={intent.data as unknown as StudyPropertyInput} />,
   },
   "studyLocation": {
     componentName: "StudyLocationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StudyLocationPropertyStructuredData data={intent.data as StudyLocationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StudyLocationPropertyStructuredData data={intent.data as unknown as StudyLocationPropertyInput} />,
   },
   "studySubject": {
     componentName: "StudySubjectPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <StudySubjectPropertyStructuredData data={intent.data as StudySubjectPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <StudySubjectPropertyStructuredData data={intent.data as unknown as StudySubjectPropertyInput} />,
   },
   "subEvent": {
     componentName: "SubEventPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SubEventPropertyStructuredData data={intent.data as SubEventPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SubEventPropertyStructuredData data={intent.data as unknown as SubEventPropertyInput} />,
   },
   "subEvents": {
     componentName: "SubEventsPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SubEventsPropertyStructuredData data={intent.data as SubEventsPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SubEventsPropertyStructuredData data={intent.data as unknown as SubEventsPropertyInput} />,
   },
   "subjectOf": {
     componentName: "SubjectOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SubjectOfPropertyStructuredData data={intent.data as SubjectOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SubjectOfPropertyStructuredData data={intent.data as unknown as SubjectOfPropertyInput} />,
   },
   "subOrganization": {
     componentName: "SubOrganizationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SubOrganizationPropertyStructuredData data={intent.data as SubOrganizationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SubOrganizationPropertyStructuredData data={intent.data as unknown as SubOrganizationPropertyInput} />,
   },
   "subStageSuffix": {
     componentName: "SubStageSuffixPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SubStageSuffixPropertyStructuredData data={intent.data as SubStageSuffixPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SubStageSuffixPropertyStructuredData data={intent.data as unknown as SubStageSuffixPropertyInput} />,
   },
   "subStructure": {
     componentName: "SubStructurePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SubStructurePropertyStructuredData data={intent.data as SubStructurePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SubStructurePropertyStructuredData data={intent.data as unknown as SubStructurePropertyInput} />,
   },
   "subTrip": {
     componentName: "SubTripPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SubTripPropertyStructuredData data={intent.data as SubTripPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SubTripPropertyStructuredData data={intent.data as unknown as SubTripPropertyInput} />,
   },
   "successorOf": {
     componentName: "SuccessorOfPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SuccessorOfPropertyStructuredData data={intent.data as SuccessorOfPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SuccessorOfPropertyStructuredData data={intent.data as unknown as SuccessorOfPropertyInput} />,
   },
   "sugarContent": {
     componentName: "SugarContentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SugarContentPropertyStructuredData data={intent.data as SugarContentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SugarContentPropertyStructuredData data={intent.data as unknown as SugarContentPropertyInput} />,
   },
   "suggestedAge": {
     componentName: "SuggestedAgePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SuggestedAgePropertyStructuredData data={intent.data as SuggestedAgePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SuggestedAgePropertyStructuredData data={intent.data as unknown as SuggestedAgePropertyInput} />,
   },
   "suggestedGender": {
     componentName: "SuggestedGenderPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SuggestedGenderPropertyStructuredData data={intent.data as SuggestedGenderPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SuggestedGenderPropertyStructuredData data={intent.data as unknown as SuggestedGenderPropertyInput} />,
   },
   "suggestedMaxAge": {
     componentName: "SuggestedMaxAgePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SuggestedMaxAgePropertyStructuredData data={intent.data as SuggestedMaxAgePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SuggestedMaxAgePropertyStructuredData data={intent.data as unknown as SuggestedMaxAgePropertyInput} />,
   },
   "suggestedMeasurement": {
     componentName: "SuggestedMeasurementPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SuggestedMeasurementPropertyStructuredData data={intent.data as SuggestedMeasurementPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SuggestedMeasurementPropertyStructuredData data={intent.data as unknown as SuggestedMeasurementPropertyInput} />,
   },
   "suggestedMinAge": {
     componentName: "SuggestedMinAgePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SuggestedMinAgePropertyStructuredData data={intent.data as SuggestedMinAgePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SuggestedMinAgePropertyStructuredData data={intent.data as unknown as SuggestedMinAgePropertyInput} />,
   },
   "suitableForDiet": {
     componentName: "SuitableForDietPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SuitableForDietPropertyStructuredData data={intent.data as SuitableForDietPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SuitableForDietPropertyStructuredData data={intent.data as unknown as SuitableForDietPropertyInput} />,
   },
   "superEvent": {
     componentName: "SuperEventPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SuperEventPropertyStructuredData data={intent.data as SuperEventPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SuperEventPropertyStructuredData data={intent.data as unknown as SuperEventPropertyInput} />,
   },
   "supersededBy": {
     componentName: "SupersededByPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SupersededByPropertyStructuredData data={intent.data as SupersededByPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SupersededByPropertyStructuredData data={intent.data as unknown as SupersededByPropertyInput} />,
   },
   "supply": {
     componentName: "SupplyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SupplyPropertyStructuredData data={intent.data as SupplyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SupplyPropertyStructuredData data={intent.data as unknown as SupplyPropertyInput} />,
   },
   "supportingData": {
     componentName: "SupportingDataPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <SupportingDataPropertyStructuredData data={intent.data as SupportingDataPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <SupportingDataPropertyStructuredData data={intent.data as unknown as SupportingDataPropertyInput} />,
   },
   "target": {
     componentName: "TargetPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TargetPropertyStructuredData data={intent.data as TargetPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TargetPropertyStructuredData data={intent.data as unknown as TargetPropertyInput} />,
   },
   "targetDescription": {
     componentName: "TargetDescriptionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TargetDescriptionPropertyStructuredData data={intent.data as TargetDescriptionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TargetDescriptionPropertyStructuredData data={intent.data as unknown as TargetDescriptionPropertyInput} />,
   },
   "targetName": {
     componentName: "TargetNamePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TargetNamePropertyStructuredData data={intent.data as TargetNamePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TargetNamePropertyStructuredData data={intent.data as unknown as TargetNamePropertyInput} />,
   },
   "targetPopulation": {
     componentName: "TargetPopulationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TargetPopulationPropertyStructuredData data={intent.data as TargetPopulationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TargetPopulationPropertyStructuredData data={intent.data as unknown as TargetPopulationPropertyInput} />,
   },
   "targetUrl": {
     componentName: "TargetUrlPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TargetUrlPropertyStructuredData data={intent.data as TargetUrlPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TargetUrlPropertyStructuredData data={intent.data as unknown as TargetUrlPropertyInput} />,
   },
   "taxID": {
     componentName: "TaxIDPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TaxIDPropertyStructuredData data={intent.data as TaxIDPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TaxIDPropertyStructuredData data={intent.data as unknown as TaxIDPropertyInput} />,
   },
   "taxonomicRange": {
     componentName: "TaxonomicRangePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TaxonomicRangePropertyStructuredData data={intent.data as TaxonomicRangePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TaxonomicRangePropertyStructuredData data={intent.data as unknown as TaxonomicRangePropertyInput} />,
   },
   "taxonRank": {
     componentName: "TaxonRankPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TaxonRankPropertyStructuredData data={intent.data as TaxonRankPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TaxonRankPropertyStructuredData data={intent.data as unknown as TaxonRankPropertyInput} />,
   },
   "teaches": {
     componentName: "TeachesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TeachesPropertyStructuredData data={intent.data as TeachesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TeachesPropertyStructuredData data={intent.data as unknown as TeachesPropertyInput} />,
   },
   "telephone": {
     componentName: "TelephonePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TelephonePropertyStructuredData data={intent.data as TelephonePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TelephonePropertyStructuredData data={intent.data as unknown as TelephonePropertyInput} />,
   },
   "temporal": {
     componentName: "TemporalPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TemporalPropertyStructuredData data={intent.data as TemporalPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TemporalPropertyStructuredData data={intent.data as unknown as TemporalPropertyInput} />,
   },
   "temporalCoverage": {
     componentName: "TemporalCoveragePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TemporalCoveragePropertyStructuredData data={intent.data as TemporalCoveragePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TemporalCoveragePropertyStructuredData data={intent.data as unknown as TemporalCoveragePropertyInput} />,
   },
   "termCode": {
     componentName: "TermCodePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TermCodePropertyStructuredData data={intent.data as TermCodePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TermCodePropertyStructuredData data={intent.data as unknown as TermCodePropertyInput} />,
   },
   "termsOfService": {
     componentName: "TermsOfServicePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TermsOfServicePropertyStructuredData data={intent.data as TermsOfServicePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TermsOfServicePropertyStructuredData data={intent.data as unknown as TermsOfServicePropertyInput} />,
   },
   "text": {
     componentName: "TextPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TextPropertyStructuredData data={intent.data as TextPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TextPropertyStructuredData data={intent.data as unknown as TextPropertyInput} />,
   },
   "thumbnail": {
     componentName: "ThumbnailPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ThumbnailPropertyStructuredData data={intent.data as ThumbnailPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ThumbnailPropertyStructuredData data={intent.data as unknown as ThumbnailPropertyInput} />,
   },
   "thumbnailUrl": {
     componentName: "ThumbnailUrlPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ThumbnailUrlPropertyStructuredData data={intent.data as ThumbnailUrlPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ThumbnailUrlPropertyStructuredData data={intent.data as unknown as ThumbnailUrlPropertyInput} />,
   },
   "timeRequired": {
     componentName: "TimeRequiredPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TimeRequiredPropertyStructuredData data={intent.data as TimeRequiredPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TimeRequiredPropertyStructuredData data={intent.data as unknown as TimeRequiredPropertyInput} />,
   },
   "tocContinuation": {
     componentName: "TocContinuationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TocContinuationPropertyStructuredData data={intent.data as TocContinuationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TocContinuationPropertyStructuredData data={intent.data as unknown as TocContinuationPropertyInput} />,
   },
   "tool": {
     componentName: "ToolPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ToolPropertyStructuredData data={intent.data as ToolPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ToolPropertyStructuredData data={intent.data as unknown as ToolPropertyInput} />,
   },
   "totalTime": {
     componentName: "TotalTimePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TotalTimePropertyStructuredData data={intent.data as TotalTimePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TotalTimePropertyStructuredData data={intent.data as unknown as TotalTimePropertyInput} />,
   },
   "tourBookingPage": {
     componentName: "TourBookingPagePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TourBookingPagePropertyStructuredData data={intent.data as TourBookingPagePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TourBookingPagePropertyStructuredData data={intent.data as unknown as TourBookingPagePropertyInput} />,
   },
   "track": {
     componentName: "TrackPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TrackPropertyStructuredData data={intent.data as TrackPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TrackPropertyStructuredData data={intent.data as unknown as TrackPropertyInput} />,
   },
   "tracks": {
     componentName: "TracksPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TracksPropertyStructuredData data={intent.data as TracksPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TracksPropertyStructuredData data={intent.data as unknown as TracksPropertyInput} />,
   },
   "trailer": {
     componentName: "TrailerPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TrailerPropertyStructuredData data={intent.data as TrailerPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TrailerPropertyStructuredData data={intent.data as unknown as TrailerPropertyInput} />,
   },
   "transcript": {
     componentName: "TranscriptPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TranscriptPropertyStructuredData data={intent.data as TranscriptPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TranscriptPropertyStructuredData data={intent.data as unknown as TranscriptPropertyInput} />,
   },
   "transFatContent": {
     componentName: "TransFatContentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TransFatContentPropertyStructuredData data={intent.data as TransFatContentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TransFatContentPropertyStructuredData data={intent.data as unknown as TransFatContentPropertyInput} />,
   },
   "transitTime": {
     componentName: "TransitTimePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TransitTimePropertyStructuredData data={intent.data as TransitTimePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TransitTimePropertyStructuredData data={intent.data as unknown as TransitTimePropertyInput} />,
   },
   "translationOfWork": {
     componentName: "TranslationOfWorkPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TranslationOfWorkPropertyStructuredData data={intent.data as TranslationOfWorkPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TranslationOfWorkPropertyStructuredData data={intent.data as unknown as TranslationOfWorkPropertyInput} />,
   },
   "translator": {
     componentName: "TranslatorPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TranslatorPropertyStructuredData data={intent.data as TranslatorPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TranslatorPropertyStructuredData data={intent.data as unknown as TranslatorPropertyInput} />,
   },
   "tripOrigin": {
     componentName: "TripOriginPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TripOriginPropertyStructuredData data={intent.data as TripOriginPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TripOriginPropertyStructuredData data={intent.data as unknown as TripOriginPropertyInput} />,
   },
   "typeOfGood": {
     componentName: "TypeOfGoodPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TypeOfGoodPropertyStructuredData data={intent.data as TypeOfGoodPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TypeOfGoodPropertyStructuredData data={intent.data as unknown as TypeOfGoodPropertyInput} />,
   },
   "typicalAgeRange": {
     componentName: "TypicalAgeRangePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TypicalAgeRangePropertyStructuredData data={intent.data as TypicalAgeRangePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TypicalAgeRangePropertyStructuredData data={intent.data as unknown as TypicalAgeRangePropertyInput} />,
   },
   "typicalTest": {
     componentName: "TypicalTestPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <TypicalTestPropertyStructuredData data={intent.data as TypicalTestPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <TypicalTestPropertyStructuredData data={intent.data as unknown as TypicalTestPropertyInput} />,
   },
   "unitCode": {
     componentName: "UnitCodePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <UnitCodePropertyStructuredData data={intent.data as UnitCodePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <UnitCodePropertyStructuredData data={intent.data as unknown as UnitCodePropertyInput} />,
   },
   "unitText": {
     componentName: "UnitTextPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <UnitTextPropertyStructuredData data={intent.data as UnitTextPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <UnitTextPropertyStructuredData data={intent.data as unknown as UnitTextPropertyInput} />,
   },
   "unnamedSourcesPolicy": {
     componentName: "UnnamedSourcesPolicyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <UnnamedSourcesPolicyPropertyStructuredData data={intent.data as UnnamedSourcesPolicyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <UnnamedSourcesPolicyPropertyStructuredData data={intent.data as unknown as UnnamedSourcesPolicyPropertyInput} />,
   },
   "unsaturatedFatContent": {
     componentName: "UnsaturatedFatContentPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <UnsaturatedFatContentPropertyStructuredData data={intent.data as UnsaturatedFatContentPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <UnsaturatedFatContentPropertyStructuredData data={intent.data as unknown as UnsaturatedFatContentPropertyInput} />,
   },
   "uploadDate": {
     componentName: "UploadDatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <UploadDatePropertyStructuredData data={intent.data as UploadDatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <UploadDatePropertyStructuredData data={intent.data as unknown as UploadDatePropertyInput} />,
   },
   "upvoteCount": {
     componentName: "UpvoteCountPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <UpvoteCountPropertyStructuredData data={intent.data as UpvoteCountPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <UpvoteCountPropertyStructuredData data={intent.data as unknown as UpvoteCountPropertyInput} />,
   },
   "url": {
     componentName: "UrlPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <UrlPropertyStructuredData data={intent.data as UrlPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <UrlPropertyStructuredData data={intent.data as unknown as UrlPropertyInput} />,
   },
   "urlTemplate": {
     componentName: "UrlTemplatePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <UrlTemplatePropertyStructuredData data={intent.data as UrlTemplatePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <UrlTemplatePropertyStructuredData data={intent.data as unknown as UrlTemplatePropertyInput} />,
   },
   "usageInfo": {
     componentName: "UsageInfoPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <UsageInfoPropertyStructuredData data={intent.data as UsageInfoPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <UsageInfoPropertyStructuredData data={intent.data as unknown as UsageInfoPropertyInput} />,
   },
   "usedToDiagnose": {
     componentName: "UsedToDiagnosePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <UsedToDiagnosePropertyStructuredData data={intent.data as UsedToDiagnosePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <UsedToDiagnosePropertyStructuredData data={intent.data as unknown as UsedToDiagnosePropertyInput} />,
   },
   "userInteractionCount": {
     componentName: "UserInteractionCountPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <UserInteractionCountPropertyStructuredData data={intent.data as UserInteractionCountPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <UserInteractionCountPropertyStructuredData data={intent.data as unknown as UserInteractionCountPropertyInput} />,
   },
   "usesDevice": {
     componentName: "UsesDevicePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <UsesDevicePropertyStructuredData data={intent.data as UsesDevicePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <UsesDevicePropertyStructuredData data={intent.data as unknown as UsesDevicePropertyInput} />,
   },
   "usesHealthPlanIdStandard": {
     componentName: "UsesHealthPlanIdStandardPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <UsesHealthPlanIdStandardPropertyStructuredData data={intent.data as UsesHealthPlanIdStandardPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <UsesHealthPlanIdStandardPropertyStructuredData data={intent.data as unknown as UsesHealthPlanIdStandardPropertyInput} />,
   },
   "utterances": {
     componentName: "UtterancesPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <UtterancesPropertyStructuredData data={intent.data as UtterancesPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <UtterancesPropertyStructuredData data={intent.data as unknown as UtterancesPropertyInput} />,
   },
   "validFor": {
     componentName: "ValidForPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ValidForPropertyStructuredData data={intent.data as ValidForPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ValidForPropertyStructuredData data={intent.data as unknown as ValidForPropertyInput} />,
   },
   "validForMemberTier": {
     componentName: "ValidForMemberTierPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ValidForMemberTierPropertyStructuredData data={intent.data as ValidForMemberTierPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ValidForMemberTierPropertyStructuredData data={intent.data as unknown as ValidForMemberTierPropertyInput} />,
   },
   "validFrom": {
     componentName: "ValidFromPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ValidFromPropertyStructuredData data={intent.data as ValidFromPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ValidFromPropertyStructuredData data={intent.data as unknown as ValidFromPropertyInput} />,
   },
   "validIn": {
     componentName: "ValidInPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ValidInPropertyStructuredData data={intent.data as ValidInPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ValidInPropertyStructuredData data={intent.data as unknown as ValidInPropertyInput} />,
   },
   "validThrough": {
     componentName: "ValidThroughPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ValidThroughPropertyStructuredData data={intent.data as ValidThroughPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ValidThroughPropertyStructuredData data={intent.data as unknown as ValidThroughPropertyInput} />,
   },
   "value": {
     componentName: "ValuePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ValuePropertyStructuredData data={intent.data as ValuePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ValuePropertyStructuredData data={intent.data as unknown as ValuePropertyInput} />,
   },
   "valueAddedTaxIncluded": {
     componentName: "ValueAddedTaxIncludedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ValueAddedTaxIncludedPropertyStructuredData data={intent.data as ValueAddedTaxIncludedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ValueAddedTaxIncludedPropertyStructuredData data={intent.data as unknown as ValueAddedTaxIncludedPropertyInput} />,
   },
   "valueReference": {
     componentName: "ValueReferencePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <ValueReferencePropertyStructuredData data={intent.data as ValueReferencePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <ValueReferencePropertyStructuredData data={intent.data as unknown as ValueReferencePropertyInput} />,
   },
   "variableMeasured": {
     componentName: "VariableMeasuredPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <VariableMeasuredPropertyStructuredData data={intent.data as VariableMeasuredPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <VariableMeasuredPropertyStructuredData data={intent.data as unknown as VariableMeasuredPropertyInput} />,
   },
   "variesBy": {
     componentName: "VariesByPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <VariesByPropertyStructuredData data={intent.data as VariesByPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <VariesByPropertyStructuredData data={intent.data as unknown as VariesByPropertyInput} />,
   },
   "vatID": {
     componentName: "VatIDPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <VatIDPropertyStructuredData data={intent.data as VatIDPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <VatIDPropertyStructuredData data={intent.data as unknown as VatIDPropertyInput} />,
   },
   "version": {
     componentName: "VersionPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <VersionPropertyStructuredData data={intent.data as VersionPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <VersionPropertyStructuredData data={intent.data as unknown as VersionPropertyInput} />,
   },
   "video": {
     componentName: "VideoPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <VideoPropertyStructuredData data={intent.data as VideoPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <VideoPropertyStructuredData data={intent.data as unknown as VideoPropertyInput} />,
   },
   "videoFormat": {
     componentName: "VideoFormatPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <VideoFormatPropertyStructuredData data={intent.data as VideoFormatPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <VideoFormatPropertyStructuredData data={intent.data as unknown as VideoFormatPropertyInput} />,
   },
   "videoFrameSize": {
     componentName: "VideoFrameSizePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <VideoFrameSizePropertyStructuredData data={intent.data as VideoFrameSizePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <VideoFrameSizePropertyStructuredData data={intent.data as unknown as VideoFrameSizePropertyInput} />,
   },
   "videoQuality": {
     componentName: "VideoQualityPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <VideoQualityPropertyStructuredData data={intent.data as VideoQualityPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <VideoQualityPropertyStructuredData data={intent.data as unknown as VideoQualityPropertyInput} />,
   },
   "warning": {
     componentName: "WarningPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <WarningPropertyStructuredData data={intent.data as WarningPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <WarningPropertyStructuredData data={intent.data as unknown as WarningPropertyInput} />,
   },
   "warranty": {
     componentName: "WarrantyPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <WarrantyPropertyStructuredData data={intent.data as WarrantyPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <WarrantyPropertyStructuredData data={intent.data as unknown as WarrantyPropertyInput} />,
   },
   "warrantyScope": {
     componentName: "WarrantyScopePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <WarrantyScopePropertyStructuredData data={intent.data as WarrantyScopePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <WarrantyScopePropertyStructuredData data={intent.data as unknown as WarrantyScopePropertyInput} />,
   },
   "weight": {
     componentName: "WeightPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <WeightPropertyStructuredData data={intent.data as WeightPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <WeightPropertyStructuredData data={intent.data as unknown as WeightPropertyInput} />,
   },
   "weightPercentage": {
     componentName: "WeightPercentagePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <WeightPercentagePropertyStructuredData data={intent.data as WeightPercentagePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <WeightPercentagePropertyStructuredData data={intent.data as unknown as WeightPercentagePropertyInput} />,
   },
   "width": {
     componentName: "WidthPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <WidthPropertyStructuredData data={intent.data as WidthPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <WidthPropertyStructuredData data={intent.data as unknown as WidthPropertyInput} />,
   },
   "wordCount": {
     componentName: "WordCountPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <WordCountPropertyStructuredData data={intent.data as WordCountPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <WordCountPropertyStructuredData data={intent.data as unknown as WordCountPropertyInput} />,
   },
   "workExample": {
     componentName: "WorkExamplePropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <WorkExamplePropertyStructuredData data={intent.data as WorkExamplePropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <WorkExamplePropertyStructuredData data={intent.data as unknown as WorkExamplePropertyInput} />,
   },
   "workFeatured": {
     componentName: "WorkFeaturedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <WorkFeaturedPropertyStructuredData data={intent.data as WorkFeaturedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <WorkFeaturedPropertyStructuredData data={intent.data as unknown as WorkFeaturedPropertyInput} />,
   },
   "workLocation": {
     componentName: "WorkLocationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <WorkLocationPropertyStructuredData data={intent.data as WorkLocationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <WorkLocationPropertyStructuredData data={intent.data as unknown as WorkLocationPropertyInput} />,
   },
   "workPerformed": {
     componentName: "WorkPerformedPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <WorkPerformedPropertyStructuredData data={intent.data as WorkPerformedPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <WorkPerformedPropertyStructuredData data={intent.data as unknown as WorkPerformedPropertyInput} />,
   },
   "worksFor": {
     componentName: "WorksForPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <WorksForPropertyStructuredData data={intent.data as WorksForPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <WorksForPropertyStructuredData data={intent.data as unknown as WorksForPropertyInput} />,
   },
   "workTranslation": {
     componentName: "WorkTranslationPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <WorkTranslationPropertyStructuredData data={intent.data as WorkTranslationPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <WorkTranslationPropertyStructuredData data={intent.data as unknown as WorkTranslationPropertyInput} />,
   },
   "worstRating": {
     componentName: "WorstRatingPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <WorstRatingPropertyStructuredData data={intent.data as WorstRatingPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <WorstRatingPropertyStructuredData data={intent.data as unknown as WorstRatingPropertyInput} />,
   },
   "xpath": {
     componentName: "XpathPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <XpathPropertyStructuredData data={intent.data as XpathPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <XpathPropertyStructuredData data={intent.data as unknown as XpathPropertyInput} />,
   },
   "yield": {
     componentName: "YieldPropertyStructuredData",
-    render: (intent: CompiledStructuredDataIntent) => <YieldPropertyStructuredData data={intent.data as YieldPropertyInput} />,
+    render: (intent: CompiledStructuredDataIntent) => <YieldPropertyStructuredData data={intent.data as unknown as YieldPropertyInput} />,
   },
 }) satisfies Record<string, StructuredDataIntentRendererEntry>;
