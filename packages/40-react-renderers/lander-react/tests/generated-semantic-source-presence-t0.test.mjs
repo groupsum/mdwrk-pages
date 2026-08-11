@@ -8,7 +8,7 @@ const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../
 const generatedSchemaTypeRoot = path.join(
   repoRoot,
   "packages",
-  "contracts",
+  "00-contracts",
   "lander-content-contract",
   "schemas",
   "generated-schemaorg-page-family",
@@ -17,14 +17,14 @@ const generatedSchemaTypeRoot = path.join(
 const generatedTypeFamilyRoot = path.join(
   repoRoot,
   "packages",
-  "ui",
+  "40-react-renderers",
   "lander-react",
   "src",
   "semantic",
   "generated-type-family",
 );
 const generatorPath = path.join(repoRoot, "tools", "generate-schemaorg-fused-surface.mjs");
-const structuredDataCorePath = path.join(repoRoot, "packages", "contracts", "structured-data", "src", "core.ts");
+const structuredDataCorePath = path.join(repoRoot, "packages", "00-contracts", "structured-data", "src", "core.ts");
 
 const specialSlugs = new Map([
   ["FAQPage", "faq-page"],

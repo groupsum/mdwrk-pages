@@ -1,1 +1,1 @@
-export const LANDER_PAGE_TEMPLATES_VERSION = "0.1.3";
+export const LANDER_PAGE_TEMPLATES_VERSION = "0.1.4";

@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const demoRoot = path.resolve(here, "..");
-const repoRoot = path.resolve(demoRoot, "..", "..");
+const repoRoot = path.resolve(demoRoot, "..", "..", "..");
 
 const mainSource = fs.readFileSync(path.join(demoRoot, "src", "main.tsx"), "utf8");
 const styles = fs.readFileSync(path.join(demoRoot, "src", "styles.css"), "utf8");

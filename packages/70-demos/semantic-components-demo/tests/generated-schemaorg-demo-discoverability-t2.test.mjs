@@ -4,7 +4,7 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
 import { buildGeneratedArtifactView, qaViewLinks } from "../src/showcase-catalog.mjs";
-import { foundationalGeneratedProperties, foundationalGeneratedTypes } from "../../../tests/generated-schemaorg-artifact-helpers.mjs";
+import { foundationalGeneratedProperties, foundationalGeneratedTypes } from "../../../../tests/generated-schemaorg-artifact-helpers.mjs";
 import { importShowcaseComponent } from "./load-showcase-component.mjs";
 
 const { SemanticShowcase } = await importShowcaseComponent();

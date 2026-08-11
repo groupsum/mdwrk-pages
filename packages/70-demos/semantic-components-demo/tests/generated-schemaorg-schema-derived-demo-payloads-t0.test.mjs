@@ -3,7 +3,7 @@ import test from "node:test";
 
 import { validateStructuredDataByType } from "../../../../packages/00-contracts/lander-content-contract/dist/index.js";
 import { generatedArtifactEntries } from "../src/showcase-catalog.mjs";
-import { generatedPassThroughArtifacts } from "../../../tests/generated-schemaorg-artifact-helpers.mjs";
+import { generatedPassThroughArtifacts } from "../../../../tests/generated-schemaorg-artifact-helpers.mjs";
 
 function payloadFromEntry(entry) {
   if (entry.artifactKind === "type" || entry.artifactKind === "property") {

@@ -1,1 +1,1 @@
-export const LANDER_REACT_VERSION = "0.1.23";
+export const LANDER_REACT_VERSION = "0.1.24";

@@ -53,7 +53,7 @@ export async function importLanderReactDist() {
   const structuredDataReactDist = path.join(
     repoRoot,
     "packages",
-    "machine",
+    "50-machine-output",
     "lander-react-structured-data",
     "dist",
     "index.js",
@@ -61,7 +61,7 @@ export async function importLanderReactDist() {
   const structuredDataReactSmoke = path.join(
     repoRoot,
     "packages",
-    "machine",
+    "50-machine-output",
     "lander-react-structured-data",
     "dist",
     `index.${suffix}.smoke.mjs`,
@@ -69,7 +69,7 @@ export async function importLanderReactDist() {
   const structuredDataDist = path.join(
     repoRoot,
     "packages",
-    "contracts",
+    "00-contracts",
     "structured-data",
     "dist",
     "index.js",
@@ -77,7 +77,7 @@ export async function importLanderReactDist() {
   const primitivesDist = path.join(
     repoRoot,
     "packages",
-    "ui",
+    "30-ui-foundation",
     "lander-primitives",
     "dist",
     "index.js",

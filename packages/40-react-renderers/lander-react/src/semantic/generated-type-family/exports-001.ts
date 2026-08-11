@@ -48,3 +48,5 @@ export { PostalCodeRangeSpecification } from "./components/postal-code-range-spe
 export type { PostalCodeRangeSpecificationProps } from "./components/postal-code-range-specification.js";
 export { PriceSpecification } from "./components/price-specification.js";
 export type { PriceSpecificationProps } from "./components/price-specification.js";
+export { ComputerLanguage } from "./components/computer-language.js";
+export type { ComputerLanguageProps } from "./components/computer-language.js";

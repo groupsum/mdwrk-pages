@@ -12,10 +12,10 @@ const distIndex = path.join(distRoot, 'index.js');
 const smokeIndex = path.join(distRoot, 'index.smoke.mjs');
 const semanticDistRoot = path.join(distRoot, 'semantic');
 const semanticSmokeRoot = path.join(distRoot, 'semantic.smoke');
-const structuredDataReactDist = path.join(repoRoot, 'packages', 'machine', 'lander-react-structured-data', 'dist', 'index.js');
-const structuredDataReactSmoke = path.join(repoRoot, 'packages', 'machine', 'lander-react-structured-data', 'dist', 'index.smoke.mjs');
-const structuredDataDist = path.join(repoRoot, 'packages', 'contracts', 'structured-data', 'dist', 'index.js').replace(/\\/g, '/');
-const primitivesDist = path.join(repoRoot, 'packages', 'ui', 'lander-primitives', 'dist', 'index.js').replace(/\\/g, '/');
+const structuredDataReactDist = path.join(repoRoot, 'packages', '50-machine-output', 'lander-react-structured-data', 'dist', 'index.js');
+const structuredDataReactSmoke = path.join(repoRoot, 'packages', '50-machine-output', 'lander-react-structured-data', 'dist', 'index.smoke.mjs');
+const structuredDataDist = path.join(repoRoot, 'packages', '00-contracts', 'structured-data', 'dist', 'index.js').replace(/\\/g, '/');
+const primitivesDist = path.join(repoRoot, 'packages', '30-ui-foundation', 'lander-primitives', 'dist', 'index.js').replace(/\\/g, '/');
 
 function copySemanticTree(srcRoot, destRoot, structuredDataReactSmokePath, primitivesDistPath) {
   fs.mkdirSync(destRoot, { recursive: true });

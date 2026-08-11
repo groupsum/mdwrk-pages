@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const demoRoot = path.resolve(here, "..");
-const repoRoot = path.resolve(demoRoot, "..", "..");
+const repoRoot = path.resolve(demoRoot, "..", "..", "..");
 
 const styles = fs.readFileSync(path.join(demoRoot, "src", "styles.css"), "utf8");
 const dockerfile = fs.readFileSync(path.join(demoRoot, "Dockerfile"), "utf8");

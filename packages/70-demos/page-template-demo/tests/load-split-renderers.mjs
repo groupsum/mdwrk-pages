@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const testRoot = path.dirname(fileURLToPath(import.meta.url));
-const repoRoot = path.resolve(testRoot, "..", "..", "..");
+const repoRoot = path.resolve(testRoot, "..", "..", "..", "..");
 
 function rewriteModule(inputPath, replacements, outputPath) {
   let source = fs.readFileSync(inputPath, "utf8");
@@ -33,7 +33,7 @@ export async function importSplitRenderers() {
   const structuredDataDist = path.join(
     repoRoot,
     "packages",
-    "contracts",
+    "00-contracts",
     "structured-data",
     "dist",
     "index.js",
@@ -41,7 +41,7 @@ export async function importSplitRenderers() {
   const structuredDataReactDist = path.join(
     repoRoot,
     "packages",
-    "machine",
+    "50-machine-output",
     "lander-react-structured-data",
     "dist",
     "index.js",
@@ -49,16 +49,16 @@ export async function importSplitRenderers() {
   const structuredDataReactSmoke = path.join(
     repoRoot,
     "packages",
-    "machine",
+    "50-machine-output",
     "lander-react-structured-data",
     "dist",
     `index.${suffix}.smoke.mjs`,
   );
-  const landerReactDist = path.join(repoRoot, "packages", "ui", "lander-react", "dist", "index.js");
+  const landerReactDist = path.join(repoRoot, "packages", "40-react-renderers", "lander-react", "dist", "index.js");
   const landerReactSmoke = path.join(
     repoRoot,
     "packages",
-    "ui",
+    "40-react-renderers",
     "lander-react",
     "dist",
     `index.${suffix}.smoke.mjs`,
@@ -66,16 +66,16 @@ export async function importSplitRenderers() {
   const primitivesDist = path.join(
     repoRoot,
     "packages",
-    "ui",
+    "30-ui-foundation",
     "lander-primitives",
     "dist",
     "index.js",
   ).replace(/\\/g, "/");
-  const semanticDistRoot = path.join(repoRoot, "packages", "ui", "lander-react", "dist", "semantic");
+  const semanticDistRoot = path.join(repoRoot, "packages", "40-react-renderers", "lander-react", "dist", "semantic");
   const semanticSmokeRoot = path.join(
     repoRoot,
     "packages",
-    "ui",
+    "40-react-renderers",
     "lander-react",
     "dist",
     `semantic.${suffix}.smoke`,

@@ -6,8 +6,8 @@ import test from "node:test";
 import * as tokenExports from "../dist/index.js";
 import { semanticTokenFixtures } from "./semantic-token-fixtures.mjs";
 
-const sharedSemanticShellSource = readFileSync(resolve("../lander-react/src/semantic/shared.tsx"), "utf8");
-const semanticSource = readFileSync(resolve("../lander-react/src/semantic/index.ts"), "utf8");
+const sharedSemanticShellSource = readFileSync(resolve("../../40-react-renderers/lander-react/src/semantic/shared.tsx"), "utf8");
+const semanticSource = readFileSync(resolve("../../40-react-renderers/lander-react/src/semantic/index.ts"), "utf8");
 const generatedFamilyEntrypoints = new Map([
   ["type", './generated-type-family.js'],
   ["datatype", './datatype-family.js'],

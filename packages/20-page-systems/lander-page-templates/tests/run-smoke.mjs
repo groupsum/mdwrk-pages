@@ -7,7 +7,7 @@ const testRoot = path.dirname(fileURLToPath(import.meta.url));
 const packageRoot = path.resolve(testRoot, "..");
 const distRoot = path.resolve(packageRoot, "dist");
 const smokeRoot = path.resolve(packageRoot, ".smoke-dist");
-const contractDist = path.resolve(packageRoot, "..", "..", "contracts", "lander-content-contract", "dist", "index.js").replace(/\\/g, "/");
+const contractDist = path.resolve(packageRoot, "..", "..", "00-contracts", "lander-content-contract", "dist", "index.js").replace(/\\/g, "/");
 
 fs.rmSync(smokeRoot, { recursive: true, force: true });
 fs.cpSync(distRoot, smokeRoot, { recursive: true });

@@ -310,7 +310,7 @@ export const governedFamilyEntries = [
     "familySlug": "medical-family"
   },
   {
-    "name": "Thing",
+    "name": "CategoryCodeSet",
     "family": "Taxonomy family",
     "familySlug": "taxonomy-family"
   },
@@ -320,7 +320,7 @@ export const governedFamilyEntries = [
     "familySlug": "taxonomy-family"
   },
   {
-    "name": "CategoryCodeSet",
+    "name": "Thing",
     "family": "Taxonomy family",
     "familySlug": "taxonomy-family"
   },
@@ -640,12 +640,17 @@ export const governedFamilyEntries = [
     "familySlug": "article-family"
   },
   {
+    "name": "Answer",
+    "family": "Education family",
+    "familySlug": "education-family"
+  },
+  {
     "name": "CourseInstance",
     "family": "Education family",
     "familySlug": "education-family"
   },
   {
-    "name": "HowTo",
+    "name": "EducationalOccupationalCredential",
     "family": "Education family",
     "familySlug": "education-family"
   },
@@ -680,12 +685,17 @@ export const governedFamilyEntries = [
     "familySlug": "education-family"
   },
   {
+    "name": "HowTo",
+    "family": "Education family",
+    "familySlug": "education-family"
+  },
+  {
     "name": "LearningResource",
     "family": "Education family",
     "familySlug": "education-family"
   },
   {
-    "name": "EducationalOccupationalCredential",
+    "name": "MathSolver",
     "family": "Education family",
     "familySlug": "education-family"
   },
@@ -700,19 +710,14 @@ export const governedFamilyEntries = [
     "familySlug": "education-family"
   },
   {
-    "name": "Answer",
-    "family": "Education family",
-    "familySlug": "education-family"
-  },
-  {
     "name": "SolveMathAction",
     "family": "Education family",
     "familySlug": "education-family"
   },
   {
-    "name": "MathSolver",
-    "family": "Education family",
-    "familySlug": "education-family"
+    "name": "AggregateRating",
+    "family": "Commerce family",
+    "familySlug": "commerce-family"
   },
   {
     "name": "buildProductStructuredData",
@@ -731,11 +736,6 @@ export const governedFamilyEntries = [
   },
   {
     "name": "Review",
-    "family": "Commerce family",
-    "familySlug": "commerce-family"
-  },
-  {
-    "name": "AggregateRating",
     "family": "Commerce family",
     "familySlug": "commerce-family"
   },
@@ -765,17 +765,17 @@ export const governedFamilyEntries = [
     "familySlug": "commerce-family"
   },
   {
+    "name": "BroadcastEvent",
+    "family": "Media family",
+    "familySlug": "media-family"
+  },
+  {
     "name": "VideoObject",
     "family": "Media family",
     "familySlug": "media-family"
   },
   {
     "name": "Clip",
-    "family": "Media family",
-    "familySlug": "media-family"
-  },
-  {
-    "name": "BroadcastEvent",
     "family": "Media family",
     "familySlug": "media-family"
   },
@@ -828,6 +828,11 @@ export const governedFamilyEntries = [
     "name": "MusicRelease",
     "family": "Media family",
     "familySlug": "media-family"
+  },
+  {
+    "name": "BreadcrumbList",
+    "family": "Identity family",
+    "familySlug": "identity-family"
   },
   {
     "name": "ProfilePage",
@@ -885,11 +890,6 @@ export const governedFamilyEntries = [
     "familySlug": "identity-family"
   },
   {
-    "name": "BreadcrumbList",
-    "family": "Identity family",
-    "familySlug": "identity-family"
-  },
-  {
     "name": "SpeakableSpecification",
     "family": "Identity family",
     "familySlug": "identity-family"
@@ -925,12 +925,12 @@ export const governedFamilyEntries = [
     "familySlug": "page-family"
   },
   {
-    "name": "MediaGallery",
+    "name": "ItemPage",
     "family": "Page family",
     "familySlug": "page-family"
   },
   {
-    "name": "ItemPage",
+    "name": "MediaGallery",
     "family": "Page family",
     "familySlug": "page-family"
   },
@@ -960,17 +960,17 @@ export const governedFamilyEntries = [
     "familySlug": "page-family"
   },
   {
+    "name": "Book",
+    "family": "Catalog family",
+    "familySlug": "catalog-family"
+  },
+  {
     "name": "Dataset",
     "family": "Catalog family",
     "familySlug": "catalog-family"
   },
   {
     "name": "ItemList",
-    "family": "Catalog family",
-    "familySlug": "catalog-family"
-  },
-  {
-    "name": "Book",
     "family": "Catalog family",
     "familySlug": "catalog-family"
   },

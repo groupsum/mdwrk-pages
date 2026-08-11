@@ -84,8 +84,8 @@ test("T0: semantic components demo is a mode-driven explorer over the full gener
   assert.ok(primitiveSource.includes("primitiveGroups"));
   assert.equal(showcaseModes.length, 4);
   assert.ok(showcaseModes.some((mode) => mode.value === "primitives"));
-  assert.equal(showcaseStats.totalArtifacts, 1228);
-  assert.equal(showcaseStats.types, 232);
+  assert.equal(showcaseStats.totalArtifacts, 1229);
+  assert.equal(showcaseStats.types, 233);
   assert.equal(showcaseStats.properties, 935);
   assert.equal(showcaseStats.enumerations, 54);
   assert.equal(showcaseStats.datatypes, 7);

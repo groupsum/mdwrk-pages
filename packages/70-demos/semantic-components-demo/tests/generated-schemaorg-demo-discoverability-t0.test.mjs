@@ -6,12 +6,12 @@ import {
   generatedArtifactKindOptions,
   showcaseStats,
 } from "../src/showcase-catalog.mjs";
-import { foundationalGeneratedProperties, foundationalGeneratedTypes } from "../../../tests/generated-schemaorg-artifact-helpers.mjs";
+import { foundationalGeneratedProperties, foundationalGeneratedTypes } from "../../../../tests/generated-schemaorg-artifact-helpers.mjs";
 
 test("T0: generated-surface demo exposes the foundational generated types and properties", () => {
   assert.ok(generatedArtifactKindOptions.some((option) => option.value === "type"));
   assert.ok(generatedArtifactKindOptions.some((option) => option.value === "property"));
-  assert.equal(showcaseStats.types, 232);
+  assert.equal(showcaseStats.types, 233);
   assert.equal(showcaseStats.properties, 935);
 
   for (const name of foundationalGeneratedTypes) {

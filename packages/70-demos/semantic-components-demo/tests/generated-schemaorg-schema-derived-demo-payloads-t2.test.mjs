@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { buildGeneratedArtifactView, generatedArtifactEntries } from "../src/showcase-catalog.mjs";
-import { cloneJsonLike, generatedPassThroughArtifacts } from "../../../tests/generated-schemaorg-artifact-helpers.mjs";
+import { cloneJsonLike, generatedPassThroughArtifacts } from "../../../../tests/generated-schemaorg-artifact-helpers.mjs";
 
 const generatedPassThroughNames = new Set(generatedPassThroughArtifacts.map((artifact) => `${artifact.kind}:${artifact.name}`));
 

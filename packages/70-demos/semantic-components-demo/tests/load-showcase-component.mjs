@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const testRoot = path.dirname(fileURLToPath(import.meta.url));
 const demoRoot = path.resolve(testRoot, "..");
-const repoRoot = path.resolve(demoRoot, "..", "..");
+const repoRoot = path.resolve(demoRoot, "..", "..", "..");
 const cleanupWaitArray = new Int32Array(new SharedArrayBuffer(4));
 
 function sleep(milliseconds) {
@@ -65,7 +65,7 @@ export async function importShowcaseComponent() {
   const artifactDetailTempPath = path.join(demoRoot, "src", `showcase-artifact-detail.${suffix}.smoke.mjs`);
   const artifactManifestTempPath = path.join(demoRoot, "src", `showcase-artifact-manifest.${suffix}.smoke.mjs`);
   const primitiveManifestTempPath = path.join(demoRoot, "src", `showcase-primitive-manifest.${suffix}.smoke.mjs`);
-  const landerReactDistRoot = path.join(repoRoot, "packages", "ui", "lander-react", "dist");
+  const landerReactDistRoot = path.join(repoRoot, "packages", "40-react-renderers", "lander-react", "dist");
   const landerReactDist = path.join(landerReactDistRoot, "index.js");
   const landerReactSmoke = path.join(landerReactDistRoot, `index.${suffix}.smoke.mjs`);
   const semanticDistRoot = path.join(landerReactDistRoot, "semantic");
@@ -73,7 +73,7 @@ export async function importShowcaseComponent() {
   const structuredDataReactDistRoot = path.join(
     repoRoot,
     "packages",
-    "machine",
+    "50-machine-output",
     "lander-react-structured-data",
     "dist",
   );
@@ -82,12 +82,12 @@ export async function importShowcaseComponent() {
   const structuredDataDist = path.join(
     repoRoot,
     "packages",
-    "contracts",
+    "00-contracts",
     "structured-data",
     "dist",
     "index.js",
   ).replace(/\\/g, "/");
-  const primitivesDist = path.join(repoRoot, "packages", "ui", "lander-primitives", "dist", "index.js").replace(/\\/g, "/");
+  const primitivesDist = path.join(repoRoot, "packages", "30-ui-foundation", "lander-primitives", "dist", "index.js").replace(/\\/g, "/");
 
   fs.writeFileSync(
     structuredDataReactSmoke,
