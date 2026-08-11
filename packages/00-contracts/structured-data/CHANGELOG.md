@@ -2,6 +2,13 @@
 
 All notable changes to this package will be documented in this file.
 
+## 0.2.1 - 2026-08-11
+
+### Added
+
+- Added typed `ComputerLanguage` support through `computerLanguageNode`.
+- Added explicit `codeSampleType`, `targetProduct`, and `text` inputs to `softwareSourceCodeNode`.
+
 ## 0.2.0 - 2026-07-13
 
 ### Added

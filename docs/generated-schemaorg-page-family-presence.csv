@@ -35,6 +35,7 @@ type,cmns-col_Collection,packages/00-contracts/lander-content-contract/schemas/s
 type,cmns-ge_GeopoliticalEntity,packages/00-contracts/lander-content-contract/schemas/structured-data/cmns-ge-geopolitical-entity.schema.json,✅,✅,✅,✅
 type,CollectionPage,packages/00-contracts/lander-content-contract/schemas/structured-data/collection-page.schema.json,✅,✅,✅,✅
 type,Comment,packages/00-contracts/lander-content-contract/schemas/structured-data/comment.schema.json,✅,✅,✅,✅
+type,ComputerLanguage,packages/00-contracts/lander-content-contract/schemas/structured-data/computer-language.schema.json,✅,✅,✅,✅
 type,ConstraintNode,packages/00-contracts/lander-content-contract/schemas/structured-data/constraint-node.schema.json,✅,✅,✅,✅
 type,ContactPage,packages/00-contracts/lander-content-contract/schemas/structured-data/contact-page.schema.json,✅,✅,✅,✅
 type,ContactPoint,packages/00-contracts/lander-content-contract/schemas/structured-data/contact-point.schema.json,✅,✅,✅,✅

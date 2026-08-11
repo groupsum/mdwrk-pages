@@ -633,6 +633,23 @@ export const GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS: readonly SchemaOrgPageFa
   },
   {
     "kind": "type",
+    "name": "ComputerLanguage",
+    "slug": "computer-language",
+    "pascalName": "ComputerLanguage",
+    "wrapperExportName": "ComputerLanguageStructuredData",
+    "wrapperAliasExportName": "ComputerLanguageStructuredData",
+    "visibleExportName": "ComputerLanguage",
+    "visibleAliasExportName": "ComputerLanguage",
+    "cssFileName": "semantic-computer-language.css",
+    "cssExportPath": "./styles/semantic-computer-language.css",
+    "cssSourcePath": "./src/styles/semantic-computer-language.css",
+    "shellSelector": ".lander-semantic--computer-language",
+    "tokenPrefix": "mdp-semantic-computer-language-",
+    "tokenConstExportName": "MDWRK_PAGES_UI_SEMANTIC_COMPUTER_LANGUAGE_TOKEN_NAMES",
+    "tokenTypeExportName": "MdwrkPagesUiSemanticComputerLanguageTokenName"
+  },
+  {
+    "kind": "type",
     "name": "ConstraintNode",
     "slug": "constraint-node",
     "pascalName": "ConstraintNode",
@@ -20934,6 +20951,7 @@ export const GENERATED_SCHEMAORG_PAGE_FAMILY_KIND_NAMES = [
   "cmns-ge_GeopoliticalEntity",
   "CollectionPage",
   "Comment",
+  "ComputerLanguage",
   "ConstraintNode",
   "ContactPage",
   "ContactPoint",
@@ -22135,8 +22153,8 @@ export const GENERATED_SCHEMAORG_PAGE_FAMILY_ENUMERATIONS = GENERATED_SCHEMAORG_
 export const GENERATED_SCHEMAORG_PAGE_FAMILY_DATATYPES = GENERATED_SCHEMAORG_PAGE_FAMILY_ARTIFACTS.filter((artifact) => artifact.kind === "datatype");
 
 export const GENERATED_SCHEMAORG_PAGE_FAMILY_COUNTS = {
-  total: 1228,
-  types: 232,
+  total: 1229,
+  types: 233,
   properties: 935,
   enumerations: 54,
   datatypes: 7,

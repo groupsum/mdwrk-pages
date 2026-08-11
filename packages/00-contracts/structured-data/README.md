@@ -16,6 +16,7 @@ Use it when you need structured-data output without rewriting low-level Schema.o
 
 ## What
 - Builders for WebPage, WebSite, FAQPage, SoftwareApplication, TechArticle, Product, Dataset, and more.
+- Typed `DefinedTerm` and `ComputerLanguage` entities for governed vocabularies and programming-language relationships.
 - Helpers for canonical ids and graph assembly.
 - A shared discovery layer consumed heavily by the lander stack.
 

@@ -1,0 +1,1 @@
+{"claim_ids":["clm:structured-data.computer-language.t0","clm:structured-data.computer-language.t1"],"feature_id":"feat:structured-data.computer-language","schema_version":"ssot.evidence.scaffold.v1","status":"planned","target_tier":"T1","test_ids":["tst:pytest.structured-data.computer-language.t0.proof-graph","tst:pytest.structured-data.computer-language.t1.proof-graph"]}

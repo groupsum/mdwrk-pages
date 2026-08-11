@@ -17,6 +17,7 @@ import {
   breadcrumbListSchema,
   courseNode,
   courseInstanceNode,
+  computerLanguageNode,
   datasetNode,
   estimatedSalaryNode,
   faqPageSchema,
@@ -48,7 +49,14 @@ const contractDistEntry = pathToFileURL(
 ).href;
 
 test("T1: representative structured-data builder payloads satisfy published JSON Schema contracts", async () => {
-  const { validateStructuredDataByType } = await import(contractDistEntry);
+  const { getStructuredDataSchemaByType, validateStructuredDataByType } = await import(contractDistEntry);
+
+  assert.ok(getStructuredDataSchemaByType("ComputerLanguage"));
+  const computerLanguage = computerLanguageNode({
+    name: "TypeScript",
+    url: "https://www.typescriptlang.org/",
+  });
+  assert.deepEqual(validateStructuredDataByType("ComputerLanguage", computerLanguage), []);
 
   const article = articleNode({
     name: "Article",
@@ -238,7 +246,10 @@ test("T1: representative structured-data builder payloads satisfy published JSON
   const sourceCode = softwareSourceCodeNode({
     name: "Repo",
     codeRepository: "https://github.com/groupsum/mdwrk-pages",
+    codeSampleType: "full solution",
     programmingLanguage: ["TypeScript"],
+    runtimePlatform: "Node.js",
+    targetProduct: { "@type": "SoftwareApplication", name: "MdWrk Pages" },
   });
   assert.deepEqual(validateStructuredDataByType("SoftwareSourceCode", sourceCode), []);
 

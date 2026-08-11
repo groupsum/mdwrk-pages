@@ -39,6 +39,7 @@ export type JsonLdNodeType =
   | "Claim"
   | "CivicStructure"
   | "Comment"
+  | "ComputerLanguage"
   | "ConstraintNode"
   | "ContactPoint"
   | "CorrectionComment"
@@ -571,6 +572,8 @@ export interface DefinedTermInput extends StructuredDataThingInput {
   inDefinedTermSet?: JsonLd | string;
   termCode?: string;
 }
+
+export interface ComputerLanguageInput extends StructuredDataThingInput {}
 
 export interface DefinedTermSetInput extends CreativeWorkInput {
   about?: JsonLd | string;
@@ -1280,8 +1283,11 @@ export interface ItemListInput extends StructuredDataExtensible {
 
 export interface SoftwareSourceCodeInput extends StructuredDataThingInput {
   codeRepository?: string;
+  codeSampleType?: string;
   programmingLanguage?: string | string[];
   runtimePlatform?: string;
+  targetProduct?: JsonLd | string;
+  text?: string;
 }
 
 export interface ProductInput extends StructuredDataThingInput {

@@ -23,6 +23,7 @@ test("T1: structured-data builders load in plain Node without DOM or React globa
     const mod = await import(distEntry);
     assert.equal(typeof mod.webPageSchema, "function");
     assert.equal(typeof mod.softwareApplicationNode, "function");
+    assert.equal(typeof mod.computerLanguageNode, "function");
     assert.equal(typeof mod.buildJsonLdGraph, "function");
   } finally {
     if (previousDocument !== undefined) globalThis.document = previousDocument;
@@ -48,4 +49,10 @@ test("T1: emitted outputs are plain JSON-LD data structures", () => {
   const serialized = JSON.stringify(generatedGraph);
   assert.ok(serialized.includes("\"@type\":\"WebPage\""));
   assert.ok(serialized.includes("\"@type\":\"FAQPage\""));
+  assert.ok(JSON.stringify(nodes).includes("\"@type\":\"ComputerLanguage\""));
+
+  const source = nodes.find((entry) => entry["@type"] === "SoftwareSourceCode");
+  assert.equal(source.codeSampleType, "full solution");
+  assert.equal(source.runtimePlatform, "Node.js");
+  assert.equal(source.targetProduct?.["@type"], "SoftwareApplication");
 });

@@ -394,6 +394,17 @@ export const MDWRK_PAGES_UI_SEMANTIC_COMMENT_TOKEN_NAMES = [
 
 export type MdwrkPagesUiSemanticCommentTokenName = typeof MDWRK_PAGES_UI_SEMANTIC_COMMENT_TOKEN_NAMES[number];
 
+export const MDWRK_PAGES_UI_SEMANTIC_COMPUTER_LANGUAGE_TOKEN_NAMES = [
+  "mdp-semantic-computer-language-padding",
+  "mdp-semantic-computer-language-gap",
+  "mdp-semantic-computer-language-radius",
+  "mdp-semantic-computer-language-surface",
+  "mdp-semantic-computer-language-border",
+  "mdp-semantic-computer-language-shadow",
+] as const;
+
+export type MdwrkPagesUiSemanticComputerLanguageTokenName = typeof MDWRK_PAGES_UI_SEMANTIC_COMPUTER_LANGUAGE_TOKEN_NAMES[number];
+
 export const MDWRK_PAGES_UI_SEMANTIC_CONSTRAINT_NODE_TOKEN_NAMES = [
   "mdp-semantic-constraint-node-padding",
   "mdp-semantic-constraint-node-gap",

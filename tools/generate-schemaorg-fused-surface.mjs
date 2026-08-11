@@ -3,21 +3,21 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const contractRoot = path.join(repoRoot, "packages", "contracts", "lander-content-contract");
+const contractRoot = path.join(repoRoot, "packages", "00-contracts", "lander-content-contract");
 const generatedRoot = path.join(contractRoot, "schemas", "generated-schemaorg-page-family");
-const tokenPackageRoot = path.join(repoRoot, "packages", "ui", "pages-ui-tokens");
+const tokenPackageRoot = path.join(repoRoot, "packages", "30-ui-foundation", "pages-ui-tokens");
 const tokenStylesRoot = path.join(tokenPackageRoot, "src", "styles");
 const tokenGeneratedPath = path.join(tokenPackageRoot, "src", "generated-semantic-tokens.ts");
 const tokenFixturePath = path.join(tokenPackageRoot, "tests", "semantic-token-fixtures.mjs");
 const tokenBundlePath = path.join(tokenStylesRoot, "generated-semantic-surface.css");
 
-const structuredDataRoot = path.join(repoRoot, "packages", "contracts", "structured-data", "src");
+const structuredDataRoot = path.join(repoRoot, "packages", "00-contracts", "structured-data", "src");
 const structuredDataGeneratedPath = path.join(structuredDataRoot, "generated-page-family.ts");
 
-const structuredDataReactRoot = path.join(repoRoot, "packages", "machine", "lander-react-structured-data", "src");
+const structuredDataReactRoot = path.join(repoRoot, "packages", "50-machine-output", "lander-react-structured-data", "src");
 const structuredDataReactGeneratedPath = path.join(structuredDataReactRoot, "generated-page-family.tsx");
 
-const landerReactSemanticRoot = path.join(repoRoot, "packages", "ui", "lander-react", "src", "semantic");
+const landerReactSemanticRoot = path.join(repoRoot, "packages", "40-react-renderers", "lander-react", "src", "semantic");
 const generatedTypeFamilyPath = path.join(landerReactSemanticRoot, "generated-type-family.tsx");
 const generatedTypeFamilyDir = path.join(landerReactSemanticRoot, "generated-type-family");
 const datatypeFamilyPath = path.join(landerReactSemanticRoot, "datatype-family.tsx");
@@ -119,14 +119,14 @@ function listArtifactNames(kindFolder) {
 }
 
 function governedTypeNames() {
-  const coreSource = fs.readFileSync(path.join(repoRoot, "packages", "contracts", "structured-data", "src", "core.ts"), "utf8");
+  const coreSource = fs.readFileSync(path.join(repoRoot, "packages", "00-contracts", "structured-data", "src", "core.ts"), "utf8");
   const match = coreSource.match(/SUPPORTED_SCHEMA_ORG_TYPES = Object\.freeze\(\[(.*?)\] as const/s);
   if (!match) throw new Error("Could not parse SUPPORTED_SCHEMA_ORG_TYPES from structured-data core.ts");
   return sortNames([...match[1].matchAll(/"([^"]+)"/g)].map((entry) => entry[1]));
 }
 
 function governedFamilyEntries() {
-  const semanticRoot = path.join(repoRoot, "packages", "ui", "lander-react", "src", "semantic");
+  const semanticRoot = path.join(repoRoot, "packages", "40-react-renderers", "lander-react", "src", "semantic");
   const familyLabelByFile = new Map([
     ["supporting-family", "Supporting family"],
     ["infrastructure-family", "Infrastructure family"],

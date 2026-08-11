@@ -40,6 +40,7 @@ export const SUPPORTED_SCHEMA_ORG_TYPES = Object.freeze([
   "Claim",
   "CivicStructure",
   "Comment",
+  "ComputerLanguage",
   "ConstraintNode",
   "ContactPoint",
   "CorrectionComment",

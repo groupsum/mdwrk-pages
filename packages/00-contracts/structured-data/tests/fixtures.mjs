@@ -28,6 +28,7 @@ import {
   claimReviewNode,
   clipNode,
   commentNode,
+  computerLanguageNode,
   constraintNodeNode,
   courseInstanceNode,
   courseListSchema,
@@ -473,7 +474,10 @@ export const nodes = [
     name: "structured-data package",
     url: "https://example.test/packages/structured-data",
     codeRepository: "https://github.com/example/repo",
+    codeSampleType: "full solution",
     programmingLanguage: "TypeScript",
+    runtimePlatform: "Node.js",
+    targetProduct: { "@type": "SoftwareApplication", name: "Example application" },
   }),
   product,
   merchantListingNode({
@@ -613,6 +617,11 @@ export const nodes = [
     name: "Prompt drift",
     termCode: "PD-01",
     about: { "@type": "Thing", name: "Model behavior change" },
+  }),
+  computerLanguageNode({
+    name: "TypeScript",
+    description: "A typed programming language used by the example source code.",
+    url: "https://www.typescriptlang.org/",
   }),
   definedTermSetNode({
     name: "Prompt glossary",
@@ -1316,6 +1325,7 @@ export const expectedTypes = [
   "DiscussionForumPosting",
   "DefinedRegion",
   "DefinedTerm",
+  "ComputerLanguage",
   "DefinedTermSet",
   "DeliveryChargeSpecification",
   "Demand",

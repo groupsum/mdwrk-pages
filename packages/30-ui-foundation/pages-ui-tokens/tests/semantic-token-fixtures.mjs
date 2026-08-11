@@ -35,6 +35,7 @@ export const semanticTypeNames = [
   "cmns-ge_GeopoliticalEntity",
   "CollectionPage",
   "Comment",
+  "ComputerLanguage",
   "ConstraintNode",
   "ContactPage",
   "ContactPoint",
@@ -1625,6 +1626,17 @@ export const semanticTokenFixtures = [
     "tokenPrefix": "mdp-semantic-comment-",
     "tokenConstExportName": "MDWRK_PAGES_UI_SEMANTIC_COMMENT_TOKEN_NAMES",
     "shellSelector": ".lander-semantic--comment"
+  },
+  {
+    "kind": "type",
+    "name": "ComputerLanguage",
+    "slug": "computer-language",
+    "cssExportPath": "./styles/semantic-computer-language.css",
+    "cssSourcePath": "./src/styles/semantic-computer-language.css",
+    "cssFilename": "semantic-computer-language.css",
+    "tokenPrefix": "mdp-semantic-computer-language-",
+    "tokenConstExportName": "MDWRK_PAGES_UI_SEMANTIC_COMPUTER_LANGUAGE_TOKEN_NAMES",
+    "shellSelector": ".lander-semantic--computer-language"
   },
   {
     "kind": "type",

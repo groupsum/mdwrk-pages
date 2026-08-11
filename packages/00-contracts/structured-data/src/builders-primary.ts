@@ -1,4 +1,4 @@
-import { additionalProps, imageValue, node, personOrOrganizationRef, requireText } from "./core.js";
+import { additionalProps, compact, imageValue, node, personOrOrganizationRef, requireText } from "./core.js";
 import type {
   ActionInput,
   AdministrativeAreaInput,
@@ -24,6 +24,7 @@ import type {
   ClaimInput,
   CivicStructureInput,
   CommentInput,
+  ComputerLanguageInput,
   ConstraintNodeInput,
   ContactPointInput,
   CheckoutPageInput,
@@ -1225,6 +1226,15 @@ export function definedTermNode(input: DefinedTermInput): JsonLd {
     inDefinedTermSet: input.inDefinedTermSet,
     termCode: input.termCode,
   });
+}
+
+export function computerLanguageNode(input: ComputerLanguageInput): JsonLd {
+  const { id, ...properties } = input;
+  return compact({
+    "@type": "ComputerLanguage",
+    ...properties,
+    "@id": id,
+  }) as JsonLd;
 }
 
 export function categoryCodeNode(input: CategoryCodeInput): JsonLd {
@@ -2773,7 +2783,7 @@ export function courseListSchema(input: ItemListInput): JsonLd {
 }
 
 export function softwareSourceCodeNode(input: SoftwareSourceCodeInput): JsonLd {
-  const extra = additionalProps(input, ["id", "name", "description", "url", "image", "codeRepository", "programmingLanguage", "runtimePlatform"]);
+  const extra = additionalProps(input, ["id", "name", "description", "url", "image", "codeRepository", "codeSampleType", "programmingLanguage", "runtimePlatform", "targetProduct", "text"]);
   return node("SoftwareSourceCode", {
     ...extra,
     "@id": input.id,
@@ -2782,8 +2792,11 @@ export function softwareSourceCodeNode(input: SoftwareSourceCodeInput): JsonLd {
     url: input.url,
     image: imageValue(input.image, imageObjectSchema),
     codeRepository: input.codeRepository,
+    codeSampleType: input.codeSampleType,
     programmingLanguage: input.programmingLanguage,
     runtimePlatform: input.runtimePlatform,
+    targetProduct: input.targetProduct,
+    text: input.text,
   });
 }
 
