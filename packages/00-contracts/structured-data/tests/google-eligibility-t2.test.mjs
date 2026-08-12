@@ -2,10 +2,58 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  googleDiscussionForumPostingNode,
   googleJobPostingNode,
   googleSoftwareApplicationNode,
   validateGoogleRichResult,
 } from "../dist/google/index.js";
+
+test("T2: discussion forum validation fails closed on incomplete content and malformed comments", () => {
+  const missingContent = validateGoogleRichResult("discussion-forum", {
+    "@type": "DiscussionForumPosting",
+    name: "Incomplete",
+    articleBody: "articleBody alone is not Google's required text property",
+    datePublished: "2026-08-11T12:00:00Z",
+    author: { "@type": "Person", name: "Alice" },
+  });
+  assert.equal(missingContent.eligible, false);
+  assert.ok(missingContent.issues.some((entry) => entry.path === "text|image|video"));
+
+  const malformed = validateGoogleRichResult("discussion-forum", {
+    "@type": "DiscussionForumPosting",
+    name: "Malformed",
+    text: "Visible topic text",
+    datePublished: "not-a-date",
+    author: { "@type": "Person", name: "" },
+    commentCount: 0,
+    comment: [{
+      "@type": "Comment",
+      text: "",
+      datePublished: "2026-08-11T12:05:00Z",
+      author: { "@type": "Person", name: "Bob" },
+    }],
+  });
+  assert.equal(malformed.eligible, false);
+  assert.ok(malformed.issues.some((entry) => entry.code === "google.forum.author.name.required"));
+  assert.ok(malformed.issues.some((entry) => entry.code === "google.forum.comment.text.required"));
+  assert.ok(malformed.issues.some((entry) => entry.code === "google.forum.comment_count.inconsistent"));
+});
+
+test("T2: discussion forum output is deterministic and preserves backward-compatible articleBody", () => {
+  const legacy = {
+    name: "Legacy-compatible",
+    text: "Visible body",
+    articleBody: "Legacy body",
+    datePublished: "2026-08-11T12:00:00Z",
+    author: { "@type": "Organization", name: "Forum operators" },
+  };
+  const first = googleDiscussionForumPostingNode(legacy);
+  const second = googleDiscussionForumPostingNode(legacy);
+  assert.deepEqual(second, first);
+  assert.equal(first.text, "Visible body");
+  assert.equal(first.articleBody, "Legacy body");
+  assert.equal(first.image, undefined);
+});
 
 test("T2: nested malformed reputation data fails closed", () => {
   const result = validateGoogleRichResult("software-application", {
@@ -60,4 +108,3 @@ test("T2: unknown feature identifiers fail closed at runtime", () => {
   assert.equal(result.eligible, false);
   assert.equal(result.issues[0].code, "google.feature.unsupported");
 });
-

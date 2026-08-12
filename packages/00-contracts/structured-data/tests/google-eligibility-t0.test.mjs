@@ -16,15 +16,20 @@ test("T0: Google eligibility is a versioned public subpath", () => {
     types: "./dist/google/index.d.ts",
     import: "./dist/google/index.js",
   });
-  assert.equal(GOOGLE_SEARCH_PROFILE_VERSION, "2026-06-15");
+  assert.equal(GOOGLE_SEARCH_PROFILE_VERSION, "2026-08-11");
   assert.equal(GOOGLE_SEARCH_PROFILE.version, GOOGLE_SEARCH_PROFILE_VERSION);
   assert.deepEqual(Object.keys(GOOGLE_SEARCH_PROFILE.features).sort(), [
+    "discussion-forum",
     "job-posting",
     "product-snippet",
     "software-application",
   ]);
   assert.equal(typeof validateGoogleRichResult, "function");
   assert.equal(typeof assertGoogleRichResult, "function");
+  assert.equal(
+    GOOGLE_SEARCH_PROFILE.features["discussion-forum"].documentation,
+    "https://developers.google.com/search/docs/appearance/structured-data/discussion-forum",
+  );
 });
 
 test("T0: generic Schema.org builders remain independent from Google eligibility", () => {
@@ -36,4 +41,3 @@ test("T0: generic Schema.org builders remain independent from Google eligibility
   assert.equal(eligibility.eligible, false);
   assert.ok(eligibility.issues.some((entry) => entry.path === "offers"));
 });
-

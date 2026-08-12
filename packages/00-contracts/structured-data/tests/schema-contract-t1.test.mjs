@@ -19,6 +19,7 @@ import {
   courseInstanceNode,
   computerLanguageNode,
   datasetNode,
+  discussionForumPostingNode,
   estimatedSalaryNode,
   faqPageSchema,
   howToNode,
@@ -120,6 +121,26 @@ test("T1: representative structured-data builder payloads satisfy published JSON
     hasCourseInstance: [{ "@type": "CourseInstance", name: "May cohort" }],
   });
   assert.deepEqual(validateStructuredDataByType("Course", course), []);
+
+  const discussion = discussionForumPostingNode({
+    name: "Community topic",
+    text: "Complete visible topic text.",
+    datePublished: "2026-08-11T12:00:00Z",
+    author: { "@type": "Person", name: "Alice" },
+    commentCount: 1,
+    comment: [{
+      "@type": "Comment",
+      text: "Complete visible reply text.",
+      datePublished: "2026-08-11T12:05:00Z",
+      author: { "@type": "Person", name: "Bob" },
+    }],
+    interactionStatistic: {
+      "@type": "InteractionCounter",
+      interactionType: "https://schema.org/ViewAction",
+      userInteractionCount: 12,
+    },
+  });
+  assert.deepEqual(validateStructuredDataByType("DiscussionForumPosting", discussion), []);
 
   const qaPage = qaPageSchema({
     question: "Q?",

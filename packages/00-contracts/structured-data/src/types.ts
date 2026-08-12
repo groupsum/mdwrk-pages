@@ -786,6 +786,7 @@ export interface RatingInput extends IntangibleInput {
 }
 
 export interface InteractionCounterInput extends StructuredValueInput {
+  interactionType?: JsonLd | string;
   interactionService?: JsonLd | string;
   interactionStatistic?: JsonLd | string;
   userInteractionCount?: number | string;
@@ -1372,7 +1373,17 @@ export interface DiscussionForumPostingInput extends StructuredDataThingInput {
   author?: JsonLd | string;
   datePublished?: string;
   dateModified?: string;
+  text?: string;
   articleBody?: string;
+  comment?: JsonLd | JsonLd[];
+  commentCount?: number;
+  interactionStatistic?: JsonLd | JsonLd[];
+  mainEntityOfPage?: JsonLd | string;
+  isPartOf?: JsonLd | string;
+  sharedContent?: JsonLd | string;
+  creativeWorkStatus?: string;
+  digitalSourceType?: string;
+  video?: JsonLd | string;
 }
 
 export interface BookInput extends StructuredDataThingInput {

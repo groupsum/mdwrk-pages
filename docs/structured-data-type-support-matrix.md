@@ -27,7 +27,7 @@ Legend:
 | `Course` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
 | `CourseInstance` |  |  |  | Yes | Yes | Yes | Yes |
 | `Dataset` |  | `⚠️` |  | Yes | Yes | Yes | Yes |
-| `DiscussionForumPosting` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
+| `DiscussionForumPosting` | `✨` | Google profile | `✅` | Yes | Yes | Yes | Yes |
 | `EmployerAggregateRating` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
 | `Event` | `✨` |  | `✅` | Yes | Yes | Yes | Yes |
 | `FAQPage` |  | `⚠️` |  | Yes | Yes | Yes | Yes |

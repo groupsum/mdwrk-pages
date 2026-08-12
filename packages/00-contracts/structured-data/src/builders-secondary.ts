@@ -92,7 +92,28 @@ export function courseInstanceNode(input: CourseInstanceInput): JsonLd {
 }
 
 export function discussionForumPostingNode(input: DiscussionForumPostingInput): JsonLd {
-  const extra = additionalProps(input, ["id", "name", "description", "url", "image", "headline", "author", "datePublished", "dateModified", "articleBody"]);
+  const extra = additionalProps(input, [
+    "id",
+    "name",
+    "description",
+    "url",
+    "image",
+    "headline",
+    "author",
+    "datePublished",
+    "dateModified",
+    "text",
+    "articleBody",
+    "comment",
+    "commentCount",
+    "interactionStatistic",
+    "mainEntityOfPage",
+    "isPartOf",
+    "sharedContent",
+    "creativeWorkStatus",
+    "digitalSourceType",
+    "video",
+  ]);
   return node("DiscussionForumPosting", {
     ...extra,
     "@id": input.id,
@@ -104,7 +125,17 @@ export function discussionForumPostingNode(input: DiscussionForumPostingInput): 
     author: personOrOrganizationRef(input.author),
     datePublished: input.datePublished,
     dateModified: input.dateModified,
+    text: input.text,
     articleBody: input.articleBody,
+    comment: input.comment,
+    commentCount: input.commentCount,
+    interactionStatistic: input.interactionStatistic,
+    mainEntityOfPage: input.mainEntityOfPage,
+    isPartOf: input.isPartOf,
+    sharedContent: input.sharedContent,
+    creativeWorkStatus: input.creativeWorkStatus,
+    digitalSourceType: input.digitalSourceType,
+    video: input.video,
   });
 }
 

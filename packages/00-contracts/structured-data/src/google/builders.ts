@@ -5,10 +5,11 @@ import {
   reviewNode,
   softwareApplicationNode,
 } from "../builders-primary.js";
-import { jobPostingNode } from "../builders-secondary.js";
+import { discussionForumPostingNode, jobPostingNode } from "../builders-secondary.js";
 import type { JsonLd } from "../types.js";
 import type {
   GoogleAggregateRatingInput,
+  GoogleDiscussionForumPostingInput,
   GoogleJobPostingInput,
   GoogleProductSnippetInput,
   GoogleReviewInput,
@@ -46,3 +47,7 @@ export function googleJobPostingNode(input: GoogleJobPostingInput): JsonLd {
   return assertGoogleRichResult("job-posting", node);
 }
 
+export function googleDiscussionForumPostingNode(input: GoogleDiscussionForumPostingInput): JsonLd {
+  const node = discussionForumPostingNode(input);
+  return assertGoogleRichResult("discussion-forum", node);
+}

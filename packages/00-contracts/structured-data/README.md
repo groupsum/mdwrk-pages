@@ -55,6 +55,27 @@ const application = googleSoftwareApplicationNode({
 
 Ratings, reviews, prices, availability, addresses, and job facts must be genuine and visible. The Google builders never invent them. For hand-authored JSON-LD, use `validateGoogleRichResult(...)` or `assertGoogleRichResult(...)` from the same entry point.
 
+Discussion forums use the same explicit eligibility boundary:
+
+```ts
+import { googleDiscussionForumPostingNode } from "@mdwrk/structured-data/google";
+
+const posting = googleDiscussionForumPostingNode({
+  name: "A complete community topic",
+  headline: "A complete community topic",
+  url: "https://forum.example/topics/community-topic",
+  text: "The complete user-authored text visible on the page.",
+  datePublished: "2026-08-11T12:00:00Z",
+  author: {
+    "@type": "Person",
+    name: "Alice",
+    url: "https://forum.example/u/alice",
+  },
+});
+```
+
+The discussion-forum validator follows Google's required `author`, `author.name`, `datePublished`, and `text|image|video` contract. Site logos, avatars, social-card fallbacks, and placeholder images must not be supplied as posting content images. Comments may be nested under the comment they reply to, and interaction counters must use supported Schema.org action URLs with nonnegative durable counts.
+
 ## Explicit graph entities
 
 The default graph emits defensible organization, website, page, breadcrumb, and applicable page-content nodes. Optional software, product, job, offer, review, and rating entities are explicit:

@@ -6,8 +6,8 @@ export interface GoogleFeatureProfile {
 }
 
 export const GOOGLE_SEARCH_PROFILE = Object.freeze({
-  version: "2026-06-15",
-  effectiveDate: "2026-06-15",
+  version: "2026-08-11",
+  effectiveDate: "2026-08-11",
   features: Object.freeze({
     "software-application": Object.freeze({
       documentation: "https://developers.google.com/search/docs/appearance/structured-data/software-app",
@@ -27,8 +27,11 @@ export const GOOGLE_SEARCH_PROFILE = Object.freeze({
         "jobLocation.address|jobLocationType+applicantLocationRequirements",
       ]),
     }),
+    "discussion-forum": Object.freeze({
+      documentation: "https://developers.google.com/search/docs/appearance/structured-data/discussion-forum",
+      required: Object.freeze(["author", "author.name", "datePublished", "text|image|video"]),
+    }),
   } satisfies Record<GoogleRichResultFeature, GoogleFeatureProfile>),
 });
 
 export const GOOGLE_SEARCH_PROFILE_VERSION = GOOGLE_SEARCH_PROFILE.version;
-

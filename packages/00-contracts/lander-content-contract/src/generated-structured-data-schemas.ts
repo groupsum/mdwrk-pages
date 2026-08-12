@@ -72366,11 +72366,20 @@ export const GENERATED_STRUCTURED_DATA_SCHEMA_REGISTRY: readonly unknown[] = [
     "assetPath": "./schemas/generated-schemaorg-page-family/properties/interactionType.schema.json",
     "schema": {
       "$id": "urn:groupsum:schemaorg:property:interactionType",
-      "$ref": "../types/Action.schema.json",
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "description": "The Action representing the type of interaction. For up votes, +1s, etc. use [[LikeAction]]. For down votes use [[DislikeAction]]. Otherwise, use the most specific Action.",
       "title": "interactionType",
-      "x-schemaorg-cardinality": "open-world"
+      "x-schemaorg-cardinality": "open-world",
+      "anyOf": [
+        {
+          "$ref": "../types/Action.schema.json"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
+      ],
+      "x-google-search-compatible-iri": true
     }
   },
   {
@@ -86735,11 +86744,20 @@ export const GENERATED_STRUCTURED_DATA_SCHEMA_ASSETS: Readonly<Record<string, un
   },
   "generated-schemaorg-full/properties/interactionType.schema.json": {
     "$id": "urn:groupsum:schemaorg:property:interactionType",
-    "$ref": "../types/Action.schema.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "description": "The Action representing the type of interaction. For up votes, +1s, etc. use [[LikeAction]]. For down votes use [[DislikeAction]]. Otherwise, use the most specific Action.",
     "title": "interactionType",
-    "x-schemaorg-cardinality": "open-world"
+    "x-schemaorg-cardinality": "open-world",
+    "anyOf": [
+      {
+        "$ref": "../types/Action.schema.json"
+      },
+      {
+        "type": "string",
+        "format": "uri"
+      }
+    ],
+    "x-google-search-compatible-iri": true
   },
   "generated-schemaorg-full/types/Action.schema.json": {
     "$id": "urn:groupsum:schemaorg:class:Action",
@@ -183507,11 +183525,20 @@ export const GENERATED_STRUCTURED_DATA_SCHEMA_ASSETS: Readonly<Record<string, un
   },
   "generated-schemaorg-page-family/properties/interactionType.schema.json": {
     "$id": "urn:groupsum:schemaorg:property:interactionType",
-    "$ref": "../types/Action.schema.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "description": "The Action representing the type of interaction. For up votes, +1s, etc. use [[LikeAction]]. For down votes use [[DislikeAction]]. Otherwise, use the most specific Action.",
     "title": "interactionType",
-    "x-schemaorg-cardinality": "open-world"
+    "x-schemaorg-cardinality": "open-world",
+    "anyOf": [
+      {
+        "$ref": "../types/Action.schema.json"
+      },
+      {
+        "type": "string",
+        "format": "uri"
+      }
+    ],
+    "x-google-search-compatible-iri": true
   },
   "generated-schemaorg-page-family/types/Action.schema.json": {
     "$id": "urn:groupsum:schemaorg:class:Action",

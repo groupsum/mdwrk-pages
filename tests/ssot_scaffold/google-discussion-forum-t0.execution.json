@@ -1,0 +1,1 @@
+{"argv":["node","--test","packages/00-contracts/structured-data/tests/google-eligibility-t0.test.mjs"],"cwd":".","env":{},"mode":"command","success":{"expected":0,"type":"exit_code"},"timeout_seconds":600}

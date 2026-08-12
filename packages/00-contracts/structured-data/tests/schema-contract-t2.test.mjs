@@ -8,6 +8,7 @@ import {
   aggregateRatingNode,
   articleNode,
   datasetNode,
+  discussionForumPostingNode,
   faqPageSchema,
   mathSolverNode,
   organizationNode,
@@ -81,6 +82,13 @@ test("T2: representative structured-data builders do not mutate frozen inputs an
     url: "https://mdwrk.test",
     sameAs: Object.freeze(["https://github.com/groupsum/mdwrk-pages"]),
   });
+  const discussionInput = Object.freeze({
+    name: "Deterministic community topic",
+    text: "Complete visible topic text.",
+    datePublished: "2026-08-11T12:00:00Z",
+    author: Object.freeze({ "@type": "Person", name: "Alice" }),
+    comment: Object.freeze([{ "@type": "Comment", text: "Reply", datePublished: "2026-08-11T12:05:00Z", author: Object.freeze({ "@type": "Person", name: "Bob" }) }]),
+  });
 
   const before = JSON.stringify({
     articleInput,
@@ -91,6 +99,7 @@ test("T2: representative structured-data builders do not mutate frozen inputs an
     datasetInput,
     faqInput,
     organizationInput,
+    discussionInput,
   });
 
   const article = articleNode(articleInput);
@@ -101,6 +110,7 @@ test("T2: representative structured-data builders do not mutate frozen inputs an
   const dataset = datasetNode(datasetInput);
   const faq = faqPageSchema(faqInput);
   const organization = organizationNode(organizationInput);
+  const discussion = discussionForumPostingNode(discussionInput);
   const aggregateRating = aggregateRatingNode(Object.freeze({ ratingValue: "4.8", reviewCount: 10 }));
   const readAction = readActionNode("https://mdwrk.test/read");
   const sourceCode = softwareSourceCodeNode(
@@ -123,6 +133,7 @@ test("T2: representative structured-data builders do not mutate frozen inputs an
       datasetInput,
       faqInput,
       organizationInput,
+      discussionInput,
     }),
     before,
   );
@@ -136,6 +147,7 @@ test("T2: representative structured-data builders do not mutate frozen inputs an
     validateStructuredDataByType("Dataset", dataset),
     validateStructuredDataByType("FAQPage", faq),
     validateStructuredDataByType("Organization", organization),
+    validateStructuredDataByType("DiscussionForumPosting", discussion),
     validateStructuredDataByType("AggregateRating", aggregateRating),
     validateStructuredDataByType("ReadAction", readAction),
     validateStructuredDataByType("SoftwareSourceCode", sourceCode),
@@ -151,6 +163,7 @@ test("T2: representative structured-data builders do not mutate frozen inputs an
     validateStructuredDataByType("Dataset", dataset),
     validateStructuredDataByType("FAQPage", faq),
     validateStructuredDataByType("Organization", organization),
+    validateStructuredDataByType("DiscussionForumPosting", discussion),
     validateStructuredDataByType("AggregateRating", aggregateRating),
     validateStructuredDataByType("ReadAction", readAction),
     validateStructuredDataByType("SoftwareSourceCode", sourceCode),

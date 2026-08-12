@@ -69,6 +69,21 @@ function rewriteRefs(value) {
   return clone;
 }
 
+function applySearchProfileCompatibility(relativePath, value) {
+  const normalized = relativePath.replaceAll("\\", "/");
+  if (!normalized.endsWith("properties/interactionType.schema.json")) return value;
+  const { $ref, ...schema } = value;
+  if (typeof $ref !== "string") return value;
+  return {
+    ...schema,
+    anyOf: [
+      { $ref },
+      { type: "string", format: "uri" },
+    ],
+    "x-google-search-compatible-iri": true,
+  };
+}
+
 function artifactEntries(kindFolder) {
   const folder = path.join(generatedRoot, kindFolder);
   return sortNames(
@@ -142,7 +157,9 @@ function collectAsset(relativePath) {
   seenAssets.add(normalized);
 
   const sourcePath = path.join(generatedFullRoot, normalized.replaceAll("/", path.sep));
-  const schema = readJson(sourcePath);
+  const sourceSchema = readJson(sourcePath);
+  const schema = applySearchProfileCompatibility(normalized, sourceSchema);
+  if (schema !== sourceSchema) fs.writeFileSync(sourcePath, `${JSON.stringify(schema, null, 2)}\n`, "utf8");
   assetMap[`generated-schemaorg-full/${normalized}`] = schema;
 
   const visit = (node) => {
@@ -168,7 +185,9 @@ function collectPageFamilyAsset(relativePath) {
 
   const relativeAssetPath = relativePath.replaceAll("\\", "/");
   const sourcePath = path.join(generatedRoot, relativeAssetPath.replaceAll("/", path.sep));
-  const schema = readJson(sourcePath);
+  const sourceSchema = readJson(sourcePath);
+  const schema = applySearchProfileCompatibility(relativeAssetPath, sourceSchema);
+  if (schema !== sourceSchema) fs.writeFileSync(sourcePath, `${JSON.stringify(schema, null, 2)}\n`, "utf8");
   assetMap[`generated-schemaorg-page-family/${relativeAssetPath}`] = schema;
 
   const visit = (node) => {

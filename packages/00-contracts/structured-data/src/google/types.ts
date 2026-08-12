@@ -1,14 +1,20 @@
 import type {
   AggregateRatingInput,
+  DiscussionForumPostingInput,
   JobPostingInput,
   JsonLd,
   OfferInput,
   ProductInput,
   ReviewInput,
   SoftwareApplicationInput,
+  StructuredDataImage,
 } from "../types.js";
 
-export type GoogleRichResultFeature = "software-application" | "product-snippet" | "job-posting";
+export type GoogleRichResultFeature =
+  | "software-application"
+  | "product-snippet"
+  | "job-posting"
+  | "discussion-forum";
 
 export type GoogleEligibilitySeverity = "error" | "warning";
 
@@ -103,3 +109,44 @@ interface GoogleJobPostingBase extends JobPostingInput {
 }
 
 export type GoogleJobPostingInput = GoogleJobPostingBase & (GooglePhysicalJob | GoogleRemoteJob);
+
+export interface GoogleDiscussionForumAuthor extends JsonLd {
+  "@type": "Person" | "Organization";
+  name: string;
+  url?: string;
+  agentInteractionStatistic?: JsonLd | JsonLd[];
+}
+
+export interface GoogleDiscussionForumComment extends JsonLd {
+  "@type"?: "Comment";
+  text: string;
+  author: GoogleDiscussionForumAuthor;
+  datePublished: string;
+  dateModified?: string;
+  comment?: GoogleDiscussionForumComment[];
+  interactionStatistic?: JsonLd | JsonLd[];
+}
+
+type GoogleDiscussionForumTextContent = {
+  text: string;
+  image?: string | StructuredDataImage;
+  video?: JsonLd | string;
+};
+
+type GoogleDiscussionForumImageContent = {
+  text?: string;
+  image: string | StructuredDataImage;
+  video?: JsonLd | string;
+};
+
+type GoogleDiscussionForumVideoContent = {
+  text?: string;
+  image?: string | StructuredDataImage;
+  video: JsonLd | string;
+};
+
+export type GoogleDiscussionForumPostingInput = DiscussionForumPostingInput & {
+  author: GoogleDiscussionForumAuthor;
+  datePublished: string;
+  comment?: GoogleDiscussionForumComment[];
+} & (GoogleDiscussionForumTextContent | GoogleDiscussionForumImageContent | GoogleDiscussionForumVideoContent);
