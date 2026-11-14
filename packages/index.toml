@@ -1,0 +1,231 @@
+schema_version = "1.0.0"
+
+[[layers]]
+id = "contracts"
+order = 0
+description = "Portable contracts and structured-data builders."
+
+[[layers]]
+id = "core"
+order = 10
+description = "Framework-neutral compilation and markdown adaptation."
+
+[[layers]]
+id = "page-systems"
+order = 20
+description = "Reusable page templates and presets."
+
+[[layers]]
+id = "ui-foundation"
+order = 30
+description = "Tokens, themes, and UI primitives."
+
+[[layers]]
+id = "react-renderers"
+order = 40
+description = "React rendering and commerce UI."
+
+[[layers]]
+id = "machine-output"
+order = 50
+description = "Structured data, SEO, and discovery outputs."
+
+[[layers]]
+id = "content-packs"
+order = 60
+description = "Reusable demo and content bundles."
+
+[[layers]]
+id = "demos"
+order = 70
+description = "Runnable integration demos."
+
+[[layers]]
+id = "workspace-root"
+order = 80
+description = "Private npm workspace root."
+
+[[packages]]
+id = "lander-commerce-contract"
+layer = "contracts"
+order = 0
+path = "packages/00-contracts/lander-commerce-contract"
+ecosystem = "npm"
+name = "@mdwrk/lander-commerce-contract"
+
+[[packages]]
+id = "lander-content-contract"
+layer = "contracts"
+order = 10
+path = "packages/00-contracts/lander-content-contract"
+ecosystem = "npm"
+name = "@mdwrk/lander-content-contract"
+
+[[packages]]
+id = "structured-data"
+layer = "contracts"
+order = 20
+path = "packages/00-contracts/structured-data"
+ecosystem = "npm"
+name = "@mdwrk/structured-data"
+
+[[packages]]
+id = "lander-core"
+layer = "core"
+order = 0
+path = "packages/10-core/lander-core"
+ecosystem = "npm"
+name = "@mdwrk/lander-core"
+dependencies = ["lander-content-contract"]
+
+[[packages]]
+id = "lander-markdown-content-adapter"
+layer = "core"
+order = 10
+path = "packages/10-core/lander-markdown-content-adapter"
+ecosystem = "npm"
+name = "@mdwrk/lander-markdown-content-adapter"
+dependencies = ["lander-content-contract", "lander-core"]
+
+[[packages]]
+id = "lander-page-templates"
+layer = "page-systems"
+order = 0
+path = "packages/20-page-systems/lander-page-templates"
+ecosystem = "npm"
+name = "@mdwrk/lander-page-templates"
+dependencies = ["lander-content-contract"]
+
+[[packages]]
+id = "lander-page-template-presets"
+layer = "page-systems"
+order = 10
+path = "packages/20-page-systems/lander-page-template-presets"
+ecosystem = "npm"
+name = "@mdwrk/lander-page-template-presets"
+dependencies = ["lander-content-contract", "lander-page-templates"]
+
+[[packages]]
+id = "lander-primitives"
+layer = "ui-foundation"
+order = 0
+path = "packages/30-ui-foundation/lander-primitives"
+ecosystem = "npm"
+name = "@mdwrk/lander-primitives"
+
+[[packages]]
+id = "pages-ui-tokens"
+layer = "ui-foundation"
+order = 10
+path = "packages/30-ui-foundation/pages-ui-tokens"
+ecosystem = "npm"
+name = "@mdwrk/pages-ui-tokens"
+
+[[packages]]
+id = "lander-theme"
+layer = "ui-foundation"
+order = 20
+path = "packages/30-ui-foundation/lander-theme"
+ecosystem = "npm"
+name = "@mdwrk/lander-theme"
+dependencies = ["pages-ui-tokens"]
+
+[[packages]]
+id = "lander-react-commerce"
+layer = "react-renderers"
+order = 0
+path = "packages/40-react-renderers/lander-react-commerce"
+ecosystem = "npm"
+name = "@mdwrk/lander-react-commerce"
+dependencies = ["lander-commerce-contract"]
+
+[[packages]]
+id = "lander-react"
+layer = "react-renderers"
+order = 10
+path = "packages/40-react-renderers/lander-react"
+ecosystem = "npm"
+name = "@mdwrk/lander-react"
+dependencies = ["lander-content-contract", "lander-core", "lander-primitives", "lander-react-structured-data"]
+# Preserve the existing React renderer dependency on structured-data rendering.
+dependency_exceptions = ["lander-react-structured-data"]
+
+[[packages]]
+id = "lander-react-structured-data"
+layer = "machine-output"
+order = 0
+path = "packages/50-machine-output/lander-react-structured-data"
+ecosystem = "npm"
+name = "@mdwrk/lander-react-structured-data"
+dependencies = ["lander-core", "structured-data"]
+
+[[packages]]
+id = "lander-seo"
+layer = "machine-output"
+order = 10
+path = "packages/50-machine-output/lander-seo"
+ecosystem = "npm"
+name = "@mdwrk/lander-seo"
+dependencies = ["lander-core"]
+
+[[packages]]
+id = "page-template-demo-content-pack"
+layer = "content-packs"
+order = 0
+path = "packages/60-content-packs/page-template-demo-content-pack"
+ecosystem = "npm"
+name = "@mdwrk/page-template-demo-content-pack"
+dependencies = ["lander-content-contract", "lander-page-template-presets", "lander-page-templates"]
+
+[[packages]]
+id = "subscription-store-content-pack"
+layer = "content-packs"
+order = 10
+path = "packages/60-content-packs/subscription-store-content-pack"
+ecosystem = "npm"
+name = "@mdwrk/subscription-store-content-pack"
+dependencies = ["lander-content-contract", "lander-page-template-presets", "lander-page-templates"]
+
+[[packages]]
+id = "example-learning-path-demo"
+layer = "demos"
+order = 0
+path = "packages/70-demos/learning-path-demo"
+ecosystem = "npm"
+name = "@mdwrk/example-learning-path-demo"
+dependencies = ["lander-content-contract", "lander-core", "lander-page-template-presets", "lander-page-templates", "lander-react", "lander-react-structured-data"]
+
+[[packages]]
+id = "example-semantic-components-demo"
+layer = "demos"
+order = 10
+path = "packages/70-demos/semantic-components-demo"
+ecosystem = "npm"
+name = "@mdwrk/example-semantic-components-demo"
+dependencies = ["lander-content-contract", "lander-core", "lander-primitives", "lander-react", "lander-react-structured-data", "structured-data"]
+
+[[packages]]
+id = "example-page-template-demo"
+layer = "demos"
+order = 20
+path = "packages/70-demos/page-template-demo"
+ecosystem = "npm"
+name = "@mdwrk/example-page-template-demo"
+dependencies = ["lander-core", "lander-page-templates", "lander-react", "lander-react-structured-data", "page-template-demo-content-pack"]
+
+[[packages]]
+id = "example-subscription-store-demo"
+layer = "demos"
+order = 30
+path = "packages/70-demos/subscription-store-demo"
+ecosystem = "npm"
+name = "@mdwrk/example-subscription-store-demo"
+dependencies = ["lander-commerce-contract", "lander-content-contract", "lander-core", "lander-react", "lander-react-commerce", "lander-react-structured-data", "subscription-store-content-pack"]
+
+[[packages]]
+id = "mdwrk-pages"
+layer = "workspace-root"
+order = 0
+path = "."
+ecosystem = "npm"
+name = "mdwrk-pages"
