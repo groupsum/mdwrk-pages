@@ -6,6 +6,11 @@ This repo owns page/content contracts, static-site compilation, SEO and AI-disco
 
 ## Package Families
 
+[`packages/index.toml`](packages/index.toml) records the package layers, order,
+paths, and internal dependency declarations. To check it from the repository root, run
+`uv run --locked python tools/governance/check_package_index.py`. The check also
+counts ordinary dependency ranges that name a package in this workspace.
+
 - `packages/00-contracts` contains portable contracts and structured-data builders.
 - `packages/10-core` contains framework-neutral compilation and markdown adaptation.
 - `packages/20-page-systems` contains reusable page templates and presets.
