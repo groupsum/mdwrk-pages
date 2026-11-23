@@ -2,10 +2,10 @@ node_modules
 **/node_modules
 dist
 **/dist
-!examples/learning-path-demo/dist
-!examples/learning-path-demo/dist/**
-!examples/subscription-store-demo/dist
-!examples/subscription-store-demo/dist/**
+!packages/70-demos/learning-path-demo/dist
+!packages/70-demos/learning-path-demo/dist/**
+!packages/70-demos/subscription-store-demo/dist
+!packages/70-demos/subscription-store-demo/dist/**
 .git
 .github
 .venv

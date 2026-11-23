@@ -146,9 +146,9 @@ order = 10
 path = "packages/40-react-renderers/lander-react"
 ecosystem = "npm"
 name = "@mdwrk/lander-react"
-dependencies = ["lander-content-contract", "lander-core", "lander-primitives", "lander-react-structured-data"]
-# Preserve the existing React renderer dependency on structured-data rendering.
-dependency_exceptions = ["lander-react-structured-data"]
+dependencies = ["lander-content-contract", "lander-core", "lander-primitives", "lander-react-structured-data", "structured-data"]
+# The React renderer consumes both structured-data models and rendering.
+dependency_exceptions = ["lander-react-structured-data", "structured-data"]
 
 [[packages]]
 id = "lander-react-structured-data"
