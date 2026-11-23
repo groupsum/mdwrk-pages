@@ -27,6 +27,6 @@ test("T0: subscription-store demo wires storefront content, visible rendering, a
   assert.ok(siteSource.includes('slug === "/store/pricing/"'));
   assert.ok(siteSource.includes('name: "Markdown Store"'));
   assert.ok(dockerfile.includes("packages/70-demos/subscription-store-demo/dist"));
-  assert.ok(dockerfile.includes("nginx:1.27-alpine"));
+  assert.match(dockerfile, /^FROM nginx:1\.30\.7-alpine@sha256:[0-9a-f]{64}$/m);
   assert.ok(compose.includes("4192:80"));
 });

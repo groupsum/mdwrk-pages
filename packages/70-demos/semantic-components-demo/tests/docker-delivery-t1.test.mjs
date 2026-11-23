@@ -15,7 +15,7 @@ const styles = fs.readFileSync(path.join(demoRoot, "src", "styles.css"), "utf8")
 
 test("T1: semantic components demo container contract stays health-check ready and responsive", () => {
   assert.ok(dockerfile.includes("FROM node:20.19-alpine AS build"));
-  assert.ok(dockerfile.includes("FROM nginx:1.27-alpine"));
+  assert.match(dockerfile, /^FROM nginx:1\.30\.7-alpine@sha256:[0-9a-f]{64}$/m);
   assert.ok(dockerfile.includes("COPY --from=build /workspace/packages/70-demos/semantic-components-demo/dist /usr/share/nginx/html"));
   assert.ok(compose.includes("wget -qO- http://127.0.0.1/healthz || exit 1"));
   assert.equal(compose.includes("ports:"), false);

@@ -23,7 +23,7 @@ test("T2: the showcase delivery contract stays responsive and health-check ready
   assert.ok(styles.includes(".demo-page-frame"));
 
   assert.ok(dockerfile.includes("FROM node:20.19-alpine AS build"));
-  assert.ok(dockerfile.includes("FROM nginx:1.27-alpine"));
+  assert.match(dockerfile, /^FROM nginx:1\.30\.7-alpine@sha256:[0-9a-f]{64}$/m);
   assert.ok(dockerfile.includes("COPY --from=build /workspace/packages/70-demos/page-template-demo/dist /usr/share/nginx/html"));
 
   assert.ok(compose.includes("dockerfile: packages/70-demos/page-template-demo/Dockerfile"));
