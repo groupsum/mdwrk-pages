@@ -40,108 +40,99 @@ wheels = [
 ]
 
 [[package]]
-name = "filelock"
-version = "3.32.7"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/0f/59/e19834834cb01a32febfbb0f8a23a9088088f5d45991824ff2bc3b5e8acb/filelock-3.32.7.tar.gz", hash = "sha256:37b8a3d9811b0f9aef7e5ec5c71bb320de52df51e6ca9bcd6f5ad81187660da7", size = 225154, upload-time = "2026-09-16T00:24:20.907Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/15/df/31098c5aeb4d966b553641472bd55fcf5fdfac953549894b8a765ba44e91/filelock-3.32.7-py3-none-any.whl", hash = "sha256:65ff0d0190ea42038b32bda4b77834fb05be2cad4c5b9b01aa4dfb3614536e52", size = 100157, upload-time = "2026-09-16T00:24:19.543Z" },
-]
-
-[[package]]
 name = "index-toml"
-version = "0.3.0"
+version = "0.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "index-toml-cli" },
     { name = "index-toml-core" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/2d/aa/b91bd007826a92af62aefb032889ea67b62509cb27f3904c6da3cf0b7851/index_toml-0.3.0.tar.gz", hash = "sha256:fcb1c1c9d2b17b5d3c27dad6798abcae1f055b9eb149fbf76b1030bf35afb320", size = 1823, upload-time = "2026-11-14T11:54:24.237Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ee/fc/fd503822369c127cccd1cf62e066676ba4abc4631d6193e4f2e0c62aa678/index_toml-0.3.1.tar.gz", hash = "sha256:8242a51ff3caebc7d7170bfbe620acb9e6ac666e0136bb6bde5e7f1947e7eecd", size = 1823, upload-time = "2026-11-24T04:31:01.161Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e2/02/22790e9ce02e5c3c61db8a843546942b32946f5b34e64dc108d2564904d3/index_toml-0.3.0-py3-none-any.whl", hash = "sha256:9fdb34d95c98eb4f67672e11a6926aca98affd06d8fadebdab1d1e97291dc14a", size = 2505, upload-time = "2026-11-14T11:54:23.288Z" },
+    { url = "https://files.pythonhosted.org/packages/cc/e0/fb74ec21ed0173b3bfd510767bce8f9c0e125a6b9cdbda3749440ff60a62/index_toml-0.3.1-py3-none-any.whl", hash = "sha256:dbd2b06df33ea49f67bb6589f9e6089537d2cee8c840dafb5055293788fcf9c4", size = 2506, upload-time = "2026-11-24T04:30:59.757Z" },
 ]
 
 [[package]]
 name = "index-toml-adapter-cargo"
-version = "0.3.0"
+version = "0.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "index-toml-contracts" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/4a/02/6e9a95a83d5dab5ca3068f36959021d4def71dc1557700e5891e55e9e057/index_toml_adapter_cargo-0.3.0.tar.gz", hash = "sha256:3d2466e629f9bbc97ba5e289ca32735df55bd625de8d1d8b4c363885b0421c87", size = 2450, upload-time = "2026-11-14T11:50:30.848Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ef/56/22dbf29195b1bf2f4bfa584406593f6f4f62288cae03fd62e8b8f1d31f8c/index_toml_adapter_cargo-0.3.1.tar.gz", hash = "sha256:6b8d43c7573262c4f493140713f0325337c5f69ec3652b69bfb7f0e196fa5416", size = 2451, upload-time = "2026-11-24T04:26:45.06Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/77/a4/57b690254ec3cd73ec36c5c6b9b8f11c597e483bc3f0b58234159fdbe96d/index_toml_adapter_cargo-0.3.0-py3-none-any.whl", hash = "sha256:9cb15c4073b9086f3396079954bb272e271104b3faaed2733c452d028437d068", size = 3170, upload-time = "2026-11-14T11:50:29.851Z" },
+    { url = "https://files.pythonhosted.org/packages/37/3a/ba9680f7211800a7e10f58b6df98fcea74bac30557b3faa1ab94b81849c9/index_toml_adapter_cargo-0.3.1-py3-none-any.whl", hash = "sha256:f099ff569e711ca805af5d89970804a966a5635c2275fb2d777a9cc661a0e845", size = 3171, upload-time = "2026-11-24T04:26:44.225Z" },
 ]
 
 [[package]]
 name = "index-toml-adapter-pnpm"
-version = "0.3.0"
+version = "0.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "index-toml-contracts" },
     { name = "pyyaml" },
     { name = "wcmatch" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/14/13/add74aa796f8f385140a0cdc87808439770bbceb35388ee64251a25ae775/index_toml_adapter_pnpm-0.3.0.tar.gz", hash = "sha256:bbbe7d9611e4f5e3cc57f994b784698d1833a04460cf510f5213abd48dc9c238", size = 2564, upload-time = "2026-11-14T11:51:49.136Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c3/e3/328dae95af80ad80379466101c9f1f81ac6e1a1943dc996126e491f0c527/index_toml_adapter_pnpm-0.3.1.tar.gz", hash = "sha256:5e97918f95b7a37fcecddb5fb584c0db14fa32dd4ee92952ad0f256d1660e88a", size = 2566, upload-time = "2026-11-24T04:28:21.917Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/38/84/dcd2cd94d9c9964e67bc7021dff01c49fbe8098dc72cb8a809ae1dea806a/index_toml_adapter_pnpm-0.3.0-py3-none-any.whl", hash = "sha256:5fda727563c93fe2505b53ba7ecaaa3e6818ab6553ce50da4770c04891c182d2", size = 3259, upload-time = "2026-11-14T11:51:48.335Z" },
+    { url = "https://files.pythonhosted.org/packages/47/62/3bbb044998a560f02c71bb8f9de10924da9480ae42d3bba551c1a6213767/index_toml_adapter_pnpm-0.3.1-py3-none-any.whl", hash = "sha256:3bb23b0fe00d32f99c61bf4b9b900c43328afa26bf76ab9b01f78b943a7d7901", size = 3258, upload-time = "2026-11-24T04:28:21.008Z" },
 ]
 
 [[package]]
 name = "index-toml-adapter-python"
-version = "0.3.0"
+version = "0.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "index-toml-contracts" },
     { name = "packaging" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/90/2c/f5e34aea02c8b7085cd3b41993209b3cef5be45c3de280bfde77e16e8910/index_toml_adapter_python-0.3.0.tar.gz", hash = "sha256:45666131d937cbba2aca00a79ce740a2e68dd31b18bb8cca2a5f7a120671def0", size = 3014, upload-time = "2026-11-14T11:49:13.626Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ee/64/8a280dea36a74061ec13fee027acd74af19ecb62341092c3bb81a7771e7f/index_toml_adapter_python-0.3.1.tar.gz", hash = "sha256:05fc9ac8ec3ec7ce248068ece8450cf7620384f6c81999597f1b74727ecd48c3", size = 3013, upload-time = "2026-11-24T04:25:12.64Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/82/c2/dd24d5d0372d13f55724bc784f23968fcf4324a56a9d0e2a79400e6c232f/index_toml_adapter_python-0.3.0-py3-none-any.whl", hash = "sha256:6130325840a1a0a1523ffd621416a6c7ae4706257a0bda36b4f463321f0afb5a", size = 3734, upload-time = "2026-11-14T11:49:12.889Z" },
+    { url = "https://files.pythonhosted.org/packages/7f/d7/2d95063452a45e0f08cf6bbf0cb939d210274f4676afb308ea10d0a1a34b/index_toml_adapter_python-0.3.1-py3-none-any.whl", hash = "sha256:eaac580559f67a4b62a14caa06aeed385d658bbde1912784cd0678b7fdcf5140", size = 3735, upload-time = "2026-11-24T04:25:11.006Z" },
 ]
 
 [[package]]
 name = "index-toml-cli"
-version = "0.3.0"
+version = "0.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "filelock" },
     { name = "index-toml-adapter-cargo" },
     { name = "index-toml-adapter-pnpm" },
     { name = "index-toml-adapter-python" },
     { name = "index-toml-core" },
+    { name = "portalocker" },
     { name = "tomlkit" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/0c/6a/a5978e4635a4592b3c83fcba1671d5e2037a29c2d46fc8ab2a0fef761bb0/index_toml_cli-0.3.0.tar.gz", hash = "sha256:bec2dfd43bc23d60ca62634a76b40ae8368938ee8989eeed8fcd7650ce01c1ca", size = 3081, upload-time = "2026-11-14T11:53:07.244Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/19/4b/d8d49a72140920f076d1e0e0333a510c437ccc041ca1763f0695e2f24631/index_toml_cli-0.3.1.tar.gz", hash = "sha256:d655fb3071c1972772096c5d06d4fd83ce0492ab01b1e14f486dd9ea0ce58de5", size = 3082, upload-time = "2026-11-24T04:29:31.957Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/69/93/b78b5dbaa7acffbac326b246db74a664f70a639b09665654872f625c363d/index_toml_cli-0.3.0-py3-none-any.whl", hash = "sha256:6c6da009279bedce4fdd5309863b8bd378cf2b64e9ea1b65126ac69ccc528c7d", size = 4037, upload-time = "2026-11-14T11:53:06.472Z" },
+    { url = "https://files.pythonhosted.org/packages/a9/b1/fb2d5bdd6d6c5c5fe56b0c88eb56db687eca82378c65aabad04f8e922d70/index_toml_cli-0.3.1-py3-none-any.whl", hash = "sha256:3d67808ee448dd3471461d95f71f8b23a132d0a5ee4327ad8747a1f466b216b5", size = 4050, upload-time = "2026-11-24T04:29:30.647Z" },
 ]
 
 [[package]]
 name = "index-toml-contracts"
-version = "0.3.0"
+version = "0.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jsonschema" },
     { name = "tomli", marker = "python_full_version < '3.11'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/30/2a/ab36bcc7dfaa2bc3672f8284550cf46e1c7371d172c0c6e954bbfab50608/index_toml_contracts-0.3.0.tar.gz", hash = "sha256:eb47dced712e70bce644ed6fad822b5c036d7287c1d47d0fde09e1d40b33f185", size = 4649, upload-time = "2026-11-14T11:46:36.343Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/95/67/2fdba67108c1a8d81231168c0983e58371381fdb0d458aa59f5df67cae8e/index_toml_contracts-0.3.1.tar.gz", hash = "sha256:aca9f6b3a218b8ce5cf2ac9332e4f80f8e753ec89dacdc5d23ddf54a40f4e43a", size = 4648, upload-time = "2026-11-24T04:22:29.468Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/10/ba/25179c41bc8644f216c49d19f3152ef65db576f553525bdc5516daf92cc1/index_toml_contracts-0.3.0-py3-none-any.whl", hash = "sha256:124360bc396e854a19d9770d31932d2adc7d222d434bc79b36a88a21e1ce3fe3", size = 6089, upload-time = "2026-11-14T11:46:35.375Z" },
+    { url = "https://files.pythonhosted.org/packages/a3/cc/5069fa5ba46c11066cc0367df1e80d8b3cbd2cc0d15c9b68025b98fde27a/index_toml_contracts-0.3.1-py3-none-any.whl", hash = "sha256:856d5f70481b75ac435334098d348d7b37f5c35fb14da70d43029f9756f27ff5", size = 6090, upload-time = "2026-11-24T04:22:28.589Z" },
 ]
 
 [[package]]
 name = "index-toml-core"
-version = "0.3.0"
+version = "0.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "filelock" },
     { name = "index-toml-contracts" },
+    { name = "portalocker" },
     { name = "tomlkit" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/57/e3/23c378d37949e198ce276b9daacb6557b765bbe0def44e5a12a9a3340075/index_toml_core-0.3.0.tar.gz", hash = "sha256:4c637945ca7833ce2b0fab96c924f8c1a4a7e43d5cb948bee97598d5ae58da2a", size = 5515, upload-time = "2026-11-14T11:47:54.736Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/3b/83/345bbbe19e24803ae3d99a09c3ed61a914422cd455f5308ce748314dd79a/index_toml_core-0.3.1.tar.gz", hash = "sha256:5003c0e44dce76c6ab68a0ea85b18f906ceaac6249948e654f3e9d47a11dd01c", size = 5539, upload-time = "2026-11-24T04:23:49.711Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/6d/ca/c63c4db00b88a8b8eceb6784e4a14e848f7113e202475dddd49e90c42c8f/index_toml_core-0.3.0-py3-none-any.whl", hash = "sha256:3548ee077081e3ffd26d7533132d2e81c4e633c1c18eab49ee043c424fc6eae2", size = 6332, upload-time = "2026-11-14T11:47:53.941Z" },
+    { url = "https://files.pythonhosted.org/packages/34/91/694c59a01ef94fd94ab87b56caa0b5112e907738d8afdbcc61a2d3cbfc7a/index_toml_core-0.3.1-py3-none-any.whl", hash = "sha256:44d9ee319042bf0f862ddacc8e646bab0e056c7e44e5ea8d3d70b87b49b18d41", size = 6362, upload-time = "2026-11-24T04:23:48.871Z" },
 ]
 
 [[package]]
@@ -187,7 +178,7 @@ dev = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "index-toml", specifier = "==0.3.0" },
+    { name = "index-toml", specifier = "==0.3.1" },
     { name = "ssot-registry", specifier = ">=0.2.18" },
 ]
 
@@ -279,6 +270,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz", hash = "sha256:94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79", size = 313412, upload-time = "2026-08-04T18:15:28.737Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl", hash = "sha256:d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c", size = 129956, upload-time = "2026-08-04T18:15:27.159Z" },
+]
+
+[[package]]
+name = "portalocker"
+version = "4.4.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/7f/d9/586fb0510fdfbd95a86f9d5c5046463aca41a55f6573d1a5a082a62e0acb/portalocker-4.4.2.tar.gz", hash = "sha256:7ac85bb2aa3c7873bf2ac72586fc6154afa4671ac786994a16617a6b7ccb3e5e", size = 310698, upload-time = "2026-10-28T00:24:58.214Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e8/43/bca094221a0f9f592fe1e982d090a92075aa302ecaa92c94cc6268a39b2c/portalocker-4.4.2-py3-none-any.whl", hash = "sha256:e661b91af34fc1806740f8e0e42990fe55cd85cbae55675ac48a400a9656a51b", size = 129702, upload-time = "2026-10-28T00:24:56.625Z" },
 ]
 
 [[package]]

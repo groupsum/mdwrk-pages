@@ -6,7 +6,7 @@ dependencies = []
 
 [dependency-groups]
 dev = [
-    "index-toml==0.3.0",
+    "index-toml==0.3.1",
     "ssot-registry>=0.2.18",
 ]
 
