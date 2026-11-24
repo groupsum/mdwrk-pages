@@ -40,15 +40,6 @@ wheels = [
 ]
 
 [[package]]
-name = "filelock"
-version = "3.32.7"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/0f/59/e19834834cb01a32febfbb0f8a23a9088088f5d45991824ff2bc3b5e8acb/filelock-3.32.7.tar.gz", hash = "sha256:37b8a3d9811b0f9aef7e5ec5c71bb320de52df51e6ca9bcd6f5ad81187660da7", size = 225154, upload-time = "2026-09-16T00:24:20.907Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/15/df/31098c5aeb4d966b553641472bd55fcf5fdfac953549894b8a765ba44e91/filelock-3.32.7-py3-none-any.whl", hash = "sha256:65ff0d0190ea42038b32bda4b77834fb05be2cad4c5b9b01aa4dfb3614536e52", size = 100157, upload-time = "2026-09-16T00:24:19.543Z" },
-]
-
-[[package]]
 name = "index-toml"
 version = "0.3.0"
 source = { registry = "https://pypi.org/simple" }
@@ -64,84 +55,60 @@ wheels = [
 [[package]]
 name = "index-toml-adapter-cargo"
 version = "0.3.0"
-source = { registry = "https://pypi.org/simple" }
+source = { git = "https://github.com/groupsum/index.toml.git?subdirectory=pkgs%2F20-adapters%2Findex.toml-adapter-cargo&rev=0b13fcd1c84d1fa451dd3afbd0dd7c4b7a9a976a#0b13fcd1c84d1fa451dd3afbd0dd7c4b7a9a976a" }
 dependencies = [
     { name = "index-toml-contracts" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/4a/02/6e9a95a83d5dab5ca3068f36959021d4def71dc1557700e5891e55e9e057/index_toml_adapter_cargo-0.3.0.tar.gz", hash = "sha256:3d2466e629f9bbc97ba5e289ca32735df55bd625de8d1d8b4c363885b0421c87", size = 2450, upload-time = "2026-11-14T11:50:30.848Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/77/a4/57b690254ec3cd73ec36c5c6b9b8f11c597e483bc3f0b58234159fdbe96d/index_toml_adapter_cargo-0.3.0-py3-none-any.whl", hash = "sha256:9cb15c4073b9086f3396079954bb272e271104b3faaed2733c452d028437d068", size = 3170, upload-time = "2026-11-14T11:50:29.851Z" },
 ]
 
 [[package]]
 name = "index-toml-adapter-pnpm"
 version = "0.3.0"
-source = { registry = "https://pypi.org/simple" }
+source = { git = "https://github.com/groupsum/index.toml.git?subdirectory=pkgs%2F20-adapters%2Findex.toml-adapter-pnpm&rev=0b13fcd1c84d1fa451dd3afbd0dd7c4b7a9a976a#0b13fcd1c84d1fa451dd3afbd0dd7c4b7a9a976a" }
 dependencies = [
     { name = "index-toml-contracts" },
     { name = "pyyaml" },
     { name = "wcmatch" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/14/13/add74aa796f8f385140a0cdc87808439770bbceb35388ee64251a25ae775/index_toml_adapter_pnpm-0.3.0.tar.gz", hash = "sha256:bbbe7d9611e4f5e3cc57f994b784698d1833a04460cf510f5213abd48dc9c238", size = 2564, upload-time = "2026-11-14T11:51:49.136Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/38/84/dcd2cd94d9c9964e67bc7021dff01c49fbe8098dc72cb8a809ae1dea806a/index_toml_adapter_pnpm-0.3.0-py3-none-any.whl", hash = "sha256:5fda727563c93fe2505b53ba7ecaaa3e6818ab6553ce50da4770c04891c182d2", size = 3259, upload-time = "2026-11-14T11:51:48.335Z" },
-]
 
 [[package]]
 name = "index-toml-adapter-python"
 version = "0.3.0"
-source = { registry = "https://pypi.org/simple" }
+source = { git = "https://github.com/groupsum/index.toml.git?subdirectory=pkgs%2F20-adapters%2Findex.toml-adapter-python&rev=0b13fcd1c84d1fa451dd3afbd0dd7c4b7a9a976a#0b13fcd1c84d1fa451dd3afbd0dd7c4b7a9a976a" }
 dependencies = [
     { name = "index-toml-contracts" },
     { name = "packaging" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/90/2c/f5e34aea02c8b7085cd3b41993209b3cef5be45c3de280bfde77e16e8910/index_toml_adapter_python-0.3.0.tar.gz", hash = "sha256:45666131d937cbba2aca00a79ce740a2e68dd31b18bb8cca2a5f7a120671def0", size = 3014, upload-time = "2026-11-14T11:49:13.626Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/82/c2/dd24d5d0372d13f55724bc784f23968fcf4324a56a9d0e2a79400e6c232f/index_toml_adapter_python-0.3.0-py3-none-any.whl", hash = "sha256:6130325840a1a0a1523ffd621416a6c7ae4706257a0bda36b4f463321f0afb5a", size = 3734, upload-time = "2026-11-14T11:49:12.889Z" },
 ]
 
 [[package]]
 name = "index-toml-cli"
 version = "0.3.0"
-source = { registry = "https://pypi.org/simple" }
+source = { git = "https://github.com/groupsum/index.toml.git?subdirectory=pkgs%2F60-cli%2Findex.toml-cli&rev=0b13fcd1c84d1fa451dd3afbd0dd7c4b7a9a976a#0b13fcd1c84d1fa451dd3afbd0dd7c4b7a9a976a" }
 dependencies = [
-    { name = "filelock" },
     { name = "index-toml-adapter-cargo" },
     { name = "index-toml-adapter-pnpm" },
     { name = "index-toml-adapter-python" },
     { name = "index-toml-core" },
+    { name = "portalocker" },
     { name = "tomlkit" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/0c/6a/a5978e4635a4592b3c83fcba1671d5e2037a29c2d46fc8ab2a0fef761bb0/index_toml_cli-0.3.0.tar.gz", hash = "sha256:bec2dfd43bc23d60ca62634a76b40ae8368938ee8989eeed8fcd7650ce01c1ca", size = 3081, upload-time = "2026-11-14T11:53:07.244Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/69/93/b78b5dbaa7acffbac326b246db74a664f70a639b09665654872f625c363d/index_toml_cli-0.3.0-py3-none-any.whl", hash = "sha256:6c6da009279bedce4fdd5309863b8bd378cf2b64e9ea1b65126ac69ccc528c7d", size = 4037, upload-time = "2026-11-14T11:53:06.472Z" },
 ]
 
 [[package]]
 name = "index-toml-contracts"
 version = "0.3.0"
-source = { registry = "https://pypi.org/simple" }
+source = { git = "https://github.com/groupsum/index.toml.git?subdirectory=pkgs%2F00-contracts%2Findex.toml-contracts&rev=0b13fcd1c84d1fa451dd3afbd0dd7c4b7a9a976a#0b13fcd1c84d1fa451dd3afbd0dd7c4b7a9a976a" }
 dependencies = [
     { name = "jsonschema" },
     { name = "tomli", marker = "python_full_version < '3.11'" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/30/2a/ab36bcc7dfaa2bc3672f8284550cf46e1c7371d172c0c6e954bbfab50608/index_toml_contracts-0.3.0.tar.gz", hash = "sha256:eb47dced712e70bce644ed6fad822b5c036d7287c1d47d0fde09e1d40b33f185", size = 4649, upload-time = "2026-11-14T11:46:36.343Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/10/ba/25179c41bc8644f216c49d19f3152ef65db576f553525bdc5516daf92cc1/index_toml_contracts-0.3.0-py3-none-any.whl", hash = "sha256:124360bc396e854a19d9770d31932d2adc7d222d434bc79b36a88a21e1ce3fe3", size = 6089, upload-time = "2026-11-14T11:46:35.375Z" },
 ]
 
 [[package]]
 name = "index-toml-core"
 version = "0.3.0"
-source = { registry = "https://pypi.org/simple" }
+source = { git = "https://github.com/groupsum/index.toml.git?subdirectory=pkgs%2F10-core%2Findex.toml-core&rev=0b13fcd1c84d1fa451dd3afbd0dd7c4b7a9a976a#0b13fcd1c84d1fa451dd3afbd0dd7c4b7a9a976a" }
 dependencies = [
-    { name = "filelock" },
     { name = "index-toml-contracts" },
+    { name = "portalocker" },
     { name = "tomlkit" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/57/e3/23c378d37949e198ce276b9daacb6557b765bbe0def44e5a12a9a3340075/index_toml_core-0.3.0.tar.gz", hash = "sha256:4c637945ca7833ce2b0fab96c924f8c1a4a7e43d5cb948bee97598d5ae58da2a", size = 5515, upload-time = "2026-11-14T11:47:54.736Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/6d/ca/c63c4db00b88a8b8eceb6784e4a14e848f7113e202475dddd49e90c42c8f/index_toml_core-0.3.0-py3-none-any.whl", hash = "sha256:3548ee077081e3ffd26d7533132d2e81c4e633c1c18eab49ee043c424fc6eae2", size = 6332, upload-time = "2026-11-14T11:47:53.941Z" },
 ]
 
 [[package]]
@@ -180,6 +147,7 @@ source = { virtual = "." }
 [package.dev-dependencies]
 dev = [
     { name = "index-toml" },
+    { name = "index-toml-cli" },
     { name = "ssot-registry" },
 ]
 
@@ -188,6 +156,7 @@ dev = [
 [package.metadata.requires-dev]
 dev = [
     { name = "index-toml", specifier = "==0.3.0" },
+    { name = "index-toml-cli", git = "https://github.com/groupsum/index.toml.git?subdirectory=pkgs%2F60-cli%2Findex.toml-cli&rev=0b13fcd1c84d1fa451dd3afbd0dd7c4b7a9a976a" },
     { name = "ssot-registry", specifier = ">=0.2.18" },
 ]
 
@@ -279,6 +248,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz", hash = "sha256:94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79", size = 313412, upload-time = "2026-08-04T18:15:28.737Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl", hash = "sha256:d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c", size = 129956, upload-time = "2026-08-04T18:15:27.159Z" },
+]
+
+[[package]]
+name = "portalocker"
+version = "4.4.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/7f/d9/586fb0510fdfbd95a86f9d5c5046463aca41a55f6573d1a5a082a62e0acb/portalocker-4.4.2.tar.gz", hash = "sha256:7ac85bb2aa3c7873bf2ac72586fc6154afa4671ac786994a16617a6b7ccb3e5e", size = 310698, upload-time = "2026-10-28T00:24:58.214Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e8/43/bca094221a0f9f592fe1e982d090a92075aa302ecaa92c94cc6268a39b2c/portalocker-4.4.2-py3-none-any.whl", hash = "sha256:e661b91af34fc1806740f8e0e42990fe55cd85cbae55675ac48a400a9656a51b", size = 129702, upload-time = "2026-10-28T00:24:56.625Z" },
 ]
 
 [[package]]

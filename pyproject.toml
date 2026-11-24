@@ -6,9 +6,13 @@ dependencies = []
 
 [dependency-groups]
 dev = [
-    "index-toml==0.3.0",
+    "index-toml==0.3.0", "index-toml-cli==0.3.0",
     "ssot-registry>=0.2.18",
 ]
 
 [tool.uv]
 package = false
+
+[tool.uv.sources]
+# Use the merged FileLock replacement until a patched Index.toml CLI is published.
+index-toml-cli = { git = "https://github.com/groupsum/index.toml.git", rev = "0b13fcd1c84d1fa451dd3afbd0dd7c4b7a9a976a", subdirectory = "pkgs/60-cli/index.toml-cli" }
